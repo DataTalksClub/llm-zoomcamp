@@ -22,9 +22,9 @@ Pre-requisites:
 We plan to cover the following topics:
 
 * Introduction to LLMs and RAG
-* Open-Source LLMs and self-hosting LLMs
+* Open-source LLMs and self-hosting LLMs
 * Vector databases
-* Orchestration
+* LLM Orchestration
 * Monitoring and Guardrails
 * Tips and Tricks
 
