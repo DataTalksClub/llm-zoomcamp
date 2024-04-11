@@ -40,4 +40,13 @@ We plan to cover the following topics:
 
 ## Supporters and partners
 
+Thanks to the course sponsors for making it possible to run this course
+
+<p align="center">
+  <a href="https://mage.ai/">
+    <img height="120" src="https://github.com/DataTalksClub/data-engineering-zoomcamp/raw/main/images/mage.svg">
+  </a>
+</p>
+
+
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
