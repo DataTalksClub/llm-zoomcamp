@@ -7,7 +7,9 @@
 LLM Zoomcamp - a free online course about real-life applications of LLMs. In 10 weeks you will learn how to build an AI bot that can answer questions about your 
 knowledge base.
 
-We plan to run the first iteration in Summer 2024. We will cover topics like LLMs and RAG.
+We will cover topics like LLMs and RAG.
+
+Start date: June 17
 
 Give us a star to support the initiative! 
 
