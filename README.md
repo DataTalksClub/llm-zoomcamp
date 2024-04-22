@@ -25,10 +25,10 @@ We plan to cover the following topics:
 
 * Introduction to LLMs and RAG
 * Open-source LLMs and self-hosting LLMs
-* Vector databases
-* LLM Orchestration
+* Vector databases and retrieval techniques
+* LLM ingestion pipelines
 * Monitoring and Guardrails
-* Tips and Tricks
+* Tips and Tricks for advanced RAG systems
 
 <p align="center">
   <a href="https://airtable.com/appPPxkgYLH06Mvbw/shr7WtxHEPXxaui0Q"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
