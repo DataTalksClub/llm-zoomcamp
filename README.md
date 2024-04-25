@@ -26,7 +26,7 @@ We plan to cover the following topics:
 * Introduction to LLMs and RAG
 * Open-source LLMs and self-hosting LLMs
 * Vector databases and retrieval techniques
-* LLM ingestion pipelines
+* LLM orchestration and ingestion pipelines
 * Monitoring and Guardrails
 * Tips and Tricks for advanced RAG systems
 
