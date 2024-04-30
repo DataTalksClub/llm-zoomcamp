@@ -1,11 +1,17 @@
 # LLM Zoomcamp 
+<p align="center">
+  <img src="images/llm-zoomcamp.jpg"  />
+</p>
+
+
+
+LLM Zoomcamp - a free online course about real-life applications of LLMs. In 10 weeks you will learn how to build an AI bot that can answer questions about your 
+knowledge base.
+
 
 <p align="center">
   <a href="https://airtable.com/appPPxkgYLH06Mvbw/shr7WtxHEPXxaui0Q"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
 </p>
-
-LLM Zoomcamp - a free online course about real-life applications of LLMs. In 10 weeks you will learn how to build an AI bot that can answer questions about your 
-knowledge base.
 
 We will cover topics like LLMs and RAG.
 
@@ -18,6 +24,13 @@ Pre-requisites:
 * Comfortable with programming and Python
 * Comfortable with command line
 * No previous exposure to AI or ML is required
+
+## Pre-Course Workshop
+
+We organize a pre-course workshop where we will do an introduction
+and build a simple Q&A system 
+
+Register here: https://lu.ma/eb3knfoo
 
 ## Syllabus
 
