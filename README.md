@@ -63,5 +63,11 @@ Thanks to the course sponsors for making it possible to run this course
   </a>
 </p>
 
+<p align="center">
+  <a href="https://dlthub.com/">
+    <img height="90" src="https://github.com/DataTalksClub/data-engineering-zoomcamp/raw/main/images/dlthub.png">
+  </a>
+</p>
+
 
 Do you want to support our course and our community? Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
