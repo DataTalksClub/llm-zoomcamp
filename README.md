@@ -30,8 +30,9 @@ Pre-requisites:
 We organize a pre-course workshop where we will do an introduction
 and build a simple Q&A system 
 
-Register here: https://lu.ma/eb3knfoo
-
+* Register here: https://lu.ma/eb3knfoo
+* Code: https://github.com/alexeygrigorev/llm-rag-workshop
+* 
 ## Syllabus
 
 We plan to cover the following topics:
