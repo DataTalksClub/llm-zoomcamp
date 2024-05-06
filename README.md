@@ -30,7 +30,7 @@ Pre-requisites:
 We organize a pre-course workshop where we will do an introduction
 and build a simple Q&A system 
 
-* Register here: https://lu.ma/eb3knfoo
+* Video: https://www.youtube.com/watch?v=q-p36Ak6YI8
 * Code: https://github.com/alexeygrigorev/llm-rag-workshop
 
 ## Syllabus
