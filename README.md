@@ -115,7 +115,7 @@ Thanks to the course sponsors for making it possible to run this course
 </p>
 
 <p align="center">
-  <a href="https://dlthub.com/">
+  <a href="https://saturncloud.io/">
     <img height="120" src="images/saturn-cloud.png">
   </a>
 </p>
