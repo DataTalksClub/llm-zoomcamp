@@ -23,6 +23,7 @@ Pre-requisites:
 
 * Comfortable with programming and Python
 * Comfortable with command line
+* Docker
 * No previous exposure to AI or ML is required
 
 
