@@ -26,3 +26,18 @@ Video
 
 Video - codespaces
 
+* Installing libraries
+* Alternative: installing anaconda or miniconda
+
+```bash
+pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn
+```
+
+## 1.3 Retrieval
+
+Video
+
+* We will use the search engine we build in the [build-your-own-search-engine workshop](https://github.com/alexeygrigorev/build-your-own-search-engine): [minsearch](https://github.com/alexeygrigorev/minsearch)
+* Indexing the documents
+* Peforming the search
+
