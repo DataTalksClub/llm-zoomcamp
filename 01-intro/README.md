@@ -41,3 +41,27 @@ Video
 * Indexing the documents
 * Peforming the search
 
+
+## 1.4 Generation
+
+Video
+
+* Invoking OpenAI API
+* Building the prompt
+* Getting the answer
+
+
+## 1.5 Cleaned RAG flow
+
+Video
+
+* Cleaning the code we wrote so far
+* Making it modular
+
+## 1.6 Searching with ElasticSearch
+
+Video
+
+* Run ElasticSearch with Docker
+* Index the documents
+* Replace MinSearch with ElasticSearch
