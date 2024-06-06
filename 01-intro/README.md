@@ -12,7 +12,7 @@ What we will do:
     * MLOps Zoomcamp: https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit
 * Create a Q&A system for answering questions about these documents 
 
-## 1.1 Introduction
+## 1.1 Introduction to LLM and RAG
 
 Video
 
