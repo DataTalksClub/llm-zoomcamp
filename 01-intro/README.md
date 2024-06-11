@@ -58,7 +58,7 @@ pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn
 * Building the prompt
 * Getting the answer
 
-## 1.4.2
+## 1.4.2 OpenAI API Alternatives
 
 Video
 
