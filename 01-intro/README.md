@@ -48,7 +48,7 @@ pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn
 * Peforming the search
 
 
-## 1.4 Generation
+## 1.4 Generation with OpenAI
 
 <a href="https://www.youtube.com/watch?v=4xEBUEbQMPU&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/4xEBUEbQMPU">
@@ -57,6 +57,12 @@ pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn
 * Invoking OpenAI API
 * Building the prompt
 * Getting the answer
+
+## 1.4.2
+
+Video
+
+[Open AI Alternatives](open-ai-alternatives.md)
 
 
 ## 1.5 Cleaned RAG flow
