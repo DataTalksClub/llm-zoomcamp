@@ -7,4 +7,5 @@ Let's build a list of such services that we can use instead of OpenAI
 
 
 * [mistral.ai](mistral.ai) (5€ free credit on sign up)
-* Add a service here
+* [console.groq.com](Groq) (can inference from open source LLMs with rate limits)
+* [api.together.ai](TogetherAI) (can inference from variety of open source LLMs, 25$ free credit on sign up)
