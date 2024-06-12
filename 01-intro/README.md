@@ -60,7 +60,9 @@ pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn
 
 ## 1.4.2 OpenAI API Alternatives
 
-Video
+<a href="https://www.youtube.com/watch?v=bX3F8wMakYA&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/bX3F8wMakYA">
+</a>
 
 [Open AI Alternatives](open-ai-alternatives.md)
 
