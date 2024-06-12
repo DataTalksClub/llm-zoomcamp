@@ -30,7 +30,7 @@ Pre-requisites:
 
 * Comfortable with programming and Python
 * Comfortable with command line
-* Docker
+* Docker : https://www.youtube.com/watch?v=EYNwNlOrpr0&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=5
 * No previous exposure to AI or ML is required
 
 
