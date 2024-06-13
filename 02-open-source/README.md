@@ -9,17 +9,39 @@ In this module, we'll look at using open-source LLMs instead.
 
 ## 2.1 Open-Source LLMs - Introduction
 
+Video 
 
+* Open-Source LLMs
+* Replacing the LLM box in the RAG flow
 
 ## 2.2 Using a GPU in Saturn Cloud
 
 
 ## 2.3 FLAN-T5
 
+Video
+
+```bash
+import os
+os.environ['HF_HOME'] = '/run/cache/'
+```
+
+Model: `google/flan-t5-xl`
+
 
 Links:
 
-* 
+* https://huggingface.co/google/flan-t5-xl
+* https://huggingface.co/docs/transformers/en/model_doc/flan-t5
+
+Explanation of Parameters:
+
+max_length: Set this to a higher value if you want longer responses. For example, max_length=300.
+num_beams: Increasing this can lead to more thorough exploration of possible sequences. Typical values are between 5 and 10.
+do_sample: Set this to True to use sampling methods. This can produce more diverse responses.
+temperature: Lowering this value makes the model more confident and deterministic, while higher values increase diversity. Typical values range from 0.7 to 1.5.
+top_k and top_p: These parameters control nucleus sampling. top_k limits the sampling pool to the top k tokens, while top_p uses cumulative probability to cut off the sampling pool. Adjust these based on the desired level of randomness.
+
 
 ## 2.4 Phi 3 Mini
 
