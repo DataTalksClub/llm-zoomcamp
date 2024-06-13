@@ -58,6 +58,15 @@ pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn
 * Building the prompt
 * Getting the answer
 
+
+If you don't want to use a service, you can run an LLM locally
+refer to [module 2](../02-open-source/) for more details.
+
+In particular, check "2.7 Ollama - Running LLMs on a CPU" - 
+it can work with OpenAI API, so to make the example from 1.4 
+work locally, you only need to change a few lines of code.
+
+
 ## 1.4.2 OpenAI API Alternatives
 
 <a href="https://www.youtube.com/watch?v=bX3F8wMakYA&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
