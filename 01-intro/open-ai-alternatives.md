@@ -10,4 +10,5 @@ Let's build a list of such services that we can use instead of OpenAI
 * [Groq](https://console.groq.com) (can inference from open source LLMs with rate limits)
 * [TogetherAI](https://api.together.ai) (can inference from variety of open source LLMs, 25$ free credit on sign up)
 * [Google Gemini](https://ai.google.dev/gemini-api/docs/get-started/tutorial?lang=python) (2 months unlimited access)
+* [OpenRouterAI](https://openrouter.ai/) (some small open-source models, such as Gemma 7B, are free)
 * Add another service above this line
