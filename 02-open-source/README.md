@@ -9,12 +9,15 @@ In this module, we'll look at using open-source LLMs instead.
 
 ## 2.1 Open-Source LLMs - Introduction
 
-Video 
+<a href="https://www.youtube.com/watch?v=ATchkIRsH4g&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/ATchkIRsH4g">
+</a>
 
 * Open-Source LLMs
 * Replacing the LLM box in the RAG flow
 
 ## 2.2 Using a GPU in Saturn Cloud
+
 
 
 ## 2.3 FLAN-T5
