@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  metrics-calculation:
+    build: . 
+    depends_on:
+      - metrics-db
+
+  metrics-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_DB: "metrics_db"
+    ports:
+    - 5432:5432
+    volumes:
+      - monitoring_data:/var/lib/postgresql/data
+
+  dashboard:
+    image: grafana/grafana:11.0.0
+    depends_on:
+      - metrics-db
+    environment:
+      GF_SECURITY_ADMIN_USER: "admin"
+      GF_SECURITY_ADMIN_PASSWORD: "admin"
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/provisioning:/etc/grafana/provisioning
+
+volumes:
+  monitoring_data: {}
+  grafana_data: {}
