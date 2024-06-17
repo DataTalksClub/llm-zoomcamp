@@ -41,12 +41,15 @@ Links:
 
 Video
 
+* Model: `google/flan-t5-xl`
+* Notebook: [huggingface-flan-t5.ipynb](huggingface-flan-t5.ipynb)
+
 ```bash
 import os
 os.environ['HF_HOME'] = '/run/cache/'
 ```
 
-Model: `google/flan-t5-xl`
+
 
 
 Links:
@@ -67,7 +70,8 @@ Explanation of Parameters:
 
 Video
 
-Model: `microsoft/Phi-3-mini-128k-instruct`
+* Model: `microsoft/Phi-3-mini-128k-instruct`
+* Notebook: [huggingface-phi3.ipynb](huggingface-phi3.ipynb)
 
 
 Links:
@@ -76,8 +80,10 @@ Links:
 
 ## 2.5 Mistral-7B and HuggingFace Hub Authentication
 
+Video
 
-Model: `mistralai/Mistral-7B-v0.1`
+* Model: `mistralai/Mistral-7B-v0.1`
+* Notebook: [huggingface-mistral-7b.ipynb](huggingface-mistral-7b.ipynb)
 
 [ChatGPT instructions for serving](serving-hugging-face-models.md) 
 
@@ -105,7 +111,10 @@ Where to find them:
 
 Video
 
-The easiest way to run an LLM without a GPU is using [Ollama](https://github.com/ollama/ollama)
+* The easiest way to run an LLM without a GPU is using [Ollama](https://github.com/ollama/ollama)
+* Notebook [ollama.ipynb](ollama.ipynb)
+
+
 
 For Linux:
 
@@ -158,3 +167,4 @@ Video
 ## 2.9 UI for RAG
 
 * Putting it in Streamlit
+* [Code](qa_faq.py)
