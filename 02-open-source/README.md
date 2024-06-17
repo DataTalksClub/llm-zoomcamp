@@ -18,6 +18,23 @@ In this module, we'll look at using open-source LLMs instead.
 
 ## 2.2 Using a GPU in Saturn Cloud
 
+Video
+
+* Registering in Saturn Cloud
+* Configuring secrets and git
+* Creating an instance with a GPU
+
+```bash
+pip install -U transformers accelerate bitsandbytes
+```
+
+Links:
+
+* https://saturncloud.io/
+* https://github.com/DataTalksClub/llm-zoomcamp-saturncloud
+
+
+
 
 
 ## 2.3 FLAN-T5
