@@ -11,7 +11,7 @@ Important links:
 
 ## Module 1: Introduction to LLMs and RAG
 
-* Homework
+* [Homework](01-intro/homework.md)
 
 ## Module 2: Open-source LLMs and self-hosting LLMs
 

@@ -18,18 +18,42 @@ In this module, we'll look at using open-source LLMs instead.
 
 ## 2.2 Using a GPU in Saturn Cloud
 
+<a href="https://www.youtube.com/watch?v=E0cAqBWfJYY&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/E0cAqBWfJYY">
+</a>
+
+* Registering in Saturn Cloud
+* Configuring secrets and git
+* Creating an instance with a GPU
+
+```bash
+pip install -U transformers accelerate bitsandbytes
+```
+
+Links:
+
+* https://saturncloud.io/
+* https://github.com/DataTalksClub/llm-zoomcamp-saturncloud
+
+
+
 
 
 ## 2.3 FLAN-T5
 
-Video
+<a href="https://www.youtube.com/watch?v=a86iTyxnFE4&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/a86iTyxnFE4">
+</a>
+
+* Model: `google/flan-t5-xl`
+* Notebook: [huggingface-flan-t5.ipynb](huggingface-flan-t5.ipynb)
 
 ```bash
 import os
 os.environ['HF_HOME'] = '/run/cache/'
 ```
 
-Model: `google/flan-t5-xl`
+
 
 
 Links:
@@ -48,9 +72,12 @@ Explanation of Parameters:
 
 ## 2.4 Phi 3 Mini
 
-Video
+<a href="https://www.youtube.com/watch?v=8KH6AS2PqWk&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/8KH6AS2PqWk">
+</a>
 
-Model: `microsoft/Phi-3-mini-128k-instruct`
+* Model: `microsoft/Phi-3-mini-128k-instruct`
+* Notebook: [huggingface-phi3.ipynb](huggingface-phi3.ipynb)
 
 
 Links:
@@ -59,8 +86,12 @@ Links:
 
 ## 2.5 Mistral-7B and HuggingFace Hub Authentication
 
+<a href="https://www.youtube.com/watch?v=TdVEOzSoUCs&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/TdVEOzSoUCs">
+</a>
 
-Model: `mistralai/Mistral-7B-v0.1`
+* Model: `mistralai/Mistral-7B-v0.1`
+* Notebook: [huggingface-mistral-7b.ipynb](huggingface-mistral-7b.ipynb)
 
 [ChatGPT instructions for serving](serving-hugging-face-models.md) 
 
@@ -74,6 +105,7 @@ Links:
 
 ## 2.6 Other models
 
+
 * `LLM360/Amber`
 * ``
 
@@ -86,9 +118,15 @@ Where to find them:
 
 ## 2.7 Ollama - Running LLMs on a CPU
 
-Video
+<a href="https://www.youtube.com/watch?v=PVpBGs_iSjY&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/PVpBGs_iSjY">
+</a>
 
-The easiest way to run an LLM without a GPU is using [Ollama](https://github.com/ollama/ollama)
+
+* The easiest way to run an LLM without a GPU is using [Ollama](https://github.com/ollama/ollama)
+* Notebook [ollama.ipynb](ollama.ipynb)
+
+
 
 For Linux:
 
@@ -132,7 +170,9 @@ ollama pull phi3
 
 ## 2.8 Ollama & Phi3 + Elastic in Docker-Compose
 
-Video
+<a href="https://www.youtube.com/watch?v=4juoo_jk96U&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/4juoo_jk96U">
+</a>
 
 * Creating a Docker-Compose file 
 * Re-running the module 1 notebook
@@ -140,4 +180,10 @@ Video
 
 ## 2.9 UI for RAG
 
+<a href="https://www.youtube.com/watch?v=R6L8PZ-7bGo&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/R6L8PZ-7bGo">
+</a>
+
+
 * Putting it in Streamlit
+* [Code](qa_faq.py)
