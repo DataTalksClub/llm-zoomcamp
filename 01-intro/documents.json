@@ -3,12 +3,12 @@
     "course": "data-engineering-zoomcamp",
     "documents": [
       {
-        "text": "The purpose of this document is to capture frequently asked technical questions\nThe exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  \u201cOffice Hours'' live.1\nSubscribe to course public Google Calendar (it works from Desktop only).\nRegister before the course starts using this link.\nJoin the course Telegram channel with announcements.\nDon\u2019t forget to register in DataTalks.Club's Slack and join the channel.",
+        "text": "Anaconda3-2024.02-1-Windows-x86_64.exe\nThe purpose of this document is to capture frequently asked technical questions\nThe exact day and hour of the course will be 15th Jan 2024 at 17h00. The course will start with the first  \u201cOffice Hours'' live.1\nSubscribe to course public Google Calendar (it works from Desktop only).\nRegister before the course starts using this link.\nJoin the course Telegram channel with announcements.\nDon\u2019t forget to register in DataTalks.Club's Slack and join the channel.",
         "section": "General course-related questions",
         "question": "Course - When will the course start?"
       },
       {
-        "text": "GitHub - DataTalksClub data-engineering-zoomcamp#prerequisites",
+        "text": "GitHub - DataTalksClub/data-engineering-zoomcamp#prerequisites",
         "section": "General course-related questions",
         "question": "Course - What are the prerequisites for this course?"
       },
@@ -28,12 +28,12 @@
         "question": "Course - What can I do before the course starts?"
       },
       {
-        "text": "There are 3 Zoom Camps in a year, as of 2024. However, they are for separate courses:\nData-Engineering (Jan - Apr)\nMLOps (May - Aug)\nMachine Learning (Sep - Jan)\nThere's only one Data-Engineering Zoomcamp \u201clive\u201d cohort per year, for the certification. Same as for the other Zoomcamps.\nThey follow pretty much the same schedule for each cohort per zoomcamp. For Data-Engineering it is (generally) from Jan-Apr of the year. If you\u2019re not interested in the Certificate, you can take any zoom camps at any time, at your own pace, out of sync with any \u201clive\u201d cohort.",
+        "text": "There are multiple Zoomcamps in a year, as of 2024. However, they are for separate courses:\nData-Engineering (Jan - Apr)\nMLOps (May - Aug)\nMachine Learning (Sep - Jan)\nLLM (June-)\nThere's only one Data-Engineering Zoomcamp \u201clive\u201d cohort per year, for the certification. Same as for the other Zoomcamps.\nThey follow pretty much the same schedule for each cohort per zoomcamp. For Data-Engineering it is (generally) from Jan-Apr of the year. If you\u2019re not interested in the Certificate, you can take any zoom camps at any time, at your own pace, out of sync with any \u201clive\u201d cohort.",
         "section": "General course-related questions",
         "question": "Course - how many Zoomcamps in a year?"
       },
       {
-        "text": "Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow..",
+        "text": "Yes. For the 2024 edition we are using Mage AI instead of Prefect and re-recorded the terraform videos, For 2023, we used Prefect instead of Airflow.",
         "section": "General course-related questions",
         "question": "Course - Is the current cohort going to be different from the previous cohort?"
       },
@@ -48,7 +48,7 @@
         "question": "Course - Can I get support if I take the course in the self-paced mode?"
       },
       {
-        "text": "All the main videos are stored in the Main \u201cDATA ENGINEERING\u201d playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you directly to the same playlist below.\nBelow is the MAIN PLAYLIST\u2019. And then you refer to the year specific playlist for additional videos for that year like for office hours videos etc. Also find this playlist pinned to the slack channel.\nh\nttps://youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&si=NspQhtZhZQs1B9F-",
+        "text": "All the main videos are stored in the Main \u201cDATA ENGINEERING\u201d playlist (no year specified). The Github repository has also been updated to show each video with a thumbnail, that would bring you directly to the same playlist below.\nBelow is the MAIN PLAYLIST\u2019. And then you refer to the year specific playlist for additional videos for that year like for office hours videos etc. Also find this playlist pinned to the slack channel.\nhttps://youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&si=NspQhtZhZQs1B9F-",
         "section": "General course-related questions",
         "question": "Course - Which playlist on YouTube should I refer to?"
       },
@@ -195,7 +195,7 @@
       {
         "text": "You will have two attempts for a project. If the first project deadline is over and you\u2019re late or you submit the project and fail the first attempt, you have another chance to submit the project with the second attempt.",
         "section": "General course-related questions",
-        "question": "Project - What is Project Attemp #1 and Project Attempt #2 exactly?"
+        "question": "Project - What is Project Attempt #1 and Project Attempt #2 exactly?"
       },
       {
         "text": "The first step is to try to solve the issue on your own. Get used to solving problems and reading documentation. This will be a real life skill you need when employed. [ctrl+f] is your friend, use it! It is a universal shortcut and works in all apps/browsers.\nWhat does the error say? There will often be a description of the error or instructions on what is needed or even how to fix it. I have even seen a link to the solution. Does it reference a specific line of your code?\nRestart app or server/pc.\nGoogle it, use ChatGPT, Bing AI etc.\nIt is going to be rare that you are the first to have the problem, someone out there has posted the fly issue and likely the solution.\nSearch using: <technology> <problem statement>. Example: pgcli error column c.relhasoids does not exist.\nThere are often different solutions for the same problem due to variation in environments.\nCheck the tech\u2019s documentation. Use its search if available or use the browsers search function.\nTry uninstall (this may remove the bad actor) and reinstall of application or reimplementation of action. Remember to restart the server/pc for reinstalls.\nSometimes reinstalling fails to resolve the issue but works if you uninstall first.\nPost your question to Stackoverflow. Read the Stackoverflow guide on posting good questions.\nhttps://stackoverflow.com/help/how-to-ask\nThis will be your real life. Ask an expert in the future (in addition to coworkers).\nAsk in Slack\nBefore asking a question,\nCheck Pins (where the shortcut to the repo and this FAQ is located)\nUse the slack app\u2019s search function\nUse the bot @ZoomcampQABot to do the search for you\ncheck the FAQ (this document), use search [ctrl+f]\nWhen asking a question, include as much information as possible:\nWhat are you coding on? What OS?\nWhat command did you run, which video did you follow? Etc etc\nWhat error did you get? Does it have a line number to the \u201coffending\u201d code and have you check it for typos?\nWhat have you tried that did not work? This answer is crucial as without it, helpers would ask you to do the suggestions in the error log first. Or just read this FAQ document.\nDO NOT use screenshots, especially don\u2019t take pictures from a phone.\nDO NOT tag instructors, it may discourage others from helping you. Copy and paste errors; if it\u2019s long, just post it in a reply to your thread.\nUse ``` for formatting your code.\nUse the same thread for the conversation (that means reply to your own thread).\nDO NOT create multiple posts to discuss the issue.\nlearYou may create a new post if the issue reemerges down the road. Describe what has changed in the environment.\nProvide additional information in the same thread of the steps you have taken for resolution.\nTake a break and come back later. You will be amazed at how often you figure out the solution after letting your brain rest. Get some fresh air, workout, play a video game, watch a tv show, whatever allows your brain to not think about it for a little while or even until the next day.\nRemember technology issues in real life sometimes take days or even weeks to resolve.\nIf somebody helped you with your problem and it's not in the FAQ, please add it there. It will help other students.",
@@ -223,9 +223,14 @@
         "question": "Opening an HTML file with a Windows browser from Linux running on WSL"
       },
       {
-        "text": "This tutorial shows you how to set up the Chrome Remote Desktop service on a Debian Linux virtual machine (VM) instance on Compute Engine. Chrome Remote Desktop allows you to remotely access applications with a graphical user interface.\nTaxi Data - Yellow Taxi Trip Records downloading error, Error no or XML error webpage\nWhen you try to download the 2021 data from TLC website, you get this error:\nIf you click on the link, and ERROR 403: Forbidden on the terminal.\nWe have a backup, so use it instead: https://github.com/DataTalksClub/nyc-tlc-data\nSo the link should be https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz\nNote: Make sure to unzip the \u201cgz\u201d file (no, the \u201cunzip\u201d command won\u2019t work for this.)\n\u201cgzip -d file.gz\u201dg",
-        "section": "Module 1: Docker and Terraform",
+        "text": "This tutorial shows you how to set up the Chrome Remote Desktop service on a Debian Linux virtual machine (VM) instance on Compute Engine. Chrome Remote Desktop allows you to remotely access applications with a graphical user interface.",
+        "section": "General course-related questions",
         "question": "Set up Chrome Remote Desktop for Linux on Compute Engine"
+      },
+      {
+        "text": "Q: When will it be sent out / released?\nQ: How do I get my certificate after project(s) have been reviewed and graded?\nA: There\u2019ll be an announcement in Telegram and the course channel for\n(1) checking that your proper full name is how you want displayed on the Certificate (see Editing course profile on the Course Management webpage), and\n(2)  when the grading is completed.\nAfter second announcement, please follow instructions in https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/certificates.md on how to generate the Certificate document yourself.\nTaxi Data - Yellow Taxi Trip Records downloading error, Error no or XML error webpage\nWhen you try to download the 2021 data from TLC website, you get this error:\nIf you click on the link, and ERROR 403: Forbidden on the terminal.\nWe have a backup, so use it instead: https://github.com/DataTalksClub/nyc-tlc-data\nSo the link should be https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz\nNote: Make sure to unzip the \u201cgz\u201d file (no, the \u201cunzip\u201d command won\u2019t work for this.)\n\u201cgzip -d file.gz\u201dg",
+        "section": "Module 1: Docker and Terraform",
+        "question": "Certificate - generating, receiving after projects graded"
       },
       {
         "text": "In this video, we store the data file as \u201coutput.csv\u201d. The data file won\u2019t store correctly if the file extension is csv.gz instead of csv. One alternative is to replace csv_name = \u201coutput.cs -v\u201d with the file name given at the end of the URL. Notice that the URL for the yellow taxi data is: https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz where the highlighted part is the name of the file. We can parse this file name from the URL and use it as csv_name. That is, we can replace csv_name = \u201coutput.csv\u201d with\ncsv_name = url.split(\u201c/\u201d)[-1] . Then when we use csv_name to using pd.read_csv, there won\u2019t be an issue even though the file name really has the extension csv.gz instead of csv since the pandas read_csv function can read csv.gz files directly.",
@@ -245,7 +250,7 @@
       {
         "text": "\u201cwget is not recognized as an internal or external command\u201d, you need to install it.\nOn Ubuntu, run:\n$ sudo apt-get install wget\nOn MacOS, the easiest way to install wget is to use Brew:\n$ brew install wget\nOn Windows, the easiest way to install wget is to use Chocolatey:\n$ choco install wget\nOr you can download a binary (https://gnuwin32.sourceforge.net/packages/wget.htm) and put it to any location in your PATH (e.g. C:/tools/)\nAlso, you can following this step to install Wget on MS Windows\n* Download the latest wget binary for windows from [eternallybored] (https://eternallybored.org/misc/wget/) (they are available as a zip with documentation, or just an exe)\n* If you downloaded the zip, extract all (if windows built in zip utility gives an error, use [7-zip] (https://7-zip.org/)).\n* Rename the file `wget64.exe` to `wget.exe` if necessary.\n* Move wget.exe to your `Git\\mingw64\\bin\\`.\nAlternatively, you can use a Python wget library, but instead of simply using \u201cwget\u201d you\u2019ll need to use\npython -m wget\nYou need to install it with pip first:\npip install wget\nAlternatively, you can just paste the file URL into your web browser and download the file normally that way. You\u2019ll want to move the resulting file into your working directory.\nAlso recommended a look at the python library requests for the loading gz file  https://pypi.org/project/requests",
         "section": "Module 1: Docker and Terraform",
-        "question": "lwget is not recognized as an internal or external command"
+        "question": "wget is not recognized as an internal or external command"
       },
       {
         "text": "Firstly, make sure that you add \u201c!\u201d before wget if you\u2019re running your command in a Jupyter Notebook or CLI. Then, you can check one of this 2 things (from CLI):\nUsing the Python library wget you installed with pip, try python -m wget <url>\nWrite the usual command and add --no-check-certificate at the end. So it should be:\n!wget <website_url> --no-check-certificate",
@@ -315,15 +320,15 @@
       {
         "text": "Check this article for details - Setting up docker in macOS\nFrom researching it seems this method might be out of date, it seems that since docker changed their licensing model, the above is a bit hit and miss. What worked for me was to just go to the docker website and download their dmg. Haven\u2019t had an issue with that method.",
         "section": "Module 1: Docker and Terraform",
-        "question": "dasDocker - Setting up Docker on Mac"
+        "question": "Docker - Setting up Docker on Mac"
       },
       {
         "text": "$ docker run -it\\\n-e POSTGRES_USER=\"root\" \\\n-e POSTGRES_PASSWORD=\"admin\" \\\n-e POSTGRES_DB=\"ny_taxi\" \\\n-v \"/mnt/path/to/ny_taxi_postgres_data\":\"/var/lib/postgresql/data\" \\\n-p 5432:5432 \\\npostgres:13\nCCW\nThe files belonging to this database system will be owned by user \"postgres\".\nThis use The database cluster will be initialized with locale \"en_US.utf8\".\nThe default databerrorase encoding has accordingly been set to \"UTF8\".\nxt search configuration will be set to \"english\".\nData page checksums are disabled.\nfixing permissions on existing directory /var/lib/postgresql/data ... initdb: f\nerror: could not change permissions of directory \"/var/lib/postgresql/data\": Operation not permitted  volume\nOne way to solve this issue is to create a local docker volume and map it to postgres data directory /var/lib/postgresql/data\nThe input dtc_postgres_volume_local must match in both commands below\n$ docker volume create --name dtc_postgres_volume_local -d local\n$ docker run -it\\\n-e POSTGRES_USER=\"root\" \\\n-e POSTGRES_PASSWORD=\"root\" \\\n-e POSTGRES_DB=\"ny_taxi\" \\\n-v dtc_postgres_volume_local:/var/lib/postgresql/data \\\n-p 5432:5432\\\npostgres:13\nTo verify the above command works in (WSL2 Ubuntu 22.04, verified 2024-Jan), go to the Docker Desktop app and look under Volumes - dtc_postgres_volume_local would be listed there. The folder ny_taxi_postgres_data would however be empty, since we used an alternative config.\nAn alternate error could be:\ninitdb: error: directory \"/var/lib/postgresql/data\" exists but is not empty\nIf you want to create a new database system, either remove or empthe directory \"/var/lib/postgresql/data\" or run initdb\nwitls",
         "section": "Module 1: Docker and Terraform",
-        "question": "1Docker - Could not change permissions of directory \"/var/lib/postgresql/data\": Operation not permitted"
+        "question": "Docker - Could not change permissions of directory \"/var/lib/postgresql/data\": Operation not permitted"
       },
       {
-        "text": "Mapping volumes on Windows could be tricky. The way it was done in the course video doesn\u2019t work for everyone.\nFirst, if yo\nmove your data to some folder without spaces. E.g. if your code is in \u201cC:/Users/Alexey Grigorev/git/\u2026\u201d, move it to \u201cC:/git/\u2026\u201d\nTry replacing the \u201c-v\u201d part with one of the following options:\n-v /c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n-v //c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n-v /c/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n-v //c/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n--volume //driveletter/path/ny_taxi_postgres_data/:/var/lib/postgresql/data\nwinpty docker run -it\n-e POSTGRES_USER=\"root\"\n-e POSTGRES_PASSWORD=\"root\"\n-e POSTGRES_DB=\"ny_taxi\"\n-v /c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n-p 5432:5432\npostgres:1\nTry adding winpty before the whole command\n3\nwin\nTry adding quotes:\n-v \"/c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\"\n-v \"//c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\"\n-v \u201c/c/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\"\n-v \"//c/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\"\n-v \"c:\\some\\path\\ny_taxi_postgres_data\":/var/lib/postgresql/data\nNote:  (Window) if it automatically creates a folder called \u201cny_taxi_postgres_data;C\u201d suggests you have problems with volume mapping, try deleting both folders and replacing \u201c-v\u201d part with other options. For me \u201c//c/\u201d works instead of \u201c/c/\u201d. And it will work by automatically creating a correct folder called \u201cny_taxi_postgres_data\u201d.\nA possible solution to this error would be to use /\u201d$(pwd)\u201d/ny_taxi_postgres_data:/var/lib/postgresql/data (with quotes\u2019 position varying as in the above list).\nYes for windows use the command it works perfectly fine\n-v /\u201d$(pwd)\u201d/ny_taxi_postgres_data:/var/lib/postgresql/data\nImportant: note how the quotes are placed.\nIf none of these options work, you can use a volume name instead of the path:\n-v ny_taxi_postgres_data:/var/lib/postgresql/data\nFor Mac: You can wrap $(pwd) with quotes like the highlighted.\ndocker run -it \\\n-e POSTGRES_USER=\"root\" \\\n-e POSTGRES_PASSWORD=\"root\" \\\n-e POSTGRES_DB=\"ny_taxi\" \\\n-v \"$(pwd)\"/ny_taxi_postgres_data:/var/lib/postgresql/data \\\n-p 5432:5432 \\\nPostgres:13\ndocker run -it \\\n-e POSTGRES_USER=\"root\" \\\n-e POSTGRES_PASSWORD=\"root\" \\\n-e POSTGRES_DB=\"ny_taxi\" \\\n-v \"$(pwd)\"/ny_taxi_postgres_data:/var/lib/postgresql/data \\\n-p 5432:5432 \\\npostgres:13\nSource:https://stackoverflow.com/questions/48522615/docker-error-invalid-reference-format-repository-name-must-be-lowercase",
+        "text": "Mapping volumes on Windows could be tricky. The way it was done in the course video doesn\u2019t work for everyone.\nFirst, if you\nmove your data to some folder without spaces. E.g. if your code is in \u201cC:/Users/Alexey Grigorev/git/\u2026\u201d, move it to \u201cC:/git/\u2026\u201d\nTry replacing the \u201c-v\u201d part with one of the following options:\n-v /c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n-v //c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n-v /c/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n-v //c/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n--volume //driveletter/path/ny_taxi_postgres_data/:/var/lib/postgresql/data\nwinpty docker run -it\n-e POSTGRES_USER=\"root\"\n-e POSTGRES_PASSWORD=\"root\"\n-e POSTGRES_DB=\"ny_taxi\"\n-v /c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\n-p 5432:5432\npostgres:1\nTry adding winpty before the whole command\n3\nwin\nTry adding quotes:\n-v \"/c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\"\n-v \"//c:/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\"\n-v \u201c/c/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\"\n-v \"//c/some/path/ny_taxi_postgres_data:/var/lib/postgresql/data\"\n-v \"c:\\some\\path\\ny_taxi_postgres_data\":/var/lib/postgresql/data\nNote:  (Window) if it automatically creates a folder called \u201cny_taxi_postgres_data;C\u201d suggests you have problems with volume mapping, try deleting both folders and replacing \u201c-v\u201d part with other options. For me \u201c//c/\u201d works instead of \u201c/c/\u201d. And it will work by automatically creating a correct folder called \u201cny_taxi_postgres_data\u201d.\nA possible solution to this error would be to use /\u201d$(pwd)\u201d/ny_taxi_postgres_data:/var/lib/postgresql/data (with quotes\u2019 position varying as in the above list).\nYes for windows use the command it works perfectly fine\n-v /\u201d$(pwd)\u201d/ny_taxi_postgres_data:/var/lib/postgresql/data\nImportant: note how the quotes are placed.\nIf none of these options work, you can use a volume name instead of the path:\n-v ny_taxi_postgres_data:/var/lib/postgresql/data\nFor Mac: You can wrap $(pwd) with quotes like the highlighted.\ndocker run -it \\\n-e POSTGRES_USER=\"root\" \\\n-e POSTGRES_PASSWORD=\"root\" \\\n-e POSTGRES_DB=\"ny_taxi\" \\\n-v \"$(pwd)\"/ny_taxi_postgres_data:/var/lib/postgresql/data \\\n-p 5432:5432 \\\nPostgres:13\ndocker run -it \\\n-e POSTGRES_USER=\"root\" \\\n-e POSTGRES_PASSWORD=\"root\" \\\n-e POSTGRES_DB=\"ny_taxi\" \\\n-v \"$(pwd)\"/ny_taxi_postgres_data:/var/lib/postgresql/data \\\n-p 5432:5432 \\\npostgres:13\nSource:https://stackoverflow.com/questions/48522615/docker-error-invalid-reference-format-repository-name-must-be-lowercase",
         "section": "Module 1: Docker and Terraform",
         "question": "Docker - invalid reference format: repository name must be lowercase (Mounting volumes with Docker on Windows)"
       },
@@ -368,7 +373,7 @@
         "question": "Docker - Error response from daemon: Conflict. The container name \"pg-database\" is already in use by container \u201cxxx\u201d.  You have to remove (or rename) that container to be able to reuse that name."
       },
       {
-        "text": "Typical error: sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name \"pgdatabase\" to address: Name or service not known\nWhen running docker-compose up -d see which network is created and use this for the ingestions script instead of pg-network and see the name of the database to use instead of pgdatabase\nE.g.:\npg-network becomes 2docker_default\nPgdatabase becomes 2docker-pgdatabase-1",
+        "text": "Typical error:n.exc.OperationalError: (psycopg2.OperationalError) could not translate host name \"pgdatabase\" to address: Name or service not known\nWhen running docker-compose up -d see which network is created and use this for the ingestions script instead of pg-network and see the name of the database to use instead of pgdatabase\nE.g.:\npg-network becomes 2docker_default\nPgdatabase becomes 2docker-pgdatabase-1",
         "section": "Module 1: Docker and Terraform",
         "question": "Docker - ingestion when using docker-compose could not translate host name"
       },
@@ -478,7 +483,7 @@
         "question": "WSL - Insufficient system resources exist to complete the requested service."
       },
       {
-        "text": "Up restardoting the same issue appears. Happens out of the blue on windows.\nSolution 1: Fixing DNS Issue (credit: reddit) this worked for me personally\nreg add \"HKLM\\System\\CurrentControlSet\\Services\\Dnscache\" /v \"Start\" /t REG_DWORD /d \"4\" /f\nRestart your computer and then enable it with the following\nreg add \"HKLM\\System\\CurrentControlSet\\Services\\Dnscache\" /v \"Start\" /t REG_DWORD /d \"2\" /f\nRestart your OS again. It should work.\nSolution 2: right click on running Docker icon (next to clock) and chose \"Switch to Linux containers\"\nbash: conda: command not found\nDatabase is uninitialized and superuser password is not specified.\nDatabase is uninitialized and superuser password is not specified.",
+        "text": "Up restardoting the same issue appears. Happens out of the blue on windows.\nSolution 1: Fixing DNS Issue (credit: reddit) this worked for me personally\nreg add \"HKLM\\System\\CurrentControlSet\\Services\\Dnscache\" /v \"Start\" /t REG_DWORD /d \"4\" /f\nRestart your computer and then enable it with the following\nreg add \"HKLM\\System\\CurrentControlSet\\Services\\Dnscache\" /v \"Start\" /t REG_DWORD /d \"2\" /f\nRestart your OS again. It should work.\nSolution 2: right click on running Docker icon (next to clock) and chose \"Switch to Linux containers\" n\nbash: conda: command not found\nDatabase is uninitialized and superuser password is not specified.\nDatabase is uninitialized and superuser password is not specified.",
         "section": "Module 1: Docker and Terraform",
         "question": "WSL - WSL integration with distro Ubuntu unexpectedly stopped with exit code 1."
       },
@@ -518,7 +523,7 @@
         "question": "PGCLI - PermissionError: [Errno 13] Permission denied: '/some/path/.config/pgcli'"
       },
       {
-        "text": "ImportError: no pq wrapper available.\nAttempts made:\n- couldn't import \\dt\nopg 'c' implementation: No module named 'psycopg_c'\n- couldn't import psycopg 'binary' implementation: No module named 'psycopg_binary'\n- couldn't import psycopg 'python' implementation: libpq library not found\nSolution:\nFirst, make sure your Python is set to 3.9, at least.\nAnd the reason for that is we have had cases of 'psycopg2-binary' failing to install because of an old version of Python (3.7.3). \n\n0. You can check your current python version with: \n$ python -V(the V must be capital)\n1. Based on the previous output, if you've got a 3.9, skip to Step #2\n   Otherwispye better off with a new environment with 3.9\n$ conda create \u2013name de-zoomcamp python=3.9\n$ conda activate de-zoomcamp\n2. Next, you should be able to install the lib for postgres like this:\n```\n$ e\n$ pip install psycopg2_binary\n```\n3. Finally, make sure you're also installing pgcli, but use conda for that:\n```\n$ pgcli -h localhost -U root -d ny_taxisudo\n```\nThere, you should be good to go now!\nAnother solution:\nRun this\npip install \"psycopg[binary,pool]\"",
+        "text": "ImportError: no pq wrapper available.\nAttempts made:\n- couldn't import \\dt\nopg 'c' implementation: No module named 'psycopg_c'\n- couldn't import psycopg 'binary' implementation: No module named 'psycopg_binary'\n- couldn't import psycopg 'python' implementation: libpq library not found\nSolution:\nFirst, make sure your Python is set to 3.9, at least.\nAnd the reason for that is we have had cases of 'psycopg2-binary' failing to install because of an old version of Python (3.7.3). \n\n0. You can check your current python version with: \n$ python -V (the V must be capital)\n1. Based on the previous output, if you've got a 3.9, skip to Step #2\n   Otherwise better off with a new environment with 3.9\n$ conda create \u2013name de-zoomcamp python=3.9\n$ conda activate de-zoomcamp\n2. Next, you should be able to install the lib for postgres like this:\n```\n$ e\n$ pip install psycopg2_binary\n```\n3. Finally, make sure you're also installing pgcli, but use conda for that:\n```\n$ pgcli -h localhost -U root -d ny_taxisudo\n```\nThere, you should be good to go now!\nAnother solution:\nRun this\npip install \"psycopg[binary,pool]\"",
         "section": "Module 1: Docker and Terraform",
         "question": "PGCLI - no pq wrapper available."
       },
@@ -548,7 +553,7 @@
         "question": "PGCLI - error column c.relhasoids does not exist"
       },
       {
-        "text": "This happens while uploading data via the connection in jupyter notebook\nengine = create_engine('postgresql://root:root@localhost:5432/ny_taxi')\nThe port 5432 was taken by another postgres. We are not connecting to the port in docker, but to the port on our machine. Substitute 5431 or whatever port you mapped to for port 5432.\nAlso if this error is still persistent , kindly check if you have a service in windows running postgres , Stopping that service will resolve the issue",
+        "text": "This happens while uploading data via the connection in jupyter notebook\nengine = create_engine('postgresql://root:root@localhost:5432/ny_taxi')\nThe port 5432 was taken by another postgres. You could already have installed Postgres in the past at the same port, so when you are trying to connect it does not reach docker, but the old Postgres installation instead. We are not connecting to the port in docker, but to the port on our machine. Substitute 5431 or whatever port you mapped to for port 5432. Another option is to remove the old Postgres installation if useless.\nAlso if this error is still persistent , kindly check if you have a service in windows running postgres , Stopping that service will resolve the issue",
         "section": "Module 1: Docker and Terraform",
         "question": "Postgres - OperationalError: (psycopg2.OperationalError) connection to server at \"localhost\" (::1), port 5432 failed: FATAL:  password authentication failed for user \"root\""
       },
@@ -1008,9 +1013,9 @@
         "question": "GCS Bucket - error when writing data from web to GCS:"
       },
       {
-        "text": "Ultimately, when trying to ingest data into a BigQuery table, all files within a given directory must have the same schema.\nWhen dealing for example with the FHV Datasets from 2019, however (see image below), one can see that the files for '2019-05', and 2019-06, have the columns \"PUlocationID\" and \"DOlocationID\" as Integers, while for the period of '2019-01' through '2019-04', the same column is defined as FLOAT.\nSo while importing these files as parquet to BigQuery, the first one will be used to define the schema of the table, while all files following that will be used to append data on the existing table. Which means, they must all follow the very same schema of the file that created the table.\nSo, in order to prevent errors like that, make sure to enforce the data types for the columns on the DataFrame before you serialize/upload them to BigQuery. Like this:\npd.read_csv(\"path_or_url\").astype({\n\t\"col1_name\": \"datatype\",\t\n\t\"col2_name\": \"datatype\",\t\n\t...\t\t\t\t\t\n\t\"colN_name\": \"datatype\" \t\n})",
+        "text": "Ultimately, when trying to ingest data into a BigQuery table, all files within a given directory must have the same schema.\nWhen dealing for example with the FHV Datasets from 2019, however (see image below), one can see that the files for '2019-05', and 2019-06, have the columns \"PUlocationID\" and \"DOlocationID\" as Integers, while for the period of '2019-01' through '2019-04', the same column is defined as FLOAT.parquet\nSo while importing these files as parquet to BigQuery, the first one will be used to define the schema of the table, while all files following that will be used to append data on the existing table. Which means, they must all follow the very same schema of the file that created the table.\nSo, in order to prevent errors like that, make sure to enforce the data types for the columns on the DataFrame before you serialize/upload them to BigQuery. Like this:\npd.read_csv(\"path_or_url\").astype({\n\t\"col1_name\": \"datatype\",\t\n\t\"col2_name\": \"datatype\",\t\n\t...\t\t\t\t\t\n\t\"colN_name\": \"datatype\" \t\n})",
         "section": "Module 3: Data Warehousing",
-        "question": "GCS Bucket - Failed to create table: Error while reading data, error message: Parquet column 'XYZ' has type INT which does not match the target cpp_type DOUBLE. File: gs://path/to/some/blob.parquet"
+        "question": "GCS Bucket - te table: Error while reading data, error message: Parquet column 'XYZ' has type INT which does not match the target cpp_type DOUBLE. File: gs://path/to/some/blob.parquet"
       },
       {
         "text": "If you receive the error gzip.BadGzipFile: Not a gzipped file (b'\\n\\n'), this is because you have specified the wrong URL to the FHV dataset. Make sure to use https://github.com/DataTalksClub/nyc-tlc-data/releases/download/fhv/{dataset_file}.csv.gz\nEmphasising the \u2018/releases/download\u2019 part of the URL.",
@@ -1668,7 +1673,7 @@
         "question": "Spark BigQuery connector Automatic configuration"
       },
       {
-        "text": "Link to Slack Thread : has anyone figured out how to read from GCP data lake instead of downloading all the taxi data again?\nThere\u2019s a few extra steps to go into reading from GCS with PySpark\n1.)  IMPORTANT: Download the Cloud Storage connector for Hadoop here: https://cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage#clusters\nAs the name implies, this .jar file is what essentially connects PySpark with your GCS\n2.) Move the .jar file to your Spark file directory. I installed Spark using homebrew on my MacOS machine and I had to create a /jars directory under \"/opt/homebrew/Cellar/apache-spark/3.2.1/ (where my spark dir is located)\n3.) In your Python script, there are a few extra classes you\u2019ll have to import:\nimport pyspark\nfrom pyspark.sql import SparkSession\nfrom pyspark.conf import SparkConf\nfrom pyspark.context import SparkContext\n4.) You must set up your configurations before building your SparkSession. Here\u2019s my code snippet:\nconf = SparkConf() \\\n.setMaster('local[*]') \\\n.setAppName('test') \\\n.set(\"spark.jars\", \"/opt/homebrew/Cellar/apache-spark/3.2.1/jars/gcs-connector-hadoop3-latest.jar\") \\\n.set(\"spark.hadoop.google.cloud.auth.service.account.enable\", \"true\") \\\n.set(\"spark.hadoop.google.cloud.auth.service.account.json.keyfile\", \"path/to/google_credentials.json\")\nsc = SparkContext(conf=conf)\nsc._jsc.hadoopConfiguration().set(\"fs.AbstractFileSystem.gs.impl\",  \"com.google.cloud.hadoop.fs.gcs.GoogleHadoopFS\")\nsc._jsc.hadoopConfiguration().set(\"fs.gs.impl\", \"com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem\")\nsc._jsc.hadoopConfiguration().set(\"fs.gs.auth.service.account.json.keyfile\", \"path/to/google_credentials.json\")\nsc._jsc.hadoopConfiguration().set(\"fs.gs.auth.service.account.enable\", \"true\")\n5.) Once you run that, build your SparkSession with the new parameters we\u2019d just instantiated in the previous step:\nspark = SparkSession.builder \\\n.config(conf=sc.getConf()) \\\n.getOrCreate()\n6.) Finally, you\u2019re able to read your files straight from GCS!\ndf_green = spark.read.parquet(\"gs://{BUCKET}/green/202*/\")",
+        "text": "Link to Slack Thread : has anyone figured out how to read from GCP data lake instead of downloading all the taxi data again?\nThere\u2019s a few extra steps to go into reading from GCS with PySpark\n1.)  IMPORTANT: Download the Cloud Storage connector for Hadoop here: https://cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage#clusters\nAs the name implies, this .jar file is what essentially connects PySpark with your GCS\n2.) Move the .jar file to your Spark file directory. I installed Spark using homebrew on my MacOS machine and I had to create a /jars directory under \"/opt/homebrew/Cellar/apache-spark/3.2.1/ (where my spark dir is located)\n3.) In your Python script, there are a few extra classes you\u2019ll have to import:\nimport pyspark\nfrom pyspark.sql import SparkSession\nfrom pyspark.conf import SparkConf\nfrom pyspark.context import SparkContext\n4.) You must set up your configurations before building your SparkSession. Here\u2019s my code snippet:\nconf = SparkConf() \\\n.setMaster('local[*]') \\\n.setAppName('test') \\\n.set(\"spark.jars\", \"/opt/homebrew/Cellar/apache-spark/3.2.1/jars/gcs-connector-hadoop3-latest.jar\") \\\n.set(\"spark.hadoop.google.cloud.auth.service.account.enable\", \"true\") \\\n.set(\"spark.hadoop.google.cloud.auth.service.account.json.keyfile\", \"path/to/google_credentials.json\")\nsc = SparkContext(conf=conf)\nsc._jsc.hadoopConfiguration().set(\"fs.AbstractFileSystem.gs.impl\",  \"com.google.cloud.hadoop.fs.gcs.GoogleHadoopFS\")\nsc._jsc.hadoopConfiguration().set(\"fs.gs.impl\", \"com.google.cloud.hadoop.fs.gcs.GoogleHadoopFileSystem\")\nsc._jsc.hadoopConfiguration().set(\"fs.gs.auth.service.account.json.keyfile\", \"path/to/google_credentials.json\")\nsc._jsc.hadoopConfiguration().set(\"fs.gs.auth.service.account.enable\", \"true\")\n5.) Once you run that, build your SparkSession with the new parameters we\u2019d just instantiated in the previous step:\nspark = SparkSession.builder \\\n.config(conf=sc.getConf()) \\\n.getOrCreate()\n6.) Finally, you\u2019re able to read your files straight from GCS!\nstart-slave.sh: command not found",
         "section": "Module 5: pyspark",
         "question": "Spark Cloud Storage connector"
       },
@@ -1765,7 +1770,7 @@
       {
         "text": "If you are doing wc -l fhvhv_tripdata_2021-01.csv.gz  with the gzip file as the file argument, you will get a different result, obviously! Since the file is compressed.\nUnzip the file and then do wc -l fhvhv_tripdata_2021-01.csv to get the right results.",
         "section": "Module 5: pyspark",
-        "question": "\u201cwc -l\u201d is giving a different result then shown in the video"
+        "question": "hadoop\u201cwc -l\u201d is giving a different result then shown in the video"
       },
       {
         "text": "when trying to:\nURL=\"spark://$HOSTNAME:7077\"\nspark-submit \\\n--master=\"{$URL}\" \\\n06_spark_sql.py \\\n--input_green=data/pq/green/2021/*/ \\\n--input_yellow=data/pq/yellow/2021/*/ \\\n--output=data/report-2021\nand you get errors like the following (SUMMARIZED):\nWARN Utils: Your hostname, <HOSTNAME> resolves to a loopback address..\nWARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address Setting default log level to \"WARN\".\nException in thread \"main\" org.apache.spark.SparkException: Master must either be yarn or start with spark, mesos, k8s, or local at \u2026\nTry replacing --master=\"{$URL}\"\nwith --master=$URL (edited)\nExtra edit for spark version 3.4.2 - if encountering:\n`Error: Unrecognized option: --master=`\n\u2192 Replace `--master=\"{$URL}\"` with  `--master \"${URL}\"`",
@@ -1854,8 +1859,13 @@
       },
       {
         "text": "The MacOS setup instruction (https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/05-batch/setup/macos.md#installing-java) for setting the JAVA_HOME environment variable is for Intel-based Macs which have a default install location at /usr/local/. If you have an Apple Silicon mac, you will have to set JAVA_HOME to /opt/homebrew/, specifically in your .bashrc or .zshrc:\nexport JAVA_HOME=\"/opt/homebrew/opt/openjdk/bin\"\nexport PATH=\"$JAVA_HOME:$PATH\"\nConfirm that your path was correctly set by running the command: which java\nYou should expect to see the output:\n/opt/homebrew/opt/openjdk/bin/java\nReference: https://docs.brew.sh/Installation",
-        "section": "Module 6: streaming with kafka",
+        "section": "Module 5: pyspark",
         "question": "Setting JAVA_HOME with Homebrew on Apple Silicon"
+      },
+      {
+        "text": "Search for VPC in Google Cloud Console\nNavigate to the second tab \u201cSUBNETS IN CURRENT PROJECT\u201d\nLook for the region/location where your dataproc will be located and click on it\nClick the edit button and toggle on the button for \u201cPrivate Google Access\u201d\nSave changes.",
+        "section": "Module 6: streaming with kafka",
+        "question": "Subnetwork 'default' does not support Private Google Access which is required for Dataproc clusters when 'internal_ip_only' is set to 'true'. Enable Private Google Access on subnetwork 'default' or set 'internal_ip_only' to 'false'."
       },
       {
         "text": "Check Docker Compose File:\nEnsure that your docker-compose.yaml file is correctly configured with the necessary details for the \"control-center\" service. Check the service name, image name, ports, volumes, environment variables, and any other configurations required for the container to start.\nOn Mac OSX 12.2.1 (Monterey) I could not start the kafka control center. I opened Docker Desktop and saw docker images still running from week 4, which I did not see when I typed \u201cdocker ps.\u201d I deleted them in docker desktop and then had no problem starting up the kafka environment.",
@@ -1983,7 +1993,7 @@
         "question": "How is my capstone project going to be evaluated?"
       },
       {
-        "text": "There is only ONE project for this Zoomcamp. You do not need to submit or create two projects. There are simply TWO chances to pass the course. You can use the Second Attempt if you a) fail the first attempt b) do not have the time due to other engagements such as holiday or sickness etc. to enter your project into the first attempt.",
+        "text": "There is only ONE project for this Zoomcamp. You do not need to submit or create two projects. There are simply TWO chances to pass the course. You can use the Second Attempt if you a) fail the first attempt b) do not have the time due to other engagements such as holiday or sickness etc. to enter your project into the first attempt.\nCertificates: how do I get it?\nA: See the certificate.md file",
         "section": "Project",
         "question": "Project 1 & Project 2"
       },
@@ -2183,12 +2193,17 @@
     "course": "machine-learning-zoomcamp",
     "documents": [
       {
-        "text": "Machine Learning Zoomcamp FAQ\nThe purpose of this document is to capture frequently asked technical questions.\nWe did this for our data engineering course and it worked quite well. Check this document for inspiration on how to structure your questions and answers:\nData Engineering Zoomcamp FAQ\nIn the course GitHub repository there\u2019s a link. Here it is: https://airtable.com/shryxwLd0COOEaqXo\nwork",
+        "text": "Machine Learning Zoomcamp FAQ\nThe purpose of this document is to capture frequently asked technical questions.\nWe did this for our data engineering course and it worked quite well. Check this document for inspiration on how to structure your questions and answers:\nData Engineering Zoomcamp FAQ\nIn the course GitHub repository there\u2019s a link. Here it is: https://airtable.com/shryxwLd0COOEaqXo\nWork",
         "section": "General course-related questions",
         "question": "How do I sign up?"
       },
       {
-        "text": "The course videos are pre-recorded, you can start watching the course right now.\nWe will also occasionally have office hours - live sessions where we will answer your questions. The office hours sessions are recorded too.\nYou can see the office hours as well as the pre-recorded course videos in the course playlist on YouTube.",
+        "text": "The zoomcamps are spread out throughout the year. See article https://datatalks.club/blog/guide-to-free-online-courses-at-datatalks-club.html\nThe course is available in the self-paced mode too, so you can go through the materials at any time. But if you want to do it as a cohort with other students, the next iterations will happen in September 2023, September 2024 (and potentially other Septembers as well).",
+        "section": "General course-related questions",
+        "question": "When is the next cohort? When does the next iteration start?"
+      },
+      {
+        "text": "The course videos are pre-recorded, you can start watching the course right now.\nThe zoomcamps are spread out throughout the year. See article https://datatalks.club/blog/guide-to-free-online-courses-at-datatalks-club.html\nWe will also occasionally have office hours - live sessions where we will answer your questions. The office hours sessions are recorded too.\nYou can see the office hours (playlist with year 20xx) as well as the pre-recorded course videos in (playlist without year) in Course Channel\u2019s Bookmarks and/or DTC\u2019s youtube channel",
         "section": "General course-related questions",
         "question": "Is it going to be live? When?"
       },
@@ -2223,7 +2238,7 @@
         "question": "How much time do I need for this course?"
       },
       {
-        "text": "Yes, if you finish at least 2 out of 3 projects and review 3 peers\u2019 Projects by the deadline, you will get a certificate. This is what it looks like: link. There\u2019s also a version without a robot: link.",
+        "text": "Yes, if you finish at least 2 out of 3 projects and review 3 peers\u2019 Projects by the deadline, you will get a certificate. This is what it looks like: link. There\u2019s also a version without a rWobot: link.",
         "section": "General course-related questions",
         "question": "Will I get a certificate?"
       },
@@ -2256,11 +2271,6 @@
         "text": "Yes, you can. You won\u2019t be able to submit some of the homeworks, but you can still take part in the course.\nIn order to get a certificate, you need to submit 2 out of 3 course projects and review 3 peers\u2019 Projects by the deadline. It means that if you join the course at the end of November and manage to work on two projects, you will still be eligible for a certificate.",
         "section": "General course-related questions",
         "question": "The course has already started. Can I still join it?"
-      },
-      {
-        "text": "The course is available in the self-paced mode too, so you can go through the materials at any time. But if you want to do it as a cohort with other students, the next iterations will happen in September 2023, September 2024 (and potentially other Septembers as well).",
-        "section": "General course-related questions",
-        "question": "When does the next iteration start?"
       },
       {
         "text": "No, it\u2019s not possible. The form is closed after the due date. But don\u2019t worry, homework is not mandatory for finishing the course.",
@@ -4064,53 +4074,98 @@
     "documents": [
       {
         "text": "MLOps Zoomcamp FAQ\nThe purpose of this document is to capture frequently asked technical questions.\nWe did this for our data engineering course, and it worked quite well. Check this document for inspiration on how to structure your questions and answers:\nData Engineering Zoomcamp FAQ\n[Problem description]\n[Solution description]\n(optional) Added by Name",
-        "section": "+-General course questions",
+        "section": "General course questions",
         "question": "Format for questions: [Problem title]"
       },
       {
         "text": "Approximately 3 months. For each module, about 1 week with possible deadline extensions (in total 6~9 weeks), 2 weeks for working on the capstone project and 1 week for peer review.",
-        "section": "+-General course questions",
+        "section": "General course questions",
         "question": "What is the expected duration of this course or that for each module?"
       },
       {
-        "text": "The difference is the Orchestration and Monitoring modules. Those videos will be re-recorded. The rest should mostly be the same.\nAlso all of the homeworks will be changed for the 2023 cohort.",
-        "section": "+-General course questions",
+        "text": "Q: When can I expect to receive the confirmation email, after I have registered?\nQ: I forgot if I have registered, can I still join the zoomcamp?\nQ: Can I still take this course after the cohort has started (or after the course launch date)?\nYou don't need to register, registration is not mandatory. It is for gauging the level of interest and collecting data for analytics.\nYou can also just start learning and submitting homework without registering while a cohort is \u201clive\u201d. It is not checked against any registered list. Registration is just to gauge interest before the start date.",
+        "section": "General course questions",
+        "question": "Course - Registration for the Zoomcamp."
+      },
+      {
+        "text": "The zoomcamps are spread out throughout the year. See article https://datatalks.club/blog/guide-to-free-online-courses-at-datatalks-club.html\nThe course is available in the self-paced mode too, so you can go through the materials at any time. But if you want to do it as a cohort with other students, the next iterations will happen in May 20xx (and potentially during other May months as well).",
+        "section": "General course questions",
+        "question": "When is the next cohort? When does the next iteration start?"
+      },
+      {
+        "text": "The course videos are pre-recorded, you can start watching the course right now.\nThe zoomcamps are spread out throughout the year. See article https://datatalks.club/blog/guide-to-free-online-courses-at-datatalks-club.html\nWe will also occasionally have office hours - live sessions where we will answer your questions. The office hours sessions are recorded too.\nYou can see the office hours (playlist with year 20xx) as well as the pre-recorded course videos in (playlist without year) in Course Channel\u2019s Bookmarks and/or DTC\u2019s youtube channel",
+        "section": "General course questions",
+        "question": "Is it going to be live? When?"
+      },
+      {
+        "text": "Yes, even if you don't register, you're still eligible to submit the homeworks as long as the form is still open and accepting submissions.\nBe aware, however, that there will be deadlines for turning in the final projects. So don't leave everything to the last minute.",
+        "section": "General course questions",
+        "question": "Course - Can I still join the course after the start date?"
+      },
+      {
+        "text": "No matter if you're with a 'live' cohort or follow on the self-paced mode, the way to start is similar:\nsee what things are where by reading  pins and  bookmarks on the course-channel\nreading the repo (bookmarked in channel) and watching the video lessons (playlist bookmarked in channel)\nif have questions, search the channel itself first; someone may have already asked and gotten a solution\nif don't want to comb through the search results, read  for the most Frequently Asked Questions (this document)\nif don't even want to read/skim/search (use ctrl+F) the questions in FAQ doc, tag the @ZoomcampQABot when you ask questions, and it will summarize it for you (if answers in its knowledge-base)\nFor generic, non-zoomcamp queries, you can also ask ChatGPT/BingCopilot/GoogleGemini/etc, especially for error messages\ncheck if you're on track by checking the deadlines (in Course Management form for Homework submissions)\nmain difference of not being in a \u201clive\u201d cohort is that the responses to your questions might be delayed as not many active students come online anymore. Which is not an issue if you do your own due diligence and search for answers first or reading the documentation of the library.\nIf you do need to ask questions when no answers supplied in resources above have helped, follow the asking-questions.md (bookmarked in channel) guidelines, also in Pins\u2026",
+        "section": "General course questions",
+        "question": "Course - How do I start?"
+      },
+      {
+        "text": "In order to obtain the certificate, completion of the final capstone project is mandatory. The completion of weekly homework assignments is optional, but they can contribute to your overall progress and ranking on the top 100 leaderboard. It also serves as a milestone to ensure you know the content enough to do capstone on your own.",
+        "section": "General course questions",
+        "question": "Course - Can I still graduate when I didn\u2019t complete homework for week x?"
+      },
+      {
+        "text": "No, you can only get a certificate if you finish the course with a \u201clive\u201d cohort. We don't award certificates for the self-paced mode. The reason is you need to peer-review capstone(s) after submitting a project. You can only peer-review projects at the time the course is running.",
+        "section": "General course questions",
+        "question": "Certificate - Can I follow the course in a self-paced mode and get a certificate?"
+      },
+      {
+        "text": "The difference is the Orchestration and Monitoring modules. Those videos will be re-recorded to use Prefect. The rest should mostly be the same.\nAlso all of the homeworks will be changed for the 2023 cohort.",
+        "section": "General course questions",
         "question": "What\u2019s the difference between the 2023 and 2022 course?"
       },
       {
+        "text": "The difference is the Orchestration and Monitoring modules. Those videos will be re-recorded to use Mage-AI. The rest should mostly be the same.\nAlso all of the homeworks will be changed for the 2024 cohort.",
+        "section": "General course questions",
+        "question": "What\u2019s the difference between the 2024 and 2023 course?"
+      },
+      {
         "text": "Yes, it will start in May 2024",
-        "section": "+-General course questions",
+        "section": "General course questions",
         "question": "Will there be a 2024 Cohort? When will the 2024 cohort start?"
       },
       {
         "text": "Please choose the closest one to your answer. Also do not post your answer in the course slack channel.",
-        "section": "+-General course questions",
-        "question": "What if my answer is not exactly the same as the choices presented?"
+        "section": "General course questions",
+        "question": "Homework - What if my answer is not exactly the same as the choices presented?"
       },
       {
-        "text": "Please pick up a problem you want to solve yourself. Potential datasets can be found on either Kaggle, Hugging Face, Google, AWS, or the UCI Machine Learning Datasets Repository.",
-        "section": "+-General course questions",
-        "question": "Are we free to choose our own topics for the final project?"
+        "text": "You can find the deadlines for each homework assignment in the course schedule/ timeline provided at https://courses.datatalks.club/mlops-zoomcamp-2024/. The time is your own local time, it has been automatically converted.",
+        "section": "General course questions",
+        "question": "Homework - where can I find the schedule and/or deadlines of each homework assignment?"
       },
       {
-        "text": "In order to obtain the certificate, completion of the final capstone project is mandatory. The completion of weekly homework assignments is optional, but they can contribute to your overall progress and ranking on the top 100 leaderboard.",
-        "section": "+-General course questions",
-        "question": "Can I still graduate when I didn\u2019t complete homework for week x?"
+        "text": "Please pick up a problem you want to solve yourself. Potential datasets can be found on either Kaggle, Hugging Face, Google, AWS, or the UCI Machine Learning Datasets Repository. More links documented in datasets.md. Please also read README.md in 07-project folder",
+        "section": "General course questions",
+        "question": "Project - Are we free to choose our own topics for the final project?"
       },
       {
-        "text": "You can get a few cloud points by using kubernetes even if you deploy it only locally. Or you can use local stack too to mimic AWS\nAdded by Ming Jun, Asked by Ben Pacheco, Answered by Alexey Grigorev",
+        "text": "It is an individual project.",
+        "section": "General course questions",
+        "question": "Project - Is the capstone an individual or team project?"
+      },
+      {
+        "text": "You can get a few cloud points by using kubernetes even if you deploy it only locally. Or you can use localstack too to mimic AWS. Be sure you\u2019re clear on the Evaluation Criteria.",
         "section": "Module 1: Introduction",
-        "question": "For the final project, is it required to be put on the cloud?"
-      },
-      {
-        "text": "For those who are not using VSCode (or other similar IDE), you can automate port-forwarding for Jupyter Notebook by adding the following line of code to your\n~/.ssh/config file (under the mlops-zoomcamp host):\nLocalForward 127.0.0.1:8899 127.0.0.1:8899\nThen you can launch Jupyter Notebook using the following command: jupyter notebook --port=8899 --no-browser and copy paste the notebook URL into your browser.\nAdded by Vishal",
-        "section": "Module 1: Introduction",
-        "question": "Port-forwarding without Visual Studio"
+        "question": "Project - For the final project, is it required to be put on the cloud?"
       },
       {
         "text": "You can install the Jupyter extension to open notebooks in VSCode.\nAdded by Khubaib",
         "section": "Module 1: Introduction",
         "question": "Opening Jupyter in VSCode"
+      },
+      {
+        "text": "When you are ready and installed Anaconda, in a new terminal, you can run a jupyter notebook with the command line \u201cjupyter notebook\u201d. Be careful not to make any typo, for example\u201cjupyter-notebook\u201d will throw an error \u201cJupyter command `jupyter-notebook` not found.\u201d.\nAdded by M\u00e9lanie Fouesnard",
+        "section": "Module 1: Introduction",
+        "question": "Launching Jupyter notebook from codespace VM"
       },
       {
         "text": "In case one would like to set a github repository (e.g. for Homeworks), one can follow 2 great tutorials that helped a lot\nSetting up github on AWS instance - this\nSetting up keys on AWS instance - this\nThen, one should be able to push to its repo\nAdded by Daniel Hen (daniel8hen@gmail.com)",
@@ -4123,9 +4178,14 @@
         "question": "Opening Jupyter in AWS"
       },
       {
-        "text": "If you wish to use WSL on your windows machine, here are the setup instructions:\nCommand: Sudo apt install wget\nGet Anaconda download address here. wget <download address>\nTurn on Docker Desktop WFree Download | AnacondaSL2\nCommand: git clone <github repository address>\nVSCODE on WSL\nJupyter: pip3 install jupyter\nAdded by Gregory Morris (gwm1980@gmail.com)\nAll in all softwares at one shop:\nYou can use anaconda which has all built in services like pycharm, jupyter\nAdded by Khaja Zaffer (khajazaffer@aln.iseg.ulisboa.pt)\nFor windows \u201cwsl --install\u201d in Powershell\nAdded by Vadim Surin (vdmsurin@gmai.com)",
+        "text": "If you wish to use WSL on your windows machine, here are the setup instructions:\nCommand: Sudo apt install wget\nGet Anaconda download address here. wget <download address>\nTurn on Docker Desktop WFree Download | AnacondaSL2\nCommand: git clone <github repository address>\nVSCODE on WSL\nJupyter: pip3 install jupyter\nAdded by Gregory Morris (gwm1980@gmail.com)\nAll in all softwares at one shop:\nYou can use anaconda which has all built in services like pycharm, jupyter\nAdded by Khaja Zaffer (khajazaffer@aln.iseg.ulisboa.pt)\nFor windows \u201cwsl --install\u201d in Powershell\nAdded by Vadim Surin (vdmsurin@gmai.com)\nIf python is still showing as 3.10 after installing anaconda with Python 3.9, try running \u2018source .bashrc\u2019 from ${HOME} folder, for any reason if its still not working, add \u2018export PATH=\u201d<anaconda install path>/bin:$PATH\u201d\u2019\nAdded by Vijay Cherukuvada (vijaycherukuvada@gmail.com)",
         "section": "Module 1: Introduction",
         "question": "WSL instructions"
+      },
+      {
+        "text": "If you created a repo without .gitignore, follow this steps to add .gitignore:\nOpen Terminal.\nNavigate to the location of your Git repository.\nCreate a .gitignore file for your repository.\ntouch .gitignore\nLocate the .gitignore file: If you already have a .gitignore file, open it.\nEdit the .gitignore File: Add the following lines to the .gitignore file:\n# Python\n*.pyc\n__pycache__/\n*.py[cod]\n*$\nSave the Changes: Save the .gitignore file.\nCommit the Changes\nAdded by Chuks Okoli (chuks.o.okoli@gmail.com)",
+        "section": "Module 1: Introduction",
+        "question": "Created repo without .gitignore"
       },
       {
         "text": "If you create a folder data and download datasets or raw files in your local repository. Then to push all your code to remote repository without this files or folder please use gitignore file. The simple way to create it do the following steps\n1. Create empty .txt file (using text editor or command line)\n2. Safe as .gitignore (. must use the dot symbol)\n3. Add rules\n *.parquet - to ignore all parquet files\ndata/ - to ignore all files in folder data\n\nFor more pattern read GIT documentation\nhttps://git-scm.com/docs/gitignore\nAdded by Olga Rudakova (olgakurgan@gmail.com)",
@@ -4138,7 +4198,7 @@
         "question": "AWS suggestions"
       },
       {
-        "text": "You can get invitation code by coursera and use it in account to verify it it has different characteristics.\nI really love it\nhttps://www.youtube.com/watch?v=h_GdX6KtXjo",
+        "text": "You can get invitation code by coursera and use it in account to verify it it has different characteristics.\n\u0130BM CLOUD - Coursera Free Feature Code 395 Days",
         "section": "Module 1: Introduction",
         "question": "IBM Cloud an alternative for AWS"
       },
@@ -4178,6 +4238,11 @@
         "question": "VS Code crashes when connecting to Jupyter"
       },
       {
+        "text": "If you switched off the VM instance completely in GCP then when it switches back on the IP address changes. You need to update the ssh_config file with the new external IP address. This can be done in VS Code if you have the Remote-SSH extension installed. Open the command palette and type `Remote-SSH Open SSH Configuration File\u2026` then select the appropriate ssh_config file. And edit the HostName to the correct IP address.",
+        "section": "Module 1: Introduction",
+        "question": "My connection to my GCP VM instance keeps timing out when I try to connect"
+      },
+      {
         "text": "Error \u201cValueError: X has 526 features, but LinearRegression is expecting 525 features as input.\u201d when running your Linear Regression Model on the validation data set:\nSolution: The DictVectorizer creates an initial mapping for the features (columns). When calling the DictVecorizer again for the validation dataset transform should be used as it will ignore features that it did not see when fit_transform was last called. E.g.\nX_train = dv.fit_transform(train_dict)\nX_test = dv.transform(test_dict)",
         "section": "Module 1: Introduction",
         "question": "X has 526 features, but expecting 525 features"
@@ -4203,9 +4268,19 @@
         "question": "KeyError: 'PULocationID'  or  'DOLocationID'"
       },
       {
+        "text": "Run the following command:\n!pip install pyarrow\nAfter successfully downloading, you can delete the command.\n-AnnalieseTech",
+        "section": "Module 1: Introduction",
+        "question": "ImportError: Unable to find a usable engine; tried using: \u2018pyarrow\u2019, \u2018fastparquet\u2019."
+      },
+      {
         "text": "I have faced a problem while reading the large parquet file. I tried some workarounds but they were NOT successful with Jupyter.\nThe error message is:\nIndexError: index 311297 is out of bounds for axis 0 with size 131743\nI solved it by performing the homework directly as a python script.\nAdded by Ibraheem Taha (ibraheemtaha91@gmail.com)\nYou can try using the Pyspark library\nAnswered by kamaldeen (kamaldeen32@gmail.com)",
         "section": "Module 1: Introduction",
         "question": "Reading large parquet files"
+      },
+      {
+        "text": "Two main encoding approaches are generally used to handle categorical data: label encoding and one-hot encoding. The first assigns each categorical value an integer value based on alphabetical order, while the second creates new variables (using 0s and 1s) depicting original categorical data. Simply, one may use label encoding with logical categorical data such as a rating system or a classification, and one-hot encoding is rather applicable to cases where there is no reasoning with the data. Sci-kit Learn dictionary vectorizer is an encoding class that will provide a means to handle categorical data and generate a corresponding array based on the unique number of instances encountered within your columns choice from a DataFrame (or else). The key point is to assign values to categories and thus enable fitting ML models. In case you want to apply one-hot encoding, sometimes you\u2019ll have to reset the dataset into objects, so any possible logic is deceived. Otherwise, you may fall into label encoding, which can be limiting for some applications. Besides the dictionary vectorizer, Sci-kit Learn also offers the OneHotEncoding() class. Pandas has a similar feature, named pd.get_dummies().\nAdded by Jonathan Lima (jtlimads@gmail.com)",
+        "section": "Module 1: Introduction",
+        "question": "What is the difference between label and one-hot encoding?"
       },
       {
         "text": "First remove the outliers (trips with unusual duration) before plotting\nAdded by Ibraheem Taha (ibraheemtaha91@gmail.com)",
@@ -4238,9 +4313,9 @@
         "question": "Replacing NaNs for pickup location and drop off location with -1 for One-Hot Encoding"
       },
       {
-        "text": "Problem: My LinearRegression RSME is very close to the answer but not exactly the same. Is this normal?\nAnswer: No, LinearRegression is an deterministic model, it should always output the same results when given the same inputs.\nAnswer:\nCheck if you have treated the outlier properly for both train and validation sets\nCheck if the one hot encoding has been done properly by looking at the shape of one hot encoded feature matrix. If it shows 2 features, there is wrong with one hot encoding. Hint: the drop off and pick up codes need to be converted to proper data format and then DictVectorizer is fitted.\nHarshit Lamba (hlamba19@gmail.com)",
+        "text": "Problem: My LinearRegression RMSE is very close to the answer but not exactly the same. Is this normal?\nAnswer: No, LinearRegression is an deterministic model, it should always output the same results when given the same inputs.\nAnswer:\nCheck if you have treated the outlier properly for both train and validation sets\nCheck if the one hot encoding has been done properly by looking at the shape of one hot encoded feature matrix. If it shows 2 features, there is something wrong with one hot encoding. Hint: the drop off and pick up codes need to be converted to proper data format and then DictVectorizer is fitted.\nHarshit Lamba (hlamba19@gmail.com)",
         "section": "Module 1: Introduction",
-        "question": "Slightly different RSME"
+        "question": "Slightly different RMSE"
       },
       {
         "text": "Problem: I\u2019m facing an extremely low RMSE score (eg: 4.3451e-6) - what shall I do?\nAnswer: Recheck your code to see if your model is learning the target prior to making the prediction. If the target variable is passed in as a parameter while fitting the model, chances are the model would score extremely low. However, that\u2019s not what you would want and would much like to have your model predict that. A good way to check that is to make sure your X_train doesn\u2019t contain any part of your y_train. The same stands for validation too.\nSnehangsu De (desnehangsu@gmail.com)",
@@ -4289,8 +4364,18 @@
       },
       {
         "text": "more specific error line:\nfrom sklearn.feature_extraction import DictVectorizer\nI had this issue and to solve it I did\n!pip install scikit-learn\nJoel Auccapuclla (auccapuclla 2013@gmail.com)",
-        "section": "Module 2: Experiment tracking",
+        "section": "Module 1: Introduction",
         "question": "Can\u2019t import sklearn"
+      },
+      {
+        "text": "If you don\u2019t want to install docker desktop and run docker in WSL2 on Windows you can try the following:\nInstall docker and docker compose and give the user the right privileges (you do not need\n# Install Docker, you can ignore the warnings\ncurl -fsSL https://get.docker.com -o get-docker.sh\nsudo sh get-docker.sh\n# Add your user to the Docker group\nsudo usermod -aG docker $USER\nThen you need to start the service:\nsudo systemctl enable docker.service\nThen you can test both are installed:\n# Sanity check that both tools were installed successfully\ndocker --version\ndocker compose version\ndocker run hello-world\nif after restarting WSL the service is not started automatically, you will need to change your .profile o .zprofile file and include something like this:\nif grep -q \"microsoft\" /proc/version > /dev/null 2>&1; then\nif service docker status 2>&1 | grep -q \"is not running\"; then\nwsl.exe --distribution \"${WSL_DISTRO_NAME}\" --user root \\\n--exec /usr/sbin/service docker start > /dev/null 2>&1\nfi\nfi\nAdded by Eduardo Munoz",
+        "section": "Module 1: Introduction",
+        "question": "Install docker in WSL2 without installing Docker Desktop"
+      },
+      {
+        "text": "Seeing <2855951x515 sparse matrix of type '<class 'numpy.float64'>'\nwith 0 stored elements in Compressed Sparse Row format>? It could be that your (soon to be vectorized) variables imported as floating point rather than integer. This will result in nonsensical models. Convert with (for dg being your dataframe, and categorical storing names of your variables to be vectorized):\ndg[categorical] = dg[categorical].round(0).astype(int).astype(str)",
+        "section": "Module 2: Experiment tracking",
+        "question": "Zero elements in sparse matrix (AKA when dictionary vectorizer / categorical X transformation fails )"
       },
       {
         "text": "Problem: Localhost:5000 Unavailable // Access to Localhost Denied // You don\u2019t have authorization to view this page (127.0.0.1:5000)\n\nSolution: If you are on an chrome browser you need to head to `chrome://net-internals/#sockets` and press \u201cFlush Socket Pools\u201d",
@@ -4308,9 +4393,19 @@
         "question": "Could not convert string to float - ValueError"
       },
       {
-        "text": "Make sure you launch the mlflow UI from the same directory as thec that is running the experiments (same directory that has the mlflow directory and the database that stores the experiments).\nOr navigate to the correct directory when specifying the tracking_uri.\nFor example:\nIf the mlflow.db is in a subdirectory called database, the tracking uri would be \u2018sqllite:///database/mlflow.db\u2019\nIf the mlflow.db is a directory above your current directory: the tracking uri would be \u2018sqlite:///../mlflow.db\u2019\nAnswered by Anna Vasylytsya\nAnother alternative is to use an absolute path to mlflow.db rather than relative path\nAnd yet another alternative is to launch the UI from the same notebook by executing the following code cell\nimport subprocess\nMLFLOW_TRACKING_URI = \"sqlite:///data/mlflow.db\"\nsubprocess.Popen([\"mlflow\", \"ui\", \"--backend-store-uri\", MLFLOW_TRACKING_URI])\nAnd then using the same MLFLOW_TRACKING_URI when initializing mlflow or the client\nclient = MlflowClient(tracking_uri=MLFLOW_TRACKING_URI)\nmlflow.set_tracking_uri(MLFLOW_TRACKING_URI)",
+        "text": "Make sure you launch the mlflow UI from the same directory as the code that is running the experiments (same directory that contains the mlruns directory and the database that stores the experiments).\nOr navigate to the correct directory when specifying the tracking_uri.\nFor example:\nIf the mlflow.db is in a subdirectory called database, the tracking uri would be \u2018sqllite:///database/mlflow.db\u2019\nIf the mlflow.db is a directory above your current directory: the tracking uri would be\n\u2018sqlite:///../mlflow.db\u2019\nAnswered by Anna Vasylytsya\nAnother alternative is to use an absolute path to mlflow.db rather than relative path\nAnd yet another alternative is to launch the UI from the same notebook by executing the following code cell\nimport subprocess\nMLFLOW_TRACKING_URI = \"sqlite:///data/mlflow.db\"\nsubprocess.Popen([\"mlflow\", \"ui\", \"--backend-store-uri\", MLFLOW_TRACKING_URI])\nAnd then using the same MLFLOW_TRACKING_URI when initializing mlflow or the client\nclient = MlflowClient(tracking_uri=MLFLOW_TRACKING_URI)\nmlflow.set_tracking_uri(MLFLOW_TRACKING_URI)",
         "section": "Module 2: Experiment tracking",
         "question": "Experiment not visible in MLflow UI"
+      },
+      {
+        "text": "I encountered the following issue: I was able to run experiments and the different model parameters were visible. However, the metrics, including the \u201chandmade\u201d metric rmse in the training script, were not visible (empty field).\nI solved my problem by making sure to specify the \u201ckey\u201d and \u201cvalue\u201d explicitly when using mlflow.log_metric:\nmlflow.log_metric(key=\"rmse\",value=rmse)\nAdded by M\u00e9lanie Fouesnard",
+        "section": "Module 2: Experiment tracking",
+        "question": "Metrics not visible in mlflow UI"
+      },
+      {
+        "text": "Following the instructions as per the video as below did not work though the jupyter notebook says it is successfully created.\nSet the URI to the listener directly. It worked for me. This could be because the video was made with a lower version of \u201cmlflow\u201d package and we are working on the latest version. The documentation of the latest  \u201cmlflow\u201d package is asking to set as below\nmlflow.set_tracking_uri(uri=\"http://127.0.0.1:5000\")\n(optional) Arun Gansi",
+        "section": "Module 2: Experiment tracking",
+        "question": "Unable to create new Experiment"
       },
       {
         "text": "Problem:\nGetting\nERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE\nduring MLFlow's installation process, particularly while installing the Numpy package using pip\nWhen I installed mlflow using \u2018pip install mlflow\u2019 on 27th May 2022, I got the following error while numpy was getting installed through mlflow:\n\nCollecting numpy\nDownloading numpy-1.22.4-cp310-cp310-win_amd64.whl (14.7 MB)\n|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588              \t| 6.3 MB 107 kB/s eta 0:01:19\nERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE.\nIf you have updated the package versions, please update the hashes. Otherwise, examine the package contents carefully; someone may have tampered with them.\nnumpy from https://files.pythonhosted.org/packages/b5/50/d7978137464251c393df28fe0592fbb968110f752d66f60c7a53f7158076/numpy-1.22.4-cp310-cp310-win_amd64.whl#sha256=3e1ffa4748168e1cc8d3cde93f006fe92b5421396221a02f2274aab6ac83b077 (from mlflow):\nExpected sha256 3e1ffa4748168e1cc8d3cde93f006fe92b5421396221a02f2274aab6ac83b077\nGot    \t15e691797dba353af05cf51233aefc4c654ea7ff194b3e7435e6eec321807e90\nSolution:\nThen when I install numpy separately (and not as part of mlflow), numpy gets installed (same version), and then when I do 'pip install mlflow', it also goes through.\nPlease note that the above may not be consistently simulatable, but please be aware of this issue that could occur during pip install of mlflow.\nAdded by Venkat Ramakrishnan",
@@ -4333,7 +4428,7 @@
         "question": "Image size of 460x93139 pixels is too large. It must be less than 2^16 in each direction."
       },
       {
-        "text": "Since the version 1.29 the list_experiments method was deprecated and then removed in the later version\nYou should use search_experiments instead\nAdded by Alex Litvinov",
+        "text": "Since the version 1.29 the list_experiments method was deprecated and then removed in the later version\nYou should use # Register the best model model_uri = f\"runs:/{best_run.info.run_id}/model\" mlflow.register_model(model_uri=model_uri, name=\"RandomForestBestModel\") instead\nAdded by Alex Litvinov",
         "section": "Module 2: Experiment tracking",
         "question": "MlflowClient object has no attribute 'list_experiments'"
       },
@@ -4353,9 +4448,14 @@
         "question": "MLflow.xgboost Autolog Model Signature Failure"
       },
       {
-        "text": "mlflow.exceptions.MlflowException: Cannot set a deleted experiment 'cross-sell' as the active experiment. You can restore the experiment, or permanently delete the  experiment to create a new one.\nThere are many options to solve in this link: https://stackoverflow.com/questions/60088889/how-do-you-permanently-delete-an-experiment-in-mlflow",
+        "text": "raise MlflowException(\nmlflow.exceptions.MlflowException: Cannot set a deleted experiment 'random-forest-hyperopt' as the active experiment. You can restore the experiment, or permanently delete the experiment to create a new one.\nThere are many options to solve in this link: https://stackoverflow.com/questions/60088889/how-do-you-permanently-delete-an-experiment-in-mlflow\n\u2705Had deleted the experiment from the mlflow ui, and this command in CLI works mlflow gc --backend-store-uri sqlite:///backend.db (use the filename.db that you had used, obviously)\n\u26d4 Below suggestion didn\u2019t work, as .trash/ was already empty\nrm -rf mlruns/.trash/*\nzsh: sure you want to delete all the files in /home/ellacharmed/github/mlops-zoomcamp/cohorts/2024/02-experiment-tracking/homework/mlruns/.trash [yn]? y\nzsh: no matches found: mlruns/.trash/*",
         "section": "Module 2: Experiment tracking",
         "question": "MlflowException: Unable to Set a Deleted Experiment"
+      },
+      {
+        "text": "If you\u2019re using a  postgres  backend locally or remotely and you don\u2019t want to delete the entire backend, you can run this script to permanently delete an experiment. I had a separate env.py file to retrieve my environment variables from.\n```\nimport os\nimport sys\nimport psycopg2\nsys.path.insert(0, os.getcwd())\nfrom env import DB_NAME, DB_PASSWORD, DB_PORT, DB_USER\ndef perm_delete_exp():\nconnection = psycopg2.connect(database=DB_NAME,\nuser=DB_USER,\npassword=DB_PASSWORD,\nhost=\"localhost\",\nport=int(DB_PORT))\nwith connection.cursor() as cursor:\nqueries = \"\"\"\nDELETE FROM experiment_tags WHERE experiment_id=ANY(SELECT experiment_id FROM experiments where lifecycle_stage='deleted');\nDELETE FROM latest_metrics WHERE run_uuid=ANY(SELECT run_uuid FROM runs WHERE experiment_id=ANY(SELECT experiment_id FROM experiments where lifecycle_stage='deleted'));\nDELETE FROM metrics WHERE run_uuid=ANY(SELECT run_uuid FROM runs WHERE experiment_id=ANY(SELECT experiment_id FROM experiments where lifecycle_stage='deleted'));\nDELETE FROM tags WHERE run_uuid=ANY(SELECT run_uuid FROM runs WHERE experiment_id=ANY(SELECT experiment_id FROM experiments where lifecycle_stage='deleted'));\nDELETE FROM params WHERE run_uuid=ANY(SELECT run_uuid FROM runs where experiment_id=ANY(SELECT experiment_id FROM experiments where lifecycle_stage='deleted'));\nDELETE FROM runs WHERE experiment_id=ANY(SELECT experiment_id FROM experiments where lifecycle_stage='deleted');\nDELETE FROM datasets WHERE experiment_id=ANY(SELECT experiment_id FROM experiments where lifecycle_stage='deleted');\nDELETE FROM experiments where lifecycle_stage='deleted';\n\"\"\"\nfor query in queries.splitlines()[1:-1]:\ncursor.execute(query.strip())\nconnection.commit()\nconnection.close()\nif __name__ == \"__main__\":\nperm_delete_exp()\n```\nAdded by Joses Omojola",
+        "section": "Module 2: Experiment tracking",
+        "question": "MlflowException: Unable to Set a Deleted Experiment with Postgres backend"
       },
       {
         "text": "You do not have enough disk space to install the requirements. You can either increase the base EBS volume by following this link or add an external disk to your instance and configure conda installation to happen on the external disk.\nAbinaya Mahendiran\nOn GCP: I added another disk to my vm and followed this guide to mount the disk. Confirm the mount by running df -H (disk free) command in bash shell. I also deleted Anaconda and instead used miniconda. I downloaded miniconda in the additional disk that I mounted and when installing miniconda, enter the path to the extra disk instead of the default disk, this way conda is installed on the extra disk.\nYang Cao",
@@ -4408,7 +4508,7 @@
         "question": "Unsupported Operand Type Error in hpo.py"
       },
       {
-        "text": "Getting the following warning when running mlflow.sklearn:\n\n2022/05/28 04:36:36 WARNING mlflow.utils.autologging_utils: You are using an unsupported version of sklearn. If you encounter errors during autologging, try upgrading / downgrading sklearn to a supported version, or try upgrading MLflow. [\u2026]\nSolution: use 0.22.1 <= scikit-learn <= 1.1.0\nReference: https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html",
+        "text": "Getting the following warning when running mlflow.sklearn:\n\n2022/05/28 04:36:36 WARNING mlflow.utils.autologging_utils: You are using an unsupported version of sklearn. If you encounter errors during autologging, try upgrading / downgrading sklearn to a supported version, or try upgrading MLflow. [\u2026]\nSolution: use 0.24.1 <= scikit-learn <= 1.4.2 (Updated: May 26, 2024)\nReference: https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html",
         "section": "Module 2: Experiment tracking",
         "question": "Unsupported Scikit-Learn version"
       },
@@ -4468,19 +4568,139 @@
         "question": "Open/run github notebook(.ipynb) directly in Google Colab"
       },
       {
-        "text": "Problem: Someone asked why we are using this type of split approach instead of just a random split.\nSolution: For example, I have some models at work that train on Jan 1 2020 \u2014 Aug 1 2021 time period, and then test on Aug 1 - Dec 31 2021, and finally validate on Jan - March or something\nWe do these \u201cout of time\u201d  validations to do a few things:\nCheck for seasonality of our data\nWe know if the RMSE for Test is 5 say, and then RMSE for validation is 20, then there\u2019s serious seasonality to the data we are looking at, and now we might change to Time Series approaches\nIf I\u2019m predicting on Mar 30 2023 the outcomes for the next 3 months, the \u201crandom sample\u201d in our train/test would have caused data leakage, overfitting, and poor model performance in production. We mustn\u2019t take information about the future and apply it to the present when we are predicting in a model context.\nThese are two of, I think, the biggest points for why we are doing jan/feb/march. I wouldn\u2019t do it any other way.\nTrain: Jan\nTest: Feb\nValidate: March\nThe point of validation is to report out model metrics to leadership, regulators, auditors, and record the models performance to then later analyze target drift\nAdded by Sam LaFell\nProblem: If you get an error while trying to run the mlflow server on AWS CLI with S3 bucket and POSTGRES database:\nReproducible Command:\nmlflow server -h 0.0.0.0 -p 5000 --backend-store-uri postgresql://<DB_USERNAME>:<DB_PASSWORD>@<DB_ENDPOINT>:<DB_PORT>/<DB_NAME> --default-artifact-root s3://<BUCKET_NAME>\nError:\n\"urllib3 v2.0 only supports OpenSSL 1.1.1+, currently \"\nImportError: urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'OpenSSL 1.0.2k-fips  26 Jan 2017'. See: https://github.com/urllib3/urllib3/issues/2168\nSolution: Upgrade mlflow using\nCode: pip3 install --upgrade mlflow\nResolution: It downgrades urllib3 2.0.3 to 1.26.16 which is compatible with mlflow and ssl 1.0.2\nInstalling collected packages: urllib3\nAttempting uninstall: urllib3\nFound existing installation: urllib3 2.0.3\nUninstalling urllib3-2.0.3:\nSuccessfully uninstalled urllib3-2.0.3\nSuccessfully installed urllib3-1.26.16\nAdded by Sarvesh Thakur",
-        "section": "Module 3: Orchestration",
+        "text": "Problem: Someone asked why we are using this type of split approach instead of just a random split.\nSolution: For example, I have some models at work that train on Jan 1 2020 \u2014 Aug 1 2021 time period, and then test on Aug 1 - Dec 31 2021, and finally validate on Jan - March or something\nWe do these \u201cout of time\u201d  validations to do a few things:\nCheck for seasonality of our data\nWe know if the RMSE for Test is 5 say, and then RMSE for validation is 20, then there\u2019s serious seasonality to the data we are looking at, and now we might change to Time Series approaches\nIf I\u2019m predicting on Mar 30 2023 the outcomes for the next 3 months, the \u201crandom sample\u201d in our train/test would have caused data leakage, overfitting, and poor model performance in production. We mustn\u2019t take information about the future and apply it to the present when we are predicting in a model context.\nThese are two of, I think, the biggest points for why we are doing jan/feb/march. I wouldn\u2019t do it any other way.\nTrain: Jan\nTest: Feb\nValidate: March\nThe point of validation is to report out model metrics to leadership, regulators, auditors, and record the models performance to then later analyze target drift\nAdded by Sam LaFell",
+        "section": "Module 2: Experiment tracking",
         "question": "Why do we use Jan/Feb/March for Train/Test/Validation Purposes?"
       },
       {
-        "text": "Problem description\nSolution description\n(optional) Added by Name",
+        "text": "Problem: When using MLflow\u2019s autolog function, I get this warning: \"WARNING mlflow.sklearn: Failed to log training dataset information to MLflow Tracking. Reason: 'numpy.ndarray' object has no attribute 'toarray'\". Why is this happening?\nSolution:\nYou're getting this warning because autolog is attempting to log your dataset. Mlflow expects the dataset to be in a pd.DataFrame format, but if you\u2019re following the course\u2019s code, we\u2019re providing a numpy.ndarray. So, when Mlflow tries to do the execute the toarray method, it fails because the numpy.ndarray is already an array.\nSince we're not doing anything (yet) with the datasets in this zoomcamp, I just went ahead and put log_datasets = False as a parameter in the autolog function.\nAdded by Fustincho\nProblem: If you get an error while trying to run the mlflow server on AWS CLI with S3 bucket and POSTGRES database:\nReproducible Command:\nmlflow server -h 0.0.0.0 -p 5000 --backend-store-uri postgresql://<DB_USERNAME>:<DB_PASSWORD>@<DB_ENDPOINT>:<DB_PORT>/<DB_NAME> --default-artifact-root s3://<BUCKET_NAME>\nError:\n\"urllib3 v2.0 only supports OpenSSL 1.1.1+, currently \"\nImportError: urllib3 v2.0 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'OpenSSL 1.0.2k-fips  26 Jan 2017'. See: https://github.com/urllib3/urllib3/issues/2168\nSolution: Upgrade mlflow using\nCode: pip3 install --upgrade mlflow\nResolution: It downgrades urllib3 2.0.3 to 1.26.16 which is compatible with mlflow and ssl 1.0.2\nInstalling collected packages: urllib3\nAttempting uninstall: urllib3\nFound existing installation: urllib3 2.0.3\nUninstalling urllib3-2.0.3:\nSuccessfully uninstalled urllib3-2.0.3\nSuccessfully installed urllib3-1.26.16\nAdded by Sarvesh Thakur",
+        "section": "Module 2: Experiment tracking",
+        "question": "WARNING: mlflow.sklearn: Failed to log training dataset information to MLflow Tracking."
+      },
+      {
+        "text": "Problem: In scenario 2 notebook, an error AttributeError: 'MlflowClient' object has no attribute 'list_run_infos',\nIs thrown when one runs \u201crun_id = client.list_run_infos(experiment_id='1')[0].run_id\u201d\nSolution: Use \u201crun_id = client.search_runs(experiment_ids='1')[0].info.run_id\u201d instead.\nScenario: For reference, this works for mflow version 2.12.2, but might work for other recent versions as of May, 2024\nAdded by Oluwadara Adedeji",
+        "section": "Module 2: Experiment tracking",
+        "question": "AttributeError: 'MlflowClient' object has no attribute 'list_run_infos'"
+      },
+      {
+        "text": "No, in the official documentation it\u2019s mentioned that autologging keep track of the parameters even when you do not explicitly set them when calling .fit.\nYou can run the training, only setting the parameters you want, but you can check all the parameters in mlflow UI.\nAdded by Eduardo Munoz",
+        "section": "Module 2: Experiment tracking",
+        "question": "When using Autologging, do I need to set a training parameter to track it on Mlflow UI?"
+      },
+      {
+        "text": "Description\nWhen setting up your venv with\n$conda install --file requirements.txt\nYou may encounter the following error\n\u200b\u200b\n```\nPackagesNotFoundError: The following packages are not available from current channels:\n- hyperopt\n```\nSolution\nIt is probably because your conda is out of date. You can update Conda with\n$conda update -n base -c defaults conda\nIf that doesn\u2019t work you can always install it via, which is the advice from the conda page\n$conda install intel::hyperopt\nAdded by Marcus Leiwe",
+        "section": "Module 2: Experiment tracking",
+        "question": "Hyperopt is not installable with Conda"
+      },
+      {
+        "text": "Basically add the mlruns and artifacts to the .gitignore, like this:\n02-experiment-tracking/mlruns\n02-experiment-tracking/runnin-mflow-examples/mlruns\n02-experiment-tracking/homework/mlruns\n02-experiment-tracking/homework/artifacts\nAdded by Ibai Irastorza",
         "section": "Module 3: Orchestration",
-        "question": "Problem title"
+        "question": "Size limit when uploading to github"
+      },
+      {
+        "text": "Instructor (Tommy) uses MacOS (I presume), so shortcut key is CMD+period\nOn Windows, the equivalent is CTRL+WIN+period",
+        "section": "Module 3: Orchestration",
+        "question": "Mage shortcut key to open Text Editor is not working on Windows"
+      },
+      {
+        "text": "Try to export the pipeline as zip file, create a new Mage project and import the pipeline zip to new project",
+        "section": "Module 3: Orchestration",
+        "question": "Mage pipeline breaks with [Errno 2] No such file or directory: '/home/src/mage_data/{\u2026} /.variables/{...}/output_1/object.joblib'\""
+      },
+      {
+        "text": "When running ./scripts/start.sh - it returns below error\nERROR: The Compose file './docker-compose.yml' is invalid because:\nUnsupported config option for networks: 'app-network'\nUnsupported config option for services: 'magic-platform'\nSolution description\n# Download the latest version of Docker Compose\nsudo curl -L \"https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose\n# Apply executable permissions to the binary\nsudo chmod +x /usr/local/bin/docker-compose\n(optional) Artur G",
+        "section": "Module 3: Orchestration",
+        "question": "Update docker-compose to initiate Mage"
+      },
+      {
+        "text": "Issue (1) you get errors like:\n[+] Running 1/1\n\u2718 magic-database Error too many requests: You have reached your pull rate limit. You may increase the limit by authenticating and upgra...                       1.2s\nError response from daemon: too many requests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit\nIssue (2) you get these popups with different % values but all saying space is in single digits.\nSolution: It is not recommended to setup Mage as a subfolder of mlops-zoomcamp. See findings in this thread.",
+        "section": "Module 3: Orchestration",
+        "question": "Mage in Codespaces in a subfolder under mlops-zoomcamp repository"
+      },
+      {
+        "text": "The below errors seem to occur only when using mage in Codespaces.\nErrors (1)\nCannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?\nErrors (2)\nError response from daemon: invalid volume specification: '/workspaces/mage-mlops:/:rw': invalid mount config for type \"bind\": invalid specification: destination can't be '/'\nSolution for (1) & (2): stay tuned\u2026still testing\ndocker info and docker \u2013version runs fine. \nBut when I do docker compose down, stop codespaces, and reconnect, the errors went away. Not sure if it is reproducible for everyone, though.\nErrors (3)\nwarning: unable to access '/home/codespace/.gitconfig': Is a directory\nSolution (3) via Office Hours:\nthis is targeted for 3.5.x Deploying with Mage\nIf not deploying,\nComment line#20 in docker-compose.yml\nplace a dummy empty file named .gitconfig in your repo\u2019s root folder and copy it in the Dockerfile with this line, place it below line#9\nCOPY .gitconfig /root/.gitconfig\nThe reason this happens is that when the file is missing, Docker auto-creates it as a Directory instead of a file. So creating a dummy file prevents this",
+        "section": "Module 3: Orchestration",
+        "question": "Mage in Codespaces"
+      },
+      {
+        "text": "When you see the mage version change in the UI after you\u2019ve started the container, and you want to update, follow these steps. Read the release notes first to see if there\u2019s a fix that affected your work and would benefit from an update.\nIf you want to remain in the previous version is also fine; unless the fixes were specifically for our zoomcamp course-work (check slack and/or the repository for any new instructions or PRs added).\nClose the browser page\nIn the terminal console, bring down the container `docker compose down`\nRebuild the container with new mage image `docker compose build --no-cache`\nVerify that you see `[magic-platform 1/4] FROM docker.io/mageai/mageai:alpha` meaning that the container is being rebuild with a new version\nIf the image is not updated, ctrl+c to cancel the process and pull the image manually with `docker pull mageai/mageai:alpha` then rebuild\nThen restart the docker container with `./scripts/start.sh` as before\nps: this is the same sequence of steps if you want to switch to the latest tagged image instead of using the alpha image.\nWhat does alpha and latest mean?\nLatest is the fully released version ready for production use, and it has gone through verification, testing, QA and whatever else the release cycle entails.\nAlpha is the potentially buggy version with fresh new fixes and newly added features; but not yet put through the full beta test (if there\u2019s one), integration testing and other QA steps. So expect issues to occur.",
+        "section": "Module 3: Orchestration",
+        "question": "Mage updated in UI"
+      },
+      {
+        "text": "import requests\nfrom io import BytesIO\nfrom typing import List\nimport numpy as np\nimport pandas as pd\nif 'data_loader' not in globals():\nfrom mage_ai.data_preparation.decorators import data_loader\n@data_loader\ndef ingest_files(**kwargs) -> pd.DataFrame:\ndfs: List[pd.DataFrame] = []\nfor year, months in [(2024, (1, 3))]:\nfor i in range(*months):\nresponse = requests.get(\n'https://github.com/mage-ai/datasets/raw/master/taxi/green'f'/{year}/{i:02d}.parquet'\n)\nif response.status_code != 200:\nraise Exception(response.text)\ndf = pd.read_parquet(BytesIO(response.content))\n# if time series chart on mage error, add code below\ndf['lpep_pickup_datetime_cleaned'] = df['lpep_pickup_datetime'].astype(np.int64) // 10**9\ndfs.append(df)\nreturn pd.concat(dfs)\nAdded by Rohmat S",
+        "section": "Module 3: Orchestration",
+        "question": "Mage Time Series Bar Chart Not Showing"
+      },
+      {
+        "text": "I encountered this issue while trying to run the data_export block that saves the dict vectorizer and the logs of the linear regression model into mlflow. My two distinct outputs, while they were clearly created by the previous transformer block where the linear regression model is trained and the dict vectorizer fitted to the training dataset.\nThus, I had this error while trying to run my export code:\nException: Block mlflow_model_registry may be missing upstream dependencies. It expected to have 2 arguments, but only received 1. Confirm that the @data_exporter method declaration has the correct number of arguments.\nThe outputs are stored in a list and this list is the input with the two outputs as the two elements. I had to modify my code in the data_exporter function to take only one argument and to define the two variables after that:\nDv = output[0]\nLr = output[1]\nAdded by M\u00e9lanie Fouesnard",
+        "section": "Module 3: Orchestration",
+        "question": "Mage data_exporter block not taking all outputs from previous transformer block"
+      },
+      {
+        "text": "Error: Cannot cast DatetimeArray to dtype float64\nHave the runs completed successfully? We need to have successfully running Pipelines in order to populate the mage and mlflow databases.\nIf all pipelines are successfully completed and still getting this error, then please provide this info.",
+        "section": "Module 3: Orchestration",
+        "question": "Mage Dashboard on unit_3 is not showing charts"
+      },
+      {
+        "text": "There\u2019s no need to add the utilities functions in each sub-project when you watch the videos as there only need to be one set. Just verify the code is still the same as in Mage\u2019s mlops repository.\nAs from the import statements\nfrom mlops.utils.[...] import [...]\nall refer to the same path in the main mlops \u201cparent\u201d project:\n/[mage-mlops-repository-name]/mlops/utils/...",
+        "section": "Module 3: Orchestration",
+        "question": "Creating Helper functions in Mage"
+      },
+      {
+        "text": "https://docs.mage.ai/platform/projects/management\nhttps://docs.mage.ai/design/abstractions/project-structure\nhttps://docs.mage.ai/orchestration/global-data-products/overview\nRunning the GDP block takes forever.\nException: Pipeline run xx for global data product training_set: failed\nAttributeError: 'NoneType' object has no attribute 'to_dict'\nWe need to replicate the pipelines and codes into each sub-project as the Settings indicate that only one project can be active at any one time, which means the sub-projects do not communicate with each other. (Needs confirmation during office hours.)\nThings you can try:\nMake sure the following lines in the GDP block are for the actual project and pipeline you\u2019re running\n\"project\": \"unit_2_training\",\n\"repo_path\": \"/home/src/mlops/unit_2_training\",\nInterrupt and Restart Kernel from the Run menu\nBring docker down and restarting it via the script\nIf both of the above does not resolve, recreate everything from scratch:\nRemove the connections from the hyperparameter_tuning/sklearn block in the Tree panel to its upstream blocks. Click on the connector \u2192 Remove Connection\nRemove the Global Data Product block from the Tree panel, right click \u2192 Delete Block (ignore dependencies)\nClick on All blocks and select the Global Data Products, drag+drop this block to be the first in the pipeline\nRename the block to what is used in the video\nRun the block to test it (Play button or Ctrl+Enter)\nIf it helps, do the same for the file in path \u201cunit_3_observability\u201d (ella\u2019s full disclosure: unit_2 works after I removed all things GDP and recreate, now I cannot replicate the same success for unit_3. Still trying\u2026let\u2019s discuss here)\nError with creating Global Data Product on Mage: AttributeError: 'NoneType' object has no attribute 'to_dict'\nSolution: Global product is currently not cross product. You will have to create the data preparation pipeline in unit_2_training and configure to build.\nAdded by Oluwadara Adedeji",
+        "section": "Module 3: Orchestration",
+        "question": "Video 3.2.1 - Various issues with Global Data Products"
+      },
+      {
+        "text": "There is no way to remove this through the UI, you need to manually edit the global_data_products.yaml  which is stored in your project\u2019s utils function. You can do this through the Text Editor.\nAdded by Marcus Leiwe",
+        "section": "Module 3: Orchestration",
+        "question": "How do you remove a global data product"
+      },
+      {
+        "text": "If you had remove and re-add blocks, especially from the above issue with Global Data Products, remove the connections from the hyperparameter_tuning/sklearn block in the Tree panel to its upstream blocks and re-add them. Don\u2019t forget to [Ctrl+S] to save Pipeline.\nVideo 3.2.8 Error with Xgboost pipeline: ValueError: not enough values to unpack (expected 3, got 1)\nSolution: Ensure that you have created the variables as in the video and you have this order in your code.\ndata \u2192 training_set\ndata_2 \u2192 hyperparameter_tuning/xgboost\nIf not, remove the connections for the xgboost and reconnect starting with the training set, followed by hyperparameter_tuning/xgboost.\nAdded by Oluwadara Adedeji",
+        "section": "Module 3: Orchestration",
+        "question": "Video 3.2.5 -  TypeError: string indices must be integers"
+      },
+      {
+        "text": "This means your MLflow container tries to access a db file which was a backend for a different MLflow version than the one you have in the container. Most likely, the MLflow version in the container does not match the MLflow version of the MLflow server you ran in module 2.\nThe easiest solution is to check which version you worked with before, and change the docker image accordingly.\nYou can check your version by opening a terminal on your host, conda activate into the env you worked in, and run:\nmlflow --version\nNow edit the mlflow.dockerfile line to your version:\nRUN pip install mlflow==2.??.??\nSave the file and rebuild the docker service by running:\ndocker-compose build\nNow you can start up the containers again and your MLflow container should be able to successfully read your mounted DB file.",
+        "section": "Module 3: Orchestration",
+        "question": "MLflow container error: Can't locate revision identified by \u2026"
+      },
+      {
+        "text": "When you use github codespaces and you get permission denied when trying to set up the server, you need to follow this guide:\nhttps://askubuntu.com/questions/409025/permission-denied-when-running-sh-scripts",
+        "section": "Module 3: Orchestration",
+        "question": "Permission denied in github codespace"
       },
       {
         "text": "Here",
-        "section": "Module 4: Deployment",
+        "section": "Module 3: Orchestration",
         "question": "Where is the FAQ for Prefect questions?"
+      },
+      {
+        "text": "This error means that you are not writing below server on Docker Compose file. To solve the issue",
+        "section": "Module 3: Orchestration",
+        "question": "(root) Additional property mlflow is not allowed"
+      },
+      {
+        "text": "By default, the logged model and artifacts are stored in a local folder in the mlflow container but not in /home/src/mlflow, so when the container is restarted (after a compose down or container remove) the artifacts are deleted and you can not see them in mlflow UI.\nA simple solution to avoid this issue: You can include a new volume in the docker compose service mlflow to map a folder in the local machine to the folder /mlartifacts in the mlflow container:\n- \"${PWD}/mlartifacts:/mlartifacts/\"\nThen, every data logged to the experiment will be available when the mlflow container is recreated.\nAdded by edumunozsala",
+        "section": "Module 3: Orchestration",
+        "question": "Q6: Logged model artifacts lost when mlflow container is down or removed"
+      },
+      {
+        "text": "When using localstore, try to start mlflow where mlflow.db is present. For example, mlflow.db is present in mlops/mlflow, cd to that folder, and run ../scrtips/start.sh (assuming you followed the instructions in homework.md file of week3 and setup mlops folder)\nAdded by Vijay",
+        "section": "Module 3: Orchestration",
+        "question": "Q6: mlflow not showing artifacts"
+      },
+      {
+        "text": "For the correct mlflow tracking uri, use : mlflow.set_tracking_uri(uri=\"http://mlflow:5000\") provided that you used the suggested docker file snippet in the homework question 6.\nAdded by Victor",
+        "section": "Module 3: Orchestration",
+        "question": "Q6: Correct mlflow tracking uri"
+      },
+      {
+        "text": "You should not run docker compose up for mage repo, should always use bash ./scripts/start.sh\nAdded by Ashish",
+        "section": "Module 4: Deployment",
+        "question": "I get below error invalid mount config for type \"bind\": invalid specification: destination can't be '/' when running docker compose up when running mage"
       },
       {
         "text": "Windows with AWS CLI already installed\nAWS CLI version:\naws-cli/2.4.24 Python/3.8.8 Windows/10 exe/AMD64 prompt/off\nExecuting\n$(aws ecr get-login --no-include-email)\nshows error\naws.exe: error: argument operation: Invalid choice, valid choices are\u2026\nUse this command instead. More info here:\nhttps://docs.aws.amazon.com/cli/latest/reference/ecr/get-login-password.html\naws ecr get-login-password \\\n--region <region> \\\n| docker login \\\n--username AWS \\\n--password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com\nAdded by MarcosMJD",
@@ -4583,7 +4803,12 @@
         "question": "4.3 FYI Notebook is end state of Video -"
       },
       {
-        "text": "Problem description: I was having issues because my python script was not reading AWS credentials from env vars, after building the image I was running it like this:\ndocker run -it homework-04 -e AWS_ACCESS_KEY_ID=xxxxxxxx -e AWS_SECRET_ACCESS_KEY=xxxxxx\nSolution 1:\n\nEnvironment Variables: \nYou can set the AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_SESSION_TOKEN (if you are using AWS STS) environment variables. You can set these in your shell, or you can include them in your Docker run command like this:\nI found out by myself that those variables must be passed before specifying the name of the image, as follow:\ndocker run -e AWS_ACCESS_KEY_ID=xxxxxxxx -e AWS_SECRET_ACCESS_KEY=xxxxxx -it homework-04\nAdded by Erick Cal\nSolution 2 (if AWS credentials were not found):\nAWS Configuration Files: \nThe AWS SDKs and CLI will check the ~/.aws/credentials and ~/.aws/config files for credentials if they exist. You can map these files into your Docker container using volumes:\n\ndocker run -it --rm -v ~/.aws:/root/.aws homework:v1",
+        "text": "Added by Oluwadara Adedeji",
+        "section": "Module 4: Deployment",
+        "question": "Solution: The notebook in the repo is missing some code, Include the code to log the dict_vectorizer. If the error is after using pipelines, update the predict function as seen in the video."
+      },
+      {
+        "text": "Problem description: I was having issues because my python script was not reading AWS credentials from env vars, after building the image I was running it like this:\ndocker run -it homework-04 -e AWS_ACCESS_KEY_ID=xxxxxxxx -e AWS_SECRET_ACCESS_KEY=xxxxxx\nSolution 1:\n\nEnvironment Variables: \nYou can set the AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY and AWS_SESSION_TOKEN (if you are using AWS STS) environment variables. You can set these in your shell, or you can include them in your Docker run command like this:\nI found out by myself that those variables must be passed before specifying the name of the image, as follow:\ndocker run -e AWS_ACCESS_KEY_ID=xxxxxxxx -e AWS_SECRET_ACCESS_KEY=xxxxxx -it homework-04\nSolution 2:\nIf you want to pass an env file, you can also do so by adding, for an env file called .env:\ndocker run -it homework-04 --env-file .env\nSolution 3 (if AWS credentials were not found):\nAWS Configuration Files: \nThe AWS SDKs and CLI will check the ~/.aws/credentials and ~/.aws/config files for credentials if they exist. You can map these files into your Docker container using volumes:\n\ndocker run -it --rm -v ~/.aws:/root/.aws homework:v1\nAdded by Erick Cal\nLast edited by: Fustincho",
         "section": "Module 4: Deployment",
         "question": "Passing envs to my docker image"
       },
@@ -4604,8 +4829,48 @@
       },
       {
         "text": "i'm getting this error ModuleNotFoundError: No module named 'pipenv.patched.pip._vendor.urllib3.response'\nand Resolved from this command pip install pipenv --force-reinstall\ngetting this errror site-packages\\pipenv\\patched\\pip\\_vendor\\urllib3\\connectionpool.py\"\nResolved from this command pip install -U pip and pip install requests\nAsif",
-        "section": "Module 5: Monitoring",
+        "section": "Module 4: Deployment",
         "question": "ModuleNotFoundError: No module named 'pipenv.patched.pip._vendor.urllib3.response'"
+      },
+      {
+        "text": "When installing pipenv using --user option, not to all users, you would need to update the PATH environment variable to run pipenv commands. \nYou can update the env variable but its much better to update your .bashrc or .profile, depends on you OS, to persist the change. Go to your .bashrc file and include or update a line like this:\n`PATH=\"<path_to_your_pipenv_install_dir>:$PATH\u201d`\nOr you can try to reinstall pipenv as root, for all users:\nsudo -H pip install -U pipenv\nAdded by Eduardo Mu\u00f1oz",
+        "section": "Module 4: Deployment",
+        "question": "Error pipenv command not found after pipenv installation"
+      },
+      {
+        "text": "For question 2 which requires you to prepare the dataframe with the output, you need to first define the year and month as integers.\nAdded by Victor E.",
+        "section": "Module 4: Deployment",
+        "question": "Homework/Question 2: Namerror: name \u2018year\u2019 is not defined"
+      },
+      {
+        "text": "When returning an object from a block, you may encounter an error like\nError loading custom_object at /home/src/mage_data/*************/pipelines/taxi_duration_pipe/.variables/make_predictions/output_0: [Errno 2] No such file or directory: '/home/src/mage_data/*************/pipelines/taxi_duration_pipe/.variables/make_predictions/output_0/object.joblib'\nError loading custom_object at /home/src/mage_data/*************/pipelines/taxi_duration_pipe/.variables/make_predictions/output_0: [Errno 2] No such file or directory: '/home/src/mage_data/*************/pipelines/taxi_duration_pipe/.variables/make_predictions/output_0/object.joblib'\nThis happened to me when returning a numpy.ndarray, namely the y_pred variable containing the predictions for the taxi dataset. I believe Mage struggles returning some type of objects and expects things like DataFrames instead of numpy.ndarrays. What I did was to return a df that had both the y_pred and the ride ids.\nAdded by Fustincho",
+        "section": "Module 4: Deployment",
+        "question": "Mage error: Error loading custom object at\u2026"
+      },
+      {
+        "text": "You may get a warning similar to the one below when trying to run the docker\nWARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\nPython 3.10.13 (main, Mar 12 2024, 12:22:40) [GCC 12.2.0] on linux\nAdd the tag --platform linux/amd64 when running and it should work. For example\ndocker run -it --platform linux/amd64 --rm -p 9696:9696 homework:v2",
+        "section": "Module 4: Deployment",
+        "question": "The arm64 chip doesn\u2019t match with Alexey\u2019s docker image"
+      },
+      {
+        "text": "Make sure you have python and pip\npython --version\npip --version\nPreferred Installation of Pipenv\npip install pipenv --user",
+        "section": "Module 4: Deployment",
+        "question": "Pipenv installation"
+      },
+      {
+        "text": "For question 6 which requires you to put your script in a docker file,  you can specify that the folder \u2018output/yellow\u2019 should be created in the working directory of your docker container by specifying \u2018RUN mkdir -p output/yellow\u2019 in your docker file.\nAdded by Victor E.",
+        "section": "Module 4: Deployment",
+        "question": "Homework/Question 6: Do not forget to specify that the folder output/yellow should be created in the working directory of your docker file"
+      },
+      {
+        "text": "For question 6, if you are using the script as instructed in the homework and not flask, your endpoint should be \u2018bash\u2019. This can be set by specifying ENTRYPOINT = [\u201cbash\u201d].\nAdded by Victor E.",
+        "section": "Module 4: Deployment",
+        "question": "Homework/Question 6: Entry point for running scoring script in Docker container"
+      },
+      {
+        "text": "This error appeared when I was running the jupyter notebooks inside visual code in codespace. I fixed just running the jupyter notebooks outside codespaces.\nAdded by Ibai Irastorza",
+        "section": "Module 5: Monitoring",
+        "question": "Unable to locate credentials"
       },
       {
         "text": "Problem description: When running docker-compose up as shown in the video 5.2 if you go to http://localhost:3000/ you get asked for a username and a password.\nSolution: for both of them the default is \u201cadmin\u201d. Then you can enter your new password. \nSee also here\nAdded by JaimeRV",
@@ -4674,8 +4939,13 @@
       },
       {
         "text": "Problem: Can we generate charts like Evidently inside Grafana?\nSolution: In Grafana that would be a stat panel (just a number) and scatter plot panel (I believe it requires a plug-in). However, there is no native way to quickly recreate this exact Evidently dashboard. You'd need to make sure you have all the relevant information logged to your Grafana data source, and then design your own plots in Grafana.\nIf you want to recreate the Evidently visualizations externally, you can export the Evidently output in JSON with include_render=True\n(more details here https://docs.evidentlyai.com/user-guide/customization/json-dict-output) and then parse information from it for your external visualization layer. To include everything you need for non-aggregated visuals, you should also add \"raw_data\": True  option (more details here https://docs.evidentlyai.com/user-guide/customization/report-data-aggregation).\nOverall, this specific plot with under- and over-performance segments is more useful during debugging, so might be easier to access it ad hoc using Evidently.\nAdded by Ming Jun, Asked by Luke, Answered by Elena Samuylova",
-        "section": "Module 6: Best practices",
+        "section": "Module 5: Monitoring",
         "question": "Generate Evidently Chart in Grafana"
+      },
+      {
+        "text": "A new version of Numpy has just been released,v 2.0.0., and this causes an import error of evidently package. You can solve it reinstalling numpy to previously version 1.26.4. Just run:\npython -m pip install numpy==1.26.4\nOr modify the requirements.txt to set the version:\nnumpy==1.26.4\nAdded by Eduardo Mu\u00f1oz",
+        "section": "Module 6: Best practices",
+        "question": "Error when importing evidently package because of numpy version upgraded"
       },
       {
         "text": "You may get an error \u2018{'errorMessage': 'Unable to locate credentials', \u2026\u2019 from the print statement in test_docker.py after running localstack with kinesis.\nTo fix this, in the docker-compose.yaml file, in addition to the environment variables like AWS_DEFAULT_REGION, add two other variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY. Their value is not important; anything like abc will suffice\nAdded by M\nOther possibility is just to run\naws --endpoint-url http://localhost:4566 configure\nAnd providing random values for AWS Access Key ID , AWS Secret Access Key, Default region name, and Default output format.\nAdded by M.A. Monjas",
