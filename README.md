@@ -69,9 +69,8 @@ Implement a search engine
 * Vector search
 * Adding vectors to RAG
 
-### Workshop: dlt
+### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
-* TBA
 
 ### [LLM orchestration and ingestion pipelines](04-orchestration/)
 
