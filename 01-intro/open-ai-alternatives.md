@@ -11,4 +11,5 @@ Let's build a list of such services that we can use instead of OpenAI
 * [TogetherAI](https://api.together.ai) (can inference from variety of open source LLMs, 25$ free credit on sign up)
 * [Google Gemini](https://ai.google.dev/gemini-api/docs/get-started/tutorial?lang=python) (2 months unlimited access)
 * [OpenRouterAI](https://openrouter.ai/) (some small open-source models, such as Gemma 7B, are free)
+* [Cohere](https://cohere.com/) (provides a developer trail key which allows upto 100 reqs/min for generating, summarizing, and classifying text. Read more [here](https://cohere.com/blog/free-developer-tier-announcement))
 * Add another service above this line
