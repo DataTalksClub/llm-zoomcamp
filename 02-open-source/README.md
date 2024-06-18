@@ -105,15 +105,25 @@ Links:
 
 ## 2.6 Other models
 
+Video
 
-* `LLM360/Amber`
-* ``
+* [`LLM360/Amber`](https://huggingface.co/LLM360/Amber)
+* [Gemma-7B](https://huggingface.co/blog/gemma)
+* [SaulLM-7B](https://huggingface.co/papers/2403.03883) 
+* [Granite-7B](https://huggingface.co/ibm-granite/granite-7b-base)
+* [MPT-7B](https://huggingface.co/mosaicml/mpt-7b)
+* [OpenLLaMA-7B](https://huggingface.co/openlm-research/open_llama_7b)
 
 Where to find them:
 
 * Leaderboards 
 * Google
 * ChatGPT
+
+Links:
+
+* https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard
+* https://huggingface.co/spaces/optimum/llm-perf-leaderboard
 
 
 ## 2.7 Ollama - Running LLMs on a CPU
