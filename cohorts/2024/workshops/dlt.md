@@ -1,14 +1,14 @@
-# Data ingestion with dlt
+# Open source data ingestion for RAGs with dlt
 
-​In this hands-on workshop, we’ll learn how to build data ingestion pipelines with dlt.
+In this hands-on workshop, we’ll learn how to build a data ingestion pipeline using dlt to load data from a REST API into LanceDB so you can have an always up to date RAG.
 
 ​We’ll cover the following steps:
 
-* Step 1
-* Step 2
-* Step 3
+* Extract data from REST APIs
+* Loading and vectorizing into LanceDB
+* Incremental loading
 
-​By the end of this workshop, you’ll be able to write data pipelines like a senior data engineer: Quickly, concisely, scalable, and self-maintaining.
+​By the end of this workshop, you’ll be able to write a data pipeline for your RAG.
 
 If you don't take the course and want to sign up only for this workshop, use this link: TODO
 
