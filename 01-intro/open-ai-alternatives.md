@@ -11,5 +11,5 @@ Let's build a list of such services that we can use instead of OpenAI
 * [TogetherAI](https://api.together.ai) (can inference from variety of open source LLMs, 25$ free credit on sign up)
 * [Google Gemini](https://ai.google.dev/gemini-api/docs/get-started/tutorial?lang=python) (2 months unlimited access)
 * [OpenRouterAI](https://openrouter.ai/) (some small open-source models, such as Gemma 7B, are free)
-* [HuggingFace API](https://huggingface.co/docs/api-inference/index) (over over 150,000 open-source modles, rate-limited and free)
+* [HuggingFace API](https://huggingface.co/docs/api-inference/index) (over 150,000 open-source modles, rate-limited and free)
 * Add another service above this line
