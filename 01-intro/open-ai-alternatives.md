@@ -13,4 +13,5 @@ Let's build a list of such services that we can use instead of OpenAI
 * [OpenRouterAI](https://openrouter.ai/) (some small open-source models, such as Gemma 7B, are free)
 * [HuggingFace API](https://huggingface.co/docs/api-inference/index) (over 150,000 open-source models, rate-limited and free)
 * [Cohere](https://cohere.com/) (provides a developer trail key which allows upto 100 reqs/min for generating, summarizing, and classifying text. Read more [here](https://cohere.com/blog/free-developer-tier-announcement))
+* [wit](https://wit.ai/) (Facebook AI Afiliate - free)
 * Add another service above this line
