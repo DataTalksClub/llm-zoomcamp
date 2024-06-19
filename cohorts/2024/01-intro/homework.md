@@ -63,7 +63,7 @@ Now let's search in our index.
 
 For a query "How do I execute a command in a running docker container?", what's the score for the top ranking result? 
 
-Use only `question` and `text` fields and give `question` a boost of 4
+Use only `question` and `text` fields and give `question` a boost of 4, and use `"type": "best_fields"`.
 
 * 94.05
 * 84.05
