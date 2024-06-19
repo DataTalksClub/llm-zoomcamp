@@ -1,11 +1,8 @@
 # SPDX-FileCopyrightText: 2015 Eric Larson
 #
 # SPDX-License-Identifier: Apache-2.0
-from __future__ import annotations
 
 import logging
-from argparse import ArgumentParser
-from typing import TYPE_CHECKING
 
 from pip._vendor import requests
 
@@ -13,19 +10,16 @@ from pip._vendor.cachecontrol.adapter import CacheControlAdapter
 from pip._vendor.cachecontrol.cache import DictCache
 from pip._vendor.cachecontrol.controller import logger
 
-if TYPE_CHECKING:
-    from argparse import Namespace
-
-    from pip._vendor.cachecontrol.controller import CacheController
+from argparse import ArgumentParser
 
 
-def setup_logging() -> None:
+def setup_logging():
     logger.setLevel(logging.DEBUG)
     handler = logging.StreamHandler()
     logger.addHandler(handler)
 
 
-def get_session() -> requests.Session:
+def get_session():
     adapter = CacheControlAdapter(
         DictCache(), cache_etags=True, serializer=None, heuristic=None
     )
@@ -33,17 +27,17 @@ def get_session() -> requests.Session:
     sess.mount("http://", adapter)
     sess.mount("https://", adapter)
 
-    sess.cache_controller = adapter.controller  # type: ignore[attr-defined]
+    sess.cache_controller = adapter.controller
     return sess
 
 
-def get_args() -> Namespace:
+def get_args():
     parser = ArgumentParser()
     parser.add_argument("url", help="The URL to try and cache")
     return parser.parse_args()
 
 
-def main() -> None:
+def main(args=None):
     args = get_args()
     sess = get_session()
 
@@ -54,13 +48,10 @@ def main() -> None:
     setup_logging()
 
     # try setting the cache
-    cache_controller: CacheController = (
-        sess.cache_controller  # type: ignore[attr-defined]
-    )
-    cache_controller.cache_response(resp.request, resp.raw)
+    sess.cache_controller.cache_response(resp.request, resp.raw)
 
     # Now try to get it
-    if cache_controller.cached_request(resp.request):
+    if sess.cache_controller.cached_request(resp.request):
         print("Cached!")
     else:
         print("Not cached :(")

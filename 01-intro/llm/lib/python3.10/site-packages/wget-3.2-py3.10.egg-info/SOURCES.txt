@@ -1,0 +1,7 @@
+README.txt
+setup.py
+wget.py
+wget.egg-info/PKG-INFO
+wget.egg-info/SOURCES.txt
+wget.egg-info/dependency_links.txt
+wget.egg-info/top_level.txt
