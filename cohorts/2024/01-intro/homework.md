@@ -61,9 +61,11 @@ Which function do you use for adding your data to elastic?
 
 Now let's search in our index. 
 
-For a query "How do I execute a command in a running docker container?", what's the score for the top ranking result? 
+We will execute a query "How do I execute a command in a running docker container?". 
 
 Use only `question` and `text` fields and give `question` a boost of 4, and use `"type": "best_fields"`.
+
+What's the score for the top ranking result?
 
 * 94.05
 * 84.05
