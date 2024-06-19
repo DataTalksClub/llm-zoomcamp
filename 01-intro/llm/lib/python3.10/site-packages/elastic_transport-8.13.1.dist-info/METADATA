@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: elastic-transport
+Version: 8.13.1
+Summary: Transport classes and utilities shared among Python Elastic client libraries
+Home-page: https://github.com/elastic/elastic-transport-python
+Author: Elastic Client Library Maintainers
+Author-email: client-libs@elastic.co
+Project-URL: Source Code, https://github.com/elastic/elastic-transport-python
+Project-URL: Issue Tracker, https://github.com/elastic/elastic-transport-python/issues
+Project-URL: Documentation, https://elastic-transport-python.readthedocs.io
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: urllib3 <3,>=1.26.2
+Requires-Dist: certifi
+Requires-Dist: importlib-metadata ; python_version < "3.8"
+Provides-Extra: develop
+Requires-Dist: pytest ; extra == 'develop'
+Requires-Dist: pytest-cov ; extra == 'develop'
+Requires-Dist: pytest-mock ; extra == 'develop'
+Requires-Dist: pytest-asyncio ; extra == 'develop'
+Requires-Dist: pytest-httpserver ; extra == 'develop'
+Requires-Dist: trustme ; extra == 'develop'
+Requires-Dist: mock ; extra == 'develop'
+Requires-Dist: requests ; extra == 'develop'
+Requires-Dist: aiohttp ; extra == 'develop'
+Requires-Dist: httpx ; extra == 'develop'
+Requires-Dist: respx ; extra == 'develop'
+Requires-Dist: opentelemetry-api ; extra == 'develop'
+Requires-Dist: opentelemetry-sdk ; extra == 'develop'
+Requires-Dist: orjson ; extra == 'develop'
+Requires-Dist: sphinx >2 ; extra == 'develop'
+Requires-Dist: furo ; extra == 'develop'
+Requires-Dist: sphinx-autodoc-typehints ; extra == 'develop'
+
+# elastic-transport-python
+
+[![PyPI](https://img.shields.io/pypi/v/elastic-transport)](https://pypi.org/elastic-transport)
+[![Python Versions](https://img.shields.io/pypi/pyversions/elastic-transport)](https://pypi.org/elastic-transport)
+[![PyPI Downloads](https://static.pepy.tech/badge/elastic-transport)](https://pepy.tech/project/elastic-transport)
+[![CI Status](https://img.shields.io/github/actions/workflow/status/elastic/elastic-transport-python/ci.yml)](https://github.com/elastic/elastic-transport-python/actions)
+
+Transport classes and utilities shared among Python Elastic client libraries
+
+This library was lifted from [`elasticsearch-py`](https://github.com/elastic/elasticsearch-py)
+and then transformed to be used across all Elastic services
+rather than only Elasticsearch.
+
+### Installing from PyPI
+
+```
+$ python -m pip install elastic-transport
+```
+
+Versioning follows the major and minor version of the Elastic Stack version and
+the patch number is incremented for bug fixes within a minor release.                      |
+
+## Documentation
+
+Documentation including an API reference is available on [Read the Docs](https://elastic-transport-python.readthedocs.io).
+
+## License
+
+`elastic-transport-python` is available under the Apache-2.0 license.
+For more details see [LICENSE](https://github.com/elastic/elastic-transport-python/blob/main/LICENSE).

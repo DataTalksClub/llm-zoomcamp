@@ -1,0 +1,79 @@
+{
+  "name": "@jupyterlab/debugger-extension",
+  "version": "4.1.8",
+  "description": "JupyterLab - Debugger Extension",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension"
+  ],
+  "homepage": "https://github.com/jupyterlab/jupyterlab",
+  "bugs": {
+    "url": "https://github.com/jupyterlab/jupyterlab/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jupyterlab/jupyterlab.git"
+  },
+  "license": "BSD-3-Clause",
+  "author": "Project Jupyter",
+  "sideEffects": [
+    "style/**/*.css",
+    "style/index.js"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "directories": {
+    "lib": "lib/"
+  },
+  "files": [
+    "lib/**/*.d.ts",
+    "lib/**/*.js.map",
+    "lib/**/*.js",
+    "schema/*.json",
+    "style/**/*.css",
+    "style/**/*.svg",
+    "style/index.js",
+    "src/**/*.{ts,tsx}"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rimraf lib && rimraf tsconfig.tsbuildinfo && rimraf tsconfig.test.tsbuildinfo && rimraf tests/build",
+    "docs": "typedoc --options tdoptions.json --theme ../../typedoc-theme src",
+    "watch": "tsc -b --watch"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^4.1.8",
+    "@jupyterlab/apputils": "^4.2.8",
+    "@jupyterlab/cells": "^4.1.8",
+    "@jupyterlab/codeeditor": "^4.1.8",
+    "@jupyterlab/console": "^4.1.8",
+    "@jupyterlab/coreutils": "^6.1.8",
+    "@jupyterlab/debugger": "^4.1.8",
+    "@jupyterlab/docregistry": "^4.1.8",
+    "@jupyterlab/fileeditor": "^4.1.8",
+    "@jupyterlab/logconsole": "^4.1.8",
+    "@jupyterlab/notebook": "^4.1.8",
+    "@jupyterlab/rendermime": "^4.1.8",
+    "@jupyterlab/services": "^7.1.8",
+    "@jupyterlab/settingregistry": "^4.1.8",
+    "@jupyterlab/translation": "^4.1.8"
+  },
+  "devDependencies": {
+    "@jupyterlab/testing": "^4.1.8",
+    "@types/jest": "^29.2.0",
+    "@types/react-dom": "^18.0.9",
+    "rimraf": "~5.0.5",
+    "typedoc": "~0.24.7",
+    "typescript": "~5.1.6"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "jupyterlab": {
+    "extension": true,
+    "schemaDir": "schema"
+  },
+  "styleModule": "style/index.js"
+}
