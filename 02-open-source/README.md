@@ -36,9 +36,6 @@ Links:
 * https://github.com/DataTalksClub/llm-zoomcamp-saturncloud
 
 
-
-
-
 ## 2.3 FLAN-T5
 
 <a href="https://www.youtube.com/watch?v=a86iTyxnFE4&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
@@ -52,9 +49,6 @@ Links:
 import os
 os.environ['HF_HOME'] = '/run/cache/'
 ```
-
-
-
 
 Links:
 
@@ -132,11 +126,8 @@ Links:
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/PVpBGs_iSjY">
 </a>
 
-
 * The easiest way to run an LLM without a GPU is using [Ollama](https://github.com/ollama/ollama)
 * Notebook [ollama.ipynb](ollama.ipynb)
-
-
 
 For Linux:
 
