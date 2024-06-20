@@ -99,7 +99,9 @@ Links:
 
 ## 2.6 Other models
 
-Video
+<a href="https://www.youtube.com/watch?v=GzPV_HTmCkc&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/GzPV_HTmCkc">
+</a>
 
 * [`LLM360/Amber`](https://huggingface.co/LLM360/Amber)
 * [Gemma-7B](https://huggingface.co/blog/gemma)
