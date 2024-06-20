@@ -61,9 +61,11 @@ Which function do you use for adding your data to elastic?
 
 Now let's search in our index. 
 
-For a query "How do I execute a command in a running docker container?", what's the score for the top ranking result? 
+We will execute a query "How do I execute a command in a running docker container?". 
 
-Use only `question` and `text` fields and give `question` a boost of 4
+Use only `question` and `text` fields and give `question` a boost of 4, and use `"type": "best_fields"`.
+
+What's the score for the top ranking result?
 
 * 94.05
 * 84.05
@@ -85,15 +87,20 @@ Return 3 results. What's the 3rd question returned by the search engine?
 
 ## Q5. Building a prompt
 
-Now we're ready to build a prompt to send to an LLM. Let's use these templates:
+Now we're ready to build a prompt to send to an LLM. 
 
-
+Take the records returned from Elasticsearch in Q4 and use this template to build the context. Separate context entries by two linebreaks (`\n\n`)
 ```python
 context_template = """
 Q: {question}
 A: {text}
 """.strip()
+```
 
+Now use the context you just created along with the "How do I execute a command in a running docker container?" question 
+to construct a prompt using the template below:
+
+```
 prompt_template = """
 You're a course teaching assistant. Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
@@ -105,11 +112,7 @@ CONTEXT:
 """.strip()
 ```
 
-Separate context entries by two linebreaks (`\n\n`)
-
-Put the data from Q4 there. 
-
-What's the length of the result? (use the `len` function)
+What's the length of the resulting prompt? (use the `len` function)
 
 * 962
 * 1462
