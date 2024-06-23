@@ -3,6 +3,13 @@ from psycopg2 import sql
 import pandas as pd
 from datetime import datetime
 
+from datasets import load_dataset
+from ragas.metrics import (
+    faithfulness,
+    context_precision
+)
+from ragas import evaluate
+
 
 DB_PARAMS = {
     'user': 'admin',
@@ -35,6 +42,20 @@ metrics = {
     'metric_b': [0.85, 0.93, 0.92],
     'metric_c': [0.95, 0.94, 0.90],
 }
+# take vector store from https://github.com/DataTalksClub/llm-zoomcamp/tree/main/01-intro to dump all docs
+dataset = load_dataset("json", data_files="dataset.json")
+# load example dataset.json to ragas documents
+# retrieve data from vector store to fill "contexts" (take from 01-intro)
+# ask OpenAI to fill "answer"
+
+result = evaluate(
+    dataset,
+    metrics=[
+        context_precision,
+        faithfulness
+    ],
+)
+
 metrics_df = pd.DataFrame(metrics)
 
 
