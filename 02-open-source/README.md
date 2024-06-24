@@ -166,7 +166,7 @@ docker run -it \
 Pulling the model
 
 ```bash
-docker exec -it bash
+docker exec -it ollama bash
 ollama pull phi3
 ```
 
