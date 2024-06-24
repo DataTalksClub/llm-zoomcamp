@@ -36,9 +36,6 @@ Links:
 * https://github.com/DataTalksClub/llm-zoomcamp-saturncloud
 
 
-
-
-
 ## 2.3 FLAN-T5
 
 <a href="https://www.youtube.com/watch?v=a86iTyxnFE4&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
@@ -102,7 +99,9 @@ Links:
 
 ## 2.6 Other models
 
-Video
+<a href="https://www.youtube.com/watch?v=GzPV_HTmCkc&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/GzPV_HTmCkc">
+</a>
 
 * [`LLM360/Amber`](https://huggingface.co/LLM360/Amber)
 * [Gemma-7B](https://huggingface.co/blog/gemma)
@@ -129,11 +128,8 @@ Links:
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/PVpBGs_iSjY">
 </a>
 
-
 * The easiest way to run an LLM without a GPU is using [Ollama](https://github.com/ollama/ollama)
 * Notebook [ollama.ipynb](ollama.ipynb)
-
-
 
 For Linux:
 

@@ -2,6 +2,8 @@
 
 In this homework, we'll learn more about search and use Elastic Search for practice. 
 
+> It's possible that your answers won't match exactly. If it's the case, select the closest one.
+
 ## Q1. Running Elastic 
 
 Run Elastic Search 8.4.3, and get the cluster information. If you run it on localhost, this is how you do it:
