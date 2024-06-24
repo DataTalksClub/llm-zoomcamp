@@ -160,4 +160,5 @@ More information [here](../cohorts/2024/01-intro/homework.md).
 # Notes
 
 * [Notes by slavaheroes](https://github.com/slavaheroes/llm-zoomcamp/blob/homeworks/01-intro/notes.md)
+* [Notes by Pham Nguyen Hung](https://hung.bearblog.dev/llm-zoomcamp-1-rag/)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
