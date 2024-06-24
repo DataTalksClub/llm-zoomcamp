@@ -53,9 +53,6 @@ import os
 os.environ['HF_HOME'] = '/run/cache/'
 ```
 
-
-
-
 Links:
 
 * https://huggingface.co/google/flan-t5-xl
@@ -194,6 +191,9 @@ ollama pull phi3
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/R6L8PZ-7bGo">
 </a>
 
-
 * Putting it in Streamlit
 * [Code](qa_faq.py)
+
+If you want to learn more about streamlit, you can
+use [this material](https://github.com/DataTalksClub/project-of-the-week/blob/main/2022-08-14-frontend.md)
+from [our repository with projects of the week](https://github.com/DataTalksClub/project-of-the-week/tree/main).

@@ -108,6 +108,15 @@ TBA
 - [Magdalena Kuhn](https://www.linkedin.com/in/magdalenakuhn/)
 
 
+## Asking questions
+
+The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-llm-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C06TEGTGM3J).
+
+To make discussions in Slack more organized:
+
+* Follow [these recommendations](asking-questions.md) when asking for help
+* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
+
 
 ## Supporters and partners
 
