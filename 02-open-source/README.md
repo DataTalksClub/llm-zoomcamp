@@ -190,6 +190,7 @@ ollama pull phi3
 
 * Putting it in Streamlit
 * [Code](qa_faq.py)
+
 # Notes
 
 * [Workaround by Pham Nguyen Hung to use ElasticSearch container with Saturn Cloud & Google Colab instead of minsearch](https://hung.bearblog.dev/llm-zoomcamp-zrok/)
