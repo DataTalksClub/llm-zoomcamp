@@ -14,8 +14,6 @@ repos:
       - id: check-yaml
       - id: detect-private-key
       - id: trailing-whitespace # Trims trailing whitespace.
-      # added 26.05.2024
-      # - id: check-illegal-windows-names # doesn't work
       - id: detect-aws-credentials # fails if no credentials are available
         args: [--allow-missing-credentials]
       - id: end-of-file-fixer # Makes sure files end in a newline and only a newline.
@@ -23,27 +21,12 @@ repos:
         args: [--fix=lf] # single control character (\n, ASCII code 10), most universal
         # Git converts LF to CRLF when checking out text files & convert CRLF to LF when committing text files.
       - id: requirements-txt-fixer # Sorts entries in requirements.txt
-      # added 29.05.2024
-      # - id: check-illegal-windows-names # Check for files that cannot be created on Windows. Dones't exit
       - id: check-case-conflict # Check for files with names that would conflict on a case-insensitive filesystem
+      # - id: check-illegal-windows-names # Check for files that cannot be created on Windows. Doesn't exit (anymore?)
 
-  # added 26.05.2024
+  # pyupgrade
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.16.0
     hooks:
       - id: pyupgrade
         args: [--py311-plus]
-
-  # added 26.05.2024 : latex linting
-  - repo: https://github.com/cmhughes/latexindent.pl.git
-    rev: V3.24.2
-    hooks:
-      - id: latexindent
-        # only run on manual: `pre-commit run --hook-stage manual --all-files` but not for a commit
-        stages: [manual]
-        description: Run latexindent.pl
-        entry: latexindent.pl
-        # `-c=bak` : send all backup files to this folder
-        args: ["--overwriteIfDifferent", "--local","-c=bak", "--silent"]
-        language: perl
-        types: [tex]

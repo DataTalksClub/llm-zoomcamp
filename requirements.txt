@@ -1,0 +1,9 @@
+elasticsearch
+groq
+ipywidgets # tqdm in notebooks
+openai
+pre-commit
+python-dotenv
+requests
+tiktoken
+tqdm
