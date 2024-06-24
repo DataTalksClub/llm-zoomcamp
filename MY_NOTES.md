@@ -1,4 +1,4 @@
-# Setup
+# Local Setup (Win10)
 
 1. Environment
 
@@ -28,6 +28,6 @@
 
 ## Module 1: Introduction to LLMs and RAG
 
-* [Homework](cohorts\2024\01-intro\homework.md)
+- [Homework](cohorts\2024\01-intro\homework.md)
 
 -
