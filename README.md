@@ -38,6 +38,8 @@ Pre-requisites:
 
 ## Syllabus
 
+We encourage [Learning in Public](learning-in-public.md)
+
 ### Pre-course workshops
 
 Introduction
