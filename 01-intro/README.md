@@ -34,7 +34,7 @@ What we will do:
 * Alternative: installing anaconda or miniconda
 
 ```bash
-pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn
+pip install tqdm notebook==7.1.2 openai elasticsearch pandas scikit-learn ipywidgets
 ```
 
 ## 1.3 Retrieval
