@@ -38,6 +38,8 @@ Pre-requisites:
 
 ## Syllabus
 
+We encourage [Learning in Public](learning-in-public.md)
+
 ### Pre-course workshops
 
 Introduction
@@ -69,9 +71,8 @@ Implement a search engine
 * Vector search
 * Adding vectors to RAG
 
-### Workshop: dlt
+### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
-* TBA
 
 ### [LLM orchestration and ingestion pipelines](04-orchestration/)
 
@@ -90,10 +91,13 @@ Implement a search engine
 
 * Best practices
 
+### LLM Zoomcamp 2024 Competition
 
-### Competition
+In the competition, you need to use LLMs to solve high school mathematics problems. 
+Your task is to develop models that can accurately solve these problems and submit your predictions.
 
-TBA
+For more details, visit the [competition page](https://www.kaggle.com/competitions/llm-zoomcamp-2024-competition/overview).
+
 
 ### [Hands-on project](project.md)
 
@@ -106,6 +110,15 @@ TBA
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev/)
 - [Magdalena Kuhn](https://www.linkedin.com/in/magdalenakuhn/)
 
+
+## Asking questions
+
+The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-llm-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C06TEGTGM3J).
+
+To make discussions in Slack more organized:
+
+* Follow [these recommendations](asking-questions.md) when asking for help
+* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
 
 
 ## Supporters and partners
