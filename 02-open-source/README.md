@@ -181,6 +181,7 @@ ollama pull phi3
 * Creating a Docker-Compose file 
 * Re-running the module 1 notebook
 
+* Notebook: [rag-intro.ipynb](rag-intro.ipynb)
 
 ## 2.9 UI for RAG
 
