@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:
+  documents-db:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - documents_data:/usr/share/elasticsearch/data
+
   metrics-calculation:
     build: . 
     depends_on:
@@ -32,5 +43,6 @@ services:
       - ./grafana/provisioning:/etc/grafana/provisioning
 
 volumes:
+  documents_data: {}
   monitoring_data: {}
   grafana_data: {}

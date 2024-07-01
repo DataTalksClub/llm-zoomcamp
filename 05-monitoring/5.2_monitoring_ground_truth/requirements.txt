@@ -1,0 +1,5 @@
+pandas==2.2.2
+psycopg2-binary==2.9.9
+dataset==2.20.0
+ragas==0.1.9
+elasticsearch==8.14.0
