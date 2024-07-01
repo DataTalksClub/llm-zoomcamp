@@ -35,6 +35,10 @@ Links:
 * https://saturncloud.io/
 * https://github.com/DataTalksClub/llm-zoomcamp-saturncloud
 
+Google Colab as an alternative:
+
+* [Video](https://www.loom.com/share/591f39e4e231486bbfc3fbd316ec03c5)
+* [Notebook](https://colab.research.google.com/drive/1XmxUZutZXoAEdQZU45EXWPseBX9s2NRd)
 
 ## 2.3 FLAN-T5
 
