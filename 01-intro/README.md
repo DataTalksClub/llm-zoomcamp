@@ -157,6 +157,11 @@ different types of `multi_match` search in [elastic-search.md](elastic-search.md
 # 1.7 Homework
 More information [here](../cohorts/2024/01-intro/homework.md).
 
+
+# Extra materials
+
+* If you're curious to know how the code for parsing the FAQ works, check [this video](https://www.loom.com/share/ff54d898188b402d880dbea2a7cb8064)
+
 # Notes
 
 * [Notes by slavaheroes](https://github.com/slavaheroes/llm-zoomcamp/blob/homeworks/01-intro/notes.md)
