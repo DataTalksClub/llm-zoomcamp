@@ -137,7 +137,8 @@ For Linux:
 curl -fsSL https://ollama.com/install.sh | sh
 
 ollama start
-ollama serve phi3
+ollama pull phi3
+ollama run phi3
 ```
 
 [Prompt example](prompt.md)
