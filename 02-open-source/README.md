@@ -137,7 +137,8 @@ For Linux:
 curl -fsSL https://ollama.com/install.sh | sh
 
 ollama start
-ollama serve phi3
+ollama pull phi3
+ollama run phi3
 ```
 
 [Prompt example](prompt.md)
@@ -180,6 +181,7 @@ ollama pull phi3
 * Creating a Docker-Compose file 
 * Re-running the module 1 notebook
 
+* Notebook: [rag-intro.ipynb](rag-intro.ipynb)
 
 ## 2.9 UI for RAG
 
