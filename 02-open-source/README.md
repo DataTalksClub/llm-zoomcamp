@@ -202,7 +202,7 @@ from [our repository with projects of the week](https://github.com/DataTalksClub
 
 ## Homework
 
-See [here](./cohorts/2024/02-open-source/homework.md)
+See [here](../cohorts/2024/02-open-source/homework.md)
 
 # Notes
 
