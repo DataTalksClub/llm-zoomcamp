@@ -60,16 +60,20 @@ Implement a search engine
 * Retrieval and the basics of search
 * OpenAI API
 * Simple RAG with Open AI
+* Text search with Elasticsearch
 
-### [Open-source LLMs and self-hosting LLMs](02-open-source/)
+### [Open-source LLMs](02-open-source/)
 
-* Simple RAG with Open-Source LLMs
+* Getting an environment with a GPU
+* Open-source models from HuggingFace Hub
+* Running LLMs on a CPU with Ollama
+* Creating a simple UI with Streamlit 
 
-### [Vector databases and retrieval techniques](03-vector-search/)
+### [Vector databases](03-vector-search/)
 
-* Embeddings
 * Vector search
-* Adding vectors to RAG
+* Creating and indexing embeddings
+* Vector search with Elasticsearch
 
 ### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
