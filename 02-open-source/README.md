@@ -204,4 +204,5 @@ from [our repository with projects of the week](https://github.com/DataTalksClub
 
 * [Workaround by Pham Nguyen Hung to use ElasticSearch container with Saturn Cloud & Google Colab instead of minsearch](https://hung.bearblog.dev/llm-zoomcamp-zrok/)
 * [Notes by slavaheroes](https://github.com/slavaheroes/llm-zoomcamp/blob/homeworks/02-open-source/notes.md)
+* [Notes by Pham Nguyen Hung](https://hung.bearblog.dev/llm-zoomcamp-2-os/)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
