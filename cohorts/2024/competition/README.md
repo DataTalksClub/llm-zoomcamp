@@ -18,6 +18,13 @@ pip install -qU langchain-openai langchain
 
 Thanks [Blaq](https://www.linkedin.com/in/chinonsoodiaka/) for contibuting the notebook!
 
+Note that the solution is not deterministic: when you run
+it again on the same record, sometimes the solution is different
+from the initial run.
+
+Which might be more a feature than a bug:
+what if you run it multuple times and get the majority vote? 
+
 ## Evaluation
 
 We use accuracy as the evaluation metric. Sometimes multiple
