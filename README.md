@@ -93,11 +93,7 @@ Implement a search engine
 
 ### LLM Zoomcamp 2024 Competition
 
-In the competition, you need to use LLMs to solve high school mathematics problems. 
-Your task is to develop models that can accurately solve these problems and submit your predictions.
-
-For more details, visit the [competition page](https://www.kaggle.com/competitions/llm-zoomcamp-2024-competition/overview).
-
+[More details](cohorts/2024/competition/)
 
 ### [Hands-on project](project.md)
 
