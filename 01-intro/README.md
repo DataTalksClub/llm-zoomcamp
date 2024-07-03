@@ -157,9 +157,18 @@ different types of `multi_match` search in [elastic-search.md](elastic-search.md
 # 1.7 Homework
 More information [here](../cohorts/2024/01-intro/homework.md).
 
+
+# Extra materials
+
+* If you're curious to know how the code for parsing the FAQ works, check [this video](https://www.loom.com/share/ff54d898188b402d880dbea2a7cb8064)
+
 # Notes
 
 * [Notes by slavaheroes](https://github.com/slavaheroes/llm-zoomcamp/blob/homeworks/01-intro/notes.md)
 * [Notes by Pham Nguyen Hung](https://hung.bearblog.dev/llm-zoomcamp-1-rag/)
 * [Notes by dimzachar](https://github.com/dimzachar/llm_zoomcamp/tree/master/notes)
+* [Notes by Olawale Ogundeji](https://github.com/presiZHai/LLM-Zoomcamp/blob/main/01-intro/notes.md)
+* [Notes by Uchechukwu](https://medium.com/@njokuuchechi/an-intro-to-large-language-models-llms-0c51c09abe10)
+* [Notes by Kamal](https://github.com/mk-hassan/llm-zoomcamp/blob/main/Module-1%3A%20Introduction%20to%20LLMs%20and%20RAG/README.md)
+* [Notes by Marat](https://machine-mind-ml.medium.com/discovering-semantic-search-and-rag-with-large-language-models-be7d9ba5bef4)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)

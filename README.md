@@ -60,16 +60,20 @@ Implement a search engine
 * Retrieval and the basics of search
 * OpenAI API
 * Simple RAG with Open AI
+* Text search with Elasticsearch
 
-### [Open-source LLMs and self-hosting LLMs](02-open-source/)
+### [Open-source LLMs](02-open-source/)
 
-* Simple RAG with Open-Source LLMs
+* Getting an environment with a GPU
+* Open-source models from HuggingFace Hub
+* Running LLMs on a CPU with Ollama
+* Creating a simple UI with Streamlit 
 
-### [Vector databases and retrieval techniques](03-vector-search/)
+### [Vector databases](03-vector-search/)
 
-* Embeddings
 * Vector search
-* Adding vectors to RAG
+* Creating and indexing embeddings
+* Vector search with Elasticsearch
 
 ### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
@@ -93,11 +97,7 @@ Implement a search engine
 
 ### LLM Zoomcamp 2024 Competition
 
-In the competition, you need to use LLMs to solve high school mathematics problems. 
-Your task is to develop models that can accurately solve these problems and submit your predictions.
-
-For more details, visit the [competition page](https://www.kaggle.com/competitions/llm-zoomcamp-2024-competition/overview).
-
+[More details](cohorts/2024/competition/)
 
 ### [Hands-on project](project.md)
 
@@ -109,7 +109,7 @@ For more details, visit the [competition page](https://www.kaggle.com/competitio
 
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev/)
 - [Magdalena Kuhn](https://www.linkedin.com/in/magdalenakuhn/)
-
+- [Balaji Dhamodharan](https://www.linkedin.com/in/balaji-dhamodharan-91b45615/)
 
 ## Asking questions
 
