@@ -23,9 +23,14 @@ for course_dict in docs_raw:
         doc['course'] = course_dict['course']
         documents.append(doc)
 
-documents[1]
+len(documents)
 ```
 How many records we have in the pre-processed "documents"?
+* 1000
+* 1051
+* 901
+* 948
+
 
 ## Q2. Create Embeddings using Pretrained Models
 
