@@ -7,7 +7,7 @@ In this homework, we'll implement an end to end semantic search engine
  Notebook: [homework_solution.ipynb](homework_solution.ipynb)
 
 
-## Step 1. Prepare Documents
+## Q1. Prepare Documents
 
 Import documents.json, read the file and prepare the dataset:
 
@@ -26,8 +26,9 @@ for course_dict in docs_raw:
 
 documents[1]
 ```
+How many records we have in the pre-processed "documents"?
 
-## Step 2. Create Embeddings using Pretrained Models
+## Q2. Create Embeddings using Pretrained Models
 
 Import sentence transformer library. Please review the Sentence Transformer pretrained documentation here: https://www.sbert.net/docs/sentence_transformer/pretrained_models.html#model-overview
 
@@ -53,11 +54,14 @@ What is the model size (in MB) and average performance?
 * [290, 59.84]
 * [420, 51.72]
 
+
+## Q3. Get the dimension for model embedding
+
 ```bash
 len(model.encode("This is a simple sentence"))
 ```
 
-What is the dimension of the model?
+What is the dimension of the model embedding?
 
 * 768
 * 265
@@ -72,7 +76,7 @@ for doc in documents:
     doc["question_vector"] = model.encode(doc["question"]).tolist()
     operations.append(doc)
 ```
-## Step 3: Setup ElasticSearch connection 
+
 
 Establish connection to Elasticsearch 
 
@@ -83,7 +87,7 @@ es_client = Elasticsearch('http://localhost:9200')
 es_client.info()
 ```
 
-## Step 4: Create Mappings and Index
+## Q4: Create Mappings and Index
 
 In the mappings, change "section" to "keyword" type
 
@@ -110,7 +114,8 @@ index_name = "course-questions"
 es_client.indices.delete(index=index_name, ignore_unavailable=True)
 es_client.indices.create(index=index_name, body=index_settings)
 ```
-## Step 5: Add documents into index
+
+Add documents into index
 
 ```bash
 for doc in operations:
@@ -120,7 +125,14 @@ for doc in operations:
         print(e)
 ```
 
-## Step 6: Create end user query and perform semantic search
+In the es_client.indices.delete statement, what does "ignore_unavailable" mean?
+* If the pre-trained model in unavailable, skip this statement
+* If the index is unavailable, skip this statement
+* If the pre-trained model in unavailable, don't skip this statement
+* If the index is unavailable, don't skip this statement
+
+
+## Q5: Create end user query and perform semantic search
 
 Use the search term "how to enrol to course?" and perform semantic search
 
@@ -146,7 +158,7 @@ What is the similarity score, section and course for the first result?
 * [0.71, 'General course-related questions', 'machine-learning-zoomcamp']
 
 
-## Step 7: Perform Semantic Search & Filtering
+## Q6: Perform Semantic Search & Filtering
 
 Filter the results to "General course-related questions" section only
 
