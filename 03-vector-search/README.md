@@ -9,7 +9,7 @@
 * [Slides](https://github.com/dataML007/elastic_search/blob/main/Introduction%20to%20Vector%20DB.pdf)
 
 
-## 3.2 Semantic Search with Elasticsearc
+## 3.2 Semantic Search with Elasticsearch
 
 <a href="https://www.youtube.com/watch?v=ptByfB_YcEg&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/ptByfB_YcEg">
