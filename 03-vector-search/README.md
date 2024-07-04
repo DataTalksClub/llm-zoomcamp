@@ -18,6 +18,41 @@
 * Notebook: [demo_es.ipynb](demo_es.ipynb)
 
 
+## 3.3 Evaluating Retrieval 
+
+### 3.3.1 Introduction
+
+Video / https://www.loom.com/share/6b2dd922059642c583a280c94a1d6bdb
+
+Plan for the section:
+
+* Why do we need evaluation
+* Evaluation metrics
+* Ground truth / gold standard data
+* Generating ground truth with LLM
+* Evaluating the search resuls
+
+### 3.3.2 Getting ground truth data
+
+Video / https://www.loom.com/share/2ec75a665fa44721a31a17b24c3aece2
+
+* Approaches for getting evaluation data
+* Using OpenAI to generate evaluation data
+
+### 3.3.3 Ranking evaluation: text search
+
+Video
+
+* Elasticsearch with text results
+* minsearch
+
+### 3.3.4 Ranking evaluation: vector search
+
+Video
+
+* Elasticsearch with vector search
+
+
 ## Homework
 
 See [here](../cohorts/2024/03-vector-search/homework.md)
