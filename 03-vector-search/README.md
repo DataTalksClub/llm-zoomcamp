@@ -27,10 +27,11 @@ Video / https://www.loom.com/share/6b2dd922059642c583a280c94a1d6bdb
 Plan for the section:
 
 * Why do we need evaluation
-* Evaluation metrics
+* [Evaluation metrics](evaluation-metrics.md)
 * Ground truth / gold standard data
 * Generating ground truth with LLM
 * Evaluating the search resuls
+
 
 ### 3.3.2 Getting ground truth data
 
