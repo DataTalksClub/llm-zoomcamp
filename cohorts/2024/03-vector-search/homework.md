@@ -4,8 +4,6 @@ In this homework, we'll implement an end to end semantic search engine
 
 > It's possible that your answers won't match exactly. If it's the case, select the closest one.
 
- Notebook: [homework_solution.ipynb](homework_solution.ipynb)
-
 ## Q1. Prepare Documents
 
 Import documents.json, read the file and prepare the dataset:
