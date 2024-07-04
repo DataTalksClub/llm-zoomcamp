@@ -1,4 +1,4 @@
-# Vector Search 
+ww# Vector Search 
 
 ## 3.1 Introduction to Vector Search
 
@@ -22,7 +22,9 @@
 
 ### 3.3.1 Introduction
 
-Video / https://www.loom.com/share/6b2dd922059642c583a280c94a1d6bdb
+<a href="https://www.youtube.com/watch?v=APMrUnC_dy0&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/APMrUnC_dy0">
+</a>
 
 Plan for the section:
 
@@ -34,7 +36,9 @@ Plan for the section:
 
 ### 3.3.2 Getting ground truth data
 
-Video / https://www.loom.com/share/2ec75a665fa44721a31a17b24c3aece2
+<a href="https://www.youtube.com/watch?v=bpxi6fKcyLw&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/bpxi6fKcyLw">
+</a>
 
 * Approaches for getting evaluation data
 * Using OpenAI to generate evaluation data
