@@ -21,6 +21,12 @@ There are other services that we can use
 * [Replicate](https://replicate.com/) (faster inference, can host any ML model. charges 0.10$ per 1M input tokens for llama/Mistral model)
 
 
+## Local LLMs on CPUs
+
+These services help run LLMs locally, also without GPUs
+
+* Ollama
+
 ## Applications
 - **Text Generation**
   - [OpenAI GPT-3 Playground](https://platform.openai.com/playground)
