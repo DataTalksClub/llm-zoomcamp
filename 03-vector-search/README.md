@@ -46,14 +46,18 @@ Plan for the section:
 
 ### 3.3.3 Ranking evaluation: text search
 
-Video
+<a href="https://www.youtube.com/watch?v=fdIV4xCsp0c&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/fdIV4xCsp0c">
+</a>
 
 * Elasticsearch with text results
 * minsearch
 
 ### 3.3.4 Ranking evaluation: vector search
 
-Video
+<a href="https://www.youtube.com/watch?v=VRprIm9&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/VRprIm9">
+</a>
 
 * Elasticsearch with vector search
 * Ranking with question, answer, question+answer embeddings
