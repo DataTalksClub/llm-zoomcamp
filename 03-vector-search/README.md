@@ -56,6 +56,7 @@ Video
 Video
 
 * Elasticsearch with vector search
+* Ranking with question, answer, question+answer embeddings
 
 
 ## Homework
