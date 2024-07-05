@@ -1,4 +1,4 @@
-ww# Vector Search 
+# Vector Search 
 
 ## 3.1 Introduction to Vector Search
 
