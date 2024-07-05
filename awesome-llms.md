@@ -25,7 +25,9 @@ There are other services that we can use
 
 These services help run LLMs locally, also without GPUs
 
-* Ollama
+- Ollama
+- [Jan.AI](https://jan.ai/) 
+     
 
 ## Applications
 - **Text Generation**
