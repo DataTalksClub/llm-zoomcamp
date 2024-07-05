@@ -55,8 +55,8 @@ Plan for the section:
 
 ### 3.3.4 Ranking evaluation: vector search
 
-<a href="https://www.youtube.com/watch?v=VRprIm9&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/VRprIm9">
+<a href="https://www.youtube.com/watch?v=VRprIm9-VV8&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/VRprIm9-VV8">
 </a>
 
 * Elasticsearch with vector search
