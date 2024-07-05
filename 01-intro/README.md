@@ -73,7 +73,7 @@ work locally, you only need to change a few lines of code.
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/HObjFso2UJE">
 </a>
 
-[Open AI Alternatives](open-ai-alternatives.md)
+[Open AI Alternatives](../awesome-llms.md#openai-api-alternatives)
 
 
 ## 1.5 Cleaned RAG flow
