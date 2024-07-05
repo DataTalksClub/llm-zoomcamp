@@ -5,6 +5,6 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY calculate_metrics.py calculate_metrics.py
+COPY metrics_computation.py metrics_computation.py
 
-CMD ["python", "calculate_metrics.py"]
+CMD ["python", "metrics_computation.py"]

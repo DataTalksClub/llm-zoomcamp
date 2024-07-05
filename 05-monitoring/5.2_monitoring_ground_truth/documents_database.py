@@ -1,3 +1,4 @@
+import random
 import json 
 from tqdm.auto import tqdm
 from elasticsearch import Elasticsearch
@@ -34,16 +35,15 @@ def fill_document_db(es_client: Elasticsearch, index_name: str):
         docs_raw = json.load(f_in)
 
     documents = []
-
     for course_dict in docs_raw:
-        for doc in tqdm(course_dict['documents']):
+        for doc in tqdm(course_dict['documents'][:5]):
             doc['course'] = course_dict['course']
             es_client.index(index=index_name, document=doc)
             documents.append(doc)
 
 
-def retrieve_all_docs_from_db(es_client: Elasticsearch, index_name: str) -> Dataset:
-    search_result = es_client.search(index=index_name, body={"query": {"match_all": {}}}, size=1000)
+def retrieve_n_docs_from_db(es_client: Elasticsearch, index_name: str, query: dict, n: int = 10) -> Dataset:
+    search_result = es_client.search(index=index_name, body={"query": query}, size=n)
     dataset = Dataset.from_pandas(pd.DataFrame([hit["_source"] for hit in search_result["hits"]["hits"]]))
 
     return dataset

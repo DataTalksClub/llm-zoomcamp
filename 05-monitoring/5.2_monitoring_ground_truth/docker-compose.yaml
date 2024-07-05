@@ -16,6 +16,8 @@ services:
     build: . 
     depends_on:
       - metrics-db
+    environment:
+      POSTGRES_HOST: "metrics-db"
 
   metrics-db:
     image: postgres:13
