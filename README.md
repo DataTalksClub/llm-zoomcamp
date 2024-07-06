@@ -18,6 +18,8 @@ knowledge base.
 - Join the [course Telegram channel with announcements](https://t.me/llm_zoomcamp)
 - The videos are published on [DataTalks.Club's YouTube channel](https://www.youtube.com/c/DataTalksClub) in [the course playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hKiIVNf7DeEt_tGjypOYtKV)
 - [Frequently asked technical questions](https://docs.google.com/document/d/1m2KexowAXTmexfC5rVTCSnaShvdUQ8Ag2IEiwBDHxN0/edit?usp=sharing)
+- [Course Calendar](https://calendar.google.com/calendar/?cid=NjkxOThkOGFhZmUyZmQwMzZjNDFkNmE2ZDIyNjE5YjdiMmQyZDVjZTYzOGMxMzQyZmNkYjE5Y2VkNDYxOTUxY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
+- [Materials specific to 2024 cohort](cohorts/2024/)
 
 
 We will cover topics like LLMs and RAG.
@@ -35,6 +37,8 @@ Pre-requisites:
 
 
 ## Syllabus
+
+We encourage [Learning in Public](learning-in-public.md)
 
 ### Pre-course workshops
 
@@ -56,20 +60,23 @@ Implement a search engine
 * Retrieval and the basics of search
 * OpenAI API
 * Simple RAG with Open AI
+* Text search with Elasticsearch
 
-### [Open-source LLMs and self-hosting LLMs](02-open-source/)
+### [Open-source LLMs](02-open-source/)
 
-* Simple RAG with Open-Source LLMs
+* Getting an environment with a GPU
+* Open-source models from HuggingFace Hub
+* Running LLMs on a CPU with Ollama
+* Creating a simple UI with Streamlit 
 
-### [Vector databases and retrieval techniques](03-vector-search/)
+### [Vector databases](03-vector-search/)
 
-* Embeddings
 * Vector search
-* Adding vectors to RAG
+* Creating and indexing embeddings
+* Vector search with Elasticsearch
 
-### Workshop: dlt
+### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
-* TBA
 
 ### [LLM orchestration and ingestion pipelines](04-orchestration/)
 
@@ -88,10 +95,9 @@ Implement a search engine
 
 * Best practices
 
+### LLM Zoomcamp 2024 Competition
 
-### Competition
-
-TBA
+[More details](cohorts/2024/competition/)
 
 ### [Hands-on project](project.md)
 
@@ -103,7 +109,16 @@ TBA
 
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev/)
 - [Magdalena Kuhn](https://www.linkedin.com/in/magdalenakuhn/)
+- [Balaji Dhamodharan](https://www.linkedin.com/in/balaji-dhamodharan-91b45615/)
 
+## Asking questions
+
+The best way to get support is to use [DataTalks.Club's Slack](https://datatalks.club/slack.html). Join the [`#course-llm-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C06TEGTGM3J).
+
+To make discussions in Slack more organized:
+
+* Follow [these recommendations](asking-questions.md) when asking for help
+* Read the [DataTalks.Club community guidelines](https://datatalks.club/slack/guidelines.html)
 
 
 ## Supporters and partners
