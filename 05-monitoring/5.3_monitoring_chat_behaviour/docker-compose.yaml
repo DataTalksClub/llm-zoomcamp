@@ -1,35 +1,43 @@
 version: '3.8'
 
 services:
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
-    container_name: elasticsearch
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
-    ports:
-      - "9200:9200"
+  chat-frontend:
+    build: . 
     volumes:
-      - es_data:/usr/share/elasticsearch/data
-
-  grafana:
-    image: grafana/grafana:11.0.0
-    container_name: grafana
+      - .:/app
     depends_on:
-      - elasticsearch
+      - metrics-db
     environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
+      POSTGRES_HOST: "metrics-db"
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    ports:
+    - 8501:8501
+
+  metrics-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_DB: "chat_monitoring"
+    ports:
+    - 5432:5432
+    deploy:
+      restart_policy:
+        condition: none
+
+  dashboard:
+    image: grafana/grafana:11.0.0
+    depends_on:
+      - metrics-db
+      - chat-frontend
+    environment:
+      GF_SECURITY_ADMIN_USER: "admin"
+      GF_SECURITY_ADMIN_PASSWORD: "admin"
     ports:
       - "3000:3000"
     volumes:
       - grafana_data:/var/lib/grafana
-    links:
-      - elasticsearch
+      - ./grafana/provisioning:/etc/grafana/provisioning
 
 volumes:
-  es_data:
-    driver: local
   grafana_data:
-    driver: local
