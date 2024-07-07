@@ -17,6 +17,10 @@
 
 * Notebook: [demo_es.ipynb](demo_es.ipynb)
 
+### 3.2.2
+
+Video
+
 
 ## 3.3 Evaluating Retrieval 
 
