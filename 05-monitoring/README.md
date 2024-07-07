@@ -19,12 +19,12 @@ Mac/Linux: export OPENAI_API_KEY="your-api-key-here"
 Mainly recap from 3.3 Evaluating Retrieval
 * Setting up Elastic Search database as docker-compose service
 * Storing documents-with-ids.json in Elastic Search database
-* Extending ground-truth-data.csv with retrieved context data from Elastic Search
+* Extending ground-truth-data.csv with retrieved context data from Elastic Search and llm answer
 
 ### 5.2.2 Computing and storing metrics
 < placeholder for youtube video >
 
-* Compute evaluation metrics from groud-truth-data.csv
+* Compute evaluation metrics (i.e. semantic similarity, LLM-as-a-judge) from groud-truth-data.csv
 * Setting up Postgres database as docker-compose service
 * Store evaluation metrics in Postgres
 

@@ -2,8 +2,9 @@ import json
 from tqdm.auto import tqdm
 from elasticsearch import Elasticsearch
 import pandas as pd
-from datasets import Dataset
 from sentence_transformers import SentenceTransformer
+
+from llm_utils import ask_llm, build_prompt
 
 
 def setup_es_client_and_index(index_name: str) -> Elasticsearch:
@@ -80,7 +81,6 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
         docs_raw = json.load(f_in)
     
     df_ground_truth = pd.read_csv('../../03-vector-search/ground-truth-data.csv')
-    df_ground_truth = df_ground_truth
 
     model = SentenceTransformer('multi-qa-MiniLM-L6-cos-v1')
     
@@ -93,4 +93,7 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
         text_results = elastic_search_knn("text_vector", question_vector, "data-engineering-zoomcamp", es_client, index_name)
         df_ground_truth.at[idx, 'contexts'] = [result["text"] for result in text_results]
     
+        prompt = build_prompt(row["question"], row["contexts"])
+        df_ground_truth.at[idx, "llm_answer"] = ask_llm([{"role": "user", "content": prompt}], mock_answer=False)
+
     df_ground_truth.to_csv("ground-truth-data.csv")
