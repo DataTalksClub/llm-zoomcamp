@@ -307,6 +307,7 @@
         "type": "grafana-postgresql-datasource",
         "uid": "P82B5D1BC9AA50782"
       },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -411,7 +412,7 @@
           }
         }
       ],
-      "title": "Panel Title",
+      "title": "Number of User prompts over time",
       "type": "timeseries"
     },
     {
@@ -477,7 +478,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "WITH negative_feedback AS (\n    SELECT \n        session_id,\n        COUNT(*) AS negative_count\n    FROM \n        chat_history\n    WHERE \n        feedback = 'thumbs_down'\n    GROUP BY \n        session_id\n),\nassistant_prompts AS (\n    SELECT \n        session_id,\n        COUNT(*) AS assistant_prompt_count\n    FROM \n        chat_history\n    WHERE \n        message_type = 'assistant'\n    GROUP BY \n        session_id\n)\nSELECT \n    nf.session_id,\n    (nf.negative_count::float / ap.assistant_prompt_count::float) * 100 AS negative_rating_percentage,\n    ap.assistant_prompt_count AS number_of_prompts\nFROM \n    negative_feedback nf\nJOIN \n    assistant_prompts ap ON nf.session_id = ap.session_id\nORDER BY \n    negative_rating_percentage DESC\nLIMIT 5;\n",
+          "rawSql": "WITH negative_feedback AS (\n    SELECT \n        session_id,\n        COUNT(*) AS negative_count\n    FROM \n        chat_history\n    WHERE \n        feedback = 'thumbs_down'\n    GROUP BY \n        session_id\n),\nassistant_prompts AS (\n    SELECT \n        session_id,\n        COUNT(*) AS assistant_prompt_count\n    FROM \n        chat_history\n    WHERE \n        message_type = 'assistant'\n    GROUP BY \n        session_id\n)\nSELECT \n    nf.session_id,\n    (nf.negative_count::float / ap.assistant_prompt_count::float) * 100 -100  AS \"Rating\",\n    ap.assistant_prompt_count AS \"Prompts\"\nFROM \n    negative_feedback nf\nJOIN \n    assistant_prompts ap ON nf.session_id = ap.session_id\nORDER BY \n    \"Rating\" DESC\nLIMIT 5;\n",
           "refId": "A",
           "sql": {
             "columns": [
