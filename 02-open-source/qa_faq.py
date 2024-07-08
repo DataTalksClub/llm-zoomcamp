@@ -78,17 +78,13 @@ def rag(query):
     return answer
 
 
-# Streamlit app
 def main():
     st.title("RAG Function Invocation")
 
-    # Input box
     user_input = st.text_input("Enter your input:")
 
-    # Button to invoke the RAG function
     if st.button("Ask"):
         with st.spinner('Processing...'):
-            # Call the RAG function
             output = rag(user_input)
             st.success("Completed!")
             st.write(output)
