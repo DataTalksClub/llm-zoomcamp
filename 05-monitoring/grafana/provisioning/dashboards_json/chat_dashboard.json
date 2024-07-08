@@ -564,7 +564,7 @@
           "editorMode": "code",
           "format": "table",
           "rawQuery": true,
-          "rawSql": "SELECT \n    timestamp, \n    message_type, \n    content,\n    feedback\nFROM \n    chat_history\nWHERE \n    session_id = '$session_id'\nORDER BY \n    timestamp;\n",
+          "rawSql": "SELECT \n    date_trunc('second', timestamp) AS \"Timestamp\",\n    message_type AS \"Messanger\",\n    content AS \"Textbody\",\n    feedback AS \"Feedback\"\nFROM \n    chat_history\nWHERE \n    session_id = '$session_id'\nORDER BY \n    \"Timestamp\";\n",
           "refId": "A",
           "sql": {
             "columns": [
@@ -585,7 +585,7 @@
           }
         }
       ],
-      "title": "Panel Title",
+      "title": "Chat History for Session: ${session_id}",
       "type": "table"
     }
   ],
@@ -595,9 +595,6 @@
     "list": [
       {
         "current": {
-          "selected": false,
-          "text": "e0654fa3-b408-4da5-ba41-84a082b3d1fe",
-          "value": "e0654fa3-b408-4da5-ba41-84a082b3d1fe"
         },
         "datasource": {
           "type": "grafana-postgresql-datasource",
