@@ -53,3 +53,8 @@ Find out with the help of the AI assistant: how many PTO days are the employees 
 * 25
 * 30
 * 35
+
+## Submit the results
+
+* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2024/homework/workshop1
+* It's possible that your answers won't match exactly. If it's the case, select the closest one.
