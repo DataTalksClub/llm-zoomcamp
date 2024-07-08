@@ -78,17 +78,18 @@ Implement a search engine
 ### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
 
-### [LLM orchestration and ingestion pipelines](04-orchestration/)
-
-* Ingesting data with Mage
-
-### [Monitoring and Guardrails](05-monitoring/)
+### [Monitoring and Guardrails](04-monitoring/)
 
 * Monitoring with ground-truth
 * Metrics (RAGAs)
 * Dashboarding with Grafana for visualization
 * Monitoring chat
 * Guardrails
+
+### [LLM orchestration and ingestion pipelines](05-orchestration/)
+
+* Ingesting data with Mage
+
 
 
 ### [Tips and Tricks for advanced RAG systems](06-best-practices/)
