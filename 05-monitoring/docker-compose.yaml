@@ -2,9 +2,9 @@ version: '3.8'
 
 services:
   chat-frontend:
-    build: . 
+    build: ./5.3-monitoring-chat-behaviour/.
     volumes:
-      - .:/app
+      - ./5.3-monitoring-chat-behaviour/.:/app
     depends_on:
       - metrics-db
     environment:
@@ -25,7 +25,7 @@ services:
       - documents_data:/usr/share/elasticsearch/data
 
   metrics-calculation:
-    build: . 
+    build: ./5.2-monitoring-ground-truth/. 
     depends_on:
       - metrics-db
     environment:
@@ -49,6 +49,7 @@ services:
     image: grafana/grafana:11.0.0
     depends_on:
       - metrics-db
+      - chat-frontend
     environment:
       GF_SECURITY_ADMIN_USER: "admin"
       GF_SECURITY_ADMIN_PASSWORD: "admin"
