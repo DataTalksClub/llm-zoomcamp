@@ -1,198 +1,183 @@
 ## Homework: Vector Search
 
-In this homework, we'll implement an end to end semantic search engine
+In this homework, we'll experiemnt with vector with and without Elasticsearch
 
 > It's possible that your answers won't match exactly. If it's the case, select the closest one.
 
-## Q1. Prepare Documents
 
-Import documents.json, read the file and prepare the dataset:
+## Q1. Getting the embeddings model
 
-```bash
-import json
-
-with open('documents.json', 'rt') as f_in:
-    docs_raw = json.load(f_in)
-
-documents = []
-
-for course_dict in docs_raw:
-    for doc in course_dict['documents']:
-        doc['course'] = course_dict['course']
-        documents.append(doc)
-
-len(documents)
-```
-How many records we have in the pre-processed "documents"?
-* 1000
-* 1051
-* 901
-* 948
-
-
-## Q2. Create Embeddings using Pretrained Models
-
-Import sentence transformer library. Please review the Sentence Transformer pretrained documentation here: https://www.sbert.net/docs/sentence_transformer/pretrained_models.html#model-overview
+First, we will get the embeddings model `multi-qa-distilbert-cos-v1` from
+[the Sentence Transformer library](https://www.sbert.net/docs/sentence_transformer/pretrained_models.html#model-overview)
 
 ```bash
-# This is a new library compared to the previous modules. 
-# Please perform "pip install sentence_transformers==2.7.0"
-
 from sentence_transformers import SentenceTransformer
-
-# if you get an error do the following:
-# 1. Uninstall numpy 
-# 2. Uninstall torch
-# 3. pip install numpy==1.26.4
-# 4. pip install torch
-# run the above cell, it should work
-model = SentenceTransformer("all-MiniLM-L12-v2")
+embedding_model = SentenceTransformer(model_name)
 ```
 
-What is the model size (in MB) and average performance?
+Create the embedding for this user question:
 
-* [420, 63.30]
-* [120, 59.76]
-* [290, 59.84]
-* [420, 51.72]
-
-
-## Q3. Get the dimension for model embedding
-
-```bash
-len(model.encode("This is a simple sentence"))
+```python
+user_question = "I just discovered the course. Can I still join it?"
 ```
 
-What is the dimension of the model embedding?
+What's the first value of the resulting vector?
 
-* 768
-* 265
-* 384
-* 1056
+* -0.24
+* -0.04
+* 0.07
+* 0.27
 
-```bash
-#created the dense vector using the pre-trained model
-operations = []
-for doc in documents:
-    # Transforming the title into an embedding using the model
-    doc["question_vector"] = model.encode(doc["question"]).tolist()
-    operations.append(doc)
+
+## Prepare the documents
+
+Now we will create the embeddings for the documents.
+
+Load the documents with ids that we prepared in the module:
+
+```python
+import requests 
+
+base_url = 'https://github.com/DataTalksClub/llm-zoomcamp/blob/main'
+relative_url = '03-vector-search/eval/documents-with-ids.json'
+docs_url = f'{base_url}/{relative_url}?raw=1'
+docs_response = requests.get(docs_url)
+documents = docs_response.json()
 ```
 
+We will use only a subset of the questions - the questions
+for `"machine-learning-zoomcamp"`. After filtering, you should
+have only 375 documents
 
-Establish connection to Elasticsearch 
+## Q2. Creating the embeddings
 
-```bash
-from elasticsearch import Elasticsearch
-es_client = Elasticsearch('http://localhost:9200') 
+Now for each document, we will create an embedding for both question and answer fields.
 
-es_client.info()
+We want to put all of them into a single matrix `X`:
+
+- Create a list `embeddings` 
+- Iterate over each document 
+- `qa_text = f'{question} {text}'`
+- compute the embedding for `qa_text`, append to `embeddings`
+- At the end, let `X = np.array(embeddings)` (`import numpy as np`) 
+
+What's the shape of X? (`X.shape`). Include the parantheses. 
+
+
+
+## Q3. Search
+
+We have the embeddings and the query vector. Now let's compute the 
+cosine similarity between the vector from Q1 (let's call it `v`) and the matrix from Q2. 
+
+The vectors returned from the embedding model are already
+normalized (you can check it by computing a dot product of a vector
+with itself - it should return 1.0). This means that in order
+to compute the coside similarity, it's sufficient to 
+multiply the matrix `X` by the vector `v`:
+
+
+```python
+scores = X.dot(v)
 ```
 
-## Q4: Create Mappings and Index
+What's the highest score in the results?
 
-In the mappings, change "section" to "keyword" type
+- 65.0 
+- 6.5
+- 0.65
+- 0.065
 
-```bash
-index_settings = {
-    "settings": {
-        "number_of_shards": 1,
-        "number_of_replicas": 0
-    },
-    "mappings": {
-        "properties": {
-            "text": {"type": "text"},
-            "section": {"type": "keyword"},
-            "question": {"type": "text"},
-            "course": {"type": "keyword"} ,
-            "question_vector":{"type":"dense_vector","dims": 384,"index":True,"similarity": "cosine"
-        },
-        }
-    }
-}
 
-index_name = "course-questions"
+## Vector search
 
-es_client.indices.delete(index=index_name, ignore_unavailable=True)
-es_client.indices.create(index=index_name, body=index_settings)
+We can now compute the similarity between a query vector and all the embeddings.
+
+Let's use this to implement our own vector search
+
+```python
+class VectorSearchEngine():
+    def __init__(self, documents, embeddings):
+        self.documents = documents
+        self.embeddings = embeddings
+
+    def search(self, v_query, num_results=10):
+        scores = self.embeddings.dot(v_query)
+        idx = np.argsort(-scores)[:num_results]
+        return [self.documents[i] for i in idx]
+
+search_engine = VectorSearchEngine(documents=documents, embeddings=X)
+search_engine.search(v, num_results=5)
 ```
 
-Add documents into index
+If you don't understand how the `search` function work:
 
-```bash
-for doc in operations:
-    try:
-        es_client.index(index=index_name, document=doc)
-    except Exception as e:
-        print(e)
+* Ask ChatGTP or any other LLM of your choice to explain the code
+* Check our pre-course workshop about implementing a search engine [here](https://github.com/alexeygrigorev/build-your-own-search-engine)
+
+(Note: you can replace `argsort` with `argpartition` to make it a lot faster)
+
+
+## Q4. Hit-rate for our search engine
+
+Let's evaluate the performance of our own search engine. We will
+use the hitrate metric for evaluation.
+
+First, load the ground truth dataset:
+
+```python
+import pandas as pd
+
+base_url = 'https://github.com/DataTalksClub/llm-zoomcamp/blob/main'
+relative_url = '03-vector-search/eval/ground-truth-data.csv'
+ground_truth_url = f'{base_url}/{relative_url}?raw=1'
+
+df_ground_truth = pd.read_csv(ground_truth_url)
+df_ground_truth = df_ground_truth[df_ground_truth.course == 'machine-learning-zoomcamp']
+ground_truth = df_ground_truth.to_dict(orient='records')
 ```
 
-In the es_client.indices.delete statement, what does "ignore_unavailable" mean?
-* If the pre-trained model in unavailable, skip this statement
-* If the index is unavailable, skip this statement
-* If the pre-trained model in unavailable, don't skip this statement
-* If the index is unavailable, don't skip this statement
+Now use the code from the module to calculate the hitrate of
+`VectorSearchEngine` with `num_results=5`.
 
+What did you get?
 
-## Q5: Create end user query and perform semantic search
+* 0.93
+* 0.73
+* 0.53
+* 0.33
 
-Use the search term "how to enrol to course?" and perform semantic search
+## Q5. Indexing with Elasticsearch
 
-```bash
-search_term = "how to enrol to course?"
-vector_search_term = model.encode(search_term)
+Now let's index these documents with elasticsearch
 
-query = {
-    "field" : "question_vector",
-    "query_vector" :  vector_search_term,
-    "k" : 5,
-    "num_candidates" : 10000, 
-}
+* Create the index with the same settings as in the module (but change the dimensions)
+* Index the embeddings (note: you've already computed them)
 
-res = es_client.search(index=index_name, knn=query,source=["text","section","question","course"])
-res["hits"]["hits"]
-```
-What is the similarity score, section and course for the first result?
+After indexing, let's perform the search of the same query from Q1.
 
-* [0.78, 'Module 1: Introduction', 'mlops-zoomcamp']
-* [0.74, 'General course-related questions', 'data-engineering-zoomcamp']
-* [0.72, 'Projects (Midterm and Capstone)', 'machine-learning-zoomcamp']
-* [0.71, 'General course-related questions', 'machine-learning-zoomcamp']
+What's the ID of the document with the highest score?
 
+## Q6. Hit-rate for Elasticsearch
 
-## Q6: Perform Semantic Search & Filtering
+The search engine we used in Q4 computed the similarity between
+the query and ALL the vectors in our database. Usually this is 
+not practical, as we may have a lot of data.
 
-Filter the results to "General course-related questions" section only
+Elasticsearch uses approximate techniques to make it faster. 
 
-```bash
-knn_query = {
-    "field" : "text_vector",
-    "query_vector" :  vector_search_term,
-    "k" : 5,
-    "num_candidates" : 10000
-}
+Let's evaluate how worse the results are when we switch from
+exact search (as in Q4) to approximate search with Elastic.
 
-response = es_client.search(
-    index=index_name,
-    query={
-        "match": {
-                "section": "General course-related questions"
-            },
-        },
-        
-    knn=knn_query,
-    size=5
-)
+What's hitrate for our dataset for Elastic?
 
-response["hits"]["hits"]
-```
-Do you see the results filtered only to "General course-related questions" section?
-
-* Yes
-* No
+* 0.93
+* 0.73
+* 0.53
+* 0.33
 
 
 ## Submit the results
 
-* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2024/homework/hw3 (to be created)
+* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2024/homework/hw3
 * It's possible that your answers won't match exactly. If it's the case, select the closest one.
