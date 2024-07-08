@@ -413,12 +413,211 @@
       ],
       "title": "Panel Title",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "P82B5D1BC9AA50782"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 5,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "P82B5D1BC9AA50782"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "WITH negative_feedback AS (\n    SELECT \n        session_id,\n        COUNT(*) AS negative_count\n    FROM \n        chat_history\n    WHERE \n        feedback = 'thumbs_down'\n    GROUP BY \n        session_id\n),\nassistant_prompts AS (\n    SELECT \n        session_id,\n        COUNT(*) AS assistant_prompt_count\n    FROM \n        chat_history\n    WHERE \n        message_type = 'assistant'\n    GROUP BY \n        session_id\n)\nSELECT \n    nf.session_id,\n    (nf.negative_count::float / ap.assistant_prompt_count::float) * 100 AS negative_rating_percentage,\n    ap.assistant_prompt_count AS number_of_prompts\nFROM \n    negative_feedback nf\nJOIN \n    assistant_prompts ap ON nf.session_id = ap.session_id\nORDER BY \n    negative_rating_percentage DESC\nLIMIT 5;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Negative User sessions",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "P82B5D1BC9AA50782"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 19
+      },
+      "id": 6,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "P82B5D1BC9AA50782"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    timestamp, \n    message_type, \n    content,\n    feedback\nFROM \n    chat_history\nWHERE \n    session_id = '$session_id'\nORDER BY \n    timestamp;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Panel Title",
+      "type": "table"
     }
   ],
   "schemaVersion": 39,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "e0654fa3-b408-4da5-ba41-84a082b3d1fe",
+          "value": "e0654fa3-b408-4da5-ba41-84a082b3d1fe"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "P82B5D1BC9AA50782"
+        },
+        "definition": "SELECT DISTINCT session_id FROM chat_history ORDER BY session_id;\n",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Session ID",
+        "multi": false,
+        "name": "session_id",
+        "options": [],
+        "query": "SELECT DISTINCT session_id FROM chat_history ORDER BY session_id;\n",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
   },
   "time": {
     "from": "now-30m",
@@ -429,6 +628,6 @@
   "timezone": "browser",
   "title": "5.3 User Feedback",
   "uid": "cdqxwvymr6x34c",
-  "version": 6,
+  "version": 1,
   "weekStart": ""
 }
