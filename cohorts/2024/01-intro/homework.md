@@ -4,6 +4,11 @@ In this homework, we'll learn more about search and use Elastic Search for pract
 
 > It's possible that your answers won't match exactly. If it's the case, select the closest one.
 
+Solution:
+
+* Video: https://www.loom.com/share/06dc510152074b0c9e7caf6cb81f8bd9
+* Notebook: [homework_solution.ipynb](homework_solution.ipynb)
+
 ## Q1. Running Elastic 
 
 Run Elastic Search 8.4.3, and get the cluster information. If you run it on localhost, this is how you do it:
