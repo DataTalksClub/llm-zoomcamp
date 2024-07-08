@@ -14,7 +14,8 @@ In this hands-on workshop, we’ll learn how to build a data ingestion pipeline 
 
 
 # Resources
-Slides: [link to be added]
+Slides: [dlt LLM Zoomcamp .pdf](https://github.com/user-attachments/files/16131729/dlt.LLM.Zoomcamp.pdf)
+
 
 [Google Colab notebook](https://colab.research.google.com/drive/1nNOybHdWQiwUUuJFZu__xvJxL_ADU3xl?usp=sharing) - make a copy to follow along!
 
