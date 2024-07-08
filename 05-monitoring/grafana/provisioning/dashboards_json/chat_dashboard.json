@@ -21,7 +21,10 @@
   "links": [],
   "panels": [
     {
-      "datasource": {},
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "P82B5D1BC9AA50782"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -72,7 +75,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "bdqxvy5o82br4c"
+            "uid": "P82B5D1BC9AA50782"
           },
           "editorMode": "code",
           "format": "table",
@@ -109,7 +112,10 @@
       "type": "stat"
     },
     {
-      "datasource": {},
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "P82B5D1BC9AA50782"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -160,7 +166,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "bdqxvy5o82br4c"
+            "uid": "P82B5D1BC9AA50782"
           },
           "editorMode": "code",
           "format": "table",
@@ -198,7 +204,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "PCC52D03280B7034C"
+        "uid": "P82B5D1BC9AA50782"
       },
       "fieldConfig": {
         "defaults": {
@@ -267,7 +273,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "bdqxvy5o82br4c"
+            "uid": "P82B5D1BC9AA50782"
           },
           "editorMode": "code",
           "format": "table",
@@ -299,8 +305,9 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "PCC52D03280B7034C"
+        "uid": "P82B5D1BC9AA50782"
       },
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -379,7 +386,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "PCC52D03280B7034C"
+            "uid": "P82B5D1BC9AA50782"
           },
           "editorMode": "code",
           "format": "table",
@@ -405,14 +412,223 @@
           }
         }
       ],
-      "title": "Panel Title",
+      "title": "Number of User prompts over time",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "P82B5D1BC9AA50782"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Rating"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 13
+      },
+      "id": 5,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "P82B5D1BC9AA50782"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "WITH negative_feedback AS (\n    SELECT \n        session_id,\n        COUNT(*) AS negative_count\n    FROM \n        chat_history\n    WHERE \n        feedback = 'thumbs_down'\n    GROUP BY \n        session_id\n),\nassistant_prompts AS (\n    SELECT \n        session_id,\n        COUNT(*) AS assistant_prompt_count\n    FROM \n        chat_history\n    WHERE \n        message_type = 'assistant'\n    GROUP BY \n        session_id\n)\nSELECT \n    nf.session_id,\n    (nf.negative_count::float / ap.assistant_prompt_count::float) * 100 -100  AS \"Rating\",\n    ap.assistant_prompt_count AS \"Prompts\"\nFROM \n    negative_feedback nf\nJOIN \n    assistant_prompts ap ON nf.session_id = ap.session_id\nORDER BY \n    \"Rating\" DESC\nLIMIT 5;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Negative User sessions",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "P82B5D1BC9AA50782"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 19
+      },
+      "id": 6,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "P82B5D1BC9AA50782"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT \n    date_trunc('second', timestamp) AS \"Timestamp\",\n    message_type AS \"Messanger\",\n    content AS \"Textbody\",\n    feedback AS \"Feedback\"\nFROM \n    chat_history\nWHERE \n    session_id = '$session_id'\nORDER BY \n    \"Timestamp\";\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "Chat History for Session: ${session_id}",
+      "type": "table"
     }
   ],
   "schemaVersion": 39,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "P82B5D1BC9AA50782"
+        },
+        "definition": "SELECT DISTINCT session_id FROM chat_history ORDER BY session_id;\n",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Session ID",
+        "multi": false,
+        "name": "session_id",
+        "options": [],
+        "query": "SELECT DISTINCT session_id FROM chat_history ORDER BY session_id;\n",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
   },
   "time": {
     "from": "now-30m",
@@ -421,7 +637,7 @@
   "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {},
   "timezone": "browser",
-  "title": "User Feedback",
+  "title": "5.3 User Feedback",
   "uid": "cdqxwvymr6x34c",
   "version": 1,
   "weekStart": ""

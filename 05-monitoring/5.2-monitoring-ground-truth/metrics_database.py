@@ -9,11 +9,14 @@ def create_metrics_db(postgres_db_params: dict):
         connection = psycopg2.connect(**default_db_params)
         connection.autocommit = True
         cursor = connection.cursor()
-        cursor.execute(f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{postgres_db_params['dbname']}'")
+        cursor.execute(
+            f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{postgres_db_params['dbname']}'")
         exists = cursor.fetchone()
         if not exists:
-            cursor.execute(sql.SQL(f"CREATE DATABASE {postgres_db_params['dbname']}"))
-            print(f"Database {postgres_db_params['dbname']} created successfully!")
+            cursor.execute(
+                sql.SQL(f"CREATE DATABASE {postgres_db_params['dbname']}"))
+            print(
+                f"Database {postgres_db_params['dbname']} created successfully!")
         cursor.close()
         connection.close()
     except Exception as error:
@@ -35,6 +38,7 @@ def create_metrics_table(postgres_db_params: dict):
         )
         '''
         cursor.execute(query=create_table_query)
+        connection.commit()
         cursor.close()
         connection.close()
     except Exception as error:
