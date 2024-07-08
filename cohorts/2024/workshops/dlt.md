@@ -12,17 +12,24 @@ In this hands-on workshop, we’ll learn how to build a data ingestion pipeline 
 
 If you don't take the course and want to sign up only for this workshop, use this link: https://lu.ma/cnpdoc5n
 
+# Resources
+Slides: [link to be added]
+
+[Google Colab notebook](https://colab.research.google.com/drive/1nNOybHdWQiwUUuJFZu__xvJxL_ADU3xl?usp=sharing) - make a copy to follow along!
+
 --- 
 
 # Homework
 
-In the demo, we extracted contents from two pages in notion titled "Workshop: Benefits and Perks" and "Workshop: Working hours, PTO, and Vacation". 
+In the workshop, we extracted contents from two pages in notion titled "Workshop: Benefits and Perks" and "Workshop: Working hours, PTO, and Vacation". 
 
-Repeat the same process for a third page titled "Homework: Employee handbook":
+Repeat the same process for a third page titled "Homework: Employee handbook" (hidden from public view, but accessible via API key):
 
 1. Modify the REST API source to extract only this page.
 2. Write the output into a separate table called "homework".
 3. Remember to update the table name in all cells where you connect to a lancedb table.
+
+To do this you can use the [workshop Colab](https://colab.research.google.com/drive/1nNOybHdWQiwUUuJFZu__xvJxL_ADU3xl?usp=sharing) as a basis.
 
 Now, answer the following questions:  
 
