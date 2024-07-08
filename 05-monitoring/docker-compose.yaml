@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  chat-frontend:
+    build: . 
+    volumes:
+      - .:/app
+    depends_on:
+      - metrics-db
+    environment:
+      POSTGRES_HOST: "metrics-db"
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    ports:
+    - 8501:8501
+  
+  documents-db:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - documents_data:/usr/share/elasticsearch/data
+
+  metrics-calculation:
+    build: . 
+    depends_on:
+      - metrics-db
+    environment:
+      POSTGRES_HOST: "metrics-db"
+
+  metrics-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_DB: "metrics_db"
+    ports:
+    - 5432:5432
+    volumes:
+      - monitoring_data:/var/lib/postgresql/data
+    deploy:
+      restart_policy:
+        condition: none
+
+  dashboard:
+    image: grafana/grafana:11.0.0
+    depends_on:
+      - metrics-db
+    environment:
+      GF_SECURITY_ADMIN_USER: "admin"
+      GF_SECURITY_ADMIN_PASSWORD: "admin"
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/provisioning:/etc/grafana/provisioning
+
+volumes:
+  documents_data: {}
+  monitoring_data: {}
+  grafana_data: {}
