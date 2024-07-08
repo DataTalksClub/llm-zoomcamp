@@ -35,7 +35,7 @@ Now we will create the embeddings for the documents.
 
 Load the documents with ids that we prepared in the module:
 
-```bash
+```python
 import requests 
 
 base_url = 'https://github.com/DataTalksClub/llm-zoomcamp/blob/main'
