@@ -21,7 +21,10 @@
   "links": [],
   "panels": [
     {
-      "datasource": {},
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "P82B5D1BC9AA50782"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -72,7 +75,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "bdqxvy5o82br4c"
+            "uid": "P82B5D1BC9AA50782"
           },
           "editorMode": "code",
           "format": "table",
@@ -109,7 +112,10 @@
       "type": "stat"
     },
     {
-      "datasource": {},
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "P82B5D1BC9AA50782"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -160,7 +166,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "bdqxvy5o82br4c"
+            "uid": "P82B5D1BC9AA50782"
           },
           "editorMode": "code",
           "format": "table",
@@ -198,7 +204,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "PCC52D03280B7034C"
+        "uid": "P82B5D1BC9AA50782"
       },
       "fieldConfig": {
         "defaults": {
@@ -267,7 +273,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "bdqxvy5o82br4c"
+            "uid": "P82B5D1BC9AA50782"
           },
           "editorMode": "code",
           "format": "table",
@@ -299,7 +305,7 @@
     {
       "datasource": {
         "type": "grafana-postgresql-datasource",
-        "uid": "PCC52D03280B7034C"
+        "uid": "P82B5D1BC9AA50782"
       },
       "fieldConfig": {
         "defaults": {
@@ -379,7 +385,7 @@
         {
           "datasource": {
             "type": "grafana-postgresql-datasource",
-            "uid": "PCC52D03280B7034C"
+            "uid": "P82B5D1BC9AA50782"
           },
           "editorMode": "code",
           "format": "table",
@@ -423,6 +429,6 @@
   "timezone": "browser",
   "title": "User Feedback",
   "uid": "cdqxwvymr6x34c",
-  "version": 1,
+  "version": 6,
   "weekStart": ""
 }
