@@ -113,7 +113,7 @@ search_engine.search(v, num_results=5)
 If you don't understand how the `search` function work:
 
 * Ask ChatGTP or any other LLM of your choice to explain the code
-* Check our pre-course workshop about implementing a search engine (here)[https://github.com/alexeygrigorev/build-your-own-search-engine]
+* Check our pre-course workshop about implementing a search engine [here](https://github.com/alexeygrigorev/build-your-own-search-engine)
 
 (Note: you can replace `argsort` with `argpartition` to make it a lot faster)
 
