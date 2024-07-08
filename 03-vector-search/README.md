@@ -17,9 +17,11 @@
 
 * Notebook: [demo_es.ipynb](demo_es.ipynb)
 
-### 3.2.2
+### 3.2.2 Advanced Semantic Search
 
-Video
+<a href="https://www.youtube.com/watch?v=yb3nYGuIL4c&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/yb3nYGuIL4c">
+</a>
 
 
 ## 3.3 Evaluating Retrieval 
