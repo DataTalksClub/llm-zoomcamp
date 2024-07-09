@@ -19,6 +19,9 @@ from utils.postgres import (
     store_metrics
 )
 from utils.postgres import POSTGRES_DB_PARAMS
+from utils.llm_utils import ask_llm, build_prompt
+
+
 POSTGRES_DB_PARAMS['host'] = os.getenv('POSTGRES_HOST', 'localhost')
 POSTGRES_DB_PARAMS['dbname'] = 'metrics_db'
 
