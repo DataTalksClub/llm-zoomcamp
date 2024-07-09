@@ -5,8 +5,6 @@ services:
     build: 
       dockerfile: ./5.3-monitoring-chat-behaviour/Dockerfile
       context: .
-    # volumes:
-    #   - ./5.3-monitoring-chat-behaviour/.:/app
     depends_on:
       - metrics-db
     environment:
@@ -34,6 +32,7 @@ services:
       - metrics-db
     environment:
       POSTGRES_HOST: "metrics-db"
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
 
   metrics-db:
     image: postgres:13
