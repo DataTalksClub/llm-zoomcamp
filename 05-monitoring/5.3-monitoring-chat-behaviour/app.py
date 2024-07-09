@@ -3,7 +3,7 @@ import streamlit as st
 import os
 import uuid
 from openai import OpenAI
-from utils.postgres import POSTGRES_DB_PARAMS, create_metrics_db, create_metrics_table, chat_table_sql, save_message_to_db, update_feedback_in_db
+from utils.postgres import POSTGRES_DB_PARAMS, create_metrics_db, create_metrics_table, save_message_to_db, update_feedback_in_db
 
 
 # Set up OpenAI API key
@@ -13,7 +13,7 @@ client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 # Initialize database and table
 POSTGRES_DB_PARAMS['dbname'] = 'chat_monitoring'
 create_metrics_db(POSTGRES_DB_PARAMS)
-create_metrics_table(POSTGRES_DB_PARAMS, chat_table_sql)
+create_metrics_table(POSTGRES_DB_PARAMS)
 
 # Initialize session state variables
 if 'session_id' not in st.session_state:
@@ -51,13 +51,13 @@ for idx, message in enumerate(st.session_state.messages):
         with col1:
             if st.button("👍", key=f"thumbs_up_{idx}"):
                 st.session_state.feedback[idx] = 'thumbs_up'
-                update_feedback_in_db(
-                    st.session_state.session_id, message['role'], message['content'], 'thumbs_up')
+                update_feedback_in_db(POSTGRES_DB_PARAMS,
+                                      st.session_state.session_id, message['role'], message['content'], 'thumbs_up')
         with col2:
             if st.button("👎", key=f"thumbs_down_{idx}"):
                 st.session_state.feedback[idx] = 'thumbs_down'
-                update_feedback_in_db(
-                    st.session_state.session_id, message['role'], message['content'], 'thumbs_down')
+                update_feedback_in_db(POSTGRES_DB_PARAMS,
+                                      st.session_state.session_id, message['role'], message['content'], 'thumbs_down')
 
 # Chat input
 user_input = st.text_input("You:", key="input")
@@ -65,11 +65,13 @@ if st.button("Send"):
     if user_input:
         st.session_state.messages.append(
             {'role': 'user', 'content': user_input})
-        save_message_to_db(st.session_state.session_id, 'user', user_input)
+        save_message_to_db(POSTGRES_DB_PARAMS,
+                           st.session_state.session_id, 'user', user_input)
         response = get_response(st.session_state.messages)
         st.session_state.messages.append(
             {'role': 'assistant', 'content': response})
-        save_message_to_db(st.session_state.session_id, 'assistant', response)
+        save_message_to_db(POSTGRES_DB_PARAMS,
+                           st.session_state.session_id, 'assistant', response)
         st.rerun()
 
 # Clear chat button

@@ -11,18 +11,6 @@ POSTGRES_DB_PARAMS = {
     'port': '5432'
 }
 
-chat_table_sql = '''
-        CREATE TABLE IF NOT EXISTS chat_history (
-            id SERIAL PRIMARY KEY,
-            timestamp TIMESTAMP,
-            session_id VARCHAR,
-            message_type VARCHAR,
-            content TEXT,
-            feedback VARCHAR,
-            UNIQUE (session_id, message_type, content)
-        )
-        '''
-
 
 def create_metrics_db(postgres_db_params: dict):
     default_db_params = postgres_db_params.copy()
@@ -48,52 +36,55 @@ def create_metrics_db(postgres_db_params: dict):
         logging.error(f"Error creating database: {error}")
 
 
-def create_metrics_table(postgres_db_params: dict, create_table_query: str):
-    try:
-        connection = psycopg2.connect(**postgres_db_params)
-        cursor = connection.cursor()
-        cursor.execute(create_table_query)
-        connection.commit()
-        cursor.close()
-        logging.warning(
-            f"Table chat_history created!")
-        connection.close()
-    except Exception as error:
-        logging.error(f"Error creating table: {error}")
-
-
-def save_message_to_db(session_id, message_type, content, feedback=None):
+def execute_db_operation(operation_type, POSTGRES_DB_PARAMS, query, params=None):
     try:
         connection = psycopg2.connect(**POSTGRES_DB_PARAMS)
         cursor = connection.cursor()
-        insert_query = '''
-        INSERT INTO chat_history (timestamp, session_id, message_type, content, feedback)
-        VALUES (%s, %s, %s, %s, %s)
-        ON CONFLICT (session_id, message_type, content)
-        DO UPDATE SET feedback = EXCLUDED.feedback
-        '''
-        cursor.execute(insert_query, (datetime.now(), session_id,
-                       message_type, content, feedback))
+        cursor.execute(query, params)
         connection.commit()
         cursor.close()
         connection.close()
+        if operation_type == 'create_table':
+            logging.warning("Table created!")
+        else:
+            logging.info(
+                f"Database operation '{operation_type}' executed successfully!")
     except Exception as error:
-        logging.error(f"Error saving message to database: {error}")
+        logging.error(f"Error during '{operation_type}': {error}")
 
 
-def update_feedback_in_db(session_id, message_type, content, feedback):
-    try:
-        connection = psycopg2.connect(**POSTGRES_DB_PARAMS)
-        cursor = connection.cursor()
-        update_query = '''
-        UPDATE chat_history
-        SET feedback = %s
-        WHERE session_id = %s AND message_type = %s AND content = %s
+def create_metrics_table(POSTGRES_DB_PARAMS):
+    chat_table_sql = '''
+        CREATE TABLE IF NOT EXISTS chat_history (
+            id SERIAL PRIMARY KEY,
+            timestamp TIMESTAMP,
+            session_id VARCHAR,
+            message_type VARCHAR,
+            content TEXT,
+            feedback VARCHAR,
+            UNIQUE (session_id, message_type, content)
+        )
         '''
-        cursor.execute(
-            update_query, (feedback, session_id, message_type, content))
-        connection.commit()
-        cursor.close()
-        connection.close()
-    except Exception as error:
-        logging.error(f"Error updating feedback in database: {error}")
+    execute_db_operation(
+        'create_table', POSTGRES_DB_PARAMS, chat_table_sql)
+
+
+def save_message_to_db(POSTGRES_DB_PARAMS, session_id, message_type, content, feedback=None):
+    insert_query = '''
+    INSERT INTO chat_history (timestamp, session_id, message_type, content, feedback)
+    VALUES (%s, %s, %s, %s, %s)
+    ON CONFLICT (session_id, message_type, content)
+    DO UPDATE SET feedback = EXCLUDED.feedback
+    '''
+    params = (datetime.now(), session_id, message_type, content, feedback)
+    execute_db_operation('insert', POSTGRES_DB_PARAMS, insert_query, params)
+
+
+def update_feedback_in_db(POSTGRES_DB_PARAMS, session_id, message_type, content, feedback):
+    update_query = '''
+    UPDATE chat_history
+    SET feedback = %s
+    WHERE session_id = %s AND message_type = %s AND content = %s
+    '''
+    params = (feedback, session_id, message_type, content)
+    execute_db_operation('update', POSTGRES_DB_PARAMS, update_query, params)
