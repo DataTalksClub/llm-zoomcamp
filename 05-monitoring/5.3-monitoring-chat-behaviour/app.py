@@ -3,7 +3,7 @@ import streamlit as st
 import os
 import uuid
 from openai import OpenAI
-from utils.postgres import POSTGRES_DB_PARAMS, create_metrics_db, create_metrics_table, save_message_to_db, update_feedback_in_db
+from utils.postgres import POSTGRES_DB_PARAMS, create_metrics_db, create_chat_table, save_message_to_db, update_feedback_in_db
 
 
 # Set up OpenAI API key
@@ -13,7 +13,7 @@ client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 # Initialize database and table
 POSTGRES_DB_PARAMS['dbname'] = 'chat_monitoring'
 create_metrics_db(POSTGRES_DB_PARAMS)
-create_metrics_table(POSTGRES_DB_PARAMS)
+create_chat_table(POSTGRES_DB_PARAMS)
 
 # Initialize session state variables
 if 'session_id' not in st.session_state:

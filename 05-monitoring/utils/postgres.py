@@ -55,6 +55,20 @@ def execute_db_operation(operation_type, POSTGRES_DB_PARAMS, query, params=None)
 
 def create_metrics_table(POSTGRES_DB_PARAMS):
     chat_table_sql = '''
+        CREATE TABLE IF NOT EXISTS metrics (
+            id SERIAL PRIMARY KEY,
+            timestamp TIMESTAMP,
+            metric_a FLOAT,
+            metric_b FLOAT,
+            metric_c FLOAT
+        )
+        '''
+    execute_db_operation(
+        'create_table', POSTGRES_DB_PARAMS, chat_table_sql)
+
+
+def create_chat_table(POSTGRES_DB_PARAMS):
+    chat_table_sql = '''
         CREATE TABLE IF NOT EXISTS chat_history (
             id SERIAL PRIMARY KEY,
             timestamp TIMESTAMP,
@@ -88,3 +102,28 @@ def update_feedback_in_db(POSTGRES_DB_PARAMS, session_id, message_type, content,
     '''
     params = (feedback, session_id, message_type, content)
     execute_db_operation('update', POSTGRES_DB_PARAMS, update_query, params)
+
+
+def insert_data(cursor, timestamp, metric_a, metric_b, metric_c):
+    insert_query = sql.SQL('''
+    INSERT INTO metrics (timestamp, metric_a, metric_b, metric_c)
+    VALUES (%s, %s, %s, %s)
+    ''')
+    cursor.execute(insert_query, (timestamp, metric_a, metric_b, metric_c))
+
+
+def store_metrics(POSTGRES_DB_PARAMS, db_params, metrics_df):
+    connection = psycopg2.connect(**POSTGRES_DB_PARAMS)
+    cursor = connection.cursor()
+    try:
+        for _, row in metrics_df.iterrows():
+            insert_data(
+                cursor, row['timestamp'], row['metric_a'], row['metric_b'], row['metric_c'])
+        connection.commit()
+        print("Metrics stored successfully!")
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(f"Error: {error}")
+    finally:
+        if connection:
+            cursor.close()
+            connection.close()
