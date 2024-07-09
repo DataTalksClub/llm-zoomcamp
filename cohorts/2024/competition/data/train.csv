@@ -1,0 +1,416 @@
+problem_id,problem_text,answer
+2374,Find the value of the expression $\dfrac{17}{5} :\dfrac{34}{3} +1.3$.,1.6
+4723,"In a company of 30 people, 25 use the social network ""Odnoklassniki"" and 10 use the social network ""VKontakte"". Choose the statements that are true under the given conditions.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{p{0.1cm}X}  
+1) & In this company, there will be 10 people who do not use either ""Odnoklassniki"" or ""VKontakte"". \\ 
+2) & In this company, there will be at least 5 people using both networks. \\ 
+3) & There will not be a single person in this company who uses only ""Odnoklassniki"". \\ 
+4) & No more than 10 people in this company use both networks. \\ 
+\end{tabularx}\end{center}
+
+In the answer, write the numbers of the selected statements without spaces, commas, or other additional symbols.",24
+7135,The number of road traffic accidents (RTAs) in the summer period was 0.68 of the number of RTAs in the winter period. By what percentage did the number of road traffic accidents decrease in the summer compared to the winter?,32
+5814,Find the value of the expression $\dfrac{2\strut^{-5} \cdot 2\strut^{9} }{2\strut^{-4} } $.,256
+9237,"A traveler from Moscow wants to visit four cities of the Golden Ring of Russia: Vladimir, Yaroslavl, Suzdal, and Rostov. The travel agency offers routes that include visits to some of the cities of the Golden Ring. Information about the cost of tickets and routes is presented in the table.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Route number&Visited cities&Cost (rubles)\\\hline
+1&Suzdal, Yaroslavl, Vladimir&3900 \\\hline
+2&Rostov, Vladimir&2400 \\\hline
+3&Yaroslavl, Vladimir&2100 \\\hline
+4&Suzdal&1650 \\\hline
+5&Rostov, Suzdal&2700 \\\hline
+6&Yaroslavl, Rostov&2350 \\\hline
+\end{tabular}
+\end{center}
+
+Which routes should the traveler choose to visit all four cities and spend less than 5000 rubles?
+
+In the answer, specify any one set of route numbers without spaces, commas, or other additional symbols.",53
+10703,"At the end of the term, Vovochka wrote down all his grades in a row for one of the subjects; there were 5 of them, and he placed multiplication signs between some of them. The product of the resulting numbers turned out to be 5575. What is Vovochka's grade for the term in this subject, if the teacher only gives grades of ""2,"" ""3,"" ""4,"" or ""5,"" and the final grade for the term is the arithmetic mean of all the current grades, rounded according to the rounding rules? (For example, 3.2 rounds to 3; 4.5~--- to 5; and 2.8~--- to 3.)",3
+9621,"Find a four-digit number that is 11 times smaller than the cube of a certain natural number. In your answer, provide any one such number.",27000; 64000
+4318,Find the value of the expression $\dfrac{\sqrt{8}}{\sqrt{2}}$.,2
+7549,"The harmonic mean of three numbers $a$, $b$, and $c$ is calculated using the formula $h=\left(\dfrac{\dfrac{1}{a} +\dfrac{1}{b} +\dfrac{1}{c} }{3} \right)^{-1}$. Find the harmonic mean of the numbers $\dfrac{1}{9} $, $\dfrac{1}{10}$, and $\dfrac{1}{11}$.",0.1
+4405,Find \(\tan x\) if \(\sin x = \dfrac{6}{\sqrt{61}}\) and \(0^\circ < x < 90^\circ\).,1.2
+13660,They mixed 8 liters of a 15% solution of a substance with 12 liters of a 40% solution of the same substance. What is the concentration percentage of the resulting solution?,30
+5206,Find the root of the equation $\sqrt{6x+13} -11=0$.,18
+5878,Find the value of the expression $\dfrac{49\strut^{3} }{7\strut^{3} } $.,343
+12275,"In Table 1, the minimum required scores for the Unified State Exam (ЕГЭ) for four subjects, necessary for applying to Faculties 1-6, are given.
+\begin{flushright}\textit{Table 1}\end{flushright}
+\begin{center}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.8in}|>{\centering\arraybackslash}p{0.6in}|c|c|>{\centering\arraybackslash}X|} \hline
+\diaghead(3,-2){SubjectDept}{Subject}{Faculty} & Russian Language & Social Studies & History & Foreign Language \\ \hline
+1 & 50 & 60 & 60 & 50 \\ \hline
+2 & 27 & 42 & 32 & 40 \\ \hline
+3 & 40 & 70 & 32 & 60 \\ \hline
+4 & 36 & 42 & 50 & 22 \\ \hline
+5 & 27 & 65 & 32 & 55 \\ \hline
+6 & 27 & 42 & 60 & 22 \\ \hline
+\end{tabularx}
+\end{center}
+
+In Table 2, the Unified State Exam (ЕГЭ) scores in five subjects for applicant B are given.
+\begin{flushright}\textit{Table 2}\end{flushright}
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|*{5}{@{}>{\centering\arraybackslash}X@{}|}} \hline
+Subject & Russian Language & Social Studies & History & English Language & German Language \\ \hline
+Scores & 68 & 65 & 58 & 64 & 40 \\ \hline
+\end{tabularx}
+\end{center}
+
+Select the faculties to which applicant B can apply. In your answer, specify the numbers of the selected faculties without spaces, commas, or any other additional symbols.",245
+5766,Find the value of the expression \(1.26 \div 1.4 - 0.5\).,0.4
+3205,Find the value of the expression $5\strut^{\log_{5} 2+1}$.,10
+8081,Find the value of the expression \(\dfrac{\sqrt{5} \cdot \sqrt{6}}{\sqrt{2 \cdot 15}}\).,1
+2415,Find the value of the expression \( 36 \cdot \left( \dfrac{5}{6} - \dfrac{7}{36} - \dfrac{9}{12} \right) \).,-4
+4965,"Establish the correspondence between the quantities and their possible values: match each element of the first column to the corresponding element of the second column.
+
+\vspace{\medskip}
+
+\begin{center}\hyphenpenalty=10000\begin{tabular}{p{8cm}p{5cm}}
+QUANTITIES & VALUES \\
+A) mass of a medicine tablet & 1) $3.3464 \cdot 10^{-27}$ kg \\
+B) mass of the Earth & 2) 100 tons \\
+C) mass of a hydrogen molecule & 3) 500 mg \\
+D) mass of an adult whale & 4) $5.9726 \cdot 10^{24}$ kg \\
+\end{tabular}\end{center}
+
+\vspace{\medskip}
+
+In the table below, under each letter corresponding to a quantity, indicate the number of its possible value.
+
+\vspace{\medskip}
+
+\begin{tabular}{|c|c|c|c|} \hline
+A & B & C & D \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}",3412
+7643,"Each of the four inequalities in the left column corresponds to one of the solutions in the right column. Establish the correspondence between the inequalities and their solutions.
+
+\begin{center}
+\hyphenpenalty=10000
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{{>{\raggedright}X>{\raggedright\arraybackslash}X}} 
+\multicolumn{1}{C}{INEQUALITIES} & \multicolumn{1}{C}{SOLUTIONS} \\
+A) $\log_{4} x > 1$ & 1) $0 < x < \dfrac{1}{4}$ \\ 
+B) $\log_{4} x > -1$ & 2) $x > \dfrac{1}{4}$ \\ 
+C) $\log_{4} x < -1$ & 3) $0 < x < 4$ \\ 
+D) $\log_{4} x < 1$ & 4) $x > 4$ \\
+\end{tabularx}\end{center}\vspace{\medskip}
+
+Fill in the provided table in the answer with the corresponding solution number under each letter.
+
+\vspace{\baselineskip}\begin{tabular}{|*{4}{C|}} \hline A & B & C & D \\ \hline & & & \\ \hline\end{tabular}\end{center}\vspace{\medskip}",4213
+10661,"Several consecutive pages have fallen out of a book. The number of the last page before the missing pages is 274, and the number of the first page after the missing pages uses the same digits but in a different order. How many pages have fallen out?",76
+2851,Find the value of the expression \(9\cdot 10^{2} +3\cdot 10 +7\cdot 10^{3}\).,7930
+11878,"For natural numbers \( A \), \( B \), and \( C \), it is known that each of them is greater than 5 but less than 9. A natural number was chosen, then it was multiplied by \( A \), then \( B \) was added to the resulting product, and \( C \) was subtracted. The result was 340. What was the chosen number?",57
+3509,"To service an international seminar, it is necessary to assemble a group of translators. Information about the candidates is presented in the table.
+
+\begin{tabularx}{\textwidth}{|C|C|>{\centering\arraybackslash}X|} \hline
+Translator Number & Languages & Service Cost \newline (rubles per day) \\ \hline
+1 & Spanish & 2850 \\ \hline
+2 & Spanish, English & 6050 \\ \hline
+3 & English & 1900 \\ \hline
+4 & Spanish, French & 5950 \\ \hline
+5 & French, German & 6800 \\ \hline
+6 & German & 4050 \\ \hline
+\end{tabularx}
+
+Using the table, assemble at least one group in which the translators together know all four languages: English, German, Spanish, and French, and the total cost of their services does not exceed 12,000 rubles per day. In the answer, indicate any one set of translator numbers without spaces, commas, or other additional symbols.","135, 346"
+9665,"Each of the four inequalities in the left column corresponds to one of the solutions in the right column. Establish the correspondence between the inequalities and their solutions.
+
+\begin{center}
+\renewcommand{\arraystretch}{2}
+\begin{tabularx}{\textwidth}{XX}
+\multicolumn{1}{C}{INEQUALITIES} & \multicolumn{1}{C}{SOLUTIONS} \\
+A) \(\left(x-2\right)^{2} \left(x-4\right)<0\) & 1) \(x<2\) or \(2<x<4\) \\ 
+B) \(\dfrac{\left(x-4\right)^{2} }{x-2} >0\) & 2) \(x<2\) or \(x>4\) \\
+C) \(\left(x-2\right)\left(x-4\right)<0\) & 3) \(2<x<4\) \\ 
+D) \(\dfrac{x-2}{x-4} >0\) & 4) \(2<x<4\) or \(x>4\) \\ 
+ \end{tabularx}
+\end{center}
+
+Fill in the provided table in the answer with the corresponding number of the solution under each letter.
+
+\vspace{\baselineskip}\begin{tabular}{|*{4}{C|}} \hline A & B & C & D \\ \hline & & &  \\ \hline\end{tabular}",1432
+7505,"The root mean square of three numbers \(a\), \(b\), and \(c\) is calculated using the formula \(q=\sqrt{\dfrac{a^{2} +b^{2} +c^{2} }{3} }\). Find the root mean square of the numbers \(\sqrt{2}\), 3, and 17.",10
+5843,Find the value of the expression $\dfrac{\left(9\strut^{- 3} \right)^{2} }{9\strut^{- 8} } $.,81
+4028,"The area of a triangle can be calculated using the formula \( S=\dfrac{abc}{4R} \), where \( a \), \( b \), and \( c \) are the sides of the triangle, and \( R \) is the radius of the circumcircle of the triangle. Using this formula, find \( S \) if \( a=4 \), \( b=13 \), \( c=15 \), and \( R=\dfrac{65}{8} \).",24
+9604,"The digits of a four-digit number, which is a multiple of 5, were written in reverse order to obtain a second four-digit number. Then the second number was subtracted from the original number, resulting in 3627. Indicate any one such original number in the answer.","8925, 8815, 8705"
+4764,"Before the volleyball tournament, the heights of the players in the volleyball team of city N were measured. It turned out that the height of each volleyball player on this team is greater than 190 cm and less than 210 cm. Choose the statements that are true under the given conditions.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{p{0.1cm}X} 
+1) & The volleyball team of city N necessarily has a player whose height is 220 cm. \\ 
+2) & The volleyball team of city N has no players with a height of 189 cm. \\ 
+3) & The height of any volleyball player on this team is less than 210 cm. \\ 
+4) & The difference in height between any two players of the volleyball team of city N is more than 20 cm. \\ 
+\end{tabularx}
+\end{center}
+
+In the answer, write the numbers of the selected statements without spaces, commas, or other additional symbols.",23
+12195,Find a four-digit number greater than 2000 but less than 3000 that is divisible by 60 and the sum of its digits is 12. Provide any one such number as the answer.,"2280, 2460, 2640, 2820"
+7034,The price of an electric kettle was increased by 13% and became 1921 rubles. How many rubles did the kettle cost before the price increase?,1700
+10711,"On the ribbon, two thin transverse stripes are marked on opposite sides of the middle: a blue one and a red one. If the ribbon is cut along the red stripe, one part will be 35 cm longer than the other. If the ribbon is cut along the blue stripe, one part will be 5 cm longer than the other. Find the distance (in centimeters) between the red and blue stripes.",20
+2407,Find the value of the expression \(12 \cdot \left(\dfrac{13}{24} - \dfrac{7}{12} - \dfrac{1}{6} \right)\).,-2.5
+7118,"After the television was discounted, its new price was 0.48 of the old price. By what percentage did the price of the television decrease as a result of the discount?",52
+8549,Find the root of the equation \(\dfrac{1}{\sqrt{x}}=\dfrac{1}{5}\).,25
+8417,"According to the ""Simple as Day"" tariff plan, a mobile phone company deducts 16 rubles from the subscriber's account every evening. If there are fewer than 16 rubles left in the account, the number is blocked the next morning until the account is replenished. This morning, Liza had 500 rubles in her account. How many days (including today) will she be able to use her phone without replenishing the account?",31
+9603,"The digits of a four-digit number, which is a multiple of 5, were written in reverse order to form a second four-digit number. Then, the original number was subtracted by the second number, resulting in 2457. Provide any one such original number as your answer.","8065, 8155, 8245, 8335, 8425, 8515, 8605"
+4438,Find the value of the expression $\sqrt{24} \cdot \sqrt{6}$.,12
+3659,"At the beginning of the year, the number of subscribers of the telephone company ""Yug"" was 700 thousand people, and by the end of the year, it had increased to 875 thousand people. By what percentage did the number of subscribers of this company increase over the year?",25
+8322,"A chocolate bar costs 25 rubles. On Sunday, the supermarket has a special offer: if you pay for three chocolate bars, you get four (one as a gift). How many chocolate bars can you get for 130 rubles on Sunday?",6
+7903,"The Sine Theorem can be written as $\dfrac{a}{\sin \alpha } =\dfrac{b}{\sin \beta } $, where $a$ and $b$ are two sides of a triangle, and $\alpha$ and $\beta$ are the angles of the triangle opposite these sides, respectively. Using this formula, find the value of $\sin \alpha$ if $a=27$, $b=20$, and $\sin \beta=\dfrac{2}{3}$.",0.9
+4785,A cheese curd bar costs 18 rubles. What is the maximum number of cheese curd bars that can be bought for 250 rubles?,13
+2377,Find the value of the expression \(\dfrac{13}{45} : \dfrac{26}{9} + 2.5\).,2.6
+4187,"The table below shows the fine amounts for exceeding the maximum permitted speed, recorded using automated detection means installed in Russia since September 1, 2013.
+
+\begin{tabular}{|c|c|c|c|c|} \hline
+Speed Exceedance, km/h & 21—40 & 41—60 & 61—80 & 81 and more \\ \hline
+Fine Amount, rubles & 500 & 1000 & 2000 & 5000 \\ \hline
+\end{tabular}
+
+Using the table, determine the fine that the car owner must pay if the recorded speed was 75 km/h on a road section with a maximum permitted speed of 40 km/h. Provide the answer in rubles.",500
+9526,"The train schedule for Moscow-Minsk and ticket prices are presented in the table.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|} \hline
+Train Number  & Departure Time  & Arrival Time & Ticket Price  \\
+ &  & (next day) & (rub.) \\\hline
+1 & 14:09 & 00:28 & 357 \\\hline
+2 & 14:19 & 00:02 & 714 \\\hline
+3 & 18:37 & 04:14 & 357 \\\hline
+4 & 19:24 & 06:10 & 536 \\\hline
+5 & 21:47 & 06:19 & 666 \\\hline
+6 & 21:53 & 07:25 & 714 \\\hline
+7 & 22:25 & 08:12 & 357 \\\hline
+\end{tabular}
+\end{center}
+
+Vadim Alekseevich needs to travel from Moscow to Minsk by train. He needs to arrive in Minsk no later than 07:00, spend no more than 10 hours on the journey, and spend no more than 2000 rubles on the ticket.
+
+In your answer, specify any one suitable train number.",235
+4975,"Match the quantities with their possible values: for each element in the first column, select the corresponding element from the second column.
+\begin{center}
+\begin{tabular}{p{8cm}p{0.1cm}p{4.9cm}}
+\multicolumn{1}{c}{QUANTITIES} & & VALUES \\ 
+A) mass of a medicine tablet & 1) & $3.3464\cdot 10^{-27}$ kg \\
+B) mass of the Earth & 2) & 5 t \\
+C) mass of a hydrogen molecule & 3) & 500 mg \\
+D) mass of an adult elephant & 4) & $5.9726\cdot 10^{24}$ kg \\
+\end{tabular}
+\end{center}
+
+In the table below, under each letter corresponding to a quantity, indicate the number of its possible value.
+
+\vspace{\medskip}
+
+\begin{tabular}{|*{4}{c|}} \hline
+A & B & C & D \\ \hline
+ &  &  &  \\ \hline
+\end{tabular}",3412
+2565,Find the value of the expression $\left(\dfrac{14}{11} +\dfrac{17}{10} \right)\cdot \dfrac{11}{15}$.,2.18
+135,"Sergey Petrovich wants to buy a specific model of microwave oven from an online store. The table shows 6 offers from different online stores.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|*{4}{>{\centering\arraybackslash}X|}} \hline
+Store Number & Store Rating & Product Price (rub.) & Delivery Cost (rub.) \\ \hline
+1 & 4 & 17980 & 490 \\ \hline
+2 & 5 & 20490 & 500 \\ \hline
+3 & 4.5 & 18890 & 400 \\ \hline
+4 & 4 & 17490 & 0 \\ \hline
+5 & 3.5 & 13979 & 690 \\ \hline
+6 & 5 & 17750 & 600 \\ \hline
+\end{tabularx}
+\end{center}
+
+Sergey Petrovich believes that the purchase should be made in a store with a rating of no less than 4. Among the stores that meet this condition, choose the offer with the lowest total purchase cost including delivery.
+
+In your answer, write down the number of the selected store.",17490
+6885,The number of website visitors doubled in one month. By what percentage did the number of website visitors increase during this month?,100
+12130,"On the counter of a flower shop, there are 3 vases with roses: yellow, green, and red. To the left of the green vase, there are 21 roses, and to the right of the yellow vase, there are 31 roses. There are 40 roses in total in the vases. How many roses are in the red vase?",12
+8502,"The airplane's navigation system informs the passenger that the flight is at an altitude of 41,000 feet. Express the flight altitude in meters. Assume that 1 foot is equal to 30.5 cm.",12505
+8719,"At the poultry farm, there are only chickens and geese, and there are 99 times more chickens than geese. Find the probability that a randomly selected bird on this farm will be a goose.",0.01
+4801,A pack contains 250 sheets of A4 paper. The office uses 700 sheets per week. What is the minimum number of packs of paper needed for 8 weeks?,22.4
+10491,Find the value of the expression $\dfrac{\left(8\sqrt{3} \right)\strut^{2} }{48}$.,4
+6089,"Find a three-digit number \( A \) that has the following three properties:
+
+\begin{itemize}
+\item the sum of the digits of the number \( A \) is divisible by 6;
+\item the sum of the digits of the number \( A+3 \) is divisible by 6;
+\item the number \( A \) is greater than 350 and less than 400.
+\end{itemize}
+
+In the answer, provide any one such number.","369, 378, 387"
+8269,"The graduates of 11 ""A"" are buying bouquets of flowers for the last bell: each teacher gets a bouquet of 3 roses, and the homeroom teacher and the principal each get a bouquet of 9 roses. They plan to give bouquets to 15 teachers (including the principal and the homeroom teacher), and the roses are bought at a wholesale price of 35 rubles each. How many rubles do all the roses cost?",1995
+5186,Find the root of the equation \(6^{x-12} = \dfrac{1}{36}\).,10
+12101,The arithmetic mean of four different natural numbers is 11. The arithmetic mean of these numbers and a fifth number is 12. What is the fifth number?,16
+10974,"In the parallelogram \(ABCD\), it is known that \(AB=6\), \(AC=BD=10\). Find the area of the parallelogram.",48
+8407,"The cost of a six-month subscription to a magazine is 590 rubles, and the cost of a single issue of the magazine is 27 rubles. Over six months, Anya bought 25 issues of the magazine. How many rubles less would she have spent if she had subscribed to the magazine?",85
+7030,The price of the electric kettle was increased by 16% and became 2320 rubles. How many rubles did the kettle cost before the price increase?,2000
+10090,"The table has three columns and several rows. Each cell of the table is filled with a natural number such that the sum of all the numbers in the first column is 127, in the second is 136, and in the third is 146. Additionally, the sum of the numbers in each row is greater than 17 but less than 20. How many rows are there in the table?",22
+4167,"The surface area of a rectangular parallelepiped with edges \(a\), \(b\), and \(c\) is calculated using the formula \(S = 2\left(ab + ac + bc\right)\). Find the surface area of the rectangular parallelepiped if its edges have lengths 3, 5, and 9.",174
+12340,"Match the functions to the characteristics of these functions on the interval $\left[2;5\right]$.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{clcX} 
+\multicolumn{2}{c}{FUNCTIONS} & \multicolumn{2}{c}{CHARACTERISTICS} \\ 
+A) & $y=5x-x^{2}$ & 1) & decreasing function \\ 
+B) & $y=2x+1$  & 2) & the function has a maximum point \\ 
+C) & $y=16-2x$  & 3) & the function has a minimum point  \\ 
+D) & $y=x^{2}-8x+3$  & 4) & increasing function \\ 
+\end{tabularx}
+\end{center}
+
+\vspace{\baselineskip}
+In the table below, indicate the corresponding number under each letter.
+
+\vspace{\baselineskip}
+\begin{tabular}{|*{4}{C|}} \hline 
+ A & B & C & D \\ \hline 
+& & & \\ \hline
+\end{tabular}",2413
+156,"Dmitry Valentinovich is planning a three-day trip to a certain city. The table provides information about hotels in this city with available rooms during his stay.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|*{4}{>{\centering\arraybackslash}X|}} \hline
+Hotel Name & Hotel Rating & Distance to Central Square (km) & Room Price (rubles per day) \\ \hline
+""Yuzhnaya"" & 7.6 & 1.1 & 3000 \\ \hline
+""Uyut-plus"" & 5.3 & 1.9 & 2500 \\ \hline
+""Tsentralnaya"" & 9.4 & 3.4 & 3800 \\ \hline
+""Vokzalnaya"" & 6.9 & 2.3 & 1600 \\ \hline
+""Turist"" & 8.8 & 2.4 & 3200 \\ \hline
+""Eldorado"" & 9.1 & 2.1 & 3300 \\ \hline
+\end{tabularx}
+\end{center}
+
+Dmitry Valentinovich wants to stay in a hotel that is no further than 2.5 km from the central square and has a rating of at least 8.5. Among the hotels that meet these criteria, choose the one with the lowest room price per day. How many rubles will it cost to stay in this hotel for 3 days?",9600
+4257,"The area of a triangle with sides \(a\), \(b\), \(c\) can be found using Heron's formula \(S=\sqrt{p\left(p-a\right)\left(p-b\right)\left(p-c\right)}\), where \(p=\dfrac{a+b+c}{2}\). Find the area of the triangle if the lengths of its sides are 13, 14, 15.",84
+13578,"Two people set out from the same house for a walk to the edge of the forest, which is 1.1 km from the house. One walks at a speed of 3.5 km/h, while the other walks at a speed of 4.2 km/h. Upon reaching the edge of the forest, the second person returns with the same speed. At what distance from the house will they meet? Give your answer in kilometers.",1
+3423,"An internet provider offers three tariff plans.
+
+\vspace{\baselineskip}
+
+\hyphenpenalty=10000
+\begin{tabularx}{\textwidth}{|C|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|} \hline
+Tariff Plan & Subscription Fee & Traffic Fee \\ \hline
+Plan ""0"" & None & 1.1 rubles per 1 MB \\ \hline
+Plan ""500"" & 525 rubles for 500 MB\newline of traffic per month & 1 ruble per 1 MB\newline beyond 500 MB \\ \hline
+Plan ""900"" & 738 rubles for 900 MB\newline of traffic per month & 0.5 rubles per 1 MB\newline beyond 900 MB \\ \hline
+\end{tabularx}
+\vspace{\medskip}
+
+A user assumes that their traffic will amount to 750 MB per month, and based on this, chooses the cheapest tariff plan. How many rubles will the user have to pay per month if their traffic indeed equals 750 MB?",738
+8570,"Solve the equation \(x^{2} - 25 = 0\). If the equation has more than one root, indicate the smaller one in the answer.",-5
+8173,"For a birthday, it is customary to give a bouquet with an odd number of flowers. Roses cost 80 rubles each. Vanya has 300 rubles. What is the maximum number of roses he can buy for Masha's birthday bouquet?",3
+6406,"Given two cones. The radius of the base and the height of the first cone are 3 and 4, respectively, while for the second cone they are 2 and 9. By what factor is the volume of the second cone greater than the volume of the first cone?",1
+2548,Find the value of the expression \(3\dfrac{1}{2} \div \left(1\dfrac{4}{15} + 2\dfrac{9}{10} \right)\).,0.84
+8714,"At the poultry farm, there are only chickens and geese, with the number of chickens being 7 times the number of geese. Find the probability that a randomly chosen bird on this farm will be a goose.",0.125
+7113,"A set of towels, which cost 280 rubles, is being sold at a 15% discount. How many rubles do two sets of towels cost with the discount?",476
+177,"Dmitry Valentinovich is planning a three-day trip to a certain city. The table provides information about hotels in this city that have available rooms during his stay.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|*{4}{>{\centering\arraybackslash}X|}} \hline
+Hotel Name & Hotel Rating & Distance to Central Square (km) & Room Price (rubles per day) \\ \hline
+“Yuzhnaya” & 9.2 & 2.3 & 3600 \\ \hline
+“Uyut-Plus” & 8.5 & 0.5 & 3700 \\ \hline
+“Central” & 7.3 & 1.2 & 2400 \\ \hline
+“Vokzalnaya” & 8.7 & 3.7 & 3600 \\ \hline
+“Tourist” & 5.8 & 2.7 & 1900 \\ \hline
+“Eldorado” & 6.2 & 3.2 & 1500 \\ \hline
+\end{tabularx}
+\end{center}
+
+Dmitry Valentinovich wants to stay in a hotel that is no more than 2.5 km from the central square and has a rating of at least 8.5. Among the hotels that meet these conditions, choose the one with the lowest room price per day. How many rubles will it cost to stay at this hotel for three days?",10800
+10076,"A rectangle is divided into four smaller rectangles by two straight cuts. The perimeters of three of them, starting from the top left and going clockwise, are 21, 11, and 4. Find the perimeter of the fourth rectangle.",14
+1001,Find the root of the equation \(2^{2x - 3} = 2^{x - 2}\).,1
+4442,Find the value of the expression $\sqrt{63} \cdot \sqrt{7}$.,21
+11973,Find the root of the equation \(2x - 7 = 9\).,8
+2475,Find the value of the expression \(\dfrac{1}{\dfrac{1}{3} +\dfrac{1}{7}}\).,2.1
+4255,"The area of a triangle with sides \(a\), \(b\), \(c\) can be found using Heron's formula \(S=\sqrt{p\left(p-a\right)\left(p-b\right)\left(p-c\right)} \), where \(p=\dfrac{a+b+c}{2} \). Find the area of the triangle if the lengths of its sides are 5, 29, 30.",72
+2299,Find the value of the expression $\left(-3\right)+5\dfrac{2}{5} +\dfrac{1}{25}$.,2.44
+9294,"A tourist who has arrived in Saint Petersburg wants to visit 4 museums: the Hermitage, the Russian Museum, the Peter and Paul Fortress, and St. Isaac's Cathedral. The excursion ticket offices offer routes that include visits to one or more sites. Information about ticket prices and routes is presented in the table.
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Route Number & Visited Sites & Cost (RUB) \\\hline
+1 & Hermitage & 300 \\\hline
+2 & Peter and Paul Fortress, St. Isaac's Cathedral & 1350 \\\hline
+3 & St. Isaac's Cathedral & 300 \\\hline
+4 & Hermitage, Russian Museum & 1400 \\\hline
+5 & Peter and Paul Fortress, Russian Museum & 1650 \\\hline
+6 & Russian Museum & 650 \\\hline
+\end{tabular}
+\end{center}
+
+Which routes should the traveler choose to visit all four museums while spending the least amount of money on tickets?
+
+In the answer, indicate any one set of route numbers without spaces, commas, or other additional symbols.",2250
+8159,"On a birthday, it is customary to give a bouquet with an odd number of flowers. Tulips cost 55 rubles each. Vanya has 400 rubles. What is the largest number of tulips he can buy for Masha's birthday bouquet?",7
+1054,Find the root of the equation \(2^{-4x-5} :2^{2x+3} = 16\).,-2
+11900,"There are nineteen apartments in the building, numbered from 1 to 19. Each apartment houses at least one and no more than three people. In apartments from the 1st to the 12th inclusive, a total of 16 people live, and in apartments from the 9th to the 19th, a total of 29 people live. How many people live in the building in total?",37
+3111,Find the value of the expression $\left(4\sqrt{3} - 2\right)\cdot \left(4\sqrt{3} + 2\right)$.,44
+9241,"A traveler from Moscow wants to visit four cities of the Golden Ring of Russia: Vladimir, Yaroslavl, Suzdal, and Rostov. The travel agency offers routes that include visits to some of the Golden Ring cities. Information about ticket prices and routes is presented in the table.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Route Number&Visited Cities&Cost (rub.)\\\hline
+1&Rostov&1700 \\\hline
+2&Rostov, Yaroslavl, Vladimir&3750 \\\hline
+3&Yaroslavl, Vladimir&2050 \\\hline
+4&Suzdal, Rostov&2850 \\\hline
+5&Yaroslavl, Suzdal&2350 \\\hline
+6&Suzdal, Vladimir&2450 \\\hline
+\end{tabular}
+\end{center}
+
+Which routes should the traveler choose in order to visit all four cities and spend less than 6000 rubles?
+
+In the answer, provide any one set of route numbers without spaces, commas, or any other additional symbols.",34
+82,"The table shows the schedule of suburban electric trains on the Moscow Kurskaya-Tula route.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|c|c|>{\centering\arraybackslash}X|} \hline
+Train Number & Moscow Kurskaya & Tula & Travel Time \\ \hline
+1 & 06:55 & 09:14 & 2:19 \\ \hline
+2 & 07:00 & 10:18 & 3:18 \\ \hline
+3 & 08:30 & 10:26 & 1:56 \\ \hline
+4 & 10:22 & 13:47 & 3:25 \\ \hline
+5 & 14:59 & 18:47 & 3:48 \\ \hline
+\end{tabularx}
+\end{center}
+
+
+Which of the Moscow-Tula electric trains spends the least amount of time on the way? Indicate the number of this train in the answer.",3
+11935,Monkeys make up 8% of all the animals in the zoo. How many monkeys are there in the zoo if there are 350 animals in total?,28
+90,"The table provides data on six suitcases.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|c|c|c|c|} \hline
+Suitcase Number & Length (cm) & Height (cm) & Width (cm) & Mass (kg) \\ \hline
+1 & 64 & 48 & 23 & 25 \\ \hline
+2 & 82 & 70 & 51 & 22.5 \\ \hline
+3 & 87 & 69 & 48 & 23 \\ \hline
+4 & 77 & 61 & 44 & 20 \\ \hline
+5 & 96 & 74 & 40 & 27 \\ \hline
+6 & 89 & 72 & 46 & 24 \\ \hline
+\end{tabularx}
+\end{center}
+
+According to the airline's rules, the sum of the three dimensions (length, height, width) of a suitcase checked in as luggage must not exceed 203 cm, and the mass must not be more than 23 kg. Which suitcases can be checked in according to the airline's rules?
+
+In the answer, indicate the numbers of the selected suitcases without spaces, commas, or any other additional symbols.",24
+7063,"The income tax is 13% of the salary. After withholding the income tax, Maria Konstantinovna received 7830 rubles. How many rubles is Maria Konstantinovna's salary?",9000
+4393,Find \(\cos x\) if \(\sin x = - \dfrac{\sqrt{7}}{4}\) and \(270{}^\circ < x < 360{}^\circ\).,0.75
+13550,"The distance between cities A and B is 470 km. The first car left city A for city B at a speed of 60 km/h, and three hours later, the second car left city B for city A at a speed of 85 km/h. At what distance from city A will the cars meet? Provide the answer in kilometers.",300
+7064,"At school, 77 students study French, which is 20% of the total number of students in the school. How many students are there in the school?",385
+7097,"Among all the graduates of the school, 10 people are planning to study at technical universities, and they make up 40% of the total number of graduates. How many graduates are there in this school?",25
+5448,"The probability that a new ballpoint pen writes poorly or does not write at all is 0.21. A customer, without looking, takes one ballpoint pen from the box. Find the probability that this pen writes well.",0.79
+2293,Find the value of the expression \(2\dfrac{5}{14} + 5 + \dfrac{8}{7}\).,8.5
+5261,Find the root of the equation \(\left(\dfrac{1}{2} \right)^{x - 8} = 8\).,5

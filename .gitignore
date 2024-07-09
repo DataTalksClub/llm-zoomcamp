@@ -216,3 +216,8 @@ cython_debug/
 
 ### streamlit
 *secrets*
+
+
+## LLMs
+
+ollama_files
