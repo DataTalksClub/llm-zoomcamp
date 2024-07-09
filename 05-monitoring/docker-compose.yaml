@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   chat-frontend:
-    build: ./5.3-monitoring-chat-behaviour/.
+    build: 
+      dockerfile: /5.3-monitoring-chat-behaviour/Dockerfile
+      context: .
     volumes:
       - ./5.3-monitoring-chat-behaviour/.:/app
     depends_on:
@@ -25,7 +27,9 @@ services:
       - documents_data:/usr/share/elasticsearch/data
 
   metrics-calculation:
-    build: ./5.2-monitoring-ground-truth/. 
+    build: 
+      dockerfile: ./5.2-monitoring-ground-truth/Dockerfile
+      context: .
     depends_on:
       - metrics-db
     environment:
