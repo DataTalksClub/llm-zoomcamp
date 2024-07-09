@@ -4,7 +4,7 @@ import os
 import uuid
 from openai import OpenAI
 from utils.postgres import POSTGRES_DB_PARAMS, create_metrics_db, create_chat_table, save_message_to_db, update_feedback_in_db
-
+from utils.llm_utils import ask_llm
 
 # Set up OpenAI API key
 client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
@@ -22,14 +22,6 @@ if 'messages' not in st.session_state:
     st.session_state.messages = deque()
 if 'feedback' not in st.session_state:
     st.session_state.feedback = {}
-
-
-def get_response(message):
-    # response = client.chat.completions.create(model="gpt-3.5-turbo-0125",
-    #                                           messages=message,
-    #                                           max_tokens=150)
-    # return response.choices[0].message.content.strip()
-    return 'hello' + str(uuid.uuid4())
 
 
 def clear_chat():
@@ -67,7 +59,7 @@ if st.button("Send"):
             {'role': 'user', 'content': user_input})
         save_message_to_db(POSTGRES_DB_PARAMS,
                            st.session_state.session_id, 'user', user_input)
-        response = get_response(st.session_state.messages)
+        response = ask_llm(st.session_state.messages, mock_answer=True)
         st.session_state.messages.append(
             {'role': 'assistant', 'content': response})
         save_message_to_db(POSTGRES_DB_PARAMS,
