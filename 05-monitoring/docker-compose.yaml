@@ -3,10 +3,10 @@ version: '3.8'
 services:
   chat-frontend:
     build: 
-      dockerfile: /5.3-monitoring-chat-behaviour/Dockerfile
+      dockerfile: ./5.3-monitoring-chat-behaviour/Dockerfile
       context: .
-    volumes:
-      - ./5.3-monitoring-chat-behaviour/.:/app
+    # volumes:
+    #   - ./5.3-monitoring-chat-behaviour/.:/app
     depends_on:
       - metrics-db
     environment:

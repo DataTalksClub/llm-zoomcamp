@@ -2,6 +2,7 @@ import psycopg2
 from psycopg2 import sql
 import logging
 import os
+from datetime import datetime
 
 POSTGRES_DB_PARAMS = {
     'user': 'admin',
@@ -9,6 +10,18 @@ POSTGRES_DB_PARAMS = {
     'host': os.getenv('POSTGRES_HOST', 'localhost'),
     'port': '5432'
 }
+
+chat_table_sql = '''
+        CREATE TABLE IF NOT EXISTS chat_history (
+            id SERIAL PRIMARY KEY,
+            timestamp TIMESTAMP,
+            session_id VARCHAR,
+            message_type VARCHAR,
+            content TEXT,
+            feedback VARCHAR,
+            UNIQUE (session_id, message_type, content)
+        )
+        '''
 
 
 def create_metrics_db(postgres_db_params: dict):
@@ -35,21 +48,10 @@ def create_metrics_db(postgres_db_params: dict):
         logging.error(f"Error creating database: {error}")
 
 
-def create_metrics_table(postgres_db_params: dict):
+def create_metrics_table(postgres_db_params: dict, create_table_query: str):
     try:
         connection = psycopg2.connect(**postgres_db_params)
         cursor = connection.cursor()
-        create_table_query = '''
-        CREATE TABLE IF NOT EXISTS chat_history (
-            id SERIAL PRIMARY KEY,
-            timestamp TIMESTAMP,
-            session_id VARCHAR,
-            message_type VARCHAR,
-            content TEXT,
-            feedback VARCHAR,
-            UNIQUE (session_id, message_type, content)
-        )
-        '''
         cursor.execute(create_table_query)
         connection.commit()
         cursor.close()
@@ -58,3 +60,40 @@ def create_metrics_table(postgres_db_params: dict):
         connection.close()
     except Exception as error:
         logging.error(f"Error creating table: {error}")
+
+
+def save_message_to_db(session_id, message_type, content, feedback=None):
+    try:
+        connection = psycopg2.connect(**POSTGRES_DB_PARAMS)
+        cursor = connection.cursor()
+        insert_query = '''
+        INSERT INTO chat_history (timestamp, session_id, message_type, content, feedback)
+        VALUES (%s, %s, %s, %s, %s)
+        ON CONFLICT (session_id, message_type, content)
+        DO UPDATE SET feedback = EXCLUDED.feedback
+        '''
+        cursor.execute(insert_query, (datetime.now(), session_id,
+                       message_type, content, feedback))
+        connection.commit()
+        cursor.close()
+        connection.close()
+    except Exception as error:
+        logging.error(f"Error saving message to database: {error}")
+
+
+def update_feedback_in_db(session_id, message_type, content, feedback):
+    try:
+        connection = psycopg2.connect(**POSTGRES_DB_PARAMS)
+        cursor = connection.cursor()
+        update_query = '''
+        UPDATE chat_history
+        SET feedback = %s
+        WHERE session_id = %s AND message_type = %s AND content = %s
+        '''
+        cursor.execute(
+            update_query, (feedback, session_id, message_type, content))
+        connection.commit()
+        cursor.close()
+        connection.close()
+    except Exception as error:
+        logging.error(f"Error updating feedback in database: {error}")
