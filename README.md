@@ -42,12 +42,6 @@ We encourage [Learning in Public](learning-in-public.md)
 
 ### Pre-course workshops
 
-Introduction
-
-* build a simple Q&A system 
-* Video: https://www.youtube.com/watch?v=q-p36Ak6YI8
-* Code: https://github.com/alexeygrigorev/llm-rag-workshop
-
 Implement a search engine
 
 * Video: https://www.youtube.com/watch?v=nMrGK5QgPVE
@@ -78,17 +72,18 @@ Implement a search engine
 ### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
 
-### [LLM orchestration and ingestion pipelines](04-orchestration/)
-
-* Ingesting data with Mage
-
-### [Monitoring and Guardrails](05-monitoring/)
+### [Monitoring and Guardrails](04-monitoring/)
 
 * Monitoring with ground-truth
 * Metrics (RAGAs)
 * Dashboarding with Grafana for visualization
 * Monitoring chat
 * Guardrails
+
+### [LLM orchestration and ingestion pipelines](05-orchestration/)
+
+* Ingesting data with Mage
+
 
 
 ### [Tips and Tricks for advanced RAG systems](06-best-practices/)
