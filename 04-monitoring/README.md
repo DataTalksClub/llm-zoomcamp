@@ -1,6 +1,6 @@
-# Module 4: Monitoring and Guardrails
+# Module 4: Monitoring
 
-In this module, we will learn how to monitor our LLM and RAG system. We will compute metrics during the ingestion pipeline as well as regarding the chat behavior and history. 
+In this module, we will learn how to monitor our LLM and RAG system. We will collect, store and visualize metrics to assess the answer quality of LLMs as well as chat history and user feedback. 
 
 ## Prerequisites
 
@@ -8,11 +8,10 @@ Add OPENAI_API_KEY as environment variable
 ```
 Mac/Linux: export OPENAI_API_KEY="your-api-key-here"
 ```
-
 ## 4.1 Introduction to monitoring answer quality 
 < placeholder for youtube video >
 * Why monitoring LLM systems?
-* Monitoring answer quality of LLMs <br>
+* Monitoring answer quality of LLMs 
   * Compute different types of quality metrics
   * Store computed metrics in relational database
   * Use Grafana to visualize metrics over time
