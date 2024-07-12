@@ -9,20 +9,8 @@ from documents_database import (
     extend_ground_truth_dataset,
     elastic_search_fields
 )
-# from utils.postgres import (
-#     POSTGRES_DB_PARAMS,
-#     create_metrics_db,
-#     create_metrics_table,
-#     store_metrics
-# )
+
 # from utils.llm_utils import ask_llm, build_prompt
-
-
-# POSTGRES_DB_PARAMS['host'] = os.getenv('POSTGRES_HOST', 'localhost')
-# POSTGRES_DB_PARAMS['dbname'] = 'metrics_db'
-
-# Initialize database and table
-
 
 ES_INDEX_NAME = "course_questions"
 
@@ -96,6 +84,3 @@ if __name__ == "__main__":
 
     # compute_metrics(pd.read_csv("ground-truth-data.csv",
     #                 usecols=["question", "contexts", "text", "llm_answer"]))
-    # create_metrics_db(postgres_db_params=POSTGRES_DB_PARAMS)
-    # create_metrics_table(postgres_db_params=POSTGRES_DB_PARAMS)
-    # store_metrics(DB_PARAMS, metrics_df)
