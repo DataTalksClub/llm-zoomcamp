@@ -184,4 +184,5 @@ More information [here](../cohorts/2024/01-intro/homework.md).
 * [Notes by Uchechukwu](https://medium.com/@njokuuchechi/an-intro-to-large-language-models-llms-0c51c09abe10)
 * [Notes by Kamal](https://github.com/mk-hassan/llm-zoomcamp/blob/main/Module-1%3A%20Introduction%20to%20LLMs%20and%20RAG/README.md)
 * [Notes by Marat](https://machine-mind-ml.medium.com/discovering-semantic-search-and-rag-with-large-language-models-be7d9ba5bef4)
+* [Notes by Waleed](https://waleedayoub.com/post/llmzoomcamp_week1-intro_notes/)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
