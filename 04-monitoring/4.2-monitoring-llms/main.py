@@ -80,14 +80,19 @@ def compute_metrics(ground_truth_data: pd.DataFrame):
 
 if __name__ == "__main__":
     es_client = setup_es_client_and_index(index_name=ES_INDEX_NAME)
-    dump_doc_embeddings_to_db(es_client=es_client, index_name=ES_INDEX_NAME)
-    extend_ground_truth_dataset(es_client=es_client, index_name=ES_INDEX_NAME)
-    result = elastic_search_fields(index_name=ES_INDEX_NAME, search_query={
-        "_source": ["text_vector", "llm_answer_vector"],
-        "query": {"match_all": {}},
-    },
-    )
-    compute_cosine_similarity(result)
+    #dump_doc_embeddings_to_db(es_client=es_client, index_name=ES_INDEX_NAME)
+    #extend_ground_truth_dataset(es_client=es_client, index_name=ES_INDEX_NAME)
+    result = elastic_search_fields(es_client=es_client, index_name=ES_INDEX_NAME, search_query={
+        "query": {
+            "bool": {
+                "must": [
+                    {"exists": {"field": "text_vector"}},
+                    {"exists": {"field": "llm_answer_vector"}}
+                ]
+            }
+        }
+    })
+    #compute_cosine_similarity(result)
     
     # compute_metrics(pd.read_csv("ground-truth-data.csv",
     #                 usecols=["question", "contexts", "text", "llm_answer"]))

@@ -26,7 +26,7 @@ services:
 
   metrics-calculation:
     build: 
-      dockerfile: ./5.2-monitoring-ground-truth/Dockerfile
+      dockerfile: ./4.2-monitoring-llms/Dockerfile
       context: .
     depends_on:
       - metrics-db
