@@ -3,12 +3,12 @@ from tqdm.auto import tqdm
 from elasticsearch import Elasticsearch
 import pandas as pd
 from sentence_transformers import SentenceTransformer
-
-from llm_utils import ask_llm, build_prompt
+import logging
+from utils.llm_utils import ask_llm, build_prompt
 
 
 def setup_es_client_and_index(index_name: str) -> Elasticsearch:
-    es_client = Elasticsearch("http://localhost:9200")
+    es_client = Elasticsearch("http://documents-db:9200")
 
     index_settings = {
         "settings": {
@@ -27,6 +27,13 @@ def setup_es_client_and_index(index_name: str) -> Elasticsearch:
                     "dims": 384,
                     "index": True,
                     "similarity": "cosine"
+                },
+                "llm_answer": {"type": "text"},
+                "llm_answer_vector": {
+                    "type": "dense_vector",
+                    "dims": 384,
+                    "index": True,
+                    "similarity": "cosine" 
                 }
             }
         }
@@ -39,7 +46,7 @@ def setup_es_client_and_index(index_name: str) -> Elasticsearch:
 
 
 def dump_doc_embeddings_to_db(es_client: Elasticsearch, index_name: str):
-    with open('../../03-vector-search/documents-with-ids.json', 'rt') as f_in:
+    with open('documents-with-ids.json', 'rt') as f_in:
         documents = json.load(f_in)
 
     model = SentenceTransformer('multi-qa-MiniLM-L6-cos-v1')
@@ -48,6 +55,14 @@ def dump_doc_embeddings_to_db(es_client: Elasticsearch, index_name: str):
             doc["text_vector"] = model.encode(doc["text"])
             es_client.index(index=index_name, document=doc)
 
+
+def elastic_search_fields(es_client: Elasticsearch, index_name: str, search_query: dict) -> dict:
+    result = es_client.search(
+        index=index_name,
+        body=search_query
+    )
+    source = [doc["_source"] for doc in result]
+    return source
 
 def elastic_search_knn(field: str, vector, course: str, es_client: Elasticsearch, index_name: str) -> list:
     knn = {
@@ -77,23 +92,49 @@ def elastic_search_knn(field: str, vector, course: str, es_client: Elasticsearch
 
 
 def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
-    with open('../../03-vector-search/documents-with-ids.json', 'rt') as f_in:
+    with open('documents-with-ids.json', 'rt') as f_in:
         docs_raw = json.load(f_in)
     
-    df_ground_truth = pd.read_csv('../../03-vector-search/ground-truth-data.csv')
+    df_ground_truth = pd.read_csv('ground-truth-data.csv', index_col=0)
 
     model = SentenceTransformer('multi-qa-MiniLM-L6-cos-v1')
     
     id_to_text = {doc["id"]: doc["text"] for doc in docs_raw}
     df_ground_truth["text"] = df_ground_truth["document"].map(id_to_text)
     df_ground_truth['contexts'] = None 
-    
+    #df_ground_truth_sample = df_ground_truth.sample(5)
+    found = 0
+    not_found = 0
     for idx, row in tqdm(df_ground_truth.iterrows(), total=df_ground_truth.shape[0]):
+        # retrieve context data based on question and text vector embedding from elastic search
         question_vector = model.encode(row["question"])
         text_results = elastic_search_knn("text_vector", question_vector, "data-engineering-zoomcamp", es_client, index_name)
-        df_ground_truth.at[idx, 'contexts'] = [result["text"] for result in text_results]
-    
-        prompt = build_prompt(row["question"], row["contexts"])
-        df_ground_truth.at[idx, "llm_answer"] = ask_llm([{"role": "user", "content": prompt}], mock_answer=False)
-
-    df_ground_truth.to_csv("ground-truth-data.csv")
+        text_results = [result["text"] for result in text_results]
+        df_ground_truth.at[idx, 'contexts'] = text_results
+        
+        # generate llm answer and store in elastic search
+        prompt = build_prompt(row["question"], text_results)
+        llm_answer = ask_llm([{"role": "user", "content": prompt}], mock_answer=False)
+        df_ground_truth.at[idx, "llm_answer"] = llm_answer
+        llm_answer_vector = model.encode(llm_answer)
+        result = es_client.search(
+            index=index_name,
+            body={"query": {"match": {"id": row["document"]}}}
+        )
+        if len(result["hits"]["hits"]) > 0:
+            es_client.update(
+                index=index_name, 
+                id=result["hits"]["hits"][0]["_id"],
+                doc={
+                    "llm_answer_vector": llm_answer_vector
+                }
+            )
+            logging.error("bla_ids")
+            logging.error(f'updated id {result["hits"]["hits"][0]["_id"]} with {llm_answer_vector[:5]}')
+            found += 1
+        else:
+            logging.error(f'Was not able to find doc for {row["document"]}')
+            not_found += 1
+    logging.error(f"found: {found}")
+    logging.error(f"not found: {not_found}")
+    df_ground_truth.to_csv("ground-truth-data-sample.csv")

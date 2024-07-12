@@ -26,12 +26,13 @@ services:
 
   metrics-calculation:
     build: 
-      dockerfile: ./5.2-monitoring-ground-truth/Dockerfile
+      dockerfile: ./4.2-monitoring-llms/Dockerfile
       context: .
     depends_on:
       - metrics-db
     environment:
       POSTGRES_HOST: "metrics-db"
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
 
   metrics-db:
     image: postgres:13

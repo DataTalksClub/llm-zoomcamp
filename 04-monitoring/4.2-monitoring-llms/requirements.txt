@@ -4,3 +4,4 @@ datasets
 ragas==0.1.9
 elasticsearch==8.14.0
 evidently==0.4.30
+sentence-transformers==3.0.1
