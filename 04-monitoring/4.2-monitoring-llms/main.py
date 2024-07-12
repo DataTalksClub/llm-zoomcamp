@@ -29,20 +29,18 @@ ES_INDEX_NAME = "course_questions"
 OPEN_API_KEY = os.environ['OPENAI_API_KEY']
 
 
-def compute_cosine_similarity(vectors):
-    text_vectors = []
-    llm_answer_vectors = []
-
+def compute_cosine_similarity(vectors, index_name):
     for vector in vectors:
-        text_vectors.append(vector["text_vector"])
-        llm_answer_vectors.append(vector["llm_answer_vector"])
-
-    text_vectors = np.array(text_vectors)
-    llm_answer_vectors = np.array(llm_answer_vectors)
-
-    cosine_similarities = cosine_similarity(text_vectors, llm_answer_vectors)
-
-    print(f"Cosine Similarity: {cosine_similarities}")
+        cosine_similarity_value = cosine_similarity(
+            [vector["_source"]["text_vector"]],
+            [vector["_source"]["llm_answer_vector"]])[0][0]
+        es_client.update(
+            index=index_name,
+            id=vector["_id"],
+            doc={
+                "cosine_similarity_text_llm_answer": cosine_similarity_value
+            }
+        )
 
 
 def compute_metrics(ground_truth_data: pd.DataFrame):
@@ -69,19 +67,20 @@ def compute_metrics(ground_truth_data: pd.DataFrame):
                 feature_type="cat",
                 display_name="Assess llm answer towards initial question"
             )
-    ])])
-    report.run(reference_data=None, current_data=ground_truth_data_sample, column_mapping=column_mapping)
+        ])])
+    report.run(reference_data=None, current_data=ground_truth_data_sample,
+               column_mapping=column_mapping)
     report_df = report.as_dataframe()
     print(report_df.info())
     print(report_df)
 
-    #report_df.to_csv("metrics_report.csv")
+    # report_df.to_csv("metrics_report.csv")
 
 
 if __name__ == "__main__":
     es_client = setup_es_client_and_index(index_name=ES_INDEX_NAME)
-    #dump_doc_embeddings_to_db(es_client=es_client, index_name=ES_INDEX_NAME)
-    #extend_ground_truth_dataset(es_client=es_client, index_name=ES_INDEX_NAME)
+    dump_doc_embeddings_to_db(es_client=es_client, index_name=ES_INDEX_NAME)
+    extend_ground_truth_dataset(es_client=es_client, index_name=ES_INDEX_NAME)
     result = elastic_search_fields(es_client=es_client, index_name=ES_INDEX_NAME, search_query={
         "query": {
             "bool": {
@@ -92,8 +91,9 @@ if __name__ == "__main__":
             }
         }
     })
-    #compute_cosine_similarity(result)
-    
+
+    compute_cosine_similarity(result, index_name=ES_INDEX_NAME)
+
     # compute_metrics(pd.read_csv("ground-truth-data.csv",
     #                 usecols=["question", "contexts", "text", "llm_answer"]))
     # create_metrics_db(postgres_db_params=POSTGRES_DB_PARAMS)
