@@ -3,10 +3,16 @@ import streamlit as st
 import os
 import uuid
 from openai import OpenAI
-from utils.postgres import POSTGRES_DB_PARAMS, create_metrics_db, create_chat_table, save_message_to_db, update_feedback_in_db
+from utils.postgres import (
+    POSTGRES_DB_PARAMS, 
+    create_metrics_db, 
+    create_chat_table, 
+    save_message_to_db, 
+    update_feedback_in_db
+)
 from utils.llm_utils import ask_llm
 
-# Set up OpenAI API key
+
 client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
 
@@ -31,8 +37,6 @@ def clear_chat():
 
 
 st.title("Chat with LLM")
-
-# Display session ID
 st.write(f"**Session ID:** {st.session_state.session_id}")
 
 # Display chat history
@@ -66,11 +70,9 @@ if st.button("Send"):
                            st.session_state.session_id, 'assistant', response)
         st.rerun()
 
-# Clear chat button
 if st.button("Clear Chat"):
     clear_chat()
     st.rerun()
 
-# Display feedback (for debugging purposes)
 st.write("### Feedback Data")
 st.write(st.session_state.feedback)
