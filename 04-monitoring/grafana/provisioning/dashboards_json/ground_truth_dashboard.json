@@ -121,7 +121,34 @@
           "mappings": [],
           "unit": "short"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "Count ok",
+                  "Count good",
+                  "Count bad"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 10,
@@ -238,16 +265,43 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds"
           },
           "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
             }
           },
           "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "short"
         },
         "overrides": []
@@ -260,29 +314,26 @@
       },
       "id": 5,
       "options": {
-        "displayMode": "label",
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
         "legend": {
+          "calcs": [],
           "displayMode": "list",
           "placement": "bottom",
-          "position": "right",
-          "show": true,
-          "showLegend": true,
-          "values": false
+          "showLegend": true
         },
-        "pieType": "pie",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
+        "orientation": "auto",
+        "showValue": "auto",
+        "stacking": "none",
         "tooltip": {
           "maxHeight": 600,
           "mode": "single",
-          "show": true,
           "sort": "none"
-        }
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
       },
       "pluginVersion": "11.0.0",
       "targets": [
@@ -294,7 +345,7 @@
               "id": "2",
               "settings": {
                 "min_doc_count": "1",
-                "order": "desc",
+                "order": "asc",
                 "orderBy": "_term",
                 "size": "0"
               },
@@ -315,50 +366,10 @@
           "queryType": "lucene",
           "refId": "A",
           "timeField": "timestamp"
-        },
-        {
-          "conditions": [
-            {
-              "evaluator": {
-                "params": [
-                  0,
-                  0
-                ],
-                "type": "gt"
-              },
-              "operator": {
-                "type": "and"
-              },
-              "query": {
-                "params": [
-                  "A"
-                ]
-              },
-              "reducer": {
-                "params": [],
-                "type": "avg"
-              },
-              "type": "query"
-            }
-          ],
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "hide": false,
-          "refId": "B",
-          "type": "classic_conditions"
         }
       ],
       "title": "LLM negative Sentiment",
-      "transformations": [
-        {
-          "id": "groupBy",
-          "options": {}
-        }
-      ],
-      "type": "piechart"
+      "type": "barchart"
     }
   ],
   "schemaVersion": 39,
@@ -375,6 +386,6 @@
   "timezone": "browser",
   "title": "5.2 Ground Truth Metrics",
   "uid": "fdr5vo5cs2txcc",
-  "version": 4,
+  "version": 1,
   "weekStart": ""
 }
