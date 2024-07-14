@@ -3,7 +3,7 @@ version: '3.8'
 services:
   chat-frontend:
     build: 
-      dockerfile: ./5.3-monitoring-chat-behaviour/Dockerfile
+      dockerfile: ./4.3-monitoring-user-feedback/Dockerfile
       context: .
     depends_on:
       - metrics-db
@@ -23,13 +23,20 @@ services:
       - "9200:9200"
     volumes:
       - documents_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   metrics-calculation:
     build: 
       dockerfile: ./4.2-monitoring-llms/Dockerfile
       context: .
+    # command: ["/bin/sh", "-c", "while true; do sleep 30; done"]
     depends_on:
       - metrics-db
+      - documents-db
     environment:
       POSTGRES_HOST: "metrics-db"
       OPENAI_API_KEY: ${OPENAI_API_KEY}
