@@ -26,36 +26,6 @@
           "type": "grafana-postgresql-datasource",
           "uid": "P82B5D1BC9AA50782"
         },
-<<<<<<< HEAD
-        "definition": "SELECT DISTINCT session_id FROM chat_history ORDER BY session_id;\n",
-        "hide": 0,
-        "includeAll": false,
-        "label": "Session ID",
-        "multi": false,
-        "name": "session_id",
-        "options": [],
-        "query": "SELECT DISTINCT session_id FROM chat_history ORDER BY session_id;\n",
-        "refresh": 1,
-        "regex": "",
-        "skipUrlSync": false,
-        "sort": 0,
-        "type": "query"
-      }
-    ]
-  },
-  "time": {
-    "from": "now-30m",
-    "to": "now"
-  },
-  "timeRangeUpdatedDuringEditOrView": false,
-  "timepicker": {},
-  "timezone": "browser",
-  "title": "5.3 User Feedback",
-  "uid": "cdqxwvymr6x34c",
-  "version": 1,
-  "weekStart": ""
-}
-=======
         "fieldConfig": {
           "defaults": {
             "color": {
@@ -674,4 +644,3 @@
     "weekStart": ""
   }
   
->>>>>>> main
