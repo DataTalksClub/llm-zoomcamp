@@ -9,7 +9,10 @@ Add OPENAI_API_KEY as environment variable
 Mac/Linux: export OPENAI_API_KEY="your-api-key-here"
 ```
 ## 4.1 Introduction to monitoring answer quality 
-< placeholder for youtube video >
+<a href="https://www.youtube.com/watch?v=MC80sUGERLE&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/MC80sUGERLE">
+</a>
+
 * Why monitoring LLM systems?
 * Monitoring answer quality of LLMs 
   * Compute different types of quality metrics
@@ -22,7 +25,7 @@ Mac/Linux: export OPENAI_API_KEY="your-api-key-here"
 
 ## 4.2 Monitoring answer quality of LLMs
 ### 4.2.1 Creating ground-truth dataset
-< placeholder for youtube visdeo >
+< placeholder for youtube video >
 
 Partly recap from [3.3 Evaluating Retrieval](../03-vector-search/)
 * Setting up Elastic Search database as docker-compose service
@@ -63,3 +66,5 @@ Partly recap from [3.3 Evaluating Retrieval](../03-vector-search/)
 * Retrieve feedback metrics from Postgres and visualize on Grafana dashboard
 
 ## 4.4 Homework
+
+tbd.
