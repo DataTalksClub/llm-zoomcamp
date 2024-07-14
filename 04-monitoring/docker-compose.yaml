@@ -8,7 +8,10 @@ services:
     depends_on:
       - metrics-db
     environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
       POSTGRES_HOST: "metrics-db"
+      POSTGRES_PORT: 5432
       OPENAI_API_KEY: ${OPENAI_API_KEY}
     ports:
     - 8501:8501
@@ -36,7 +39,6 @@ services:
     build: 
       dockerfile: ./4.2-monitoring-llms/Dockerfile
       context: .
-    # command: ["/bin/sh", "-c", "while true; do sleep 30; done"]
     depends_on:
       - metrics-db
       - documents-db
@@ -54,9 +56,6 @@ services:
     - 5432:5432
     volumes:
       - monitoring_data:/var/lib/postgresql/data
-    deploy:
-      restart_policy:
-        condition: none
 
   dashboard:
     image: grafana/grafana:11.0.0

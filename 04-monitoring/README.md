@@ -35,15 +35,14 @@ Partly recap from [3.3 Evaluating Retrieval](../03-vector-search/)
 ### 4.2.2 Computing and storing metrics
 < placeholder for youtube video >
 
-* Compute evaluation metrics (i.e. semantic similarity, LLM-as-a-judge) from groud-truth-data.csv
-* Setting up Postgres database as docker-compose service
-* Store evaluation metrics in Postgres
+* Compute evaluation metrics (i.e. semantic similarity, negativity, LLM-as-a-judge) from groud-truth-data.csv
+* Storing evaluation metrics in Elasti Search database
 
 ### 4.2.3 Retrieving and visualizing metrics
 < placeholder for youtube video >
 
-* Setting up Grafana frontend as docker-compose service and connect to Postgres datasource
-* Retrieve metrics from Postgres and visualize on Grafana dashboard
+* Setting up Grafana frontend as docker-compose service and connect to Elastic Search datasource
+* Retrieve metrics from Elastic Search and visualize on Grafana dashboard
 
 ## 4.3 Monitoring answer quality with user feedback
 ### 4.3.1 Setting up chat frontend
@@ -57,7 +56,7 @@ Partly recap from [3.3 Evaluating Retrieval](../03-vector-search/)
 < placeholder for youtube video >
 
 * Setting up Postgres as docker-compose service
-* Store chat history and feedback metrics in Postgres
+* Store chat history and feedback in Postgres
 
 ### 4.3.3 Retrieving and visualizing metrics
 < placeholder for youtube video >
