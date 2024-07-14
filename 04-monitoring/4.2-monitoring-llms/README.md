@@ -1,0 +1,1 @@
+curl -X GET "http://localhost:9200/course_questions/_doc/ZiXTsZABnCJpVx9ZZHCK" -H 'Content-Type: application/json' | jq '._source | {question, llm_answer, llm_as_a_judge, negative_llm_answer, cosine_similarity_text_llm_answer}'

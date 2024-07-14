@@ -1,6 +1,6 @@
 import json
 from tqdm.auto import tqdm
-from elasticsearch import Elasticsearch, NotFoundError
+from elasticsearch import Elasticsearch
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 import logging
@@ -36,6 +36,8 @@ def setup_es_client_and_index(index_name: str) -> Elasticsearch:
                     "similarity": "cosine"
                 },
                 "cosine_similarity_text_llm_answer": {"type": "double"},
+                "negative_llm_answer": {"type": "boolean"},
+                "llm_as_a_judge": {"type": "text"}
             }
         }
     }
@@ -43,9 +45,9 @@ def setup_es_client_and_index(index_name: str) -> Elasticsearch:
     # Check if the index already exists
     if not es_client.indices.exists(index=index_name):
         es_client.indices.create(index=index_name, body=index_settings)
-        print(f"Index '{index_name}' created.")
+        logging.info(f"Created new index '{index_name}'.")
     else:
-        print(f"Index '{index_name}' already exists.")
+        logging.info(f"Index '{index_name}' already exists.")
 
     return es_client
 
@@ -119,7 +121,8 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
         # generate llm answer and store in elastic search
         prompt = build_prompt(row["question"], text_results)
         llm_answer = ask_llm(
-            [{"role": "user", "content": prompt}], mock_answer=False)
+            "gpt-3.5-turbo-0125", [{"role": "user", "content": prompt}], mock_answer=False
+        )
         df_ground_truth.at[idx, "llm_answer"] = llm_answer
         llm_answer_vector = model.encode(llm_answer)
         result = es_client.search(

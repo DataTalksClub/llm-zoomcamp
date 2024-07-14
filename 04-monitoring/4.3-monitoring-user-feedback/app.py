@@ -63,7 +63,7 @@ if st.button("Send"):
             {'role': 'user', 'content': user_input})
         save_message_to_db(POSTGRES_DB_PARAMS,
                            st.session_state.session_id, 'user', user_input)
-        response = ask_llm(st.session_state.messages, mock_answer=True)
+        response = ask_llm("gpt-3.5-turbo-0125", st.session_state.messages, mock_answer=True)
         st.session_state.messages.append(
             {'role': 'assistant', 'content': response})
         save_message_to_db(POSTGRES_DB_PARAMS,
