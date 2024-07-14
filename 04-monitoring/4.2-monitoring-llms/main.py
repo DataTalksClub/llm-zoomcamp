@@ -1,5 +1,3 @@
-import os
-import logging
 from sklearn.metrics.pairwise import cosine_similarity
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, TextClassificationPipeline
 
@@ -13,8 +11,6 @@ from documents_database import (
 from utils.llm_utils import ask_llm, build_prompt
 
 ES_INDEX_NAME = "course_questions"
-
-OPEN_API_KEY = os.environ['OPENAI_API_KEY']
 
 
 def compute_cosine_similarity(result: list, index_name: str):
@@ -61,16 +57,11 @@ def compute_llm_as_a_judge(result: list, openai_model_name: str, index_name: str
         result = ask_llm(openai_model_name, [
                          {"role": "user", "content": prompt}], mock_answer=False).lower()
         judge = result if result in ["good", "ok", "bad"] else "unknown"
-        logging.error(f'Judge {judge} for ID {entry["_id"]}')
         response = es_client.update(
             index=index_name,
             id=entry["_id"],
             doc={"llm_as_a_judge": judge}
         )
-        logging.error(f'Update response: {response}')
-    # Refresh the index to make updates searchable
-    es_client.indices.refresh(index=ES_INDEX_NAME)
-    # Verify the updates
 
 
 if __name__ == "__main__":
@@ -90,32 +81,5 @@ if __name__ == "__main__":
     })
 
     compute_cosine_similarity(result, index_name=ES_INDEX_NAME)
-    compute_sentiment(
-        result, hugginface_model_path="finiteautomata/bertweet-base-sentiment-analysis", index_name=ES_INDEX_NAME)
-    compute_llm_as_a_judge(
-        result, openai_model_name="gpt-3.5-turbo-0125", index_name=ES_INDEX_NAME)
-    result = elastic_search_fields(es_client=es_client, index_name=ES_INDEX_NAME, search_query={
-        "query": {
-            "bool": {
-                "must": [
-                    {"exists": {"field": "text_vector"}},
-                    {"exists": {"field": "llm_answer_vector"}}
-                ]
-            }
-        }
-    })
-    for entry in result:
-        updated_doc = es_client.get(index=ES_INDEX_NAME, id=entry["_id"])
-        logging.error(
-            f"Document ID: {entry['_id']}, llm_as_a_judge: {updated_doc['_source'].get('llm_as_a_judge', 'Not Found')}")
-
-
-# TODOs:
-    # Must: show metrics on grafana dashboard over time
-    # 1) cosin similarity - histogram
-    # llm as a judge pie chart
-    # negative_llm_answer pie chart
-    # Must: improve code quality in documents_database.py
-    # Must: check if chatgpt 4 gives better answers and meaningful cosine similarity (picking 3x examples for near, far away etc is enough!)
-    # optional: put 3x metrics to nested
-    # optional: show corresponding question, llm_answer to "bad" answers
+    compute_sentiment(result, hugginface_model_path="finiteautomata/bertweet-base-sentiment-analysis", index_name=ES_INDEX_NAME)
+    compute_llm_as_a_judge(result, openai_model_name="gpt-3.5-turbo-0125", index_name=ES_INDEX_NAME)

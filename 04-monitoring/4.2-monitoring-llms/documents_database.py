@@ -44,7 +44,6 @@ def setup_es_client_and_index(index_name: str) -> Elasticsearch:
         }
     }
 
-    # Check if the index already exists
     if not es_client.indices.exists(index=index_name):
         es_client.indices.create(index=index_name, body=index_settings)
         logging.info(f"Created new index '{index_name}'.")
@@ -110,7 +109,7 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
     id_to_text = {doc["id"]: doc["text"] for doc in docs_raw}
     df_ground_truth["text"] = df_ground_truth["document"].map(id_to_text)
     df_ground_truth['contexts'] = None
-    # df_ground_truth_sample = df_ground_truth.sample(5)
+
     found = 0
     not_found = 0
     i = 0
@@ -142,16 +141,10 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
                     "llm_answer": llm_answer
                 }
             )
-            logging.error("bla_ids")
-            logging.error(
-                f'updated id {result["hits"]["hits"][0]["_id"]} with {llm_answer_vector[:5]}')
+            logging.info(f'updated id {result["hits"]["hits"][0]["_id"]} with {llm_answer_vector[:5]}')
             found += 1
         else:
             logging.error(f'Was not able to find doc for {row["document"]}')
             not_found += 1
-        if found > 50:
-            break
-    logging.error(f"found: {found}")
-    logging.error(f"not found: {not_found}")
+
     es_client.indices.refresh(index=index_name)
-    df_ground_truth.to_csv("ground-truth-data-sample.csv")
