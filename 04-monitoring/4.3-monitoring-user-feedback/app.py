@@ -4,10 +4,10 @@ import os
 import uuid
 from openai import OpenAI
 from utils.postgres import (
-    POSTGRES_DB_PARAMS, 
-    create_metrics_db, 
-    create_chat_table, 
-    save_message_to_db, 
+    POSTGRES_DB_PARAMS,
+    create_metrics_db,
+    create_chat_table,
+    save_message_to_db,
     update_feedback_in_db
 )
 from utils.llm_utils import ask_llm
@@ -63,7 +63,8 @@ if st.button("Send"):
             {'role': 'user', 'content': user_input})
         save_message_to_db(POSTGRES_DB_PARAMS,
                            st.session_state.session_id, 'user', user_input)
-        response = ask_llm("gpt-3.5-turbo-0125", st.session_state.messages, mock_answer=True)
+        response = ask_llm("gpt-3.5-turbo-0125",
+                           st.session_state.messages, mock_answer=True)
         st.session_state.messages.append(
             {'role': 'assistant', 'content': response})
         save_message_to_db(POSTGRES_DB_PARAMS,

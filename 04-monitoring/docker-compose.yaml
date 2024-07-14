@@ -12,6 +12,9 @@ services:
       OPENAI_API_KEY: ${OPENAI_API_KEY}
     ports:
     - 8501:8501
+    volumes:
+      - ./4.3-monitoring-user-feedback:/app/
+      - ./utils:/app/utils
   
   documents-db:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
