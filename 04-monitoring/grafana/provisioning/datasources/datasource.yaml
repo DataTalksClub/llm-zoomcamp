@@ -11,3 +11,13 @@ datasources:
     jsonData:
       sslmode: disable
       postgresVersion: 1300
+  - name: MonitoringLLMAnswers
+    type: elasticsearch
+    access: proxy
+    url: http://documents-db:9200
+    database: course_questions
+    jsonData:
+      timeField: "timestamp"
+      esVersion: 8
+      logMessageField: "_source" 
+      

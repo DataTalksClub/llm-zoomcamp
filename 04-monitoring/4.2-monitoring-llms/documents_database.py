@@ -4,6 +4,7 @@ from elasticsearch import Elasticsearch
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 import logging
+from datetime import datetime
 from utils.llm_utils import ask_llm, build_prompt
 
 
@@ -17,6 +18,7 @@ def setup_es_client_and_index(index_name: str) -> Elasticsearch:
         },
         "mappings": {
             "properties": {
+                "timestamp": {"type": "date"},
                 "text": {"type": "text"},
                 "section": {"type": "text"},
                 "question": {"type": "text"},
@@ -36,8 +38,8 @@ def setup_es_client_and_index(index_name: str) -> Elasticsearch:
                     "similarity": "cosine"
                 },
                 "cosine_similarity_text_llm_answer": {"type": "double"},
-                "negative_llm_answer": {"type": "boolean"},
-                "llm_as_a_judge": {"type": "text"}
+                "negative_llm_answer": {"type": "keyword"},
+                "llm_as_a_judge": {"type": "keyword"}
             }
         }
     }
@@ -60,6 +62,7 @@ def dump_doc_embeddings_to_db(es_client: Elasticsearch, index_name: str):
     for doc in tqdm(documents):
         if doc["course"] == "data-engineering-zoomcamp":
             doc["text_vector"] = model.encode(doc["text"])
+            doc["timestamp"] = datetime.now()
             es_client.index(index=index_name, document=doc)
 
 
@@ -110,6 +113,7 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
     # df_ground_truth_sample = df_ground_truth.sample(5)
     found = 0
     not_found = 0
+    i = 0
     for idx, row in tqdm(df_ground_truth.iterrows(), total=df_ground_truth.shape[0]):
         # retrieve context data based on question and text vector embedding from elastic search
         question_vector = model.encode(row["question"])
@@ -145,6 +149,9 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
         else:
             logging.error(f'Was not able to find doc for {row["document"]}')
             not_found += 1
+        if found > 50:
+            break
     logging.error(f"found: {found}")
     logging.error(f"not found: {not_found}")
+    es_client.indices.refresh(index=index_name)
     df_ground_truth.to_csv("ground-truth-data-sample.csv")
