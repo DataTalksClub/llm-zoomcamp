@@ -266,7 +266,8 @@
           "placement": "bottom",
           "position": "right",
           "show": true,
-          "showLegend": true
+          "showLegend": true,
+          "values": false
         },
         "pieType": "pie",
         "reduceOptions": {

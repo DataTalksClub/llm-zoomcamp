@@ -63,7 +63,6 @@ def dump_doc_embeddings_to_db(es_client: Elasticsearch, index_name: str):
         if doc["course"] == "data-engineering-zoomcamp":
             doc["text_vector"] = model.encode(doc["text"])
             doc["timestamp"] = datetime.now()
-            doc["llm_as_a_judge"] = 'unknown'
             es_client.index(index=index_name, document=doc)
 
 
@@ -150,7 +149,7 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
         else:
             logging.error(f'Was not able to find doc for {row["document"]}')
             not_found += 1
-        if found > 20:
+        if found > 50:
             break
     logging.error(f"found: {found}")
     logging.error(f"not found: {not_found}")
