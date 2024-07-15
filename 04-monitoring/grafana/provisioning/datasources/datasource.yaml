@@ -1,0 +1,23 @@
+apiVersion: 1
+datasources:
+  - name: MonitoringChatBevahior
+    type: postgres
+    access: proxy
+    url: metrics-db:5432
+    database: chat_monitoring
+    user: admin
+    secureJsonData:
+      password: admin
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1300
+  - name: MonitoringLLMAnswers
+    type: elasticsearch
+    access: proxy
+    url: http://documents-db:9200
+    database: course_questions
+    jsonData:
+      timeField: "timestamp"
+      esVersion: 8
+      logMessageField: "_source" 
+      
