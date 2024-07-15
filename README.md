@@ -72,13 +72,11 @@ Implement a search engine
 ### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
 
-### [Monitoring and Guardrails](04-monitoring/)
+### [Monitoring](04-monitoring/)
 
-* Monitoring with ground-truth
-* Metrics (RAGAs)
-* Dashboarding with Grafana for visualization
-* Monitoring chat
-* Guardrails
+* Computing metrics to monitor the quality of LLM answers
+* Tracking chat history and user feedback
+* Creating dashboards with Grafana for visualization
 
 ### [LLM orchestration and ingestion pipelines](05-orchestration/)
 

@@ -1,0 +1,9 @@
+pandas==2.2.2
+psycopg2-binary==2.9.9
+datasets
+ragas==0.1.9
+elasticsearch==8.14.0
+evidently==0.4.30
+sentence-transformers==3.0.1
+transformers==4.42.3
+emoji==0.6.0

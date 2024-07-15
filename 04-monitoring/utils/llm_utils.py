@@ -6,10 +6,10 @@ from openai import OpenAI
 client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
 
-def ask_llm(messages: list[dict], mock_answer: bool = False) -> str:
+def ask_llm(openai_model_name: str, messages: list[dict], mock_answer: bool = False) -> str:
     if not mock_answer:
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo-0125",
+            model=openai_model_name,
             messages=messages,
             max_tokens=150
         ).choices[0].message.content.strip()
