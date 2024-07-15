@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  chat-frontend:
+    build: 
+      dockerfile: ./4.3-monitoring-user-feedback/Dockerfile
+      context: .
+    depends_on:
+      - metrics-db
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_HOST: "metrics-db"
+      POSTGRES_PORT: 5432
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    ports:
+    - 8501:8501
+    volumes:
+      - ./4.3-monitoring-user-feedback:/app/
+      - ./utils:/app/utils
+  
+  documents-db:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - documents_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  metrics-calculation:
+    build: 
+      dockerfile: ./4.2-monitoring-llms/Dockerfile
+      context: .
+    depends_on:
+      - metrics-db
+      - documents-db
+    environment:
+      POSTGRES_HOST: "metrics-db"
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+
+  metrics-db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_DB: "metrics_db"
+    ports:
+    - 5432:5432
+    volumes:
+      - monitoring_data:/var/lib/postgresql/data
+
+  dashboard:
+    image: grafana/grafana:11.0.0
+    depends_on:
+      - metrics-db
+      - chat-frontend
+    environment:
+      GF_SECURITY_ADMIN_USER: "admin"
+      GF_SECURITY_ADMIN_PASSWORD: "admin"
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/provisioning:/etc/grafana/provisioning
+
+volumes:
+  documents_data: {}
+  monitoring_data: {}
+  grafana_data: {}
