@@ -42,10 +42,7 @@ We encourage [Learning in Public](learning-in-public.md)
 
 ### Pre-course workshops
 
-Implement a search engine
-
-* Video: https://www.youtube.com/watch?v=nMrGK5QgPVE
-* Code: https://github.com/alexeygrigorev/build-your-own-search-engine
+Implement a search engine: [Video](https://www.youtube.com/watch?v=nMrGK5QgPVE), [code](https://github.com/alexeygrigorev/build-your-own-search-engine)
 
 ### [Introduction to LLMs and RAG](01-intro/)
 
@@ -78,13 +75,12 @@ Implement a search engine
 * Tracking chat history and user feedback
 * Creating dashboards with Grafana for visualization
 
-### [LLM orchestration and ingestion pipelines](05-orchestration/)
+### [LLM orchestration and ingestion](05-orchestration/)
 
 * Ingesting data with Mage
 
 
-
-### [Tips and Tricks for advanced RAG systems](06-best-practices/)
+### [Best practices](06-best-practices/)
 
 * Best practices
 
