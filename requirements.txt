@@ -1,7 +1,10 @@
 elasticsearch
 groq
+ipykernel
 ipywidgets # tqdm in notebooks
+numpy
 openai
+pandas
 pre-commit
 python-dotenv
 requests
