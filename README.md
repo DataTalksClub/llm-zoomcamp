@@ -28,7 +28,7 @@ knowledge base.
 - [Materials specific to 2024 cohort](cohorts/2024/)
  
 
-### Pre-requisites
+## Pre-requisites
 
 * Comfortable with programming and Python
 * Comfortable with command line
