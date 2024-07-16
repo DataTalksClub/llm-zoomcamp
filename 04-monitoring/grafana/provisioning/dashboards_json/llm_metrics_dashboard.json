@@ -22,6 +22,82 @@
   "panels": [
     {
       "datasource": {
+        "type": "elasticsearch",
+        "uid": "P27AB1F04D55D014C"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 7,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "alias": "",
+          "bucketAggs": [],
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "P27AB1F04D55D014C"
+          },
+          "metrics": [
+            {
+              "id": "1",
+              "settings": {
+                "size": "500"
+              },
+              "type": "raw_data"
+            }
+          ],
+          "query": "id:\"${text_id}\"",
+          "refId": "A",
+          "timeField": "timestamp"
+        }
+      ],
+      "title": "Panel Title",
+      "type": "table"
+    },
+    {
+      "datasource": {
         "type": "grafana-postgresql-datasource",
         "uid": "PDA696A072906F565"
       },
@@ -55,7 +131,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 0
+        "y": 7
       },
       "id": 6,
       "options": {
@@ -141,7 +217,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 0
+        "y": 7
       },
       "id": 5,
       "options": {
@@ -247,7 +323,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 8
+        "y": 15
       },
       "id": 2,
       "options": {
@@ -296,7 +372,32 @@
   "schemaVersion": 39,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "0bbf41ec",
+          "value": "0bbf41ec"
+        },
+        "datasource": {
+          "type": "grafana-postgresql-datasource",
+          "uid": "PDA696A072906F565"
+        },
+        "definition": "SELECT DISTINCT text_id FROM llm_metrics ORDER BY text_id;\n",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Text ID",
+        "multi": false,
+        "name": "text_id",
+        "options": [],
+        "query": "SELECT DISTINCT text_id FROM llm_metrics ORDER BY text_id;\n",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
   },
   "time": {
     "from": "now-2d",
@@ -307,6 +408,6 @@
   "timezone": "browser",
   "title": "4.2 LLM quality Metrics",
   "uid": "fdr5vo5cs2txcc",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }
