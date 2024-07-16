@@ -31,7 +31,7 @@ Mac/Linux: export OPENAI_API_KEY="your-api-key-here"
 Partly recap from [3.3 Evaluating Retrieval](../03-vector-search/)
 * Setting up Elastic Search database as docker-compose service
 * Storing documents-with-ids.json in Elastic Search database
-* Extending ground-truth-data.csv with retrieved context data from Elastic Search and llm answer
+* Extending ground-truth-data.csv with llm answer and corresponding vector
 
 ### 4.2.2 Computing and storing metrics
 < placeholder for youtube video >
