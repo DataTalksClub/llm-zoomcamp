@@ -2,7 +2,6 @@ import logging
 import json
 from tqdm.auto import tqdm
 from elasticsearch import Elasticsearch
-import pandas as pd
 from sentence_transformers import SentenceTransformer
 from datetime import datetime
 from utils.llm_utils import ask_llm, build_prompt
@@ -79,16 +78,12 @@ def elastic_search_fields(es_client: Elasticsearch, index_name: str, search_quer
 def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
     logging.info(f"Extending documents ground truth with llm answer.")
     with open('documents-with-ids.json', 'rt') as f_in:
-        docs_raw = json.load(f_in)
-    df_ground_truth = pd.read_csv('ground-truth-data.csv')
+        docs = json.load(f_in)
     model = SentenceTransformer('multi-qa-MiniLM-L6-cos-v1')
-    id_to_text = {doc["id"]: doc["text"] for doc in docs_raw}
-    df_ground_truth["text"] = df_ground_truth["document"].map(id_to_text)
-    df_ground_truth['contexts'] = None
 
-    for _, row in tqdm(df_ground_truth.iterrows()):
+    for doc in tqdm(docs):
         # retrieve context data based on question and text vector embedding from elastic search
-        question_vector = model.encode(row["question"])
+        question_vector = model.encode(doc["question"])
         text_results = elastic_search_fields(es_client, index_name, {
             "knn": {
                 "field": "text_vector",
@@ -99,15 +94,17 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
             },
             "_source": ["text"]
         })
-        text_results = [result["_source"]["text"] for result in text_results]
+        contexts = [result["_source"]["text"] for result in text_results]
 
         # generate llm answer and store in elastic search
-        prompt = build_prompt(row["question"], text_results)
+        prompt = build_prompt(doc["question"], contexts)
         llm_answer = ask_llm(
             "gpt-3.5-turbo-0125", [{"role": "user", "content": prompt}], mock_answer=False
         )
         llm_answer_vector = model.encode(llm_answer)
-        result = elastic_search_fields(es_client, index_name, {"query": {"match": {"id": row["document"]}}})
+        result = elastic_search_fields(es_client, index_name, {
+            "query": {"match": {"id": doc["id"]}}}
+        )
         es_client.update(
             index=index_name,
             id=result[0]["_id"],
@@ -116,4 +113,3 @@ def extend_ground_truth_dataset(es_client: Elasticsearch, index_name: str):
                 "llm_answer": llm_answer
             }
         )
- 
