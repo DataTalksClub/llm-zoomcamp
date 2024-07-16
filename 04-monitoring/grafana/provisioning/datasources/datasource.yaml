@@ -20,4 +20,14 @@ datasources:
       timeField: "timestamp"
       esVersion: 8
       logMessageField: "_source" 
-      
+  - name: MonitoringLLMBevahior
+    type: postgres
+    access: proxy
+    url: metrics-db:5432
+    database: ground_truth_monitoring
+    user: admin
+    secureJsonData:
+      password: admin
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1300      

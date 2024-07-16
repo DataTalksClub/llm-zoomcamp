@@ -22,8 +22,190 @@
   "panels": [
     {
       "datasource": {
-        "type": "elasticsearch",
-        "uid": "P27AB1F04D55D014C"
+        "type": "grafana-postgresql-datasource",
+        "uid": "PDA696A072906F565"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [
+            {
+              "options": {
+                "bad": {
+                  "color": "dark-red",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ]
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "displayLabels": [
+          "name"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "count"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "PDA696A072906F565"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT llm_as_a_judge, COUNT(*) as count\nFROM llm_metrics\nGROUP BY llm_as_a_judge;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "LLM as a Judge Distribution",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "PDA696A072906F565"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            }
+          },
+          "mappings": [],
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "displayLabels": [
+          "name"
+        ],
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true,
+          "values": []
+        },
+        "pieType": "pie",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": true
+        },
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "grafana-postgresql-datasource",
+            "uid": "PDA696A072906F565"
+          },
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT negative_llm_answer, COUNT(*) as count\nFROM llm_metrics\nGROUP BY negative_llm_answer;\n",
+          "refId": "A",
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
+        }
+      ],
+      "title": "LLM negative Sentiment",
+      "type": "piechart"
+    },
+    {
+      "datasource": {
+        "type": "grafana-postgresql-datasource",
+        "uid": "PDA696A072906F565"
       },
       "fieldConfig": {
         "defaults": {
@@ -65,7 +247,7 @@
         "h": 8,
         "w": 24,
         "x": 0,
-        "y": 0
+        "y": 8
       },
       "id": 2,
       "options": {
@@ -76,300 +258,39 @@
           "showLegend": true
         }
       },
+      "pluginVersion": "11.0.0",
       "targets": [
         {
-          "alias": "",
-          "bucketAggs": [],
           "datasource": {
-            "type": "elasticsearch",
-            "uid": "P27AB1F04D55D014C"
+            "type": "grafana-postgresql-datasource",
+            "uid": "PDA696A072906F565"
           },
-          "metrics": [
-            {
-              "id": "1",
-              "settings": {
-                "limit": "500"
-              },
-              "type": "logs"
-            }
-          ],
-          "query": "",
+          "editorMode": "code",
+          "format": "table",
+          "rawQuery": true,
+          "rawSql": "SELECT cosine_similarity_text_llm_answer FROM llm_metrics;",
           "refId": "A",
-          "timeField": "timestamp"
+          "sql": {
+            "columns": [
+              {
+                "parameters": [],
+                "type": "function"
+              }
+            ],
+            "groupBy": [
+              {
+                "property": {
+                  "type": "string"
+                },
+                "type": "groupBy"
+              }
+            ],
+            "limit": 50
+          }
         }
       ],
       "title": "Cosine Similarity Distribution",
       "type": "histogram"
-    },
-    {
-      "datasource": {
-        "type": "elasticsearch",
-        "uid": "P27AB1F04D55D014C"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            }
-          },
-          "mappings": [],
-          "unit": "short"
-        },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "Count ok",
-                  "Count good",
-                  "Count bad"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 0,
-        "y": 8
-      },
-      "id": 4,
-      "options": {
-        "displayMode": "label",
-        "legend": {
-          "displayMode": "list",
-          "placement": "bottom",
-          "position": "right",
-          "show": true,
-          "showLegend": true
-        },
-        "pieType": "pie",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "tooltip": {
-          "maxHeight": 600,
-          "mode": "single",
-          "show": true,
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "llm_as_a_judge",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "1",
-                "order": "desc",
-                "orderBy": "_term",
-                "size": "0"
-              },
-              "type": "terms"
-            }
-          ],
-          "datasource": {
-            "type": "elasticsearch",
-            "uid": "P27AB1F04D55D014C"
-          },
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "*",
-          "queryType": "lucene",
-          "refId": "A",
-          "timeField": "timestamp"
-        },
-        {
-          "conditions": [
-            {
-              "evaluator": {
-                "params": [
-                  0,
-                  0
-                ],
-                "type": "gt"
-              },
-              "operator": {
-                "type": "and"
-              },
-              "query": {
-                "params": [
-                  "A"
-                ]
-              },
-              "reducer": {
-                "params": [],
-                "type": "avg"
-              },
-              "type": "query"
-            }
-          ],
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "hide": false,
-          "refId": "B",
-          "type": "classic_conditions"
-        }
-      ],
-      "title": "LLM as a Judge Distribution",
-      "transformations": [
-        {
-          "id": "groupBy",
-          "options": {}
-        }
-      ],
-      "type": "piechart"
-    },
-    {
-      "datasource": {
-        "type": "elasticsearch",
-        "uid": "P27AB1F04D55D014C"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "fillOpacity": 80,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineWidth": 1,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 12,
-        "y": 8
-      },
-      "id": 5,
-      "options": {
-        "barRadius": 0,
-        "barWidth": 0.97,
-        "fullHighlight": false,
-        "groupWidth": 0.7,
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "orientation": "auto",
-        "showValue": "auto",
-        "stacking": "none",
-        "tooltip": {
-          "maxHeight": 600,
-          "mode": "single",
-          "sort": "none"
-        },
-        "xTickLabelRotation": 0,
-        "xTickLabelSpacing": 0
-      },
-      "pluginVersion": "11.0.0",
-      "targets": [
-        {
-          "alias": "",
-          "bucketAggs": [
-            {
-              "field": "negative_llm_answer",
-              "id": "2",
-              "settings": {
-                "min_doc_count": "1",
-                "order": "asc",
-                "orderBy": "_term",
-                "size": "0"
-              },
-              "type": "terms"
-            }
-          ],
-          "datasource": {
-            "type": "elasticsearch",
-            "uid": "P27AB1F04D55D014C"
-          },
-          "metrics": [
-            {
-              "id": "1",
-              "type": "count"
-            }
-          ],
-          "query": "*",
-          "queryType": "lucene",
-          "refId": "A",
-          "timeField": "timestamp"
-        }
-      ],
-      "title": "LLM negative Sentiment",
-      "type": "barchart"
     }
   ],
   "schemaVersion": 39,
@@ -386,6 +307,6 @@
   "timezone": "browser",
   "title": "4.2 LLM quality Metrics",
   "uid": "fdr5vo5cs2txcc",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }
