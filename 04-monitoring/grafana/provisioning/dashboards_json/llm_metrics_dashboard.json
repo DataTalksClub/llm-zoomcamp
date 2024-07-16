@@ -152,7 +152,7 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
+        "w": 12,
         "x": 0,
         "y": 8
       },
@@ -308,8 +308,8 @@
       },
       "gridPos": {
         "h": 10,
-        "w": 11,
-        "x": 13,
+        "w": 12,
+        "x": 12,
         "y": 8
       },
       "id": 5,
@@ -378,14 +378,14 @@
     "list": []
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-2d",
     "to": "now"
   },
   "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {},
   "timezone": "browser",
-  "title": "5.2 Ground Truth Metrics",
+  "title": "4.2 LLM quality Metrics",
   "uid": "fdr5vo5cs2txcc",
-  "version": 1,
+  "version": 2,
   "weekStart": ""
 }
