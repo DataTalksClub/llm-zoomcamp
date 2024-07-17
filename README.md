@@ -28,7 +28,7 @@ knowledge base.
 - [Materials specific to 2024 cohort](cohorts/2024/)
  
 
-### Pre-requisites
+## Pre-requisites
 
 * Comfortable with programming and Python
 * Comfortable with command line
@@ -42,10 +42,7 @@ We encourage [Learning in Public](learning-in-public.md)
 
 ### Pre-course workshops
 
-Implement a search engine
-
-* Video: https://www.youtube.com/watch?v=nMrGK5QgPVE
-* Code: https://github.com/alexeygrigorev/build-your-own-search-engine
+Implement a search engine: [Video](https://www.youtube.com/watch?v=nMrGK5QgPVE), [code](https://github.com/alexeygrigorev/build-your-own-search-engine)
 
 ### [Introduction to LLMs and RAG](01-intro/)
 
@@ -72,21 +69,18 @@ Implement a search engine
 ### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
 
-### [Monitoring and Guardrails](04-monitoring/)
+### [Monitoring](04-monitoring/)
 
-* Monitoring with ground-truth
-* Metrics (RAGAs)
-* Dashboarding with Grafana for visualization
-* Monitoring chat
-* Guardrails
+* Computing metrics to monitor the quality of LLM answers
+* Tracking chat history and user feedback
+* Creating dashboards with Grafana for visualization
 
-### [LLM orchestration and ingestion pipelines](05-orchestration/)
+### [LLM orchestration and ingestion](05-orchestration/)
 
 * Ingesting data with Mage
 
 
-
-### [Tips and Tricks for advanced RAG systems](06-best-practices/)
+### [Best practices](06-best-practices/)
 
 * Best practices
 

@@ -5,14 +5,14 @@ import os
 from datetime import datetime
 
 POSTGRES_DB_PARAMS = {
-    'user': 'admin',
-    'password': 'admin',
+    'user': os.getenv('POSTGRES_USER', 'admin'),
+    'password': os.getenv('POSTGRES_PASSWORD', 'admin'),
     'host': os.getenv('POSTGRES_HOST', 'localhost'),
-    'port': '5432'
+    'port': os.getenv('POSTGRES_PORT', '5432')
 }
 
 
-def create_metrics_db(postgres_db_params: dict):
+def create_monitoring_db(postgres_db_params: dict):
     default_db_params = postgres_db_params.copy()
     default_db_params['dbname'] = 'postgres'
     try:
@@ -25,10 +25,10 @@ def create_metrics_db(postgres_db_params: dict):
         if not exists:
             cursor.execute(
                 sql.SQL(f"CREATE DATABASE {postgres_db_params['dbname']}"))
-            logging.error(
+            logging.info(
                 f"Database {postgres_db_params['dbname']} created successfully!")
         else:
-            logging.warning(
+            logging.info(
                 f"Database {postgres_db_params['dbname']} already exists!")
         cursor.close()
         connection.close()
@@ -45,26 +45,12 @@ def execute_db_operation(operation_type, POSTGRES_DB_PARAMS, query, params=None)
         cursor.close()
         connection.close()
         if operation_type == 'create_table':
-            logging.warning("Table created!")
+            logging.info("Table created!")
         else:
             logging.info(
                 f"Database operation '{operation_type}' executed successfully!")
     except Exception as error:
         logging.error(f"Error during '{operation_type}': {error}")
-
-
-def create_metrics_table(POSTGRES_DB_PARAMS):
-    chat_table_sql = '''
-        CREATE TABLE IF NOT EXISTS metrics (
-            id SERIAL PRIMARY KEY,
-            timestamp TIMESTAMP,
-            metric_a FLOAT,
-            metric_b FLOAT,
-            metric_c FLOAT
-        )
-        '''
-    execute_db_operation(
-        'create_table', POSTGRES_DB_PARAMS, chat_table_sql)
 
 
 def create_chat_table(POSTGRES_DB_PARAMS):
@@ -79,8 +65,21 @@ def create_chat_table(POSTGRES_DB_PARAMS):
             UNIQUE (session_id, message_type, content)
         )
         '''
-    execute_db_operation(
-        'create_table', POSTGRES_DB_PARAMS, chat_table_sql)
+    execute_db_operation('create_table', POSTGRES_DB_PARAMS, chat_table_sql)
+
+
+def create_metrics_table(POSTGRES_DB_PARAMS):
+    chat_table_sql = '''
+        CREATE TABLE IF NOT EXISTS llm_metrics (
+            id SERIAL PRIMARY KEY,
+            text_id TEXT,
+            cosine_similarity_text_llm_answer NUMERIC,
+            negative_llm_answer VARCHAR,
+            llm_as_a_judge VARCHAR,
+            UNIQUE (text_id)
+        )
+        '''
+    execute_db_operation('create_table', POSTGRES_DB_PARAMS, chat_table_sql)
 
 
 def save_message_to_db(POSTGRES_DB_PARAMS, session_id, message_type, content, feedback=None):
@@ -94,6 +93,20 @@ def save_message_to_db(POSTGRES_DB_PARAMS, session_id, message_type, content, fe
     execute_db_operation('insert', POSTGRES_DB_PARAMS, insert_query, params)
 
 
+def save_metrics_to_db(POSTGRES_DB_PARAMS, text_id, cosine_similarity=None, negative_answer=None, llm_judge=None):
+    insert_query = '''
+    INSERT INTO llm_metrics (text_id, cosine_similarity_text_llm_answer, negative_llm_answer, llm_as_a_judge)
+    VALUES (%s, %s, %s, %s)
+    ON CONFLICT (text_id)
+    DO UPDATE SET 
+        cosine_similarity_text_llm_answer = COALESCE(EXCLUDED.cosine_similarity_text_llm_answer, llm_metrics.cosine_similarity_text_llm_answer),
+        negative_llm_answer = COALESCE(EXCLUDED.negative_llm_answer, llm_metrics.negative_llm_answer),
+        llm_as_a_judge = COALESCE(EXCLUDED.llm_as_a_judge, llm_metrics.llm_as_a_judge)
+    '''
+    params = (text_id, cosine_similarity, negative_answer, llm_judge)
+    execute_db_operation('insert', POSTGRES_DB_PARAMS, insert_query, params)
+
+
 def update_feedback_in_db(POSTGRES_DB_PARAMS, session_id, message_type, content, feedback):
     update_query = '''
     UPDATE chat_history
@@ -102,28 +115,3 @@ def update_feedback_in_db(POSTGRES_DB_PARAMS, session_id, message_type, content,
     '''
     params = (feedback, session_id, message_type, content)
     execute_db_operation('update', POSTGRES_DB_PARAMS, update_query, params)
-
-
-def insert_data(cursor, timestamp, metric_a, metric_b, metric_c):
-    insert_query = sql.SQL('''
-    INSERT INTO metrics (timestamp, metric_a, metric_b, metric_c)
-    VALUES (%s, %s, %s, %s)
-    ''')
-    cursor.execute(insert_query, (timestamp, metric_a, metric_b, metric_c))
-
-
-def store_metrics(POSTGRES_DB_PARAMS, db_params, metrics_df):
-    connection = psycopg2.connect(**POSTGRES_DB_PARAMS)
-    cursor = connection.cursor()
-    try:
-        for _, row in metrics_df.iterrows():
-            insert_data(
-                cursor, row['timestamp'], row['metric_a'], row['metric_b'], row['metric_c'])
-        connection.commit()
-        print("Metrics stored successfully!")
-    except (Exception, psycopg2.DatabaseError) as error:
-        print(f"Error: {error}")
-    finally:
-        if connection:
-            cursor.close()
-            connection.close()
