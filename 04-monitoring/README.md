@@ -47,26 +47,24 @@ Partly recap from [3.3 Evaluating Retrieval](../03-vector-search/)
 
 ## 4.3 Monitoring answer quality with user feedback
 ### 4.3.1 Setting up chat frontend
-<a href="https://www.youtube.com/watch?v=YNvVoLJh-9w&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/YNvVoLJh-9w">
-</a>
+
+< placeholder for youtube video >
 
 * Setting up Streamlit as docker-compose service
 * Create Streamlit dashboard to mimic live chat frontend including feedback button
 * Generate answer with ChatGPT from OpenAI 
 
 ### 4.3.2 Storing chat history and feedback metrics
-<a href="https://www.youtube.com/watch?v=u-4BixHyrG4&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/u-4BixHyrG4">
-</a>
+
+< placeholder for youtube video >
 
 * Setting up Postgres as docker-compose service
 * Store chat history and feedback in Postgres
 
 ### 4.3.3 Retrieving and visualizing metrics
-<a href="https://www.youtube.com/watch?v=VWn0E4Apf9U&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/VWn0E4Apf9U">
-</a>
+
+< placeholder for youtube video >
+
 
 * Setting up Grafana frontend as docker-compose service and connect to Postgres datasource
 * Retrieve feedback metrics from Postgres and visualize on Grafana dashboard
