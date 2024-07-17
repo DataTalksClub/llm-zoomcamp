@@ -4,6 +4,8 @@ In this homework, we'll experiment more with Ollama
 
 > It's possible that your answers won't match exactly. If it's the case, select the closest one.
 
+Solution: https://www.loom.com/share/f04a63aaf0db4bf58194ba425f1fcffa
+
 ## Q1. Running Ollama with Docker
 
 Let's run ollama with Docker. We will need to execute the 
