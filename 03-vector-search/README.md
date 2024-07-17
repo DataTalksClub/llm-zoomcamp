@@ -93,4 +93,5 @@ See [here](../cohorts/2024/03-vector-search/homework.md)
 
 * [Notes by dimzachar](https://github.com/dimzachar/llm_zoomcamp/blob/master/notes/03-vector-search/README.md)
 * [Notes by slavaheroes](https://github.com/slavaheroes/llm-zoomcamp/blob/homeworks/03-vector-search/notes.md)
+* [Notes on Vector Search and Vector Databases by Marat](https://machine-mind-ml.medium.com/enhancing-llm-performance-with-vector-search-and-vector-databases-1f20eb1cc650)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
