@@ -19,13 +19,17 @@ def create_monitoring_db(postgres_db_params: dict):
         connection = psycopg2.connect(**default_db_params)
         connection.autocommit = True
         cursor = connection.cursor()
-        cursor.execute(f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{postgres_db_params['dbname']}'")
+        cursor.execute(
+            f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{postgres_db_params['dbname']}'")
         exists = cursor.fetchone()
         if not exists:
-            cursor.execute(sql.SQL(f"CREATE DATABASE {postgres_db_params['dbname']}"))
-            logging.info(f"Database {postgres_db_params['dbname']} created successfully!")
+            cursor.execute(
+                sql.SQL(f"CREATE DATABASE {postgres_db_params['dbname']}"))
+            logging.info(
+                f"Database {postgres_db_params['dbname']} created successfully!")
         else:
-            logging.info(f"Database {postgres_db_params['dbname']} already exists!")
+            logging.info(
+                f"Database {postgres_db_params['dbname']} already exists!")
         cursor.close()
         connection.close()
     except Exception as error:
@@ -64,6 +68,20 @@ def create_chat_table(POSTGRES_DB_PARAMS):
     execute_db_operation('create_table', POSTGRES_DB_PARAMS, chat_table_sql)
 
 
+def create_metrics_table(POSTGRES_DB_PARAMS):
+    chat_table_sql = '''
+        CREATE TABLE IF NOT EXISTS llm_metrics (
+            id SERIAL PRIMARY KEY,
+            text_id TEXT,
+            cosine_similarity_text_llm_answer NUMERIC,
+            negative_llm_answer VARCHAR,
+            llm_as_a_judge VARCHAR,
+            UNIQUE (text_id)
+        )
+        '''
+    execute_db_operation('create_table', POSTGRES_DB_PARAMS, chat_table_sql)
+
+
 def save_message_to_db(POSTGRES_DB_PARAMS, session_id, message_type, content, feedback=None):
     insert_query = '''
     INSERT INTO chat_history (timestamp, session_id, message_type, content, feedback)
@@ -72,6 +90,20 @@ def save_message_to_db(POSTGRES_DB_PARAMS, session_id, message_type, content, fe
     DO UPDATE SET feedback = EXCLUDED.feedback
     '''
     params = (datetime.now(), session_id, message_type, content, feedback)
+    execute_db_operation('insert', POSTGRES_DB_PARAMS, insert_query, params)
+
+
+def save_metrics_to_db(POSTGRES_DB_PARAMS, text_id, cosine_similarity=None, negative_answer=None, llm_judge=None):
+    insert_query = '''
+    INSERT INTO llm_metrics (text_id, cosine_similarity_text_llm_answer, negative_llm_answer, llm_as_a_judge)
+    VALUES (%s, %s, %s, %s)
+    ON CONFLICT (text_id)
+    DO UPDATE SET 
+        cosine_similarity_text_llm_answer = COALESCE(EXCLUDED.cosine_similarity_text_llm_answer, llm_metrics.cosine_similarity_text_llm_answer),
+        negative_llm_answer = COALESCE(EXCLUDED.negative_llm_answer, llm_metrics.negative_llm_answer),
+        llm_as_a_judge = COALESCE(EXCLUDED.llm_as_a_judge, llm_metrics.llm_as_a_judge)
+    '''
+    params = (text_id, cosine_similarity, negative_answer, llm_judge)
     execute_db_operation('insert', POSTGRES_DB_PARAMS, insert_query, params)
 
 
