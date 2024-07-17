@@ -91,4 +91,5 @@ See [here](../cohorts/2024/03-vector-search/homework.md)
 
 # Notes
 
+* [Notes by dimzachar](https://github.com/dimzachar/llm_zoomcamp/blob/master/notes/03-vector-search/README.md)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
