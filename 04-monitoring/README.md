@@ -36,21 +36,30 @@ https://www.loom.com/share/32dc487bf01a464a88fcd73a405f40a8
 * Offline evaluation metrics 
 
 
-## 4.3 Offline RAG evaluation
+## 4.3 Generating data for offline RAG evaluation
 
 Videos
 
 * https://www.loom.com/share/5060441af07e4e48b95e27f547e0d2de
+* https://www.loom.com/share/c48191701c614e7cb4293bd83c2d9175
 
 
-Content
+
+## 4.4 Offline RAG evaluation: cosine similarity
+
+https://www.loom.com/share/0c11d5ff380c4435b39c85c3c22b5485
 
 * A->Q->A' cosine similarity
+* Evaluating gpt-4o
+* Evaluating gpt-3.5-turbo
+* Evaluating gpt-4o-mini
+
+
+## 4.5 Offline RAG evaluation: LLM as a judge
+
 * LLM as a judge
 
-
-
-## 4.4 Capturing user feedback
+## 4.5 Capturing user feedback
 
 Videos
 
@@ -64,11 +73,12 @@ Content
 * Putting everything in docker compose
 
 ```bash
+pip install pgcli
 pgcli -h localhost -U your_username -d course_assistant -W
 ```
 
 
-## 4.5 Monitoring answer quality
+## 4.6 Monitoring answer quality
 
 * Setting up Grafana
 * Sentiment analysis
