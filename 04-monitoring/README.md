@@ -4,10 +4,12 @@ In this module, we will learn how to monitor our LLM and RAG system. We will col
 
 ## Prerequisites
 
-Add OPENAI_API_KEY as environment variable
+Add `OPENAI_API_KEY` as environment variable
+
+```bash
+export OPENAI_API_KEY="your-api-key-here"
 ```
-Mac/Linux: export OPENAI_API_KEY="your-api-key-here"
-```
+
 ## 4.1 Introduction to monitoring answer quality 
 
 <a href="https://www.youtube.com/watch?v=OWqinqemCmk&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
@@ -24,51 +26,37 @@ Mac/Linux: export OPENAI_API_KEY="your-api-key-here"
   * Connect database to Grafana to visualize user feedback and corresponding chat sessions
 * What else to monitor, that is not covered by this module? 
 
-## 4.2 Monitoring answer quality of LLMs
-### 4.2.1 Creating ground-truth dataset
-< placeholder for youtube video >
 
-Partly recap from [3.3 Evaluating Retrieval](../03-vector-search/)
-* Setting up Elastic Search database as docker-compose service
-* Storing documents-with-ids.json in Elastic Search database
-* Extending documents data with llm answer and corresponding vector
+## 4.2 Offline vs Online (RAG) evaluation
 
-### 4.2.2 Computing and storing metrics
-< placeholder for youtube video >
+https://www.loom.com/share/32dc487bf01a464a88fcd73a405f40a8
 
-* Compute evaluation metrics (i.e. semantic similarity, negativity, LLM-as-a-judge) 
-* Storing evaluation metrics in Postgres database
-
-### 4.2.3 Retrieving and visualizing metrics
-< placeholder for youtube video >
-
-* Setting up Grafana frontend as docker-compose service and connect to Elastic Search datasource
-* Retrieve metrics from Postgres database and visualize on Grafana dashboard
-
-## 4.3 Monitoring answer quality with user feedback
-### 4.3.1 Setting up chat frontend
-
-< placeholder for youtube video >
-
-* Setting up Streamlit as docker-compose service
-* Create Streamlit dashboard to mimic live chat frontend including feedback button
-* Generate answer with ChatGPT from OpenAI 
-
-### 4.3.2 Storing chat history and feedback metrics
-
-< placeholder for youtube video >
-
-* Setting up Postgres as docker-compose service
-* Store chat history and feedback in Postgres
-
-### 4.3.3 Retrieving and visualizing metrics
-
-< placeholder for youtube video >
+* Modules recap
+* Online vs offline evaluation
+* Offline evaluation metrics 
 
 
-* Setting up Grafana frontend as docker-compose service and connect to Postgres datasource
-* Retrieve feedback metrics from Postgres and visualize on Grafana dashboard
+## 4.3 Offline RAG evaluation
 
-## 4.4 Homework
+Video
+
+* A->Q->A' cosine similarity
+* LLM as a judge
+
+
+## 4.4 Monitoring answer quality
+
+* Setting up Grafana
+* Sentiment analysis
+* LLM as a judge
+
+
+## 4.4 Monitoring user feedback
+
+
+
+
+
+## Homework
 
 tbd.
