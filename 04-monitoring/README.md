@@ -50,7 +50,7 @@ Content
 
 
 
-## 4.4 Monitoring user feedback
+## 4.4 Capturing user feedback
 
 Videos
 
@@ -60,6 +60,8 @@ Videos
 Content
 
 * Adding +1 and -1 buttons
+* Setting up a postgres database
+* Putting everything in docker compose
 
 ```bash
 pgcli -h localhost -U your_username -d course_assistant -W
