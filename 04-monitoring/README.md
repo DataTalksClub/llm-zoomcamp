@@ -119,11 +119,19 @@ Links:
 * [code](app/)
 
 
-## 4.7 Monitoring answer quality
+## 4.7 Monitoring the system
+
+Video https://www.loom.com/share/325bafad22c0471c910f1ff2b4ee8fbd
 
 * Setting up Grafana
-* Sentiment analysis
-* LLM as a judge
+* Tokens and costs
+* QA relevance
+* User feedback
+* Other metrics
+
+Links:
+
+* [SQL queries for Grafana](grafana-queries.md)
 
 
 ## Homework

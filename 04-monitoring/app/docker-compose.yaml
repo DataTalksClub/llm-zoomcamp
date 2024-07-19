@@ -55,7 +55,20 @@ services:
       - ollama
       - postgres
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
+    depends_on:
+      - postgres
+
 volumes:
   elasticsearch_data:
   ollama_data:
   postgres_data:
+  grafana_data:
