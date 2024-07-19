@@ -38,10 +38,7 @@ https://www.loom.com/share/32dc487bf01a464a88fcd73a405f40a8
 
 ## 4.3 Generating data for offline RAG evaluation
 
-Videos
-
-* https://www.loom.com/share/5060441af07e4e48b95e27f547e0d2de
-* https://www.loom.com/share/c48191701c614e7cb4293bd83c2d9175
+Video https://www.loom.com/share/5060441af07e4e48b95e27f547e0d2de
 
 Links:
 
@@ -52,11 +49,7 @@ Links:
 
 ## 4.4 Offline RAG evaluation: cosine similarity
 
-Videos 
-
-* https://www.loom.com/share/0c11d5ff380c4435b39c85c3c22b5485
-* https://www.loom.com/share/ae945cb4cce1467f8d70f57365b0f2e3
-* https://www.loom.com/share/fae98ac26e5a4211acb97843adb44ef9
+Video https://www.loom.com/share/0c11d5ff380c4435b39c85c3c22b5485
 
 
 Content
@@ -79,7 +72,7 @@ Links:
 
 ## 4.5 Offline RAG evaluation: LLM as a judge
 
-https://www.loom.com/share/23182538903d4de695d0ddd62716ce2c
+Video https://www.loom.com/share/23182538903d4de695d0ddd62716ce2c
 
 * LLM as a judge
 * A->Q->A' evaluation
@@ -95,10 +88,9 @@ Links:
 
 ## 4.6 Capturing user feedback
 
-Videos
+Video https://www.loom.com/share/4fceb69e42404865b4b1b5ecf2c68a51
 
-* https://www.loom.com/share/4fceb69e42404865b4b1b5ecf2c68a51
-* https://www.loom.com/share/eea246d55ec142d7b16ff7ce892ab9cf
+
 Content
 
 * Adding +1 and -1 buttons
@@ -115,9 +107,9 @@ Links:
 * [code](app/)
 
 
-### 4.6.1 Capturing user feedback part 2 
+### 4.6.2 Capturing user feedback: part 2 
 
-https://www.loom.com/share/6fe890a7b5cb478cba9ccc05db35851e
+Video https://www.loom.com/share/6fe890a7b5cb478cba9ccc05db35851e
 
 * adding vector search
 * adding OpenAI
@@ -132,7 +124,6 @@ Links:
 * Setting up Grafana
 * Sentiment analysis
 * LLM as a judge
-
 
 
 ## Homework
