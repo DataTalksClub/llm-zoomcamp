@@ -43,6 +43,11 @@ Videos
 * https://www.loom.com/share/5060441af07e4e48b95e27f547e0d2de
 * https://www.loom.com/share/c48191701c614e7cb4293bd83c2d9175
 
+Links:
+
+* [notebook](offline-rag-evaluation.ipynb)
+* [results-gpt4o.csv](data/results-gpt4o.csv) (answers from GPT-4o)
+* [results-gpt35.csv](data/results-gpt35.csv) (answers from GPT-3.5-Turbo)
 
 
 ## 4.4 Offline RAG evaluation: cosine similarity
@@ -51,6 +56,8 @@ Videos
 
 * https://www.loom.com/share/0c11d5ff380c4435b39c85c3c22b5485
 * https://www.loom.com/share/ae945cb4cce1467f8d70f57365b0f2e3
+* https://www.loom.com/share/fae98ac26e5a4211acb97843adb44ef9
+
 
 Content
 
@@ -60,9 +67,31 @@ Content
 * Evaluating gpt-4o-mini
 
 
+
+Links:
+
+* [notebook](offline-rag-evaluation.ipynb)
+* [results-gpt4o-cosine.csv](data/results-gpt4o-cosine.csv) (answers with cosine calculated from GPT-4o)
+* [results-gpt35-cosine.csv](data/results-gpt35-cosine.csv) (answers with cosine calculated from GPT-3.5-Turbo)
+* [results-gpt4o-mini.csv](data/results-gpt4o-mini.csv) (answers from GPT-4o-mini)
+* [results-gpt4o-mini-cosine.csv](data/results-gpt4o-mini-cosine.csv) (answers with cosine calculated from GPT-4o-mini)
+
+
 ## 4.5 Offline RAG evaluation: LLM as a judge
 
+https://www.loom.com/share/23182538903d4de695d0ddd62716ce2c
+
 * LLM as a judge
+* A->Q->A' evaluation
+* Q->A evaluation
+
+
+Links:
+
+* [notebook](offline-rag-evaluation.ipynb)
+* [evaluations-aqa.csv](data/evaluations-aqa.csv) (A->Q->A evaluation results)
+* [evaluations-qa.csv](data/evaluations-qa.csv) (Q->A evaluation results)
+
 
 ## 4.6 Capturing user feedback
 
@@ -81,6 +110,10 @@ pip install pgcli
 pgcli -h localhost -U your_username -d course_assistant -W
 ```
 
+Links:
+
+* [code](app/)
+
 
 ### 4.6.1 Capturing user feedback part 2 
 
@@ -88,6 +121,10 @@ https://www.loom.com/share/6fe890a7b5cb478cba9ccc05db35851e
 
 * adding vector search
 * adding OpenAI
+
+Links:
+
+* [code](app/)
 
 
 ## 4.7 Monitoring answer quality
