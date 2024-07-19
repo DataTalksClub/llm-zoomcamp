@@ -47,7 +47,12 @@ Videos
 
 ## 4.4 Offline RAG evaluation: cosine similarity
 
-https://www.loom.com/share/0c11d5ff380c4435b39c85c3c22b5485
+Videos 
+
+* https://www.loom.com/share/0c11d5ff380c4435b39c85c3c22b5485
+* https://www.loom.com/share/ae945cb4cce1467f8d70f57365b0f2e3
+
+Content
 
 * A->Q->A' cosine similarity
 * Evaluating gpt-4o
@@ -59,13 +64,12 @@ https://www.loom.com/share/0c11d5ff380c4435b39c85c3c22b5485
 
 * LLM as a judge
 
-## 4.5 Capturing user feedback
+## 4.6 Capturing user feedback
 
 Videos
 
 * https://www.loom.com/share/4fceb69e42404865b4b1b5ecf2c68a51
 * https://www.loom.com/share/eea246d55ec142d7b16ff7ce892ab9cf
-
 Content
 
 * Adding +1 and -1 buttons
@@ -78,7 +82,15 @@ pgcli -h localhost -U your_username -d course_assistant -W
 ```
 
 
-## 4.6 Monitoring answer quality
+### 4.6.1 Capturing user feedback part 2 
+
+https://www.loom.com/share/6fe890a7b5cb478cba9ccc05db35851e
+
+* adding vector search
+* adding OpenAI
+
+
+## 4.7 Monitoring answer quality
 
 * Setting up Grafana
 * Sentiment analysis
