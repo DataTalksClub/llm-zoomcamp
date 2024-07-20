@@ -57,6 +57,9 @@ def init_db():
 
 
 def save_conversation(conversation_id, question, answer_data, course, timestamp=None):
+    if timestamp is None:
+        timestamp = datetime.now(tz)
+    
     conn = get_db_connection()
     try:
         with conn.cursor() as cur:
@@ -93,6 +96,9 @@ def save_conversation(conversation_id, question, answer_data, course, timestamp=
 
 
 def save_feedback(conversation_id, feedback, timestamp=None):
+    if timestamp is None:
+        timestamp = datetime.now(tz)
+
     conn = get_db_connection()
     try:
         with conn.cursor() as cur:

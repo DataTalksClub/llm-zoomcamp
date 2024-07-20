@@ -136,8 +136,15 @@ Video https://www.loom.com/share/325bafad22c0471c910f1ff2b4ee8fbd
 Links:
 
 * [final code](app/)
-* [SQL queries for Grafana](grafana-queries.md)
+* [SQL queries for Grafana](grafana.md)
 * [intermediate code from claude](code.md#47-monitoring)
+
+### 4.7.2 Extra Grafana video
+
+Video https://www.loom.com/share/36d1a2176ff84e3dacc4f021c55fac11
+
+* Grafana variables
+* Exporting and importing dashboards
 
 
 ## Homework

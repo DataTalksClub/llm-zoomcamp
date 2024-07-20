@@ -88,8 +88,8 @@ def generate_live_data():
     conversation_count = 0
     print("Starting live data generation...")
     while True:
-        # current_time = datetime.now(tz)
-        current_time = None
+        current_time = datetime.now(tz)
+        # current_time = None
         conversation_id = str(uuid.uuid4())
         question = random.choice(SAMPLE_QUESTIONS)
         answer = random.choice(SAMPLE_ANSWERS)
