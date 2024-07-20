@@ -90,6 +90,7 @@ Links:
 
 Video https://www.loom.com/share/4fceb69e42404865b4b1b5ecf2c68a51
 
+> You can see the prompts and the output from claude [here](code.md)
 
 Content
 
@@ -101,6 +102,7 @@ Content
 pip install pgcli
 pgcli -h localhost -U your_username -d course_assistant -W
 ```
+
 
 Links:
 
