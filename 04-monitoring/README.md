@@ -104,7 +104,8 @@ pgcli -h localhost -U your_username -d course_assistant -W
 
 Links:
 
-* [code](app/)
+* [final code](app/)
+* [intermediate code from claude](code.md#46-capturing-user-feedback)
 
 
 ### 4.6.2 Capturing user feedback: part 2 
@@ -116,7 +117,8 @@ Video https://www.loom.com/share/6fe890a7b5cb478cba9ccc05db35851e
 
 Links:
 
-* [code](app/)
+* [final code](app/)
+* [intermediate code from claude](code.md#462-capturing-user-feedback-part-2)
 
 
 ## 4.7 Monitoring the system
@@ -131,7 +133,9 @@ Video https://www.loom.com/share/325bafad22c0471c910f1ff2b4ee8fbd
 
 Links:
 
+* [final code](app/)
 * [SQL queries for Grafana](grafana-queries.md)
+* [intermediate code from claude](code.md#47-monitoring)
 
 
 ## Homework
