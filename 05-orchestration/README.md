@@ -75,7 +75,15 @@ After exporting the chunks and embeddings, we can test the search query to retri
 Automation is key to maintaining and updating your system.
 This section demonstrates how to schedule and trigger daily runs for your data pipelines, ensuring up-to-date and consistent data processing.
 
+## Getting started
 
-# Notes
+1. Follow these Docker instructions: https://docs.mage.ai/getting-started/setup#docker-compose-template
+1. Use the docker image `mageai/mageai:llm`
+
+## Videos
 
 - All videos: https://www.youtube.com/playlist?list=PL_ItKjYd0Dsg86be-K5GqMbA4VLBJT5Pc
+
+## Code
+
+- https://github.com/mage-ai/rag-project
