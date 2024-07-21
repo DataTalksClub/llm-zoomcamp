@@ -72,7 +72,7 @@ Links:
 
 <a href="https://www.youtube.com/watch?v=IB6jePK1s58&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/IB6jePK1s58">
-</a> https://www.loom.com/share/23182538903d4de695d0ddd62716ce2c
+</a>
 
 * LLM as a judge
 * A->Q->A' evaluation
@@ -150,7 +150,7 @@ Links:
 
 <a href="https://www.youtube.com/watch?v=qGFAX5ra1G8&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/qGFAX5ra1G8">
-</a> https://www.loom.com/share/36d1a2176ff84e3dacc4f021c55fac11
+</a>
 
 * Grafana variables
 * Exporting and importing dashboards
