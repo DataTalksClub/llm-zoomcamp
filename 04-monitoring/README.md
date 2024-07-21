@@ -1,14 +1,14 @@
-# Module 4: Monitoring
+# Module 4: Evaluation and Monitoring
 
-In this module, we will learn how to monitor our LLM and RAG system. We will collect, store and visualize metrics to assess the answer quality of LLMs as well as chat history and user feedback. 
+In this module, we will learn how to evaluate and monitor our LLM and RAG system.
 
-## Prerequisites
+In the evaluation part, we assess the quality of our entire RAG
+system before it goes live.
 
-Add `OPENAI_API_KEY` as environment variable
+In the monitoring part, we collect, store and visualize
+metrics to assess the answer quality of a deployed LLM. We also
+collect chat history and user feedback.
 
-```bash
-export OPENAI_API_KEY="your-api-key-here"
-```
 
 ## 4.1 Introduction to monitoring answer quality 
 
@@ -18,18 +18,15 @@ export OPENAI_API_KEY="your-api-key-here"
 
 * Why monitoring LLM systems?
 * Monitoring answer quality of LLMs 
-  * Compute different types of quality metrics
-  * Store computed metrics in relational database
-  * Use Grafana to visualize metrics over time
 * Monitoring answer quality with user feedback
-  * Store chat sessions and collect user feedback in database 
-  * Connect database to Grafana to visualize user feedback and corresponding chat sessions
 * What else to monitor, that is not covered by this module? 
 
 
 ## 4.2 Offline vs Online (RAG) evaluation
 
-https://www.loom.com/share/32dc487bf01a464a88fcd73a405f40a8
+<a href="https://www.youtube.com/watch?v=yTKGSqkhgI4&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/yTKGSqkhgI4">
+</a>
 
 * Modules recap
 * Online vs offline evaluation
@@ -38,7 +35,9 @@ https://www.loom.com/share/32dc487bf01a464a88fcd73a405f40a8
 
 ## 4.3 Generating data for offline RAG evaluation
 
-Video https://www.loom.com/share/5060441af07e4e48b95e27f547e0d2de
+<a href="https://www.youtube.com/watch?v=yTO5sRw6x78&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/yTO5sRw6x78">
+</a>
 
 Links:
 
@@ -49,8 +48,9 @@ Links:
 
 ## 4.4 Offline RAG evaluation: cosine similarity
 
-Video https://www.loom.com/share/0c11d5ff380c4435b39c85c3c22b5485
-
+<a href="https://www.youtube.com/watch?v=LlXclbD3pms&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/LlXclbD3pms">
+</a>
 
 Content
 
@@ -58,8 +58,6 @@ Content
 * Evaluating gpt-4o
 * Evaluating gpt-3.5-turbo
 * Evaluating gpt-4o-mini
-
-
 
 Links:
 
@@ -72,7 +70,9 @@ Links:
 
 ## 4.5 Offline RAG evaluation: LLM as a judge
 
-Video https://www.loom.com/share/23182538903d4de695d0ddd62716ce2c
+<a href="https://www.youtube.com/watch?v=IB6jePK1s58&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/IB6jePK1s58">
+</a> https://www.loom.com/share/23182538903d4de695d0ddd62716ce2c
 
 * LLM as a judge
 * A->Q->A' evaluation
@@ -84,11 +84,14 @@ Links:
 * [notebook](offline-rag-evaluation.ipynb)
 * [evaluations-aqa.csv](data/evaluations-aqa.csv) (A->Q->A evaluation results)
 * [evaluations-qa.csv](data/evaluations-qa.csv) (Q->A evaluation results)
+https://youtu.be/
 
 
 ## 4.6 Capturing user feedback
 
-Video https://www.loom.com/share/4fceb69e42404865b4b1b5ecf2c68a51
+<a href="https://www.youtube.com/watch?v=XapKKBUMQ4M&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/XapKKBUMQ4M">
+</a>
 
 > You can see the prompts and the output from claude [here](code.md)
 
@@ -112,7 +115,9 @@ Links:
 
 ### 4.6.2 Capturing user feedback: part 2 
 
-Video https://www.loom.com/share/6fe890a7b5cb478cba9ccc05db35851e
+<a href="https://www.youtube.com/watch?v=BG8MlbidatA&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/BG8MlbidatA">
+</a>
 
 * adding vector search
 * adding OpenAI
@@ -125,7 +130,9 @@ Links:
 
 ## 4.7 Monitoring the system
 
-Video https://www.loom.com/share/325bafad22c0471c910f1ff2b4ee8fbd
+<a href="https://www.youtube.com/watch?v=BQN0TOi2Rew&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/BQN0TOi2Rew">
+</a>
 
 * Setting up Grafana
 * Tokens and costs
@@ -141,11 +148,17 @@ Links:
 
 ### 4.7.2 Extra Grafana video
 
-Video https://www.loom.com/share/36d1a2176ff84e3dacc4f021c55fac11
+<a href="https://www.youtube.com/watch?v=qGFAX5ra1G8&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/qGFAX5ra1G8">
+</a> https://www.loom.com/share/36d1a2176ff84e3dacc4f021c55fac11
 
 * Grafana variables
 * Exporting and importing dashboards
 
+Links:
+
+* [SQL queries for Grafana](grafana.md)
+* [Grafana dashboard](dashboard.json)
 
 ## Homework
 

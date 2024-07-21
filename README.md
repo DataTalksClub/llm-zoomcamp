@@ -44,7 +44,7 @@ We encourage [Learning in Public](learning-in-public.md)
 
 Implement a search engine: [Video](https://www.youtube.com/watch?v=nMrGK5QgPVE), [code](https://github.com/alexeygrigorev/build-your-own-search-engine)
 
-### [Introduction to LLMs and RAG](01-intro/)
+### 1. [Introduction to LLMs and RAG](01-intro/)
 
 * LLMs and RAG
 * Preparing the environment 
@@ -53,34 +53,36 @@ Implement a search engine: [Video](https://www.youtube.com/watch?v=nMrGK5QgPVE),
 * Simple RAG with Open AI
 * Text search with Elasticsearch
 
-### [Open-source LLMs](02-open-source/)
+### 2. [Open-source LLMs](02-open-source/)
 
 * Getting an environment with a GPU
 * Open-source models from HuggingFace Hub
 * Running LLMs on a CPU with Ollama
 * Creating a simple UI with Streamlit 
 
-### [Vector databases](03-vector-search/)
+### 3. [Vector databases](03-vector-search/)
 
 * Vector search
 * Creating and indexing embeddings
 * Vector search with Elasticsearch
+* Offline evaluation of retrieval
 
 ### [Workshop: dlt](cohorts/2024/workshops/dlt.md)
 
 
-### [Monitoring](04-monitoring/)
+### 4. [Evaluation and monitoring](04-monitoring/)
 
-* Computing metrics to monitor the quality of LLM answers
+* Offline evaluation of RAG
+* Cosine and LLM-as-a-Judge metrics 
 * Tracking chat history and user feedback
 * Creating dashboards with Grafana for visualization
 
-### [LLM orchestration and ingestion](05-orchestration/)
+### 5. [LLM orchestration and ingestion](05-orchestration/)
 
 * Ingesting data with Mage
 
 
-### [Best practices](06-best-practices/)
+### 6. [Best practices](06-best-practices/)
 
 * Best practices
 
