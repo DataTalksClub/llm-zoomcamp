@@ -50,12 +50,11 @@ This section demonstrates how to schedule and trigger daily runs for your data p
 
 ## Getting started
 
-1. Follow these Docker instructions: https://docs.mage.ai/getting-started/setup#docker-compose-template
-1. Use the docker image `mageai/mageai:llm`
+1. Clone [repository](https://github.com/mage-ai/rag-project)
+1. `cd` into the repository
+1. `./scripts/start.sh`
 
-## Code
-
-- https://github.com/mage-ai/rag-project
+For more setup information, refer to these [instructions](https://docs.mage.ai/getting-started/setup#docker-compose-template)
 
 ## Playlist
 
