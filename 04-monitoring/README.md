@@ -162,4 +162,4 @@ Links:
 
 ## Homework
 
-tbd.
+See [here](../cohorts/2024/04-monitoring/homework.md)
