@@ -161,7 +161,7 @@ rouge_avg = (rouge_1 + rouge_2 + rouge_l) / 3
 
 And create a dataframe from them
 
-What's the agerage `rouge_l` across all the records?
+What's the agerage `rouge_2` across all the records?
 
 - 0.10
 - 0.20
