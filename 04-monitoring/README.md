@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a665a39b-823e-4169-89f7-cc0433606585)# Module 4: Evaluation and Monitoring
+# Module 4: Evaluation and Monitoring
 
 In this module, we will learn how to evaluate and monitor our LLM and RAG system.
 
