@@ -1,4 +1,4 @@
-# Module 4: Evaluation and Monitoring
+![image](https://github.com/user-attachments/assets/a665a39b-823e-4169-89f7-cc0433606585)# Module 4: Evaluation and Monitoring
 
 In this module, we will learn how to evaluate and monitor our LLM and RAG system.
 
@@ -163,3 +163,17 @@ Links:
 ## Homework
 
 See [here](../cohorts/2024/04-monitoring/homework.md)
+
+
+## Extra resources
+
+### Overview of the module
+
+![image](https://github.com/user-attachments/assets/0c5e932b-4fca-4d51-8b1c-93f4600861dc)
+
+https://www.loom.com/share/1dd375ec4b0d458fabdfc2b841089031
+
+# Notes
+
+* First link goes here
+* Did you take notes? Add them above this line (Send a PR with *links* to your notes)
