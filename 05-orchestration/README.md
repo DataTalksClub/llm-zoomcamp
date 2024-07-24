@@ -2,8 +2,6 @@
 
 ## 1. Ingest
 
-<img src="https://github.com/user-attachments/assets/9cc07237-add9-462e-9272-6e52eb918c9a">
-
 In this section, we cover the ingestion of documents from a single data source.
 
 - https://youtu.be/jTWFh8ocDDY
