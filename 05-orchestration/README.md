@@ -22,6 +22,8 @@ For more setup information, refer to these [instructions](https://docs.mage.ai/g
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/jTWFh8ocDDY">
 </a>
 
+- https://www.youtube.com/watch?v=gP2ZOsG9Umg&list=PL_ItKjYd0Dsg86be-K5GqMbA4VLBJT5Pc&index=1
+
 ## 1. Ingest
 
 In this section, we cover the ingestion of documents from a single data source.
@@ -32,6 +34,7 @@ In this section, we cover the ingestion of documents from a single data source.
 
 Todo: what if we only have custom code? How to edit it?
 
+- https://www.youtube.com/watch?v=9BJppvgLINc&list=PL_ItKjYd0Dsg86be-K5GqMbA4VLBJT5Pc&index=2
 
 ## 2. Chunk
 
@@ -45,6 +48,7 @@ TODO: why do we need chunking?
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/aZkdusiBr10">
 </a>
 
+- https://www.youtube.com/watch?v=H2oq5GSCKhM&list=PL_ItKjYd0Dsg86be-K5GqMbA4VLBJT5Pc&index=3
 
 ## 3. Tokenization
 
@@ -54,7 +58,7 @@ Tokenization is a crucial step in text processing and preparing the data for eff
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/TODO">
 </a>
 
-- https://youtu.be/SpoepeljNGc
+- https://www.youtube.com/watch?v=hrMrqRgZryg&list=PL_ItKjYd0Dsg86be-K5GqMbA4VLBJT5Pc&index=4
 
 
 ## 4. Embed
@@ -66,7 +70,7 @@ Embedding data translates text into numerical vectors that can be processed by m
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/TODO">
 </a>
 
-- https://youtu.be/BmlDmGMnrEA
+- https://www.youtube.com/watch?v=8wrArv0DEKc&list=PL_ItKjYd0Dsg86be-K5GqMbA4VLBJT5Pc&index=5
 
 
 ## 5. Export
@@ -77,7 +81,7 @@ After processing, data needs to be exported for storage so that it can be retrie
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/TODO">
 </a>
 
-- https://youtu.be/nhdG09vZqtc
+- https://www.youtube.com/watch?v=cHrphSoRBX4&list=PL_ItKjYd0Dsg86be-K5GqMbA4VLBJT5Pc&index=6
 
 
 ## 6. Test Vector Search Query
@@ -88,13 +92,7 @@ After exporting the chunks and embeddings, we can test the search query to retri
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/TODO">
 </a>
 
-- https://youtu.be/BDgzv5nDt5g
-
-<a href="https://www.youtube.com/watch?v=TODO&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/TODO">
-</a>
-
-- https://youtu.be/2A7h4dWV8xA
+- https://www.youtube.com/watch?v=z5NqDcaBglY&list=PL_ItKjYd0Dsg86be-K5GqMbA4VLBJT5Pc&index=7
 
 
 ## 7. Trigger Daily Runs
@@ -106,7 +104,7 @@ This section demonstrates how to schedule and trigger daily runs for your data p
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/TODO">
 </a>
 
-- https://youtu.be/7JyWw1F50CE
+- https://www.youtube.com/watch?v=nuk7_soKMUA&list=PL_ItKjYd0Dsg86be-K5GqMbA4VLBJT5Pc&index=8
 
 
 
