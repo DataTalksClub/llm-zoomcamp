@@ -1,10 +1,9 @@
 ## Additional notes for those trying the streamlit/grafana out
 
-1. the following packages maybe required when you run some of .py scripts
+1) The following packages are required when you run some of .py scripts
 
 ```
-pip install psycopg2-binary
-pip install python-dotenv
+pip install psycopg2-binary python-dotenv
 pip install pgcli
 ```
 
@@ -13,3 +12,4 @@ pip install pgcli
 ```
 docker-compose up -d
 docker-compose exec ollama ollama pull phi3
+```
