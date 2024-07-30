@@ -175,5 +175,5 @@ https://www.loom.com/share/1dd375ec4b0d458fabdfc2b841089031
 
 # Notes
 
-* First link goes here
+* [Notes by slavaheroes](https://github.com/slavaheroes/llm-zoomcamp/blob/homeworks/04-monitoring/notes.md)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
