@@ -141,7 +141,7 @@ What's the F score for `rouge-1`?
 
 ## Q5. Average rouge score
 
-Let's compute the average between `rouge-1`, `rouge-2` and `rouge-l` for the same record from Q4
+Let's compute the average F-score between `rouge-1`, `rouge-2` and `rouge-l` for the same record from Q4
 
 - 0.35
 - 0.45
