@@ -30,7 +30,8 @@ In this section, we cover the ingestion of documents from a single data source.
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/9BJppvgLINc">
 </a>
 
-[Code](https://github.com/mage-ai/rag-project/blob/master/llm/rager/data_loaders/runic_oblivion.py)
+* [Code](https://github.com/mage-ai/rag-project/blob/master/llm/rager/data_loaders/runic_oblivion.py)
+* [Document link for API Data Loader](https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-intro/documents.json)
 
 ## 2. Chunk
 
