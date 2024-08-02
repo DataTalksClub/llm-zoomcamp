@@ -30,6 +30,7 @@ In this section, we cover the ingestion of documents from a single data source.
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/9BJppvgLINc">
 </a>
 
+[Code](https://github.com/mage-ai/rag-project/blob/master/llm/rager/data_loaders/runic_oblivion.py)
 
 ## 2. Chunk
 
@@ -47,6 +48,8 @@ into smaller documents - i.e. chunking.
 </a>
 
 
+[Code](https://github.com/mage-ai/rag-project/blob/master/llm/rager/transformers/radiant_photon.py)
+
 ## 3. Tokenization
 
 Tokenization is a crucial step in text processing and preparing the data for effective retrieval.
@@ -55,6 +58,7 @@ Tokenization is a crucial step in text processing and preparing the data for eff
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/hrMrqRgZryg">
 </a>
 
+[Code](https://github.com/mage-ai/rag-project/blob/master/llm/rager/transformers/vivid_nexus.py)
 
 ## 4. Embed
 
@@ -68,6 +72,8 @@ Previously we used sentence transformers for that. In this video we show a diffe
 </a>
 
 
+[Code](https://github.com/mage-ai/rag-project/blob/master/llm/rager/transformers/prismatic_axiom.py)
+
 
 ## 5. Export
 
@@ -79,7 +85,7 @@ Here we will save the embeddings to elasticsearch
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/cHrphSoRBX4">
 </a>
 
-
+[Code](https://github.com/mage-ai/rag-project/blob/master/llm/rager/data_exporters/numinous_fission.py)
 
 ## 6. Retrieval: Test Vector Search Query
 
