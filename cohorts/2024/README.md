@@ -33,6 +33,6 @@ Important links:
 
 **Office hours**
 
-* [Office hours 1]((https://www.youtube.com/watch?v=q4Mb4SN-doo))
+* [Office hours 1](https://www.youtube.com/watch?v=q4Mb4SN-doo)
 * [Office hours 2](https://www.youtube.com/watch?v=lre6h7vqz7A)
 * [Office hours 3 and 4](https://www.loom.com/share/b57b995f79364da68da1d1826a766794)
