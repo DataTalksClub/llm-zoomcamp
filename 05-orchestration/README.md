@@ -84,7 +84,8 @@ Here we will save the embeddings to elasticsearch
 
 please make sure to use the name given to your elasticsearch service in your docker compose file followed by the port as the connection string, e.g below
 
-<docker-compose-service-name>:<port> [http://elasticsearch:9200](http://elasticsearch:9200) 
+`<docker-compose-service-name><port>` http://elasticsearch:9200
+
 
 <a href="https://www.youtube.com/watch?v=cHrphSoRBX4&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/cHrphSoRBX4">
