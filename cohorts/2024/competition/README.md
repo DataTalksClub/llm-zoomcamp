@@ -25,6 +25,11 @@ from the initial run.
 Which might be more a feature than a bug:
 what if you run it multuple times and get the majority vote? 
 
+## Community solutions
+
+- Pastor Solo - getting started notebook on Kaggle - https://www.kaggle.com/code/pastorsoto/starter-notebook
+- Slava Shen - chain of thoughts - https://www.kaggle.com/code/vyacheslavshen/double-check-with-llms
+
 ## Evaluation
 
 We use accuracy as the evaluation metric. Sometimes multiple

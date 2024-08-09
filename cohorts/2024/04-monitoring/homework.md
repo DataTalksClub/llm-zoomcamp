@@ -150,9 +150,9 @@ Let's compute the average F-score between `rouge-1`, `rouge-2` and `rouge-l` for
 
 ## Q6. Average rouge score for all the data points
 
-Now let's compute the score for all the records and create a dataframe from them.
+Now let's compute the F-score for all the records and create a dataframe from them.
 
-What's the average `rouge_2` across all the records?
+What's the average F-score in `rouge_2` across all the records?
 
 - 0.10
 - 0.20

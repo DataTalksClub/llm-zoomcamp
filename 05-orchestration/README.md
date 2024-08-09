@@ -3,12 +3,19 @@
 ## Getting started
 
 1. Clone [repository](https://github.com/mage-ai/rag-project)
-1. Run `./scripts/start.sh`
-
 ```bash
 git clone https://github.com/mage-ai/rag-project
 cd rag-project
-./scripts/start.sh
+```
+3. navigate to the `rag-project/llm` directory, add `spacy` to the requirements.txt.
+4. Then update the `Dockerfile` found in the `rag-project` directory with the following:
+```YAML
+RUN python -m spacy download en_core_web_sm
+```
+4. Run
+
+```bash
+`./scripts/start.sh`
 ```
 
 Once started, go to [http://localhost:6789/](http://localhost:6789/)
@@ -82,6 +89,11 @@ After processing, data needs to be exported for storage so that it can be retrie
 
 Here we will save the embeddings to elasticsearch
 
+please make sure to use the name given to your elasticsearch service in your docker compose file followed by the port as the connection string, e.g below
+
+`<docker-compose-service-name><port>` http://elasticsearch:9200
+
+
 <a href="https://www.youtube.com/watch?v=cHrphSoRBX4&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/cHrphSoRBX4">
 </a>
@@ -96,7 +108,7 @@ After exporting the chunks and embeddings, we can test the search query to retri
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/z5NqDcaBglY">
 </a>
 
-
+[Code](code/06_retrieval.py)
 
 ## 7. Trigger Daily Runs
 
