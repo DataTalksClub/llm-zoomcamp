@@ -84,7 +84,7 @@ How many FAQ documents we processed?
 
 ## Q3. Chunking
 
-We don't really need to do any chuncking because our documents
+We don't really need to do any chunking because our documents
 already have well-specified boundaries. So we just need
 to return the documents without any changes.
 
