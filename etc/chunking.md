@@ -1,4 +1,4 @@
-## Chunking  
+## Chunking
 
 I asked ChatGPT how we can chunk a YouTube transcript 
 and this is what it answered:
