@@ -121,7 +121,7 @@ This section demonstrates how to schedule and trigger daily runs for your data p
 
 ## Homework
 
-TBA
+See [here](../cohorts/2024/05-orchestration/homework.md).
 
 # Notes
 
