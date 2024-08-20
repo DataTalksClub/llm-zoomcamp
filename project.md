@@ -100,11 +100,31 @@ If you're not certain about some tools, ask in Slack.
 
 Here are some datasets for your projects and potential things you can do with them
 
-* DTC Slack dump: book of the week channel, course channels, career questions, etc
-* DTC website with book of the week archives
-* DTC Podcast: transcripts
-* Any book(s), video(s), audio(s)
-* add more here
+* DTC data:
+   * Slack dump: book of the week channel, course channels, career questions, etc
+   * DTC website with book of the week archives
+   * DTC Podcast: transcripts
+* Wikis
+   * any subsets of Wikipedia
+   * any wiki-like data source
+   * notion notes
+* Articles
+   * Index and answer questions from one or multiple articles
+* Transcripts
+   * Podcast transcripts
+   * YouTube video transcripts
+* Books
+   * Sci-fi, fiction, or non-fiction books
+* Slide Decks and pictures
+   * OCR and index slide decks (gpt-4o-mini can do that)
+   * Describe and index pictures
+* Add more here above this line - send a PR!
+* Or just ask ChatGPT (see more ideas [here in this example](https://chatgpt.com/share/70b51c12-e41c-4312-831d-04f489a17f1e))
+
+You can also generate a dataset with an LLM:
+
+* If you have a dataset but you can't publicly release it, you can generate a similar one with an LLM
+* Or you can simply think what kind of a dataset you want to have and generate it 
 
 Note that your dataset doesn't have to be in thr Q&A form. Check [etc/chunking.md](etc/chunking.md) to learn more about chunking.
 
