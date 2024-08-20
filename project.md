@@ -56,36 +56,36 @@ If you're not certain about some tools, ask in Slack.
     * 2 points: The problem is well described and it's clear what the problem the project solves
 * RAG flow
     * 0 points: No knowledge base and LLM
-    * 2 points: No knowledge base is used, query the LLM directly
-    * 4 points: Both a klowledge base and an LLM are used in the RAG flow 
+    * 1 point: No knowledge base is used, query the LLM directly
+    * 2 points: Both a klowledge base and an LLM are used in the RAG flow 
 * Interface
    * 0 points: No way to interact with the application at all
-   * 2 points: Command line interface, a script, or a jupyter notebook
-   * 4 points: UI (e.g. in streamlit), web application (e.g. Django) or an API (built e.g. with FastAPI) 
+   * 1 point: Command line interface, a script, or a jupyter notebook
+   * 2 points: UI (e.g. in streamlit), web application (e.g. Django) or an API (built e.g. with FastAPI) 
 * Retrieval evaluation
     * 0 points: No evaluation for retrieval
-    * 2 points: Only one approach for retrieval is evaluated
-    * 4 poinst: Multiple approaces are evaluated and the best one is used  
+    * 1 point: Only one approach for retrieval is evaluated
+    * 2 poinst: Multiple approaces are evaluated and the best one is used  
 * RAG evaluation
     * 0 points: No evaluation for RAG
-    * 2 points: Only one approach (e.g. only one prompt) for RAG is evaluated
-    * 4 poinst: Multiple approaces are evaluated and the best one is used  
+    * 1 point: Only one approach (e.g. only one prompt) for RAG is evaluated
+    * 2 poinst: Multiple approaces are evaluated and the best one is used  
 * Reproducibility
     * 0 points: No instructions on how to run the code at all, the data is missing or it's not clear how to access it
-    * 2 points: Some instructions are there, but they are not complete OR instructions are clear and complete, the code works, but the data is missing
-    * 4 points: Instructions are clear, it's easy to run the code, and it works. The versions for all the dependencies are specified.
+    * 1 point: Some instructions are there, but they are not complete OR instructions are clear and complete, the code works, but the data is missing
+    * 2 points: Instructions are clear, it's easy to run the code, and it works. The versions for all the dependencies are specified.
 * Containerization
     * 0 points: No containerization
-    * 2 points: Dockerfile is provided for the main application OR there's a docker-compose for the dependencies only
-    * 4 points: Everyting is in docker-compose
+    * 1 point: Dockerfile is provided for the main application OR there's a docker-compose for the dependencies only
+    * 2 points: Everyting is in docker-compose
 * Ingestion pipeline
    * 0 points: No ingestion
-   * 2 points: Semi-automated ingestion of the dataset to the knowledge base, e.g. with a Jupyter notebook
-   * 4 points: Automated ingestion with a python script or a special tool (Mage, dlt, Airflow, prefect, etc) 
+   * 1 point: Semi-automated ingestion of the dataset to the knowledge base, e.g. with a Jupyter notebook
+   * 2 points: Automated ingestion with a python script or a special tool (Mage, dlt, Airflow, prefect, etc) 
 * Best practices
-    * [ ] Hybrid search: combining both text and vector search (at least evaluating it) (2 points)
-    * [ ] Document reranking (2 points)
-    * [ ] User query rewriting (2 points)
+    * [ ] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
+    * [ ] Document reranking (1 point)
+    * [ ] User query rewriting (1 point)
     * [ ] More TBA 
 * Bonus points (not covered in the course)
     * [ ] Deployment to the cloud (2 points)
