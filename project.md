@@ -34,7 +34,7 @@ You don't have to limit yourself to technologies covered in the course. You can 
 * Knowledge base: any text, relational or vector database, including in-memory ones like we implemented in the course or SQLite  
 * Monitoring: Grafana, Kibana, Streamlit, dash, etc
 * Interface: Streamlit, dash, Flask, FastAPI, Django, etc (could be UI or API)
-* Ingestion orchestration: Mage, dlt, Airflow, Prefect, python script, etc
+* Ingestion pipeline: Mage, dlt, Airflow, Prefect, python script, etc
 
 If you use a tool that wasn't covered in the course, be sure to give a very detailed explanation
 of what that tool does and how to use it. 
@@ -78,7 +78,7 @@ If you're not certain about some tools, ask in Slack.
     * 0 points: No containerization
     * 2 points: Dockerfile is provided for the main application OR there's a docker-compose for the dependencies only
     * 4 points: Everyting is in docker-compose
-* Ingestion orchestration
+* Ingestion pipeline
    * 0 points: No ingestion
    * 2 points: Semi-automated ingestion of the dataset to the knowledge base, e.g. with a Jupyter notebook
    * 4 points: Automated ingestion with a python script or a special tool (Mage, dlt, Airflow, prefect, etc) 
