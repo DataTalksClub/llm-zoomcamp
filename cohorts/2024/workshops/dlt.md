@@ -2,6 +2,8 @@
 
 Video: https://www.youtube.com/watch?v=qUNyfR_X2Mo
 
+Homework solution: https://drive.google.com/file/d/1M1dKtAO-v3oYIztqMS8fXlLsBnqcmA-O/view?usp=sharing
+
 In this hands-on workshop, we’ll learn how to build a data ingestion pipeline using dlt to load data from a REST API into LanceDB so you can have an always up to date RAG.
 
 ​We’ll cover the following steps:
