@@ -48,6 +48,11 @@ If you're not certain about some tools, ask in Slack.
 > * To get points for your project, you need to evaluate 3 projects of your peers
 > * You get 3 extra points for each evaluation
 
+Tips:
+
+* Make it easier for the evaluators to evaluate each of the criteria by mentioning them in your README and including screenshots
+* Imagine that potential hiring managers will also look at your projects. Make it easier for them to understand what the project is about and what did you do there
+
 ## Evaluation Criteria
 
 * Problem description
