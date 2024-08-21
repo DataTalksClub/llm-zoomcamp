@@ -81,7 +81,11 @@ If you're not certain about some tools, ask in Slack.
 * Ingestion pipeline
    * 0 points: No ingestion
    * 1 point: Semi-automated ingestion of the dataset into the knowledge base, e.g., with a Jupyter notebook
-   * 2 points: Automated ingestion with a Python script or a special tool (e.g., Mage, dlt, Airflow, Prefect) 
+   * 2 points: Automated ingestion with a Python script or a special tool (e.g., Mage, dlt, Airflow, Prefect)
+* Monitoring
+   * 0 points: No monitoring
+   * 1 point: User feedback is collected OR there's a monitoring dashboard
+   * 2 points: User feedback is collected and there's a dashboard with at least 5 charts
 * Best practices
     * [ ] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
     * [ ] Document re-ranking (1 point)
