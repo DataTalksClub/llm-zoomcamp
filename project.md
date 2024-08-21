@@ -41,6 +41,14 @@ of what that tool does and how to use it.
 
 If you're not certain about some tools, ask in Slack.
 
+## Tips and best practices
+
+* It's better to create a separate GitHub repository for your project
+* Give your project a meaningful title, e.g. "DataTalksClub Zoomcamp Q&A system" or "Nutrition Facts Chat"
+* Make it easier for the evaluators to evaluate each of the criteria by mentioning them in your README and including screenshots
+* Imagine that potential hiring managers will also look at your projects. Make it easier for them to understand what the project is about and what did you do there
+* In general, include as many details as possible in the README file. ChatGPT or other LLMs can assist you with this
+
 ## Peer reviewing
 
 > [!IMPORTANT]  
@@ -48,10 +56,6 @@ If you're not certain about some tools, ask in Slack.
 > * To get points for your project, you need to evaluate 3 projects of your peers
 > * You get 3 extra points for each evaluation
 
-Tips:
-
-* Make it easier for the evaluators to evaluate each of the criteria by mentioning them in your README and including screenshots
-* Imagine that potential hiring managers will also look at your projects. Make it easier for them to understand what the project is about and what did you do there
 
 ## Evaluation Criteria
 
@@ -99,15 +103,6 @@ Tips:
 * Bonus points (not covered in the course)
     * [ ] Deployment to the cloud (2 points)
     * [ ] More TBA
-
-
-> [!NOTE]
-> It's highly recommended to create a new repository for your project (not inside an existing repo)
-> with a meaningful title, such as "DataTalks.Club FAQ Q&A System" or "Talk with a YouTube video".
-> Include as many details as possible in the README file. ChatGPT or other LLMs can assist you with this.
-> Doing so will make it easier to showcase your project for potential job opportunities. But
-> if you leave the README file empty or with minimal details, there may be point deductions as
-> per the [Evaluation Criteria](#evaluation-criteria).
 
 ## Project ideas
 
