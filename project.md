@@ -30,7 +30,7 @@ For that, you need:
 
 You don't have to limit yourself to technologies covered in the course. You can use alternatives as well:
 
-* LLM: OpenAI, Groq, AWS Bedrock, etc
+* LLM: OpenAI, Ollama, Groq, AWS Bedrock, etc
 * Knowledge base: any text, relational or vector database, including in-memory ones like we implemented in the course or SQLite  
 * Monitoring: Grafana, Kibana, Streamlit, dash, etc
 * Interface: Streamlit, dash, Flask, FastAPI, Django, etc (could be UI or API)
