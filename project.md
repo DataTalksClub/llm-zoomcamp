@@ -70,7 +70,7 @@ If you're not certain about some tools, ask in Slack.
 * Retrieval evaluation
     * 0 points: No evaluation of retrieval is provided
     * 1 point: Only one retrieval approach is evaluated
-    * 2 points: Multiple retrieval approaches are evaluated, and the best one is used  
+    * 2 points: Multiple retrieval approaches are evaluated, and the best one is used
 * RAG evaluation
     * 0 points: No evaluation of RAG is provided
     * 1 point: Only one RAG approach (e.g., one prompt) is evaluated
