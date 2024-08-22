@@ -86,6 +86,11 @@ Implement a search engine: [Video](https://www.youtube.com/watch?v=nMrGK5QgPVE),
 
 * Best practices
 
+### 7. [Bonus: End-to-End project example](07-project-example/) (Optional)
+
+* Building an end-to-end fitness assistant project
+* Examples of pre-processing text datasets 
+
 ### LLM Zoomcamp 2024 Competition
 
 [More details](cohorts/2024/competition/)
