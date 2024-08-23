@@ -48,3 +48,11 @@ https://www.loom.com/share/a714e0260ec441398e9d501928f1bd24
 * Improving README
 
 
+## 7.5 Monitoring and containerization
+
+https://www.loom.com/share/820266969a2c494b8cd1db21ab5fa6c0
+
+* Creating a Docker image for our application
+* Putting everything in docker compose
+* Logging all the information for monitoring purposes
+* Creating a Grafana dashboard
