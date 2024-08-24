@@ -2,15 +2,16 @@
 
 Video: https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6
 
+In order to receive a certificate of completion for the course, you need
+to deliver a project. There are two attempts for that.
+
 [Submit your project here](cohorts/2024/project.md)
+
 
 ## Objective
 
 The goal of this project is to apply everything we have learned
 in this course to build an end-to-end RAG application.
-
-In order to receive a certificate of completion for the course, you need
-to deliver a project. There are two attempts for that.
 
 
 ## Problem statement
@@ -23,7 +24,7 @@ For that, you need:
 * Ingest the data into a knowledge base
 * Implement the RAG flow: query the knowledge base, build the prompt, send the promt to an LLM
 * Evaluate the performance of your RAG flow
-* Create the interface for the application
+* Create an interface for the application
 * Collect user feedback and monitor your application
 
 ## Technologies
@@ -149,3 +150,5 @@ Plagiarism in any form is not allowed. Examples of plagiarism:
 * Re-using your project from the previous iterations of the course
 
 Violating any of this will result in 0 points for this project.
+
+Re-using some parts of the code from the course is allowed.
