@@ -14,9 +14,9 @@ README, code readability, etc.
 
 ## 7.1. Fitness assistant project
 
-https://youtu.be/E9O0Tg68PPg
-
-https://www.loom.com/share/999cc828f62c4a5787d2e21dcf181eb6
+<a href="https://www.youtube.com/watch?v=E9O0Tg68PPg&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/E9O0Tg68PPg">
+</a>
 
 * Generating data for the project
 * Setting up the project
@@ -24,10 +24,9 @@ https://www.loom.com/share/999cc828f62c4a5787d2e21dcf181eb6
 
 ## 7.2. Evaluating retrieval
 
-https://youtu.be/6ulnHtJPCWY
-
-https://www.loom.com/share/1b7c20cf12e94f89b92b9781ace4de4d
-
+<a href="https://www.youtube.com/watch?v=6ulnHtJPCWY&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/6ulnHtJPCWY">
+</a>
 
 * Preparing the README file
 * Generating gold standard evaluation data
@@ -37,18 +36,18 @@ https://www.loom.com/share/1b7c20cf12e94f89b92b9781ace4de4d
 
 ## 7.3 Evaluating RAG
 
-https://youtu.be/lxpW2mR7dGk
-
-https://www.loom.com/share/41a0984c1ccb46d29bde4538b3385f09
+<a href="https://www.youtube.com/watch?v=lxpW2mR7dGk&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/lxpW2mR7dGk">
+</a>
 
 * Using LLM-as-a-Judge (type 2)
 * Comparing gpt-4o-mini with gpt-4o
 
 ## 7.4 Interface and ingestion pipeline
 
-https://youtu.be/vMHve2EyA5M
-
-https://www.loom.com/share/a714e0260ec441398e9d501928f1bd24
+<a href="https://www.youtube.com/watch?v=vMHve2EyA5M&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/vMHve2EyA5M">
+</a>
 
 * Turnining the jupyter notebook into a script
 * Creating the ingestion pipeline
@@ -58,15 +57,27 @@ https://www.loom.com/share/a714e0260ec441398e9d501928f1bd24
 
 ## 7.5 Monitoring and containerization
 
-https://youtu.be/nQda9etJWW8
-
-https://www.loom.com/share/820266969a2c494b8cd1db21ab5fa6c0
+<a href="https://www.youtube.com/watch?v=nQda9etJWW8&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/nQda9etJWW8">
+</a>
 
 * Creating a Docker image for our application
 * Putting everything in docker compose
 * Logging all the information for monitoring purposes
 
 
-## 7.6 
+## 7.6 Summary and closing remarks
 
-* Creating a Grafana dashboard
+https://www.loom.com/share/131a713a09074731884d93dcb1290932
+
+
+* Changes between 7.5 and 7.6 (postres logging, grafara, cli.py, etc)
+* README file improvements
+* Total cost of the project (~$2) and how to lower it
+* Using generated data for real-life projects
+
+
+# Notes
+
+* First link goes here
+* Did you take notes? Add them above this line (Send a PR with *links* to your notes)

@@ -66,3 +66,8 @@ docker run -it \
 ## Homework
 
 TBD
+
+# Notes
+
+* First link goes here
+* Did you take notes? Add them above this line (Send a PR with *links* to your notes)
