@@ -100,10 +100,9 @@ If you're not certain about some tools, ask in Slack.
     * [ ] Hybrid search: combining both text and vector search (at least evaluating it) (1 point)
     * [ ] Document re-ranking (1 point)
     * [ ] User query rewriting (1 point)
-    * [ ] More TBA 
 * Bonus points (not covered in the course)
     * [ ] Deployment to the cloud (2 points)
-    * [ ] More TBA
+
 
 ## Project ideas
 
