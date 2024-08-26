@@ -1,6 +1,7 @@
 # Projects 
 
-Video: https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6
+* Video: https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6
+* Office hours: https://www.youtube.com/watch?v=pA9S1mTqAwU
 
 In order to receive a certificate of completion for the course, you need
 to deliver a project. There are two attempts for that.
