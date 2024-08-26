@@ -1,5 +1,7 @@
 ## Homework: Evaluation and Monitoring
 
+Solution: [solution.ipynb](solution.ipynb)
+
 In this homework, we'll evaluate the quality of our RAG system.
 
 > It's possible that your answers won't match exactly. If it's the case, select the closest one.
