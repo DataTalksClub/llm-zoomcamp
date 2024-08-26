@@ -20,7 +20,7 @@ For the project, we ask you to build an end-to-end RAG project.
 
 For that, you need:
 
-* Select a dataset that you're interested in (see [Datasets](#datasets))
+* Select a dataset that you're interested in (see [Datasets](#datasets) for examples and ideas)
 * Ingest the data into a knowledge base
 * Implement the RAG flow: query the knowledge base, build the prompt, send the promt to an LLM
 * Evaluate the performance of your RAG flow
