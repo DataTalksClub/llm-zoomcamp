@@ -60,7 +60,23 @@ docker run -it \
 ```
 
 
-## 6.4 TBD
+## 6.4 Hybrid search with LangChain
+
+<a href="https://www.youtube.com/watch?v=CRfg7tAsnUU">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/CRfg7tAsnUU">
+</a>
+
+* LangChain: Introduction
+* ElasticsearchRetriever
+* Hybrid search implementation
+
+```bash
+pip install -qU langchain langchain-elasticsearch langchain-huggingface
+```
+
+Links:
+* [Chatbot Implementation [Tutorial]](https://www.elastic.co/search-labs/tutorials/chatbot-tutorial/implementation)
+* [ElasticsearchRetriever](https://python.langchain.com/v0.2/docs/integrations/retrievers/elasticsearch_retriever/)
 
 
 ## Homework
