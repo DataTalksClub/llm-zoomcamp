@@ -85,7 +85,7 @@ README, code readability, etc.
 </a>
 
 * Different chunking strategies
-* Use cases: multiple articles, one article, slide decks
+* [Use cases: multiple articles, one article, slide decks](content-processing-summary.md)
 
 Links:
 
