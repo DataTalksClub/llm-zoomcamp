@@ -68,10 +68,9 @@ README, code readability, etc.
 
 ## 7.6 Summary and closing remarks
 
-https://youtu.be/TW9M5VE8vpo
-
-https://www.loom.com/share/131a713a09074731884d93dcb1290932
-
+<a href="https://www.youtube.com/watch?v=TW9M5VE8vpo&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/TW9M5VE8vpo">
+</a>
 
 * Changes between 7.5 and 7.6 (postres logging, grafara, cli.py, etc)
 * README file improvements
@@ -81,9 +80,9 @@ https://www.loom.com/share/131a713a09074731884d93dcb1290932
 
 ## 7.7 Chunking for longer texts
 
-https://youtu.be/tyBRP_WewXA
-
-https://www.loom.com/share/d1361ff3db574d43ae86c2cde700cdb3
+<a href="https://www.youtube.com/watch?v=tyBRP_WewXA&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/tyBRP_WewXA">
+</a>
 
 * Different chunking strategies
 * Use cases: multiple articles, one article, slide decks
