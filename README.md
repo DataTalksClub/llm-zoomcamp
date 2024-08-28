@@ -109,6 +109,8 @@ Implement a search engine: [Video](https://www.youtube.com/watch?v=nMrGK5QgPVE),
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev/)
 - [Magdalena Kuhn](https://www.linkedin.com/in/magdalenakuhn/)
 - [Balaji Dhamodharan](https://www.linkedin.com/in/balaji-dhamodharan-91b45615/)
+- [Tommy Dang](https://www.linkedin.com/in/dangtommy/)
+- [Timur Kamaliev](https://www.linkedin.com/in/timurkamaliev/)
 
 ## Asking questions
 
