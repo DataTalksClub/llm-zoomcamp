@@ -20,9 +20,11 @@ Example JSON structure for a chunk:
 
 ## Case: Single Article / Transcript / Etc.
 
+Example: the user provides YouTubeID, you initialize the system and now you can talk to it
+  
 - Chunk it
 - Evaluation as for multiple articles
-- Example: the user provides YouTubeID, you initialize the system and now you can talk to it
+
 
 ## Case: Book or Very Long Form Content
 
@@ -33,7 +35,7 @@ Example JSON structure for a chunk:
 ## Case: Images
 
 - Describe the images using gpt-4o-mini
-- CLIP (likely referring to the CLIP neural network for image understanding)
+- [CLIP](https://openai.com/index/clip/)
 - Each image is a separate document
 
 ## Case: Slides
