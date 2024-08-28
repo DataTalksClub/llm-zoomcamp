@@ -79,7 +79,7 @@ https://www.loom.com/share/131a713a09074731884d93dcb1290932
 * Using generated data for real-life projects
 
 
-## 7.7 Chuning for longer texts
+## 7.7 Chunking for longer texts
 
 https://youtu.be/tyBRP_WewXA
 
