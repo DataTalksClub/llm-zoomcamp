@@ -68,6 +68,8 @@ README, code readability, etc.
 
 ## 7.6 Summary and closing remarks
 
+https://youtu.be/TW9M5VE8vpo
+
 https://www.loom.com/share/131a713a09074731884d93dcb1290932
 
 
@@ -76,6 +78,21 @@ https://www.loom.com/share/131a713a09074731884d93dcb1290932
 * Total cost of the project (~$2) and how to lower it
 * Using generated data for real-life projects
 
+
+## 7.7 Chuning for longer texts
+
+https://youtu.be/tyBRP_WewXA
+
+https://www.loom.com/share/d1361ff3db574d43ae86c2cde700cdb3
+
+* Different chunking strategies
+* Use cases: multiple articles, one article, slide decks
+
+Links:
+
+* https://chatgpt.com/share/a4616f6b-43f4-4225-9d03-bb69c723c210
+* https://chatgpt.com/share/74217c02-95e6-46ae-b5a5-ca79f9a07084
+* https://chatgpt.com/share/8cf0ebde-c53f-4c6f-82ae-c6cc52b2fd0b
 
 # Notes
 
