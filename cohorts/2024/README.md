@@ -10,7 +10,7 @@ Important links:
 
 [**LLM Zoomcamp 2024 Competition**](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2024/competition#llm-zoomcamp-2024-competition)
 
-* Deadline: September 1, 2024
+* Deadline: September 30, 2024
 * Practice and receive additional points for the course!
 
 [**Module 1: Introduction to LLMs and RAG**](01-intro)
