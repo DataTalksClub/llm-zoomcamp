@@ -28,6 +28,23 @@ For that, you need:
 * Create an interface for the application
 * Collect user feedback and monitor your application
 
+
+## Project Documentation
+
+Your project rises or falls with its documentation. Hence, here are some general recommendations:
+
+* **Write for a Broader Audience 📝**: Assume the reader has no prior knowledge of the course materials. This way, your documentation will be accessible not only to evaluators but also to anyone interested in your project.
+* **Include Evaluation Criteria 🎯**: Make it easier for evaluators to assess your work by clearly mentioning each criterion in your README. Include relevant screenshots to visually support your points.
+* **Think of Future Opportunities 🚀**: Imagine that potential hiring managers will look at your projects. Make it straightforward for them to understand what the project is about and what you contributed. Highlight key features and your role in the project.
+* **Be Detailed and Comprehensive 📋**: Include as much detail as possible in the README file. Explain the setup, the functionality, and the workflow of your project. Tools like ChatGPT or other LLMs can assist you in expanding and refining your documentation.
+* **Provide Clear Setup Instructions ⚙️**: Include step-by-step instructions on how to set up and run your project locally. Make sure to cover dependencies, configurations, and any other requirements needed to get your project up and running.
+* **Use Visuals and Examples 🖼️**: Wherever possible, include diagrams, screenshots, or GIFs to illustrate key points. Use examples to show how to use your project, demonstrate common use cases, and provide sample inputs and expected outputs.
+* **Organize with Sub-Files 🗂️**: If your documentation becomes lengthy, consider splitting it into sub-files and linking them in your README. This keeps the main README clean and neat while providing additional detailed information in separate files (e.g., `setup.md`, `usage.md`, `contributing.md`).
+* **Keep It Updated 🔄**: As your project evolves, make sure your documentation reflects any changes or updates. Outdated documentation can confuse readers and diminish the credibility of your project.
+
+Remember, clear and comprehensive documentation not only helps others but is also a valuable reference for yourself in the future.
+
+
 ## Technologies
 
 You don't have to limit yourself to technologies covered in the course. You can use alternatives as well:
@@ -47,9 +64,7 @@ If you're not certain about some tools, ask in Slack.
 
 * It's better to create a separate GitHub repository for your project
 * Give your project a meaningful title, e.g. "DataTalksClub Zoomcamp Q&A system" or "Nutrition Facts Chat"
-* Make it easier for the evaluators to evaluate each of the criteria by mentioning them in your README and including screenshots
-* Imagine that potential hiring managers will also look at your projects. Make it easier for them to understand what the project is about and what did you do there
-* In general, include as many details as possible in the README file. ChatGPT or other LLMs can assist you with this
+
 
 ## Peer reviewing
 
