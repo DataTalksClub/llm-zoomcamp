@@ -58,6 +58,16 @@ If you're not certain about some tools, ask in Slack.
 > * To get points for your project, you need to evaluate 3 projects of your peers
 > * You get 3 extra points for each evaluation
 
+### Review Tips
+
+* The reviewer is given a public GitHut repo link and a `commit-hash`
+   * to see the code state of the repo at the provided commit hash, use the following URL:
+   * `https://github.com/{username}/{repo-name}/tree/{commit-hash}`
+* It's recommended to clone the repository for the review. To clone the project at the commit hash:
+  ```bash
+  git clone https://github.com/{username}/{repo-name}.git
+  git reset --hard {commit-hash}
+  ```
 
 ## Evaluation Criteria
 
