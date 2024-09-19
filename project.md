@@ -128,6 +128,7 @@ If you're not certain about some tools, ask in Slack.
     * [ ] User query rewriting (1 point)
 * Bonus points (not covered in the course)
     * [ ] Deployment to the cloud (2 points)
+    * [ ] Up to 3 extra bonus points if you want to award for something extra (write in feedback for what)
 
 
 ## Project ideas
