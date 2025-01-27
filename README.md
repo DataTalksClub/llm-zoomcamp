@@ -22,11 +22,18 @@ knowledge base.
 - [Course Calendar](https://calendar.google.com/calendar/?cid=NjkxOThkOGFhZmUyZmQwMzZjNDFkNmE2ZDIyNjE5YjdiMmQyZDVjZTYzOGMxMzQyZmNkYjE5Y2VkNDYxOTUxY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
 
 
-## 2024 cohort 
+## 2025 cohort 
 
-- Start date: June 17
-- [Materials specific to 2024 cohort](cohorts/2024/)
- 
+- Start date: TBA (Spring-Summer 2025)
+
+
+## Self-paced mode 
+
+* You can watch the course at your own pace
+* Just follow the modules and watch the videos
+* Don't forget to do the homework to make sure you learned the materials
+* We strongly suggest doing a project and then sharing it in slack to ask for feedback  
+
 
 ## Pre-requisites
 
