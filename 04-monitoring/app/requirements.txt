@@ -5,6 +5,7 @@ python-dotenv
 openai==1.35.7
 sentence-transformers==2.7.0
 numpy==1.26.4
+httpx==0.27.2
 
 --find-links https://download.pytorch.org/whl/cpu/torch_stable.html
 torch==2.3.1+cpu
