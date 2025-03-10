@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="80%" src="images/llm-zoomcamp.jpg" alt="LLM Zoomcamp">
+  <img width="80%" src="images/llm-zoomcamp-2025.jpg" alt="LLM Zoomcamp">
 </p>
 
 <h1 align="center">
@@ -74,7 +74,6 @@ You can follow the course at your own pace:
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev/)
 - [Magdalena Kuhn](https://www.linkedin.com/in/magdalenakuhn/)
 - [Balaji Dhamodharan](https://www.linkedin.com/in/balaji-dhamodharan-91b45615/)
-- [Tommy Dang](https://www.linkedin.com/in/dangtommy/)
 - [Timur Kamaliev](https://www.linkedin.com/in/timurkamaliev/)
 
 ## Community & Support
@@ -90,8 +89,8 @@ To keep discussions organized:
 A special thanks to our course sponsors for making this initiative possible!
 
 <p align="center">
-  <a href="https://mage.ai/">
-    <img height="120" src="https://github.com/DataTalksClub/data-engineering-zoomcamp/raw/main/images/mage.svg">
+  <a href="https://arize.com/">
+    <img height="120" src="https://datatalks.club/images/partners/arize.png">
   </a>
 </p>
 
