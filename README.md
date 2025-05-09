@@ -46,34 +46,35 @@ You can follow the course at your own pace:
 - Basics of LLMs and Retrieval-Augmented Generation (RAG)
 - OpenAI API and text search with Elasticsearch
 
-#### [Module 2: Open-Source LLMs](02-open-source/)
-- Running LLMs on CPUs with Ollama
-- Deploying LLMs on GPUs
-
-#### [Module 3: Vector Databases](03-vector-search/)
+#### [Module 2: Vector Search](02-vector-search/)
 - Vector search and embeddings
 - Indexing and retrieving data efficiently
 
-#### [Module 4: Evaluation and Monitoring](04-monitoring/)
-- Offline evaluation techniques
+#### [Module 3: Evaluation](03-evaluation/)
+
+- Search evaluation
+- Online vs offline evaluation
+- LLM as a Judge
+
+#### [Module 4: Monitoring](04-monitoring/)
+
+- Online evaluation techniques
 - Monitoring user feedback with dashboards
 
-#### [Module 5: LLM Orchestration and Ingestion](05-orchestration/)
-- Ingesting data with Mage
 
-#### [Module 6: Best Practices](06-best-practices/)
+#### [Module 5: Best Practices](05-best-practices/)
 - Hybrid search
 - Document reranking
 
-#### [Module 7: Bonus - End-to-End Project](07-project-example/)
+#### [Module 6: Bonus - End-to-End Project](06-project-example/)
 - Build a fitness assistant using LLMs
 
-### [Competition & Hands-on Project](project.md)
+### [Capstone Project](project.md)
+
+Put eveything you learned into practice
 
 ## Meet the Instructors
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev/)
-- [Magdalena Kuhn](https://www.linkedin.com/in/magdalenakuhn/)
-- [Balaji Dhamodharan](https://www.linkedin.com/in/balaji-dhamodharan-91b45615/)
 - [Timur Kamaliev](https://www.linkedin.com/in/timurkamaliev/)
 
 ## Community & Support
@@ -100,11 +101,6 @@ A special thanks to our course sponsors for making this initiative possible!
   </a>
 </p>
 
-<p align="center">
-  <a href="https://saturncloud.io/">
-    <img height="120" src="images/saturn-cloud.png">
-  </a>
-</p>
 
 Interested in supporting our community? Reach out to [alexey@datatalks.club](mailto:alexey@datatalks.club).
 

@@ -1,0 +1,437 @@
+[
+  {
+    "course": "llm-zoomcamp",
+    "documents": [
+      {
+        "text": "Yes, but if you want to receive a certificate, you need to submit your project while we\u2019re still accepting submissions.",
+        "section": "General course-related questions",
+        "question": "I just discovered the course. Can I still join?"
+      },
+      {
+        "text": "You don't need it. You're accepted. You can also just start learning and submitting homework (while the form is Open) without registering. It is not checked against any registered list. Registration is just to gauge interest before the start date.",
+        "section": "General course-related questions",
+        "question": "Course - I have registered for the [insert-zoomcamp-name]. When can I expect to receive the confirmation email?"
+      },
+      {
+        "text": "The zoom link is only published to instructors/presenters/TAs.\nStudents participate via Youtube Live and submit questions to Slido (link would be pinned in the chat when Alexey goes Live). The video URL should be posted in the announcements channel on Telegram & Slack before it begins. Also, you will see it live on the DataTalksClub YouTube Channel.\nDon\u2019t post your questions in chat as it would be off-screen before the instructors/moderators have a chance to answer it if the room is very active.",
+        "section": "General course-related questions",
+        "question": "What is the video/zoom link to the stream for the \u201cOffice Hours\u201d or live/workshop sessions?"
+      },
+      {
+        "text": "Issue: I get the notice that due to traffic, I\u2019m on a waitlist for new signups.\nAnswer: There was a form to submit our emails to, so Alexey can send it in bulk. If you missed that deadline, just sign up manually (or via request tech demo link) and use the chat to request for free hours for \u201cllm zoomcamp\u201d\nIssue: I\u2019m a pre-existing user from a different zoomcamp and I\u2019m not awarded the free hours even though I\u2019ve submitted my email in the form.\nAnswer: Just request it via their chat, after you\u2019ve logged in using your pre-existing account, citing \u201cllm zoomcamp\u201d .",
+        "section": "General course-related questions",
+        "question": "SaturnCloud - How do I get access?"
+      },
+      {
+        "text": "We get 15 free hours per month, which might be limited to the free tier\u2019s hardware configuration.",
+        "section": "General course-related questions",
+        "question": "SaturnCloud - How many free hours do we get?"
+      },
+      {
+        "text": "This message means you have used all allocated hours. Make sure to set Shutout After in settings. Also, do not leave your notebooks running. If your hours are out, try using Google Colab and Kaggle.",
+        "section": "General course-related questions",
+        "question": "SaturnCloud - Something went wrong. Max of 15 hours of resource usage per month"
+      },
+      {
+        "text": "Check the quota and reset cycle carefully - is the free hours per month or per week? Usually if you change the configuration, the free hours quota might also be adjusted,or it might be billed separately.\nGoogle Colab\nKaggle\nDatabricks (?), so many others.\nUse GPTs to find out. Some might have restrictions on what you can and cannot install, so be sure to read what is included in a free vs paid tier.",
+        "section": "General course-related questions",
+        "question": "Cloud alternatives with GPU"
+      },
+      {
+        "text": "When you set up your account you are automatically assigned a random name such as \u201cLucid Elbakyan\u201d for example. Click on the Jump to your record on the leaderboard link to find your entry.\nIf you want to see what your Display name is, click on the Edit Course Profile button.\nFirst field is your nickname/displayed-name, change it if you want to be known as your Slack username or Github username or whatever nickname of your choice, if you want to remain anonymous.\nUnless you want \u201cLucid Elbakyan\u201d on your certificate, it is mandatory that you change the second field to your official name as in your identification documents - passport, national ID card, driver\u2019s license, etc. This is the name that is going to appear on your Certificate!",
+        "section": "General course-related questions",
+        "question": "Leaderboard - I am not on the leaderboard / how do I know which one I am on the leaderboard?"
+      },
+      {
+        "text": "No, you can only get a certificate if you finish the course with a \u201clive\u201d cohort.\nWe don't award certificates for the self-paced mode. The reason is you need to peer-review 3 capstone(s) after submitting your own project.\nYou can only peer-review projects at the time the course is running; after the form is closed and the peer-review list is compiled.",
+        "section": "General course-related questions",
+        "question": "Certificate - Can I follow the course in a self-paced mode and get a certificate?"
+      },
+      {
+        "text": "Yes, you need to pass the Capstone project to get the certificate. Homework is not mandatory, though it is recommended for reinforcing concepts, and the points awarded count towards your rank on the leaderboard.",
+        "section": "General course-related questions",
+        "question": "I missed the first homework - can I still get a certificate?"
+      },
+      {
+        "text": "This course is being offered for the first time, and things will keep changing until a given module is ready, at which point it shall be announced. Working on the material/homework in advance will be at your own risk, as the final version could be different.",
+        "section": "General course-related questions",
+        "question": "I was working on next week\u2019s homework/content - why does it keep changing?"
+      },
+      {
+        "text": "Summer 2025 (via Alexey).",
+        "section": "General course-related questions",
+        "question": "When will the course be offered next?"
+      },
+      {
+        "text": "Please check the bookmarks and pinned links, especially DataTalks.Club\u2019s YouTube account.",
+        "section": "General course-related questions",
+        "question": "Are there any lectures/videos? Where are they?"
+      },
+      {
+        "text": "Your WSL2 is set to use Y.Y GiB, not all your computer memory. Create .wslconfig file under your Windows user profile directory (C:\\Users\\YourUsername\\.wslconfig) with the desired RAM allocation:\n[wsl2]\nmemory=8GB\nRestart WSL: wsl --shutdown\nRun the free command to verify the changes. For more details, read this article.",
+        "section": "Module 1: Introduction",
+        "question": "WSL2 - ResponseError: model requires more system memory (X.X GiB) than is available (Y.Y GiB). My system has more than X.X GiB."
+      },
+      {
+        "text": "You may receive the following error when running the OpenAI chat.completions.create command due to insufficient credits in your OpenAI account:",
+        "section": "Module 1: Introduction",
+        "question": "OpenAI: Error when running OpenAI chat.completions.create command"
+      },
+      {
+        "text": "RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}\nThe above errors are related to your OpenAI API account\u2019s quota.\nThere is no free usage of OpenAI\u2019s API so you will be required to add funds using a credit card (see pay as you go in the OpenAI settings at platform.openai.com). Once added, re-run your python command and you should receive a successful return code.\nSteps to resolve:\nAdd credits to your account here (min $5)\nIn chat.completions.create(model='gpt-4o', \u2026) specify one of the available for you models:\nYou might need to recreate an API key after adding credits to your account and update it locally.",
+        "section": "Module 1: Introduction",
+        "question": "OpenAI: Error: RateLimitError: Error code: 429 -"
+      },
+      {
+        "text": "Update openai version from 0.27.0 -> any 1.x version",
+        "section": "Module 1: Introduction",
+        "question": "OpenAI: Error: 'Cannot import name OpenAI from openai'; How to fix?"
+      },
+      {
+        "text": "Using the Openai API does not cost much, you can recharge from 5 dollars. At least for what I spent on the first unit it was barely 5 cents.",
+        "section": "Module 1: Introduction",
+        "question": "OpenAI: How much will I have to spend to use the Open AI API?"
+      },
+      {
+        "text": "No, you don't have to pay for this service in order to complete the course homeworks, you could use some of the alternatives free from this list posted into the course Github.\nllm-zoomcamp/01-intro/open-ai-alternatives.md at main \u00b7 DataTalksClub/llm-zoomcamp (github.com)",
+        "section": "Module 1: Introduction",
+        "question": "OpenAI: Do I have to subscribe and pay for Open AI API for this course?"
+      },
+      {
+        "text": "If you get this error, it\u2019s likely that elasticsearch doesn\u2019t get enough RAM\nI specified the RAM size to the configuration (-m 4GB)\ndocker run -it \\\n--rm \\\n--name elasticsearch \\\n-m 4GB \\\n-p 9200:9200 \\\n-p 9300:9300 \\\n-e \"discovery.type=single-node\" \\\n-e \"xpack.security.enabled=false\" \\\ndocker.elastic.co/elasticsearch/elasticsearch:8.4.3\nOr give it _less_ RAM:\nTip for Github Codespace users\nIf you want to run elasticsearch server in a docker, then it may fail with the command in the documentation.\nIn that case, you can try inserting this line -e \"ES_JAVA_OPTS=-Xms512m -Xmx512m\".\nThis reduces the resource usage.\nFull command:\ndocker run -it \\\n--rm \\\n--name elasticsearch \\\n-p 9200:9200 \\\n-p 9300:9300 \\\n-e \"discovery.type=single-node\" \\\n-e \"xpack.security.enabled=false\" \\\n-e \"ES_JAVA_OPTS=-Xms512m -Xmx512m\" \\\ndocker.elastic.co/elasticsearch/elasticsearch:8.4.3\nIf it doesn't work, try this:\nsudo sysctl -w vm.max_map_count=262144\nAnd give the Java machine inside the container more RAM:\ndocker run -it \\\n--rm \\\n--name elasticsearch \\\n-p 9200:9200 \\\n-p 9300:9300 \\\n--ulimit nofile=65536:65536 \\\n--ulimit memlock=-1:-1 \\\n--memory=4g \\\n--cpus=2 \\\n-e \"discovery.type=single-node\" \\\n-e \"xpack.security.enabled=false\" \\\n-e \"ES_JAVA_OPTS=-Xms2g -Xmx2g\" \\\ndocker.elastic.co/elasticsearch/elasticsearch:8.4.3\nAnother possible solution may be to set the memory_lock to false:\ndocker run -it \\\n--rm \\\n--name elasticsearch \\\n-p 9200:9200 \\\n-p 9300:9300 \\\n-e \"discovery.type=single-node\" \\\n-e \"xpack.security.enabled=false\" \\\n-e \"ES_JAVA_OPTS=-Xms512m -Xmx512m\" \\\n-e \"bootstrap.memory_lock=false\" \\\ndocker.elastic.co/elasticsearch/elasticsearch:8.4.3",
+        "section": "Module 1: Introduction",
+        "question": "ElasticSearch: ERROR: Elasticsearch exited unexpectedly"
+      },
+      {
+        "text": "Instead of document as used in the course video, use doc",
+        "section": "Module 1: Introduction",
+        "question": "ElasticSearch: ERROR: Elasticsearch.index() got an unexpected keyword argument 'document'"
+      },
+      {
+        "text": "When you stop the container, the data you previously added to elastic will be gone. To avoid it, we can add volume mapping:\ndocker volume create elasticsearch_data\ndocker run -it \\\n--rm \\\n--name elasticsearch \\\n-p 9200:9200 \\\n-p 9300:9300 \\\n-v elasticsearch_data:/usr/share/elasticsearch/data \\\n-e \"discovery.type=single-node\" \\\n-e \"xpack.security.enabled=false\" \\\ndocker.elastic.co/elasticsearch/elasticsearch:8.4.3",
+        "section": "Module 1: Introduction",
+        "question": "Docker: How do I store data persistently in Elasticsearch?"
+      },
+      {
+        "text": "You can store your different API keys in a yaml file that you will add in your .gitignore file. Be careful to never push or share this file.\nFor example, you can create a new file named \u201capi_keys.yml\u201d in your repository.\nThen, do not forget to add it in your .gitignore file:\n#api_keys\napi_keys.yml\nYou can now fill your api_keys.yml file:\nOPENAI_API_KEY: \u201csk[...]\u201d\nGROQ_API_KEY: \u201cgqk_[...]\u201d\nSave your file.\nYou will need the pyyaml library to load your yaml file, so run this command in your terminal:\npip install pyyaml\nNow, open your jupyter notebook.\nYou can load your yaml file and the associated keys with this code:\nimport yaml\n# Open the file\nwith open('api_keys.yml', 'r') as file:\n# Load the data from the file\ndata = yaml.safe_load(file)\n# Get the API key (Groq example here)\ngroq_api_key = data['GROQ_API_KEY']\nNow, you can easily replace the \u201capi_key\u201d value directly with the loaded values without loading your environment variables.\nAdded by M\u00e9lanie Fouesnard",
+        "section": "Module 1: Introduction",
+        "question": "Authentication: Safe and easy way to store and load API keys"
+      },
+      {
+        "text": "Option1: using direnv\ncreated the .envrc file & added my API key, ran direnv allow in the terminal\nwas getting an error: \"OpenAIError: The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable\"\nresolution: install dotenv & add the following to a cell in the notebook. You can install dotenv by running: pip install python-dotenv.\nfrom dotenv import load_dotenv\nload_dotenv('.envrc')\nOption 2: using Codespaces Secrets\nLog in to your GitHub account and navigate to Settings > Codespaces\nThere is a section called secrets where you can create Secrets like OPENAI_API_KEY and select for which repositories the secret is supposed to be available.\nOnce you set this up, the key will be available in your codespaces session",
+        "section": "Module 1: Introduction",
+        "question": "Authentication: Why is my OPENAI_API_KEY not found in the jupyter notebook?"
+      },
+      {
+        "text": "Prior to using Ollama models in llm-zoomcamp tasks, you need to have ollama installed on your pc and the relevant LLM model downloaded with ollama from https://www.ollama.com\nTo download ollama for Ubuntu:\n``` curl -fsSL https://ollama.com/install.sh | sh ```\nTo download ollama for Mac and Windows, follow the guide on this link:\nhttps://ollama.com/download/\nOllama a number of open-source LLMs like:\nLlama3\nPhi3\nMistral and Mixtral\nGemma\nQwen\nYou can explore more models on https://ollama.com/library/\nTo download a model in Ollama, simply open command prompt and type:\n``` ollama run model_name ```\ne.g.\n``` ollama run phi3 ```\nIt will automatically download the model and you can use it same way as above for later time.\nTo use Ollama models for inference and llm-zoomcamp tasks, use the following function:\nimport ollama\ndef llm(prompt):\nresponse = ollama.chat(\nmodel=\"llama3\",\nmessages=[{\"role\": \"user\", \"content\": prompt}]\n)\nreturn response['message']['content']\nFor example, we can use it in the following way:\nprompt = \"When does the llm-zoomcamp course start?\"\nanswer = llm(prompt)\nprint(answer)",
+        "section": "Module 1: Introduction",
+        "question": "OpenSource: How can I use Ollama open-source models locally on my pc without using any API?"
+      },
+      {
+        "text": "The question asks for the number of tokens in gpt-4o model. tiktoken is a python library that can be used to get the number of tokens. You don't need openai api key to to get the number of tokens. You can use the code provided in the question to get the number of tokens.",
+        "section": "Module 1: Introduction",
+        "question": "OpenSource: I am using Groq, and it doesn't provide a tokenizer library based on my research. How can we estimate the number of OpenAI tokens asked in homework question 6?"
+      },
+      {
+        "text": "You can use any LLM platform for your experiments and your project. Also, the homework is designed in such a way that you don\u2019t need to have access to any paid services and can do it locally. However, you would need to adjust the code for that platform. See their documentation pages.",
+        "section": "Module 1: Introduction",
+        "question": "OpenSource: Can I use Groq instead of OpenAI?"
+      },
+      {
+        "text": "Yes. See module 2 and the open-ai-alternatives.md in module 1 folder.",
+        "section": "Module 1: Introduction",
+        "question": "OpenSource: Can I use open-source alternatives to OpenAI API?"
+      },
+      {
+        "text": "This is likely to be an error when indexing the data. First you need to add the index settings before adding the data to the indices, then you will be good to go applying your filters and query.",
+        "section": "Module 1: Introduction",
+        "question": "Returning Empty list after filtering my query (HW Q3)"
+      },
+      {
+        "text": "Answer",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Question"
+      },
+      {
+        "text": "Please see the General section or use CTRL+F to search this doc.",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Saturn Cloud issues"
+      },
+      {
+        "text": "Of course you should have first added your Github repository in SaturnCloud and the SSH Key in your Github account settings.\nOnce you are in jupyter notebook from SaturnCloud, open the terminal and write these lines:\n1- Navigate to Your Project Directory:\ncd /home/jovyan/my_project\n2- Configure GitHub Remote to Use SSH:\ngit remote set-url origin git@github.com:username/repository.git\n3- Stage, Commit and push your changes:\ngit add .\ngit commit -m \"Your commit message\"\ngit push",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "SaturnCloud: How do you manage the changes from SaturnCloud to your Github repository?"
+      },
+      {
+        "text": "Clean out your cache using the following code:\nfrom transformers import TRANSFORMERS_CACHE\nprint(TRANSFORMERS_CACHE)\nimport shutil\nshutil.rmtree(TRANSFORMERS_CACHE)\nNote: Make sure to shutdown the notebook and restart the kernel",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "SaturnCloud: How can I clean out the hugging face model cache on a saturn cloud notebook?"
+      },
+      {
+        "text": "Yes, you can. Here the step to follow:\n- Open a bash session in the elasticsearch container\n```bash\ndocker exec -it elasticsearch bash\n```\n- Add path.repo configuration:\n```bash\necho path.repo: [\"/usr/share/elasticsearch/backup\"] >> /usr/share/elasticsearch/config/elasticsearch.yml\n```\n- Restart container and verify it was created correctly:\n```bash\ndocker restart elasticsearch\ncurl -X GET \"localhost:9200/_snapshot/my_backup?pretty\"\n```\n- Create the snapshot (this is the backup ;) )\n```bash\ncurl -X PUT \"localhost:9200/_snapshot/my_backup/snapshot_1?wait_for_completion=true\" -H 'Content-Type: application/json' -d'\n{\n\"indices\": \"your_index_name\",\n\"ignore_unavailable\": true,\n\"include_global_state\": false\n}\n'\n```\n- Copy the backup to my machine:\n```bash\ndocker cp elasticsearch:/usr/share/elasticsearch/backup /path/to/local\n```\n- Now create the new container or use docker-compose just in case you are following the module 2:\n```bash\ndocker compose up -d\n```\n- Add de path.repo configuration in the new one, same as before:\n```bash\ndocker exec -it new_elasticsearch bash\necho path.repo: [\"/usr/share/elasticsearch/backup\"] >> /usr/share/elasticsearch/config/elasticsearch.yml\n```\n- Restart the docker container and copy the snapshot in it:\n```bash\ndocker restart new_elasticsearch\ndocker cp /path/to/local/backup new_elasticsearch:/usr/share/elasticsearch\n```\n- Register the Snapshot Repository in the New Container:\n```bash\ncurl -X PUT \"localhost:9200/_snapshot/my_backup\" -H 'Content-Type: application/json' -d'\n{\n\"type\": \"fs\",\n\"settings\": {\n\"location\": \"/usr/share/elasticsearch/backup\"\n}\n}\n'\n```\n- Verify if it exists:\n```bash\ncurl -X GET \"localhost:9200/_snapshot/my_backup/snapshot_1?pretty\"\n```\n- Restore the snapshot:\n```bash\ncurl -X POST \"localhost:9200/_snapshot/my_backup/snapshot_1/_restore\" -H 'Content-Type: application/json' -d'\n{\n\"indices\": \"your_index_name\",\n\"ignore_unavailable\": true,\n\"include_global_state\": false\n}\n'\n```\n- Show your indexes:\n```bash\ncurl -X GET \"localhost:9200/_cat/indices?v\"\n```\n- Extra point: If you want to change the original index name by other when you restore the snapshot:\n```bash\ncurl -X POST \"localhost:9200/_snapshot/my_backup/snapshot_1/_restore?pretty\" -H 'Content-Type: application/json' -d'\n{\n\"indices\": \"old_index\",\n\"ignore_unavailable\": true,\n\"include_global_state\": false,\n\"rename_pattern\": \"old_index\",\n\"rename_replacement\": \"new_index\"\n}\n'\n```",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "ElasticSearch: Can I backup and restore my elasticsearch index from one to another docker container?"
+      },
+      {
+        "text": "You can limit the amount of memory used in the ElasticSearch container by adding the next line to the environment section of your docker-compose. Choose the amount of your preference, e.g.:\n- \"ES_JAVA_OPTS=-Xms1g -Xmx1g\"  # Set Java heap size to 1GB\n- You can limit CPU usage for an Elasticsearch service within a docker-compose.yaml file, you can utilize the resource configuration options available in Docker Compose. This includes cpus to limit the number of CPUs that the container can utilize. You can configure your Elasticsearch section in the docker-compose.yaml to restrict CPU usage:\nservices:\nelasticsearch:\nimage: docker.elastic.co/elasticsearch/elasticsearch:8.4.3\ncontainer_name: elasticsearch\nenvironment:\n- discovery.type=single-node\n- xpack.security.enabled=false\nports:\n- \"9200:9200\"\n- \"9300:9300\"\ndeploy:\nresources:\nlimits:\ncpus: '1.0'  # Limits to 1 CPU\nreservations:\ncpus: '0.5'  # Reserves 0.5 CPUs",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "ElasticSearch: How can I limit the memory used by the ElasticSearch container?"
+      },
+      {
+        "text": "You have several ways to inspect the content of a file when you are inside a Docker container.\nFirst, make sure you ran the docker container interactively using bash:\ndocker exec -it <container> bash\nThen, you are able to use bash commands. For this case, I propose two solutions:\nUse \u201ccat\u201d and the file you want to see the content: cat your_file . This will directly print the content in your terminal.\nInstall vim or nano using apt get and open the file using vim or nano (this can be more suitable for larger files):\napt-get install vim\nvim your_file\nThen, you can exit your file in vim by pressing ESC then typing \u201c:q\u201d and finally press ENTER\nAdded by M\u00e9lanie Fouesnard",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Docker: How to inspect the content of a file inside a Docker container ?"
+      },
+      {
+        "text": "Use the following line instead in mounting the current volume to docker for Q4:\n`-v \"/${PWD}/ollama_files:/root/.ollama\"`",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Docker: Error: Docker mounted volume adds ;C to end of windows path"
+      },
+      {
+        "text": "In Docker Desktop, try to increase the resource.\nGo to the Dashboard > Settings > Resources. Raise the memory limit to 15GB and swap to 4GB - be generous. Applied and restarted the changes\nAdded by Dandy Arif Rahman",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Docker: Why does inferring using Phi 3 locally take so long on Macbook Air M1?"
+      },
+      {
+        "text": "docker system prune -a",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Docker: How can to clean docker cache?"
+      },
+      {
+        "text": "A network connection failure usually causes this error and if you try to repeat the operation immediately it\u2019ll still fail. It\u2019s a temporary error, you should wait for 2 or 3 minutes before attempting to pull the model again. Then some minutes later, the operation will success.\nAdded by Eduardo Mu\u00f1oz",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Ollama: \u201cError: pull model manifest: 503: no healthy upstream\u201d when pulling a model with Ollama"
+      },
+      {
+        "text": "To solve this you need to pull one of these models first: https://ollama.com/library . Also check the proper name of the module.\nAdded by Taras Goriachko\nOllama: Running Ollama locally on Colab gives error after the llm() line\nAPIConnectionError: Connection error.\nIt seems to be running at localhost:11434 however localhost:11434/v1/ gives 404\nFound a solution in the Medium article and this link:\nhttps://medium.com/@mauryaanoop3/running-ollama-on-google-colab-free-tier-a-step-by-step-guide-9ef74b1f8f7a\nhttps://github.com/ollama/ollama/issues/703\nAdded by Hanaa",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Ollama: Error: NotFoundError: Error code: 404 - {'error': {'message': \"model XXX not found, try pulling it first\" \u2026"
+      },
+      {
+        "text": "ollama list\nollama rm [model_name]",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Ollama: How can remove Ollama model?"
+      },
+      {
+        "text": "InternalServerError: Error code: 500 - {'error': {'message': 'model requires more system memory (5.6 GiB) than is available (1.5 GiB)', 'type': 'api_error', 'param': None, 'code': None}}.\nRunning elastic search with the docker-compose is the cause of the RAM memory issue. To fix this you need to change the docker-compose.yaml file to limit the RAM usage of elastic search\nversion: '3.8'\nservices:\nelasticsearch:\nimage: docker.elastic.co/elasticsearch/elasticsearch:8.4.3\ncontainer_name: elasticsearch\nenvironment:\n- discovery.type=single-node\n- xpack.security.enabled=false\n- ES_JAVA_OPTS=-Xms1g -Xmx1g  # change 1\nports:\n- \"9200:9200\"\n- \"9300:9300\"\ndeploy:\nresources:\nlimits:\nmemory: 2G  # change 2\nollama:\nimage: ollama/ollama\ncontainer_name: ollama\nvolumes:\n- ollama:/root/.ollama\nports:\n- \"11434:11434\"\nvolumes:\nollama:\nAdded by Zoe Zelkha",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Ollama: Error code 500 InternalServerError"
+      },
+      {
+        "text": "Manually set the token as below:\naccess_token = <your_token>\nmodel  = AutoModelForCausalLM.from_pretrained(\"mistralai/Mistral-7B-v0.1\", token=access_token)\ntokenizer = AutoTokenizer.from_pretrained(\"mistralai/Mistral-7B-v0.1\", token=access_token)",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Mistral AI: Unable to get Mistral-7B-v0.1 access despite accepting terms on HF"
+      },
+      {
+        "text": "To solve just install transformers directly from github\n!pip install git+https://github.com/huggingface/transformers",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Python: Error: ModuleNotFoundError: No module named 'transformers.cache_utils'"
+      },
+      {
+        "text": "To solve just install transformers directly from github\n!pip install git+https://github.com/huggingface/transformers",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Python: Exception: data did not match any variant of untagged enum PyPreTokenizerTypeWrapper at line 40 column 3"
+      },
+      {
+        "text": "pip install protobuf==3.20.1\nAdded by Ibai Irastorza",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "Python: from google.protobuf.pyext import _message / TypeError: bases must be types"
+      },
+      {
+        "text": "1. search with the model name on hugging face.\n2. get the transformer used on the model.\n3. using the transformer, encode the string you want.\n4. calculate the length of the outputted tensor.\nThe previous code snippet uses the tokenizer of google/gemma-2b LLM. \nDon\u2019t forget to make your token secret.\nAdded by kamal",
+        "section": "Module 2: Open-Source LLMs",
+        "question": "HuggingFace: How to get the number of tokens in a certain string related to a certain model on hugging face?"
+      },
+      {
+        "text": "The last version I checked for CUDA was 12.5 using a cloud environment like Saturn Cloud. Then the torch package for python should be on supported for that version of CUDA, is followed by cu121 which means that version of torch supports cuda 12.1. Check this page to find the package and version available for CUDA (remember to search the keyword \u201ccu\u201d\nIn my case I focused on using a torch==2.3.1 and the last cuda version supported was 12.1 (it works on Saturn Cloud)\nTo install all the needed packages use this command:\n!pip install transformers accelerate torch==2.3.1+cu121 torchvision==0.18.1+cu121 torchaudio==2.3.1+cu121 --trusted-host download.pytorch.org --index-url https://download.pytorch.org/whl/cu121\nAnd after that just executed this command:\n!pip install --upgrade transformers",
+        "section": "Module 3: X",
+        "question": "How to run a model using CUDA for GPU usage?"
+      },
+      {
+        "text": "Upgrade elasticsearch 7.13.3 to 8.14.0 or any 7.x installation to 8.x. The earlier modules used a docker image of elasticsearch 8.4.3 so the python installation of elasticsearch must also be at least 8.x.\nOr use the keyword \u2018body\u2019 instead of \u2018document\u2019\nFor conda users, if you\u2019re trying to update to elasticsearch 8.x using conda install elasticsearch==8.4.3  but getting a \u201cPackagesNotFoundError\", try this:\n\n$ conda config --add channels conda-forge\n$ conda config --set channel_priority strict\n$ conda install -c conda-forge elasticsearch==8.4.3",
+        "section": "Module 3: X",
+        "question": "ElasticSearch: Error: Elasticsearch.index() got an unexpected keyword argument 'document'"
+      },
+      {
+        "text": "This worked for me:",
+        "section": "Module 3: X",
+        "question": "ElasticSearch: TypeError: Elasticsearch.search() got an unexpected keyword argument 'knn'"
+      },
+      {
+        "text": "Try to running docker container based on first course module like this :\ndocker run -it \\\n--rm \\\n--name elasticsearch \\\n-p 9200:9200 \\\n-p 9300:9300 \\\n-e \"discovery.type=single-node\" \\\n-e \"xpack.security.enabled=false\" \\\ndocker.elastic.co/elasticsearch/elasticsearch:8.4.3\nAnd don\u2019t forget to forwarding your port 9200 if you\u2019re using github codespace or run locally in vscode",
+        "section": "Module 3: X",
+        "question": "ElasticSearch: ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7c455bb94ac0>: Failed to establish a new connection: [Errno 111] Connection refused)) in elastic search"
+      },
+      {
+        "text": "As seen in this video: https://www.youtube.com/watch?v=ptByfB_YcEg&t=102s, we can get scores on obtained hits that are greater than 1 despite having a \u201ccosine\u201d similarity measure in our index settings. We would thus expect scores between -1 and 1. However, in the case of the final query, we have several scores additionned together to provide the final score:\nThe KNN related score, which is between -1 and 1 (cosine similarity)\nThe text relevance score:  BM25 algorithm scores which can be any positive number, including above 1. This is a \u201cranking function which calculates score to represent a document's relevance with respect to query\u201d (source: https://stackoverflow.com/questions/43794749/what-is-bm25-and-why-elasticsearch-chose-this-algorithm-for-scoring-in-version-5).\nSince we have a \u201cmatch\u201d filter in our query, this triggers the usage of the BM25 ranking algorithm and the final score contains this information.\nTo get more details about the final scores, you can modify the search query and add an \u201cexplain\u201d parameter:\nresponse = es_client.search(\nindex=index_name,\nquery={\n\"match\": {\"section\": \"General course-related questions\"},\n},\nknn=knn_query,\nsize=5,\nexplain=True\n)\nAdded by M\u00e9lanie Fouesnard",
+        "section": "Module 3: X",
+        "question": "Why do I get scores greater than 1 on my hits after querying my ElasticSearch database ?"
+      },
+      {
+        "text": "For this module homework make sure you install the package sentence-transformers it can be installed as simply as:\npip install sentence-transformers",
+        "section": "Module 3: X",
+        "question": "Not module named \u201csentence_transformers\u201d"
+      },
+      {
+        "text": "I was getting this error at this step: es_client.indices.create(index=index_name, body=index_settings)\nI checked the log of the elasticsearch server and running this command, the status was red: curl -X GET \"http://localhost:9200/_cluster/health?pretty\"\nMy problem was that I did not have enough disk space in my computer for docker images. I ended up removing unused ones, manually and pruning:\ndocker image prune\ndocker volume prune\ndocker container prune\nAdded by Ibai Irastorza",
+        "section": "Module 3: X",
+        "question": "Can not create the index: Connection timeout."
+      },
+      {
+        "text": "Make sure your search function receives a query vector, not a dictionary. To resolve this, ensure that the q passed to the search_function within evaluate is correctly transformed into an embedding vector. The following code can help:\nv_query = embedding_model.encode(query_text)\nresults = search_function(v_query)",
+        "section": "Module 3: X",
+        "question": "TypeError: unsupported operand type(s) for *: 'float' and 'dict' when running the vector search function within the evaluate function"
+      },
+      {
+        "text": "max_value = numpy_array.max()",
+        "section": "Module 3: X",
+        "question": "Find maximum of an numpy array (of any dimension):"
+      },
+      {
+        "text": "Cosine similarity is a measure used to calculate the similarity between two non-zero vectors, often used in text analysis to determine how similar two documents are based on their content. This metric computes the cosine of the angle between two vectors, which are typically word counts or TF-IDF values of the documents. The cosine similarity value ranges from -1 to 1, where 1 indicates that the vectors are identical, 0 indicates that the vectors are orthogonal (no similarity), and -1 represents completely opposite vectors.",
+        "section": "Module 3: X",
+        "question": "What is the cosine similarity?"
+      },
+      {
+        "text": "A \u201cdocument\u201d is a collection of fields, which are the key-value pairs that contain your data, that have been serialized as a JSON object.",
+        "section": "Module 3: X",
+        "question": "What are documents in ElasticSearch?"
+      },
+      {
+        "text": "docker stop elasticsearch\ndocker rm elasticsearch\nHow to scale Elastic search scores from [0, 1] to [-1, 1] to compare its results with your own ones, example calculating ranks using dot_product metric ?\nscore = (es_score - 0.5) * 2",
+        "section": "Module 4: Monitoring",
+        "question": "runing docker docker: Error response from daemon: Conflict. The container name \"/elasticsearch\" is already in use by container \"20467e6723d78ff2e4e9e0c9a8b9580c07f070e4c852d12c585b1d71aefd6665\". You have to remove (or rename) that container to be able to reuse that name. See 'docker run --help'."
+      },
+      {
+        "text": "Upgrade `sentence-transformers` to v3.0.0>= e.x pip install sentence-transformers>=3.0.0 to avoid the warnings",
+        "section": "Module 4: Monitoring",
+        "question": "Warning: 'model \"multi-qa-mpnet-base-dot-v1\" was made on sentence transformers v3.0.0 bet' how to suppress?"
+      },
+      {
+        "text": "Solution 1 : Install Visual C++ Redistributable\nSolution 2 : Install Visual Studio, not Visual Studio Code. Like in this depicted below and restart your system. For more details, please follow this link : https://discuss.pytorch.org/t/failed-to-import-pytorch-fbgemm-dll-or-one-of-its-dependencies-is-missing/201969",
+        "section": "Module 4: Monitoring",
+        "question": "In Windows OS : OSError: [WinError 126] The specified module could not be found. Error loading \"C:\\Users\\USER\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\lib\\fbgemm.dll\" or one of its dependencies."
+      },
+      {
+        "text": "Inside .env file change POSTGRES_HOST=localhost",
+        "section": "Module 4: Monitoring",
+        "question": "OperationalError when running python prep.pypsycopg2. OperationalError: could not translate host name \"postgres\" to address: No such host is known. How do I fix this issue?"
+      },
+      {
+        "text": "By default, in the dataframe visualization, Pandas truncate the text content in a column to 50 characters. In order to view the entire explanation given by the judge llm for a NON RELEVANT answer, as in figure:\nThe instruction to show the results must be preceded by:\npd.set_option('display.max_colwidth', None)\nHere are the specs for the display_max_colwidth option, as describide in the official docs:\ndisplay.max_colwidth : int or None\nThe maximum width in characters of a column in the repr of\na pandas data structure. When the column overflows, a \"...\"\nplaceholder is embedded in the output. A 'None' value means unlimited.\n[default: 50] [currently: 50]",
+        "section": "Module 4: Monitoring",
+        "question": "How set Pandas to show entire text content in a column. Useful to view the entire Explanation column content in the LLM-as-judge section of the offline-rag-evaluation notebook"
+      },
+      {
+        "text": "import numpy as np\nnormalize_vec = lambda v: v / np.linalg.norm(v)\ndf[\"new_col\"] = df[\"org_col\"].apply(norm_vec)",
+        "section": "Module 4: Monitoring",
+        "question": "How to normalize vectors in a Pandas DataFrame column (or Pandas Series)?"
+      },
+      {
+        "text": "To compute the 75% percentile or 0.75 quantile:\nquantile: int = df[\"col\"].quantile(q=0.75)",
+        "section": "Module 4: Monitoring",
+        "question": "How to compute the quantile or percentile of Pandas DataFrame column (or Pandas Series)?"
+      },
+      {
+        "text": "1. Delete all containers (including running ones):\n```\ndocker rm -f\n```\n2. Remove all images:\n```\ndocker rmi -f\n```\n3. Delete all volumes:\n```\ndocker volume rm\n```",
+        "section": "Module 5: X",
+        "question": "How can I remove all Docker containers, images, and volumes, and builds from the terminal?"
+      },
+      {
+        "text": "Use the service name and port provided in the docker-compose.yaml file for the elasticsearch, e.g <http://><docker-compose-service-name>:<port> <http://elasticsearch:9200>",
+        "section": "Module 5: X",
+        "question": "I have reached the orchestration pipeline's export and I\u2019m facing a connection error at the stage of exporting to the vector database. Can someone help with the connection string?"
+      },
+      {
+        "text": "Answer",
+        "section": "Module 6: X",
+        "question": "Question"
+      },
+      {
+        "text": "Answer",
+        "section": "Module 6: X",
+        "question": "Question"
+      },
+      {
+        "text": "Answer",
+        "section": "Capstone Project",
+        "question": "Question"
+      },
+      {
+        "text": "No, the capstone is a solo project.",
+        "section": "Capstone Project",
+        "question": "Is it a group project?"
+      },
+      {
+        "text": "You only need to submit 1 project. \nIf the submission at the first attempt fails, you can improve it and re-submit during attempt#2 submission window.\nIf you want to submit 2 projects for the experience and exposure, you must use different datasets and problem statements.\nIf you can\u2019t make it to the attempt#1 submission window, you still have time to catch up to meet the attempt#2 submission window\nRemember that the submission does not count towards the certification if you do not participate in the peer-review of 3 peers in your cohort",
+        "section": "Capstone Project",
+        "question": "Do we submit 2 projects, what does attempt 1 and 2 mean?"
+      },
+      {
+        "text": "No, it does not (answered in office hours Jul 1st, 2024). You can participate in the math-kaggle-llm-competition as a group if you want to form teams; but capstone is an individual attempt.",
+        "section": "Capstone Project",
+        "question": "Does the competition count as the capstone?"
+      },
+      {
+        "text": "Each submitted project will be evaluated by 3 (three) randomly assigned students who have also submitted the project.\nYou will also be responsible for grading the projects from 3 fellow students yourself. Please be aware that: not complying to this rule also implies you failing to achieve the Certificate at the end of the course.\nThe final grade you get will be the median score of the grades you get from the peer reviewers.\nAnd of course, the peer review criteria for evaluating or being evaluated must follow the guidelines defined here (TBA for link).",
+        "section": "Capstone Project",
+        "question": "How is my capstone project going to be evaluated?"
+      },
+      {
+        "text": "Answer: No, you don\u2019t have to use ElasticSearch. You can use any library you want. Just make sure it is documented so your peer-reviewers can reproduce your project.",
+        "section": "Certificates",
+        "question": "Do I have to use ElasticSearch or X library?"
+      },
+      {
+        "text": "Answer",
+        "section": "Workshops: dlthub",
+        "question": "Question"
+      },
+      {
+        "text": "Since dlt is open-source, we can use the content of this workshop for a capstone project. Since the main goal of dlt is to load and store data easily, we can even use it for other zoomcamps (mlops zoomcamp project for example). Do not hesitate to ask questions or use it directly in your projects.\nAdded by M\u00e9lanie Fouesnard",
+        "section": "Workshops: dlthub",
+        "question": "Can I use the workshop materials for my own projects or share them with others?"
+      },
+      {
+        "text": "The error indicates that you have not changed all instances of \u201cemployee_handbook\u201d to \u201chomework\u201d in your pipeline settings",
+        "section": "Workshops: dlthub",
+        "question": "There is an error when opening the table using dbtable = db.open_table(\"notion_pages___homework\"): FileNotFoundError: Table notion_pages___homework does not exist.Please first call db.create_table(notion_pages___homework, data)"
+      },
+      {
+        "text": "Make sure you open the correct table in line 3: dbtable = db.open_table(\"notion_pages___homework\")",
+        "section": "Workshops: dlthub",
+        "question": "There is an error when running main(): FileNotFoundError: Table notion_pages___homework does not exist.Please first call db.create_table(notion_pages___homework, data)"
+      },
+      {
+        "text": "You can use the db.table_names() to list all the tables in the db",
+        "section": "Workshops: dlthub",
+        "question": "How do I know which tables are in the db"
+      },
+      {
+        "text": "Currently, DLT does not have connectors for ClickHouse or StarRocks but are open to contributions from the community to add these connectors.",
+        "section": "Workshops: dlthub",
+        "question": "Does DLT have connectors to ClickHouse or StarRocks?"
+      },
+      {
+        "text": "If you get this error\nOr 401 Client Error , then you either need to grant access to the key or the key is wrong.",
+        "section": "Workshops: dlthub",
+        "question": "Notebook does not have secret access or 401 Client Error: Unauthorized for url: https://api.notion.com/v1/search"
+      },
+      {
+        "text": "Install directly from source E.g `pip install \"requests @ https://github.com/psf/requests/archive/refs/tags/v2.32.3.zip\"`",
+        "section": "Workshops: X",
+        "question": "Error: How to fix requests library only installs v2.28 instead of v2.32 required for lancedb?"
+      },
+      {
+        "text": "If you get this error while doing the homework , simply restart the ollama server using nohup y running this line of the notebook !nohup ollama serve > nohup.out 2>&1 &\nIf you do stop and restart the cell, you will need to rerun the cell containing ollama serve first.\nAdded by Abiodun Gbadamosi",
+        "section": "Workshops: X",
+        "question": "Connection refused error on prompting the ollam RAG?"
+      },
+      {
+        "text": "Answer",
+        "section": "Workshops: X",
+        "question": "Question"
+      }
+    ]
+  }
+]
