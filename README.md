@@ -48,8 +48,10 @@ You can follow the course at your own pace:
 - OpenAI API and text search with Elasticsearch
 
 #### [Module 2: Vector Search](02-vector-search/)
+
 - Vector search and embeddings
 - Indexing and retrieving data efficiently
+- Using Qdrant as the vestor database
 
 #### [Module 3: Evaluation](03-evaluation/)
 
