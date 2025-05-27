@@ -6,7 +6,7 @@
 In order to receive a certificate of completion for the course, you need
 to deliver a project. There are two attempts for that.
 
-[Submit your project here](cohorts/2024/project.md)
+[Submit your project here](cohorts/2025/project.md)
 
 
 ## Objective
