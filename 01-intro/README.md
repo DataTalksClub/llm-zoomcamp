@@ -43,6 +43,12 @@ pip install tqdm notebook==7.1.2 openai elasticsearch==8.13.0 pandas scikit-lear
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/olvem333Bqo">
 </a>
 
+Note: as of now, you can install minsearch with pip:
+
+```bash
+pip install minsearch
+```
+
 * We will use the search engine we build in the [build-your-own-search-engine workshop](https://github.com/alexeygrigorev/build-your-own-search-engine): [minsearch](https://github.com/alexeygrigorev/minsearch)
 * Indexing the documents
 * Peforming the search
@@ -175,6 +181,19 @@ More information [here](../cohorts/2024/01-intro/homework.md).
 # Extra materials
 
 * If you're curious to know how the code for parsing the FAQ works, check [this video](https://www.loom.com/share/ff54d898188b402d880dbea2a7cb8064)
+
+# Open-Source LLMs (optional)
+
+It's also possible to run LLMs locally. For that, we 
+can use Ollama. Check these videos from LLM Zoomcamp 2024
+if you're interested in learning more about it:
+
+* [Ollama - Running LLMs on a CPU](https://www.youtube.com/watch?v=PVpBGs_iSjY&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
+* [Ollama & Phi3 + Elastic in Docker-Compose](https://www.youtube.com/watch?v=4juoo_jk96U&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
+* [UI for RAG](https://www.youtube.com/watch?v=R6L8PZ-7bGo&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
+
+To see the command lines used in the videos,
+see [2024 cohort folder](../cohorts/2024/02-open-source#27-ollama---running-llms-on-a-cpu)
 
 # Notes
 
