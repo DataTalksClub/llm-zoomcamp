@@ -4,9 +4,10 @@ In this homework, we'll learn more about search and use Elastic Search for pract
 
 > It's possible that your answers won't match exactly. If it's the case, select the closest one.
 
+
 ## Q1. Running Elastic 
 
-Run Elastic Search 8.4.3, and get the cluster information. If you run it on localhost, this is how you do it:
+Run Elastic Search 8.17.6, and get the cluster information. If you run it on localhost, this is how you do it:
 
 ```bash
 curl localhost:9200
@@ -63,22 +64,24 @@ Which function do you use for adding your data to elastic?
 
 Now let's search in our index. 
 
-We will execute a query "How do I execute a command in a running docker container?". 
+We will execute a query "How do execute a command on a Kubernetes pod?". 
 
 Use only `question` and `text` fields and give `question` a boost of 4, and use `"type": "best_fields"`.
 
 What's the score for the top ranking result?
 
-* 94.05
-* 84.05
-* 74.05
-* 64.05
+* 84.50
+* 64.50
+* 44.50
+* 24.50
 
 Look at the `_score` field.
 
 ## Q4. Filtering
 
-Now let's only limit the questions to `machine-learning-zoomcamp`.
+Now ask a different question: "How do copy a file to a Docker container?".
+
+This time we are only interested in questions from `machine-learning-zoomcamp`.
 
 Return 3 results. What's the 3rd question returned by the search engine?
 
@@ -116,10 +119,10 @@ CONTEXT:
 
 What's the length of the resulting prompt? (use the `len` function)
 
-* 962
-* 1462
-* 1962
-* 2462
+* 946
+* 1446
+* 1946
+* 2446
 
 ## Q6. Tokens
 
@@ -140,10 +143,10 @@ encoding = tiktoken.encoding_for_model("gpt-4o")
 
 Use the `encode` function. How many tokens does our prompt have?
 
-* 122
-* 222
-* 322
-* 422
+* 120
+* 220
+* 320
+* 420
 
 Note: to decode back a token into a word, you can use the `decode_single_token_bytes` function:
 
@@ -175,5 +178,5 @@ You can redo the calculations with the values you got in Q6 and Q7.
 
 ## Submit the results
 
-* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2025/homework/hw1
+* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2024/homework/hw1
 * It's possible that your answers won't match exactly. If it's the case, select the closest one.
