@@ -97,6 +97,12 @@ A special thanks to our course sponsors for making this initiative possible!
 </p>
 
 <p align="center">
+  <a href="https://qdrant.tech/">
+    <img height="120" src="images/qdrant.png">
+  </a>
+</p>
+
+<p align="center">
   <a href="https://dlthub.com/">
     <img height="80" src="https://github.com/DataTalksClub/data-engineering-zoomcamp/raw/main/images/dlthub.png">
   </a>
