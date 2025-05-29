@@ -27,8 +27,8 @@ In 10 weeks, learn how to build AI systems that answer questions about your know
 ### 2025 Cohort
 - **Start Date**: June 2, 2025, 17:00 CET
 - **Register Here**: [Sign up](https://airtable.com/appPPxkgYLH06Mvbw/shr7WtxHEPXxaui0Q)
-- **Launch Stream**: May 27, 2025, 17:00 CET ([Sign up](https://lu.ma/ei5wx9ck), optional - you will get a notification anyway) 
 - **Stay Updated**: Subscribe to our [Google Calendar](https://calendar.google.com/calendar/?cid=NjkxOThkOGFhZmUyZmQwMzZjNDFkNmE2ZDIyNjE5YjdiMmQyZDVjZTYzOGMxMzQyZmNkYjE5Y2VkNDYxOTUxY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
+- [2025 cohort folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025)
 
 ### Self-Paced Learning
 You can follow the course at your own pace:
