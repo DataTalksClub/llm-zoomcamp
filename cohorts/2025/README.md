@@ -3,7 +3,7 @@
 Important links:
 
 - [Pre-Course Q&A Stream](https://www.youtube.com/watch?v=YuxVHZ88hfg&list=PL3MmuxUbc_hKiIVNf7DeEt_tGjypOYtKV)
-- [Course Launch Stream]() TODO
+- [Course Launch Stream](https://www.youtube.com/live/FgnelhEJFj0)
 - [2025 Edition Youtube Playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIoBpuc900htYF4uhEAbaT-)
 - [Course management platform](https://courses.datatalks.club/llm-zoomcamp-2025/)
 
