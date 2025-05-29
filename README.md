@@ -27,8 +27,15 @@ In 10 weeks, learn how to build AI systems that answer questions about your know
 ### 2025 Cohort
 - **Start Date**: June 2, 2025, 17:00 CET
 - **Register Here**: [Sign up](https://airtable.com/appPPxkgYLH06Mvbw/shr7WtxHEPXxaui0Q)
-- **Stay Updated**: Subscribe to our [Google Calendar](https://calendar.google.com/calendar/?cid=NjkxOThkOGFhZmUyZmQwMzZjNDFkNmE2ZDIyNjE5YjdiMmQyZDVjZTYzOGMxMzQyZmNkYjE5Y2VkNDYxOTUxY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
-- [2025 cohort folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025)
+
+2025 cohort checklist:
+- Subscribe to our [Google Calendar](https://calendar.google.com/calendar/?cid=NjkxOThkOGFhZmUyZmQwMzZjNDFkNmE2ZDIyNjE5YjdiMmQyZDVjZTYzOGMxMzQyZmNkYjE5Y2VkNDYxOTUxY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
+- [2025 cohort folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025) to stay updated
+- Watch [live Q&A](https://youtube.com/live/8lgiOLMMKcY) about the course
+- Watch [live course launch](https://www.youtube.com/live/FgnelhEJFj0) stream
+- Save the [2025 course playlist](https://youtube.com/playlist?list=PL3MmuxUbc_hIoBpuc900htYF4uhEAbaT-&si=n7CuD0DEgPtnbtsI) on YouTube
+- Check course content by navigating to the right module on GitHub
+- Share this course with a friend!
 
 ### Self-Paced Learning
 You can follow the course at your own pace:
