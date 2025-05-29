@@ -30,7 +30,7 @@ In 10 weeks, learn how to build AI systems that answer questions about your know
 
 2025 cohort checklist:
 - Subscribe to our [Google Calendar](https://calendar.google.com/calendar/?cid=NjkxOThkOGFhZmUyZmQwMzZjNDFkNmE2ZDIyNjE5YjdiMmQyZDVjZTYzOGMxMzQyZmNkYjE5Y2VkNDYxOTUxY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
-- [2025 cohort folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025) to stay updated
+- Check [2025 cohort folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025) to stay updated
 - Watch [live Q&A](https://youtube.com/live/8lgiOLMMKcY) about the course
 - Watch [live course launch](https://www.youtube.com/live/FgnelhEJFj0) stream
 - Save the [2025 course playlist](https://youtube.com/playlist?list=PL3MmuxUbc_hIoBpuc900htYF4uhEAbaT-&si=n7CuD0DEgPtnbtsI) on YouTube
