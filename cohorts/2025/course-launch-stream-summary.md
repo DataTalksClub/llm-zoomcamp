@@ -283,7 +283,7 @@ If you find value in this course, consider supporting via [GitHub Sponsors](http
 
 ### Week 1 Goals:
 - **Watch Module 1 videos**
-- **Complete first homework** (deadline: 3 weeks after launch)
+- **Complete first homework**
 - **Start thinking about capstone dataset**
 - **Share your journey** with #LLMZoomCamp
 
