@@ -178,5 +178,5 @@ You can redo the calculations with the values you got in Q6 and Q7.
 
 ## Submit the results
 
-* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2024/homework/hw1
+* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2025/homework/hw1
 * It's possible that your answers won't match exactly. If it's the case, select the closest one.
