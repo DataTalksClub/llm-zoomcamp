@@ -175,7 +175,7 @@ We use `"type": "best_fields"`. You can read more about
 different types of `multi_match` search in [elastic-search.md](elastic-search.md).
 
 # 1.7 Homework
-More information [here](../cohorts/2024/01-intro/homework.md).
+More information [here](../cohorts/2025/01-intro/homework.md).
 
 
 # Extra materials
