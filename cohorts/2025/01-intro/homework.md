@@ -102,7 +102,7 @@ A: {text}
 """.strip()
 ```
 
-Now use the context you just created along with the "How do I execute a command in a running docker container?" question 
+Now use the context you just created along with the "How do copy a file to a Docker container?" question 
 to construct a prompt using the template below:
 
 ```
