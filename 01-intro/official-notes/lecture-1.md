@@ -1,10 +1,22 @@
 # Lecture 1.1: Introduction to Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG)
 
-> Important Links:
+> **Important Links:**
 > - [Lecture recording](https://www.youtube.com/watch?v=Q75JgLEXMsM&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
 > - [Data Engineering Zoomcamp FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit)
 > - [ML Zoomcamp FAQ](https://docs.google.com/document/d/1LpPanc33QJJ6BSsyxVg-pWNMplal84TdZtq10naIhD8/edit)
 > - [MLOps Zoomcamp FAQ](https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit)
+
+## Table of Contents
+1. [Course Focus](#course-focus)
+2. [What Problem Will We Solve During This Course?](#what-problem-will-we-solve-during-this-course)
+3. [Our Solution Approach](#our-solution-approach)
+4. [Understanding Large Language Models: The Foundation](#understanding-large-language-models-the-foundation)
+5. [The Limitation of LLMs: The Knowledge Cutoff Problem](#the-limitation-of-llms-the-knowledge-cutoff-problem)
+6. [Introducing RAG: The Solution to LLM Limitations](#introducing-rag-the-solution-to-llm-limitations)
+7. [The Strength We'll Leverage: RAG's Modular Architecture](#the-strength-well-leverage-rags-modular-architecture)
+8. [What You'll Build in This Course](#what-youll-build-in-this-course)
+9. [Beyond This Course](#beyond-this-course)
+10. [Key Takeaways](#key-takeaways)
 
 Welcome to LLM Zoomcamp, where we begin a practical journey into the world of Large Language Models (LLMs) and their real-world applications.
 
@@ -13,7 +25,7 @@ Welcome to LLM Zoomcamp, where we begin a practical journey into the world of La
 > [!NOTE]
 > This course isn't a theoretical deep-dive into the mathematics behind neural networks. Instead, it's a hands-on exploration of how we can use these powerful tools to solve real problems.
 
-We will focus on building practical systems that can answer questions intelligently by combining the power of modern language models (LLMs) with information retrieval techniques like retrieval-augmented generation (RAG).
+We will focus on building practical systems that can answer questions intelligently by combining the power of modern language models (LLMs) with information retrieval techniques like Retrieval-Augmented Generation (RAG).
 
 ## What Problem Will We Solve During This Course?
 
@@ -21,37 +33,37 @@ LLM Zoomcamp is DataTalks.Club's fifth course, building upon our tradition of pr
 
 These documents represent thousands of hours of collective knowledge: questions asked by previous students and carefully crafted answers by instructors and teaching assistants. They're invaluable resources that could save new students significant time and reduce repetitive questions in our community channels.
 
-Here are the FAQs from our first three courses:
+**Here are the FAQs from our first three courses:**
 
-- [Data Engineering Zoomcamp FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit): A comprehensive 321-page document filled with student questions and detailed answers
-- [ML Zoomcamp FAQ](https://docs.google.com/document/d/1LpPanc33QJJ6BSsyxVg-pWNMplal84TdZtq10naIhD8/edit): An equally extensive FAQ covering machine learning concepts and practical issues
-- [MLOps Zoomcamp FAQ](https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit): Specialized Q&A focused on MLOps practices and tools
+- **[Data Engineering Zoomcamp FAQ](https://docs.google.com/document/d/19bnYs80DwuUimHM65UV3sylsCn2j1vziPOwzBwQrebw/edit)**: A comprehensive 321-page document filled with student questions and detailed answers
+- **[ML Zoomcamp FAQ](https://docs.google.com/document/d/1LpPanc33QJJ6BSsyxVg-pWNMplal84TdZtq10naIhD8/edit)**: An equally extensive FAQ covering machine learning concepts and practical issues
+- **[MLOps Zoomcamp FAQ](https://docs.google.com/document/d/12TlBfhIiKtyBv8RnsoJR6F72bkPDGEvPOItJIxaEzE0/edit)**: Specialized Q&A focused on MLOps practices and tools
 
-But here's the challenge: how does a student actually find an answer when the FAQ is so massive? It's like finding a needle in a haystack.
+But here's the challenge: **How does a student actually find an answer when the FAQ is so massive?** It's like finding a needle in a haystack.
 
-Picture this: a new student joins our Data Engineering Zoomcamp and needs to know "How do I set up my development environment on Windows?" They're looking for a quick answer.
+**Picture this scenario**: A new student joins our Data Engineering Zoomcamp and needs to know "How do I set up my development environment on Windows?" They're looking for a quick answer.
 
-To do that, they could:
-1. Manually search through 321 pages of FAQ
-2. Use basic text search (Ctrl+F) with limited effectiveness
-3. Give up and ask the question again in our Slack channel (creating duplication)
+To find that answer, they could:
+1. **Manually search** through 321 pages of FAQ
+2. **Use basic text search** (Ctrl+F) with limited effectiveness
+3. **Give up and ask the question again** in our Slack channel (creating duplication)
 
-As a result, they might miss out on the detailed, high-quality answer that already exists in the FAQ and create unnecessary duplication. This scenario plays out daily across technical communities worldwide. The knowledge exists, but discovery is the bottleneck.
+As a result, they might miss out on the detailed, high-quality answer that already exists in the FAQ and create unnecessary duplication. This scenario plays out daily across technical communities worldwide. **The knowledge exists, but discovery is the bottleneck.**
 
 ## Our Solution Approach
 
 What if we could build an intelligent assistant that:
 
-- Understands the intent behind a student's question
-- Quickly searches through our entire knowledge base
-- Finds the most relevant information
-- Provides a comprehensive, contextual answer in natural language
+- **Understands the intent** behind a student's question
+- **Quickly searches** through our entire knowledge base
+- **Finds the most relevant information**
+- **Provides a comprehensive, contextual answer** in natural language
 
 This is exactly what we'll build in this course. But to get there, we first need to understand the technology that makes it all possible.
 
 ## Understanding Large Language Models: The Foundation
 
-To build our intelligent Q&A system, we first need to understand the foundational technology: large language models.
+To build our intelligent Q&A system, we first need to understand the foundational technology: Large Language Models.
 
 ### What Are Language Models?
 
@@ -71,19 +83,19 @@ While effective for their purpose, these models are quite limited. They can't un
 
 The breakthrough came with models that are "large" in multiple dimensions:
 
-**Scale of Parameters**: Instead of thousands of parameters, LLMs have billions or even trillions. To put this in perspective:
+**1. Scale of Parameters**: Instead of thousands of parameters, LLMs have billions or even trillions. To put this in perspective:
 - Simple phone autocomplete: ~100,000 parameters
 - GPT-3: 175 billion parameters
 - GPT-4: Estimated 1+ trillion parameters
 
-**Training Data Volume**: LLMs are trained on massive datasets containing:
+**2. Training Data Volume**: LLMs are trained on massive datasets containing:
 - Books, articles, and academic papers
 - Web pages and forums
 - Code repositories
 - Reference materials and encyclopedias
 - Conversations and Q&A pairs
 
-**Computational Architecture**: Modern LLMs use transformer architectures that can:
+**3. Computational Architecture**: Modern LLMs use transformer architectures that can:
 - Process long sequences of text
 - Understand relationships between distant words
 - Maintain context across lengthy conversations
@@ -127,7 +139,7 @@ Output: "Photosynthesis is the process by which plants convert sunlight, carbon 
 
 Now that we know what LLMs can do, let's talk about their biggest limitation—and why we need something more to solve our FAQ problem.
 
-Here's the thing: LLMs have one major constraint. Their knowledge gets frozen when they finish training. Let's see what this means:
+Here's the thing: **LLMs have one major constraint.** Their knowledge gets frozen when they finish training. Let's see what this means:
 
 **Scenario 1 - Perfect LLM Performance**:
 ```
@@ -153,14 +165,14 @@ The LLM has no context about:
 
 ### Why This Matters for Our FAQ System
 
-If we just hooked students up to ChatGPT, they'd get generic answers that miss:
+If we just connected students directly to ChatGPT, they'd get generic answers that miss:
 - Course-specific requirements
 - Specific tools and versions we use
 - Our particular setup procedures
 - Community-specific conventions
 - Current course policies and deadlines
 
-We need to give the LLM access to our specific knowledge so it can give accurate, helpful answers.
+**We need to give the LLM access to our specific knowledge so it can provide accurate, helpful answers.**
 
 ## Introducing RAG: The Solution to LLM Limitations
 
@@ -174,7 +186,7 @@ We need to give the LLM access to our specific knowledge so it can give accurate
 
 The idea is beautifully simple: instead of expecting the LLM to know everything, we feed it the right information at just the right moment.
 
-Here's the magic: RAG turns LLMs from smart generalists into domain experts.
+**Here's the magic**: RAG turns LLMs from smart generalists into domain experts.
 
 ### How RAG Works: A Complete Walkthrough
 
@@ -195,7 +207,7 @@ Student asks: "How do I enroll in the Data Engineering Zoomcamp?"
 
 **3. Document retrieval:** The search returns multiple relevant documents:
 - **Document 1**: "Registration process and deadlines"
-- **Document 2**: "Prerequisites and requirements"
+- **Document 2**: "Prerequisites and requirements"  
 - **Document 3**: "Course schedule and format"
 - **Document 4**: "Payment and enrollment FAQ"
 - **Document 5**: "Technical setup requirements"
@@ -225,11 +237,11 @@ Answer:
 
 **6. Response delivery:** The student receives a detailed, accurate answer that's specifically tailored to our Data Engineering Zoomcamp, not generic advice about online courses.
 
-See what happened? The same LLM that couldn't answer course-specific questions before is now giving expert-level responses. Context is the secret ingredient.
+**See what happened?** The same LLM that couldn't answer course-specific questions before is now giving expert-level responses. Context is the secret ingredient.
 
 ## The Strength We'll Leverage: RAG's Modular Architecture
 
-One of RAG's best features: it's modular. This means we can swap out different parts and experiment as we go.
+One of RAG's best features: **it's modular.** This means we can swap out different parts and experiment as we go.
 
 We'll start simple and work our way up:
 
@@ -249,11 +261,11 @@ We'll start simple and work our way up:
 - More sophisticated relevance understanding
 
 We can swap these search technologies without changing the overall architecture. Each approach has trade-offs:
-- Simple search: Easy to understand, limited capability
-- Elasticsearch: Professional features, more complex setup
-- Vector search: Most sophisticated, requires additional infrastructure
+- **Simple search**: Easy to understand, limited capability
+- **Elasticsearch**: Professional features, more complex setup
+- **Vector search**: Most sophisticated, requires additional infrastructure
 
-## Interchangeable LLM Components
+### Interchangeable LLM Components
 
 The modular approach also applies to the language model component:
 
@@ -297,11 +309,13 @@ By the time you finish this course, you'll have built a complete, production-rea
 
 The skills you'll learn here go way beyond FAQ systems.
 
-You can use such chatbits in:
+**You can use such chatbots in:**
 - **Customer Support**: Automated response systems that understand product documentation
 - **Internal Knowledge Management**: Help employees find information across company documents
 - **Research Assistance**: Systems that can synthesize information from academic papers
 - **Code Documentation**: Tools that help developers understand large codebases
+- **Educational Platforms**: Intelligent tutoring systems that can answer domain-specific questions
+- **Legal and Compliance**: Systems that can navigate complex regulatory documents
 
 ## Key Takeaways
 
@@ -317,6 +331,8 @@ As we wrap up this introduction, here are the key points to remember:
 
 5. **The Future is Augmented Intelligence**: RAG represents a broader trend toward systems that combine AI reasoning with accurate information retrieval.
 
+6. **Scalable Knowledge Systems**: The techniques you learn can be applied to any domain where accurate, contextual information retrieval is important.
+
 Remember, we're learning to solve real problems that affect real people. Every system you build could save someone hours of frustration and help them find exactly what they need.
 
-Ready? Let's dive in and build your first RAG system!
+**Ready? Let's dive in and build your first RAG system!**
