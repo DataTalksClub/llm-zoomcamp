@@ -1,4 +1,4 @@
-# Elastic Search 
+# Elastic Search
 
 This document contains useful things about Elasticsearch
 
@@ -6,7 +6,7 @@ This document contains useful things about Elasticsearch
 
 The `multi_match` query is used to search for a given text across multiple fields in an Elasticsearch index.
 
-It provides various types to control how the matching is executed and scored. 
+It provides various types to control how the matching is executed and scored.
 
 There are multiple types of `multi_match` queries:
 
@@ -16,13 +16,11 @@ There are multiple types of `multi_match` queries:
 - `phrase`: Searches for the query as an exact phrase.
 - `phrase_prefix`: Searches for the query as a prefix of a phrase.
 
-
 ## `best_fields`
 
 The `best_fields` type searches each field separately and returns the highest score from any one of the fields.
 
 This type is useful when you want to find documents where at least one field matches the query well.
-
 
 ```json
 {
@@ -94,7 +92,6 @@ It is useful for exact match searches.
 The `phrase_prefix` type searches for documents that contain the query as a prefix of a phrase.
 
 This is useful for autocomplete or typeahead functionality.
-
 
 ```json
 {
