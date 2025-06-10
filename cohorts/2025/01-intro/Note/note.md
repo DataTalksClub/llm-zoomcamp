@@ -35,3 +35,5 @@
 
 ### Sample code running OpenAi Chatcompletion
 [Intro to openai](./Note/Intro%20to%20Openai.ipynb)
+
+## 1.3 Retrieval and Search
