@@ -1,6 +1,8 @@
 # Vector Search 
 
-Notebook: [sematic_search.ipynb](sematic_search.ipynb)
+Notebooks: 
+- [sematic_search.ipynb](sematic_search.ipynb)
+- [hybrid_search.ipynb](hybrid_search.ipynb)
 
 ## 2.1 Getting Started with Vector Search and Qdrant
 
@@ -51,7 +53,9 @@ TBA
 
 ## 2.6 Hybrid Search
 
-TBA
+<a href="https://www.youtube.com/watch?v=ZdbIk8AltDU&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/ZdbIk8AltDU">
+</a>
 
 
 ## Homework
