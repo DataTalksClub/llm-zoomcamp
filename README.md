@@ -60,6 +60,12 @@ You can follow the course at your own pace:
 - Indexing and retrieving data efficiently
 - Using Qdrant as the vestor database
 
+
+#### [Workshop: Open-Source Data Ingestion](cohorts/2025/workshops/dlt.md)
+
+- Using `dlt` for ingesting data for RAG
+
+
 #### [Module 3: Evaluation](03-evaluation/)
 
 - Search evaluation
