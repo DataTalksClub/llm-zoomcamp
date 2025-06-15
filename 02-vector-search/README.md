@@ -50,7 +50,9 @@ docker run -p 6333:6333 -p 6334:6334 \
 
 ## 2.5 RAG with Vector Search
 
-TBA
+<a href="https://www.youtube.com/watch?v=ZV905K81sE4">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/ZV905K81sE4">
+</a>
 
 Links: 
 
