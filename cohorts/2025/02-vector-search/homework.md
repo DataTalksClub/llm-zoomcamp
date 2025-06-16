@@ -1,4 +1,4 @@
-## Homework: Vector Search [DRAFT]
+## Homework: Vector Search
 
 In this homework, we will learn more about vector search
 and embedding. Like in the module, we will use Qdrant and
