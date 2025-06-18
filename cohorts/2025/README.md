@@ -12,4 +12,11 @@ Important links:
 
 * [Homework](01-intro/homework.md)
 
+[**Module 2: Vector Search**](02-vector-search/)
+
+* [Homework](02-vector-search/homework.md)
+
+[**Workshop: dlt**](workshops/dlt.md)
+
+* [Homework](workshops/dlt.md)
 
