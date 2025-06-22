@@ -1,0 +1,10 @@
+streamlit
+elasticsearch==8.14.0
+psycopg2-binary==2.9.9
+python-dotenv
+openai==1.35.7
+sentence-transformers==2.7.0
+numpy==1.26.4
+
+--find-links https://download.pytorch.org/whl/cpu/torch_stable.html
+torch==2.3.1+cpu

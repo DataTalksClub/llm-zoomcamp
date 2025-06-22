@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+scikit-learn = "*"
+pandas = "*"
+requests = "*"
+python-docx = "*"
+notebook = "==7.1.2"
+transformers = "*"
+accelerate = "*"
+bitsandbytes = "*"
+bitsandbytes-cuda116 = "*"
+openai = "*"
+tqdm = "*"
+elasticsearch = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
