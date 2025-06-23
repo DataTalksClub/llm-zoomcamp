@@ -205,4 +205,5 @@ see [2024 cohort folder](../cohorts/2024/02-open-source#27-ollama---running-llms
 * [Notes by Kamal](https://github.com/mk-hassan/llm-zoomcamp/blob/main/Module-1%3A%20Introduction%20to%20LLMs%20and%20RAG/README.md)
 * [Notes by Marat](https://machine-mind-ml.medium.com/discovering-semantic-search-and-rag-with-large-language-models-be7d9ba5bef4)
 * [Notes by Waleed](https://waleedayoub.com/post/llmzoomcamp_week1-intro_notes/)
+* [Cohort 2025|RAG FAQ using Elastic Search by Nitin Gupta](https://github.com/niting9881/llm-zoomcamp/blob/main/01-intro/README.md)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
