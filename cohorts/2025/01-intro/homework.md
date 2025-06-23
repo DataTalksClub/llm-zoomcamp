@@ -4,6 +4,8 @@ In this homework, we'll learn more about search and use Elastic Search for pract
 
 > It's possible that your answers won't match exactly. If it's the case, select the closest one.
 
+Solution: [homework_solution.ipynb](homework_solution.ipynb)
+
 
 ## Q1. Running Elastic 
 
