@@ -28,20 +28,25 @@ In this hands-on workshop, we'll walk through building a knowledge graph from RE
 # Homework
 
 ## Q1. From the first demo, what is the "type" of the "date" node?
-* Data
+* DocumentChunk
 * Entity
 * EntityType
 * NodeSet
 
-## Q2. To create a shared dictionary in cognee, we use:
-* NodeSets
-* Ontology
-* dlt
-* Relational Database
 
-## Q3. Does dlt support partitioning your data anywhere?
-* True, yes it does.
-* False, no, you handle that in the database.
+## Q2. What type of node is the most abundant in the graph built in the first demo?
+* DocumentChunk
+* Entity
+* EntityType
+* NodeSet
+
+
+## Q3. What is the relationship between a NodeSet node and an Entity node
+* is_a
+* is_part_of
+* belongs_to
+* belongs_to_set
+
 
 ## Submit the results
 
