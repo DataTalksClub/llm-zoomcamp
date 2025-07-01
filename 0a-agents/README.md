@@ -7,7 +7,7 @@ a live workshop
 
 Links:
 
-* Video: TBA
+* Video: https://www.youtube.com/watch?v=GH3lrOsU3AU
 * Workshop materials: https://github.com/alexeygrigorev/rag-agents-workshop
 
 
