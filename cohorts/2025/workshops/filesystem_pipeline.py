@@ -24,10 +24,10 @@ def get_data(locations):
 if __name__ == "__main__":
     # MY CUSTOM FILES
     source_locations = [
-        "D:\\C DRIVE\\not-human\\api.slack.com",
-        "D:\\C DRIVE\\not-human\\developer.monday.com",
-        "D:\\C DRIVE\\not-human\\developer.paypal.com",
-        "D:\\C DRIVE\\not-human\\developer.ticketmaster.com"
+        "data\\api.slack.com",
+        "data\\developer.monday.com",
+        "data\\developer.paypal.com",
+        "data\\developer.ticketmaster.com"
     ]
 
     pipeline = dlt.pipeline(
