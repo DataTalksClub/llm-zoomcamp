@@ -1,0 +1,57 @@
+https://api.slack.com/Customize your Slack experience with apps using a wide range of APIs.
+
+Block Kit lets you build interfaces without a UI designer. It's available for use in surfaces across all devices without any extra code.
+
+We want to update you about our previous announcement regarding the retirement of our old documentation experience on api.slack.com. We have moved the date from the end of **June 2025** to the end of **August 2025**.
+
+Version `3.3.0`
+
+of the developer tools for the Slack platform has arrived!
+
+`arm64`
+
+build for developers upgrading.`.git`
+
+within the URL, the template would fail to be cloned (for example, when running the `slack create --template https://github.com/slack-samples/example.git.project.git`
+
+command).`source`
+
+using the flag for the `slack manifest info`
+
+command now takes precedence to project configurations, which are used to determine the default source.We'd like to add additional clarity to the recent rate limits change for the `conversations.history`
+
+and `conversations.replies`
+
+Web API methods. Any internal customer-built apps created before May 29th, 2025 will maintain their existing rate limits and will not be subject to the new posted limits. Read the updated FAQ for more info, and please continue to reach out with questions!
+
+We're making clarifications to the API Terms of Service that will take effect immediately for new apps and on June 30, 2025 for existing apps. Please read the terms in full, but below is a summary of what’s changing:
+
+We're updating the rate limits for the `conversations.history`
+
+and `conversations.replies`
+
+Web API methods methods for non-Marketplace apps. This rate limit reduction will immediately affect new applications and new installations of non-Marketplace applications. The new rate limits will be applied to existing installations of unlisted, distributed applications published outside the Marketplace on September 2, 2025. The new rate limits will be updated to allow 1 request per minute and will return a maximum of 15 objects per request. Read more here.
+
+Version `3.2.0`
+
+of the developer tools for the Slack platform is here!
+
+`project (local)`
+
+and `app settings (remote)`
+
+. You'll see these changes in the `slack create`
+
+, `slack init`
+
+, and `slack app link <id>`
+
+commands, for example.`slack app settings`
+
+command. Bolt developers with a remote manifest source managed within app settings may find this useful for discovering new features or making updates.`slack app link`
+
+and `slack app list`
+
+commands shown when running the `slack app --help`
+
+command now use the entire command in order to prevent potential aliasing errors.

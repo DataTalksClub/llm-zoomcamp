@@ -1,0 +1,45 @@
+https://developer.monday.com/api-reference/docs/basics# The basics
+
+Read what the monday platform API can do, who can use it, and how it works
+
+Welcome to monday.com, a work OS where teams create and shape their own workflows in minutes, code-free. Our mission is to help teams outdo their best, fulfilling their potential, and collaborating more effectively.
+
+The monday GraphQL API is part of the monday apps framework. It is an application layer that allows apps to read and update data inside a monday.com account. It supports operations boards, items, column values, users, workspaces, and more.
+
+Looking for the API schema?
+
+Check out our API reference section!
+
+
+# Why use the API?
+
+There are countless use cases for the API, including:
+
+- Accessing board data to render a custom report inside a monday.com dashboard
+- Creating a new item on a board when a record is created on another system
+- Importing data from another source programmatically
+
+With the monday apps framework, developers can package their own web apps and integrations as native monday.com building blocks.
+
+# Who can use the API?
+
+**Admin**, **member**, and **guest** users are all able to utilize the monday.com API.
+
+**Admins** and **members** have access to their own API tokens. **Guests** cannot access an API key but can utilize API features through other authentication methods, like OAuth or a shortLivedToken.
+
+**Viewers**, users who have been deactivated or disabled, users with unconfirmed emails, or users on student accounts **cannot** access the API.
+
+# What monday products does the API support?
+
+The platform API currently supports the monday work management, dev, sales CRM, and service products. It currently does not support Workforms.
+
+# How does GraphQL work?
+
+The monday.com API is built with GraphQL, a flexible query language that allows you to return as much or as little data as you need. GraphQL is an application layer that parses the query you send it and returns (or changes) data accordingly. To learn more about the fundamental GraphQL components, check out our GraphQL overview!
+
+Join our developer community!
+
+We've created a community specifically for our devs where you can search through previous topics to find solutions, ask new questions, hear about new features and updates, and learn tips and tricks from other devs. Come join in on the fun! 😎
+
+
+Updated 9 months ago

@@ -23,7 +23,7 @@ For that, you need:
 
 * Select a dataset that you're interested in (see [Datasets](#datasets) for examples and ideas)
 * Ingest the data into a knowledge base
-* Implement the RAG flow: query the knowledge base, build the prompt, send the promt to an LLM
+* Implement the retrieval flow: query the knowledge base, build the prompt, send the promt to an LLM
 * Evaluate the performance of your RAG flow
 * Create an interface for the application
 * Collect user feedback and monitor your application
@@ -91,18 +91,18 @@ If you're not certain about some tools, ask in Slack.
     * 0 points: The problem is not described
     * 1 point: The problem is described but briefly or unclearly
     * 2 points: The problem is well-described and it's clear what problem the project solves
-* RAG flow
+* Retrieval flow
     * 0 points: No knowledge base or LLM is used
     * 1 point: No knowledge base is used, and the LLM is queried directly
-    * 2 points: Both a knowledge base and an LLM are used in the RAG flow 
+    * 2 points: Both a knowledge base and an LLM are used in the flow 
 * Retrieval evaluation
     * 0 points: No evaluation of retrieval is provided
     * 1 point: Only one retrieval approach is evaluated
     * 2 points: Multiple retrieval approaches are evaluated, and the best one is used
-* RAG evaluation
-    * 0 points: No evaluation of RAG is provided
-    * 1 point: Only one RAG approach (e.g., one prompt) is evaluated
-    * 2 points: Multiple RAG approaches are evaluated, and the best one is used
+* LLM evaluation
+    * 0 points: No evaluation of final LLM output is provided
+    * 1 point: Only one approach (e.g., one prompt) is evaluated
+    * 2 points: Multiple approaches are evaluated, and the best one is used
 * Interface
    * 0 points: No way to interact with the application at all
    * 1 point: Command line interface, a script, or a Jupyter notebook
