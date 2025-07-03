@@ -47,8 +47,8 @@ def read_faq():
     return documents
 ```
 
-Create another function which uses this and annotate it with
-`@dlt.resource`. We will use it now when creating
+Create another function which uses this one and annotate it with
+`@dlt.resource`. Let's call it `zoomcamp_data`. We will use it now when creating
 a dlt pipeline.
 
 ## Question 2. dlt pipeline
