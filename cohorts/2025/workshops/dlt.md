@@ -30,25 +30,20 @@ What's the version of dlt that you installed?
 For reading the FAQ data, we have this helper function:
 
 ```python
-def read_faq():
+def zoomcamp_data():
     docs_url = 'https://github.com/alexeygrigorev/llm-rag-workshop/raw/main/notebooks/documents.json'
     docs_response = requests.get(docs_url)
     documents_raw = docs_response.json()
-
-    documents = []
 
     for course in documents_raw:
         course_name = course['course']
 
         for doc in course['documents']:
             doc['course'] = course_name
-            documents.append(doc)
-
-    return documents
+            yield doc
 ```
 
-Create another function which uses this and annotate it with
-`@dlt.resource`. We will use it now when creating
+Annotate it with `@dlt.resource`. We will use it when creating
 a dlt pipeline.
 
 ## Question 2. dlt pipeline
