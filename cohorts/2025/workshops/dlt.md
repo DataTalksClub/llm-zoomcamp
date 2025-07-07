@@ -85,8 +85,7 @@ Look for `"Normalized data for the following tables:"` in the trace output.
 When inserting the data, an embedding model was used. Which one?
 
 You can find this out by inspecting the `meta.json` file created
-in the target folder.
-
+in the target folder. During the data insertion process, a folder named db.qdrant will be created, and the meta.json file will be located inside this folder.
 
 
 ## Submit the results
