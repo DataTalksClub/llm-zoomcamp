@@ -1,7 +1,7 @@
 # DataTalks.Club Summer 2025 AI Hackathon
 
 <p align="center">
-  <img width="80%" src="/images/hackathon-cover.png" alt="DataTalks.Club Summer 2025 AI Hackathon">
+  <img width="50%" src="/images/hackathon-cover.png" alt="DataTalks.Club Summer 2025 AI Hackathon">
 </p>
 
 [![DataTalks.Club](https://img.shields.io/badge/DataTalks.Club-Community-blue)](https://datatalks.club)
