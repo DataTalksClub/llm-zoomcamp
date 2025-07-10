@@ -56,7 +56,7 @@ This hackathon is designed to give you real-world experience in building LLM-pow
 
 | Phase | Dates | Details |
 |:------|:------|:--------|
-| **Hackathon Launch** | July 15, 2025 (Wed) | Live stream where we'll review the project ideas and add selected ones to the "Project Ideas" section. We'll also host an open Q&A session. |
+| **Hackathon Launch** | July 14, 2025 (Mon) | We will review project ideas and answer your questions. |
 | **Build Sprint** | Mid-July - Mid-September | Nine-week window where you'll work on your projects. We'll have weekly office hours to help you and regular check-ins to track progress. |
 | **Final Submission** | September 15, 2025 23:59 CET | Submit your completed project including the demo video, GitHub repository, and article. |
 | **Demo Week** | September 22-26, 2025 | Selected teams will present their projects live. Our panel of judges will evaluate the submissions and announce winners during the closing ceremony. |
@@ -200,7 +200,7 @@ Post in the `#hackathon` channel in [Slack](https://datatalks.club/slack.html)
 
 ### FAQ
 
-- **Q:** So if someone participates in hackathon, will it count as a capstone project for LLM Zoomcamp?
+- **Q:** So if someone participates in the hackathon, will it count as a capstone project for LLM Zoomcamp?
 - **A:** No, a project and a hackathon are two separate things. You work on the project alone and it has to satisfy the pre-defined criteria. For the hackathon, you work in teams and you don't have any strict criteria to satisfy. 
 
 
