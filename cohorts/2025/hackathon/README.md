@@ -198,5 +198,15 @@ Our distinguished panel of judges includes:
 
 Post in the `#hackathon` channel in [Slack](https://datatalks.club/slack.html)
 
+### FAQ
+
+- **Q:** So if someone participates in hackathon, will it count as a capstone project for LLM Zoomcamp?
+- **A:** No, a project and a hackathon are two separate things. You work on the project alone and it has to satisfy the pre-defined criteria. For the hackathon, you work in teams and you don't have any strict criteria to satisfy. 
+
+
+
+
+
+
 ---
 *Last updated: July 2025*
