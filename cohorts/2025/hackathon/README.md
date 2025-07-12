@@ -17,13 +17,15 @@ Welcome to the DataTalks.Club Summer 2025 AI Hackathon! This is your opportunity
 2. Form your team or indicate you're looking for teammates
 3. Start brainstorming project ideas
 4. Submit [this form](https://airtable.com/appjxMzaGej3KHwEh/shr12Sx3SGsStvjEd) with your idea so we can review it and add to the list of project ideas
-5. Begin planning and development
+5. Attend our Hackathon Launch Stream ([sign up here](https://lu.ma/i98j574k))
+6. Begin planning and development
 
 ## Quick Links
 
 - [Submit your idea](https://airtable.com/appjxMzaGej3KHwEh/shr12Sx3SGsStvjEd)
 - [Join discussion and find a team](https://datatalks.club/slack.html) (#hackathon channel)
 - [LLM Zoomcamp course materials](https://github.com/DataTalksClub/llm-zoomcamp)
+- [Hackathon Launch Stream](https://lu.ma/i98j574k)
 
 ## About the Hackathon
 
