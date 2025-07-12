@@ -173,7 +173,7 @@ What's the hitrate?
 - 0.82
 - 0.92
 
-# Q4. Qdrant
+## Q4. Qdrant
 
 Now let's evaluate the following settings in Qdrant:
 
