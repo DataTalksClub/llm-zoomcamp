@@ -20,3 +20,10 @@ Important links:
 
 * [Homework](workshops/dlt.md)
 
+[**Module A: Agents**](0a-agents/)
+
+* [Homework](0a-agents/homework.md)
+
+[**Module 3: Evaluation**](03-evaluation/)
+
+* [Homework](03-evaluation/homework.md)

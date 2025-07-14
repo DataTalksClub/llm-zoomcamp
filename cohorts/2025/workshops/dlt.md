@@ -1,34 +1,93 @@
-# Open source data ingestion for RAGs with dlt
+# From REST to reasoning: ingest, index, and query with dlt and Cognee
 
-* Sign up here: https://lu.ma/kdp6ex5s (optional)
-* Video: TBA
+* Video: https://www.youtube.com/watch?v=MNt_KK32gys
 * Homework solution: TBA
-
-​In this hands-on workshop, we’ll build an end-to-end data pipeline using the REST API as a source. You'll learn how to use dlt to ingest fresh data into database, and how to index it in Cognee for powerful semantic querying.
-
-​We'll also explore challenges in handling evolving relationships between resources and experiment with solutions for capturing those changes more intelligently over time.
-
-​​We'll cover the following steps:
-
-
-* ​Extract and normalize data from REST APIs using `dlt`
-* ​Load structured data into a database
-* ​Index and query the data semantically using Cognee
-* ​Handle time-sensitive and incremental updates across related resources
-
-​By the end of this session, you'll know how to build an intelligent ingestion pipeline that stays in sync with dynamic data sources and powers semantic applications using open-source tools.
 
 # Resources
 
-* TBA
+* [Slides](https://docs.google.com/presentation/d/1oHQilxEVqGGW4S2ctNEE0wHY2LgcjYLaRUziAoinsis/edit?usp=sharing)
+* [Colab Notebook](https://colab.research.google.com/drive/1vBA9OIGChcKjjg8r5hHduR0v3A5D6rmH?usp=sharing) 
 
 --- 
 
 # Homework
 
-TBA
+## Question 1. dlt Version
+
+In this homework, we will load the data from our FAQ to Qdrant
+
+Let's install dlt with Qdrant support and Qdrant client:
+
+```bash
+pip install -q "dlt[qdrant]" "qdrant-client[fastembed]"
+```
+
+What's the version of dlt that you installed?
+
+
+## dlt Resourse
+
+For reading the FAQ data, we have this helper function:
+
+```python
+def zoomcamp_data():
+    docs_url = 'https://github.com/alexeygrigorev/llm-rag-workshop/raw/main/notebooks/documents.json'
+    docs_response = requests.get(docs_url)
+    documents_raw = docs_response.json()
+
+    for course in documents_raw:
+        course_name = course['course']
+
+        for doc in course['documents']:
+            doc['course'] = course_name
+            yield doc
+```
+
+Annotate it with `@dlt.resource`. We will use it when creating
+a dlt pipeline.
+
+## Question 2. dlt pipeline
+
+Now let's create a pipeline. 
+
+We need to define a destination for that. Let's use the `qdrant` one:
+
+```python
+from dlt.destinations import qdrant
+
+qdrant_destination = qdrant(
+  qd_path="db.qdrant", 
+)
+```
+
+In this case, we tell dlt (and Qdrant) to create a folder with
+our data, and the name for it will be `db.qdrant`
+
+Let's run it:
+
+```python
+pipeline = dlt.pipeline(
+    pipeline_name="zoomcamp_pipeline",
+    destination=qdrant_destination,
+    dataset_name="zoomcamp_tagged_data"
+
+)
+load_info = pipeline.run(zoomcamp_data())
+print(pipeline.last_trace)
+```
+
+How many rows were inserted into the `zoomcamp_data` collection?
+
+Look for `"Normalized data for the following tables:"` in the trace output.
+
+## Question 3. Embeddings
+
+When inserting the data, an embedding model was used. Which one?
+
+You can find this out by inspecting the `meta.json` file created
+in the target folder. During the data insertion process, a folder named db.qdrant will be created, and the meta.json file will be located inside this folder.
+
 
 ## Submit the results
 
 * Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2025/homework/dlt
-* It's possible that your answers won't match exactly. If it's the case, select the closest one.

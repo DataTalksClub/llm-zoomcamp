@@ -1,0 +1,26 @@
+https://developer.paypal.com/studio/checkout/advancedAccept payments
+
+Accept one-time payments with all major debit and credit cards.
+
+Get started and customize quickly
+
+Customize your PayPal buttons and Card Fields to match your business branding.
+
+Fraud and authentication
+
+A robust risk management toolkit for PayPal merchants, and customer authentication with 3D Secure.
+
+With PayPal Expanded Checkout you can accept all major credit cards in 36 countries and 22 currencies.
+
+If you have an older Checkout integration, you can upgrade your Checkout integration. If you integrated expanded checkout with the `HostedFields`
+
+component, see Integrate PayPal buttons and Hosted Fields.
+
+**Note**: Let your payers know that PayPal is processing the payment using one of the following options:
+
+- At checkout, include this text and link to the PayPal privacy notice: "By paying with your card, you acknowledge that your data will be processed by PayPal subject to the PayPal Privacy Statement available at PayPal.com."
+- Before payment, include this in your privacy notice: "We use PayPal for payments and other services. If you wish to use one of these services and pay on our website, PayPal may collect the personal data you provide, such as payment and other identifying information. PayPal uses this information to operate and improve the services it provides to us and others, including for fraud detection, harm and loss prevention, authentication, analytics related to the performance of its services, and to comply with applicable legal requirements. The processing of this information will be subject to the PayPal Privacy Statement available at PayPal.com."
+
+PayPal Card Fields is a PCI DSS service provider. Use the Card Fields integration to comply with PCI compliance when collecting card information from buyers.
+
+Get Started Now
