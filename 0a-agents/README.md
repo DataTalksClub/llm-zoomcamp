@@ -13,7 +13,7 @@ Links:
 
 ## Homework
 
-TBA
+See [here](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/cohorts/2025/0a-agents/homework.md)
 
 # Notes
 
