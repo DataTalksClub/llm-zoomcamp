@@ -1,5 +1,24 @@
 # RAG and LLM Evaluation  
 
+## 3.0 Content update explanation video
+
+
+<a href="https://www.youtube.com/watch?v=qiWmCV0Knl0&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/qiWmCV0Knl0">
+</a>
+
+
+* 3.4 used to be "Ranking evaluation: vector search", but you will do it in homework
+* Videos 3.5 - 3.8 used to be a part of module 4, but now they are a part of the evaluation module (module 4 focuses only on monitoring)
+* The data files for retrieval evaluation are in the [search_evaluation](search_evaluation/) folder
+* The data files for RAG evaluation are in the [rag_evaluation](rag_evaluation/) folder
+  * We kept the old data files - the ones generated using this [old code](../cohorts/2024/04-monitoring/offline-rag-evaluation.ipynb)
+  * In the [new notebook](rag_evaluation/offline-rag-evaluation.ipynb), you have minsearch instead of elasticsearch 
+* Also, install [the sentence transformers](https://sbert.net/) library, we will use it for generating embeddings in some of the videos
+  ```bash
+  pip install sentence-transformers
+  ```
+
 
 ## 3.1 Introduction
 
@@ -51,14 +70,9 @@ Links:
 * [Notebook](search_evaluation/evaluate-text.ipynb)
 
 
-## 3.4 Content update explanation video
+## 3.4 Evaluating Vector Search
 
-TODO
-
-* 3.4 used to be "Ranking evaluation: vector search", but you will do it in homework
-* Videos 3.5 - 3.8 used to be a part of module 4, but now they are a part of the evaluation module (module 4 focuses only on monitoring)
-* All the data files were generated using the [old code](../cohorts/2024/04-monitoring/offline-rag-evaluation.ipynb) 
-
+That's [homework](../cohorts/2025/03-evaluation/homework.md)
 
 
 ## 3.5 Offline vs Online (RAG) evaluation
