@@ -151,5 +151,5 @@ Links:
 See [here](../cohorts/2025/03-evaluation/homework.md)
 
 # Notes
-
+[Cohort 2025| Study notes and FAQ : LLM Evaluation ](https://github.com/niting9881/llm-zoomcamp/blob/main/03-evaluation/README.md)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
