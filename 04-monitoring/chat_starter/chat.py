@@ -1,14 +1,13 @@
 import streamlit as st
 from openai import OpenAI
 import tools
-import chat_assistant
 
 client = OpenAI()
 
 index = tools.init_index()
 search_tool = tools.SearchTool(index)
 
-chat_tools = chat_assistant.Tools()
+chat_tools = tools.Tools()
 chat_tools.add_tool(search_tool.search, search_tool.search_tool)
 
 developer_prompt = """
@@ -76,7 +75,7 @@ if st.session_state.pending_response:
                 st.session_state.display_messages.append({
                     "role": "function_call",
                     "name": entry.name,
-                    "arguments": chat_assistant.shorten(entry.arguments),
+                    "arguments": tools.shorten(entry.arguments),
                     "output": result["output"],
                 })
                 has_tool_calls = True

@@ -1,5 +1,42 @@
+import json
 import requests
 from minsearch import Index
+
+
+def shorten(text, max_length=50):
+    if len(text) <= max_length:
+        return text
+
+    return text[:max_length - 3] + "..."
+
+
+class Tools:
+    # taken from the Agents module
+
+    def __init__(self):
+        self.tools = {}
+        self.functions = {}
+
+    def add_tool(self, function, description):
+        self.tools[function.__name__] = description
+        self.functions[function.__name__] = function
+    
+    def get_tools(self):
+        return list(self.tools.values())
+
+    def function_call(self, tool_call_response):
+        function_name = tool_call_response.name
+        arguments = json.loads(tool_call_response.arguments)
+
+        f = self.functions[function_name]
+        result = f(**arguments)
+
+        return {
+            "type": "function_call_output",
+            "call_id": tool_call_response.call_id,
+            "output": json.dumps(result, indent=2),
+        }
+
 
 
 def init_index():
@@ -58,3 +95,5 @@ class SearchTool:
             "additionalProperties": False
         }
     }
+
+
