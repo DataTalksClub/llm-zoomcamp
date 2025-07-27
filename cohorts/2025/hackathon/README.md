@@ -13,17 +13,17 @@ Welcome to the DataTalks.Club Summer 2025 AI Hackathon! This is your opportunity
 
 ## Getting Started
 
-1. Join the `#hackathon` channel in [Slack](https://datatalks.club/slack.html)
+1. Join the [`#hackathon`](https://app.slack.com/client/T01ATQK62F8/C094SL8BNMT) channel in [Slack](https://datatalks.club/slack.html)
 2. Form your team or indicate you're looking for teammates
 3. Start brainstorming project ideas
 4. Submit [this form](https://airtable.com/appjxMzaGej3KHwEh/shr12Sx3SGsStvjEd) with your idea so we can review it and add to the list of project ideas
-5. Attend our Hackathon Launch Stream ([sign up here](https://lu.ma/i98j574k))
+5. Watch the [Launch Stream](https://www.youtube.com/watch?v=APtJ1SDGdw0)
 6. Begin planning and development
 
 ## Quick Links
 
 - [Submit your idea](https://airtable.com/appjxMzaGej3KHwEh/shr12Sx3SGsStvjEd)
-- [Join discussion and find a team](https://datatalks.club/slack.html) (#hackathon channel)
+- [Join discussion and find a team](https://datatalks.club/slack.html) ([#hackathon](https://app.slack.com/client/T01ATQK62F8/C094SL8BNMT) channel)
 - [LLM Zoomcamp course materials](https://github.com/DataTalksClub/llm-zoomcamp)
 - [Hackathon Launch Stream](https://lu.ma/i98j574k)
 
@@ -71,7 +71,7 @@ This hackathon is designed to give you real-world experience in building LLM-pow
 - You are not required to be LLM Zoomcamp student to participate in the hackathon
 
 #### Finding Teammates
-Join the `#hackathon` channel in Slack and write a short message there.
+Join the [`#hackathon`](https://app.slack.com/client/T01ATQK62F8/C094SL8BNMT) channel in Slack and write a short message there.
 
 Here's an example of what you can write:
 ```
@@ -198,7 +198,7 @@ Our distinguished panel of judges includes:
 
 ## Questions?
 
-Post in the `#hackathon` channel in [Slack](https://datatalks.club/slack.html)
+Post in the [`#hackathon`](https://app.slack.com/client/T01ATQK62F8/C094SL8BNMT) channel in [Slack](https://datatalks.club/slack.html)
 
 ### FAQ
 

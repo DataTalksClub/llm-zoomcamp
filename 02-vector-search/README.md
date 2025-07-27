@@ -80,4 +80,5 @@ See [here](../cohorts/2025/02-vector-search/homework.md)
 
 * Notes from [2024 edition](../cohorts/2024/03-vector-search/)
 * [Cohort 2025| Vector Search using Qdrant study guide & FAQ by Nitin Gupta](https://github.com/niting9881/llm-zoomcamp/blob/main/02-vector-search/README.md)
+* [Cohort 2025| Cognee and dlt workshop study guide & FAQ by Nitin Gupta](https://github.com/niting9881/llm-zoomcamp/tree/main/02-vector-search/workshop/dlt)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
