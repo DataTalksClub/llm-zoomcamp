@@ -268,7 +268,7 @@ Let's fit the vectorizer on all the text data we have:
 pipeline.fit(df_results.answer_llm + ' ' + df_results.answer_orig + ' ' + df_results.question)
 ```
 
-Now use the `transform` methon of the pipeline to create the embeddings and calculate the cosine similarity between each
+Now use the `transform` method of the pipeline to create the embeddings and calculate the cosine similarity between each
 pair.
 
 What's the average cosine?
