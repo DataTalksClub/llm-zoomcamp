@@ -10,7 +10,17 @@ metrics to assess the answer quality of a deployed LLM. We also
 collect chat history and user feedback.
 
 
-TBA
+## 4.1 Introduction
+
+
+<a href="https://www.youtube.com/watch?v=nOjfqY9y4Vw&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/nOjfqY9y4Vw">
+</a>
+
+
+## 4.2 ...
+
+
 
 # Notes
 
