@@ -58,7 +58,7 @@ You can follow the course at your own pace:
 
 - Vector search and embeddings
 - Indexing and retrieving data efficiently
-- Using Qdrant as the vestor database
+- Using Qdrant as the vector database
 
 
 #### [Workshop: Open-Source Data Ingestion](cohorts/2025/workshops/dlt.md)
