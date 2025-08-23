@@ -76,7 +76,7 @@ If you're not certain about some tools, ask in Slack.
 
 ### Review Tips
 
-* The reviewer is given a public GitHut repo link and a `commit-hash`
+* The reviewer is given a public GitHub repo link and a `commit-hash`
    * to see the code state of the repo at the provided commit hash, use the following URL:
    * `https://github.com/{username}/{repo-name}/tree/{commit-hash}`
 * It's recommended to clone the repository for the review. To clone the project at the commit hash:
