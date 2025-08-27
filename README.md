@@ -96,6 +96,7 @@ Put eveything you learned into practice
 
 ## Meet the Instructors
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev/)
+- [Srilakshmi Chavali](https://www.linkedin.com/in/srilakshmi-chavali)
 - [Timur Kamaliev](https://www.linkedin.com/in/timurkamaliev/)
 
 ## Community & Support
