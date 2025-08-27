@@ -8,6 +8,7 @@ a live workshop
 Links:
 
 * Video: https://www.youtube.com/watch?v=GH3lrOsU3AU
+* Video code deep dive: https://www.youtube.com/watch?v=yS_hwnJusDk
 * Workshop materials: https://github.com/alexeygrigorev/rag-agents-workshop
 
 
