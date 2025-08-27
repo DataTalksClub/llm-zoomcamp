@@ -10,7 +10,11 @@ metrics to assess the answer quality of a deployed LLM. We also
 collect chat history and user feedback.
 
 
+* Slides: TBA
+* Code: [code](code/)
+
 ## 4.1 Introduction
+
 
 
 <a href="https://www.youtube.com/watch?v=nOjfqY9y4Vw&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
@@ -18,8 +22,27 @@ collect chat history and user feedback.
 </a>
 
 
-## 4.2 ...
+## 4.2 Instrumenting LLM Pipelines with OpenTelemetry
 
+<a href="https://www.youtube.com/watch?v=_x72_txu46o&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/_x72_txu46o">
+</a>
+
+
+
+## 4.3 Evaluation of LLM Pipelines
+
+<a href="https://www.youtube.com/watch?v=GmPXHjTa5ZA&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/GmPXHjTa5ZA">
+</a>
+
+
+# Links
+
+* [Phoenix](https://github.com/Arize-ai/phoenix) (give it a star!)
+* [Pre-Built Evals](https://arize.com/docs/phoenix/evaluation/how-to-evals/running-pre-tested-evals)
+* [Retrieval (RAG) Relevance](https://arize.com/docs/phoenix/evaluation/how-to-evals/running-pre-tested-evals/retrieval-rag-relevance)
+* [Phoenix Community Slack](https://join.slack.com/t/arize-ai/shared_invite/zt-26zg4u3lw-OjUNoLvKQ2Yv53EfvxW6Kg)
 
 
 # Notes
