@@ -10,8 +10,8 @@ metrics to assess the answer quality of a deployed LLM. We also
 collect chat history and user feedback.
 
 
-* Slides: TBA
-* Code: [code](code/)
+* [Slides](https://docs.google.com/presentation/d/19a8Tsn6jXn1GqBSjTEhGusv4eX7fTyG5Qot1CvUeTOw/edit?usp=sharing)
+* [code](code/)
 
 ## 4.1 Introduction
 
