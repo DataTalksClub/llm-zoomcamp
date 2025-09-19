@@ -19,7 +19,7 @@ In 10 weeks, learn how to build AI systems that answer questions about your know
 <a href="https://app.slack.com/client/T01ATQK62F8/C06TEGTGM3J">#course-llm-zoomcamp Channel</a> •
 <a href="https://t.me/llm_zoomcamp">Telegram Announcements</a> •
 <a href="https://www.youtube.com/playlist?list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">Course Playlist</a> •
-<a href="https://docs.google.com/document/d/1m2KexowAXTmexfC5rVTCSnaShvdUQ8Ag2IEiwBDHxN0/edit?usp=sharing">FAQ</a>
+<a href="https://datatalks.club/faq/llm-zoomcamp.html">FAQ</a>
 </p>
 
 ## How to Take LLM Zoomcamp
