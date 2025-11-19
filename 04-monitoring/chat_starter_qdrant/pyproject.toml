@@ -12,6 +12,7 @@ dependencies = [
     "openinference-instrumentation-openai>=0.1.40",
     "openinference-semantic-conventions>=0.1.24",
     "opentelemetry-api>=1.38.0",
+    "opentelemetry-instrumentation-qdrant>=0.48.1",
     "opentelemetry-sdk>=1.38.0",
     "pandas>=2.3.2",
     "qdrant-client[fastembed]>=1.15.1",

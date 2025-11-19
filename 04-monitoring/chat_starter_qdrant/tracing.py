@@ -9,13 +9,14 @@ Environment:
 If you're using Phoenix Cloud, set PHOENIX_API_KEY in your environment; phoenix.otel.register will pick it up.
 This setup targets a local Phoenix instance by default.
 """
-import os
 from phoenix.otel import register # type: ignore
+from config import PROJECT_NAME
+
+
 
 def _init_tracer():
-    project_name = os.getenv("PHOENIX_PROJECT_NAME", "qdrant-rag-project")
     # If endpoint not provided, phoenix.register uses sensible defaults.
-    tp = register(protocol="http/protobuf", project_name=project_name)
-    return tp.get_tracer("course-ta")
+    tp = register(project_name=PROJECT_NAME, auto_instrument=True)
+    return tp.get_tracer(PROJECT_NAME)
 
 tracer = _init_tracer()

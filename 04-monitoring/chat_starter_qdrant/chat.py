@@ -27,26 +27,6 @@ QUESTION: {question}
 CONTEXT: {context}
 """.strip()
 
-@tracer.start_as_current_span("run_rag_pipeline", openinference_span_kind="chain")
-def build_context_for_client_query(query: str, k: int = 3, prompt_template: str=dev_prompt_template) -> str:
-    
-    with tracer.start_as_current_span("user_query_received") as span:
-        span.set_attribute("user.query", query)
-    
-    with tracer.start_as_current_span("qdrant_search") as span:
-        search_results = sv.search_hybrid(query=query, 
-                                            limit=k,
-                                            filter_key="course",
-                                            filter_value="mlops-zoomcamp")
-        span.set_attribute("search.results.count", len(search_results))
-        if search_results:
-            span.set_attribute("search.result.text", search_results[0].payload["text"])
-        with tracer.start_as_current_span("context_creation") as span:
-            context = build_context(search_results)
-            prompt = prompt_template.format(question=query, context=context)
-            span.set_attribute("llm.prompt", prompt)
-            return prompt
-
 st.set_page_config(page_title="Course Chat Assistant", page_icon="💬")
 st.title("Course Chat Assistant")
 
@@ -65,12 +45,26 @@ if user_input := st.chat_input("Ask a question..."):
         st.session_state.messages.append({"role": "user", "content": user_input})
         st.markdown(user_input)
 
-    prompt = build_context_for_client_query(query=user_input, k=5, prompt_template=dev_prompt_template)
-    st.session_state.prompts.append({"role": "user", "content": prompt})
+    with tracer.start_as_current_span("user_query_received", openinference_span_kind="llm") as llm_span:
+        llm_span.set_attribute("llm.input.preview", user_input[:100])
+        llm_span.set_attribute("input.value", user_input)
 
-    with st.chat_message("assistant"):
-        client = OpenAIClient(api_key=os.getenv("OPENAI_API_KEY"), model=MODEL)
-        stream = client.chat_stream(messages=st.session_state.prompts)
-
-        response = st.write_stream(stream)
-    st.session_state.messages.append({"role": "assistant", "content": response})
+      
+        search_results = sv.search_hybrid(query=user_input, 
+                                            limit=1,
+                                            filter_key="course",
+                                            filter_value="mlops-zoomcamp")
+        if search_results:
+            llm_span.set_attribute("search.result.text", search_results[0].payload["text"])
+            context = build_context(search_results)
+            prompt = dev_prompt_template.format(question=user_input, context=context)
+            llm_span.set_attribute("llm.prompt", prompt)
+            st.session_state.prompts.append({"role": "user", "content": prompt})
+     
+        with st.chat_message("assistant"):
+            client = OpenAIClient(api_key=os.getenv("OPENAI_API_KEY"), model=MODEL)
+            stream = client.chat_stream(messages=st.session_state.prompts)
+            response = st.write_stream(stream)
+            st.session_state.messages.append({"role": "assistant", "content": response})
+            llm_span.set_attribute("llm.output.preview", response[:100])
+            llm_span.set_attribute("output.value", response)

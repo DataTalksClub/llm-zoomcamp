@@ -3,9 +3,8 @@ from qdrant_client import QdrantClient, models
 from openai import OpenAI
 import os
 from config import QDRANT_HOST, COLLECTION_NAME
+from openinference.semconv.trace import SpanAttributes, OpenInferenceSpanKindValues
 from tracing import tracer
-
-
 class Tools:
 
     def __init__(self):
@@ -178,7 +177,7 @@ class SearchTool:
 
     def search_hybrid(self, query: str, limit: int=1, filter_key: str=None, filter_value: str="mlops-zoomcamp") -> list[models.ScoredPoint]:
         
-        with tracer.start_as_current_span("retrieve") as span:
+        with tracer.start_as_current_span("qdrant_hybrid_search") as vector_span:
             try:
                 results = self.client.query_points(
                 collection_name=self.collection_name,
@@ -222,39 +221,39 @@ class SearchTool:
                 with_payload=True,
                 limit=limit
                 )
-                span.set_attribute("openinference.span.kind", "RETRIEVER")
-                span.set_attribute("input.value", query)
-                span.set_attribute("retrieval.top_k", limit)
-                span.set_attribute("retrieval.filter", json.dumps({f'{filter_key}': f'{filter_value}'}))
+                vector_span.set_attribute(SpanAttributes.OPENINFERENCE_SPAN_KIND, OpenInferenceSpanKindValues.RETRIEVER.value)
+                vector_span.set_attribute(SpanAttributes.INPUT_VALUE, query)
+                vector_span.set_attribute("retrieval.top_k", limit)
+                vector_span.set_attribute("retrieval.filter", json.dumps({f'{filter_key}': f'{filter_value}'}))
 
 
                 for i, doc in enumerate(results.points):
                     prefix = f"retrieval.document.{i}.document"
                     doc_id = doc.id if isinstance(doc, object) else i
-                    span.set_attribute(f"{prefix}.id", str(doc_id))
+                    vector_span.set_attribute(f"{prefix}.id", str(doc_id))
 
                     if isinstance(doc, object) and doc.score:
-                        span.set_attribute(f"{prefix}.score", float(doc.score))
+                        vector_span.set_attribute(f"{prefix}.score", float(doc.score))
 
                     if isinstance(doc, object) and doc.payload:
-                        span.set_attribute(f"{prefix}.payload", json.dumps(doc.payload["text"][:100]))
+                        vector_span.set_attribute(f"{prefix}.content", doc.payload["text"][:100])
                     else:
-                        span.set_attribute(f"{prefix}.payload", str(doc)[:500])
+                        vector_span.set_attribute(f"{prefix}.content", str(doc)[:500])
                     
-                    span.add_event(
+                    vector_span.add_event(
                         name=f"retrieved_document_{i}_{doc_id if doc_id else i}",
                         attributes={
                             "document.index": i,
                             "document.id": doc_id if doc_id else str(i),
                             "document.score": doc.score if isinstance(doc, object) and doc.score else None,
-                            "document.payload": json.dumps(doc.payload["text"][:100]) if isinstance(doc, object) and doc.payload else str(doc)[:500]
+                            "document.content": json.dumps(doc.payload["text"][:100]) if isinstance(doc, object) and doc.payload else str(doc)[:500]
                         }
                     )
-                span.set_attribute("retrieval.documents.count", int(len(results.points)))
+                vector_span.set_attribute("retrieval.documents.count", int(len(results.points)))
                 return results.points
             except Exception as e:
-                span.record_exception(e)
-                span.set_status("ERROR")
+                vector_span.record_exception(e)
+                vector_span.set_status("ERROR")
                 raise e
 
 if __name__ == "__main__":
