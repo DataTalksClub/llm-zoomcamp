@@ -95,5 +95,5 @@ Links:
 
 # Notes
 
-* First link goes here
+* [Cohort|2025] RAG Evaluation FAQ by Nitin Gupta (https://github.com/niting9881/llm-zoomcamp-project3/blob/main/RAG_EVALUATION_FAQ.md)
 * Did you take notes? Add them above this line (Send a PR with *links* to your notes)
