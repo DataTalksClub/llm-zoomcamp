@@ -1,0 +1,21 @@
+[project]
+name = "chat_starter_qdrant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "arize-phoenix>=12.6.1",
+    "jupyter>=1.1.1",
+    "minsearch>=0.0.4",
+    "openai>=1.108.1",
+    "openinference-instrumentation-openai>=0.1.40",
+    "openinference-semantic-conventions>=0.1.24",
+    "opentelemetry-api>=1.38.0",
+    "opentelemetry-instrumentation-qdrant>=0.48.1",
+    "opentelemetry-sdk>=1.38.0",
+    "pandas>=2.3.2",
+    "qdrant-client[fastembed]>=1.15.1",
+    "sentence-transformers>=5.1.1",
+    "streamlit>=1.50.0",
+]
