@@ -1,6 +1,6 @@
 import streamlit as st
 from config import QDRANT_HOST, COLLECTION_NAME
-from tools import SearchTool, QdrantVectorStore, build_context, OpenAIClient
+from tools import SearchTool, QdrantVectorStore, build_context, format_citations, OpenAIClient
 import os
 from openinference.instrumentation.openai import OpenAIInstrumentor
 from tracing import tracer
@@ -16,11 +16,14 @@ sv = SearchTool(client=qv.client,
                 collection_name=COLLECTION_NAME)
     
 dev_prompt_template = """
-You are a course assistant, and your goal is to answer questions of students, where QUESTION is provided below and CONTEXT is provided most of the times. 
+You are a course assistant, and your goal is to answer questions of students, where QUESTION is provided below and CONTEXT is provided most of the times.
 Rules:
 * Answer the QUESTION based on the CONTEXT.
 * Use only the facts from the CONTEXT.
-* If CONTEXT is empty, please let the student know, the information about their query is not there, however you found the following information on the web, by searching the web
+* If you use information from the CONTEXT, add inline citations like [1] or [2] that match the numbered sources.
+* If the answer needs more than one source, cite each relevant claim.
+* If CONTEXT is empty or does not contain the answer, say that clearly and do not invent citations.
+* Do not mention any source number that is not present in CONTEXT.
 
 QUESTION: {question}
 
@@ -36,9 +39,15 @@ if "messages" not in st.session_state:
 if "prompts" not in st.session_state:
     st.session_state.prompts = []
 
+if "latest_citations" not in st.session_state:
+    st.session_state.latest_citations = []
+
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+        if message["role"] == "assistant" and message.get("citations"):
+            with st.expander("Sources"):
+                st.markdown(format_citations(message["citations"]))
 
 if user_input := st.chat_input("Ask a question..."):
     with st.chat_message("user response"):
@@ -56,15 +65,28 @@ if user_input := st.chat_input("Ask a question..."):
                                             filter_value="mlops-zoomcamp")
         if search_results:
             llm_span.set_attribute("search.result.text", search_results[0].payload["text"])
-            context = build_context(search_results)
+            context, citations = build_context(search_results)
             prompt = dev_prompt_template.format(question=user_input, context=context)
             llm_span.set_attribute("llm.prompt", prompt)
+            llm_span.set_attribute("search.citations", format_citations(citations))
             st.session_state.prompts.append({"role": "user", "content": prompt})
+            st.session_state.latest_citations = citations
+        else:
+            st.session_state.latest_citations = []
      
         with st.chat_message("assistant"):
             client = OpenAIClient(api_key=os.getenv("OPENAI_API_KEY"), model=MODEL)
             stream = client.chat_stream(messages=st.session_state.prompts)
             response = st.write_stream(stream)
-            st.session_state.messages.append({"role": "assistant", "content": response})
+            if st.session_state.latest_citations:
+                with st.expander("Sources"):
+                    st.markdown(format_citations(st.session_state.latest_citations))
+            st.session_state.messages.append(
+                {
+                    "role": "assistant",
+                    "content": response,
+                    "citations": st.session_state.latest_citations,
+                }
+            )
             llm_span.set_attribute("llm.output.preview", response[:100])
             llm_span.set_attribute("output.value", response)

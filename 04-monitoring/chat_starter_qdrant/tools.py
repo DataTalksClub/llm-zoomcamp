@@ -5,6 +5,7 @@ import os
 from config import QDRANT_HOST, COLLECTION_NAME
 from openinference.semconv.trace import SpanAttributes, OpenInferenceSpanKindValues
 from tracing import tracer
+
 class Tools:
 
     def __init__(self):
@@ -131,26 +132,67 @@ class OpenAIClient:
 
 def build_context(result):
     """
-    Builds a context string from the provided documents.
-    
+    Builds a numbered context string and a matching citations list.
+
     Args:
-        documents (list): List of documents to build the context from.
-        
+        result (list): Retrieved Qdrant points.
+
     Returns:
-        str: A formatted string containing the context from the documents.
+        tuple[str, list[dict]]: Context string and source metadata ordered by citation number.
     """
-    context = ""
-    for point in result:
-        if isinstance(point, tuple):
-            for doc in point[1]:
-                context += f"Section: {doc.payload['section']}\nanswer: {doc.payload['text']}\n\n"
-                course = doc.payload['course']
-        else:
-            doc = point.payload
-            context += f"Section: {doc['section']}\nanswer: {doc['text']}\n\n"
-            course = doc['course']
-    context = f"Course: {course}" + "\n\n" + context
-    return context
+    context_parts = []
+    citations = []
+    course = None
+
+    for index, point in enumerate(result, start=1):
+        payload = point.payload if hasattr(point, "payload") else point
+        if not payload:
+            continue
+
+        course = payload.get("course", course)
+        source_title = payload.get("source_title") or payload.get("question") or payload.get("section", "Unknown source")
+        source_section = payload.get("source_section") or payload.get("section", "Unknown section")
+        source_course = payload.get("source_course") or payload.get("course", "Unknown course")
+        chunk_id = payload.get("chunk_id") or f"{source_course}::{source_section}::{index}"
+
+        context_parts.append(
+            "\n".join(
+                [
+                    f"[{index}]",
+                    f"Title: {source_title}",
+                    f"Section: {source_section}",
+                    f"Course: {source_course}",
+                    f"Content: {payload['text']}",
+                ]
+            )
+        )
+        citations.append(
+            {
+                "index": index,
+                "title": source_title,
+                "section": source_section,
+                "course": source_course,
+                "chunk_id": chunk_id,
+                "text": payload["text"],
+            }
+        )
+
+    course_line = f"Course: {course}\n\n" if course else ""
+    context = course_line + "\n\n".join(context_parts)
+    return context, citations
+
+
+def format_citations(citations):
+    if not citations:
+        return ""
+
+    lines = []
+    for citation in citations:
+        lines.append(
+            f"[{citation['index']}] {citation['title']} | "
+            f"Section: {citation['section']} | Course: {citation['course']}"
+        )
+    return "\n".join(lines)
 
 class SearchTool:
     

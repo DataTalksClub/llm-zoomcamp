@@ -69,8 +69,13 @@ Prerequisites
     - "What is the scope of the ml Zoomcamp course?"
     - "How long is the course?"
     - "Do I need to submit homework each week?"
-- Observe responses and check that answers reference ingested documents.
+- Observe responses and check that answers include inline citations such as `[1]`.
+- Expand the `Sources` section under each assistant response to inspect the retrieved supporting chunks.
 - Streamlit default: http://localhost:8501
+
+Citation support
+- The chat app now expects source metadata in Qdrant payloads and renders a `Sources` section for each answer.
+- If your collection was created before this change, re-run `python documents_extraction.py` so existing points get the new citation metadata fields.
 
 7) Evaluation (push reference, QA quality, hallucination in RAG)
 - Run evaluation scripts included in the repo:

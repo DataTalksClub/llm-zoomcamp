@@ -76,7 +76,12 @@ def upsert_documents(client, collection_name: str, model_handle_dense: str, mode
                 payload={
                     "text": doc["text"],
                     "section": doc["section"],
-                    "course": course['course']
+                    "question": doc.get("question", ""),
+                    "course": course["course"],
+                    "source_title": doc.get("question") or doc["section"],
+                    "source_section": doc["section"],
+                    "source_course": course["course"],
+                    "chunk_id": f"{course['course']}::{doc['section']}::{doc.get('question', '')}"
                 }
             )
         for course in documents for doc in course["documents"]
