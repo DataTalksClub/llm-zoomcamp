@@ -24,11 +24,11 @@ In 10 weeks, learn how to build AI systems that answer questions about your know
 
 ## How to Take LLM Zoomcamp
 
-### 2025 Cohort
-- **Start Date**: June 2, 2025, 17:00 CET
+### 2026 Cohort
+- **Start Date**: June 8, 2026, 17:00 CET
 - **Register Here**: [Sign up](https://airtable.com/appPPxkgYLH06Mvbw/shr7WtxHEPXxaui0Q)
 
-2025 cohort checklist:
+2026 cohort checklist:
 - Subscribe to our [Google Calendar](https://calendar.google.com/calendar/?cid=NjkxOThkOGFhZmUyZmQwMzZjNDFkNmE2ZDIyNjE5YjdiMmQyZDVjZTYzOGMxMzQyZmNkYjE5Y2VkNDYxOTUxY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
 - Check [2025 cohort folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025) to stay updated
 - Watch [live Q&A](https://youtube.com/live/8lgiOLMMKcY) about the course
