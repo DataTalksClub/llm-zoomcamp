@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="80%" src="images/llm-zoomcamp-2025.jpg" alt="LLM Zoomcamp">
+  <img width="80%" src="images/llm-zoomcamp-2026.jpg" alt="LLM Zoomcamp">
 </p>
 
 <h1 align="center">
@@ -110,12 +110,6 @@ To keep discussions organized:
 
 ## Sponsors & Supporters
 A special thanks to our course sponsors for making this initiative possible!
-
-<p align="center">
-  <a href="https://arize.com/">
-    <img height="120" src="https://datatalks.club/images/partners/arize.png">
-  </a>
-</p>
 
 <p align="center">
   <a href="https://qdrant.tech/">
