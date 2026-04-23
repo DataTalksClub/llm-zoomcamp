@@ -40,6 +40,7 @@ These services help run LLMs locally, also without GPUs
 - **Sentiment Analysis**
   - [VADER Sentiment Analysis](https://github.com/cjhutto/vaderSentiment)
   - [TextBlob](https://textblob.readthedocs.io/en/dev/)
+  - [TextLens API](https://ckmtools.dev/textlens) - REST API for readability scoring, sentiment analysis, and keyword extraction
 - **Summarization**
   - [Sumy](https://github.com/miso-belica/sumy)
   - [Hugging Face Transformers Summarization](https://huggingface.co/transformers/task_summary.html)
