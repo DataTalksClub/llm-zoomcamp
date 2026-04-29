@@ -1,4 +1,4 @@
-# Module 6: Best practices
+# Module 6: Best Practices
 
 In this module, we'll cover the techniques that could improve your RAG pipeline.
 

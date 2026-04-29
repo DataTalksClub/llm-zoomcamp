@@ -28,14 +28,7 @@ In 10 weeks, learn how to build AI systems that answer questions about your know
 - **Start Date**: June 8, 2026, 17:00 CET
 - **Register Here**: [Sign up](https://airtable.com/appPPxkgYLH06Mvbw/shr7WtxHEPXxaui0Q)
 
-2026 cohort checklist:
-- Subscribe to our [Google Calendar](https://calendar.google.com/calendar/?cid=NjkxOThkOGFhZmUyZmQwMzZjNDFkNmE2ZDIyNjE5YjdiMmQyZDVjZTYzOGMxMzQyZmNkYjE5Y2VkNDYxOTUxY0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t)
-- Check [2025 cohort folder](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025) to stay updated
-- Watch [live Q&A](https://youtube.com/live/8lgiOLMMKcY) about the course
-- Watch [live course launch](https://www.youtube.com/live/FgnelhEJFj0) stream
-- Save the [2025 course playlist](https://youtube.com/playlist?list=PL3MmuxUbc_hIoBpuc900htYF4uhEAbaT-&si=n7CuD0DEgPtnbtsI) on YouTube
-- Check course content by navigating to the right module on GitHub
-- Share this course with a friend!
+
 
 ### Self-Paced Learning
 You can follow the course at your own pace:
@@ -45,49 +38,48 @@ You can follow the course at your own pace:
 
 ## Syllabus
 
-### Pre-course Workshops
-- [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) ([Code](https://github.com/alexeygrigorev/build-your-own-search-engine))
 
-### Modules
-
-#### [Module 1: Introduction to LLMs and RAG](01-intro/)
+### [Module 1: Introduction to LLMs and RAG](01-intro/)
 - Basics of LLMs and Retrieval-Augmented Generation (RAG)
-- OpenAI API and text search with Elasticsearch
+- OpenAI API
+- Text search
 
-#### [Module 2: Vector Search](02-vector-search/)
+
+
+### [Module 2: Agents](02-agents/)
+
+- Adding agentic functionality to RAG
+- Function calling
+
+
+### [Module 3: Vector Search](03-vector-search/)
 
 - Vector search and embeddings
 - Indexing and retrieving data efficiently
-- Using Qdrant as the vector database
 
 
-#### [Workshop: Open-Source Data Ingestion](cohorts/2025/workshops/dlt.md)
+### [Workshop: Open-Source Data Ingestion](cohorts/2025/workshops/dlt.md)
 
 - Using `dlt` for ingesting data for RAG
 
 
-#### [Module A: Agents (bonus)](0a-agents/)
-
-- Adding Agentic functionality to RAG
-- Function calling
-
-#### [Module 3: Evaluation](03-evaluation/)
+### [Module 4: Evaluation](04-evaluation/)
 
 - Search evaluation
 - Online vs offline evaluation
 - LLM as a Judge
 
-#### [Module 4: Monitoring](04-monitoring/)
+### [Module 5: Monitoring](05-monitoring/)
 
 - Online evaluation techniques
 - Monitoring user feedback with dashboards
 
 
-#### [Module 5: Best Practices](05-best-practices/)
+### [Module 6: Best Practices](06-best-practices/)
 - Hybrid search
 - Document reranking
 
-#### [Module 6: Bonus - End-to-End Project](06-project-example/)
+### [Module 7: Bonus - End-to-End Project](07-project-example/)
 - Build a fitness assistant using LLMs
 
 ### [Capstone Project](project.md)
@@ -96,7 +88,6 @@ Put eveything you learned into practice
 
 ## Meet the Instructors
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev/)
-- [Srilakshmi Chavali](https://www.linkedin.com/in/srilakshmi-chavali)
 - [Timur Kamaliev](https://www.linkedin.com/in/timurkamaliev/)
 
 ## Community & Support
@@ -109,13 +100,8 @@ To keep discussions organized:
 - Review the [community guidelines](https://datatalks.club/slack/guidelines.html).
 
 ## Sponsors & Supporters
-A special thanks to our course sponsors for making this initiative possible!
 
-<p align="center">
-  <a href="https://qdrant.tech/">
-    <img height="120" src="images/qdrant.png">
-  </a>
-</p>
+A special thanks to our course sponsors for making this initiative possible!
 
 <p align="center">
   <a href="https://dlthub.com/">
