@@ -18,7 +18,7 @@
 ## 🔗 Quick Links & Resources
 
 | Resource | Link |
-|-||
+|-|-|
 | 📁 Course materials | [GitHub repository](https://github.com/DataTalksClub/llm-zoomcamp) |
 | 🎥 Video lectures | [YouTube playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R) |
 | 📅 Cohort schedule & deadlines | [courses.datatalks.club](https://courses.datatalks.club) |
@@ -85,7 +85,7 @@ This course is for **people who learn by doing**. After completing it, you'll ha
 No advanced ML background required — but you should be comfortable with the basics.
 
 | Category | Requirement |
-|-||
+|-|-|
 | **Python** | Intermediate — you can write and debug scripts confidently |
 | **Command Line** | Comfortable running commands in a terminal |
 | **Docker** | Basic familiarity (used for some tooling) |
@@ -103,7 +103,7 @@ No advanced ML background required — but you should be comfortable with the ba
 There are two ways to follow the course. Here's how they compare:
 
 | | Live Cohort | Self-Paced |
-||||
+|-|-|-|
 | **Best for** | People who want structure, deadlines & peers | People with irregular schedules |
 | **Start** | June 8, 2026, 17:00 CET | Anytime — all materials are always available |
 | **Lectures** | Pre-recorded, same as self-paced | Pre-recorded on YouTube |
