@@ -15,12 +15,10 @@
 
 ⭐ **Star this repo to stay updated with new modules and cohort announcements**
 
----
-
 ## 🔗 Quick Links & Resources
 
 | Resource | Link |
-|----------|------|
+|-||
 | 📁 Course materials | [GitHub repository](https://github.com/DataTalksClub/llm-zoomcamp) |
 | 🎥 Video lectures | [YouTube playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R) |
 | 📅 Cohort schedule & deadlines | [courses.datatalks.club](https://courses.datatalks.club) |
@@ -31,7 +29,7 @@
 
 </div>
 
----
+
 
 ## 📌 Table of Contents
 
@@ -54,7 +52,7 @@
 - [About DataTalks.Club](#-about-datatalksclub)
 - [License](#-license)
 
----
+
 
 ## 📖 About This Course
 
@@ -62,14 +60,14 @@ Teams turn to large language models because they want applications that answer q
 
 **LLM Zoomcamp** teaches you how to build practical, production-ready LLM applications step by step — from the basics of Large Language Models and RAG all the way to a fully deployed end-to-end AI assistant.
 
----
+
 
 ## 👥 Who Should Join?
 
 This course is for **people who learn by doing**. After completing it, you'll have a working codebase and the hands-on experience to build your own LLM-powered applications.
 
 | Audience | Why This Course? |
-|----------|-----------------|
+|-|--|
 | Software Engineers | Add LLMs, RAG, and modern search capabilities to real products |
 | Data Engineers | Understand how vector search, hybrid search, and retrieval pipelines fit into production systems |
 | ML Practitioners | Get a structured way to evaluate and monitor LLM-based applications |
@@ -80,14 +78,14 @@ This course is for **people who learn by doing**. After completing it, you'll ha
 > [!NOTE]
 > You don't need prior experience with AI or ML. The course focuses on the **engineering side** of modern LLM applications and guides you through concepts step by step.
 
----
+
 
 ## 🎓 Prerequisites
 
 No advanced ML background required — but you should be comfortable with the basics.
 
 | Category | Requirement |
-|----------|------------|
+|-||
 | **Python** | Intermediate — you can write and debug scripts confidently |
 | **Command Line** | Comfortable running commands in a terminal |
 | **Docker** | Basic familiarity (used for some tooling) |
@@ -98,14 +96,14 @@ No advanced ML background required — but you should be comfortable with the ba
 > [!NOTE]
 > If you can write a Python function and have heard of ChatGPT, you have enough to get started.
 
----
+
 
 ## 🗓️ How to Take LLM Zoomcamp
 
 There are two ways to follow the course. Here's how they compare:
 
 | | Live Cohort | Self-Paced |
-|---|---|---|
+||||
 | **Best for** | People who want structure, deadlines & peers | People with irregular schedules |
 | **Start** | June 8, 2026, 17:00 CET | Anytime — all materials are always available |
 | **Lectures** | Pre-recorded, same as self-paced | Pre-recorded on YouTube |
@@ -126,12 +124,12 @@ There are two ways to follow the course. Here's how they compare:
 3. Ask questions and share progress in [Slack](https://datatalks.club/slack.html)
 4. Build a project for your portfolio — even outside a live cohort
 
----
+
 
 ## 🎯 What You'll Learn
 
 | Topic | Tools | You'll Be Able To… |
-|-------|-------|-------------------|
+|-|-|-|
 | **LLMs & RAG Fundamentals** | OpenAI API, Elasticsearch | Build a Q&A system backed by a document store |
 | **Vector Search & Embeddings** | Qdrant, dlt | Retrieve semantically relevant documents at scale |
 | **AI Agents** | OpenAI Function Calling | Give your LLM the ability to take actions and use tools |
@@ -140,7 +138,7 @@ There are two ways to follow the course. Here's how they compare:
 | **Monitoring** | Grafana, dashboards | Track real-world performance and catch regressions early |
 | **Best Practices** | LangChain, hybrid search tools | Improve retrieval with hybrid search, reranking, and orchestration |
 
----
+
 
 ## 📚 Course Syllabus
 
@@ -149,10 +147,10 @@ There are two ways to follow the course. Here's how they compare:
 2. Complete the homework to reinforce the concepts
 3. Build your capstone project applying everything end-to-end
 
----
+
 
 | Module | Topic | Key Tools | What You'll Be Able to Do After |
-|--------|-------|-----------|----------------------------------|
+|--|-|--|-|
 | [1 – Intro to LLMs & RAG](01-intro/) | Foundations | OpenAI API, Elasticsearch | Build a basic RAG pipeline with text search |
 | [2 – Agents](02-agents/) | Agentic RAG | OpenAI Function Calling | Add autonomous tool use and function calling to RAG |
 | [3 – Vector Search](03-vector-search/) | Retrieval | Qdrant, dlt | Index and retrieve documents using semantic embeddings |
@@ -163,7 +161,7 @@ There are two ways to follow the course. Here's how they compare:
 | [7 – End-to-End Project](07-project-example/) | Capstone reference | All tools | Follow a complete worked example: a fitness assistant built with LLMs |
 | [Capstone Project](project.md) | Your project | Your choice | Ship a complete RAG application of your own from scratch |
 
----
+
 
 ## 🏆 Capstone Project
 
@@ -188,7 +186,7 @@ The capstone is your chance to apply everything end-to-end — a complete, worki
 > [!NOTE]
 > See the full [capstone project guidelines](project.md) and browse [all 2025 cohort submissions](https://courses.datatalks.club/llm-zoomcamp-2025/projects) for inspiration.
 
----
+
 
 ## 🏅 How to Get a Certificate
 
@@ -202,18 +200,18 @@ To earn your certificate:
 
 > Certificates are issued after all peer reviews are completed. Self-paced learners are not eligible for certification but can build portfolio projects freely.
 
----
+
 
 ## 💰 Cost
 
 The course is **100% free**. If you run the code yourself, expect small API costs:
 
 | Service | Estimated Cost | Notes |
-|---------|---------------|-------|
+|||-|
 | OpenAI API | ~$1–5 | For LLM calls and embeddings during exercises |
 | All other tools | $0 | Everything else has a free tier |
 
----
+
 
 ## 👨‍🏫 Meet the Instructors
 
@@ -234,7 +232,7 @@ The course is **100% free**. If you run the code yourself, expect small API cost
   </tr>
 </table>
 
----
+
 
 ## Sponsors
 
@@ -249,7 +247,7 @@ A huge thanks to our sponsors for making this course possible!
 > [!TIP]
 > Interested in supporting the DataTalks.Club community? Reach out to [alexey@datatalks.club](mailto:alexey@datatalks.club).
 
----
+
 
 ## 💬 Testimonials
 
@@ -263,7 +261,7 @@ A huge thanks to our sponsors for making this course possible!
 
 [Read more testimonials from past graduates →](https://datatalks.club/blog/llm-zoomcamp.html)
 
----
+
 
 ## 🤝 Community & Support
 
@@ -279,7 +277,7 @@ To keep discussions useful for everyone:
 
 We actively encourage sharing your progress online throughout the course. Posting what you're building — on LinkedIn, Twitter/X, or a blog — helps you get noticed, connect with others in the field, and earn **bonus points** toward your homework and project scores.
 
----
+
 
 ## ❓ FAQ
 
@@ -312,7 +310,7 @@ Post in [`#course-llm-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C06TEG
 **How much time should I expect to spend?**
 Expect roughly 5–10 hours per week, depending on your background and how deep you go into the materials.
 
----
+
 
 ## 🤝 Contributing
 
@@ -324,7 +322,7 @@ Found a bug in the course materials? Know how to improve an explanation or fix b
 
 Every contribution — big or small — helps future learners. Thank you 🙏
 
----
+
 
 ## 🌐 About DataTalks.Club
 
@@ -349,7 +347,7 @@ Every contribution — big or small — helps future learners. Thank you 🙏
 > [!NOTE]
 > Most activity happens on [Slack](https://datatalks.club/slack.html) — join us there for updates, discussions, and community events. Learn more at [DataTalksClub Community Navigation](https://www.notion.so/DataTalksClub-Community-Navigation-bf070ad27ba44bf6bbc9222082f0e5a8).
 
----
+
 
 ## License
 
