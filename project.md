@@ -29,6 +29,11 @@ For that, you need:
 * Collect user feedback and monitor your application
 
 
+## Datasets you cannot use
+
+The DataTalks.Club Zoomcamp course FAQ documents are used as the knowledge base in the course modules and homework. They cannot be used for your project. Pick a different corpus or dataset.
+
+
 ## Project Documentation
 
 Your project rises or falls with its documentation. Hence, here are some general recommendations:
