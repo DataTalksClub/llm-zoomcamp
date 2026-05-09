@@ -8,9 +8,8 @@ Colab, SageMaker, or anything else with a notebook.
 
 ## Prerequisites
 
-- Python (3.11 or later)
-- An [OpenAI account](https://openai.com/) (or an OpenAI-compatible
-  provider like Groq, Gemini, or Ollama)
+- Python (3.13 or later)
+- An [OpenAI account](https://openai.com/) or alternative
 - Basic familiarity with Python and the command line
 
 
@@ -119,20 +118,13 @@ use [dirdotenv](https://github.com/alexeygrigorev/dirdotenv) - it
 automatically loads `.env` files when you `cd` into a directory:
 
 ```bash
-pip install dirdotenv
+uv tool install dirdotenv
 echo 'eval "$(dirdotenv hook bash)"' >> ~/.bashrc
 ```
 
 Restart your terminal, and now whenever you enter the project
 directory, the variables from `.env` are loaded automatically. No
 `load_dotenv()` needed.
-
-Alternatives:
-
-- [direnv](https://direnv.net/) - similar idea, implemented in Go,
-  primarily for Linux and macOS
-- [python-dotenv](https://github.com/theskumar/python-dotenv/) -
-  what we use above, loads `.env` manually in Python code
 
 
 ## Starting Jupyter
