@@ -2,8 +2,8 @@
 
 For this workshop, all you need is Python with Jupyter.
 
-I use GitHub Codespaces to run it, but you can use whatever
-environment you like.
+You can use whatever environment you like - your laptop, Google
+Colab, SageMaker, or anything else with a notebook.
 
 
 ## Prerequisites
@@ -12,33 +12,6 @@ environment you like.
 - An [OpenAI account](https://openai.com/) (or an OpenAI-compatible
   provider like Groq, Gemini, or Ollama)
 - Basic familiarity with Python and the command line
-
-
-## Setting up Github Codespaces
-
-GitHub Codespaces is the recommended environment for this workshop.
-
-But you can use any other environment with Jupyter Notebook.
-If you want to do it on your laptop, that's perfectly fine.
-
-- Open this repository in GitHub Codespaces, or copy the
-  `01-intro` folder into your own repository
-- Add the OpenAI key:
-    - Go to Settings -> Secrets and Variables (under Security) -> Codespaces
-    - Click "New repository secret"
-    - Name: `OPENAI_API_KEY`, Secret: your key
-    - Click "Add secret"
-- Create a codespace
-    - Click "Code"
-    - Select the "Codespaces" tab
-    - "Create codespace on main"
-
-In case you use it on your laptop, set the API key before you start
-Jupyter:
-
-```bash
-export OPENAI_API_KEY='YOUR_KEY'
-```
 
 
 ## Creating the project
@@ -65,7 +38,7 @@ This creates a `pyproject.toml` and a basic project structure.
 Now add the dependencies we'll need:
 
 ```bash
-uv add requests minsearch openai jupyter
+uv add requests minsearch openai jupyter python-dotenv
 ```
 
 This installs:
@@ -75,21 +48,58 @@ This installs:
   searching text
 - `openai` - the OpenAI API client for calling the LLM
 - `jupyter` - the notebook environment where we'll write and run code
+- `python-dotenv` - to load API keys from a `.env` file
 
-Start Jupyter:
+
+## Setting up API keys
+
+We need an API key to talk to the LLM. The safest way to store it
+is in a `.env` file that never gets committed to git.
+
+Create a `.env` file in your project folder:
 
 ```bash
-uv run jupyter notebook
+echo 'OPENAI_API_KEY=sk-YOUR_KEY_HERE' > .env
 ```
 
-Create a new notebook. Throughout the workshop, you'll copy code from the section notes into notebook cells. Check that the OpenAI client works:
+Now create a `.gitignore` file to make sure you never accidentally
+commit your key:
+
+```bash
+echo '.env' >> .gitignore
+```
+
+Never commit `.env` to git. Never share your API key with anyone.
+
+
+## Loading API keys in Python
+
+In your notebook, load the `.env` file before creating the OpenAI
+client:
+
+```python
+from dotenv import load_dotenv
+load_dotenv()
+```
+
+Then check that it works:
 
 ```python
 from openai import OpenAI
 openai_client = OpenAI()
 ```
 
-For Groq or other OpenAI-compatible providers:
+If you see an error, make sure the key in your `.env` file is
+correct.
+
+For Groq or other OpenAI-compatible providers, add the key to
+`.env`:
+
+```
+GROQ_API_KEY=your_key_here
+```
+
+And configure the client:
 
 ```python
 from openai import OpenAI
@@ -101,5 +111,37 @@ openai_client = OpenAI(
 )
 ```
 
-If you see an error, make sure you set the key correctly.
 
+## (Optional) Auto-loading .env with dirdotenv
+
+If you don't want to call `load_dotenv()` in every notebook, you can
+use [dirdotenv](https://github.com/alexeygrigorev/dirdotenv) - it
+automatically loads `.env` files when you `cd` into a directory:
+
+```bash
+pip install dirdotenv
+echo 'eval "$(dirdotenv hook bash)"' >> ~/.bashrc
+```
+
+Restart your terminal, and now whenever you enter the project
+directory, the variables from `.env` are loaded automatically. No
+`load_dotenv()` needed.
+
+Alternatives:
+
+- [direnv](https://direnv.net/) - similar idea, implemented in Go,
+  primarily for Linux and macOS
+- [python-dotenv](https://github.com/theskumar/python-dotenv/) -
+  what we use above, loads `.env` manually in Python code
+
+
+## Starting Jupyter
+
+Start Jupyter:
+
+```bash
+uv run jupyter notebook
+```
+
+Create a new notebook. Throughout the workshop, you'll copy code from
+the section notes into notebook cells.
