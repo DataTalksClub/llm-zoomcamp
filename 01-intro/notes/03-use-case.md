@@ -1,12 +1,21 @@
 # The Use Case: Course FAQ
 
-Throughout this workshop, our knowledge base is the
-[DataTalks.Club FAQ](https://datatalks.club/faq) - a collection of
-questions and answers from our Zoomcamp courses (machine learning,
-data engineering, MLOps, LLM).
+In our community at DataTalks.Club, we run multiple Zoomcamp courses.
+For each course, we maintain a FAQ document with common questions and
+answers - things that aren't covered in the videos or aren't easy to
+find.
 
-We'll build a RAG system that can answer questions about these
-courses by searching the FAQ and feeding the results to an LLM.
+The problem: some of these documents have over 300 questions. How do
+you find the information you need? It's not trivial. We ask students
+to check the FAQ before posting in Slack, but scrolling through
+hundreds of entries is tedious.
+
+What we want instead: take all this knowledge, put it in a search
+engine, and let students ask questions in natural language. Under the
+hood, the system searches the FAQ, retrieves relevant entries, and
+gives a specific answer - not a generic one.
+
+We'll build that system in this workshop.
 
 
 ## Why we need RAG for this
@@ -34,7 +43,11 @@ ask("Can I still join the course after it started?")
 The LLM will give a generic answer - something like "it depends on
 the course" or "check the course website". It doesn't know about our
 specific Zoomcamp courses, their enrollment policies, or their
-schedules.
+schedules. It says "I can help you, but I need to know more details."
+
+This is different from a question like "how do I cook salmon?" - the
+LLM knows the answer because cooking salmon is common knowledge. But
+our courses are not in the training data.
 
 ```python
 ask("How do I get a certificate?")
@@ -48,8 +61,10 @@ The issue: the LLM's training data doesn't contain our FAQ. It has
 general knowledge about courses and certificates, but not the
 specific answers to these specific questions.
 
-We need a way to give the LLM access to our data. That's what RAG
-does - and we'll build it step by step in the following sections.
+The reason we use search (retrieval) is to give the LLM more
+information, more context, so it can give the right answer. That's
+what RAG does - and we'll build it step by step in the following
+sections.
 
 
 ## The FAQ dataset

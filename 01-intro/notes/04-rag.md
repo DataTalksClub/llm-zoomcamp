@@ -1,22 +1,27 @@
 # What is RAG
 
-## Large Language Models
+## What are LLMs
 
-A Large Language Model (LLM) is a neural network trained on massive
+An LLM (Large Language Model) is a neural network trained on massive
 amounts of text. Given a prompt, it generates a continuation - a
 plausible next piece of text.
 
-You've probably used ChatGPT, which is powered by GPT-4o. Other
-popular models include Claude, Gemini, and Llama.
+Think of your phone. When you type "how are" in WhatsApp, it
+suggests "you" as the next word - because "how are you" is the most
+common continuation. Your phone uses a simple language model for
+that. It predicts the next word based on what you typed so far.
 
-LLMs are good at:
+A large language model does the same thing, but at a much larger
+scale. It has billions of parameters, is trained on tons of data,
+and when it predicts the next word, it feels like you're talking to
+an intelligent being. It understands what you ask and gives
+meaningful answers.
 
-- Answering general knowledge questions
-- Summarizing, translating, and rewriting text
-- Writing code
-- Following instructions
+In this course, we treat LLMs as black boxes. We won't look inside
+or cover the theory. For us, an LLM is a box: text goes in, text
+comes out.
 
-But they have important limitations:
+But LLMs have limitations:
 
 - Knowledge cutoff: they only know what was in their training data.
   If you ask about something that happened after training, they won't
@@ -29,9 +34,13 @@ But they have important limitations:
 
 ## The RAG idea
 
-RAG (Retrieval-Augmented Generation) is a simple but powerful idea:
-instead of hoping the LLM knows the answer, we give it the answer
-by attaching relevant documents to the prompt.
+RAG stands for Retrieval-Augmented Generation. There are two key
+words here: generation and retrieval. Generation is the LLM - it
+generates text. Retrieval is search. We use search to augment the
+LLM's generation.
+
+In other words: we retrieve relevant documents from our knowledge
+base, and use them to augment what the LLM generates.
 
 The flow:
 
@@ -50,12 +59,21 @@ def rag(question):
     return llm(user_prompt)
 ```
 
-That's the entire architecture. Three components: search, prompt, LLM.
+That's the entire architecture. Three components:
 
-The key insight: the LLM only sees the documents we hand it. So its
-answers are grounded in our data. If the right document is retrieved,
-the answer is good. If it's not, the answer suffers. Search quality
-is the backbone of RAG.
+- search
+- prompt
+- LLM
+
+The LLM only sees the documents we hand it. So its answers are
+grounded in our data. If the right document is retrieved, the answer
+is good. If it's not, the answer suffers. Search quality is the
+backbone of RAG.
+
+The database and the LLM can be anything. In this workshop we'll
+use minsearch and then sqlitesearch for search, and OpenAI for the
+LLM. But you can swap any component and see what works better. That's
+what makes RAG so flexible - plug and play.
 
 
 ## RAG vs fine-tuning

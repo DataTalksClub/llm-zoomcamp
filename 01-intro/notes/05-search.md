@@ -87,8 +87,14 @@ by section or course.
 ## Indexing with minsearch
 
 [minsearch](https://github.com/alexeygrigorev/minsearch) is a simple
-in-memory search engine. It uses TF-IDF for text fields and supports
-exact-match filtering on keyword fields.
+in-memory search engine. It's a toy implementation - not production
+ready - but it illustrates how search engines work and it gives good
+results. We'll start with it and later replace it with sqlitesearch
+for a persistent backend.
+
+The concepts in minsearch (text fields, keyword fields, boosting,
+filtering) are the same concepts used by Elasticsearch, which in
+turn comes from Lucene. So what you learn here transfers directly.
 
 We'll index the `question`, `section`, and `answer` fields as text
 (they'll be tokenized and ranked), and the `course` field as a
@@ -163,8 +169,11 @@ different queries and courses to get a feel for the results.
 ## Boosting fields
 
 Not all fields are equally important. The `question` field is usually
-more relevant than `section` for matching. minsearch supports field
-boosting:
+more relevant than `section` for matching - if the query words appear
+in the question, that's a stronger signal than if they appear in the
+section name.
+
+minsearch supports field boosting to reflect this:
 
 ```python
 results = index.search(
@@ -174,9 +183,10 @@ results = index.search(
 )
 ```
 
-Here we boost `question` by 3x (it counts three times as much) and
-de-boost `section` by 0.5x. This gives more weight to documents
-where the query matches the question text.
+All fields have a default boost of 1. Giving `question` a boost of 3
+means it counts three times as much. Giving `section` 0.5 means it
+counts half as much. This is the same boosting mechanism used by
+Elasticsearch and Lucene.
 
 Try different boost values and see how the results change.
 

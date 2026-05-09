@@ -101,8 +101,12 @@ keeps the answer grounded.
 Key principles:
 
 - Be explicit: tell the LLM to use only the provided context.
+- Give it a role: "you're a course teaching assistant" tells the LLM
+  how to behave.
 - Be structured: format the context clearly so the LLM can parse it.
 - Be concise: don't pad the prompt with unnecessary instructions.
 
-We'll keep this prompt simple. In a real system you might add more
-instructions, but the structure stays the same.
+Prompt engineering is a mix of art and science. You experiment, try
+different things, and see what works. Later in the course we'll talk
+about evaluation metrics so you can numerically measure how well your
+prompt performs. For now, this template is a good starting point.

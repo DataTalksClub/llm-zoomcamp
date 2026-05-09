@@ -160,4 +160,8 @@ The three components are independent and replaceable:
 - Swap `build_prompt` for a different prompt template
 - Swap `llm` for a different model or provider
 
+Each function is independent. You can plug and play. Later when we
+want to replace minsearch with sqlitesearch, all we need to do is
+change the `search` function - the rest stays the same.
+
 This modularity is what makes RAG so flexible.

@@ -15,20 +15,38 @@ Places where you can find me:
 - X: https://x.com/Al_Grigor
 
 
-## What we'll cover
+## Large Language Models
 
-Large Language Models (LLMs) are powerful, but they have limitations:
+A Large Language Model (LLM) is a neural network trained on massive
+amounts of text. Given a prompt, it generates a continuation - a
+plausible next piece of text.
 
-- They don't know about your private data.
-- Their training data has a cutoff date.
-- They sometimes hallucinate - make things up that sound plausible.
+LLMs are good at:
+
+- Answering general knowledge questions
+- Summarizing, translating, and rewriting text
+- Writing code
+- Following instructions
+
+But they have important limitations:
+
+- Knowledge cutoff: they only know what was in their training data.
+  If you ask about something that happened after training, they won't
+  know - or worse, they'll make something up.
+- No access to your data: they can't see your documents, databases,
+  or internal systems unless you provide that information.
+- Hallucinations: they sometimes produce confident-sounding answers
+  that are simply wrong.
+
+
+## RAG
 
 RAG solves these problems by giving the LLM relevant documents at
 question time. Instead of hoping the model memorized the answer, we
 retrieve the right information and hand it to the LLM to generate
 a grounded response.
 
-In this workshop, we will:
+In this module, we will:
 
 - Understand what RAG is and how it works
 - Build a search engine over a real FAQ dataset
