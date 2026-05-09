@@ -45,7 +45,7 @@ How it works:
 You store the vectors in a vector database (Qdrant, Weaviate, Milvus,
 Pinecone) and query with the vector of the user's question.
 
-In the LLM Zoomcamp, Module 3 covers vector search in detail.
+In the LLM Zoomcamp, Module 2 covers vector search in detail.
 
 
 ## Elasticsearch
@@ -83,7 +83,7 @@ pipeline, the LLM decides what to do:
 The key shift: from a hardcoded pipeline to an LLM that chooses
 what to do next based on what it sees.
 
-In the LLM Zoomcamp, Module 2 covers agents in detail.
+In the LLM Zoomcamp, Module 3 covers agents in detail.
 
 
 ## Evaluation
