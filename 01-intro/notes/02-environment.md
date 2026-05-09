@@ -55,17 +55,18 @@ This installs:
 We need an API key to talk to the LLM. The safest way to store it
 is in a `.env` file that never gets committed to git.
 
-Create a `.env` file in your project folder:
+Create a `.env` file in your project folder and put your API key in
+it:
 
-```bash
-echo 'OPENAI_API_KEY=sk-YOUR_KEY_HERE' > .env
+```
+OPENAI_API_KEY=sk-YOUR_KEY_HERE
 ```
 
-Now create a `.gitignore` file to make sure you never accidentally
+Now add `.env` to `.gitignore` to make sure you never accidentally
 commit your key:
 
-```bash
-echo '.env' >> .gitignore
+```
+.env
 ```
 
 Never commit `.env` to git. Never share your API key with anyone.
