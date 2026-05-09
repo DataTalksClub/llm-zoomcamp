@@ -51,18 +51,6 @@ This installs:
 - `python-dotenv` - to load API keys from a `.env` file
 
 
-## Starting Jupyter
-
-Start Jupyter:
-
-```bash
-uv run jupyter notebook
-```
-
-Create a new notebook. Throughout the workshop, you'll copy code from
-the section notes into notebook cells.
-
-
 ## Setting up API keys
 
 We need an API key to talk to the LLM. The safest way to store it
@@ -84,8 +72,19 @@ commit your key:
 
 Never commit `.env` to git. Never share your API key with anyone.
 
-Back in your notebook, load the `.env` file and check that the
-OpenAI client works:
+
+## Starting Jupyter
+
+Start Jupyter:
+
+```bash
+uv run jupyter notebook
+```
+
+Create a new notebook. Throughout the workshop, you'll copy code from
+the section notes into notebook cells.
+
+Check that the OpenAI client works:
 
 ```python
 from dotenv import load_dotenv
