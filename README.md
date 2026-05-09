@@ -82,22 +82,22 @@ There are two ways to follow the course: live and self-paced.
 
 ## 📚 Course Syllabus
 
+- [1. Introduction to LLMs & RAG](01-intro/). Build a basic RAG pipeline with text search
+- [2. Vector Search](02-vector-search/). Index and retrieve documents using semantic embeddings
+- [3. Agents](03-agents/). Add autonomous tool use and function calling to RAG
+- [Workshop - Data Ingestion](cohorts/2025/workshops/dlt.md). Ingest data with dlt from external sources into your RAG system
+- [4. Evaluation](04-evaluation/). Measure retrieval and answer quality with offline and online eval
+- [5. Monitoring](05-monitoring/). Monitor user feedback and system health with live dashboards
+- [6. Best Practices](06-best-practices/). LangChain, hybrid search. Combine vector + keyword search; rerank results for higher precision
+- [7. End-to-End Project](07-project-example/). A complete project example: a fitness assistant built with LLMs
+- [Capstone Project](project.md). Ship a complete end-to-end project of your choice from scratch
+
 Recommended approach:
+
 1. Watch the video for each module
 2. Complete the homework to reinforce the concepts
 3. Build your capstone project applying everything end-to-end
 
-
-
-- 1. [Introduction to LLMs & RAG](01-intro/). Build a basic RAG pipeline with text search
-- 2. [Vector Search](02-vector-search/). Index and retrieve documents using semantic embeddings
-- 3. [Agents](03-agents/). Add autonomous tool use and function calling to RAG
-- [Workshop - Data Ingestion](cohorts/2025/workshops/dlt.md). Ingest data with dlt from external sources into your RAG system
-- 4. [Evaluation](04-evaluation/). Measure retrieval and answer quality with offline and online eval
-- 5. [Monitoring](05-monitoring/). Monitor user feedback and system health with live dashboards
-- 6. [Best Practices](06-best-practices/). LangChain, hybrid search. Combine vector + keyword search; rerank results for higher precision
-- 7. [End-to-End Project](07-project-example/). A complete project example: a fitness assistant built with LLMs
-- [Capstone Project](project.md). Ship a complete end-to-end project of your choice from scratch
 
 
 ## 🏆 Capstone Project
