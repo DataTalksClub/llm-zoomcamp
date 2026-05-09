@@ -72,12 +72,11 @@ There are two ways to follow the course: live and self-paced.
 > [!IMPORTANT]
 > "Live cohort" does not mean live classes. All lectures are pre-recorded. "Live" means working with others, having deadlines, getting your homework and project scored, review your peers, and getting a certificate at the end.
 
-### Self-Paced Steps
+Self-paced steps:
 
-1. Watch the course videos on [YouTube](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
-2. Follow the materials on [GitHub](https://github.com/DataTalksClub/llm-zoomcamp)
-3. Ask questions and share progress in [Slack](https://datatalks.club/slack.html)
-4. Build a project for your portfolio. Even outside a live cohort
+1. Follow the materials on [GitHub](https://github.com/DataTalksClub/llm-zoomcamp)
+2. Ask questions and share progress in [Slack](https://datatalks.club/slack.html)
+3. Do homeworks (self-checked) and build a project for your portfolio
 
 
 ## 📚 Course Syllabus
