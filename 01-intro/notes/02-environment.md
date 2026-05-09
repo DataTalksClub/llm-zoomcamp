@@ -8,8 +8,9 @@ Colab, SageMaker, or anything else with a notebook.
 
 ## Prerequisites
 
-- Python (3.13 or later)
-- An [OpenAI account](https://openai.com/) or alternative
+- Python (3.11 or later)
+- An [OpenAI account](https://openai.com/) (or an OpenAI-compatible
+  provider like Groq, Gemini, or Ollama)
 - Basic familiarity with Python and the command line
 
 
@@ -50,6 +51,18 @@ This installs:
 - `python-dotenv` - to load API keys from a `.env` file
 
 
+## Starting Jupyter
+
+Start Jupyter:
+
+```bash
+uv run jupyter notebook
+```
+
+Create a new notebook. Throughout the workshop, you'll copy code from
+the section notes into notebook cells.
+
+
 ## Setting up API keys
 
 We need an API key to talk to the LLM. The safest way to store it
@@ -71,20 +84,13 @@ commit your key:
 
 Never commit `.env` to git. Never share your API key with anyone.
 
-
-## Loading API keys in Python
-
-In your notebook, load the `.env` file before creating the OpenAI
-client:
+Back in your notebook, load the `.env` file and check that the
+OpenAI client works:
 
 ```python
 from dotenv import load_dotenv
 load_dotenv()
-```
 
-Then check that it works:
-
-```python
 from openai import OpenAI
 openai_client = OpenAI()
 ```
@@ -126,15 +132,3 @@ echo 'eval "$(dirdotenv hook bash)"' >> ~/.bashrc
 Restart your terminal, and now whenever you enter the project
 directory, the variables from `.env` are loaded automatically. No
 `load_dotenv()` needed.
-
-
-## Starting Jupyter
-
-Start Jupyter:
-
-```bash
-uv run jupyter notebook
-```
-
-Create a new notebook. Throughout the workshop, you'll copy code from
-the section notes into notebook cells.
