@@ -33,10 +33,10 @@ uv add --dev huggingface-hub
 ## Downloading the model
 
 We'll use [download.py](../embed/download.py) to fetch the ONNX model from
-HuggingFace.
+HuggingFace. Download it:
 
 ```bash
-TODO use wget to get it
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/02-vector-search/embed/download.py
 ```
 
 Now run:
@@ -67,8 +67,11 @@ models/
 ## The Embedder class
 
 We'll use [embedder.py](../embed/embedder.py) for generating embeddings.
+Download it:
 
-TODO wget it
+```bash
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/02-vector-search/embed/embedder.py
+```
 
 Under the hood, it does four things:
 
@@ -97,7 +100,11 @@ d  = "You don't need to register. You're accepted. You can also just start learn
 v1 = embed.encode(q1)
 v2 = embed.encode(q2)
 dv = embed.encode(d)
+```
 
+Compute similarities:
+
+```python
 v1.dot(dv)
 ```
 
@@ -109,11 +116,10 @@ Same result as before: the first score is higher because the query
 about joining the course is more similar to the document about
 registration.
 
-Now let's embed our FAQ dataset:
+Now let's embed our FAQ dataset. First, load the documents:
 
 ```python
 import requests
-from tqdm import tqdm
 
 docs_url = 'https://datatalks.club/faq/json/courses.json'
 response = requests.get(docs_url)
@@ -130,8 +136,19 @@ for course in courses_raw:
     for doc in course_data:
         doc['course_name'] = course['course_name']
         documents.append(doc)
+```
 
+Combine question and answer for each document:
+
+```python
 texts = [doc['question'] + ' ' + doc['answer'] for doc in documents]
+```
+
+Embed in batches:
+
+```python
+from tqdm import tqdm
+import numpy as np
 
 batch_size = 50
 X = []
@@ -156,8 +173,7 @@ idx = np.argmax(scores)
 documents[idx]
 ```
 
-Same results, same pipeline, but with a 17 MB runtime instead of
-500 MB.
+Same results, same pipeline, but ~33x lighter.
 
 
 ## Available models
@@ -167,16 +183,16 @@ All of these work with the same code - just change the model name in
 
 | Model | Dimensions | Notes |
 |---|---|---|
-| `Xenova/all-MiniLM-L6-v2` | 384 | Best small general-purpose |
-| `Xenova/all-MiniLM-L12-v2` | 384 | Better quality, slower |
-| `Xenova/paraphrase-MiniLM-L6-v2` | 384 | Paraphrase detection |
-| `Xenova/paraphrase-multilingual-MiniLM-L12-v2` | 384 | Multilingual |
-| `Xenova/multilingual-e5-small` | 384 | Multilingual retrieval |
-| `Xenova/multilingual-e5-base` | 768 | Stronger multilingual |
-| `Xenova/bge-small-en-v1.5` | 384 | Very strong retrieval |
-| `Xenova/bge-base-en-v1.5` | 768 | Stronger retrieval |
-| `Xenova/gte-small` | 384 | Lightweight modern model |
-| `Xenova/gte-base` | 768 | Stronger GTE |
+| [`Xenova/all-MiniLM-L6-v2`](https://huggingface.co/Xenova/all-MiniLM-L6-v2) | 384 | Best small general-purpose |
+| [`Xenova/all-MiniLM-L12-v2`](https://huggingface.co/Xenova/all-MiniLM-L12-v2) | 384 | Better quality, slower |
+| [`Xenova/paraphrase-MiniLM-L6-v2`](https://huggingface.co/Xenova/paraphrase-MiniLM-L6-v2) | 384 | Paraphrase detection |
+| [`Xenova/paraphrase-multilingual-MiniLM-L12-v2`](https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2) | 384 | Multilingual |
+| [`Xenova/multilingual-e5-small`](https://huggingface.co/Xenova/multilingual-e5-small) | 384 | Multilingual retrieval |
+| [`Xenova/multilingual-e5-base`](https://huggingface.co/Xenova/multilingual-e5-base) | 768 | Stronger multilingual |
+| [`Xenova/bge-small-en-v1.5`](https://huggingface.co/Xenova/bge-small-en-v1.5) | 384 | Very strong retrieval |
+| [`Xenova/bge-base-en-v1.5`](https://huggingface.co/Xenova/bge-base-en-v1.5) | 768 | Stronger retrieval |
+| [`Xenova/gte-small`](https://huggingface.co/Xenova/gte-small) | 384 | Lightweight modern model |
+| [`Xenova/gte-base`](https://huggingface.co/Xenova/gte-base) | 768 | Stronger GTE |
 
 To use a different model, add it to `download.py`, run the download,
 then update the path:
