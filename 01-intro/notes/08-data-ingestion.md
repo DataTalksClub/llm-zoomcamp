@@ -179,10 +179,10 @@ def sqlite_search(query, num_results=5):
         boost_dict=boost_dict
     )
 
-def rag_sqlite(query, model="gpt-4o-mini"):
+def rag_sqlite(query, model="gpt-5.4-mini"):
     search_results = sqlite_search(query)
     prompt = build_prompt(query, search_results)
-    answer = llm(prompt, model=model)
+    answer = llm(INSTRUCTIONS, prompt, model=model)
     return answer
 ```
 

@@ -1,90 +1,9 @@
 # Search
 
-## Fetching the data
-
-Our FAQ data lives at a public URL. Let's fetch it.
-
-First, we get the list of courses:
-
-```python
-import requests
-
-docs_url = 'https://datatalks.club/faq/json/courses.json'
-response = requests.get(docs_url)
-courses_raw = response.json()
-
-courses_raw[:3]
-```
-
-This returns a list of courses. Each course has a `path` field that
-points to its FAQ JSON. For example:
-
-```python
-courses_raw[0]
-```
-
-The `path` field gives us the URL for that course's FAQ data.
-
-Now let's fetch all the FAQ documents from all courses:
-
-```python
-documents = []
-
-for course in courses_raw:
-    course_url = f'https://datatalks.club/faq{course["path"]}'
-    course_response = requests.get(course_url)
-    course_data = course_response.json()
-
-    for doc in course_data:
-        doc['course_name'] = course['course_name']
-        documents.append(doc)
-
-len(documents)
-```
-
-Each document has these fields:
-
-- `id` - unique identifier
-- `course` - course slug (e.g., `machine-learning-zoomcamp`)
-- `section` - which section of the course
-- `question` - the FAQ question
-- `answer` - the FAQ answer
-- `course_name` - human-readable name
-
-Let's look at one:
-
-```python
-documents[0]
-```
-
-You should see a document with a question, an answer, a section,
-and a course. This is one row in our knowledge base.
-
-
-## Understanding the data
-
-Let's check how many documents we have per course:
-
-```python
-from collections import Counter
-
-course_counts = Counter(doc['course'] for doc in documents)
-course_counts
-```
-
-And which sections exist:
-
-```python
-sections = set(doc['section'] for doc in documents)
-len(sections)
-```
-
-Understanding the data helps us design better search. For example,
-if we know the most common sections, we can decide whether to filter
-by section or course.
-
-
 ## Indexing with minsearch
+
+We already have the `documents` list from the previous section. Now
+let's index it.
 
 [minsearch](https://github.com/alexeygrigorev/minsearch) is a simple
 in-memory search engine. It's a toy implementation - not production
@@ -197,14 +116,19 @@ Let's wrap the search in a `search` function. This is the first
 component of our RAG pipeline:
 
 ```python
-def search(query, num_results=5):
+def search(query, course="llm-zoomcamp", num_results=5):
     boost_dict = {"question": 3.0, "section": 0.5}
     return index.search(
         query,
         num_results=num_results,
-        boost_dict=boost_dict
+        boost_dict=boost_dict,
+        filter_dict={"course": course}
     )
 ```
 
-Now `search("How do I sign up?")` returns the most relevant FAQ
-entries. We'll use this when we wire everything together.
+By default it searches the LLM Zoomcamp FAQ. You can pass a
+different course slug to search other courses:
+
+```python
+search("How do I run Docker?", course="mlops-zoomcamp")
+```

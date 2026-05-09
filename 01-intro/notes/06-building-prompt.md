@@ -4,29 +4,23 @@ The LLM doesn't see our documents unless we pass them in. So we need
 to build a prompt that includes the user's question and the search
 results.
 
+In the OpenAI Responses API, we send two things:
+`instructions` tells the LLM how to behave (the system message).
+`input` is the user's question together with the retrieved context.
 
-## Prompt template
 
-A good RAG prompt has two parts:
+## Instructions
 
-1. Instructions - tell the LLM how to behave
-2. Context - the retrieved documents + the user's question
-
-Let's define both:
+The instructions tell the LLM its role and how to answer:
 
 ```python
-PROMPT_TEMPLATE = """
-You're a course teaching assistant. Answer the QUESTION based on the CONTEXT from the FAQ database.
+INSTRUCTIONS = """
+You're a course teaching assistant.
+Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
-
-QUESTION: {question}
-
-CONTEXT:
-{context}
 """.strip()
 ```
 
-The prompt tells the LLM to only use information from the CONTEXT.
 This is what grounds the answer in our data and reduces hallucinations.
 
 
@@ -49,12 +43,18 @@ Each document becomes a block with the section, question, and answer.
 This format makes it easy for the LLM to read.
 
 
-## Putting it together
+## The user prompt
 
-Now the `build_prompt` function combines the template with the search
-results:
+Now we combine the question with the context into the user prompt:
 
 ```python
+PROMPT_TEMPLATE = """
+QUESTION: {question}
+
+CONTEXT:
+{context}
+""".strip()
+
 def build_prompt(query, search_results):
     context = build_context(search_results)
     return PROMPT_TEMPLATE.format(question=query, context=context)
@@ -76,9 +76,6 @@ FAQ entries below it. This is exactly what we'll send to the LLM.
 The prompt looks something like:
 
 ```
-You're a course teaching assistant. Answer the QUESTION based on the CONTEXT from the FAQ database.
-Use only the facts from the CONTEXT when answering the QUESTION.
-
 QUESTION: How do I run Docker on Windows?
 
 CONTEXT:
