@@ -68,16 +68,13 @@ Now add the dependencies we'll need:
 uv add requests minsearch openai jupyter
 ```
 
-Why each library:
+This installs:
 
 - `requests` - to fetch the FAQ dataset from the internet
 - `minsearch` - a simple in-memory search engine for indexing and
   searching text
 - `openai` - the OpenAI API client for calling the LLM
 - `jupyter` - the notebook environment where we'll write and run code
-
-This downloads and installs the libraries into a virtual environment.
-It may take a minute the first time.
 
 Start Jupyter:
 
