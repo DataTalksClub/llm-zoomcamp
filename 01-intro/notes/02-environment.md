@@ -41,27 +41,35 @@ export OPENAI_API_KEY='YOUR_KEY'
 ```
 
 
-## Workshop files
+## Creating the project
 
-This folder contains the code we'll write during the workshop:
+We'll start from scratch - no cloning needed. You'll create the
+project yourself, step by step.
 
-- `notebook.py` - the follow-along version, split into notebook
-  cells with `# %%`. Copy each cell into Jupyter as we go, or open
-  it directly in VS Code/Jupyter.
-
-During the live workshop, we'll write the code ourselves. The files
-are here so the workshop is still useful stand-alone after the
-session.
-
-
-## Installing required libraries
-
-Install the dependencies:
+First, install uv (a fast Python package manager):
 
 ```bash
-cd 01-intro
-uv sync
+pip install uv
 ```
+
+Create an empty folder for the project and initialize it:
+
+```bash
+mkdir rag-workshop
+cd rag-workshop
+uv init
+```
+
+This creates a `pyproject.toml` and a basic project structure.
+
+Now add the dependencies we'll need:
+
+```bash
+uv add requests minsearch openai jupyter
+```
+
+This downloads and installs the libraries into a virtual environment.
+It may take a minute the first time.
 
 Start Jupyter:
 
@@ -69,8 +77,7 @@ Start Jupyter:
 uv run jupyter notebook
 ```
 
-Open Jupyter, create a notebook, and copy the cells from
-`notebook.py` as we go. Check that the OpenAI client works:
+Create a new notebook. Throughout the workshop, you'll copy code from the section notes into notebook cells. Check that the OpenAI client works:
 
 ```python
 from openai import OpenAI
