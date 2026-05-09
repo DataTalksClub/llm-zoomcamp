@@ -8,12 +8,6 @@ In this hands-on session, you'll build a working Retrieval-Augmented
 Generation (RAG) system from scratch, step by step. No frameworks, no
 magic - just Python, a search index, and an LLM.
 
-If you want the full course (agents, vector search, evaluation,
-monitoring, capstone project), check
-[the repo](https://github.com/DataTalksClub/llm-zoomcamp).
-
-To see my other tutorials, check [AI Shipping Labs](https://aishippinglabs.com/) - a community of AI Builders.
-
 Places where you can find me:
 
 - Alexey On Data substack: https://alexeyondata.substack.com/

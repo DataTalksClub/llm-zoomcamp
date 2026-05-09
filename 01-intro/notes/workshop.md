@@ -47,11 +47,12 @@ In this workshop, we will:
 ## Workshop sections
 
 1. [Introduction](01-intro.md) - What we'll cover
-2. [Environment](02-environment.md) - Prerequisites, setup, installing libraries, the use case
-3. [What is RAG](03-rag.md) - LLMs, the RAG idea, RAG vs fine-tuning
-4. [Search](04-search.md) - Fetching data, minsearch index, filtering, boosting
-5. [Building the Prompt](05-building-prompt.md) - Prompt template, context, build_prompt
-6. [The LLM](06-llm.md) - The LLM function, OpenAI API
-7. [Full RAG](07-full-rag.md) - Wiring it together, the complete pipeline
-8. [Data Ingestion](08-data-ingestion.md) - Ingestion script, sqlitesearch, two-process architecture
-9. [Next Steps](09-next-steps.md) - Vector search, Elasticsearch, agents, evaluation, monitoring
+2. [Environment](02-environment.md) - Prerequisites, setup, installing libraries
+3. [Use Case](03-use-case.md) - The Course FAQ dataset
+4. [What is RAG](04-rag.md) - LLMs, the RAG idea, RAG vs fine-tuning
+5. [Search](05-search.md) - Fetching data, minsearch index, filtering, boosting
+6. [Building the Prompt](06-building-prompt.md) - Prompt template, context, build_prompt
+7. [The LLM](07-llm.md) - The LLM function, OpenAI API
+8. [Full RAG](08-full-rag.md) - Wiring it together, the complete pipeline
+9. [Data Ingestion](09-data-ingestion.md) - Ingestion script, sqlitesearch, two-process architecture
+10. [Next Steps](10-next-steps.md) - Vector search, Elasticsearch, agents, evaluation, monitoring
