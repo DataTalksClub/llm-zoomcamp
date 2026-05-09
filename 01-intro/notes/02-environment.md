@@ -55,8 +55,8 @@ pip install uv
 Create an empty folder for the project and initialize it:
 
 ```bash
-mkdir rag-workshop
-cd rag-workshop
+mkdir llm-zoomcamp-code
+cd llm-zoomcamp-code
 uv init
 ```
 
