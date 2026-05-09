@@ -15,20 +15,28 @@ Places where you can find me:
 - X: https://x.com/Al_Grigor
 
 
-## Large Language Models
+## What are LLMs
 
-A Large Language Model (LLM) is a neural network trained on massive
+An LLM (Large Language Model) is a neural network trained on massive
 amounts of text. Given a prompt, it generates a continuation - a
 plausible next piece of text.
 
-LLMs are good at:
+Think of your phone. When you type "how are" in WhatsApp, it
+suggests "you" as the next word - because "how are you" is the most
+common continuation. Your phone uses a simple language model for
+that. It predicts the next word based on what you typed so far.
 
-- Answering general knowledge questions
-- Summarizing, translating, and rewriting text
-- Writing code
-- Following instructions
+A large language model does the same thing, but at a much larger
+scale. It has billions of parameters, is trained on tons of data,
+and when it predicts the next word, it feels like you're talking to
+an intelligent being. It understands what you ask and gives
+meaningful answers.
 
-But they have important limitations:
+In this course, we treat LLMs as black boxes. We won't look inside
+or cover the theory. For us, an LLM is a box: text goes in, text
+comes out.
+
+But LLMs have limitations:
 
 - Knowledge cutoff: they only know what was in their training data.
   If you ask about something that happened after training, they won't
@@ -39,7 +47,7 @@ But they have important limitations:
   that are simply wrong.
 
 
-## RAG
+## What we'll build
 
 RAG solves these problems by giving the LLM relevant documents at
 question time. Instead of hoping the model memorized the answer, we
