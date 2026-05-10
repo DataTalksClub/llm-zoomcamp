@@ -8,7 +8,7 @@ Colab, SageMaker, or anything else with a notebook.
 
 ## Prerequisites
 
-- Python (3.11 or later)
+- Python (3.14 or later)
 - An [OpenAI account](https://openai.com/) (or an OpenAI-compatible
   provider like Groq, Gemini, or Ollama)
 - Basic familiarity with Python and the command line
@@ -19,11 +19,19 @@ Colab, SageMaker, or anything else with a notebook.
 We'll start from scratch - no cloning needed. You'll create the
 project yourself, step by step.
 
-First, install uv (a fast Python package manager):
+First, install uv (a fast Python package manager). On Mac or Linux:
 
 ```bash
-pip install uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+
+On Windows:
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+(You can also use `pip install uv` if you prefer.)
 
 Create an empty folder for the project and initialize it:
 
