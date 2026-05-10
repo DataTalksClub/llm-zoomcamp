@@ -203,6 +203,6 @@ df_ground_truth.to_csv('ground-truth-data.csv', index=False)
 ```
 
 
-[<< Previous: Intro](01-intro)
+[<< Previous: Intro](01-intro.md)
 |
-[Next: Search Evaluation >>](03-search-evaluation)
+[Next: Search Evaluation >>](03-search-evaluation.md)

@@ -221,6 +221,6 @@ Simple checks are fast and deterministic. LLM checks are more nuanced
 but slower and less consistent. Using both gives you the best coverage.
 
 
-[<< Previous: Collecting Agent Data](06-agent-data)
+[<< Previous: Collecting Agent Data](06-agent-data.md)
 |
-[Next: Instruction Following >>](08-instruction-following)
+[Next: Instruction Following >>](08-instruction-following.md)

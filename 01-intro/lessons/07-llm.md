@@ -205,4 +205,4 @@ minsearch with sqlitesearch, only the `search` function changes.
 
 ---
 
-[<- Previous](06-building-prompt) | [Next ->](08-data-ingestion)
+[<- Previous](06-building-prompt.md) | [Next ->](08-data-ingestion.md)

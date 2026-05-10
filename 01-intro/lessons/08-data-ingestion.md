@@ -254,4 +254,4 @@ Or just let Python clean it up when the notebook kernel shuts down.
 
 ---
 
-[<- Previous](07-llm) | [Next ->](09-next-steps)
+[<- Previous](07-llm.md) | [Next ->](09-next-steps.md)

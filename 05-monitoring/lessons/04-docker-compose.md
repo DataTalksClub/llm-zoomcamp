@@ -151,6 +151,6 @@ The data in PostgreSQL and Grafana persists across restarts thanks to
 Docker volumes.
 
 
-[<< Previous: Database](03-database)
+[<< Previous: Database](03-database.md)
 |
-[Next: Grafana Dashboards >>](05-grafana)
+[Next: Grafana Dashboards >>](05-grafana.md)

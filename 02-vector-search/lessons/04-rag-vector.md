@@ -158,4 +158,4 @@ search methods without touching the rest of the code.
 
 ---
 
-[<- Previous](03-minsearch-vector) | [Next ->](05-sqlitesearch-vector)
+[<- Previous](03-minsearch-vector.md) | [Next ->](05-sqlitesearch-vector.md)

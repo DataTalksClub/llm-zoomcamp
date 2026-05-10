@@ -39,4 +39,4 @@ We'll cover:
 
 [<< Back to module](../)
 |
-[Next: Chat App >>](02-chat-app)
+[Next: Chat App >>](02-chat-app.md)

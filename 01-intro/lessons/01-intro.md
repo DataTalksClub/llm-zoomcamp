@@ -65,4 +65,4 @@ In this module, we will:
 
 ---
 
-[<- Previous](../) | [Next ->](02-environment)
+[<- Previous](../) | [Next ->](02-environment.md)

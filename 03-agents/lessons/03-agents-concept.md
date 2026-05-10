@@ -81,4 +81,4 @@ lessons, we'll see how to implement this in code.
 
 ---
 
-[<- Previous](02-rag-revision) | [Next ->](04-function-calling)
+[<- Previous](02-rag-revision.md) | [Next ->](04-function-calling.md)

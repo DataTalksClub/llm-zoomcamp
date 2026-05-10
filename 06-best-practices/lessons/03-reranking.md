@@ -185,6 +185,6 @@ Further reading:
 - [Elasticsearch subscription plans](https://www.elastic.co/subscriptions)
 
 
-[<< Previous: Hybrid Search](02-hybrid-search)
+[<< Previous: Hybrid Search](02-hybrid-search.md)
 |
-[Next: Hybrid Search with LangChain >>](04-langchain)
+[Next: Hybrid Search with LangChain >>](04-langchain.md)

@@ -77,6 +77,6 @@ You can see a detailed summary of content processing approaches
 in [content-processing-summary.md](../content-processing-summary.md).
 
 
-[<< Previous: Summary](06-summary)
+[<< Previous: Summary](06-summary.md)
 |
 [Back to module >>](../)

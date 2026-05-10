@@ -205,4 +205,4 @@ rag("I just discovered the course. Can I still join it?")
 
 ---
 
-[<- Previous](04-rag-vector) | [Next ->](06-pgvector)
+[<- Previous](04-rag-vector.md) | [Next ->](06-pgvector.md)

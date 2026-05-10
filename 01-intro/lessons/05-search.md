@@ -141,5 +141,5 @@ search("How do I run Docker?", course="mlops-zoomcamp")
 
 ---
 
-[<- Previous](04-rag) | [Next ->](06-building-prompt)
+[<- Previous](04-rag.md) | [Next ->](06-building-prompt.md)
 ```

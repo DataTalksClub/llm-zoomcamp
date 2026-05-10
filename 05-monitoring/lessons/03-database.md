@@ -190,6 +190,6 @@ functions for the dashboard. But for the Streamlit app, these are
 useful to show recent conversations and feedback stats.
 
 
-[<< Previous: Chat App](02-chat-app)
+[<< Previous: Chat App](02-chat-app.md)
 |
-[Next: Docker Compose >>](04-docker-compose)
+[Next: Docker Compose >>](04-docker-compose.md)

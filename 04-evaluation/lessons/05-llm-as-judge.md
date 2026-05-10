@@ -234,6 +234,6 @@ Using both metrics together gives you a more complete picture of your
 RAG system's quality.
 
 
-[<< Previous: RAG Evaluation: Cosine Similarity](04-rag-evaluation-cosine)
+[<< Previous: RAG Evaluation: Cosine Similarity](04-rag-evaluation-cosine.md)
 |
-[Next: Collecting Agent Data >>](06-agent-data)
+[Next: Collecting Agent Data >>](06-agent-data.md)

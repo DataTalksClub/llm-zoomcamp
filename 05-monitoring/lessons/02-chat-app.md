@@ -241,6 +241,6 @@ feedback. Each interaction is saved with the question, answer, response
 time, relevance, tokens, and cost.
 
 
-[<< Previous: Intro](01-intro)
+[<< Previous: Intro](01-intro.md)
 |
-[Next: Database >>](03-database)
+[Next: Database >>](03-database.md)

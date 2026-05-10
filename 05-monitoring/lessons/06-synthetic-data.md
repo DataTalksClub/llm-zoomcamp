@@ -150,6 +150,6 @@ important thing is to use `TIMESTAMP WITH TIME ZONE` in PostgreSQL and
 always store timezone-aware datetimes.
 
 
-[<< Previous: Grafana Dashboards](05-grafana)
+[<< Previous: Grafana Dashboards](05-grafana.md)
 |
-[Next: Next Steps >>](07-next-steps)
+[Next: Next Steps >>](07-next-steps.md)

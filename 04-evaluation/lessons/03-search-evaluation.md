@@ -204,6 +204,6 @@ The ground truth dataset gives you a reliable way to compare different
 configurations.
 
 
-[<< Previous: Generating Ground Truth](02-generating-ground-truth)
+[<< Previous: Generating Ground Truth](02-generating-ground-truth.md)
 |
-[Next: RAG Evaluation: Cosine Similarity >>](04-rag-evaluation-cosine)
+[Next: RAG Evaluation: Cosine Similarity >>](04-rag-evaluation-cosine.md)

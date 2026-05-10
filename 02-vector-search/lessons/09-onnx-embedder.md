@@ -209,4 +209,4 @@ images, serverless functions, or edge devices.
 
 ---
 
-[<- Previous](08-hybrid-search) | [Next ->](../)
+[<- Previous](08-hybrid-search.md) | [Next ->](../)

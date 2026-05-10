@@ -139,4 +139,4 @@ In the next section, we'll combine both approaches with hybrid search.
 
 ---
 
-[<- Previous](06-pgvector) | [Next ->](08-hybrid-search)
+[<- Previous](06-pgvector.md) | [Next ->](08-hybrid-search.md)

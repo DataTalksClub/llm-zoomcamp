@@ -202,6 +202,6 @@ For production systems, you'd run these evaluations on a larger dataset
 and track the metrics over time as you iterate on the agent.
 
 
-[<< Previous: Trajectory Evaluation](07-trajectory-evaluation)
+[<< Previous: Trajectory Evaluation](07-trajectory-evaluation.md)
 |
-[Next: Next Steps >>](09-next-steps)
+[Next: Next Steps >>](09-next-steps.md)

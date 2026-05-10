@@ -159,6 +159,6 @@ Further reading:
 - [Chatbot Implementation - Elastic Tutorial](https://www.elastic.co/search-labs/tutorials/chatbot-tutorial/implementation)
 
 
-[<< Previous: Document Reranking](03-reranking)
+[<< Previous: Document Reranking](03-reranking.md)
 |
-[Next: Next Steps >>](05-next-steps)
+[Next: Next Steps >>](05-next-steps.md)

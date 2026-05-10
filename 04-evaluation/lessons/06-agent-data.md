@@ -181,6 +181,6 @@ the agent on three dimensions:
 3. Instruction following (did it follow the developer prompt rules?)
 
 
-[<< Previous: LLM as a Judge](05-llm-as-judge)
+[<< Previous: LLM as a Judge](05-llm-as-judge.md)
 |
-[Next: Trajectory Evaluation >>](07-trajectory-evaluation)
+[Next: Trajectory Evaluation >>](07-trajectory-evaluation.md)

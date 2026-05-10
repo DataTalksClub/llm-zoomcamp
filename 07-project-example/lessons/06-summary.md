@@ -61,6 +61,6 @@ It includes:
 - A polished README
 
 
-[<< Previous: Monitoring and Containerization](05-monitoring)
+[<< Previous: Monitoring and Containerization](05-monitoring.md)
 |
-[Next: Chunking for Longer Texts >>](07-chunking)
+[Next: Chunking for Longer Texts >>](07-chunking.md)

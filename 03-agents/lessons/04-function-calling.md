@@ -160,4 +160,4 @@ model doesn't know what happened.
 
 ---
 
-[<- Previous](03-agents-concept) | [Next ->](05-agentic-loop)
+[<- Previous](03-agents-concept.md) | [Next ->](05-agentic-loop.md)

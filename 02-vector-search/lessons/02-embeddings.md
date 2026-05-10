@@ -172,4 +172,4 @@ We'll use special libraries for that.
 
 ---
 
-[<- Previous](01-intro) | [Next ->](03-minsearch-vector)
+[<- Previous](01-intro.md) | [Next ->](03-minsearch-vector.md)

@@ -242,6 +242,6 @@ Further reading:
 - [Hybrid search - Tutorial](https://www.elastic.co/search-labs/tutorials/search-tutorial/vector-search/hybrid-search)
 
 
-[<< Previous: Intro](01-intro)
+[<< Previous: Intro](01-intro.md)
 |
-[Next: Document Reranking >>](03-reranking)
+[Next: Document Reranking >>](03-reranking.md)

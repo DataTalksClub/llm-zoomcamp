@@ -35,6 +35,6 @@ Here are pointers for the rest:
 - [LangChain retrieval docs](https://python.langchain.com/docs/concepts/retrievers/)
 
 
-[<< Previous: Hybrid Search with LangChain](04-langchain)
+[<< Previous: Hybrid Search with LangChain](04-langchain.md)
 |
 [Back to module >>](../)

@@ -50,4 +50,4 @@ Further reading:
 
 [<< Back to module](../)
 |
-[Next: Hybrid Search >>](02-hybrid-search)
+[Next: Hybrid Search >>](02-hybrid-search.md)

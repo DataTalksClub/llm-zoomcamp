@@ -86,4 +86,4 @@ Type questions and get answers. Type "stop" to exit.
 
 ---
 
-[<- Previous](05-agentic-loop) | [Next ->](07-other-frameworks)
+[<- Previous](05-agentic-loop.md) | [Next ->](07-other-frameworks.md)

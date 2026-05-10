@@ -61,4 +61,4 @@ designing good tools and prompts - the loop itself is always the same.
 
 ---
 
-[<- Previous](06-frameworks) | [Next ->](../)
+[<- Previous](06-frameworks.md) | [Next ->](../)

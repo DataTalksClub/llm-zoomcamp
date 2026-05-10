@@ -168,6 +168,6 @@ performing: are answers relevant? are users happy? how much is it
 costing? which models are popular?
 
 
-[<< Previous: Docker Compose](04-docker-compose)
+[<< Previous: Docker Compose](04-docker-compose.md)
 |
-[Next: Synthetic Data >>](06-synthetic-data)
+[Next: Synthetic Data >>](06-synthetic-data.md)

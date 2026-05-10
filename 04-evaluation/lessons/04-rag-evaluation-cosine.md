@@ -200,6 +200,6 @@ score might not reflect the true quality. In the next lesson, we'll use
 an LLM to judge answer quality directly.
 
 
-[<< Previous: Search Evaluation](03-search-evaluation)
+[<< Previous: Search Evaluation](03-search-evaluation.md)
 |
-[Next: LLM as a Judge >>](05-llm-as-judge)
+[Next: LLM as a Judge >>](05-llm-as-judge.md)

@@ -74,4 +74,4 @@ hybrid search that combines keyword and vector search.
 
 ---
 
-[<- Previous](../) | [Next ->](02-embeddings)
+[<- Previous](../) | [Next ->](02-embeddings.md)

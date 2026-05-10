@@ -40,4 +40,4 @@ Let's start with generating the test data we need.
 
 [<< Back to module](../)
 |
-[Next: Generating Ground Truth >>](02-generating-ground-truth)
+[Next: Generating Ground Truth >>](02-generating-ground-truth.md)

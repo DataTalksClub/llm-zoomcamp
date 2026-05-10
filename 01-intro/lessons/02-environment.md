@@ -142,4 +142,4 @@ directory, the variables from `.env` are loaded automatically. No
 
 ---
 
-[<- Previous](01-intro) | [Next ->](03-use-case)
+[<- Previous](01-intro.md) | [Next ->](03-use-case.md)
