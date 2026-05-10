@@ -74,4 +74,4 @@ hybrid search that combines keyword and vector search.
 
 ---
 
-[<- Previous](../README.md) | [Next ->](02-embeddings.md)
+[<- Previous](../) | [Next ->](02-embeddings)

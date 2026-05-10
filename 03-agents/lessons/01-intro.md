@@ -38,4 +38,4 @@ do a quick revision in the next lesson.
 
 ---
 
-[<- Previous](../README.md) | [Next ->](02-rag-revision.md)
+[<- Previous](../) | [Next ->](02-rag-revision)

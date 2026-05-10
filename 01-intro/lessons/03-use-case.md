@@ -81,4 +81,4 @@ data for search and use it to answer questions with an LLM.
 
 ---
 
-[<- Previous](02-environment.md) | [Next ->](04-rag.md)
+[<- Previous](02-environment) | [Next ->](04-rag)

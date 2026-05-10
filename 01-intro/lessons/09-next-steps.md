@@ -52,4 +52,4 @@ If you're curious about how we taught this before:
 
 ---
 
-[<- Previous](08-data-ingestion.md) | [Next ->](../README.md)
+[<- Previous](08-data-ingestion) | [Next ->](../)

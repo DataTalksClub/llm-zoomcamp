@@ -132,4 +132,4 @@ rag("uploading to S3 fails")
 
 ---
 
-[<- Previous](07-text-vs-vector.md) | [Next ->](09-onnx-embedder.md)
+[<- Previous](07-text-vs-vector) | [Next ->](09-onnx-embedder)

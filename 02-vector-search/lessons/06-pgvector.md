@@ -210,6 +210,6 @@ existing Postgres-based application.
 
 ---
 
-[<- Previous](05-sqlitesearch-vector.md) | [Next ->](07-text-vs-vector.md)
+[<- Previous](05-sqlitesearch-vector) | [Next ->](07-text-vs-vector)
 
 

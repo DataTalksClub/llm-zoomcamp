@@ -65,4 +65,4 @@ In this module, we will:
 
 ---
 
-[<- Previous](../README.md) | [Next ->](02-environment.md)
+[<- Previous](../) | [Next ->](02-environment)

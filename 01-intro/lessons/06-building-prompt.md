@@ -110,4 +110,4 @@ prompt performs. For now, this template is a good starting point.
 
 ---
 
-[<- Previous](05-search.md) | [Next ->](07-llm.md)
+[<- Previous](05-search) | [Next ->](07-llm)

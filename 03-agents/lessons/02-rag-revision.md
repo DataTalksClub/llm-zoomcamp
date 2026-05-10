@@ -190,4 +190,4 @@ We need something smarter. We need an agent.
 
 ---
 
-[<- Previous](01-intro.md) | [Next ->](03-agents-concept.md)
+[<- Previous](01-intro) | [Next ->](03-agents-concept)

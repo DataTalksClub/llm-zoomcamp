@@ -66,4 +66,4 @@ Let's use it in RAG now.
 
 ---
 
-[<- Previous](02-embeddings.md) | [Next ->](04-rag-vector.md)
+[<- Previous](02-embeddings) | [Next ->](04-rag-vector)

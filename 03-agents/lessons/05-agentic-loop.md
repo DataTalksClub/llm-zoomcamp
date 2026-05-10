@@ -183,4 +183,4 @@ Agents SDK - wraps this same pattern.
 
 ---
 
-[<- Previous](04-function-calling.md) | [Next ->](06-frameworks.md)
+[<- Previous](04-function-calling) | [Next ->](06-frameworks)

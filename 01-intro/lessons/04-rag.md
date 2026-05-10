@@ -137,4 +137,4 @@ for knowledge.
 
 ---
 
-[<- Previous](03-use-case.md) | [Next ->](05-search.md)
+[<- Previous](03-use-case) | [Next ->](05-search)
