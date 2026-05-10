@@ -1,95 +1,32 @@
-# Module 6: Best Practices
+# Module 6: Best Practices (Optional)
 
-In this module, we'll cover the techniques that could improve your RAG pipeline.
+This module was recorded in 2024 and has not been updated since
+then. It covers techniques that improve RAG retrieval quality:
+hybrid search, document reranking, and how to implement them with
+Elasticsearch and LangChain.
 
-## 6.1 Techniques to Improve RAG Pipeline
-
-<a href="https://www.youtube.com/watch?v=Tq9Vbm_2z3o">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/Tq9Vbm_2z3o">
-</a>
-
-* Small-to-Big chunk retrieval
-* Leveraging document metadata
-* Hybrid search
-* User query rewriting
-* Document reranking
-
-Links:
-* [Slides](llm-zoomcamp-best-practicies.pdf)
-* [Five Techniques for Improving RAG Chatbots - Nikita Kozodoi [Video]](https://www.youtube.com/watch?v=xPYmClWk5O8)
-* [Survey on RAG techniques [Article]](https://arxiv.org/abs/2312.10997)
+It is optional - the techniques are still relevant, but the code
+uses older libraries and approaches.
 
 
-## 6.2 Hybrid search
+## Lessons
 
-<a href="https://www.youtube.com/watch?v=TQ_ck6Q9gSQ">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/TQ_ck6Q9gSQ">
-</a>
-
-* Hybrid search strategy
-* Hybrid search in Elasticsearch
-
-Links:
-* [Notebook](hybrid-search-and-reranking-es.ipynb)
-* [Hybrid search [Elasticsearch Guide]](https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html#_combine_approximate_knn_with_other_features)
-* [Hybrid search [Tutorial]](https://www.elastic.co/search-labs/tutorials/search-tutorial/vector-search/hybrid-search)
+1. [Intro](lessons/01-intro.md) - Five techniques for improving RAG pipelines
+2. [Hybrid Search](lessons/02-hybrid-search.md) - Combining vector and keyword search in Elasticsearch
+3. [Document Reranking](lessons/03-reranking.md) - Reciprocal Rank Fusion (RRF) for re-ordering results
+4. [Hybrid Search with LangChain](lessons/04-langchain.md) - Using LangChain's ElasticsearchRetriever
+5. [Next Steps](lessons/05-next-steps.md) - Other techniques and further reading
 
 
-## 6.3 Document Reranking
+## Notebooks
 
-<a href="https://www.youtube.com/watch?v=H4M55Ptc5cM">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/H4M55Ptc5cM">
-</a>
-
-* Reranking concept and metrics
-* Reciprocal Rank Fusion (RRF)
-* Handmade raranking implementation
-
-Links:
-* [Reciprocal Rank Fusion (RRF) method [Elasticsearch Guide]](https://www.elastic.co/guide/en/elasticsearch/reference/current/rrf.html)
-* [RRF method [Article]](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf)
-* [Elasticsearch subscription plans](https://www.elastic.co/subscriptions)
-
-We should pull and run a docker container with Elasticsearch 8.9.0 or higher in order to use reranking based on RRF algorithm:
-
-```bash
-docker run -it \
-    --rm \
-    --name elasticsearch \
-    -m 4GB \
-    -p 9200:9200 \
-    -p 9300:9300 \
-    -e "discovery.type=single-node" \
-    -e "xpack.security.enabled=false" \
-    docker.elastic.co/elasticsearch/elasticsearch:8.9.0
-```
-
-
-## 6.4 Hybrid search with LangChain
-
-<a href="https://www.youtube.com/watch?v=CRfg7tAsnUU">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/CRfg7tAsnUU">
-</a>
-
-* LangChain: Introduction
-* ElasticsearchRetriever
-* Hybrid search implementation
-
-```bash
-pip install -qU langchain langchain-elasticsearch langchain-huggingface
-```
-
-Links:
-* [Notebook](hybrid-search-langchain.ipynb)
-* [Chatbot Implementation [Tutorial]](https://www.elastic.co/search-labs/tutorials/chatbot-tutorial/implementation)
-* [ElasticsearchRetriever](https://python.langchain.com/v0.2/docs/integrations/retrievers/elasticsearch_retriever/)
-
+- [Hybrid search and reranking with Elasticsearch](hybrid-search-and-reranking-es.ipynb)
+- [Hybrid search with LangChain](hybrid-search-langchain.ipynb)
 
 ## Homework
 
 TBD
 
-# Notes
+## Notes
 
-* First link goes here
-* Did you take notes? Add them above this line (Send a PR with *links* to your notes)
+- Did you take notes? Add them above this line (Send a PR with *links* to your notes)
