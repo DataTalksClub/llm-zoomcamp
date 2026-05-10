@@ -11,6 +11,13 @@ ready - but it illustrates how search engines work and it gives good
 results. We'll start with it and later replace it with sqlitesearch
 for a persistent backend.
 
+This is how minsearch was built - we turned it into a separate library.
+If you want to know how it works under the hood, check
+[Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE)
+([Code](https://github.com/alexeygrigorev/build-your-own-search-engine))
+- a workshop where we build it from scratch and I explain how search
+works.
+
 The concepts in minsearch (text fields, keyword fields, boosting,
 filtering) are the same concepts used by Elasticsearch, which in
 turn comes from Lucene. So what you learn here transfers directly.
@@ -131,4 +138,8 @@ different course slug to search other courses:
 
 ```python
 search("How do I run Docker?", course="mlops-zoomcamp")
+
+---
+
+[<- Previous](04-rag.md) | [Next ->](06-building-prompt.md)
 ```

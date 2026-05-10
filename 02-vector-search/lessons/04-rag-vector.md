@@ -155,3 +155,7 @@ def rag(query, model="gpt-5.4-mini"):
 
 Same pipeline, different search. The modular design lets you swap
 search methods without touching the rest of the code.
+
+---
+
+[<- Previous](03-minsearch-vector.md) | [Next ->](05-sqlitesearch-vector.md)

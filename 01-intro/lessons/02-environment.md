@@ -131,3 +131,7 @@ echo 'eval "$(dirdotenv hook bash)"' >> ~/.bashrc
 Restart your terminal, and now whenever you enter the project
 directory, the variables from `.env` are loaded automatically. No
 `load_dotenv()` needed.
+
+---
+
+[<- Previous](01-intro.md) | [Next ->](03-use-case.md)

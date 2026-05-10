@@ -202,3 +202,7 @@ This approach is modular. Each component is independent and
 replaceable: you can swap the search backend, the prompt template,
 or the LLM model without touching the rest. Later when we replace
 minsearch with sqlitesearch, only the `search` function changes.
+
+---
+
+[<- Previous](06-building-prompt.md) | [Next ->](08-data-ingestion.md)

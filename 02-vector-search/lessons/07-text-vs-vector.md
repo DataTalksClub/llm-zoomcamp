@@ -3,6 +3,44 @@
 Now that we've used both keyword search and vector search, let's compare
 them side by side on the same queries.
 
+
+## Setting up both search functions
+
+We need both search functions ready. The vector search function is from
+the previous section:
+
+```python
+def vector_search(query, course="data-engineering-zoomcamp", num_results=5):
+    query_vector = model.encode(query)
+    return vindex.search(
+        query_vector,
+        filter_dict={"course": course},
+        num_results=num_results
+    )
+```
+
+And the keyword search function from module 1:
+
+```python
+from minsearch import Index
+
+text_index = Index(
+    text_fields=["question", "answer", "section"],
+    keyword_fields=["course"]
+)
+text_index.fit(documents)
+
+def keyword_search(query, course="data-engineering-zoomcamp", num_results=5):
+    boost_dict = {"question": 3.0, "section": 0.5}
+    return text_index.search(
+        query,
+        num_results=num_results,
+        boost_dict=boost_dict,
+        filter_dict={"course": course}
+    )
+```
+
+
 ## Comparing results
 
 Let's run both searches on the same queries and look at the top
@@ -98,3 +136,7 @@ increase in search quality worth all the overhead we introduce?
 | Persistence | Easy (re-index on startup) | Important (embeddings are expensive to recompute) |
 
 In the next section, we'll combine both approaches with hybrid search.
+
+---
+
+[<- Previous](06-pgvector.md) | [Next ->](08-hybrid-search.md)

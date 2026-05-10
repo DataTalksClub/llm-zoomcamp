@@ -202,3 +202,7 @@ rag("I just discovered the course. Can I still join it?")
 | Search | Exact cosine similarity | ANN (LSH/IVF/HNSW) + exact rerank |
 | Startup | Must re-compute embeddings | Open existing index |
 | Best for | Experiments, notebooks | Projects, persistence |
+
+---
+
+[<- Previous](04-rag-vector.md) | [Next ->](06-pgvector.md)

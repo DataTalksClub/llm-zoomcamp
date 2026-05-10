@@ -119,20 +119,20 @@ import numpy as np
 from tqdm import tqdm
 
 batch_size = 50
-X = []
+vectors = []
 
 for i in tqdm(range(0, len(texts), batch_size)):
     batch = texts[i:i + batch_size]
     batch_vectors = model.encode(batch)
-    X.extend(batch_vectors)
+    vectors.extend(batch_vectors)
 
-X = np.array(X)
+vectors = np.array(vectors)
 ```
 
 This takes a few seconds. Let's check the shape:
 
 ```python
-X.shape
+vectors.shape
 ```
 
 You should see the total number of documents, each represented by a
@@ -142,14 +142,14 @@ You should see the total number of documents, each represented by a
 ## How vector search works
 
 Now let's see how vector search works under the hood. We have a matrix
-`X` with all document embeddings. When a query comes in, we embed it
-and compute the dot product against all documents:
+`vectors` with all document embeddings. When a query comes in, we embed
+it and compute the dot product against all documents:
 
 ```python
 query = "Can I still join the course after the start date?"
 v_query = model.encode(query)
 
-scores = X.dot(v_query)
+scores = vectors.dot(v_query)
 ```
 
 The highest score is the most similar document:
@@ -169,3 +169,7 @@ dot products with all documents, return the one with the highest score.
 Doing this manually with numpy works fine for small datasets. For
 larger ones, you'd want a search library that handles filtering and ranking.
 We'll use special libraries for that.
+
+---
+
+[<- Previous](01-intro.md) | [Next ->](03-minsearch-vector.md)

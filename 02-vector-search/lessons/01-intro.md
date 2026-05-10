@@ -71,3 +71,7 @@ vector search with three tools:
 
 Then we'll integrate vector search into our RAG pipeline and explore
 hybrid search that combines keyword and vector search.
+
+---
+
+[<- Previous](../README.md) | [Next ->](02-embeddings.md)

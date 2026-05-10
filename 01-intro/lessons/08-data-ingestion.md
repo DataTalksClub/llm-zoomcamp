@@ -36,6 +36,7 @@ on a schedule when the data changes) and populates the search index.
 Create a file called `ingest.py`:
 
 ```python
+import time
 import requests
 from sqlitesearch import TextSearchIndex
 
@@ -57,11 +58,13 @@ print(f"Loaded {len(documents)} documents")
 index = TextSearchIndex(
     text_fields=["question", "section", "answer"],
     keyword_fields=["course"],
-    id_field="id",
     db_path="faq.db"
 )
 
-index.fit(documents)
+for doc in documents:
+    index.add([doc])
+    time.sleep(0.5)
+
 index.close()
 
 print("Done. Index saved to faq.db")
@@ -84,23 +87,16 @@ Now there's a `faq.db` file on disk with the entire index. This file
 persists across restarts. You can run this script again when the FAQ
 data changes - it will rebuild the index.
 
-What happened behind the scenes:
+We intentionally put a `time.sleep(0.5)` in the loop to simulate adding
+records with a delay.
 
-- sqlitesearch created a SQLite database at `faq.db`
-- It created a table for the documents and an FTS5 virtual table
-  for full-text search
-- It inserted all documents and indexed the text fields
-- The index is now on disk, ready to be queried by any process
+Start the ingestion script:
 
+```bash
+uv run python ingest.py
+```
 
-## The query process
-
-Now let's use the index from a separate process. This is the RAG
-service - it reads from the index without needing to fetch or process
-the raw data.
-
-Open a new notebook (or a new Python file). The only thing we need
-is to connect to the existing index:
+While it's running, open a new notebook. Connect to the index:
 
 ```python
 from sqlitesearch import TextSearchIndex
@@ -108,67 +104,59 @@ from sqlitesearch import TextSearchIndex
 sqlite_index = TextSearchIndex(
     text_fields=["question", "section", "answer"],
     keyword_fields=["course"],
-    id_field="id",
     db_path="faq.db"
 )
 ```
 
-Notice: we don't call `fit`. The index is already populated by the
-ingestion script. We just connect to the database file and start
-searching.
-
-Let's try a search:
+Check how many documents are in the index:
 
 ```python
-query = "How do I run Docker on Windows?"
-results = sqlite_index.search(query, num_results=5)
+len(sqlite_index.search("", num_results=10000))
 ```
 
-Look at the results:
+Run it a few times - you'll see the number growing as ingestion
+progresses.
+
+Try a search:
 
 ```python
-results[0]
-```
-
-Let's see all the questions from the top results:
-
-```python
+results = sqlite_index.search("How do I run Docker on Windows?", num_results=5)
 [doc['question'] for doc in results]
 ```
 
-The results look similar to what minsearch returned. The ranking may
-differ slightly because sqlitesearch uses BM25 while minsearch uses
-TF-IDF, but the top results are usually the same.
+Run this again after a few seconds - the results change as more
+documents are ingested.
 
+This is normal database behavior: one process writes, another reads.
+With minsearch, this is impossible because the index lives in one
+process's memory.
 
-## Filtering and boosting
-
-Filtering and boosting work the same way as in minsearch:
-
-```python
-results = sqlite_index.search(
-    query="How do I run Docker on Windows?",
-    num_results=5,
-    filter_dict={"course": "mlops-zoomcamp"}
-)
-```
+Close the index when done:
 
 ```python
-results = sqlite_index.search(
-    query="How do I run Docker on Windows?",
-    num_results=5,
-    boost_dict={"question": 3.0, "section": 0.5}
-)
+sqlite_index.close()
 ```
-
-Same parameters, same behavior. The only thing that changed is where
-the data comes from.
 
 
 ## RAG with sqlitesearch
 
-Now wire it into the RAG pipeline. The prompt and LLM functions are
-the same - only the search changes:
+Since ingestion and querying are separate notebooks, the RAG notebook
+only needs to open the database and call OpenAI. Connect to the index:
+
+```python
+from sqlitesearch import TextSearchIndex
+
+sqlite_index = TextSearchIndex(
+    text_fields=["question", "section", "answer"],
+    keyword_fields=["course"],
+    db_path="faq.db"
+)
+```
+
+Notice: no `fit` call. The index is already populated by the ingestion
+script. We just connect to the database file and start searching.
+
+The search function:
 
 ```python
 def sqlite_search(query, num_results=5):
@@ -178,7 +166,11 @@ def sqlite_search(query, num_results=5):
         num_results=num_results,
         boost_dict=boost_dict
     )
+```
 
+And the RAG function (same prompt and LLM as before):
+
+```python
 def rag_sqlite(query, model="gpt-5.4-mini"):
     search_results = sqlite_search(query)
     prompt = build_prompt(query, search_results)
@@ -259,3 +251,7 @@ sqlite_index.close()
 ```
 
 Or just let Python clean it up when the notebook kernel shuts down.
+
+---
+
+[<- Previous](07-llm.md) | [Next ->](09-next-steps.md)

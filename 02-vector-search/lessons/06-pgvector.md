@@ -93,10 +93,13 @@ for doc, vec in zip(documents, vectors):
         (doc['course'], doc['section'], doc['question'], doc['answer'],
          vec_to_str(vec))
     )
+
+conn.commit()
 ```
 
 This inserts each document along with its embedding vector. The `::vector`
-cast tells PostgreSQL to parse the string as a vector.
+cast tells PostgreSQL to parse the string as a vector. We call
+`conn.commit()` to persist the changes.
 
 
 ## Searching with cosine similarity
@@ -204,5 +207,9 @@ results = pgvector_search("How do I run Kafka?")
 PGVector is the right choice when you need production features:
 concurrent reads and writes, transactions, or integration with an
 existing Postgres-based application.
+
+---
+
+[<- Previous](05-sqlitesearch-vector.md) | [Next ->](07-text-vs-vector.md)
 
 

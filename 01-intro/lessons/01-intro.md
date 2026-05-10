@@ -62,3 +62,7 @@ In this module, we will:
 - Wire it all together into a working RAG pipeline
 - Split ingestion and query into separate processes
 - Discuss what comes next (agents, vector search, Elasticsearch)
+
+---
+
+[<- Previous](../README.md) | [Next ->](02-environment.md)

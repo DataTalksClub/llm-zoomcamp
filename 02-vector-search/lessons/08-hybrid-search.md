@@ -65,7 +65,7 @@ RRF scores:
   F =              1/(1+2+1) = 0.250
   G =              1/(1+3+1) = 0.200
 
-Final ranking: C, A/B (tie), F/G (tie), D, E
+Final ranking: C, A/B (tie), F, D/G (tie), E
 ```
 
 C wins because it ranks high in both lists. Documents that only
@@ -116,7 +116,7 @@ def hybrid_search(query, course="data-engineering-zoomcamp", num_results=10):
 def rag(query):
     search_results = hybrid_search(query)
     prompt = build_prompt(query, search_results)
-    answer = llm(prompt)
+    answer = llm(INSTRUCTIONS, prompt)
     return answer
 ```
 
@@ -129,3 +129,7 @@ rag("How do I run Kafka?")
 ```python
 rag("uploading to S3 fails")
 ```
+
+---
+
+[<- Previous](07-text-vs-vector.md) | [Next ->](09-onnx-embedder.md)

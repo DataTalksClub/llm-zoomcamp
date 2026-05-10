@@ -60,7 +60,10 @@ results = vindex.search(
 )
 ```
 
-This restricts the search to documents from the data engineering
-course.
+This restricts the search to documents from the LLM Zoomcamp course.
 
 Let's use it in RAG now.
+
+---
+
+[<- Previous](02-embeddings.md) | [Next ->](04-rag-vector.md)

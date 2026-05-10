@@ -78,3 +78,7 @@ You should see something like:
 
 This is our knowledge base. In the next sections, we'll index this
 data for search and use it to answer questions with an LLM.
+
+---
+
+[<- Previous](02-environment.md) | [Next ->](04-rag.md)

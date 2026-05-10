@@ -1,19 +1,28 @@
 # Module 1: Introduction
 
-In this module, we will learn what LLM and RAG are and
-implement a simple RAG pipeline to answer questions about 
-the FAQ Documents from our Zoomcamp courses
-
-# Old content
-
-See old content [here](../cohorts/2025/01-intro/) 
+In this module, we learn what LLM and RAG are and implement a simple
+RAG pipeline to answer questions about the FAQ documents from our
+Zoomcamp courses.
 
 
-# Useful workshop (optional)
+## Notes
 
-- [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) ([Code](https://github.com/alexeygrigorev/build-your-own-search-engine))
+1. [Introduction](lessons/01-intro.md) - What we'll build and why
+2. [Environment Setup](lessons/02-environment.md) - Python, uv, OpenAI API
+3. [Retrieval: FAQ Documents](lessons/03-use-case.md) - Fetching and exploring the dataset
+4. [Generation: LLM](lessons/04-rag.md) - Using an LLM to answer questions
+5. [Search](lessons/05-search.md) - Building a search engine with minsearch
+6. [Building a Prompt](lessons/06-building-prompt.md) - Combining search results into a prompt
+7. [RAG Pipeline](lessons/07-llm.md) - Wiring search + prompt + LLM together
+8. [Data Ingestion](lessons/08-data-ingestion.md) - Persistent search with sqlitesearch
+9. [Next Steps](lessons/09-next-steps.md) - Where to go from here
 
 
-# Notes
+## Optional
 
-* Did you take notes? Add them above this line (Send a PR with *links* to your notes)
+- [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) ([Code](https://github.com/alexeygrigorev/build-your-own-search-engine)) - How minsearch was built from scratch
+
+
+## Old content
+
+See old content for [2024](../cohorts/2024/) and [2025](../cohorts/2025/) cohorts.
