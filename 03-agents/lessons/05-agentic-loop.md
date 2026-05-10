@@ -65,7 +65,7 @@ call, we run it and append the result:
 
 ```python
 response = openai_client.responses.create(
-    model="gpt-4o-mini",
+    model="gpt-5.4-mini",
     input=chat_messages,
     tools=[search_tool],
 )
@@ -98,7 +98,7 @@ until it returns a response without any function calls:
 ```python
 while True:
     response = openai_client.responses.create(
-        model="gpt-4o-mini",
+        model="gpt-5.4-mini",
         input=chat_messages,
         tools=[search_tool],
     )
@@ -131,7 +131,7 @@ without requesting any more tool calls.
 Let's wrap the loop in a function so we can reuse it:
 
 ```python
-def agent_loop(question, model="gpt-4o-mini"):
+def agent_loop(question, model="gpt-5.4-mini"):
     chat_messages = [
         {"role": "developer", "content": developer_prompt},
         {"role": "user", "content": question}

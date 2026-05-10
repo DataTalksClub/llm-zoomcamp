@@ -1,17 +1,20 @@
-# Frameworks
+# ToyAIKit
 
 The handwritten agent loop from the previous lesson is educational but
 repetitive. Every time you build a new agent, you'd write the same
 while-loop, the same function-call handling, the same message
-management. Frameworks wrap this pattern so you can focus on tools,
-prompts, and behavior.
+management.
+
+ToyAIKit wraps this pattern so you can focus on tools,
+prompts, and behavior. It does the same thing as our handwritten loop,
+but with less boilerplate. It's designed for notebooks and workshops.
+
+Important: ToyAIKit is a teaching and experimentation library. It is
+NOT recommended for production use. We use it here because it's
+minimal and educational - you can see what it does.
 
 
-## ToyAI Kit
-
-ToyAI Kit (toyaikit) is a teaching framework. It does the same thing
-as our handwritten loop, but with less boilerplate. It's designed for
-notebooks and workshops.
+## Setup
 
 Install it:
 
@@ -81,30 +84,6 @@ runner.run()
 
 Type questions and get answers. Type "stop" to exit.
 
-Important: toyaikit is a teaching and experimentation library. It is
-useful for notebooks and workshops because it keeps display code out of
-the way. It is NOT recommended for production use.
-
-
-## Other frameworks
-
-The concepts you learned - function calling, the agent loop, tool
-definitions - are the same across all frameworks. They all wrap the
-same pattern: send messages, check for function calls, execute tools,
-repeat.
-
-Here are some frameworks worth exploring:
-
-- OpenAI Agents SDK - official SDK from OpenAI for building agents
-- PydanticAI - type-safe agent framework with multi-provider support
-- LangChain / LangGraph - popular framework with lots of integrations
-- CrewAI - multi-agent orchestration
-- AutoGen - multi-agent conversations from Microsoft
-- Semantic Kernel - from Microsoft, supports C# and Python
-
-Pick one that fits your stack and your needs. The hard part is
-designing good tools and prompts - the loop itself is always the same.
-
 ---
 
-[<- Previous](05-agentic-loop.md) | [Next ->](../README.md)
+[<- Previous](05-agentic-loop.md) | [Next ->](07-other-frameworks.md)

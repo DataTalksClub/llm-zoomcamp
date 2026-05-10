@@ -43,23 +43,16 @@ use.
 Remember the "ducker" example from the last lesson? Here's how an agent
 would handle it:
 
-```
-User: "How do I run ducker?"
-  |
-  v
-LLM: "I'll search for 'ducker'"
-  |
-  v
-search("ducker") -> no useful results
-  |
-  v
-LLM: "Hmm, no results. Maybe it's a typo for 'docker'?"
-  |
-  v
-search("docker") -> found results!
-  |
-  v
-LLM: "Here's how to run Docker on Windows..."
+```mermaid
+flowchart TD
+    U([User: How do I run ducker?])
+    L1[LLM: I'll search for 'ducker']
+    S1[search - ducker - no useful results]
+    L2[LLM: Hmm, no results. Maybe a typo for 'docker'?]
+    S2[search - docker - found results!]
+    A([LLM: Here's how to run Docker on Windows...])
+
+    U --> L1 --> S1 --> L2 --> S2 --> A
 ```
 
 The LLM searched, saw the results were bad, and decided to try again
@@ -68,14 +61,13 @@ write code to handle typos -- the LLM figured it out.
 
 Compare this with the RAG pipeline:
 
-```
-User: "How do I run ducker?"
-  |
-  v
-search("ducker") -> no useful results
-  |
-  v
-LLM: "I don't have information about ducker."
+```mermaid
+flowchart TD
+    U([User: How do I run ducker?])
+    S[search - ducker - no useful results]
+    A([LLM: I don't have information about ducker.])
+
+    U --> S --> A
 ```
 
 The pipeline searches once and stops. The LLM can't ask for better

@@ -15,7 +15,7 @@ question without giving it any tools:
 
 ```python
 response = openai_client.responses.create(
-    model="gpt-4o-mini",
+    model="gpt-5.4-mini",
     input=[
         {"role": "user", "content": "I just discovered the course. Can I join it?"}
     ],
@@ -88,7 +88,7 @@ chat_messages = [
 ]
 
 response = openai_client.responses.create(
-    model="gpt-4o-mini",
+    model="gpt-5.4-mini",
     input=chat_messages,
     tools=[search_tool],
 )
@@ -142,7 +142,7 @@ Now we call the API a second time with the expanded history:
 
 ```python
 response = openai_client.responses.create(
-    model="gpt-4o-mini",
+    model="gpt-5.4-mini",
     input=chat_messages,
     tools=[search_tool],
 )

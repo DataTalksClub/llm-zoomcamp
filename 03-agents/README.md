@@ -25,7 +25,8 @@ In this module, we will:
 3. [What Are Agents?](lessons/03-agents-concept.md) - Conceptual overview of agents vs RAG
 4. [Function Calling](lessons/04-function-calling.md) - Giving the LLM tools it can use
 5. [The Agentic Loop](lessons/05-agentic-loop.md) - Repeating until the model stops calling tools
-6. [Frameworks](lessons/06-frameworks.md) - ToyAI Kit and other agent frameworks
+6. [ToyAIKit](lessons/06-frameworks.md) - A teaching framework for the agent loop
+7. [Other Frameworks](lessons/07-other-frameworks.md) - Production frameworks worth exploring
 
 
 ## Old content

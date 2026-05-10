@@ -80,7 +80,7 @@ change the filter later if we need to search a different course.
 ## The RAG function
 
 Now the LLM part. We'll use the OpenAI Responses API with
-`gpt-4o-mini`:
+`gpt-5.4-mini`:
 
 ```python
 from openai import OpenAI
@@ -134,7 +134,7 @@ def build_prompt(query, search_results):
 The LLM function sends the instructions and the user prompt to OpenAI:
 
 ```python
-def llm(instructions, user_prompt, model="gpt-4o-mini"):
+def llm(instructions, user_prompt, model="gpt-5.4-mini"):
     input_messages = [
         {"role": "developer", "content": instructions},
         {"role": "user", "content": user_prompt}
@@ -151,7 +151,7 @@ def llm(instructions, user_prompt, model="gpt-4o-mini"):
 And the RAG function ties it all together:
 
 ```python
-def rag(query, model="gpt-4o-mini"):
+def rag(query, model="gpt-5.4-mini"):
     search_results = search(query)
     prompt = build_prompt(query, search_results)
     answer = llm(INSTRUCTIONS, prompt, model=model)
