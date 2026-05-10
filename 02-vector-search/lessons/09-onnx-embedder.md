@@ -207,6 +207,4 @@ Since the runtime only depends on `onnxruntime`, `tokenizers`, and
 `numpy`, you can deploy this in minimal environments: small Docker
 images, serverless functions, or edge devices.
 
----
-
-[<- Previous](08-hybrid-search.md) | [Next ->](../)
+[<- Hybrid Search](08-hybrid-search.md) | [Back to module ->](../)

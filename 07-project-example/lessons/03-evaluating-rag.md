@@ -124,7 +124,4 @@ This gives you a concrete way to decide if a more expensive model
 is worth the cost. Typically, the cheaper model gives very similar
 results for most questions.
 
-
-[<< Previous: Evaluating Retrieval](02-evaluating-retrieval.md)
-|
-[Next: Interface and Ingestion >>](04-interface.md)
+[<- Evaluating Retrieval](02-evaluating-retrieval.md) | [Interface and Ingestion Pipeline ->](04-interface.md)

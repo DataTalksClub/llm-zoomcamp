@@ -34,7 +34,4 @@ Here are pointers for the rest:
 - [Advanced RAG techniques overview](https://arxiv.org/abs/2312.10997)
 - [LangChain retrieval docs](https://python.langchain.com/docs/concepts/retrievers/)
 
-
-[<< Previous: Hybrid Search with LangChain](04-langchain.md)
-|
-[Back to module >>](../)
+[<- Hybrid Search with LangChain](04-langchain.md) | [Back to module ->](../)

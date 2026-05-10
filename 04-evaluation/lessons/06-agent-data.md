@@ -180,7 +180,4 @@ the agent on three dimensions:
 2. Trajectory efficiency (did it use tools well?)
 3. Instruction following (did it follow the developer prompt rules?)
 
-
-[<< Previous: LLM as a Judge](05-llm-as-judge.md)
-|
-[Next: Trajectory Evaluation >>](07-trajectory-evaluation.md)
+[<- LLM as a Judge](05-llm-as-judge.md) | [Trajectory Evaluation ->](07-trajectory-evaluation.md)

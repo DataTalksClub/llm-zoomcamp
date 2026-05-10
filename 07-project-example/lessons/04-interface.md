@@ -223,7 +223,4 @@ Update the README with instructions for:
 
 A good README makes it easy for anyone to run your project.
 
-
-[<< Previous: Evaluating RAG](03-evaluating-rag.md)
-|
-[Next: Monitoring and Containerization >>](05-monitoring.md)
+[<- Evaluating RAG](03-evaluating-rag.md) | [Monitoring and Containerization ->](05-monitoring.md)

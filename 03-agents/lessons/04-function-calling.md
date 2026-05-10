@@ -158,6 +158,4 @@ Important point: LLMs are stateless between API calls. The memory is
 the list you send as `input`. If you leave out previous messages, the
 model doesn't know what happened.
 
----
-
-[<- Previous](03-agents-concept.md) | [Next ->](05-agentic-loop.md)
+[<- What Are Agents?](03-agents-concept.md) | [The Agentic Loop ->](05-agentic-loop.md)

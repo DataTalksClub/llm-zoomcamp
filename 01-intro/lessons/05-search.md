@@ -138,8 +138,6 @@ different course slug to search other courses:
 
 ```python
 search("How do I run Docker?", course="mlops-zoomcamp")
-
----
-
-[<- Previous](04-rag.md) | [Next ->](06-building-prompt.md)
 ```
+
+[<- What is RAG](04-rag.md) | [Building the Prompt ->](06-building-prompt.md)

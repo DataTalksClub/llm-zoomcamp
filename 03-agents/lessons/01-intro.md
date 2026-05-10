@@ -36,6 +36,4 @@ We'll build on top of the RAG pipeline from module 1 -- keyword search
 with minsearch. If you haven't completed module 1, that's fine. We'll
 do a quick revision in the next lesson.
 
----
-
-[<- Previous](../) | [Next ->](02-rag-revision.md)
+[<- Back to module](../) | [Quick RAG Revision ->](02-rag-revision.md)

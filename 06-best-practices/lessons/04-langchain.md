@@ -158,7 +158,4 @@ Further reading:
 - [ElasticsearchRetriever - LangChain Docs](https://python.langchain.com/v0.2/docs/integrations/retrievers/elasticsearch_retriever/)
 - [Chatbot Implementation - Elastic Tutorial](https://www.elastic.co/search-labs/tutorials/chatbot-tutorial/implementation)
 
-
-[<< Previous: Document Reranking](03-reranking.md)
-|
-[Next: Next Steps >>](05-next-steps.md)
+[<- Document Reranking](03-reranking.md) | [Next Steps ->](05-next-steps.md)

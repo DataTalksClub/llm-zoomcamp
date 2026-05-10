@@ -64,6 +64,4 @@ This restricts the search to documents from the LLM Zoomcamp course.
 
 Let's use it in RAG now.
 
----
-
-[<- Previous](02-embeddings.md) | [Next ->](04-rag-vector.md)
+[<- Embeddings](02-embeddings.md) | [RAG with Vector Search ->](04-rag-vector.md)

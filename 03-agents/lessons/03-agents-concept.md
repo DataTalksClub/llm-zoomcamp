@@ -79,6 +79,4 @@ failures. But this flexibility comes at a cost: each tool call is an
 API request, which means more latency and more tokens. In the next
 lessons, we'll see how to implement this in code.
 
----
-
-[<- Previous](02-rag-revision.md) | [Next ->](04-function-calling.md)
+[<- Quick RAG Revision](02-rag-revision.md) | [Function Calling ->](04-function-calling.md)

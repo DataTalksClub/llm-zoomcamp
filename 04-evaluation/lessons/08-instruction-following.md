@@ -201,7 +201,4 @@ prompt rules might need to be clearer.
 For production systems, you'd run these evaluations on a larger dataset
 and track the metrics over time as you iterate on the agent.
 
-
-[<< Previous: Trajectory Evaluation](07-trajectory-evaluation.md)
-|
-[Next: Next Steps >>](09-next-steps.md)
+[<- Trajectory Evaluation](07-trajectory-evaluation.md) | [Next Steps ->](09-next-steps.md)

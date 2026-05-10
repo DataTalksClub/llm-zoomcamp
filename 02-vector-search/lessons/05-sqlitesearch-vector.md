@@ -203,6 +203,4 @@ rag("I just discovered the course. Can I still join it?")
 | Startup | Must re-compute embeddings | Open existing index |
 | Best for | Experiments, notebooks | Projects, persistence |
 
----
-
-[<- Previous](04-rag-vector.md) | [Next ->](06-pgvector.md)
+[<- RAG with Vector Search](04-rag-vector.md) | [Vector Search with PGVector ->](06-pgvector.md)

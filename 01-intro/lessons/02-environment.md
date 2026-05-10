@@ -140,6 +140,4 @@ Restart your terminal, and now whenever you enter the project
 directory, the variables from `.env` are loaded automatically. No
 `load_dotenv()` needed.
 
----
-
-[<- Previous](01-intro.md) | [Next ->](03-use-case.md)
+[<- Introduction](01-intro.md) | [The Use Case: Course FAQ ->](03-use-case.md)

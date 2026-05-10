@@ -188,6 +188,4 @@ again with a corrected query.
 
 We need something smarter. We need an agent.
 
----
-
-[<- Previous](01-intro.md) | [Next ->](03-agents-concept.md)
+[<- Agents](01-intro.md) | [What Are Agents? ->](03-agents-concept.md)

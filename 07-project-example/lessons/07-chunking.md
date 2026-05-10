@@ -76,7 +76,4 @@ because the chunks map to meaningful topics.
 You can see a detailed summary of content processing approaches
 in [content-processing-summary.md](../content-processing-summary.md).
 
-
-[<< Previous: Summary](06-summary.md)
-|
-[Back to module >>](../)
+[<- Summary and Closing Remarks](06-summary.md) | [Back to module ->](../)

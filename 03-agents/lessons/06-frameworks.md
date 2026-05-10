@@ -84,6 +84,4 @@ runner.run()
 
 Type questions and get answers. Type "stop" to exit.
 
----
-
-[<- Previous](05-agentic-loop.md) | [Next ->](07-other-frameworks.md)
+[<- The Agentic Loop](05-agentic-loop.md) | [Other Frameworks ->](07-other-frameworks.md)

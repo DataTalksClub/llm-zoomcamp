@@ -181,6 +181,4 @@ This handwritten loop is the best way to understand what frameworks
 hide from you. Every agent framework - LangChain, PydanticAI, OpenAI
 Agents SDK - wraps this same pattern.
 
----
-
-[<- Previous](04-function-calling.md) | [Next ->](06-frameworks.md)
+[<- Function Calling](04-function-calling.md) | [ToyAIKit ->](06-frameworks.md)
