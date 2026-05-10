@@ -48,6 +48,6 @@ Monitoring is covered in more detail in module 05.
     [2025/03-evaluation](../cohorts/2025/03-evaluation/)
 
 
-[<< Previous: Agent Evaluation](06-agent-evaluation)
+[<< Previous: Instruction Following](08-instruction-following)
 |
 [Back to module](../)

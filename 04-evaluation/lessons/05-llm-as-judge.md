@@ -236,4 +236,4 @@ RAG system's quality.
 
 [<< Previous: RAG Evaluation: Cosine Similarity](04-rag-evaluation-cosine)
 |
-[Next: Agent Evaluation >>](06-agent-evaluation)
+[Next: Collecting Agent Data >>](06-agent-data)

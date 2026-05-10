@@ -22,7 +22,8 @@ question, the source document is the correct answer.
 
 ## Loading the documents
 
-First, let's load the FAQ data:
+Let's load the FAQ data from the same dataset we used in previous
+modules:
 
 ```python
 import requests
@@ -44,50 +45,14 @@ for course in courses_raw:
         documents.append(doc)
 ```
 
-Now we need to assign a unique ID to each document so we can track which
-one was retrieved.
-
-
-## Generating document IDs
-
-We could use sequential numbers (0, 1, 2, ...), but that breaks if the
-FAQ changes and documents get reordered. Instead, we generate a hash
-from the content:
+Each document already has an `id` field:
 
 ```python
-import hashlib
-
-def generate_document_id(doc):
-    combined = f"{doc['course']}-{doc['question']}-{doc['answer'][:10]}"
-    hash_object = hashlib.md5(combined.encode())
-    hash_hex = hash_object.hexdigest()
-    document_id = hash_hex[:8]
-    return document_id
-
-for doc in documents:
-    doc['id'] = generate_document_id(doc)
+print(documents[0]['id'])
+print(documents[0]['question'])
 ```
 
-This way, the same content always gets the same ID. If two documents
-have identical content, they'll share an ID -- which is fine, since
-they're duplicates.
-
-Let's check for collisions:
-
-```python
-from collections import defaultdict
-
-hashes = defaultdict(list)
-
-for doc in documents:
-    doc_id = doc['id']
-    hashes[doc_id].append(doc)
-
-print(len(hashes), len(documents))
-```
-
-If the numbers differ, some documents share IDs. That's usually because
-of duplicate content in the FAQ.
+We'll use this ID to track which document was retrieved.
 
 
 ## Generating questions with structured output

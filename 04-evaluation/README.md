@@ -15,8 +15,10 @@ using metrics like Hit Rate, MRR, cosine similarity, and LLM-as-a-judge.
 3. [Search Evaluation](lessons/03-search-evaluation.md) -- Hit Rate, MRR, the evaluate() function
 4. [RAG Evaluation: Cosine Similarity](lessons/04-rag-evaluation-cosine.md) -- A->Q->A' evaluation with embeddings
 5. [LLM as a Judge](lessons/05-llm-as-judge.md) -- Using an LLM to evaluate answer quality
-6. [Agent Evaluation](lessons/06-agent-evaluation.md) -- Trajectory and instruction following
-7. [Next Steps](lessons/07-next-steps.md) -- Evaluation frameworks, monitoring, further reading
+6. [Collecting Agent Data](lessons/06-agent-data.md) -- Running the agent with logging, collecting trajectories
+7. [Trajectory Evaluation](lessons/07-trajectory-evaluation.md) -- Simple checks and LLM-based trajectory scoring
+8. [Instruction Following](lessons/08-instruction-following.md) -- Answer correctness and instruction following
+9. [Next Steps](lessons/09-next-steps.md) -- Evaluation frameworks, monitoring, further reading
 
 
 ## Older content
