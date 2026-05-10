@@ -79,4 +79,4 @@ You should see something like:
 This is our knowledge base. In the next sections, we'll index this
 data for search and use it to answer questions with an LLM.
 
-[<- Environment](02-environment.md) | [What is RAG ->](04-rag.md)
+[← Environment](02-environment.md) | [What is RAG →](04-rag.md)

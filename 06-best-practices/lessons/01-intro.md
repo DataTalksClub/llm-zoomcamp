@@ -47,4 +47,4 @@ Further reading:
 - [Five Techniques for Improving RAG Chatbots - Nikita Kozodoi](https://www.youtube.com/watch?v=xPYmKozodoi)
 - [Survey on RAG techniques](https://arxiv.org/abs/2312.10997)
 
-[<- Back to module](../) | [Hybrid Search ->](02-hybrid-search.md)
+[← Back to module](../) | [Hybrid Search →](02-hybrid-search.md)

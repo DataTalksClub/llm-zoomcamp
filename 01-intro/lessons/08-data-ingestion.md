@@ -252,4 +252,4 @@ sqlite_index.close()
 
 Or just let Python clean it up when the notebook kernel shuts down.
 
-[<- The LLM](07-llm.md) | [Next Steps ->](09-next-steps.md)
+[← The LLM](07-llm.md) | [Next Steps →](09-next-steps.md)

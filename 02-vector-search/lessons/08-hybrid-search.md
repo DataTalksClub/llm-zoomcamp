@@ -130,4 +130,4 @@ rag("How do I run Kafka?")
 rag("uploading to S3 fails")
 ```
 
-[<- Text Search vs Vector Search](07-text-vs-vector.md) | [Using ONNX Runtime ->](09-onnx-embedder.md)
+[← Text Search vs Vector Search](07-text-vs-vector.md) | [Using ONNX Runtime →](09-onnx-embedder.md)

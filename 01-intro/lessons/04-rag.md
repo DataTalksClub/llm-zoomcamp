@@ -135,4 +135,4 @@ training data - just your documents and a search index.
 In practice, they complement each other - fine-tune for style, RAG
 for knowledge.
 
-[<- The Use Case: Course FAQ](03-use-case.md) | [Search ->](05-search.md)
+[← The Use Case: Course FAQ](03-use-case.md) | [Search →](05-search.md)

@@ -25,4 +25,4 @@ Ollama for local models. If you're interested in that setup, see
   - 2024 cohort monitoring module:
     [2024/04-monitoring](../cohorts/2024/04-monitoring/)
 
-[<- Synthetic Data Generation](06-synthetic-data.md) | [Back to module ->](../)
+[← Synthetic Data Generation](06-synthetic-data.md) | [Back to module →](../)

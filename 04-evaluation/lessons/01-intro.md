@@ -37,4 +37,4 @@ For agents, we'll look at trajectory evaluation and instruction following.
 
 Let's start with generating the test data we need.
 
-[<- Back to module](../) | [Generating Ground Truth Data ->](02-generating-ground-truth.md)
+[← Back to module](../) | [Generating Ground Truth Data →](02-generating-ground-truth.md)

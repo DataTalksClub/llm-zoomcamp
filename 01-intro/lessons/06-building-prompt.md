@@ -108,4 +108,4 @@ different things, and see what works. Later in the course we'll talk
 about evaluation metrics so you can numerically measure how well your
 prompt performs. For now, this template is a good starting point.
 
-[<- Search](05-search.md) | [The LLM ->](07-llm.md)
+[← Search](05-search.md) | [The LLM →](07-llm.md)

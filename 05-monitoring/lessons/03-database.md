@@ -189,4 +189,4 @@ Grafana queries the database directly, so we don't need Python
 functions for the dashboard. But for the Streamlit app, these are
 useful to show recent conversations and feedback stats.
 
-[<- Chat App with Feedback](02-chat-app.md) | [Docker Compose ->](04-docker-compose.md)
+[← Chat App with Feedback](02-chat-app.md) | [Docker Compose →](04-docker-compose.md)

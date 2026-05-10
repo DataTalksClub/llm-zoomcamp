@@ -63,4 +63,4 @@ In this module, we will:
 - Split ingestion and query into separate processes
 - Discuss what comes next (agents, vector search, Elasticsearch)
 
-[<- Back to module](../) | [Environment ->](02-environment.md)
+[← Back to module](../) | [Environment →](02-environment.md)

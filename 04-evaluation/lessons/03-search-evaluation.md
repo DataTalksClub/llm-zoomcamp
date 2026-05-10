@@ -203,4 +203,4 @@ This is how you tune search parameters. Instead of guessing, you measure.
 The ground truth dataset gives you a reliable way to compare different
 configurations.
 
-[<- Generating Ground Truth Data](02-generating-ground-truth.md) | [RAG Evaluation: Cosine Similarity ->](04-rag-evaluation-cosine.md)
+[← Generating Ground Truth Data](02-generating-ground-truth.md) | [RAG Evaluation: Cosine Similarity →](04-rag-evaluation-cosine.md)

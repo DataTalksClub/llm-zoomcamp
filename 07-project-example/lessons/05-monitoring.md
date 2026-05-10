@@ -372,4 +372,4 @@ dashboard JSON file.
 The final project includes an automated `init.py` script for
 this in the `grafana/` directory.
 
-[<- Interface and Ingestion Pipeline](04-interface.md) | [Summary and Closing Remarks ->](06-summary.md)
+[← Interface and Ingestion Pipeline](04-interface.md) | [Summary and Closing Remarks →](06-summary.md)

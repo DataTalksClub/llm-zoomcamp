@@ -208,4 +208,4 @@ PGVector is the right choice when you need production features:
 concurrent reads and writes, transactions, or integration with an
 existing Postgres-based application.
 
-[<- Vector Search with sqlitesearch](05-sqlitesearch-vector.md) | [Text Search vs Vector Search ->](07-text-vs-vector.md)
+[← Vector Search with sqlitesearch](05-sqlitesearch-vector.md) | [Text Search vs Vector Search →](07-text-vs-vector.md)

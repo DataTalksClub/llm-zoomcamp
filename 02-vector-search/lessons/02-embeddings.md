@@ -170,4 +170,4 @@ Doing this manually with numpy works fine for small datasets. For
 larger ones, you'd want a search library that handles filtering and ranking.
 We'll use special libraries for that.
 
-[<- What is Vector Search](01-intro.md) | [Vector Search with MinSearch ->](03-minsearch-vector.md)
+[← What is Vector Search](01-intro.md) | [Vector Search with MinSearch →](03-minsearch-vector.md)

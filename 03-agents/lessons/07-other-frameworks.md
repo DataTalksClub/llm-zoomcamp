@@ -59,4 +59,4 @@ loaders, etc.) and a large community.
 Pick one that fits your stack and your needs. The hard part is
 designing good tools and prompts - the loop itself is always the same.
 
-[<- ToyAIKit](06-frameworks.md) | [Back to module ->](../)
+[← ToyAIKit](06-frameworks.md) | [Back to module →](../)

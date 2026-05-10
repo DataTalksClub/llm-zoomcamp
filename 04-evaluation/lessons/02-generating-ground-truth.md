@@ -202,4 +202,4 @@ Save it for later use:
 df_ground_truth.to_csv('ground-truth-data.csv', index=False)
 ```
 
-[<- Evaluation](01-intro.md) | [Search Evaluation ->](03-search-evaluation.md)
+[← Evaluation](01-intro.md) | [Search Evaluation →](03-search-evaluation.md)

@@ -47,4 +47,4 @@ Monitoring is covered in more detail in module 05.
   - 2025 cohort evaluation module:
     [2025/03-evaluation](../cohorts/2025/03-evaluation/)
 
-[<- Instruction Following](08-instruction-following.md) | [Back to module ->](../)
+[← Instruction Following](08-instruction-following.md) | [Back to module →](../)

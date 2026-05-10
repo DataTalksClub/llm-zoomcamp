@@ -233,4 +233,4 @@ that cosine misses (or vice versa).
 Using both metrics together gives you a more complete picture of your
 RAG system's quality.
 
-[<- RAG Evaluation: Cosine Similarity](04-rag-evaluation-cosine.md) | [Collecting Agent Data ->](06-agent-data.md)
+[← RAG Evaluation: Cosine Similarity](04-rag-evaluation-cosine.md) | [Collecting Agent Data →](06-agent-data.md)

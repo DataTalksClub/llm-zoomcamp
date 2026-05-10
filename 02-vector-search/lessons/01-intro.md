@@ -72,4 +72,4 @@ vector search with three tools:
 Then we'll integrate vector search into our RAG pipeline and explore
 hybrid search that combines keyword and vector search.
 
-[<- Back to module](../) | [Embeddings ->](02-embeddings.md)
+[← Back to module](../) | [Embeddings →](02-embeddings.md)

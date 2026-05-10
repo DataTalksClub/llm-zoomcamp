@@ -240,4 +240,4 @@ You should see a web interface where you can ask questions and give
 feedback. Each interaction is saved with the question, answer, response
 time, relevance, tokens, and cost.
 
-[<- Monitoring](01-intro.md) | [Storing Data in PostgreSQL ->](03-database.md)
+[← Monitoring](01-intro.md) | [Storing Data in PostgreSQL →](03-database.md)

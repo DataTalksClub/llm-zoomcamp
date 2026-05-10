@@ -241,4 +241,4 @@ Further reading:
 - [Hybrid search - Elasticsearch Guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html#_combine_approximate_knn_with_other_features)
 - [Hybrid search - Tutorial](https://www.elastic.co/search-labs/tutorials/search-tutorial/vector-search/hybrid-search)
 
-[<- Best Practices for RAG](01-intro.md) | [Document Reranking ->](03-reranking.md)
+[← Best Practices for RAG](01-intro.md) | [Document Reranking →](03-reranking.md)

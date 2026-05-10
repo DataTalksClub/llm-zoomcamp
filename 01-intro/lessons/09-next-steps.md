@@ -50,4 +50,4 @@ If you're curious about how we taught this before:
   models via Ollama)
 - Try Elasticsearch as a search backend
 
-[<- Data Ingestion](08-data-ingestion.md) | [Back to module ->](../)
+[← Data Ingestion](08-data-ingestion.md) | [Back to module →](../)

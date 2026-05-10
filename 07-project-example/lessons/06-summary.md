@@ -60,4 +60,4 @@ It includes:
 - Automated Grafana provisioning
 - A polished README
 
-[<- Monitoring and Containerization](05-monitoring.md) | [Chunking for Longer Texts ->](07-chunking.md)
+[← Monitoring and Containerization](05-monitoring.md) | [Chunking for Longer Texts →](07-chunking.md)
