@@ -1,12 +1,9 @@
 # Introduction
 
-This module is the first part of the
-[LLM Zoomcamp](https://github.com/DataTalksClub/llm-zoomcamp) -
-a free course about building LLM applications.
+In this module, you'll build a working Retrieval-Augmented
+Generation (RAG) system from scratch, step by step.
 
-In this hands-on session, you'll build a working Retrieval-Augmented
-Generation (RAG) system from scratch, step by step. No frameworks, no
-magic - just Python, a search index, and an LLM.
+No frameworks, no magic - just Python, a search index, and an LLM.
 
 Places where you can find me:
 
@@ -62,5 +59,8 @@ In this module, we will:
 - Wire it all together into a working RAG pipeline
 - Split ingestion and query into separate processes
 - Discuss what comes next (agents, vector search, Elasticsearch)
+
+The final code from this module is available in the
+[code/](../code/) directory.
 
 [← Back to module](../) | [Environment →](02-environment.md)

@@ -1,5 +1,11 @@
-from openai import OpenAI
+INSTRUCTIONS = '''
+Your task is to answer questions from the course participants
+based on the provided context.
 
+Use the context to find relevant information and provide accurate
+answers. If the answer is not found in the context,
+respond with "I don't know."
+'''
 
 PROMPT_TEMPLATE = '''
 QUESTION: {question}
@@ -15,9 +21,9 @@ class RAGBase:
         self,
         index,
         llm_client,
-        instructions,
-        course='llm-zoomcamp',
+        instructions=INSTRUCTIONS,
         prompt_template=PROMPT_TEMPLATE,
+        course='llm-zoomcamp',
         model='gpt-5.4-mini'
     ):
         self.index = index
@@ -51,7 +57,9 @@ class RAGBase:
 
     def build_prompt(self, query, search_results):
         context = self.build_context(search_results)
-        return self.prompt_template.format(question=query, context=context)
+        return self.prompt_template.format(
+            question=query, context=context
+        )
 
     def llm(self, prompt):
         input_messages = [

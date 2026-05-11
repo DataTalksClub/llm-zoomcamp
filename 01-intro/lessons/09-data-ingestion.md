@@ -20,6 +20,8 @@ OpenSearch, Qdrant, and so on. In this module, we'll use
 lightweight search library backed by SQLite FTS5. It has the same API
 as minsearch, so switching is straightforward.
 
+You can read more about the history of this library [here](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight).
+
 Install it:
 
 ```bash
@@ -95,7 +97,7 @@ sqlite_index = TextSearchIndex(
 Check how many documents are in the index:
 
 ```python
-len(sqlite_index.search('', num_results=10000))
+sqlite_index.count()
 ```
 
 Run this cell a few times while the other notebook is still ingesting -
@@ -170,15 +172,72 @@ Ingestion (runs once): fetch data -> parse -> write to faq.db
 Query (runs every time): open faq.db -> search -> ready
 ```
 
-The results may differ slightly because minsearch uses TF-IDF while
-sqlitesearch uses BM25. Both are standard text ranking algorithms, but
-they weight terms differently.
+```mermaid
+flowchart TD
 
-TF-IDF (Term Frequency - Inverse Document Frequency) rewards terms
-that appear often in a document but rarely across all documents.
+    %% =============================
+    %% INGESTION
+    %% =============================
 
-BM25 is a refinement of TF-IDF that also considers document length.
-It tends to handle short and long documents more fairly.
+    subgraph ING["INGESTION"]
+        direction LR
+
+        FAQ[FAQ.json]
+
+        INGESTOR[Ingestor<br/>parse, chunk, embed, metadata]
+
+        FAQ --> INGESTOR
+    end
+
+    %% =============================
+    %% RAG ASSISTANT
+    %% =============================
+
+    subgraph RAG["RAG ASSISTANT"]
+
+        U([🙂 User])
+
+        APP[Application]
+
+        DOCS[[D1 ... D5]]
+
+        PROMPT[Build Prompt<br/>Question + Context]
+
+        LLM[LLM]
+
+        ANSWER([Answer])
+
+        U -->|Question| APP
+
+        DOCS --> APP
+
+        APP --> PROMPT
+        PROMPT --> LLM
+
+        LLM --> ANSWER
+        ANSWER --> U
+
+    end
+
+    %% =============================
+    %% KNOWLEDGE BASE
+    %% =============================
+
+    subgraph KB["KNOWLEDGE BASE"]
+
+        DB[(DB)]
+
+    end
+
+    %% =============================
+    %% CONNECTIONS
+    %% =============================
+
+    APP -->|Query| DB
+    DB -->|Retrieved Data| DOCS
+
+    INGESTOR -->|Index Documents| DB
+```
 
 For our FAQ dataset, both produce good results. The difference
 matters more at scale with diverse document lengths.
