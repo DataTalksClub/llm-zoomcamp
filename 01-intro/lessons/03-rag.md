@@ -33,7 +33,7 @@ def llm(prompt):
 This is our black box - text goes in, text comes out. Let's test it:
 
 ```python
-llm('Hey, what's up?')
+llm("Hey, what's up?")
 ```
 
 It replies with something. The LLM works. Now let's ask it a
