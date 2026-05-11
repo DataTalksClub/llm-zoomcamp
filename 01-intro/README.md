@@ -4,6 +4,8 @@ In this module, we learn what LLM and RAG are and implement a simple
 RAG pipeline to answer questions about the FAQ documents from our
 Zoomcamp courses.
 
+Video: https://www.youtube.com/watch?v=KSItlTAsMsk
+
 
 ## Notes
 
