@@ -161,6 +161,12 @@ This is the power of the modular design: `ingest.py` handles data
 loading and indexing, `rag_helper.py` handles the RAG pipeline, and
 the notebooks just wire them together.
 
+This works because sqlitesearch follows the same API as minsearch -
+both have a `search` method that takes a query, `boost_dict`,
+`filter_dict`, and `num_results`. If the API were different, we'd
+need to subclass `RAGBase` and override the `search` method to adapt
+to the new backend.
+
 
 ## Comparing the two approaches
 
