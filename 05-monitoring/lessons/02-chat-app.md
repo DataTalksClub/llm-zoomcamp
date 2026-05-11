@@ -13,30 +13,14 @@ Let's build a chat app that:
 
 ## Setting up the RAG pipeline
 
-First, the RAG pipeline. This is the same one we built in module 03:
+First, the RAG pipeline. We use the `RAGBase` class from module 01:
 
 ```python
-import requests
+from rag_helper import RAGBase, load_faq_data
 from minsearch import Index
 from openai import OpenAI
 
-openai_client = OpenAI()
-
-docs_url = 'https://datatalks.club/faq/json/courses.json'
-response = requests.get(docs_url)
-courses_raw = response.json()
-
-documents = []
-url_prefix = 'https://datatalks.club/faq'
-
-for course in courses_raw:
-    course_url = f'{url_prefix}{course["path"]}'
-    course_response = requests.get(course_url)
-    course_data = course_response.json()
-
-    for doc in course_data:
-        doc['course_name'] = course['course_name']
-        documents.append(doc)
+documents = load_faq_data()
 
 index = Index(
     text_fields=["question", "section", "answer"],
@@ -44,54 +28,31 @@ index = Index(
 )
 index.fit(documents)
 
-def search(query, course="data-engineering-zoomcamp"):
-    boost_dict = {"question": 3.0, "section": 0.5}
-    results = index.search(
-        query,
-        boost_dict=boost_dict,
-        filter_dict={"course": course},
-        num_results=5
-    )
-    return results
-
 INSTRUCTIONS = """
 You're a course teaching assistant.
 Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
 
-PROMPT_TEMPLATE = """
-QUESTION: {question}
-
-CONTEXT:
-{context}
-""".strip()
-
-def build_context(search_results):
-    context = ""
-    for doc in search_results:
-        context += f"section: {doc['section']}\n"
-        context += f"question: {doc['question']}\n"
-        context += f"answer: {doc['answer']}\n"
-        context += "\n"
-    return context.strip()
-
-def build_prompt(query, search_results):
-    context = build_context(search_results)
-    return PROMPT_TEMPLATE.format(question=query, context=context)
+rag = RAGBase(
+    index=index,
+    llm_client=OpenAI(),
+    instructions=INSTRUCTIONS,
+)
 ```
 
-The LLM function records response time and token usage:
+For monitoring, we need to track response time and token usage.
+We override the `llm` method to capture these metrics:
 
 ```python
 import time
 
-def llm(instructions, user_prompt, model="gpt-5.4-mini"):
+def llm_with_metrics(prompt, model="gpt-5.4-mini"):
     start_time = time.time()
 
     input_messages = [
-        {"role": "developer", "content": instructions},
-        {"role": "user", "content": user_prompt}
+        {"role": "developer", "content": INSTRUCTIONS},
+        {"role": "user", "content": prompt}
     ]
     response = openai_client.responses.create(
         model=model,
@@ -153,9 +114,9 @@ def calculate_cost(model, tokens):
     return cost
 
 def get_answer(query, course, model="gpt-5.4-mini"):
-    search_results = search(query, course=course)
-    prompt = build_prompt(query, search_results)
-    answer, tokens, response_time = llm(INSTRUCTIONS, prompt, model=model)
+    search_results = rag.search(query, filter_dict={"course": course})
+    prompt = rag.build_prompt(query, search_results)
+    answer, tokens, response_time = llm_with_metrics(prompt, model=model)
 
     relevance, explanation = evaluate_relevance(query, answer)
     openai_cost = calculate_cost(model, tokens)

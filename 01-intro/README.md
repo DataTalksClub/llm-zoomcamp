@@ -14,8 +14,9 @@ Zoomcamp courses.
 5. [Search](lessons/05-search.md) - Building a search engine with minsearch
 6. [Building a Prompt](lessons/06-building-prompt.md) - Combining search results into a prompt
 7. [RAG Pipeline](lessons/07-llm.md) - Wiring search + prompt + LLM together
-8. [Data Ingestion](lessons/08-data-ingestion.md) - Persistent search with sqlitesearch
-9. [Next Steps](lessons/09-next-steps.md) - Where to go from here
+8. [RAG Helper](lessons/08-rag-helper.md) - Reusable RAGBase class and data loading
+9. [Data Ingestion](lessons/09-data-ingestion.md) - Persistent search with sqlitesearch
+10. [Next Steps](lessons/10-next-steps.md) - Where to go from here
 
 
 ## Optional

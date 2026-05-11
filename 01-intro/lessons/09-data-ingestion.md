@@ -37,22 +37,10 @@ Create a file called `ingest.py`:
 
 ```python
 import time
-import requests
+from rag_helper import load_faq_data
 from sqlitesearch import TextSearchIndex
 
-docs_url = 'https://datatalks.club/faq/json/courses.json'
-response = requests.get(docs_url)
-courses_raw = response.json()
-
-documents = []
-for course in courses_raw:
-    course_url = f'https://datatalks.club/faq{course["path"]}'
-    course_response = requests.get(course_url)
-    course_data = course_response.json()
-    for doc in course_data:
-        doc['course_name'] = course['course_name']
-        documents.append(doc)
-
+documents = load_faq_data()
 print(f"Loaded {len(documents)} documents")
 
 index = TextSearchIndex(
@@ -140,55 +128,47 @@ sqlite_index.close()
 
 ## RAG with sqlitesearch
 
-Since ingestion and querying are separate notebooks, the RAG notebook
-only needs to open the database and call OpenAI. Connect to the index:
+Now let's use the RAGBase class from the previous lesson. We just
+swap the search index - the rest of the RAG code stays the same:
 
 ```python
+from rag_helper import RAGBase
 from sqlitesearch import TextSearchIndex
+from openai import OpenAI
 
 sqlite_index = TextSearchIndex(
     text_fields=["question", "section", "answer"],
     keyword_fields=["course"],
     db_path="faq.db"
 )
+
+instructions = """
+You're a course teaching assistant.
+Answer the QUESTION based on the CONTEXT from the FAQ database.
+Use only the facts from the CONTEXT when answering the QUESTION.
+""".strip()
+
+rag = RAGBase(
+    index=sqlite_index,
+    llm_client=OpenAI(),
+    instructions=instructions,
+)
 ```
 
-Notice: no `fit` call. The index is already populated by the ingestion
-script. We just connect to the database file and start searching.
-
-The search function:
-
-```python
-def sqlite_search(query, num_results=5):
-    boost_dict = {"question": 3.0, "section": 0.5}
-    return sqlite_index.search(
-        query,
-        num_results=num_results,
-        boost_dict=boost_dict
-    )
-```
-
-And the RAG function (same prompt and LLM as before):
-
-```python
-def rag_sqlite(query, model="gpt-5.4-mini"):
-    search_results = sqlite_search(query)
-    prompt = build_prompt(query, search_results)
-    answer = llm(INSTRUCTIONS, prompt, model=model)
-    return answer
-```
+Notice: no `fit` call. The index is already populated by the
+ingestion script. We just connect to the database file.
 
 Try it:
 
 ```python
-query = "How do I run Docker on Windows?"
-answer = rag_sqlite(query)
+answer = rag.rag("How do I run Docker on Windows?")
 print(answer)
 ```
 
 The answer should be similar to what we got with minsearch. But now
 the data comes from a persistent index - no fetching, no processing,
-no indexing at startup.
+no indexing at startup. And we didn't have to rewrite any of the
+RAG logic - just swapped the index.
 
 
 ## Comparing the two approaches
@@ -252,4 +232,4 @@ sqlite_index.close()
 
 Or just let Python clean it up when the notebook kernel shuts down.
 
-[← The LLM](07-llm.md) | [Next Steps →](09-next-steps.md)
+[← RAG Helper](08-rag-helper.md) | [Next Steps →](10-next-steps.md)
