@@ -9,9 +9,16 @@ the prompt we built and generates an answer.
 We already briefly saw how to make requests to OpenAI. Let's now
 spend some time to understand what's happening inside.
 
-We use OpenAI's "responses" API (you can see it from
-`openai_client.responses.create`) as opposed to `chat.completions`
-(legacy API).
+We use OpenAI's Responses API (you can see it from
+`openai_client.responses.create`). OpenAI has two APIs: chat
+completions and responses. Chat completions is the older one - it's
+now considered legacy. When the first edition of this course started,
+the Responses API didn't exist, so we used chat completions. Now we
+prefer responses - it's more convenient.
+
+Many other LLM providers (Groq, Gemini, etc.) support the chat
+completions API, so you can use the OpenAI client with them too. You
+would just need to use `chat.completions` instead of `responses`.
 
 This is how we send a request:
 
@@ -125,6 +132,10 @@ response = openai_client.responses.create(
 
 This separates what the LLM should always do (the instructions, same
 every time) from what the user asks (varies from request to request).
+
+Why `developer` and not `system`? Both work. You can use either one -
+there is some difference between them, but in practice the result is
+the same. We use `developer` in this course.
 
 ## The LLM function
 

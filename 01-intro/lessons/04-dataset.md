@@ -81,6 +81,20 @@ is asking about the data engineering course, we don't need results
 from the ML course. The `section` field helps with ranking - knowing
 which part of the course a question belongs to is useful context.
 
+
+## A note on data preparation
+
+In our case, the data is already prepared - I maintain this FAQ
+website, so I made sure the data is available in a convenient JSON
+format. We don't need to do much to prepare it.
+
+In reality, data preparation is often the most time-consuming part of
+building a RAG system. You may need to scrape websites, parse PDFs,
+clean text, chunk documents, and more. This step is often not visible
+but requires considerable effort. In this course we focus on the GenAI
+side, but keep in mind that in your projects you will likely spend a
+lot of time on data preparation.
+
 In the next section, we'll build the search index.
 
 [← What is RAG](03-rag.md) | [Search →](05-search.md)

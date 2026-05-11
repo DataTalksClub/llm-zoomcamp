@@ -64,11 +64,25 @@ to this same file.
 This file contains the RAG logic - the same functions we wrote in the
 previous lessons, now organized as a class.
 
+Why a class? Right now, `index` and `openai_client` are global
+variables. If we move the functions to a separate file, they won't be
+available. We could import them, but that makes the code difficult to
+reuse and adjust. Instead, we use a class to encapsulate the
+dependencies - the index and the LLM client become parameters of the
+class. This way, we can easily swap the search backend or the LLM
+provider without changing any of the RAG code.
+
 Create `rag_helper.py`:
 
 ```python
-from openai import OpenAI
+INSTRUCTIONS = '''
+Your task is to answer questions from the course participants
+based on the provided context.
 
+Use the context to find relevant information and provide accurate
+answers. If the answer is not found in the context,
+respond with "I don't know."
+'''
 
 PROMPT_TEMPLATE = '''
 QUESTION: {question}
@@ -85,9 +99,9 @@ class RAGBase:
         self,
         index,
         llm_client,
-        instructions,
-        course='llm-zoomcamp',
+        instructions=INSTRUCTIONS,
         prompt_template=PROMPT_TEMPLATE,
+        course='llm-zoomcamp',
         model='gpt-5.4-mini'
     ):
         self.index = index
@@ -172,6 +186,9 @@ And the `rag` method wires it all together:
 Now in a notebook, import from both files and put everything together:
 
 ```python
+from dotenv import load_dotenv
+load_dotenv()
+
 from ingest import load_faq_data, build_index
 from rag_helper import RAGBase
 from openai import OpenAI
@@ -179,7 +196,22 @@ from openai import OpenAI
 documents = load_faq_data()
 index = build_index(documents)
 
-instructions = '''
+openai_client = OpenAI()
+
+assistant = RAGBase(
+    index=index,
+    llm_client=openai_client,
+)
+
+answer = assistant.rag('How do I run Docker on Windows?')
+print(answer)
+```
+
+We don't need to pass `instructions` - the default from `rag_helper.py` is
+used. You can override it if you want different behavior:
+
+```python
+custom_instructions = '''
 You're a course teaching assistant.
 Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
@@ -187,12 +219,9 @@ Use only the facts from the CONTEXT when answering the QUESTION.
 
 assistant = RAGBase(
     index=index,
-    llm_client=OpenAI(),
-    instructions=instructions,
+    llm_client=openai_client,
+    instructions=custom_instructions,
 )
-
-answer = assistant.rag('How do I run Docker on Windows?')
-print(answer)
 ```
 
 Try more questions:

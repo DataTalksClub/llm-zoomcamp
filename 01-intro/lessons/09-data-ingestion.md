@@ -10,6 +10,11 @@ documents, or if fetching the data takes time (calling APIs, parsing
 files, cleaning text), the startup becomes slow. You don't want to
 wait minutes every time your service restarts.
 
+The problem with minsearch is that it's in-memory. It's just a bunch
+of Python dictionaries - it's bound to the process where it's running.
+When you stop the process, the data disappears. You need to re-index
+every time you restart.
+
 The solution: separate ingestion from querying. One process writes
 the data to a persistent search index. Another process reads from it.
 The index survives restarts, so you only ingest once.
@@ -18,7 +23,13 @@ You can use any persistent search backend for this - Elasticsearch,
 OpenSearch, Qdrant, and so on. In this module, we'll use
 [sqlitesearch](https://github.com/alexeygrigorev/sqlitesearch) - a
 lightweight search library backed by SQLite FTS5. It has the same API
-as minsearch, so switching is straightforward.
+as minsearch, so switching is straightforward - it's a drop-in
+replacement, but persistent.
+
+SQLite comes with Python - you don't need any extra dependencies. And
+SQLite has FTS5 (full text search) built in. So if you have Python,
+you already have access to a full text search engine. sqlitesearch is
+just a convenient wrapper around it.
 
 You can read more about the history of this library [here](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight).
 
@@ -123,16 +134,11 @@ search index - the rest of the code stays the same:
 from rag_helper import RAGBase
 from openai import OpenAI
 
-instructions = '''
-You're a course teaching assistant.
-Answer the QUESTION based on the CONTEXT from the FAQ database.
-Use only the facts from the CONTEXT when answering the QUESTION.
-'''.strip()
+openai_client = OpenAI()
 
 assistant = RAGBase(
     index=sqlite_index,
-    llm_client=OpenAI(),
-    instructions=instructions,
+    llm_client=openai_client,
 )
 ```
 

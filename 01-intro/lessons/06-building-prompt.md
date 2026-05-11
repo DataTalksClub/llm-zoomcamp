@@ -4,9 +4,15 @@ The LLM doesn't see our documents unless we pass them in. So we need
 to build a prompt that includes the user's question and the search
 results.
 
-In the OpenAI Responses API, we send two things:
-`instructions` tells the LLM how to behave (the system message).
-`input` is the user's question together with the retrieved context.
+Typically when we build AI systems, the prompt consists of two parts:
+
+- Instructions (also called system prompt): this tells the LLM how to
+  behave. It never changes - it's the same for every request.
+- User prompt: this changes with every request. It contains the actual
+  question and the retrieved context.
+
+In the OpenAI Responses API, the instructions go into the
+`instructions` parameter, and the user prompt goes into `input`.
 
 
 ## Instructions
@@ -14,11 +20,14 @@ In the OpenAI Responses API, we send two things:
 The instructions tell the LLM its role and how to answer:
 
 ```python
-INSTRUCTIONS = """
-You're a course teaching assistant.
-Answer the QUESTION based on the CONTEXT from the FAQ database.
-Use only the facts from the CONTEXT when answering the QUESTION.
-""".strip()
+INSTRUCTIONS = '''
+Your task is to answer questions from the course participants
+based on the provided context.
+
+Use the context to find relevant information and provide accurate
+answers. If the answer is not found in the context,
+respond with "I don't know."
+'''
 ```
 
 This is what grounds the answer in our data and reduces hallucinations.
@@ -50,12 +59,12 @@ This format makes it easy for the LLM to read.
 Now we combine the question with the context into the user prompt:
 
 ```python
-PROMPT_TEMPLATE = """
+PROMPT_TEMPLATE = '''
 QUESTION: {question}
 
 CONTEXT:
 {context}
-""".strip()
+'''.strip()
 
 def build_prompt(query, search_results):
     context = build_context(search_results)

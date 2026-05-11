@@ -42,6 +42,38 @@ If you're curious about how we taught this before:
 - [2025 cohort](../../cohorts/2025/02-vector-search/) used Qdrant
 
 
+## Agents
+
+In our RAG pipeline, the flow is fixed: we always take the user's
+question and send it directly to the knowledge base. But we can be
+smarter. We can let an LLM sit between the user and the database,
+deciding what questions to send to the knowledge base, how many, and
+so on.
+
+This is what agents are about. The LLM becomes an intelligent
+intermediary that can reason about what to search for. We'll cover
+agents in detail in module 03.
+
+
+## Fine-tuning vs RAG
+
+A common question is: why not just fine-tune the LLM on our data?
+
+Fine-tuning means taking a model's weights and adjusting them for
+your specific use case. This works, but it has downsides:
+
+- It requires special hardware (GPUs) and tools we don't cover in
+  this course
+- It's difficult to update when new data arrives - you don't want to
+  retrain the model every time a new FAQ entry is added
+- The LLM already has internal knowledge, but RAG gives it access to
+  information it wasn't trained on
+
+RAG is more flexible, cheaper, and works with any LLM. In practice,
+fine-tuning is rarely needed - focus on RAG first, and only use
+fine-tuning when you really need it.
+
+
 ## Where to go from here
 
 - Try different prompts and see how the answers change
