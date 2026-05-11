@@ -2,10 +2,6 @@
 
 For this module, all you need is Python with Jupyter.
 
-You can use whatever environment you like - your laptop, Google
-Colab, SageMaker, or anything else with a notebook.
-
-
 ## Prerequisites
 
 - Python (3.14 or later)
