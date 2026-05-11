@@ -11,10 +11,6 @@ Typically when we build AI systems, the prompt consists of two parts:
 - User prompt: this changes with every request. It contains the actual
   question and the retrieved context.
 
-In the OpenAI Responses API, the instructions go into the
-`instructions` parameter, and the user prompt goes into `input`.
-
-
 ## Instructions
 
 The instructions tell the LLM its role and how to answer:
