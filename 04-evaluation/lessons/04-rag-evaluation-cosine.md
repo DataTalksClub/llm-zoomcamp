@@ -30,55 +30,35 @@ is working well.
 
 ## Generating RAG answers
 
-Let's run the RAG pipeline on our ground truth data. First, set up the
-search and LLM functions:
+Let's run the RAG pipeline on our ground truth data. First, set up
+`RAGBase`:
 
 ```python
+from rag_helper import RAGBase, load_faq_data
+from minsearch import Index
 from openai import OpenAI
+
+documents = load_faq_data()
+
+index = Index(
+    text_fields=["question", "section", "answer"],
+    keyword_fields=["course"]
+)
+index.fit(documents)
+
 openai_client = OpenAI()
 
-INSTRUCTIONS = """
+instructions = """
 You're a course teaching assistant.
 Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
 
-PROMPT_TEMPLATE = """
-QUESTION: {question}
-
-CONTEXT:
-{context}
-""".strip()
-
-def build_context(search_results):
-    context = ""
-    for doc in search_results:
-        context += f"section: {doc['section']}\n"
-        context += f"question: {doc['question']}\n"
-        context += f"answer: {doc['answer']}\n"
-        context += "\n"
-    return context.strip()
-
-def build_prompt(query, search_results):
-    context = build_context(search_results)
-    return PROMPT_TEMPLATE.format(question=query, context=context)
-
-def llm(instructions, user_prompt, model="gpt-5.4-mini"):
-    input_messages = [
-        {"role": "developer", "content": instructions},
-        {"role": "user", "content": user_prompt}
-    ]
-    response = openai_client.responses.create(
-        model=model,
-        input=input_messages
-    )
-    return response.output_text
-
-def rag(query, course="data-engineering-zoomcamp", model="gpt-5.4-mini"):
-    search_results = search(query, course=course)
-    prompt = build_prompt(query, search_results)
-    answer = llm(INSTRUCTIONS, prompt, model=model)
-    return answer
+rag = RAGBase(
+    index=index,
+    llm_client=openai_client,
+    instructions=instructions,
+)
 ```
 
 Now run RAG on all ground truth questions and collect both the LLM
@@ -93,7 +73,10 @@ for i, rec in enumerate(tqdm(ground_truth_flat)):
     if i in answers:
         continue
 
-    answer_llm = rag(rec['question'], course=rec['course'])
+    answer_llm = rag.rag(
+        rec['question'],
+        filter_dict={"course": rec['course']}
+    )
     doc_id = rec['document']
     original_doc = doc_idx[doc_id]
     answer_orig = original_doc['answer']
@@ -169,10 +152,20 @@ With this framework, we can compare different LLMs:
 models = ['gpt-5.4-mini']
 
 for model_name in models:
+    rag_model = RAGBase(
+        index=index,
+        llm_client=openai_client,
+        instructions=instructions,
+        model=model_name,
+    )
+
     answers_model = {}
 
     for i, rec in enumerate(tqdm(ground_truth_flat)):
-        answer_llm = rag(rec['question'], course=rec['course'], model=model_name)
+        answer_llm = rag_model.rag(
+            rec['question'],
+            filter_dict={"course": rec['course']}
+        )
         doc_id = rec['document']
         original_doc = doc_idx[doc_id]
         answer_orig = original_doc['answer']

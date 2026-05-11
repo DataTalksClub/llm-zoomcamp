@@ -28,7 +28,11 @@ Let's set up the agent from module 03. The search function, search tool
 schema, and developer prompt are the same:
 
 ```python
+from rag_helper import RAGBase, load_faq_data
 from minsearch import Index
+from openai import OpenAI
+
+documents = load_faq_data()
 
 index = Index(
     text_fields=["question", "section", "answer"],
@@ -36,15 +40,26 @@ index = Index(
 )
 index.fit(documents)
 
+openai_client = OpenAI()
+
+instructions = """
+You're a course teaching assistant.
+Answer the QUESTION based on the CONTEXT from the FAQ database.
+Use only the facts from the CONTEXT when answering the QUESTION.
+""".strip()
+
+rag = RAGBase(
+    index=index,
+    llm_client=openai_client,
+    instructions=instructions,
+)
+
 def search(query, course="data-engineering-zoomcamp"):
-    boost_dict = {"question": 3.0, "section": 0.5}
-    results = index.search(
+    return rag.search(
         query,
-        boost_dict=boost_dict,
+        boost_dict={"question": 3.0, "section": 0.5},
         filter_dict={"course": course},
-        num_results=5
     )
-    return results
 ```
 
 ```python

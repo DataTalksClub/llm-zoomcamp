@@ -112,22 +112,45 @@ def hybrid_search(query, course="data-engineering-zoomcamp", num_results=10):
 
 ## Using hybrid search in RAG
 
+Set up `RAGBase`:
+
 ```python
-def rag(query):
-    search_results = hybrid_search(query)
-    prompt = build_prompt(query, search_results)
-    answer = llm(INSTRUCTIONS, prompt)
+from rag_helper import RAGBase
+from openai import OpenAI
+
+openai_client = OpenAI()
+
+instructions = """
+You're a course teaching assistant.
+Answer the QUESTION based on the CONTEXT from the FAQ database.
+Use only the facts from the CONTEXT when answering the QUESTION.
+""".strip()
+
+rag = RAGBase(
+    index=index,
+    llm_client=openai_client,
+    instructions=instructions,
+)
+```
+
+Now use hybrid search with the RAG pipeline:
+
+```python
+def hybrid_rag(query, course="data-engineering-zoomcamp", num_results=10):
+    search_results = hybrid_search(query, course=course, num_results=num_results)
+    prompt = rag.build_prompt(query, search_results)
+    answer = rag.llm(prompt)
     return answer
 ```
 
 Try it:
 
 ```python
-rag("How do I run Kafka?")
+hybrid_rag("How do I run Kafka?")
 ```
 
 ```python
-rag("uploading to S3 fails")
+hybrid_rag("uploading to S3 fails")
 ```
 
 [← Text Search vs Vector Search](07-text-vs-vector.md) | [Using ONNX Runtime →](09-onnx-embedder.md)

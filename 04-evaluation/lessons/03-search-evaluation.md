@@ -9,10 +9,14 @@ the search and check if the correct document shows up in the results.
 
 ## Setting up search
 
-Let's set up our minsearch index the same way we did in module 03:
+Let's set up our search using `RAGBase` from module 01:
 
 ```python
+from rag_helper import RAGBase, load_faq_data
 from minsearch import Index
+from openai import OpenAI
+
+documents = load_faq_data()
 
 index = Index(
     text_fields=["question", "section", "answer"],
@@ -20,15 +24,31 @@ index = Index(
 )
 index.fit(documents)
 
-def search(query, course="data-engineering-zoomcamp"):
-    boost_dict = {"question": 3.0, "section": 0.5}
-    results = index.search(
+openai_client = OpenAI()
+
+instructions = """
+You're a course teaching assistant.
+Answer the QUESTION based on the CONTEXT from the FAQ database.
+Use only the facts from the CONTEXT when answering the QUESTION.
+""".strip()
+
+rag = RAGBase(
+    index=index,
+    llm_client=openai_client,
+    instructions=instructions,
+)
+```
+
+We'll use `rag.search` to evaluate different boost configurations.
+The default search function for evaluation:
+
+```python
+def search_fn(query, course):
+    return rag.search(
         query,
-        boost_dict=boost_dict,
+        boost_dict={"question": 3.0, "section": 0.5},
         filter_dict={"course": course},
-        num_results=5
     )
-    return results
 ```
 
 
@@ -42,7 +62,7 @@ relevance_total = []
 
 for q in tqdm(ground_truth_flat):
     doc_id = q['document']
-    results = search(query=q['question'], course=q['course'])
+    results = search_fn(query=q['question'], course=q['course'])
     relevance = [d['id'] == doc_id for d in results]
     relevance_total.append(relevance)
 ```
@@ -166,10 +186,9 @@ def evaluate(ground_truth, search_function):
 Now we can evaluate any search function:
 
 ```python
-# Evaluate minsearch with default boost
 evaluate(
     ground_truth_flat,
-    lambda q: search(q['question'], q['course'])
+    lambda q: search_fn(q['question'], q['course'])
 )
 ```
 
@@ -183,12 +202,10 @@ Now we can try different boost values and see what works best:
 
 ```python
 def search_boost(query, course, question_boost):
-    boost_dict = {"question": question_boost, "section": 0.5}
-    return index.search(
+    return rag.search(
         query,
-        boost_dict=boost_dict,
+        boost_dict={"question": question_boost, "section": 0.5},
         filter_dict={"course": course},
-        num_results=5
     )
 
 for boost in [1.0, 3.0, 5.0, 10.0]:

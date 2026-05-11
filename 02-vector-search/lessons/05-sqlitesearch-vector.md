@@ -165,32 +165,47 @@ vs_index = VectorSearchIndex(
 No `fit` call needed. One notebook built the index, another notebook
 queries it.
 
-Now let's use it in our RAG pipeline. The search function:
+Now let's use it in our RAG pipeline. Set up `RAGBase`:
 
 ```python
-def vector_search(query, course="data-engineering-zoomcamp", num_results=5):
+from rag_helper import RAGBase
+from openai import OpenAI
+
+openai_client = OpenAI()
+
+instructions = """
+You're a course teaching assistant.
+Answer the QUESTION based on the CONTEXT from the FAQ database.
+Use only the facts from the CONTEXT when answering the QUESTION.
+""".strip()
+
+rag = RAGBase(
+    index=vs_index,
+    llm_client=openai_client,
+    instructions=instructions,
+)
+```
+
+Vector search requires embedding the query, so we use `build_prompt`
+and `llm` from `RAGBase` with manual search:
+
+```python
+def vector_rag(query, course="data-engineering-zoomcamp", num_results=5):
     query_vector = model.encode(query)
-    return vs_index.search(
+    search_results = vs_index.search(
         query_vector,
         filter_dict={"course": course},
         num_results=num_results
     )
-```
-
-And the RAG function (same pattern as before):
-
-```python
-def rag(query, model="gpt-5.4-mini"):
-    search_results = vector_search(query)
-    prompt = build_prompt(query, search_results)
-    answer = llm(INSTRUCTIONS, prompt, model=model)
+    prompt = rag.build_prompt(query, search_results)
+    answer = rag.llm(prompt)
     return answer
 ```
 
-The prompt and LLM functions are the same as module 1. Try it:
+Try it:
 
 ```python
-rag("I just discovered the course. Can I still join it?")
+vector_rag("I just discovered the course. Can I still join it?")
 ```
 
 
