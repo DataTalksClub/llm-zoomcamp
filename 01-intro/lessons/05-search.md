@@ -64,57 +64,44 @@ index.fit(documents)
 
 That's it. The index is built.
 
-What happened: minsearch tokenized each text field (split into words,
-lowercased, removed stop words), computed TF-IDF scores, and built
-an inverted index. When we search, it ranks documents by how well
-their terms match the query.
-
 
 ## Trying a search
 
-Let's try a search:
+Let's try a search with the question we used before:
 
 ```python
-query = 'How do I run Docker on Windows?'
-results = index.search(query, num_results=5)
-```
+question = 'I just discovered the course. Can I join now?'
 
-Look at the results:
-
-```python
-results[0]
-```
-
-Each result is a document from our dataset, ranked by relevance to
-the query. The top result should contain an answer about running
-Docker on Windows.
-
-Let's see all the questions from the top results:
-
-```python
-[doc['question'] for doc in results]
-```
-
-
-## Filtering by course
-
-Sometimes you want to restrict the search to a specific course.
-minsearch supports keyword filtering:
-
-```python
-results = index.search(
-    query='How do I run Docker on Windows?',
-    num_results=5,
-    filter_dict={'course': 'mlops-zoomcamp'}
+search_results = index.search(
+    question,
+    boost_dict={'question': 2.0, 'section': 0.5},
+    filter_dict={'course': 'llm-zoomcamp'},
+    num_results=5
 )
+
+search_results
 ```
 
-This only returns documents from the MLOps Zoomcamp. Try a few
-different queries and courses to get a feel for the results.
+We get back 5 results from the LLM Zoomcamp FAQ. The top result is
+the one that matches best - it's the FAQ entry "I just discovered the
+course. Can I still join?" which is exactly what we need.
+
+Let's see all the questions:
 
 ```python
-[doc['question'] for doc in results]
+[doc['question'] for doc in search_results]
 ```
+
+We see questions about joining the course, registration, certificates,
+and more. These are the candidate documents we'll send to the LLM.
+
+We used `boost_dict` to give the `question` field more weight (2.0
+instead of the default 1.0) and `section` less weight (0.5). This means
+if the query words appear in the question field, that's a stronger
+signal than if they appear in the section name.
+
+We used `filter_dict` to only return results from the LLM Zoomcamp
+course. Without this filter, we'd get results from all four courses.
 
 
 ## Boosting fields
@@ -128,18 +115,39 @@ minsearch supports field boosting to reflect this:
 
 ```python
 results = index.search(
-    query='How do I run Docker on Windows?',
+    question,
     num_results=5,
-    boost_dict={'question': 3.0, 'section': 0.5}
+    boost_dict={'question': 2.0, 'section': 0.5}
 )
 ```
 
-All fields have a default boost of 1. Giving `question` a boost of 3
-means it counts three times as much. Giving `section` 0.5 means it
+All fields have a default boost of 1. Giving `question` a boost of 2
+means it counts two times as much. Giving `section` 0.5 means it
 counts half as much. This is the same boosting mechanism used by
 Elasticsearch and Lucene.
 
 Try different boost values and see how the results change.
+
+
+## Filtering by course
+
+Sometimes you want to restrict the search to a specific course.
+minsearch supports keyword filtering:
+
+```python
+results = index.search(
+    question,
+    num_results=5,
+    filter_dict={'course': 'mlops-zoomcamp'}
+)
+```
+
+This only returns documents from the MLOps Zoomcamp. Try a few
+different queries and courses to get a feel for the results.
+
+```python
+[doc['question'] for doc in results]
+```
 
 
 ## Wrapping it in a function
@@ -148,13 +156,15 @@ Let's wrap the search in a `search` function. This is the first
 component of our RAG pipeline:
 
 ```python
-def search(query, course='llm-zoomcamp', num_results=5):
-    boost_dict = {'question': 3.0, 'section': 0.5}
+def search(question, course='llm-zoomcamp'):
+    boost_dict = {'question': 2.0, 'section': 0.5}
+    filter_dict = {'course': course}
+
     return index.search(
-        query,
-        num_results=num_results,
+        question,
         boost_dict=boost_dict,
-        filter_dict={'course': course}
+        filter_dict=filter_dict,
+        num_results=5
     )
 ```
 
@@ -162,7 +172,9 @@ By default it searches the LLM Zoomcamp FAQ. You can pass a
 different course slug to search other courses:
 
 ```python
-search('How do I run Docker?', course='mlops-zoomcamp')
+search_results = search(question)
 ```
+
+Code: [notebook.ipynb](../code/notebook.ipynb)
 
 [← The Course FAQ Dataset](04-dataset.md) | [Building the Prompt →](06-building-prompt.md)

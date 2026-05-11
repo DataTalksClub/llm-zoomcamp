@@ -4,23 +4,10 @@ The last component of our RAG pipeline is the LLM itself. It takes
 the prompt we built and generates an answer.
 
 
-## Making a request
+## Sending the prompt to the LLM
 
-We already briefly saw how to make requests to OpenAI. Let's now
-spend some time to understand what's happening inside.
-
-We use OpenAI's Responses API (you can see it from
-`openai_client.responses.create`). OpenAI has two APIs: chat
-completions and responses. Chat completions is the older one - it's
-now considered legacy. When the first edition of this course started,
-the Responses API didn't exist, so we used chat completions. Now we
-prefer responses - it's more convenient.
-
-Many other LLM providers (Groq, Gemini, etc.) support the chat
-completions API, so you can use the OpenAI client with them too. You
-would just need to use `chat.completions` instead of `responses`.
-
-This is how we send a request:
+Now we have the prompt from the previous section. Let's send it to the
+LLM:
 
 ```python
 response = openai_client.responses.create(
@@ -29,21 +16,21 @@ response = openai_client.responses.create(
 )
 ```
 
-The response is a Pydantic object. We can turn it into readable JSON:
+We use OpenAI's Responses API (`openai_client.responses.create`). OpenAI
+has two APIs: chat completions and responses. Chat completions is the
+older one - it's now considered legacy. When the first edition of this
+course started, the Responses API didn't exist, so we used chat
+completions. Now we prefer responses - it's more convenient.
 
-```python
-print(response.model_dump_json(indent=2))
-```
-
-
-Take a moment to look at the fields. You'll see the answer text, the
-model used, usage info, and other metadata.
+Many other LLM providers (Groq, Gemini, etc.) support the chat
+completions API, so you can use the OpenAI client with them too. You
+would just need to use `chat.completions` instead of `responses`.
 
 
 ## Exploring the response
 
-The answer is in `response.output` - a list of output items. The
-first one is the message:
+The response is a Pydantic object. The answer is in `response.output` -
+a list of output items. The first one is the message:
 
 ```python
 response.output[0]
@@ -61,7 +48,9 @@ That's a lot of digging. There's a shortcut:
 response.output_text
 ```
 
-Same result, less code.
+Same result, less code. The answer should be something like: "Yes, you
+can still join. If you want to receive a certificate, make sure to
+submit your project while submissions are still open."
 
 The usage counts tell you how many tokens the request consumed:
 
@@ -72,7 +61,7 @@ response.usage
 You'll see something like:
 
 ```
-ResponseUsage(input_tokens=14, output_tokens=6, total_tokens=20)
+ResponseUsage(input_tokens=334, output_tokens=39, total_tokens=373)
 ```
 
 
@@ -83,11 +72,6 @@ You can use different models. In this course we'll use
 
 - Input: $0.75 per million tokens
 - Output: $4.50 per million tokens
-
-If you want something cheaper, [gpt-4o-mini](https://developers.openai.com/api/docs/models/gpt-4o-mini) also works well:
-
-- Input: $0.15 per million tokens
-- Output: $0.60 per million tokens
 
 Let's calculate the cost of the request we just made:
 
@@ -104,29 +88,35 @@ cost
 ```
 
 This particular request costs a fraction of a cent. Even a full RAG
-query with a long prompt stays under $0.01.
+query with a long prompt stays under $0.01. We really need to send a
+lot of queries to even spend one cent.
 
 
 ## Message history
 
 Previously we sent only one string as input and got back a response.
 In practice, you typically send a message history - a list of messages
-where each message has a role:
+where each message has a role.
+
+Think of ChatGPT: there's a system prompt (hidden, tells it how to
+behave), then your message, then the reply, then your next message,
+and so on. The LLM needs the full conversation history to continue
+the conversation.
+
+In our case, we send two messages:
 
 - `developer` - system-level instructions (how the LLM should behave)
-- `user` - the actual query from the user
-
-Let's send both instructions and user prompt to the API:
+- `user` - the actual prompt with the question and context
 
 ```python
-input_messages = [
-    {'role': 'developer', 'content': instructions},
-    {'role': 'user', 'content': user_prompt}
+message_history = [
+    {'role': 'developer', 'content': INSTRUCTIONS},
+    {'role': 'user', 'content': prompt}
 ]
 
 response = openai_client.responses.create(
-    model=model,
-    input=input_messages
+    model='gpt-5.4-mini',
+    input=message_history
 )
 ```
 
@@ -137,41 +127,32 @@ Why `developer` and not `system`? Both work. You can use either one -
 there is some difference between them, but in practice the result is
 the same. We use `developer` in this course.
 
+
 ## The LLM function
 
-We can now put this together into an updated `llm` function. In addition to the prompt, it will also take instructions:
+We can now put this together into an updated `llm` function. It now
+takes both instructions and the user prompt:
 
 ```python
 def llm(instructions, user_prompt, model='gpt-5.4-mini'):
-    input_messages = [
+    message_history = [
         {'role': 'developer', 'content': instructions},
         {'role': 'user', 'content': user_prompt}
     ]
 
     response = openai_client.responses.create(
         model=model,
-        input=input_messages
+        input=message_history
     )
 
     return response.output_text
 ```
 
-Test it:
-
-```python
-instructions = "You're a course teaching assistant."
-user_prompt = 'How do I run Docker on Windows?'
-
-llm(instructions, user_prompt)
-```
-
-For other LLM providers, the API may be different - check their docs.
-
 
 ## Full RAG
 
 Now we have all three components: search, prompt, and LLM. Let's wire
-them together.
+them together:
 
 ```python
 def rag(query, model='gpt-5.4-mini'):
@@ -185,7 +166,7 @@ Let's revise the flow:
 
 ```mermaid
 flowchart TD
-    U([🙂 User])
+    U([User])
 
     APP[Application]
 
@@ -214,8 +195,7 @@ flowchart TD
 Try it:
 
 ```python
-query = 'How do I run Docker on Windows?'
-answer = rag(query)
+answer = rag('I just discovered the course. Can I join now?')
 print(answer)
 ```
 
@@ -237,5 +217,7 @@ This approach is modular. Each component is independent and
 replaceable: you can swap the search backend, the prompt template,
 or the LLM model without touching the rest. Later when we replace
 minsearch with sqlitesearch, only the `search` function changes.
+
+Code: [notebook.ipynb](../code/notebook.ipynb)
 
 [← Building the Prompt](06-building-prompt.md) | [RAG Helper →](08-rag-helper.md)

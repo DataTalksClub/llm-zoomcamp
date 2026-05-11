@@ -8,8 +8,8 @@ same code.
 We'll use this code throughout the course, so let's put it into two
 reusable files:
 
-- `ingest.py` - loading data and building the search index
-- `rag_helper.py` - the RAG logic (search, prompt, LLM)
+- [ingest.py](../code/ingest.py) - loading data and building the search index
+- [rag_helper.py](../code/rag_helper.py) - the RAG logic (search, prompt, LLM)
 
 Then in notebooks, we just import from these files and use them.
 
@@ -203,7 +203,7 @@ assistant = RAGBase(
     llm_client=openai_client,
 )
 
-answer = assistant.rag('How do I run Docker on Windows?')
+answer = assistant.rag('I just discovered the course. Can I join now?')
 print(answer)
 ```
 

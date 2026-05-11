@@ -2,7 +2,7 @@
 
 In our community at DataTalks.Club, we run multiple Zoomcamp courses -
 free courses on data engineering, machine learning, MLOps, and other
-topics. For each course, we maintain a FAQ document with common
+topics. For each course, we maintain an FAQ document with common
 questions and answers.
 
 The problem: some of these documents have over 300 questions. Students
@@ -19,8 +19,7 @@ can't just use an LLM directly.
 
 ## The problem with LLMs
 
-Let's try asking an LLM a course-specific question without any
-context:
+First, let's define a function to talk to the LLM:
 
 ```python
 def llm(prompt):
@@ -31,44 +30,106 @@ def llm(prompt):
     return response.output_text
 ```
 
+This is our black box - text goes in, text comes out. Let's test it:
+
 ```python
-llm('Can I still join the course after it started?')
+llm('Hey, what's up?')
 ```
 
-The LLM will give a generic answer - something like "it depends on
-the course" or "check the course website". It doesn't know about our
-specific Zoomcamp courses, their enrollment policies, or their
-schedules. It says "I can help you, but I need to know more details."
+It replies with something. The LLM works. Now let's ask it a
+course-specific question:
+
+```python
+question = 'I just discovered the course. Can I join now?'
+answer = llm(question)
+print(answer)
+```
+
+The LLM gives a generic answer - something like "if enrollment is still
+open, you can usually join" or "check the course website." It doesn't
+know about our specific Zoomcamp courses, their enrollment policies, or
+their schedules. It tries to be helpful, but it has no idea if
+enrollment is still open, what the policies are, and so on.
 
 This is different from a question like "how do I cook salmon?" - the
 LLM knows the answer because cooking salmon is common knowledge. But
 our courses are not in the training data.
 
+
+## Adding context manually
+
+What if we gave the LLM more context? We have a FAQ website with
+questions and answers about our courses. Let's copy some of that
+content and put it into context:
+
 ```python
-llm('How do I get a certificate?')
+context = '''
+I just discovered the course. Can I still join?
+Yes, but if you want to receive a certificate, you need to submit your project while we're still accepting submissions.
+
+Course: I have registered for the LLM Zoomcamp. When can I expect to receive the confirmation email?
+You don't need it. You're accepted. You can also just start learning and submitting homework (while the form is open) without registering. It is not checked against any registered list. Registration is just to gauge interest before the start date.
+
+What is the video/zoom link to the stream for the "Office Hours" or live/workshop sessions?
+The zoom link is only published to instructors/presenters/TAs. Students participate via YouTube Live and submit questions to Slido.
+
+Cloud alternatives with GPU
+Check the quota and reset cycle carefully. Potential options include Google Colab, Kaggle, Databricks.
+'''
 ```
 
-Same problem. The LLM doesn't know the specific requirements for our
-certificates - that you need to submit a capstone project and
-peer-review three other projects.
+Now let's build a prompt that includes both the question and the
+context:
 
-The issue: the LLM's training data doesn't contain our FAQ. It has
-general knowledge about courses and certificates, but not the
-specific answers to these specific questions.
+```python
+prompt = f'''
+Your task is to answer questions from the course participants
+based on the provided context.
+
+Use the context to find relevant information and provide accurate
+answers. If the answer is not found in the context,
+respond with "I don't know."
+
+Question:
+{question}
+
+Context:
+{context}
+'''
+```
+
+Instead of sending the raw question to the LLM, we send this prompt:
+
+```python
+answer = llm(prompt)
+print(answer)
+```
+
+Now the answer is correct: "Yes, you can still join. If you want to
+receive a certificate, you need to submit your project while
+submissions are still open."
+
+This is the answer we actually want to give to our students. What we
+just did is nothing but RAG.
 
 
 ## The RAG idea
 
-RAG stands for Retrieval-Augmented Generation. There are two key
-words here: generation and retrieval. Generation is the LLM - it
-generates text. Retrieval is search. We use search to augment the
-LLM's generation.
+RAG stands for Retrieval-Augmented Generation. There are two key words
+here: generation and retrieval. Generation is the LLM - it generates
+text. Retrieval is search. We use search to augment the LLM's
+generation.
 
-In other words: we retrieve relevant documents from our knowledge
-base, and use them to augment what the LLM generates.
+In other words: we retrieve relevant documents from our knowledge base,
+and use them to augment what the LLM generates.
 
 The reason we use search (retrieval) is to give the LLM more
 information, more context, so it can give the right answer.
+
+Right now we used a naive way of selecting context - we knew in advance
+which FAQ entry contained the answer. But what we really want is to
+perform search automatically - find the most relevant documents and send
+those to the LLM.
 
 In code, it looks like this:
 

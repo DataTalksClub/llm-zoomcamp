@@ -33,6 +33,22 @@ respond with "I don't know."
 This is what grounds the answer in our data and reduces hallucinations.
 
 
+## The user prompt template
+
+The user prompt template has placeholders for the question and the
+context:
+
+```python
+USER_PROMPT_TEMPLATE = '''
+Question:
+{question}
+
+Context:
+{context}
+'''
+```
+
+
 ## Building the context
 
 The `context` is a formatted string with all the search results:
@@ -51,32 +67,28 @@ def build_context(search_results):
 ```
 
 Each document becomes a block with the section, question, and answer.
-This format makes it easy for the LLM to read.
+This format makes it easy for the LLM to read. We just turned a
+dictionary into a string - nothing fancy here.
 
 
-## The user prompt
+## Building the prompt
 
 Now we combine the question with the context into the user prompt:
 
 ```python
-PROMPT_TEMPLATE = '''
-QUESTION: {question}
-
-CONTEXT:
-{context}
-'''.strip()
-
-def build_prompt(query, search_results):
+def build_prompt(question, search_results):
     context = build_context(search_results)
-    return PROMPT_TEMPLATE.format(question=query, context=context)
+    prompt = USER_PROMPT_TEMPLATE.format(
+        question=question,
+        context=context
+    )
+    return prompt.strip()
 ```
 
 Let's try it:
 
 ```python
-query = 'How do I run Docker on Windows?'
-search_results = search(query)
-prompt = build_prompt(query, search_results)
+prompt = build_prompt(question, search_results)
 
 print(prompt)
 ```
@@ -87,31 +99,30 @@ FAQ entries below it. This is exactly what we'll send to the LLM.
 The prompt looks something like:
 
 ```
-QUESTION: How do I run Docker on Windows?
+Question:
+I just discovered the course. Can I join now?
 
-CONTEXT:
-Module 5: Monitoring
-Q: How can I remove all Docker containers, images, and volumes, and builds from the terminal?
-A: 1. Delete all containers (including running ones): ...
+Context:
+General Course-Related Questions
+Q: I just discovered the course. Can I still join?
+A: Yes, but if you want to receive a certificate, you need to submit your project while we're still accepting submissions.
+
+General Course-Related Questions
+Q: Course: I have registered for the LLM Zoomcamp. When can I expect to receive the confirmation email?
+A: You don't need it. You're accepted. You can also just start learning and submitting homework...
 
 ...
-Q: ...
-A: ...
 ```
 
 The prompt is the bridge between search and the LLM. A bad prompt
 means the LLM ignores the context and hallucinates. A good prompt
 keeps the answer grounded.
 
-- Be explicit: tell the LLM to use only the provided context.
-- Give it a role: "you're a course teaching assistant" tells the LLM
-  how to behave.
-- Be structured: format the context clearly so the LLM can parse it.
-- Be concise: don't pad the prompt with unnecessary instructions.
-
 Prompt engineering is a mix of art and science. You experiment, try
 different things, and see what works. Later in the course we'll talk
 about evaluation metrics so you can numerically measure how well your
 prompt performs. For now, this template is a good starting point.
+
+Code: [notebook.ipynb](../code/notebook.ipynb)
 
 [← Search](05-search.md) | [The LLM →](07-llm.md)

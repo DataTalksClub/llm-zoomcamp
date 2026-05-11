@@ -97,4 +97,6 @@ lot of time on data preparation.
 
 In the next section, we'll build the search index.
 
+Code: [notebook.ipynb](../code/notebook.ipynb)
+
 [← What is RAG](03-rag.md) | [Search →](05-search.md)

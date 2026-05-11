@@ -42,7 +42,7 @@ uv add sqlitesearch
 
 ## Ingestion notebook
 
-Create a new notebook called `sqlite-ingest.ipynb`. This is the
+Create a new notebook called `sqlite-ingest.ipynb` (see [persistent_rag_ingest.ipynb](../code/persistent_rag_ingest.ipynb) for reference). This is the
 ingestion process - it fetches data and writes it to a persistent
 index.
 
@@ -93,7 +93,7 @@ This file persists across restarts.
 ## Querying notebook
 
 While the ingestion is running (or after it finishes), create another
-notebook. Connect to the same database:
+notebook (see [persinsent_rag.ipynb](../code/persinsent_rag.ipynb) for reference). Connect to the same database:
 
 ```python
 from sqlitesearch import TextSearchIndex
@@ -279,5 +279,7 @@ sqlite_index.close()
 ```
 
 Or just let Python clean it up when the notebook kernel shuts down.
+
+Code: [persistent_rag_ingest.ipynb](../code/persistent_rag_ingest.ipynb) | [persinsent_rag.ipynb](../code/persinsent_rag.ipynb)
 
 [← RAG Helper](08-rag-helper.md) | [Next Steps →](10-next-steps.md)
