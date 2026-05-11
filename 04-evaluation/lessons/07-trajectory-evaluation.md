@@ -7,17 +7,17 @@ evaluate how efficiently the agent used its tools.
 A trajectory is the sequence of tool calls the agent made. For example:
 
 ```
-1. search({"query": "docker windows install"})
-2. search({"query": "docker desktop windows setup"})
+1. search({'query': 'docker windows install'})
+2. search({'query': 'docker desktop windows setup'})
 ```
 
 This is a good trajectory: two relevant searches with different
 keywords. Compare with a bad trajectory:
 
 ```
-1. search({"query": "docker"})
-2. search({"query": "docker"})
-3. search({"query": "docker"})
+1. search({'query': 'docker'})
+2. search({'query': 'docker'})
+3. search({'query': 'docker'})
 ```
 
 Three duplicate calls that don't expand the search.
@@ -87,9 +87,9 @@ from typing import Literal
 
 class TrajectoryResult(BaseModel):
     reasoning: str = Field(
-        description="Step-by-step reasoning about the tool call trajectory."
+        description='Step-by-step reasoning about the tool call trajectory.'
     )
-    score: Literal["good", "bad"] = Field(
+    score: Literal['good', 'bad'] = Field(
         description="'good' if the trajectory was efficient, 'bad' if clearly wasteful."
     )
     suggestion: str = Field(
@@ -103,7 +103,7 @@ The judge instructions tell the LLM what to look for:
 trajectory_instructions = """
 You are an expert evaluator. You will be given:
 1. A user question
-2. The sequence of tool calls the agent made (the "trajectory")
+2. The sequence of tool calls the agent made (the 'trajectory')
 3. The agent's final answer
 
 The agent has one tool: search(query) -- searches the FAQ.
@@ -114,8 +114,8 @@ Evaluate the trajectory:
 - Were there clearly irrelevant searches?
 - More than 5 search calls is usually excessive for simple questions.
 
-Mark "good" if the trajectory was reasonably efficient.
-Mark "bad" only if there are clear inefficiencies: duplicate calls,
+Mark 'good' if the trajectory was reasonably efficient.
+Mark 'bad' only if there are clear inefficiencies: duplicate calls,
 completely irrelevant queries, or excessive tool use.
 """.strip()
 
@@ -134,11 +134,11 @@ Agent's Final Answer:
 The evaluation function:
 
 ```python
-def evaluate_trajectory(question, tools, answer, model="gpt-5.4-mini"):
-    tools_str = "\n".join(
+def evaluate_trajectory(question, tools, answer, model='gpt-5.4-mini'):
+    tools_str = '\n'.join(
         f"{i+1}. {t['name']}({t['args']})"
         for i, t in enumerate(tools)
-    ) or "(no tool calls)"
+    ) or '(no tool calls)'
 
     prompt = trajectory_prompt.format(
         question=question,
@@ -147,8 +147,8 @@ def evaluate_trajectory(question, tools, answer, model="gpt-5.4-mini"):
     )
 
     messages = [
-        {"role": "developer", "content": trajectory_instructions},
-        {"role": "user", "content": prompt}
+        {'role': 'developer', 'content': trajectory_instructions},
+        {'role': 'user', 'content': prompt}
     ]
 
     response = openai_client.responses.parse(
@@ -182,10 +182,10 @@ import pandas as pd
 
 df_agent = pd.DataFrame(agent_results.values())
 
-print("Trajectory scores:")
+print('Trajectory scores:')
 print(df_agent['trajectory'].value_counts())
 print()
-print("Bad trajectories:")
+print('Bad trajectories:')
 for _, row in df_agent[df_agent['trajectory'] == 'bad'].iterrows():
     print(f"  Q: {row['question'][:60]}...")
     print(f"  Suggestion: {row['trajectory_suggestion']}")
@@ -214,7 +214,7 @@ for i, result in agent_results.items():
 
 clean = sum(1 for r in agent_results.values() if not r['issues'])
 total = len(agent_results)
-print(f"Clean trajectories: {clean}/{total}")
+print(f'Clean trajectories: {clean}/{total}')
 ```
 
 Simple checks are fast and deterministic. LLM checks are more nuanced

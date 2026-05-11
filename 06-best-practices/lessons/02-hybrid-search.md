@@ -76,40 +76,40 @@ Then create the index with vector fields and index all documents:
 es_client = Elasticsearch('http://localhost:9200')
 
 index_settings = {
-    "settings": {
-        "number_of_shards": 1,
-        "number_of_replicas": 0
+    'settings': {
+        'number_of_shards': 1,
+        'number_of_replicas': 0
     },
-    "mappings": {
+    'mappings': {
         "properties": {
             "text": {"type": "text"},
             "section": {"type": "text"},
             "question": {"type": "text"},
             "course": {"type": "keyword"},
             "id": {"type": "keyword"},
-            "question_vector": {
+            'question_vector': {
                 "type": "dense_vector",
-                "dims": 384,
-                "index": True,
-                "similarity": "cosine"
+                'dims': 384,
+                'index': True,
+                'similarity': 'cosine'
             },
-            "text_vector": {
+            'text_vector': {
                 "type": "dense_vector",
-                "dims": 384,
-                "index": True,
-                "similarity": "cosine"
+                'dims': 384,
+                'index': True,
+                'similarity': 'cosine'
             },
-            "question_text_vector": {
+            'question_text_vector': {
                 "type": "dense_vector",
-                "dims": 384,
-                "index": True,
-                "similarity": "cosine"
+                'dims': 384,
+                'index': True,
+                'similarity': 'cosine'
             }
         }
     }
 }
 
-index_name = "course-questions"
+index_name = 'course-questions'
 
 es_client.indices.delete(index=index_name, ignore_unavailable=True)
 es_client.indices.create(index=index_name, body=index_settings)
@@ -127,31 +127,31 @@ with a standard query (keyword):
 ```python
 def elastic_search_hybrid(field, query, vector, course):
     knn_query = {
-        "field": field,
-        "query_vector": vector,
-        "k": 5,
-        "num_candidates": 10000,
-        "boost": 0.5,
-        "filter": {
-            "term": {
-                "course": course
+        'field': field,
+        'query_vector': vector,
+        'k': 5,
+        'num_candidates': 10000,
+        'boost': 0.5,
+        'filter': {
+            'term': {
+                'course': course
             }
         }
     }
 
     keyword_query = {
-        "bool": {
-            "must": {
-                "multi_match": {
-                    "query": query,
-                    "fields": ["question^3", "text", "section"],
+        'bool': {
+            'must': {
+                'multi_match': {
+                    'query': query,
+                    'fields': ['question^3', 'text', 'section'],
                     "type": "best_fields",
-                    "boost": 0.5,
+                    'boost': 0.5,
                 }
             },
-            "filter": {
-                "term": {
-                    "course": course
+            'filter': {
+                'term': {
+                    'course': course
                 }
             }
         }

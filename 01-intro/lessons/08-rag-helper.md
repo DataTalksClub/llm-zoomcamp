@@ -5,16 +5,26 @@ search, prompt building, and the LLM call. Now we have a working
 pipeline. But every time we want to use it, we need to repeat the
 same code.
 
-Let's put it all into a reusable class so we don't have to repeat
-ourselves.
+We'll use this code throughout the course, so let's put it into two
+reusable files:
+
+- `ingest.py` - loading data and building the search index
+- `rag_helper.py` - the RAG logic (search, prompt, LLM)
+
+Then in notebooks, we just import from these files and use them.
 
 
-## Loading the data
+## ingest.py
 
-First, a function to load the FAQ documents:
+This file handles data loading and index creation - everything we
+need before we can search.
+
+Create `ingest.py` with two functions:
 
 ```python
 import requests
+from minsearch import Index
+
 
 def load_faq_data():
     docs_url = 'https://datatalks.club/faq/json/courses.json'
@@ -27,67 +37,115 @@ def load_faq_data():
     for course in courses_raw:
         course_url = f'{url_prefix}{course["path"]}'
         course_response = requests.get(course_url)
+        course_response.raise_for_status()
         course_data = course_response.json()
 
-        for doc in course_data:
-            doc['course_name'] = course['course_name']
-            documents.append(doc)
+        documents.extend(course_data)
 
     return documents
+
+
+def build_index(documents):
+    index = Index(
+        text_fields=['question', 'section', 'answer'],
+        keyword_fields=['course']
+    )
+    index.fit(documents)
+    return index
 ```
 
-We used this same code in lesson 03 to explore the data, and again
-in lesson 08 for the ingestion script. Now it lives in one place.
+We'll use `load_faq_data()` to fetch the documents and `build_index()`
+to create the minsearch index. Later, we'll add sqlitesearch support
+to this same file.
 
 
-## The RAGBase class
+## rag_helper.py
 
-Here's the class that combines search, prompt building, and the LLM:
+This file contains the RAG logic - the same functions we wrote in the
+previous lessons, now organized as a class.
+
+Create `rag_helper.py`:
 
 ```python
-from minsearch import Index
 from openai import OpenAI
 
-class RAGBase:
 
-    def __init__(self, index, llm_client, instructions, model="gpt-5.4-mini"):
-        self.index = index
-        self.llm_client = llm_client
-        self.instructions = instructions
-        self.model = model
-
-    def search(self, query, num_results=5, boost_dict=None, filter_dict=None):
-        return self.index.search(
-            query,
-            num_results=num_results,
-            boost_dict=boost_dict or {},
-            filter_dict=filter_dict or {}
-        )
-
-    def build_prompt(self, query, search_results):
-        context = ""
-
-        for doc in search_results:
-            context += f"section: {doc['section']}\n"
-            context += f"question: {doc['question']}\n"
-            context += f"answer: {doc['answer']}\n"
-            context += "\n"
-
-        context = context.strip()
-
-        prompt = f"""
-QUESTION: {query}
+PROMPT_TEMPLATE = '''
+QUESTION: {question}
 
 CONTEXT:
 {context}
-""".strip()
+'''.strip()
+```
 
-        return prompt
+```python
+class RAGBase:
 
+    def __init__(
+        self,
+        index,
+        llm_client,
+        instructions,
+        course='llm-zoomcamp',
+        prompt_template=PROMPT_TEMPLATE,
+        model='gpt-5.4-mini'
+    ):
+        self.index = index
+        self.llm_client = llm_client
+        self.instructions = instructions
+        self.course = course
+        self.prompt_template = prompt_template
+        self.model = model
+```
+
+The `index` parameter is anything with a `search` method - minsearch,
+sqlitesearch, or something else. We'll swap it later without changing
+any of the RAG code.
+
+The `search` method delegates to the index:
+
+```python
+    def search(self, query, num_results=5):
+        boost_dict = {'question': 3.0, 'section': 0.5}
+        filter_dict = {'course': self.course}
+
+        return self.index.search(
+            query,
+            num_results=num_results,
+            boost_dict=boost_dict,
+            filter_dict=filter_dict
+        )
+```
+
+The `build_context` and `build_prompt` methods format the search
+results:
+
+```python
+    def build_context(self, search_results):
+        lines = []
+
+        for doc in search_results:
+            lines.append(doc['section'])
+            lines.append('Q: ' + doc['question'])
+            lines.append('A: ' + doc['answer'])
+            lines.append('')
+
+        return '\n'.join(lines).strip()
+
+    def build_prompt(self, query, search_results):
+        context = self.build_context(search_results)
+        return self.prompt_template.format(
+            question=query, context=context
+        )
+```
+
+The `llm` method sends the prompt to the LLM:
+
+```python
     def llm(self, prompt):
         input_messages = [
-            {"role": "developer", "content": self.instructions},
-            {"role": "user", "content": prompt}
+            {'role': 'developer', 'content': self.instructions},
+            {'role': 'user', 'content': prompt}
         ]
 
         response = self.llm_client.responses.create(
@@ -96,105 +154,59 @@ CONTEXT:
         )
 
         return response.output_text
+```
 
-    def rag(self, query, **search_kwargs):
-        search_results = self.search(query, **search_kwargs)
+And the `rag` method wires it all together:
+
+```python
+    def rag(self, query):
+        search_results = self.search(query)
         prompt = self.build_prompt(query, search_results)
         answer = self.llm(prompt)
         return answer
 ```
 
-The class takes:
-- `index` - any search index (minsearch, sqlitesearch, or something else)
-- `llm_client` - the OpenAI client
-- `instructions` - the system prompt for the LLM
-- `model` - the model to use (default: gpt-5.4-mini)
 
+## Using it in a notebook
 
-## Using RAGBase
-
-Create an instance and use it:
+Now in a notebook, import from both files and put everything together:
 
 ```python
-from rag_helper import RAGBase, load_faq_data
-from minsearch import Index
+from ingest import load_faq_data, build_index
+from rag_helper import RAGBase
 from openai import OpenAI
 
 documents = load_faq_data()
+index = build_index(documents)
 
-index = Index(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"]
-)
-index.fit(documents)
-
-openai_client = OpenAI()
-
-instructions = """
+instructions = '''
 You're a course teaching assistant.
 Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
-""".strip()
+'''.strip()
 
-rag = RAGBase(
+assistant = RAGBase(
     index=index,
-    llm_client=openai_client,
+    llm_client=OpenAI(),
     instructions=instructions,
 )
 
-answer = rag.rag("How do I run Docker on Windows?")
+answer = assistant.rag('How do I run Docker on Windows?')
 print(answer)
 ```
 
-Filter by course:
+Try more questions:
 
 ```python
-rag.rag(
-    "How do I run Docker on Windows?",
-    filter_dict={"course": "mlops-zoomcamp"}
-)
+assistant.rag('How do I get a certificate?')
 ```
-
-
-## Swapping the search backend
-
-The `index` parameter is just something with a `search` method. You
-can swap it without changing any of the RAG code. For example,
-when we switch to sqlitesearch in the next lesson:
 
 ```python
-from sqlitesearch import TextSearchIndex
-
-sqlite_index = TextSearchIndex(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"],
-    db_path="faq.db"
-)
-
-rag = RAGBase(
-    index=sqlite_index,
-    llm_client=openai_client,
-    instructions=instructions,
-)
-
-rag.rag("How do I run Docker on Windows?")
+assistant.rag('Can I still join the course after it started?')
 ```
 
-Same RAG code, different search backend. This is the power of
-keeping search, prompt building, and the LLM in one reusable
-class.
-
-
-## Save it as rag_helper.py
-
-Create a file called `rag_helper.py` in your project folder with
-the `load_faq_data` function and the `RAGBase` class. Then import
-it in any notebook:
-
-```python
-from rag_helper import RAGBase, load_faq_data
-```
-
-We'll use this across all modules in the course.
+We'll use these two files throughout the course. In the next lesson,
+we'll see how to add sqlitesearch support to `ingest.py` for a
+persistent search index.
 
 [← The LLM](07-llm.md) | [Data Ingestion →](09-data-ingestion.md)

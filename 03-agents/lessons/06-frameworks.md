@@ -66,7 +66,7 @@ To run a single prompt and see the tool calls:
 
 ```python
 callback = DisplayingRunnerCallback(chat_interface)
-messages = runner.loop(prompt="How do I run Docker on Windows?", callback=callback)
+messages = runner.loop(prompt='How do I run Docker on Windows?', callback=callback)
 ```
 
 The callback renders model messages, function calls, arguments, and

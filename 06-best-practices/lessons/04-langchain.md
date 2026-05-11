@@ -31,7 +31,7 @@ from typing import Dict
 from langchain_elasticsearch import ElasticsearchRetriever
 
 embedding = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/multi-qa-MiniLM-L6-cos-v1"
+    model_name='sentence-transformers/multi-qa-MiniLM-L6-cos-v1'
 )
 
 es_url = 'http://localhost:9200'
@@ -39,36 +39,36 @@ es_url = 'http://localhost:9200'
 def hybrid_query(search_query: str) -> Dict:
     vector = embedding.embed_query(search_query)
     return {
-        "query": {
-            "bool": {
-                "must": {
-                    "multi_match": {
-                        "query": search_query,
-                        "fields": ["question^3", "text", "section"],
+        'query': {
+            'bool': {
+                'must': {
+                    'multi_match': {
+                        'query': search_query,
+                        'fields': ['question^3', 'text', 'section'],
                         "type": "best_fields",
                     }
                 },
-                "filter": {
-                    "term": {
-                        "course": "data-engineering-zoomcamp"
+                'filter': {
+                    'term': {
+                        'course': 'data-engineering-zoomcamp'
                     }
                 }
             }
         },
-        "knn": {
-            "field": "question_text_vector",
-            "query_vector": vector,
-            "k": 5,
-            "num_candidates": 10000,
+        'knn': {
+            'field': 'question_text_vector',
+            'query_vector': vector,
+            'k': 5,
+            'num_candidates': 10000,
         },
-        "size": 5
+        'size': 5
     }
 
 hybrid_retriever = ElasticsearchRetriever.from_es_params(
     url=es_url,
-    index_name="course-questions",
+    index_name='course-questions',
     body_func=hybrid_query,
-    content_field="text"
+    content_field='text'
 )
 ```
 
@@ -94,36 +94,36 @@ def elastic_search_hybrid(field, query, course):
     def hybrid_query(search_query: str) -> Dict:
         vector = embedding.embed_query(search_query)
         return {
-            "query": {
-                "bool": {
-                    "must": {
-                        "multi_match": {
-                            "query": search_query,
-                            "fields": ["question^3", "text", "section"],
+            'query': {
+                'bool': {
+                    'must': {
+                        'multi_match': {
+                            'query': search_query,
+                            'fields': ['question^3', 'text', 'section'],
                             "type": "best_fields",
                         }
                     },
-                    "filter": {
-                        "term": {
-                            "course": course
+                    'filter': {
+                        'term': {
+                            'course': course
                         }
                     }
                 }
             },
-            "knn": {
-                "field": field,
-                "query_vector": vector,
-                "k": 5,
-                "num_candidates": 10000,
+            'knn': {
+                'field': field,
+                'query_vector': vector,
+                'k': 5,
+                'num_candidates': 10000,
             },
-            "size": 5
+            'size': 5
         }
 
     retriever = ElasticsearchRetriever.from_es_params(
         url=es_url,
-        index_name="course-questions",
+        index_name='course-questions',
         body_func=hybrid_query,
-        content_field="text"
+        content_field='text'
     )
 
     results = retriever.invoke(query)

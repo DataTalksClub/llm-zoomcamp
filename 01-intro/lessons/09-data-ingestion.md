@@ -27,148 +27,131 @@ uv add sqlitesearch
 ```
 
 
-## The ingestion script
+## Ingestion notebook
 
-Let's create a separate script that fetches the data and writes it to
-a persistent index. This is the ingestion process - it runs once (or
-on a schedule when the data changes) and populates the search index.
+Create a new notebook called `sqlite-ingest.ipynb`. This is the
+ingestion process - it fetches data and writes it to a persistent
+index.
 
-Create a file called `ingest.py`:
+First, load the data using the function from `ingest.py`:
+
+```python
+from ingest import load_faq_data
+
+documents = load_faq_data()
+print(f'Loaded {len(documents)} documents')
+```
+
+Filter to just the LLM Zoomcamp documents:
+
+```python
+docs_llm = [doc for doc in documents if doc['course'] == 'llm-zoomcamp']
+print(f'LLM Zoomcamp: {len(docs_llm)} documents')
+```
+
+
+Now create a sqlitesearch index and add documents one by one with a
+small delay (to simulate slow ingestion):
 
 ```python
 import time
-from rag_helper import load_faq_data
 from sqlitesearch import TextSearchIndex
 
-documents = load_faq_data()
-print(f"Loaded {len(documents)} documents")
-
 index = TextSearchIndex(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"],
-    db_path="faq.db"
+    text_fields=['question', 'section', 'answer'],
+    keyword_fields=['course'],
+    db_path='faq.db'
 )
 
-for doc in documents:
-    index.add([doc])
+for doc in docs_llm:
+    index.add(doc)
+    print(f'Added: {doc["question"][:60]}...')
     time.sleep(0.5)
 
 index.close()
-
-print("Done. Index saved to faq.db")
+print('Done. Index saved to faq.db')
 ```
 
-Run it:
+Run this notebook. You'll see each document being added one by one.
+When it's done, there's a `faq.db` file on disk with the entire index.
+This file persists across restarts.
 
-```bash
-uv run python ingest.py
-```
 
-You should see:
+## Querying notebook
 
-```
-Loaded 1154 documents
-Done. Index saved to faq.db
-```
-
-Now there's a `faq.db` file on disk with the entire index. This file
-persists across restarts. You can run this script again when the FAQ
-data changes - it will rebuild the index.
-
-We intentionally put a `time.sleep(0.5)` in the loop to simulate adding
-records with a delay.
-
-Start the ingestion script:
-
-```bash
-uv run python ingest.py
-```
-
-While it's running, open a new notebook. Connect to the index:
+While the ingestion is running (or after it finishes), create another
+notebook. Connect to the same database:
 
 ```python
 from sqlitesearch import TextSearchIndex
 
 sqlite_index = TextSearchIndex(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"],
-    db_path="faq.db"
+    text_fields=['question', 'section', 'answer'],
+    keyword_fields=['course'],
+    db_path='faq.db'
 )
 ```
 
 Check how many documents are in the index:
 
 ```python
-len(sqlite_index.search("", num_results=10000))
+len(sqlite_index.search('', num_results=10000))
 ```
 
-Run it a few times - you'll see the number growing as ingestion
-progresses.
+Run this cell a few times while the other notebook is still ingesting -
+you'll see the number growing as ingestion progresses. This is normal
+database behavior: one process writes, another reads. With minsearch,
+this is impossible because the index lives in one process's memory.
 
 Try a search:
 
 ```python
-results = sqlite_index.search("How do I run Docker on Windows?", num_results=5)
+results = sqlite_index.search('Can I still join the course after it started?', num_results=5)
 [doc['question'] for doc in results]
-```
-
-Run this again after a few seconds - the results change as more
-documents are ingested.
-
-This is normal database behavior: one process writes, another reads.
-With minsearch, this is impossible because the index lives in one
-process's memory.
-
-Close the index when done:
-
-```python
-sqlite_index.close()
 ```
 
 
 ## RAG with sqlitesearch
 
-Now let's use the RAGBase class from the previous lesson. We just
-swap the search index - the rest of the RAG code stays the same:
+Now let's use the `RAGBase` class from `rag_helper.py` with this
+sqlitesearch index. Because our RAG is modular, we just swap the
+search index - the rest of the code stays the same:
 
 ```python
 from rag_helper import RAGBase
-from sqlitesearch import TextSearchIndex
 from openai import OpenAI
 
-sqlite_index = TextSearchIndex(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"],
-    db_path="faq.db"
-)
-
-instructions = """
+instructions = '''
 You're a course teaching assistant.
 Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
-""".strip()
+'''.strip()
 
-rag = RAGBase(
+assistant = RAGBase(
     index=sqlite_index,
     llm_client=OpenAI(),
     instructions=instructions,
 )
 ```
 
-Notice: no `fit` call. The index is already populated by the
-ingestion script. We just connect to the database file.
+Notice: no `fit` call, no data loading. The index is already populated
+by the ingestion notebook. We just connect to the database file.
 
 Try it:
 
 ```python
-answer = rag.rag("How do I run Docker on Windows?")
+answer = assistant.rag('Can I still join the course after it started?')
 print(answer)
 ```
 
-The answer should be similar to what we got with minsearch. But now
-the data comes from a persistent index - no fetching, no processing,
-no indexing at startup. And we didn't have to rewrite any of the
-RAG logic - just swapped the index.
+The answer should be similar to what we got with minsearch. But now the
+data comes from a persistent index - no fetching, no processing, no
+indexing at startup. And we didn't have to rewrite any of the RAG
+logic - just swapped the index.
+
+This is the power of the modular design: `ingest.py` handles data
+loading and indexing, `rag_helper.py` handles the RAG pipeline, and
+the notebooks just wire them together.
 
 
 ## Comparing the two approaches

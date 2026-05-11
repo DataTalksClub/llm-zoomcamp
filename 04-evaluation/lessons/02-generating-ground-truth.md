@@ -75,10 +75,10 @@ The function to call the LLM with structured output:
 from openai import OpenAI
 openai_client = OpenAI()
 
-def llm_structured(instructions, user_prompt, output_type, model="gpt-5.4-mini"):
+def llm_structured(instructions, user_prompt, output_type, model='gpt-5.4-mini'):
     messages = [
-        {"role": "developer", "content": instructions},
-        {"role": "user", "content": user_prompt}
+        {'role': 'developer', 'content': instructions},
+        {'role': 'user', 'content': user_prompt}
     ]
 
     response = openai_client.responses.parse(

@@ -19,7 +19,7 @@ prompt2_template = """
 You are an expert evaluator for a RAG system.
 Your task is to analyze the relevance of the generated answer to the given question.
 Based on the relevance of the generated answer, you will classify it
-as "NON_RELEVANT", "PARTLY_RELEVANT", or "RELEVANT".
+as 'NON_RELEVANT', 'PARTLY_RELEVANT', or 'RELEVANT'.
 
 Here is the data for evaluation:
 
@@ -30,8 +30,8 @@ Please analyze the content and context of the generated answer in relation to th
 and provide your evaluation in parsable JSON without using code blocks:
 
 {{
-  "Relevance": "NON_RELEVANT" | "PARTLY_RELEVANT" | "RELEVANT",
-  "Explanation": "[Provide a brief explanation for your evaluation]"
+  'Relevance': 'NON_RELEVANT' | 'PARTLY_RELEVANT' | 'RELEVANT',
+  'Explanation': '[Provide a brief explanation for your evaluation]'
 }}
 """.strip()
 ```

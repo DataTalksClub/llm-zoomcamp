@@ -41,8 +41,8 @@ from openai import OpenAI
 documents = load_faq_data()
 
 index = Index(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"]
+    text_fields=['question', 'section', 'answer'],
+    keyword_fields=['course']
 )
 index.fit(documents)
 
@@ -54,7 +54,7 @@ Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
 
-rag = RAGBase(
+assistant = RAGBase(
     index=index,
     llm_client=openai_client,
     instructions=instructions,
@@ -73,9 +73,9 @@ for i, rec in enumerate(tqdm(ground_truth_flat)):
     if i in answers:
         continue
 
-    answer_llm = rag.rag(
+    answer_llm = assistant.rag(
         rec['question'],
-        filter_dict={"course": rec['course']}
+        filter_dict={'course': rec['course']}
     )
     doc_id = rec['document']
     original_doc = doc_idx[doc_id]
@@ -152,7 +152,7 @@ With this framework, we can compare different LLMs:
 models = ['gpt-5.4-mini']
 
 for model_name in models:
-    rag_model = RAGBase(
+    assistant_model = RAGBase(
         index=index,
         llm_client=openai_client,
         instructions=instructions,
@@ -162,9 +162,9 @@ for model_name in models:
     answers_model = {}
 
     for i, rec in enumerate(tqdm(ground_truth_flat)):
-        answer_llm = rag_model.rag(
+        answer_llm = assistant_model.rag(
             rec['question'],
-            filter_dict={"course": rec['course']}
+            filter_dict={'course': rec['course']}
         )
         doc_id = rec['document']
         original_doc = doc_idx[doc_id]
@@ -181,7 +181,7 @@ for model_name in models:
         v_orig = embedding_model.encode(rec['answer_orig'])
         cosines.append(v_llm.dot(v_orig))
 
-    print(f"{model_name}: mean cosine = {np.mean(cosines):.3f}")
+    print(f'{model_name}: mean cosine = {np.mean(cosines):.3f}')
 ```
 
 This gives you a number you can use to decide which model produces

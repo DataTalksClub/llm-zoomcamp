@@ -9,8 +9,8 @@ Zoomcamp courses.
 
 1. [Introduction](lessons/01-intro.md) - What we'll build and why
 2. [Environment Setup](lessons/02-environment.md) - Python, uv, OpenAI API
-3. [Retrieval: FAQ Documents](lessons/03-use-case.md) - Fetching and exploring the dataset
-4. [Generation: LLM](lessons/04-rag.md) - Using an LLM to answer questions
+3. [What is RAG](lessons/03-rag.md) - Why LLMs need context, the RAG architecture
+4. [The Course FAQ Dataset](lessons/04-dataset.md) - Fetching and exploring the FAQ data
 5. [Search](lessons/05-search.md) - Building a search engine with minsearch
 6. [Building a Prompt](lessons/06-building-prompt.md) - Combining search results into a prompt
 7. [RAG Pipeline](lessons/07-llm.md) - Wiring search + prompt + LLM together

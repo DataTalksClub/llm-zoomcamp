@@ -27,7 +27,7 @@ evaluation_prompt_template = """
 You are an expert evaluator for a RAG system.
 Your task is to analyze the relevance of the generated answer to the given question.
 Based on the relevance of the generated answer, you will classify it
-as "NON_RELEVANT", "PARTLY_RELEVANT", or "RELEVANT".
+as 'NON_RELEVANT', 'PARTLY_RELEVANT', or 'RELEVANT'.
 
 Here is the data for evaluation:
 
@@ -38,32 +38,32 @@ Please analyze the content and context of the generated answer in relation to th
 and provide your evaluation in parsable JSON without using code blocks:
 
 {{
-  "Relevance": "NON_RELEVANT" | "PARTLY_RELEVANT" | "RELEVANT",
-  "Explanation": "[Provide a brief explanation for your evaluation]"
+  'Relevance': 'NON_RELEVANT' | 'PARTLY_RELEVANT' | 'RELEVANT',
+  'Explanation': '[Provide a brief explanation for your evaluation]'
 }}
 """.strip()
 
 def evaluate_relevance(question, answer):
     prompt = evaluation_prompt_template.format(question=question, answer=answer)
-    evaluation, tokens = llm(prompt, model="gpt-5.4-mini")
+    evaluation, tokens = llm(prompt, model='gpt-5.4-mini')
 
     try:
         json_eval = json.loads(evaluation)
         return json_eval, tokens
     except json.JSONDecodeError:
-        result = {"Relevance": "UNKNOWN", "Explanation": "Failed to parse evaluation"}
+        result = {'Relevance': 'UNKNOWN', 'Explanation': 'Failed to parse evaluation'}
         return result, tokens
 
 def calculate_openai_cost(model, tokens):
     openai_cost = 0
-    if "gpt-5.4-mini" in model:
+    if 'gpt-5.4-mini' in model:
         openai_cost = (
-            tokens["prompt_tokens"] * 0.15
-            + tokens["completion_tokens"] * 0.60
+            tokens['prompt_tokens'] * 0.15
+            + tokens['completion_tokens'] * 0.60
         ) / 1_000_000
     return openai_cost
 
-def rag(query, model="gpt-5.4-mini"):
+def rag(query, model='gpt-5.4-mini'):
     t0 = time()
 
     search_results = search(query)
@@ -80,18 +80,18 @@ def rag(query, model="gpt-5.4-mini"):
     openai_cost = openai_cost_rag + openai_cost_eval
 
     return {
-        "answer": answer,
-        "model_used": model,
-        "response_time": took,
-        "relevance": relevance.get("Relevance", "UNKNOWN"),
-        "relevance_explanation": relevance.get("Explanation", "Failed to parse"),
-        "prompt_tokens": token_stats["prompt_tokens"],
-        "completion_tokens": token_stats["completion_tokens"],
-        "total_tokens": token_stats["total_tokens"],
-        "eval_prompt_tokens": rel_token_stats["prompt_tokens"],
-        "eval_completion_tokens": rel_token_stats["completion_tokens"],
-        "eval_total_tokens": rel_token_stats["total_tokens"],
-        "openai_cost": openai_cost,
+        'answer': answer,
+        'model_used': model,
+        'response_time': took,
+        'relevance': relevance.get('Relevance', 'UNKNOWN'),
+        'relevance_explanation': relevance.get('Explanation', 'Failed to parse'),
+        'prompt_tokens': token_stats['prompt_tokens'],
+        'completion_tokens': token_stats['completion_tokens'],
+        'total_tokens': token_stats['total_tokens'],
+        'eval_prompt_tokens': rel_token_stats['prompt_tokens'],
+        'eval_completion_tokens': rel_token_stats['completion_tokens'],
+        'eval_total_tokens': rel_token_stats['total_tokens'],
+        'openai_cost': openai_cost,
     }
 ```
 
@@ -107,15 +107,15 @@ from psycopg2.extras import DictCursor
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-TZ_INFO = os.getenv("TZ", "Europe/Berlin")
+TZ_INFO = os.getenv('TZ', 'Europe/Berlin')
 tz = ZoneInfo(TZ_INFO)
 
 def get_db_connection():
     return psycopg2.connect(
-        host=os.getenv("POSTGRES_HOST", "postgres"),
-        database=os.getenv("POSTGRES_DB", "fitness_assistant"),
-        user=os.getenv("POSTGRES_USER", "user"),
-        password=os.getenv("POSTGRES_PASSWORD", "password"),
+        host=os.getenv('POSTGRES_HOST', 'postgres'),
+        database=os.getenv('POSTGRES_DB', 'fitness_assistant'),
+        user=os.getenv('POSTGRES_USER', 'user'),
+        password=os.getenv('POSTGRES_PASSWORD', 'password'),
     )
 
 def init_db():
@@ -175,18 +175,18 @@ def save_conversation(conversation_id, question, answer_data, timestamp=None):
                 (
                     conversation_id,
                     question,
-                    answer_data["answer"],
-                    answer_data["model_used"],
-                    answer_data["response_time"],
-                    answer_data["relevance"],
-                    answer_data["relevance_explanation"],
-                    answer_data["prompt_tokens"],
-                    answer_data["completion_tokens"],
-                    answer_data["total_tokens"],
-                    answer_data["eval_prompt_tokens"],
-                    answer_data["eval_completion_tokens"],
-                    answer_data["eval_total_tokens"],
-                    answer_data["openai_cost"],
+                    answer_data['answer'],
+                    answer_data['model_used'],
+                    answer_data['response_time'],
+                    answer_data['relevance'],
+                    answer_data['relevance_explanation'],
+                    answer_data['prompt_tokens'],
+                    answer_data['completion_tokens'],
+                    answer_data['total_tokens'],
+                    answer_data['eval_prompt_tokens'],
+                    answer_data['eval_completion_tokens'],
+                    answer_data['eval_total_tokens'],
+                    answer_data['openai_cost'],
                     timestamp
                 ),
             )
@@ -223,13 +223,13 @@ import db
 
 app = Flask(__name__)
 
-@app.route("/question", methods=["POST"])
+@app.route('/question', methods=['POST'])
 def handle_question():
     data = request.json
-    question = data["question"]
+    question = data['question']
 
     if not question:
-        return jsonify({"error": "No question provided"}), 400
+        return jsonify({'error': 'No question provided'}), 400
 
     conversation_id = str(uuid.uuid4())
     answer_data = rag(question)
@@ -241,31 +241,31 @@ def handle_question():
     )
 
     result = {
-        "conversation_id": conversation_id,
-        "question": question,
-        "answer": answer_data["answer"],
+        'conversation_id': conversation_id,
+        'question': question,
+        'answer': answer_data['answer'],
     }
 
     return jsonify(result)
 
-@app.route("/feedback", methods=["POST"])
+@app.route('/feedback', methods=['POST'])
 def handle_feedback():
     data = request.json
-    conversation_id = data["conversation_id"]
-    feedback = data["feedback"]
+    conversation_id = data['conversation_id']
+    feedback = data['feedback']
 
     if not conversation_id or feedback not in [1, -1]:
-        return jsonify({"error": "Invalid input"}), 400
+        return jsonify({'error': 'Invalid input'}), 400
 
     db.save_feedback(
         conversation_id=conversation_id,
         feedback=feedback,
     )
 
-    return jsonify({"message": f"Feedback received: {feedback}"})
+    return jsonify({'message': f'Feedback received: {feedback}'})
 
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=5000)
 ```
 
 Install the database driver:

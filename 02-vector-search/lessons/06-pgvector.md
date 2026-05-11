@@ -43,7 +43,7 @@ connect and run queries.
 import psycopg
 
 conn = psycopg.connect(
-    "postgresql://user:pswd@localhost:5432/faq"
+    'postgresql://user:pswd@localhost:5432/faq'
 )
 conn.execute("CREATE EXTENSION IF NOT EXISTS vector")
 ```
@@ -105,7 +105,7 @@ cast tells PostgreSQL to parse the string as a vector. We call
 ## Searching with cosine similarity
 
 ```python
-query = "I just discovered the course. Can I still join it?"
+query = 'I just discovered the course. Can I still join it?'
 query_vector = model.encode(query)
 query_str = vec_to_str(query_vector)
 
@@ -121,7 +121,7 @@ results = conn.execute(
 ).fetchall()
 
 for row in results:
-    print(f"[{row[0]}] {row[1]} (similarity: {row[3]:.4f})")
+    print(f'[{row[0]}] {row[1]} (similarity: {row[3]:.4f})')
 ```
 
 The `<=>` operator computes cosine distance (1 - cosine similarity).
@@ -142,7 +142,7 @@ results = conn.execute(
     ORDER BY embedding <=> %s::vector
     LIMIT 5
     """,
-    (query_str, "data-engineering-zoomcamp", query_str)
+    (query_str, 'data-engineering-zoomcamp', query_str)
 ).fetchall()
 ```
 
@@ -167,7 +167,7 @@ faster at the cost of a small accuracy trade-off.
 ## Wrapping it in a function
 
 ```python
-def pgvector_search(query, course="data-engineering-zoomcamp", num_results=5):
+def pgvector_search(query, course='data-engineering-zoomcamp', num_results=5):
     query_vector = model.encode(query)
     query_str = vec_to_str(query_vector)
     rows = conn.execute(
@@ -182,7 +182,7 @@ def pgvector_search(query, course="data-engineering-zoomcamp", num_results=5):
     ).fetchall()
 
     return [
-        {"course": r[0], "section": r[1], "question": r[2], "answer": r[3]}
+        {'course': r[0], 'section': r[1], 'question': r[2], 'answer': r[3]}
         for r in rows
     ]
 ```
@@ -190,7 +190,7 @@ def pgvector_search(query, course="data-engineering-zoomcamp", num_results=5):
 Try it:
 
 ```python
-results = pgvector_search("How do I run Kafka?")
+results = pgvector_search('How do I run Kafka?')
 ```
 
 

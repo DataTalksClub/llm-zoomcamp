@@ -35,7 +35,7 @@ with an LLM, asking it to create questions for each exercise:
 prompt1_template = """
 You are a fitness expert generating evaluation questions.
 For the exercise below, generate 2 questions that a user might ask.
-Return the result as a JSON array with objects containing "id" and "question" fields.
+Return the result as a JSON array with objects containing 'id' and 'question' fields.
 
 Exercise: {exercise_name}
 Activity type: {type_of_activity}
@@ -55,8 +55,8 @@ results = []
 for _, row in tqdm(df.iterrows(), total=len(df)):
     prompt = prompt1_template.format(**row.to_dict())
     response = openai_client.responses.create(
-        model="gpt-5.4-mini",
-        input=[{"role": "user", "content": prompt}]
+        model='gpt-5.4-mini',
+        input=[{'role': 'user', 'content': prompt}]
     )
     questions = json.loads(response.output_text)
     for q in questions:
@@ -185,7 +185,7 @@ def objective(boost_params):
     return results['hit_rate']
 
 best_params = simple_optimize(param_ranges, objective, n_iterations=20)
-print("Best boost parameters:", best_params)
+print('Best boost parameters:', best_params)
 ```
 
 Now use these optimized boost values in the search:

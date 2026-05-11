@@ -1,5 +1,22 @@
 # What is RAG
 
+In our community at DataTalks.Club, we run multiple Zoomcamp courses -
+free courses on data engineering, machine learning, MLOps, and other
+topics. For each course, we maintain a FAQ document with common
+questions and answers.
+
+The problem: some of these documents have over 300 questions. Students
+ask us things in Slack like "Can I still join after the course started?"
+or "How do I get a certificate?" - and the answers are in the FAQ, but
+finding them is tedious.
+
+What we want: a bot that takes all this knowledge and answers student
+questions in natural language.
+
+In this module, we'll build that system. But first, let's see why we
+can't just use an LLM directly.
+
+
 ## The problem with LLMs
 
 Let's try asking an LLM a course-specific question without any
@@ -8,14 +25,14 @@ context:
 ```python
 def llm(prompt):
     response = openai_client.responses.create(
-        model="gpt-5.4-mini",
+        model='gpt-5.4-mini',
         input=prompt
     )
     return response.output_text
 ```
 
 ```python
-llm("Can I still join the course after it started?")
+llm('Can I still join the course after it started?')
 ```
 
 The LLM will give a generic answer - something like "it depends on
@@ -28,7 +45,7 @@ LLM knows the answer because cooking salmon is common knowledge. But
 our courses are not in the training data.
 
 ```python
-llm("How do I get a certificate?")
+llm('How do I get a certificate?')
 ```
 
 Same problem. The LLM doesn't know the specific requirements for our
@@ -71,7 +88,7 @@ That's the entire architecture. Three components:
 
 ```mermaid
 flowchart TD
-    U([🙂 User])
+    U([User])
 
     APP[Application]
 
@@ -108,27 +125,7 @@ use minsearch and then sqlitesearch for search, and OpenAI for the
 LLM. But you can swap any component and see what works better. That's
 what makes RAG so flexible - plug and play.
 
+In the next section, we'll look at the dataset we'll use for our FAQ
+knowledge base.
 
-## RAG vs fine-tuning
-
-A common question: why not fine-tune the model on our data instead?
-
-Fine-tuning means taking a pre-trained model and continuing the
-training on your own data. You show it examples of how you want it
-to respond, and it adjusts its internal parameters. This is not the
-same as training from scratch - you start from an existing model and
-adapt it.
-
-Fine-tuning costs money: you need GPUs, time, and hundreds or
-thousands of examples. And it changes the model's behavior (how it
-responds, what style it uses), but it's not great for injecting
-knowledge. You'd need to retrain every time your data changes.
-
-RAG keeps the model frozen and brings fresh data to it at query time.
-It's simpler, cheaper, and always up-to-date. You don't need any
-training data - just your documents and a search index.
-
-In practice, they complement each other - fine-tune for style, RAG
-for knowledge.
-
-[← The Use Case: Course FAQ](03-use-case.md) | [Search →](05-search.md)
+[← Environment](02-environment.md) | [The Course FAQ Dataset →](04-dataset.md)

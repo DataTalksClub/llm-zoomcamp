@@ -35,31 +35,31 @@ Elasticsearch 8.9+ supports RRF natively:
 ```python
 def elastic_search_hybrid_rrf(field, query, vector, course):
     knn_query = {
-        "field": field,
-        "query_vector": vector,
-        "k": 5,
-        "num_candidates": 10000,
-        "boost": 0.5,
-        "filter": {
-            "term": {
-                "course": course
+        'field': field,
+        'query_vector': vector,
+        'k': 5,
+        'num_candidates': 10000,
+        'boost': 0.5,
+        'filter': {
+            'term': {
+                'course': course
             }
         }
     }
 
     keyword_query = {
-        "bool": {
-            "must": {
-                "multi_match": {
-                    "query": query,
-                    "fields": ["question^3", "text", "section"],
+        'bool': {
+            'must': {
+                'multi_match': {
+                    'query': query,
+                    'fields': ['question^3', 'text', 'section'],
                     "type": "best_fields",
-                    "boost": 0.5,
+                    'boost': 0.5,
                 }
             },
-            "filter": {
-                "term": {
-                    "course": course
+            'filter': {
+                'term': {
+                    'course': course
                 }
             }
         }
@@ -70,7 +70,7 @@ def elastic_search_hybrid_rrf(field, query, vector, course):
         query=keyword_query,
         knn=knn_query,
         size=5,
-        rank={"rrf": {}}
+        rank={'rrf': {}}
     )
 
     return [hit['_source'] for hit in response['hits']['hits']]
@@ -91,29 +91,29 @@ def compute_rrf(rank, k=60):
 
 def elastic_search_hybrid_rrf(field, query, vector, course, k=60):
     knn_query = {
-        "field": field,
-        "query_vector": vector,
-        "k": 5,
-        "num_candidates": 10000,
-        "filter": {
-            "term": {
-                "course": course
+        'field': field,
+        'query_vector': vector,
+        'k': 5,
+        'num_candidates': 10000,
+        'filter': {
+            'term': {
+                'course': course
             }
         }
     }
 
     keyword_query = {
-        "bool": {
-            "must": {
-                "multi_match": {
-                    "query": query,
-                    "fields": ["question^3", "text", "section"],
+        'bool': {
+            'must': {
+                'multi_match': {
+                    'query': query,
+                    'fields': ['question^3', 'text', 'section'],
                     "type": "best_fields",
                 }
             },
-            "filter": {
-                "term": {
-                    "course": course
+            'filter': {
+                'term': {
+                    'course': course
                 }
             }
         }

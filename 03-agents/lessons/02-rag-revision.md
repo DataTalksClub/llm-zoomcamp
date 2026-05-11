@@ -19,8 +19,8 @@ from openai import OpenAI
 documents = load_faq_data()
 
 index = Index(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"]
+    text_fields=['question', 'section', 'answer'],
+    keyword_fields=['course']
 )
 index.fit(documents)
 
@@ -30,7 +30,7 @@ Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
 
-rag = RAGBase(
+assistant = RAGBase(
     index=index,
     llm_client=OpenAI(),
     instructions=instructions,
@@ -43,7 +43,7 @@ rag = RAGBase(
 Let's try a question:
 
 ```python
-rag.rag("How do I run Docker on Windows?")
+assistant.rag('How do I run Docker on Windows?')
 ```
 
 This should work fine. The search finds relevant FAQ entries about
@@ -52,7 +52,7 @@ Docker, and the LLM gives a good answer.
 Now let's try something slightly different:
 
 ```python
-rag.rag("How do I run ducker on windows?")
+assistant.rag('How do I run ducker on windows?')
 ```
 
 The word "ducker" doesn't match "Docker" in our index. The search

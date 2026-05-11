@@ -15,9 +15,9 @@ question without giving it any tools:
 
 ```python
 response = openai_client.responses.create(
-    model="gpt-5.4-mini",
+    model='gpt-5.4-mini',
     input=[
-        {"role": "user", "content": "I just discovered the course. Can I join it?"}
+        {'role': 'user', 'content': 'I just discovered the course. Can I join it?'}
     ],
 )
 
@@ -39,18 +39,18 @@ function does and what arguments it takes.
 ```python
 search_tool = {
     "type": "function",
-    "name": "search",
-    "description": "Search the FAQ database for entries matching the given query.",
-    "parameters": {
+    'name': 'search',
+    'description': 'Search the FAQ database for entries matching the given query.',
+    'parameters': {
         "type": "object",
         "properties": {
-            "query": {
+            'query': {
                 "type": "string",
-                "description": "Search query text to look up in the course FAQ."
+                'description': 'Search query text to look up in the course FAQ.'
             }
         },
         "required": ["query"],
-        "additionalProperties": False
+        'additionalProperties': False
     }
 }
 ```
@@ -83,12 +83,12 @@ If you look up information, use FAQ search.
 """.strip()
 
 chat_messages = [
-    {"role": "developer", "content": developer_prompt},
-    {"role": "user", "content": "I just discovered the course. Can I still join it?"}
+    {'role': 'developer', 'content': developer_prompt},
+    {'role': 'user', 'content': 'I just discovered the course. Can I still join it?'}
 ]
 
 response = openai_client.responses.create(
-    model="gpt-5.4-mini",
+    model='gpt-5.4-mini',
     input=chat_messages,
     tools=[search_tool],
 )
@@ -126,8 +126,8 @@ chat_messages.extend(response.output)
 
 chat_messages.append({
     "type": "function_call_output",
-    "call_id": call.call_id,
-    "output": result_json,
+    'call_id': call.call_id,
+    'output': result_json,
 })
 ```
 
@@ -142,7 +142,7 @@ Now we call the API a second time with the expanded history:
 
 ```python
 response = openai_client.responses.create(
-    model="gpt-5.4-mini",
+    model='gpt-5.4-mini',
     input=chat_messages,
     tools=[search_tool],
 )

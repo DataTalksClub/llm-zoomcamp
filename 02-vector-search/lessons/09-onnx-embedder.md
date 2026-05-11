@@ -93,8 +93,8 @@ from embedder import Embedder
 
 embed = Embedder()
 
-q1 = "Can I still join the course after the start date?"
-q2 = "How to install Docker on Windows?"
+q1 = 'Can I still join the course after the start date?'
+q2 = 'How to install Docker on Windows?'
 d  = "You don't need to register. You're accepted. You can also just start learning and submitting homework without registering."
 
 v1 = embed.encode(q1)
@@ -150,7 +150,7 @@ X = np.array(X)
 And search:
 
 ```python
-query = "Can I still join the course after the start date?"
+query = 'Can I still join the course after the start date?'
 v_query = embed.encode(query)
 
 scores = X.dot(v_query)
@@ -184,8 +184,8 @@ To use a different model, add it to `download.py`, run the download,
 then update the path:
 
 ```python
-embed = Embedder("models/Xenova/bge-base-en-v1.5")
-vectors = embed.encode("your text here")
+embed = Embedder('models/Xenova/bge-base-en-v1.5')
+vectors = embed.encode('your text here')
 print(vectors.shape)
 ```
 

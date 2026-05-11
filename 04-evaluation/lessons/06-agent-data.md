@@ -35,8 +35,8 @@ from openai import OpenAI
 documents = load_faq_data()
 
 index = Index(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"]
+    text_fields=['question', 'section', 'answer'],
+    keyword_fields=['course']
 )
 index.fit(documents)
 
@@ -48,17 +48,17 @@ Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
 
-rag = RAGBase(
+assistant = RAGBase(
     index=index,
     llm_client=openai_client,
     instructions=instructions,
 )
 
-def search(query, course="data-engineering-zoomcamp"):
-    return rag.search(
+def search(query, course='data-engineering-zoomcamp'):
+    return assistant.search(
         query,
-        boost_dict={"question": 3.0, "section": 0.5},
-        filter_dict={"course": course},
+        boost_dict={'question': 3.0, 'section': 0.5},
+        filter_dict={'course': course},
     )
 ```
 
@@ -67,18 +67,18 @@ import json
 
 search_tool = {
     "type": "function",
-    "name": "search",
-    "description": "Search the FAQ database for entries matching the given query.",
-    "parameters": {
+    'name': 'search',
+    'description': 'Search the FAQ database for entries matching the given query.',
+    'parameters': {
         "type": "object",
         "properties": {
-            "query": {
+            'query': {
                 "type": "string",
-                "description": "Search query text to look up in the course FAQ."
+                'description': 'Search query text to look up in the course FAQ.'
             }
         },
         "required": ["query"],
-        "additionalProperties": False
+        'additionalProperties': False
     }
 }
 
@@ -103,8 +103,8 @@ def make_call(call):
     result_json = json.dumps(result, indent=2)
     return {
         "type": "function_call_output",
-        "call_id": call.call_id,
-        "output": result_json,
+        'call_id': call.call_id,
+        'output': result_json,
     }
 ```
 
@@ -114,10 +114,10 @@ def make_call(call):
 We modify the agent loop to collect the tool call trajectory:
 
 ```python
-def agent_with_logging(question, model="gpt-5.4-mini"):
+def agent_with_logging(question, model='gpt-5.4-mini'):
     chat_messages = [
-        {"role": "developer", "content": developer_prompt},
-        {"role": "user", "content": question}
+        {'role': 'developer', 'content': developer_prompt},
+        {'role': 'user', 'content': question}
     ]
 
     tools = []
@@ -134,12 +134,12 @@ def agent_with_logging(question, model="gpt-5.4-mini"):
         has_function_calls = False
 
         for entry in response.output:
-            if entry.type == "message":
+            if entry.type == 'message':
                 answer = entry.content[0].text
-            if entry.type == "function_call":
+            if entry.type == 'function_call':
                 tools.append({
-                    "name": entry.name,
-                    "args": entry.arguments
+                    'name': entry.name,
+                    'args': entry.arguments
                 })
                 result = make_call(entry)
                 chat_messages.append(result)
@@ -149,9 +149,9 @@ def agent_with_logging(question, model="gpt-5.4-mini"):
             break
 
     return {
-        "question": question,
-        "tools": tools,
-        "answer": answer,
+        'question': question,
+        'tools': tools,
+        'answer': answer,
     }
 ```
 
@@ -181,11 +181,11 @@ Let's look at a result:
 
 ```python
 r = agent_results[0]
-print("Question:", r['question'])
-print("Tool calls:", len(r['tools']))
+print('Question:', r['question'])
+print('Tool calls:', len(r['tools']))
 for t in r['tools']:
     print(f"  {t['name']}({t['args']})")
-print("Answer:", r['answer'][:100], "...")
+print('Answer:', r['answer'][:100], '...')
 ```
 
 Now we have the data we need. In the next two lessons, we'll evaluate

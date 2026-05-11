@@ -6,15 +6,20 @@ the prompt we built and generates an answer.
 
 ## Making a request
 
-We already briefly saw how to make requests to OpenAI: 
+We already briefly saw how to make requests to OpenAI. Let's now
+spend some time to understand what's happening inside.
+
+We use OpenAI's "responses" API (you can see it from
+`openai_client.responses.create`) as opposed to `chat.completions`
+(legacy API).
+
+This is how we send a request:
 
 ```python
 response = openai_client.responses.create(
-    model="gpt-5.4-mini",
-    input="What is 2 + 2?"
+    model='gpt-5.4-mini',
+    input=prompt
 )
-
-response
 ```
 
 The response is a Pydantic object. We can turn it into readable JSON:
@@ -22,6 +27,7 @@ The response is a Pydantic object. We can turn it into readable JSON:
 ```python
 print(response.model_dump_json(indent=2))
 ```
+
 
 Take a moment to look at the fields. You'll see the answer text, the
 model used, usage info, and other metadata.
@@ -94,15 +100,41 @@ This particular request costs a fraction of a cent. Even a full RAG
 query with a long prompt stays under $0.01.
 
 
-## The LLM function
+## Message history
 
-Now let's wrap it in a function. We'll use this in our RAG pipeline:
+Previously we sent only one string as input and got back a response.
+In practice, you typically send a message history - a list of messages
+where each message has a role:
+
+- `developer` - system-level instructions (how the LLM should behave)
+- `user` - the actual query from the user
+
+Let's send both instructions and user prompt to the API:
 
 ```python
-def llm(instructions, user_prompt, model="gpt-5.4-mini"):
+input_messages = [
+    {'role': 'developer', 'content': instructions},
+    {'role': 'user', 'content': user_prompt}
+]
+
+response = openai_client.responses.create(
+    model=model,
+    input=input_messages
+)
+```
+
+This separates what the LLM should always do (the instructions, same
+every time) from what the user asks (varies from request to request).
+
+## The LLM function
+
+We can now put this together into an updated `llm` function. In addition to the prompt, it will also take instructions:
+
+```python
+def llm(instructions, user_prompt, model='gpt-5.4-mini'):
     input_messages = [
-        {"role": "developer", "content": instructions},
-        {"role": "user", "content": user_prompt}
+        {'role': 'developer', 'content': instructions},
+        {'role': 'user', 'content': user_prompt}
     ]
 
     response = openai_client.responses.create(
@@ -117,7 +149,7 @@ Test it:
 
 ```python
 instructions = "You're a course teaching assistant."
-user_prompt = "What is 2 + 2?"
+user_prompt = 'How do I run Docker on Windows?'
 
 llm(instructions, user_prompt)
 ```
@@ -131,7 +163,7 @@ Now we have all three components: search, prompt, and LLM. Let's wire
 them together.
 
 ```python
-def rag(query, model="gpt-5.4-mini"):
+def rag(query, model='gpt-5.4-mini'):
     search_results = search(query)
     prompt = build_prompt(query, search_results)
     answer = llm(INSTRUCTIONS, prompt, model=model)
@@ -171,7 +203,7 @@ flowchart TD
 Try it:
 
 ```python
-query = "How do I run Docker on Windows?"
+query = 'How do I run Docker on Windows?'
 answer = rag(query)
 print(answer)
 ```
@@ -184,15 +216,7 @@ response grounded in our data.
 ## Try more questions
 
 ```python
-rag("Can I still join the course after it started?")
-```
-
-```python
-rag("How do I get a certificate?")
-```
-
-```python
-rag("What's the best way to store API keys?")
+rag('How do I get a certificate?')
 ```
 
 Notice how the answers reference specific courses and sections.

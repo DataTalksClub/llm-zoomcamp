@@ -8,15 +8,12 @@ let's index it.
 [minsearch](https://github.com/alexeygrigorev/minsearch) is a simple
 in-memory search engine. It's a toy implementation - not production
 ready - but it illustrates how search engines work and it gives good
-results. We'll start with it and later replace it with sqlitesearch
-for a persistent backend.
+results.
 
-This is how minsearch was built - we turned it into a separate library.
-If you want to know how it works under the hood, check
-[Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE)
-([Code](https://github.com/alexeygrigorev/build-your-own-search-engine))
-- a workshop where we build it from scratch and I explain how search
-works.
+I implemented this library for the first edition of LLM Zoomcamp. 
+Initially it was just a python file that we implemented together as
+a part of the [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) workshop 
+(see the [code](https://github.com/alexeygrigorev/build-your-own-search-engine) here).
 
 The concepts in minsearch (text fields, keyword fields, boosting,
 filtering) are the same concepts used by Elasticsearch, which in
@@ -30,8 +27,8 @@ keyword (for filtering):
 from minsearch import Index
 
 index = Index(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"]
+    text_fields=['question', 'section', 'answer'],
+    keyword_fields=['course']
 )
 
 index.fit(documents)
@@ -50,7 +47,7 @@ their terms match the query.
 Let's try a search:
 
 ```python
-query = "How do I run Docker on Windows?"
+query = 'How do I run Docker on Windows?'
 results = index.search(query, num_results=5)
 ```
 
@@ -78,9 +75,9 @@ minsearch supports keyword filtering:
 
 ```python
 results = index.search(
-    query="How do I run Docker on Windows?",
+    query='How do I run Docker on Windows?',
     num_results=5,
-    filter_dict={"course": "mlops-zoomcamp"}
+    filter_dict={'course': 'mlops-zoomcamp'}
 )
 ```
 
@@ -103,9 +100,9 @@ minsearch supports field boosting to reflect this:
 
 ```python
 results = index.search(
-    query="How do I run Docker on Windows?",
+    query='How do I run Docker on Windows?',
     num_results=5,
-    boost_dict={"question": 3.0, "section": 0.5}
+    boost_dict={'question': 3.0, 'section': 0.5}
 )
 ```
 
@@ -123,13 +120,13 @@ Let's wrap the search in a `search` function. This is the first
 component of our RAG pipeline:
 
 ```python
-def search(query, course="llm-zoomcamp", num_results=5):
-    boost_dict = {"question": 3.0, "section": 0.5}
+def search(query, course='llm-zoomcamp', num_results=5):
+    boost_dict = {'question': 3.0, 'section': 0.5}
     return index.search(
         query,
         num_results=num_results,
         boost_dict=boost_dict,
-        filter_dict={"course": course}
+        filter_dict={'course': course}
     )
 ```
 
@@ -137,7 +134,7 @@ By default it searches the LLM Zoomcamp FAQ. You can pass a
 different course slug to search other courses:
 
 ```python
-search("How do I run Docker?", course="mlops-zoomcamp")
+search('How do I run Docker?', course='mlops-zoomcamp')
 ```
 
-[← What is RAG](04-rag.md) | [Building the Prompt →](06-building-prompt.md)
+[← The Course FAQ Dataset](04-dataset.md) | [Building the Prompt →](06-building-prompt.md)

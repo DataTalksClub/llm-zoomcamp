@@ -14,13 +14,13 @@ it's significant and can take a lot of time.
 The simplest way to solve it is to save the vectors:
 
 ```python
-vindex.save("vector_index.pkl")
+vindex.save('vector_index.pkl')
 ```
 
 And load it back:
 
 ```python
-vindex = VectorSearch.load("vector_index.pkl")
+vindex = VectorSearch.load('vector_index.pkl')
 ```
 
 This avoids re-computing embeddings every time you restart.
@@ -48,9 +48,9 @@ approximate nearest neighbor (ANN) strategies for efficient retrieval.
 from sqlitesearch import VectorSearchIndex
 
 vs_index = VectorSearchIndex(
-    keyword_fields=["course"],
-    mode="lsh",
-    db_path="faq_vectors.db"
+    keyword_fields=['course'],
+    mode='lsh',
+    db_path='faq_vectors.db'
 )
 ```
 
@@ -83,7 +83,7 @@ the index later without re-indexing.
 ## Searching
 
 ```python
-query = "I just discovered the course. Can I still join it?"
+query = 'I just discovered the course. Can I still join it?'
 query_vector = model.encode(query)
 
 results = vs_index.search(query_vector, num_results=5)
@@ -103,7 +103,7 @@ Filtering works the same way:
 ```python
 results = vs_index.search(
     query_vector,
-    filter_dict={"course": "data-engineering-zoomcamp"},
+    filter_dict={'course': 'data-engineering-zoomcamp'},
     num_results=5
 )
 ```
@@ -118,12 +118,12 @@ session, you can reopen the index without re-computing embeddings:
 from sqlitesearch import VectorSearchIndex
 
 vs_index = VectorSearchIndex(
-    keyword_fields=["course"],
-    mode="lsh",
-    db_path="faq_vectors.db"
+    keyword_fields=['course'],
+    mode='lsh',
+    db_path='faq_vectors.db'
 )
 
-query_vector = model.encode("How do I run Kafka?")
+query_vector = model.encode('How do I run Kafka?')
 results = vs_index.search(query_vector, num_results=5)
 ```
 
@@ -153,12 +153,12 @@ embeddings:
 from sentence_transformers import SentenceTransformer
 from sqlitesearch import VectorSearchIndex
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer('all-MiniLM-L6-v2')
 
 vs_index = VectorSearchIndex(
-    keyword_fields=["course"],
-    mode="lsh",
-    db_path="faq_vectors.db"
+    keyword_fields=['course'],
+    mode='lsh',
+    db_path='faq_vectors.db'
 )
 ```
 
@@ -179,7 +179,7 @@ Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
 
-rag = RAGBase(
+assistant = RAGBase(
     index=vs_index,
     llm_client=openai_client,
     instructions=instructions,
@@ -190,22 +190,22 @@ Vector search requires embedding the query, so we use `build_prompt`
 and `llm` from `RAGBase` with manual search:
 
 ```python
-def vector_rag(query, course="data-engineering-zoomcamp", num_results=5):
+def vector_rag(query, course='data-engineering-zoomcamp', num_results=5):
     query_vector = model.encode(query)
     search_results = vs_index.search(
         query_vector,
-        filter_dict={"course": course},
+        filter_dict={'course': course},
         num_results=num_results
     )
-    prompt = rag.build_prompt(query, search_results)
-    answer = rag.llm(prompt)
+    prompt = assistant.build_prompt(query, search_results)
+    answer = assistant.llm(prompt)
     return answer
 ```
 
 Try it:
 
 ```python
-vector_rag("I just discovered the course. Can I still join it?")
+vector_rag('I just discovered the course. Can I still join it?')
 ```
 
 

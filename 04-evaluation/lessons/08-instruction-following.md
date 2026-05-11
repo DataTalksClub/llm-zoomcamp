@@ -24,9 +24,9 @@ use the same LLM-as-a-judge approach from lesson 05:
 ```python
 class AnswerEvaluation(BaseModel):
     reasoning: str = Field(
-        description="Step-by-step reasoning about the quality of the answer."
+        description='Step-by-step reasoning about the quality of the answer.'
     )
-    score: Literal["good", "bad"] = Field(
+    score: Literal['good', 'bad'] = Field(
         description="'good' if correct, 'bad' otherwise."
     )
 ```
@@ -47,7 +47,7 @@ Rules:
 - The AI answer does NOT need to be word-for-word identical
 - It should convey the same key information
 - Extra detail is fine as long as the core answer is correct
-- Mark "bad" only if the AI answer is wrong or misses the key point
+- Mark 'bad' only if the AI answer is wrong or misses the key point
 
 Be fair and focus on correctness, not style.
 """.strip()
@@ -63,7 +63,7 @@ AI Answer:
 {answer_llm}
 """.strip()
 
-def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
+def evaluate_aqa(question, answer_orig, answer_llm, model='gpt-5.4-mini'):
     prompt = aqa_judge_prompt.format(
         question=question,
         answer_orig=answer_orig,
@@ -71,8 +71,8 @@ def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
     )
 
     messages = [
-        {"role": "developer", "content": aqa_judge_instructions},
-        {"role": "user", "content": prompt}
+        {'role': 'developer', 'content': aqa_judge_instructions},
+        {'role': 'user', 'content': prompt}
     ]
 
     response = openai_client.responses.parse(
@@ -110,9 +110,9 @@ Now let's check if the agent follows its developer prompt rules:
 ```python
 class InstructionResult(BaseModel):
     reasoning: str = Field(
-        description="Step-by-step reasoning about instruction following."
+        description='Step-by-step reasoning about instruction following.'
     )
-    score: Literal["good", "bad"] = Field(
+    score: Literal['good', 'bad'] = Field(
         description="'good' if instructions were followed, 'bad' if violated."
     )
 
@@ -125,8 +125,8 @@ You are an expert evaluator. You will be given:
 Check if the agent's response follows the instructions. Read the
 instructions carefully and check each applicable rule.
 
-Mark "good" if the agent followed its instructions overall.
-Mark "bad" only if the agent clearly violated one or more rules.
+Mark 'good' if the agent followed its instructions overall.
+Mark 'bad' only if the agent clearly violated one or more rules.
 """.strip()
 
 instruction_prompt = """
@@ -140,7 +140,7 @@ instruction_prompt = """
 {answer}
 """.strip()
 
-def evaluate_instructions(question, answer, model="gpt-5.4-mini"):
+def evaluate_instructions(question, answer, model='gpt-5.4-mini'):
     prompt = instruction_prompt.format(
         instructions=developer_prompt,
         question=question,
@@ -148,8 +148,8 @@ def evaluate_instructions(question, answer, model="gpt-5.4-mini"):
     )
 
     messages = [
-        {"role": "developer", "content": instruction_instructions},
-        {"role": "user", "content": prompt}
+        {'role': 'developer', 'content': instruction_instructions},
+        {'role': 'user', 'content': prompt}
     ]
 
     response = openai_client.responses.parse(
@@ -182,9 +182,9 @@ Now we have three evaluation dimensions for each agent run:
 ```python
 df_agent = pd.DataFrame(agent_results.values())
 
-print("Correctness:", (df_agent['correctness'] == 'good').mean())
-print("Trajectory:", (df_agent['trajectory'] == 'good').mean())
-print("Instructions:", (df_agent['instruction_following'] == 'good').mean())
+print('Correctness:', (df_agent['correctness'] == 'good').mean())
+print('Trajectory:', (df_agent['trajectory'] == 'good').mean())
+print('Instructions:', (df_agent['instruction_following'] == 'good').mean())
 ```
 
 These three metrics give you a comprehensive view of agent quality:

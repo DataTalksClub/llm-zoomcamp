@@ -46,8 +46,8 @@ def make_call(call):
     result_json = json.dumps(result, indent=2)
     return {
         "type": "function_call_output",
-        "call_id": call.call_id,
-        "output": result_json,
+        'call_id': call.call_id,
+        'output': result_json,
     }
 ```
 
@@ -65,7 +65,7 @@ call, we run it and append the result:
 
 ```python
 response = openai_client.responses.create(
-    model="gpt-5.4-mini",
+    model='gpt-5.4-mini',
     input=chat_messages,
     tools=[search_tool],
 )
@@ -75,11 +75,11 @@ has_function_calls = False
 for entry in response.output:
     chat_messages.append(entry)
 
-    if entry.type == "message":
+    if entry.type == 'message':
         print(entry.content[0].text)
 
-    if entry.type == "function_call":
-        print("function_call:", entry.name, entry.arguments)
+    if entry.type == 'function_call':
+        print('function_call:', entry.name, entry.arguments)
         result = make_call(entry)
         chat_messages.append(result)
         has_function_calls = True
@@ -98,7 +98,7 @@ until it returns a response without any function calls:
 ```python
 while True:
     response = openai_client.responses.create(
-        model="gpt-5.4-mini",
+        model='gpt-5.4-mini',
         input=chat_messages,
         tools=[search_tool],
     )
@@ -107,11 +107,11 @@ while True:
     has_function_calls = False
 
     for entry in response.output:
-        if entry.type == "message":
+        if entry.type == 'message':
             print(entry.content[0].text)
 
-        if entry.type == "function_call":
-            print("function_call:", entry.name, entry.arguments)
+        if entry.type == 'function_call':
+            print('function_call:', entry.name, entry.arguments)
             result = make_call(entry)
             chat_messages.append(result)
             has_function_calls = True
@@ -131,10 +131,10 @@ without requesting any more tool calls.
 Let's wrap the loop in a function so we can reuse it:
 
 ```python
-def agent_loop(question, model="gpt-5.4-mini"):
+def agent_loop(question, model='gpt-5.4-mini'):
     chat_messages = [
-        {"role": "developer", "content": developer_prompt},
-        {"role": "user", "content": question}
+        {'role': 'developer', 'content': developer_prompt},
+        {'role': 'user', 'content': question}
     ]
 
     while True:
@@ -148,11 +148,11 @@ def agent_loop(question, model="gpt-5.4-mini"):
         has_function_calls = False
 
         for entry in response.output:
-            if entry.type == "message":
+            if entry.type == 'message':
                 print(entry.content[0].text)
 
-            if entry.type == "function_call":
-                print("function_call:", entry.name, entry.arguments)
+            if entry.type == 'function_call':
+                print('function_call:', entry.name, entry.arguments)
                 result = make_call(entry)
                 chat_messages.append(result)
                 has_function_calls = True
@@ -164,7 +164,7 @@ def agent_loop(question, model="gpt-5.4-mini"):
 Let's test it with a question that has a typo:
 
 ```python
-agent_loop("How do I run ducker on windows?")
+agent_loop('How do I run ducker on windows?')
 ```
 
 Watch what happens. The agent searches for "ducker", gets poor results,
@@ -174,7 +174,7 @@ loop lets the model recover from bad searches on its own.
 Also try the course enrollment question:
 
 ```python
-agent_loop("I just discovered the course. Can I still join it?")
+agent_loop('I just discovered the course. Can I still join it?')
 ```
 
 This handwritten loop is the best way to understand what frameworks

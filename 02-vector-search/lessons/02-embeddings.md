@@ -39,7 +39,7 @@ We'll use `all-MiniLM-L6-v2`:
 ```python
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer('all-MiniLM-L6-v2')
 ```
 
 The first time you run this, it downloads the model (~80 MB). After
@@ -52,8 +52,8 @@ Before we embed our entire dataset, let's see how embeddings work with
 a few examples. We'll use two queries and one document:
 
 ```python
-q1 = "Can I still join the course after the start date?"
-q2 = "How to install Docker on Windows?"
+q1 = 'Can I still join the course after the start date?'
+q2 = 'How to install Docker on Windows?'
 d  = "You don't need to register. You're accepted. You can also just start learning and submitting homework without registering."
 
 v1 = model.encode(q1)
@@ -132,7 +132,7 @@ Now let's see how vector search works under the hood. We have a matrix
 it and compute the dot product against all documents:
 
 ```python
-query = "Can I still join the course after the start date?"
+query = 'Can I still join the course after the start date?'
 v_query = model.encode(query)
 
 scores = vectors.dot(v_query)

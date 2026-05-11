@@ -21,8 +21,8 @@ from openai import OpenAI
 documents = load_faq_data()
 
 index = Index(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"]
+    text_fields=['question', 'section', 'answer'],
+    keyword_fields=['course']
 )
 index.fit(documents)
 
@@ -34,7 +34,7 @@ Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
 
-rag = RAGBase(
+assistant = RAGBase(
     index=index,
     llm_client=openai_client,
     instructions=instructions,
@@ -52,7 +52,7 @@ Let's create the vector search index:
 ```python
 from minsearch import VectorSearch
 
-vindex = VectorSearch(keyword_fields=["course"])
+vindex = VectorSearch(keyword_fields=['course'])
 vindex.fit(vectors, documents)
 ```
 
@@ -62,7 +62,7 @@ vindex.fit(vectors, documents)
 Create a new `RAGBase` instance with the vector index:
 
 ```python
-rag_vector = RAGBase(
+assistant = RAGBase(
     index=vindex,
     llm_client=openai_client,
     instructions=instructions,
@@ -80,17 +80,17 @@ Vector search takes a vector, not a string. We need a small wrapper:
 ```python
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer('all-MiniLM-L6-v2')
 
-def vector_rag(query, course="data-engineering-zoomcamp", num_results=5):
+def vector_rag(query, course='data-engineering-zoomcamp', num_results=5):
     query_vector = model.encode(query)
     search_results = vindex.search(
         query_vector,
-        filter_dict={"course": course},
+        filter_dict={'course': course},
         num_results=num_results
     )
-    prompt = rag_vector.build_prompt(query, search_results)
-    answer = rag_vector.llm(prompt)
+    prompt = assistant.build_prompt(query, search_results)
+    answer = assistant.llm(prompt)
     return answer
 ```
 
@@ -103,11 +103,11 @@ manually because vector search requires embedding the query first.
 Try it:
 
 ```python
-vector_rag("how do I run kafka?")
+vector_rag('how do I run kafka?')
 ```
 
 ```python
-vector_rag("the course has already started, can I still enroll?")
+vector_rag('the course has already started, can I still enroll?')
 ```
 
 The answers should be similar to what we got with keyword search, but
@@ -119,13 +119,13 @@ vector search may handle rephrased questions better.
 With keyword search, we use a minsearch `Index`:
 
 ```python
-rag = RAGBase(index=index, llm_client=openai_client, instructions=instructions)
+assistant = RAGBase(index=index, llm_client=openai_client, instructions=instructions)
 ```
 
 With vector search, we use a minsearch `VectorSearch`:
 
 ```python
-rag_vector = RAGBase(index=vindex, llm_client=openai_client, instructions=instructions)
+assistant = RAGBase(index=vindex, llm_client=openai_client, instructions=instructions)
 ```
 
 Same RAG class, different search index. The modular design lets you swap

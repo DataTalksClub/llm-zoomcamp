@@ -19,8 +19,8 @@ from openai import OpenAI
 documents = load_faq_data()
 
 index = Index(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"]
+    text_fields=['question', 'section', 'answer'],
+    keyword_fields=['course']
 )
 index.fit(documents)
 
@@ -32,22 +32,22 @@ Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
 
-rag = RAGBase(
+assistant = RAGBase(
     index=index,
     llm_client=openai_client,
     instructions=instructions,
 )
 ```
 
-We'll use `rag.search` to evaluate different boost configurations.
+We'll use `assistant.search` to evaluate different boost configurations.
 The default search function for evaluation:
 
 ```python
 def search_fn(query, course):
-    return rag.search(
+    return assistant.search(
         query,
-        boost_dict={"question": 3.0, "section": 0.5},
-        filter_dict={"course": course},
+        boost_dict={'question': 3.0, 'section': 0.5},
+        filter_dict={'course': course},
     )
 ```
 
@@ -202,10 +202,10 @@ Now we can try different boost values and see what works best:
 
 ```python
 def search_boost(query, course, question_boost):
-    return rag.search(
+    return assistant.search(
         query,
-        boost_dict={"question": question_boost, "section": 0.5},
-        filter_dict={"course": course},
+        boost_dict={'question': question_boost, 'section': 0.5},
+        filter_dict={'course': course},
     )
 
 for boost in [1.0, 3.0, 5.0, 10.0]:
@@ -213,7 +213,7 @@ for boost in [1.0, 3.0, 5.0, 10.0]:
         ground_truth_flat,
         lambda q: search_boost(q['question'], q['course'], boost)
     )
-    print(f"boost={boost}: {result}")
+    print(f'boost={boost}: {result}')
 ```
 
 This is how you tune search parameters. Instead of guessing, you measure.

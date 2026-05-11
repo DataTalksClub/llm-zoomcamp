@@ -10,11 +10,11 @@ We need both search functions ready. The vector search function is from
 the previous section:
 
 ```python
-def vector_search(query, course="data-engineering-zoomcamp", num_results=5):
+def vector_search(query, course='data-engineering-zoomcamp', num_results=5):
     query_vector = model.encode(query)
     return vindex.search(
         query_vector,
-        filter_dict={"course": course},
+        filter_dict={'course': course},
         num_results=num_results
     )
 ```
@@ -25,18 +25,18 @@ And the keyword search function from module 1:
 from minsearch import Index
 
 text_index = Index(
-    text_fields=["question", "answer", "section"],
-    keyword_fields=["course"]
+    text_fields=['question', 'answer', 'section'],
+    keyword_fields=['course']
 )
 text_index.fit(documents)
 
-def keyword_search(query, course="data-engineering-zoomcamp", num_results=5):
-    boost_dict = {"question": 3.0, "section": 0.5}
+def keyword_search(query, course='data-engineering-zoomcamp', num_results=5):
+    boost_dict = {'question': 3.0, 'section': 0.5}
     return text_index.search(
         query,
         num_results=num_results,
         boost_dict=boost_dict,
-        filter_dict={"course": course}
+        filter_dict={'course': course}
     )
 ```
 
@@ -49,12 +49,12 @@ questions each returns.
 Query 1 - a natural language question:
 
 ```python
-query = "Can I still join the course?"
+query = 'Can I still join the course?'
 
-print("Keyword search:")
+print('Keyword search:')
 print([doc['question'] for doc in keyword_search(query)])
 
-print("Vector search:")
+print('Vector search:')
 print([doc['question'] for doc in vector_search(query)])
 ```
 
@@ -64,12 +64,12 @@ semantically related documents that keyword search misses.
 Query 2 - a specific tool name:
 
 ```python
-query = "pandas dataframe"
+query = 'pandas dataframe'
 
-print("Keyword search:")
+print('Keyword search:')
 print([doc['question'] for doc in keyword_search(query)])
 
-print("Vector search:")
+print('Vector search:')
 print([doc['question'] for doc in vector_search(query)])
 ```
 
@@ -82,10 +82,10 @@ Query 3 - a paraphrased question:
 ```python
 query = "I'm having trouble with my homework submission"
 
-print("Keyword search:")
+print('Keyword search:')
 print([doc['question'] for doc in keyword_search(query)])
 
-print("Vector search:")
+print('Vector search:')
 print([doc['question'] for doc in vector_search(query)])
 ```
 

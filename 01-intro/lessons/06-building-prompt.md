@@ -30,13 +30,15 @@ The `context` is a formatted string with all the search results:
 
 ```python
 def build_context(search_results):
-    context = ""
+    lines = []
+
     for doc in search_results:
-        context += f"section: {doc['section']}\n"
-        context += f"question: {doc['question']}\n"
-        context += f"answer: {doc['answer']}\n"
-        context += "\n"
-    return context.strip()
+        lines.append(doc['section'])
+        lines.append('Q: ' + doc['question'])
+        lines.append('A: ' + doc['answer'])
+        lines.append('')
+
+    return '\n'.join(lines).strip()
 ```
 
 Each document becomes a block with the section, question, and answer.
@@ -63,7 +65,7 @@ def build_prompt(query, search_results):
 Let's try it:
 
 ```python
-query = "How do I run Docker on Windows?"
+query = 'How do I run Docker on Windows?'
 search_results = search(query)
 prompt = build_prompt(query, search_results)
 
@@ -79,23 +81,18 @@ The prompt looks something like:
 QUESTION: How do I run Docker on Windows?
 
 CONTEXT:
-section: Module 5: Monitoring
-question: How can I remove all Docker containers, images, and volumes, and builds from the terminal?
-answer: 1. Delete all containers (including running ones): ...
+Module 5: Monitoring
+Q: How can I remove all Docker containers, images, and volumes, and builds from the terminal?
+A: 1. Delete all containers (including running ones): ...
 
-section: ...
-question: ...
-answer: ...
+...
+Q: ...
+A: ...
 ```
-
-
-## Why the prompt matters
 
 The prompt is the bridge between search and the LLM. A bad prompt
 means the LLM ignores the context and hallucinates. A good prompt
 keeps the answer grounded.
-
-Key principles:
 
 - Be explicit: tell the LLM to use only the provided context.
 - Give it a role: "you're a course teaching assistant" tells the LLM
