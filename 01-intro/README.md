@@ -27,3 +27,8 @@ Zoomcamp courses.
 ## Old content
 
 See old content for [2024](../cohorts/2024/) and [2025](../cohorts/2025/) cohorts.
+
+
+## Notes 
+
+- Add your notes above this line
