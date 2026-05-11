@@ -1,6 +1,6 @@
 # Environment
 
-For this workshop, all you need is Python with Jupyter.
+For this module, all you need is Python with Jupyter.
 
 You can use whatever environment you like - your laptop, Google
 Colab, SageMaker, or anything else with a notebook.
@@ -89,7 +89,7 @@ Start Jupyter:
 uv run jupyter notebook
 ```
 
-Create a new notebook. Throughout the workshop, you'll copy code from
+Create a new notebook. Throughout the course, you'll copy code from
 the section notes into notebook cells.
 
 Check that the OpenAI client works:

@@ -65,7 +65,7 @@ ResponseUsage(input_tokens=14, output_tokens=6, total_tokens=20)
 
 ## Calculating the price
 
-You can use different models. In this workshop we'll use
+You can use different models. In this course we'll use
 [gpt-5.4-mini](https://developers.openai.com/api/docs/models/gpt-5.4-mini):
 
 - Input: $0.75 per million tokens

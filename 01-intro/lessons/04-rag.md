@@ -6,11 +6,7 @@ Let's try asking an LLM a course-specific question without any
 context:
 
 ```python
-from openai import OpenAI
-
-openai_client = OpenAI()
-
-def ask(prompt):
+def llm(prompt):
     response = openai_client.responses.create(
         model="gpt-5.4-mini",
         input=prompt
@@ -19,7 +15,7 @@ def ask(prompt):
 ```
 
 ```python
-ask("Can I still join the course after it started?")
+llm("Can I still join the course after it started?")
 ```
 
 The LLM will give a generic answer - something like "it depends on
@@ -32,7 +28,7 @@ LLM knows the answer because cooking salmon is common knowledge. But
 our courses are not in the training data.
 
 ```python
-ask("How do I get a certificate?")
+llm("How do I get a certificate?")
 ```
 
 Same problem. The LLM doesn't know the specific requirements for our
@@ -107,7 +103,7 @@ grounded in our data. If the right document is retrieved, the answer
 is good. If it's not, the answer suffers. Search quality is the
 backbone of RAG.
 
-The database and the LLM can be anything. In this workshop we'll
+The database and the LLM can be anything. In this course we'll
 use minsearch and then sqlitesearch for search, and OpenAI for the
 LLM. But you can swap any component and see what works better. That's
 what makes RAG so flexible - plug and play.

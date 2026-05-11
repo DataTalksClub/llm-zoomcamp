@@ -15,7 +15,7 @@ engine, and let students ask questions in natural language. Under the
 hood, the system searches the FAQ, retrieves relevant entries, and
 gives a specific answer - not a generic one.
 
-We'll build that system in this workshop.
+We'll build that system in this module.
 
 The FAQ data is available as JSON from the DataTalks.Club website.
 Let's fetch it:

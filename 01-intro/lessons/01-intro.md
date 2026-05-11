@@ -1,6 +1,6 @@
 # Introduction
 
-This workshop is the first module of the
+This module is the first part of the
 [LLM Zoomcamp](https://github.com/DataTalksClub/llm-zoomcamp) -
 a free course about building LLM applications.
 

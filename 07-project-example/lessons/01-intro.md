@@ -61,50 +61,57 @@ uv run jupyter notebook
 ## Generating the dataset
 
 Since we don't have a real fitness FAQ database, we generate one
-with an LLM. The idea is to create a CSV with records like:
+with an LLM. We use structured output (from module 04) to make
+sure the data comes back in the right format.
 
-```csv
-id,exercise_name,type_of_activity,type_of_equipment,body_part,type,muscle_groups_activated,instructions
-push-up-001,Push-up,Strength,None (bodyweight),Chest,Compound,"Chest, Triceps, Shoulders","Start in a plank position with hands slightly wider than shoulders..."
+First, define a Pydantic model for a single exercise:
+
+```python
+from pydantic import BaseModel, Field
+from typing import List
+
+class Exercise(BaseModel):
+    id: str = Field(description="Unique identifier, e.g. 'push-up-001'")
+    exercise_name: str = Field(description="Name of the exercise")
+    type_of_activity: str = Field(description="Strength, Cardio, Flexibility, etc.")
+    type_of_equipment: str = Field(description="Dumbbells, Barbell, None (bodyweight), etc.")
+    body_part: str = Field(description="Chest, Back, Legs, etc.")
+    type: str = Field(description="Compound, Isolation, etc.")
+    muscle_groups_activated: str = Field(description="Comma-separated list, e.g. 'Chest, Triceps, Shoulders'")
+    instructions: str = Field(description="Detailed step-by-step instructions")
+
+class ExerciseDataset(BaseModel):
+    exercises: List[Exercise]
 ```
 
-We use GPT to generate hundreds of these records across different
-muscle groups and exercise types. The prompt looks like this:
+Now generate the data using `responses.parse`:
 
 ```python
 from openai import OpenAI
 import pandas as pd
-import json
 
 openai_client = OpenAI()
 
 prompt = """
-Generate a dataset of 50 fitness exercises as JSON array.
-Each exercise should have these fields:
-- id: unique identifier (e.g. "push-up-001")
-- exercise_name: name of the exercise
-- type_of_activity: "Strength", "Cardio", "Flexibility", etc.
-- type_of_equipment: "Dumbbells", "Barbell", "None (bodyweight)", etc.
-- body_part: "Chest", "Back", "Legs", etc.
-- type: "Compound", "Isolation", etc.
-- muscle_groups_activated: "Chest, Triceps, Shoulders"
-- instructions: detailed step-by-step instructions
-
-Cover different muscle groups and difficulty levels.
+Generate a dataset of 50 diverse fitness exercises.
+Cover different muscle groups, equipment types, and difficulty levels.
+Include bodyweight exercises, free weights, and machine exercises.
 """.strip()
 
-response = openai_client.responses.create(
+response = openai_client.responses.parse(
     model="gpt-5.4-mini",
-    input=[{"role": "user", "content": prompt}]
+    input=[{"role": "user", "content": prompt}],
+    text_format=ExerciseDataset,
 )
 
-data = json.loads(response.output_text)
-df = pd.DataFrame(data)
+dataset = response.output_parsed
+df = pd.DataFrame([ex.model_dump() for ex in dataset.exercises])
 df.to_csv('data/data.csv', index=False)
+print(f"Generated {len(df)} exercises")
 ```
 
 You may need to run this multiple times with different prompts
-to cover enough exercises. Save all results to `data/data.csv`.
+to cover enough exercises. Append all results to `data/data.csv`.
 
 
 ## The RAG flow

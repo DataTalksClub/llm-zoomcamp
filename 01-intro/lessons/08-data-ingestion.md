@@ -15,7 +15,7 @@ the data to a persistent search index. Another process reads from it.
 The index survives restarts, so you only ingest once.
 
 You can use any persistent search backend for this - Elasticsearch,
-OpenSearch, Qdrant, and so on. In this workshop, we'll use
+OpenSearch, Qdrant, and so on. In this module, we'll use
 [sqlitesearch](https://github.com/alexeygrigorev/sqlitesearch) - a
 lightweight search library backed by SQLite FTS5. It has the same API
 as minsearch, so switching is straightforward.

@@ -1,6 +1,6 @@
 # Next Steps
 
-In this workshop, we:
+In this module, we:
 
 - Learned what RAG is and why it matters: retrieve documents, build a
   prompt, let the LLM generate a grounded answer
