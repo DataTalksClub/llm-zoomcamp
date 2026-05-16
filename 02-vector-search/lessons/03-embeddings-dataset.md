@@ -7,7 +7,7 @@ Now let's embed our entire FAQ dataset.
 ## Loading the data
 
 In the previous module, we created a helper script for downloading the
-data ([ingest.py](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-intro/code/ingest.py)).
+data ([ingest.py](../../01-intro/code/ingest.py)).
 
 If you don't have it from the previous lesson, let's download it:
 

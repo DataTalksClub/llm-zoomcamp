@@ -14,7 +14,7 @@ The search step used keyword search. Now we can replace it with vector search.
 ## The keyword search RAG
 
 In module 1, we put all the RAG logic into a
-[`RAGBase`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-intro/code/rag_helper.py)
+[`RAGBase`](../../01-intro/code/rag_helper.py)
 helper class.
 
 If you don't have it, let's download it: 
