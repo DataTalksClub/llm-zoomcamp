@@ -31,13 +31,12 @@ creates a named volume so data persists across container restarts.
 ## Installing the Python client
 
 ```bash
-uv add psycopg psycopg2-binary
+uv add psycopg2-binary
 ```
 
-We'll use `psycopg` (the modern PostgreSQL adapter for Python) to
-connect and run queries.
+We'll use `psycopg2` to connect and run queries.
 
-## Connecting and enabling pgvector
+Let's connect to it:
 
 ```python
 import psycopg
