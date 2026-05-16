@@ -1,10 +1,16 @@
-# Vector Search with MinSearch
+# Vector Search with minsearch
 
 In the previous section, we saw how vector search works with numpy:
 embed the query, compute dot products, find the best match. minsearch
 does exactly the same thing, but it follows the same interface we
 already know from module 1 - `fit`, `search`, `filter_dict`, and all
 the rest.
+
+[minsearch](https://github.com/alexeygrigorev/minsearch) is a small
+in-memory search library. In module 1, we used its `Index` class for
+keyword search. Now we'll use its `VectorSearch` class for vector
+search. Both classes share the same API: `fit` to index data, `search`
+to query, and `filter_dict` for filtering by keyword fields.
 
 It's the simplest way to get started with vector search.
 
@@ -64,4 +70,4 @@ This restricts the search to documents from the LLM Zoomcamp course.
 
 Let's use it in RAG now.
 
-[← Embeddings](02-embeddings.md) | [RAG with Vector Search →](04-rag-vector.md)
+[← Embedding Our Dataset](03-embeddings-dataset.md) | [RAG with Vector Search →](05-rag-vector.md)

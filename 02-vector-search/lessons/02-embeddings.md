@@ -34,7 +34,7 @@ We'll use `all-MiniLM-L6-v2`:
 - 384-dimensional vectors (compact)
 - Fast on CPU
 - Good quality for general English text
-- Uses cosine similarity
+- Uses cosine similarity (we'll explain this below)
 
 ```python
 from sentence_transformers import SentenceTransformer
@@ -80,80 +80,22 @@ This is the core idea behind vector search: similar texts get similar
 vectors, and we can measure similarity with a simple dot product.
 
 
-## Generating embeddings for our dataset
+## Cosine similarity
 
-Now let's load our FAQ dataset and generate embeddings:
+The `all-MiniLM-L6-v2` model outputs normalized vectors - vectors with
+unit length. When both vectors are normalized, the dot product equals
+cosine similarity. That's why the model documentation says it "uses
+cosine similarity."
 
-```python
-from rag_helper import load_faq_data
+Cosine similarity measures the angle between two vectors, ignoring
+their length:
 
-documents = load_faq_data()
-```
+- 1.0 = same direction (very similar)
+- 0.0 = perpendicular (unrelated)
+- -1.0 = opposite direction (opposite meaning)
 
-For vector search, we want to embed a combination of the question and
-the answer. This way, when a user asks a question, we can match it
-against both the questions and answers in our index:
+Because our vectors are normalized, the dot product gives us cosine
+similarity directly. This is why we can use `v1.dot(dv)` to compare
+texts.
 
-```python
-texts = [doc['question'] + ' ' + doc['answer'] for doc in documents]
-```
-
-Now generate the embeddings. We'll do it in batches with a progress bar:
-
-```python
-import numpy as np
-from tqdm import tqdm
-
-batch_size = 50
-vectors = []
-
-for i in tqdm(range(0, len(texts), batch_size)):
-    batch = texts[i:i + batch_size]
-    batch_vectors = model.encode(batch)
-    vectors.extend(batch_vectors)
-
-vectors = np.array(vectors)
-```
-
-This takes a few seconds. Let's check the shape:
-
-```python
-vectors.shape
-```
-
-You should see the total number of documents, each represented by a
-384-dimensional vector.
-
-
-## How vector search works
-
-Now let's see how vector search works under the hood. We have a matrix
-`vectors` with all document embeddings. When a query comes in, we embed
-it and compute the dot product against all documents:
-
-```python
-query = 'Can I still join the course after the start date?'
-v_query = model.encode(query)
-
-scores = vectors.dot(v_query)
-```
-
-The highest score is the most similar document:
-
-```python
-idx = np.argmax(scores)
-scores[idx]
-```
-
-```python
-documents[idx]
-```
-
-This is vector search in its simplest form: embed the query, compute
-dot products with all documents, return the one with the highest score.
-
-Doing this manually with numpy works fine for small datasets. For
-larger ones, you'd want a search library that handles filtering and ranking.
-We'll use special libraries for that.
-
-[← What is Vector Search](01-intro.md) | [Vector Search with MinSearch →](03-minsearch-vector.md)
+[← What is Vector Search](01-intro.md) | [Embedding Our Dataset →](03-embeddings-dataset.md)

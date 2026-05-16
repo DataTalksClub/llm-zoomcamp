@@ -72,4 +72,46 @@ vector search with three tools:
 Then we'll integrate vector search into our RAG pipeline and explore
 hybrid search that combines keyword and vector search.
 
+
+## Prerequisites
+
+In module 1, we set up a project with several libraries. If you're
+starting this module from scratch, create a new project and install
+them:
+
+```bash
+mkdir llm-zoomcamp-code
+cd llm-zoomcamp-code
+uv init
+uv add requests minsearch openai jupyter python-dotenv
+```
+
+You also need a `.env` file with your API key. See the
+[module 1 environment setup](../../01-intro/lessons/02-environment.md)
+for details.
+
+In this module, we add one more dependency:
+
+```bash
+uv add sentence-transformers
+```
+
+
+## RAG helper files
+
+Throughout this module, we'll use `rag_helper.py` and `ingest.py`
+from module 1. These contain the `RAGBase` class, the data loading
+functions, and other utilities we built earlier.
+
+If you don't have them yet, download them:
+
+```bash
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-intro/code/rag_helper.py
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-intro/code/ingest.py
+```
+
+For a reminder of how these files work, see the
+[RAG Helper lesson](../../01-intro/lessons/08-rag-helper.md)
+from module 1.
+
 [← Back to module](../) | [Embeddings →](02-embeddings.md)

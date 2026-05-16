@@ -165,11 +165,29 @@ vs_index = VectorSearchIndex(
 No `fit` call needed. One notebook built the index, another notebook
 queries it.
 
-Now let's use it in our RAG pipeline. Set up `RAGBase`:
+Now let's use it in our RAG pipeline. We'll use `RAGVector` from the
+previous lesson - it's a subclass of `RAGBase` that handles embedding
+the query:
 
 ```python
 from rag_helper import RAGBase
 from openai import OpenAI
+
+class RAGVector(RAGBase):
+
+    def __init__(self, model, **kwargs):
+        super().__init__(**kwargs)
+        self.model = model
+
+    def search(self, query, num_results=5):
+        query_vector = self.model.encode(query)
+        filter_dict = {'course': self.course}
+
+        return self.index.search(
+            query_vector,
+            num_results=num_results,
+            filter_dict=filter_dict
+        )
 
 openai_client = OpenAI()
 
@@ -179,33 +197,18 @@ Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
 
-assistant = RAGBase(
+assistant = RAGVector(
+    model=model,
     index=vs_index,
     llm_client=openai_client,
     instructions=instructions,
 )
 ```
 
-Vector search requires embedding the query, so we use `build_prompt`
-and `llm` from `RAGBase` with manual search:
-
-```python
-def vector_rag(query, course='data-engineering-zoomcamp', num_results=5):
-    query_vector = model.encode(query)
-    search_results = vs_index.search(
-        query_vector,
-        filter_dict={'course': course},
-        num_results=num_results
-    )
-    prompt = assistant.build_prompt(query, search_results)
-    answer = assistant.llm(prompt)
-    return answer
-```
-
 Try it:
 
 ```python
-vector_rag('I just discovered the course. Can I still join it?')
+assistant.rag('I just discovered the course. Can I still join it?')
 ```
 
 
@@ -218,4 +221,4 @@ vector_rag('I just discovered the course. Can I still join it?')
 | Startup | Must re-compute embeddings | Open existing index |
 | Best for | Experiments, notebooks | Projects, persistence |
 
-[← RAG with Vector Search](04-rag-vector.md) | [Vector Search with PGVector →](06-pgvector.md)
+[← RAG with Vector Search](05-rag-vector.md) | [Vector Search with PGVector →](07-pgvector.md)
