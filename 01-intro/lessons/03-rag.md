@@ -78,7 +78,7 @@ Check the quota and reset cycle carefully. Potential options include Google Cola
 '''
 ```
 
-Now let's build a prompt that includes both the question and the
+We can now build a prompt that includes both the question and the
 context:
 
 ```python
@@ -105,7 +105,7 @@ answer = llm(prompt)
 print(answer)
 ```
 
-Now the answer is correct: "Yes, you can still join. If you want to
+After that, the answer is correct: "Yes, you can still join. If you want to
 receive a certificate, you need to submit your project while
 submissions are still open."
 
