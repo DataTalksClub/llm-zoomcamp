@@ -28,27 +28,3 @@ def build_index(documents):
     )
     index.fit(documents)
     return index
-
-
-def build_sqlite_index(documents, db_path='faq.db'):
-    from sqlitesearch import TextSearchIndex
-
-    index = TextSearchIndex(
-        text_fields=['question', 'section', 'answer'],
-        keyword_fields=['course'],
-        db_path=db_path
-    )
-
-    for doc in documents:
-        index.add(doc)
-
-    index.close()
-    return index
-
-
-if __name__ == '__main__':
-    documents = load_faq_data()
-    print(f'Loaded {len(documents)} documents')
-
-    build_sqlite_index(documents)
-    print('Done. Index saved to faq.db')
