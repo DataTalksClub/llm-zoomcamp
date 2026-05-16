@@ -7,6 +7,8 @@ dashboards that show what's happening in our system in real time.
 
 ## Setting up the data source
 
+Follow these steps to connect Grafana to PostgreSQL:
+
 1. Open Grafana at `http://localhost:3000`
 2. Login with admin / admin
 3. Go to Configuration > Data Sources > Add data source
@@ -17,7 +19,7 @@ dashboards that show what's happening in our system in real time.
    - User: `user`
    - Password: `password`
    - SSL Mode: disable
-6. Click Save & Test -- it should say "Database Connection OK"
+6. Click Save & Test. It should say "Database Connection OK"
 
 
 ## Creating the dashboard
@@ -27,9 +29,9 @@ SQL query that Grafana runs against PostgreSQL.
 
 Grafana provides special SQL variables for time-based filtering:
 
-- `$__timeFrom()` -- start of the selected time range
-- `$__timeTo()` -- end of the selected time range
-- `$__timeGroup(column, interval)` -- groups results by time intervals
+- `$__timeFrom()`: start of the selected time range
+- `$__timeTo()`: end of the selected time range
+- `$__timeGroup(column, interval)`: groups results by time intervals
 
 These let the user select "last 30 minutes" or "last 6 hours" and the
 queries automatically filter to that range.

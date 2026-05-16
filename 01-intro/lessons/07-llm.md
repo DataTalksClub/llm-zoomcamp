@@ -1,6 +1,6 @@
 # The LLM
 
-The last component of our RAG pipeline is the LLM itself. It takes
+The last component of our RAG pipeline is the LLM. It takes
 the prompt we built and generates an answer.
 
 
@@ -60,7 +60,7 @@ response.usage
 
 You'll see something like:
 
-```
+```text
 ResponseUsage(input_tokens=334, output_tokens=39, total_tokens=373)
 ```
 
@@ -88,7 +88,7 @@ cost
 ```
 
 This particular request costs a fraction of a cent. Even a full RAG
-query with a long prompt stays under $0.01. We really need to send a
+query with a long prompt stays under $0.01. We need to send a
 lot of queries to even spend one cent.
 
 
@@ -205,6 +205,8 @@ response grounded in our data.
 
 
 ## Try more questions
+
+Try a few more:
 
 ```python
 rag('How do I get a certificate?')

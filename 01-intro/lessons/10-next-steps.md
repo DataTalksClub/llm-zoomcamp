@@ -71,10 +71,12 @@ your specific use case. This works, but it has downsides:
 
 RAG is more flexible, cheaper, and works with any LLM. In practice,
 fine-tuning is rarely needed - focus on RAG first, and only use
-fine-tuning when you really need it.
+fine-tuning when you need it.
 
 
-## Where to go from here
+## Moving forward
+
+Try these next steps:
 
 - Try different prompts and see how the answers change
 - Add more data sources to the knowledge base

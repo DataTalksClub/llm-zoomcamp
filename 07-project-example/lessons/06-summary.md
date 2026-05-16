@@ -8,7 +8,7 @@ Between the previous video and this one, the project was polished
 further. Let's look at what changed and the final result.
 
 
-## What was done after the videos
+## Post-recording improvements
 
 Several improvements were made after recording:
 
@@ -30,11 +30,13 @@ The entire project cost about $2 in OpenAI API calls:
 - RAG evaluation: ~$0.50
 - Testing and debugging: ~$0.50
 
-Using GPT-4o-mini keeps costs very low. You could reduce costs
+Using GPT-4o-mini keeps costs low. You could reduce costs
 further by using a local model or a cheaper provider.
 
 
 ## Tips for your project
+
+Keep these points in mind as you build your own project:
 
 - Start simple: get a basic RAG flow working first, then add
   evaluation, monitoring, and containerization

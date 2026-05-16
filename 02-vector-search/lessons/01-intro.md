@@ -1,4 +1,4 @@
-# What is Vector Search
+# Vector Search
 
 In the first module, we used keyword search with minsearch and
 sqlitesearch. Keyword search works by matching exact words. If you
@@ -16,7 +16,7 @@ Vector search solves this by working on the level of meaning. Instead of
 matching words, it matches ideas.
 
 
-## How vector search works
+## The vector search process
 
 Vector search has two stages:
 
@@ -34,7 +34,7 @@ commonly cosine similarity.
 Cosine similarity measures the angle between two vectors:
 
 - Vectors pointing in the same direction: similarity close to 1
-  (very similar)
+  (similar)
 - Vectors at right angles: similarity close to 0 (unrelated)
 - Vectors pointing in opposite directions: similarity close to -1
   (opposite meaning)
@@ -57,7 +57,7 @@ In practice, both approaches work best together. We'll cover hybrid
 search at the end of this module.
 
 
-## What we'll build
+## Building vector search
 
 In this module, we'll take the same FAQ dataset from module 1 and build
 vector search with three tools:

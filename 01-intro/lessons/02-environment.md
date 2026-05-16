@@ -4,6 +4,8 @@ For this module, all you need is Python with Jupyter.
 
 ## Prerequisites
 
+You need the following:
+
 - Python (3.14 or later)
 - An [OpenAI account](https://openai.com/) (or an OpenAI-compatible
   provider like Groq, Gemini, or Ollama)
@@ -63,14 +65,14 @@ is in a `.env` file that never gets committed to git.
 Create a `.env` file in your project folder and put your API key in
 it:
 
-```
+```bash
 OPENAI_API_KEY=sk-YOUR_KEY_HERE
 ```
 
 Now add `.env` to `.gitignore` to make sure you never accidentally
 commit your key:
 
-```
+```bash
 .env
 ```
 
@@ -104,7 +106,7 @@ correct.
 For Groq or other OpenAI-compatible providers, add the key to
 `.env`:
 
-```
+```bash
 GROQ_API_KEY=your_key_here
 ```
 

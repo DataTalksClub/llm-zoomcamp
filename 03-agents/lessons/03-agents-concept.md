@@ -1,7 +1,7 @@
-# What Are Agents?
+# Agents
 
 In our RAG pipeline, the flow is fixed: search, build prompt, LLM. The
-LLM never decides to search -- it just receives the search results and
+LLM never decides to search; it just receives the search results and
 answers. It's a passenger, not a driver.
 
 An agent is different. With an agent, the LLM decides when to search,
@@ -15,9 +15,9 @@ The key difference is about who makes the decisions:
   stop.
 
 
-## How it works
+## The agentic workflow
 
-We give the LLM a list of tools -- functions it can call. For example,
+We give the LLM a list of tools: functions it can call. For example,
 we might give it a `search` tool that queries our FAQ database.
 
 Then the conversation goes like this:
@@ -29,8 +29,8 @@ Then the conversation goes like this:
 4. Our code executes the function and gives the result back to the LLM.
 5. The LLM can call another tool, or produce the final answer.
 
-The LLM doesn't execute the function itself. It tells us what to call,
-and our code executes it. This is important for safety -- the LLM can't
+The LLM doesn't execute the function. It tells us what to call,
+and our code executes it. This is important for safety: the LLM can't
 do anything we don't allow.
 
 This is sometimes called "agentic RAG" or "tool use" or "function
@@ -57,7 +57,7 @@ flowchart TD
 
 The LLM searched, saw the results were bad, and decided to try again
 with a different query. It made this decision on its own. We didn't
-write code to handle typos -- the LLM figured it out.
+write code to handle typos. The LLM figured it out.
 
 Compare this with the RAG pipeline:
 

@@ -18,7 +18,7 @@ jupyter nbconvert --to=script rag-test.ipynb
 
 Then organize the code into a package structure:
 
-```
+```text
 fitness_assistant/
     __init__.py
     rag.py          # RAG flow + search + LLM
@@ -98,7 +98,11 @@ def search(query):
         query=query, filter_dict={}, boost_dict=boost, num_results=10
     )
     return results
+```
 
+Define the prompt templates and the prompt builder:
+
+```python
 prompt_template = """
 You're a fitness instructor. Answer the QUESTION based on the CONTEXT from our exercises database.
 Use only the facts from the CONTEXT when answering the QUESTION.
@@ -125,7 +129,11 @@ def build_prompt(query, search_results):
         context = context + entry_template.format(**doc) + '\n\n'
     prompt = prompt_template.format(question=query, context=context).strip()
     return prompt
+```
 
+Add the LLM call and the full RAG function:
+
+```python
 def llm(prompt, model='gpt-5.4-mini'):
     response = openai_client.responses.create(
         model=model,

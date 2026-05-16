@@ -22,7 +22,7 @@ Next, we compute the dot product against all documents:
 scores = X.dot(v_query)
 ```
 
-This is matrix-vector multiplication, and it's typically very very fast. Each element `i` of the `scores` vector is the cosine similarity between the document `i` (on row `i`) and `v_query`.
+This is matrix-vector multiplication, and it's typically fast. Each element `i` of the `scores` vector is the cosine similarity between the document `i` (on row `i`) and `v_query`.
 
 
 ## Best match

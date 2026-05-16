@@ -19,6 +19,8 @@ machine, so there are no API costs.
 
 ## Installing sentence-transformers
 
+Install the library:
+
 ```bash
 uv add sentence-transformers
 ```
@@ -110,7 +112,7 @@ cosine similarity."
 Cosine similarity measures the angle between two vectors, ignoring
 their length:
 
-- 1.0 = same direction (very similar)
+- 1.0 = same direction (similar)
 - 0.0 = perpendicular (unrelated)
 - -1.0 = opposite direction (opposite meaning)
 

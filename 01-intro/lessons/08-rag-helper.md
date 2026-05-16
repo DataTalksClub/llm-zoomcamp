@@ -25,7 +25,6 @@ Create `ingest.py` with two functions:
 import requests
 from minsearch import Index
 
-
 def load_faq_data():
     docs_url = 'https://datatalks.club/faq/json/courses.json'
     response = requests.get(docs_url)
@@ -43,7 +42,6 @@ def load_faq_data():
         documents.extend(course_data)
 
     return documents
-
 
 def build_index(documents):
     index = Index(
@@ -67,10 +65,12 @@ previous lessons, now organized as a class.
 Why a class? Right now, `index` and `openai_client` are global
 variables. If we move the functions to a separate file, they won't be
 available. We could import them, but that makes the code difficult to
-reuse and adjust. Instead, we use a class to encapsulate the
-dependencies - the index and the LLM client become parameters of the
-class. This way, we can easily swap the search backend or the LLM
-provider without changing any of the RAG code.
+reuse and adjust.
+
+Instead, we use a class to encapsulate the dependencies - the index
+and the LLM client become parameters of the class. This way, we can
+easily swap the search backend or the LLM provider without changing
+any of the RAG code.
 
 Create `rag_helper.py`:
 
@@ -92,8 +92,9 @@ CONTEXT:
 '''.strip()
 ```
 
+Now the class:
+
 ```python
-class RAGBase:
 
     def __init__(
         self,
@@ -228,9 +229,6 @@ Try more questions:
 
 ```python
 assistant.rag('How do I get a certificate?')
-```
-
-```python
 assistant.rag('Can I still join the course after it started?')
 ```
 

@@ -1,6 +1,6 @@
 # RAG Evaluation: Cosine Similarity
 
-In the previous lesson, we evaluated search quality -- whether the right
+In the previous lesson, we evaluated search quality - whether the right
 documents show up in the results. But good search doesn't guarantee good
 answers. The LLM might ignore the context, hallucinate, or produce a
 poor response.

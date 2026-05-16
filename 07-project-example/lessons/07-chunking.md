@@ -10,10 +10,7 @@ decks? You need to chunk it into pieces that are the right size
 for embedding and retrieval.
 
 
-## Different content types
-
-
-### Multiple articles
+## Multiple articles
 
 If you have multiple articles (blog posts, wiki pages, etc.):
 
@@ -33,7 +30,7 @@ If you have multiple articles (blog posts, wiki pages, etc.):
 ```
 
 
-### Single article or transcript
+## Single article or transcript
 
 If you have one long piece of content (a YouTube transcript, a
 PDF, etc.):
@@ -44,14 +41,18 @@ PDF, etc.):
    programmatically
 
 
-### Book or very long content
+## Book or very long content
+
+For books and other long-form content, apply this strategy:
 
 1. Treat each chapter or section as a separate document
 2. Experiment with different chunking strategies
 3. Use LLM-as-a-Judge to compare approaches
 
 
-### Images and slides
+## Images and slides
+
+Visual content can be processed as follows:
 
 1. Describe images using an LLM (GPT-4o-mini works well)
 2. Each image is a separate document

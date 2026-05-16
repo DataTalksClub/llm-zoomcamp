@@ -14,7 +14,7 @@ on GitHub. Check the final result - it's been polished beyond what
 we show in the videos.
 
 
-## What we'll build
+## Project overview
 
 A RAG application that:
 
@@ -41,13 +41,13 @@ rm main.py
 
 Create a `.env` file with your OpenAI API key:
 
-```
+```env
 OPENAI_API_KEY=sk-...
 ```
 
 Add `.env` to `.gitignore`:
 
-```
+```gitignore
 .env
 ```
 
@@ -225,7 +225,7 @@ answer = rag(question)
 print(answer)
 ```
 
-This gives us a working RAG flow. In the next lessons, we'll
+We now have a working RAG flow. In the next lessons, we'll
 evaluate it, wrap it in an API, and add monitoring.
 
 [← Back to module](../) | [Evaluating Retrieval →](02-evaluating-retrieval.md)

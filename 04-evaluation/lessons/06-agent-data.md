@@ -62,6 +62,9 @@ def search(query, course='data-engineering-zoomcamp'):
     )
 ```
 
+The tool schema and developer prompt define how the agent interacts with
+the search:
+
 ```python
 import json
 
@@ -81,7 +84,11 @@ search_tool = {
         'additionalProperties': False
     }
 }
+```
 
+The developer prompt instructs the agent how to behave:
+
+```python
 developer_prompt = """
 You're a course teaching assistant.
 You're given a question from a course student and your task is to answer it.
@@ -94,7 +101,11 @@ based on the results you get from the search.
 
 At the end, ask if there are other areas that the user wants to explore.
 """.strip()
+```
 
+The helper that executes a tool call and returns the result:
+
+```python
 def make_call(call):
     args = json.loads(call.arguments)
     f_name = call.name
@@ -156,7 +167,7 @@ def agent_with_logging(question, model='gpt-5.4-mini'):
 ```
 
 The `tools` list records every function call the agent makes. This is
-the trajectory -- the sequence of actions the agent took to answer the
+the trajectory - the sequence of actions the agent took to answer the
 question.
 
 

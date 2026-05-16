@@ -13,7 +13,7 @@ user made a typo. Maybe they asked the question in an unusual way. Maybe
 they need information from two different searches.
 
 In our RAG pipeline, there's no recovery. The search runs once. If it
-returns garbage, the LLM gets garbage. The pipeline is rigid -- it
+returns garbage, the LLM gets garbage. The pipeline is rigid: it
 always does the same thing, no matter what.
 
 Sometimes the LLM needs to decide what to do. Maybe it should search
@@ -32,7 +32,7 @@ In this module, we'll cover:
   call another one, and when to stop and give the final answer
 - Frameworks: libraries that handle the loop for you
 
-We'll build on top of the RAG pipeline from module 1 -- keyword search
+We'll build on top of the RAG pipeline from module 1, keyword search
 with minsearch. If you haven't completed module 1, that's fine. We'll
 do a quick revision in the next lesson.
 

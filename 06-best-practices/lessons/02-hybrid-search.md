@@ -7,11 +7,11 @@
 Vector search finds documents by semantic meaning. Keyword search
 finds documents by exact word matches. Hybrid search combines both.
 
-The idea is simple: run both searches and merge the scores. Each
+The approach is simple: run both searches and merge the scores. Each
 search produces a ranked list with scores, and we combine them
 with a weighted sum:
 
-```
+```text
 score = alpha * vector_score + (1 - alpha) * keyword_score
 ```
 
@@ -113,7 +113,11 @@ index_name = 'course-questions'
 
 es_client.indices.delete(index=index_name, ignore_unavailable=True)
 es_client.indices.create(index=index_name, body=index_settings)
+```
 
+Now index all documents:
+
+```python
 for doc in tqdm(documents):
     es_client.index(index=index_name, document=doc)
 ```
@@ -236,7 +240,7 @@ gives the best results.
 The full notebook is in
 [hybrid-search-and-reranking-es.ipynb](../hybrid-search-and-reranking-es.ipynb).
 
-Further reading:
+To learn more:
 
 - [Hybrid search - Elasticsearch Guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html#_combine_approximate_knn_with_other_features)
 - [Hybrid search - Tutorial](https://www.elastic.co/search-labs/tutorials/search-tutorial/vector-search/hybrid-search)

@@ -50,6 +50,8 @@ loaders, etc.) and a large community.
 
 ## Others
 
+Other frameworks worth knowing:
+
 - CrewAI - multi-agent orchestration
 - AutoGen - multi-agent conversations from Microsoft
 - Semantic Kernel - from Microsoft, supports C# and Python
@@ -57,6 +59,6 @@ loaders, etc.) and a large community.
 - Anthropic Tool Use - Anthropic's native tool use API
 
 Pick one that fits your stack and your needs. The hard part is
-designing good tools and prompts - the loop itself is always the same.
+designing good tools and prompts - the loop is always the same.
 
 [← ToyAIKit](06-frameworks.md) | [Back to module →](../)

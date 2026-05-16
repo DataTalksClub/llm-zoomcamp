@@ -3,8 +3,8 @@
 Now that we have ground truth data, we can evaluate how well our search
 retrieves the correct documents.
 
-The idea is simple: for each question in our ground truth dataset, run
-the search and check if the correct document shows up in the results.
+For each question in our ground truth dataset, run the search and check
+if the correct document shows up in the results.
 
 
 ## Setting up search

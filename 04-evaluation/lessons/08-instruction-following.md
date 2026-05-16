@@ -62,7 +62,11 @@ Original Answer (ground truth):
 AI Answer:
 {answer_llm}
 """.strip()
+```
 
+The evaluation function sends both answers to the judge:
+
+```python
 def evaluate_aqa(question, answer_orig, answer_llm, model='gpt-5.4-mini'):
     prompt = aqa_judge_prompt.format(
         question=question,
@@ -139,7 +143,11 @@ instruction_prompt = """
 === AGENT ANSWER ===
 {answer}
 """.strip()
+```
 
+Now the evaluation function:
+
+```python
 def evaluate_instructions(question, answer, model='gpt-5.4-mini'):
     prompt = instruction_prompt.format(
         instructions=developer_prompt,
@@ -194,7 +202,7 @@ These three metrics give you a comprehensive view of agent quality:
 - Instructions: is the agent following its rules?
 
 If correctness is low, the search or LLM might need improvement. If
-trajectory is bad, the agent is wasting calls -- maybe the developer
+trajectory is bad, the agent is wasting calls - maybe the developer
 prompt needs better guidance. If instruction following is poor, the
 prompt rules might need to be clearer.
 

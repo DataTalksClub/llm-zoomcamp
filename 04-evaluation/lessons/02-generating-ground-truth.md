@@ -66,7 +66,7 @@ If possible, use as fewer words as possible from the record.
 ```
 
 We ask the LLM to use different wording from the original document.
-This makes the evaluation more realistic -- real users won't phrase
+This makes the evaluation more realistic - real users won't phrase
 their questions the same way as the FAQ.
 
 The function to call the LLM with structured output:
@@ -178,9 +178,9 @@ print(len(df_ground_truth))
 With 5 questions per document, you should get roughly 5x the number of
 documents.
 
-The key insight: because we generated the questions from specific
-documents, we know which document is correct for each question. This
-gives us the ground truth we need for evaluation.
+Because we generated the questions from specific documents, we know
+which document is correct for each question. Now we have the ground
+truth we need for evaluation.
 
 Save it for later use:
 

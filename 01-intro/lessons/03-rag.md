@@ -1,4 +1,4 @@
-# What is RAG
+# RAG
 
 In our community at DataTalks.Club, we run multiple Zoomcamp courses -
 free courses on data engineering, machine learning, MLOps, and other
@@ -127,7 +127,7 @@ The reason we use search (retrieval) is to give the LLM more
 information, more context, so it can give the right answer.
 
 Right now we used a naive way of selecting context - we knew in advance
-which FAQ entry contained the answer. But what we really want is to
+which FAQ entry contained the answer. But what we want is to
 perform search automatically - find the most relevant documents and send
 those to the LLM.
 

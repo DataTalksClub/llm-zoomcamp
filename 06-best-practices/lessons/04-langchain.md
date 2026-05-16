@@ -15,6 +15,8 @@ code changes.
 
 ## Installing LangChain
 
+Install the LangChain packages:
+
 ```bash
 uv add langchain langchain-elasticsearch langchain-huggingface
 ```
@@ -35,7 +37,11 @@ embedding = HuggingFaceEmbeddings(
 )
 
 es_url = 'http://localhost:9200'
+```
 
+Define a hybrid query function that combines keyword and vector search:
+
+```python
 def hybrid_query(search_query: str) -> Dict:
     vector = embedding.embed_query(search_query)
     return {
@@ -63,7 +69,11 @@ def hybrid_query(search_query: str) -> Dict:
         },
         'size': 5
     }
+```
 
+Create the retriever from the query function:
+
+```python
 hybrid_retriever = ElasticsearchRetriever.from_es_params(
     url=es_url,
     index_name='course-questions',
@@ -125,7 +135,11 @@ def elastic_search_hybrid(field, query, course):
         body_func=hybrid_query,
         content_field='text'
     )
+```
 
+Run the retriever and format the results:
+
+```python
     results = retriever.invoke(query)
     return [
         {
@@ -153,7 +167,7 @@ the same Elasticsearch query. But it provides a cleaner interface,
 especially when you want to chain retrieval with LLM calls in a
 larger pipeline.
 
-Further reading:
+To learn more:
 
 - [ElasticsearchRetriever - LangChain Docs](https://python.langchain.com/v0.2/docs/integrations/retrievers/elasticsearch_retriever/)
 - [Chatbot Implementation - Elastic Tutorial](https://www.elastic.co/search-labs/tutorials/chatbot-tutorial/implementation)

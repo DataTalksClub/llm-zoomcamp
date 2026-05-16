@@ -12,7 +12,8 @@ We need two tables:
 
 ## Database schema
 
-The conversations table stores everything about each interaction:
+The conversations table stores everything about each interaction.
+First, the connection helper and timezone:
 
 ```python
 import os
@@ -30,7 +31,11 @@ def get_db_connection():
         user=os.getenv('POSTGRES_USER', 'user'),
         password=os.getenv('POSTGRES_PASSWORD', 'password'),
     )
+```
 
+The `init_db` function creates both tables:
+
+```python
 def init_db():
     conn = get_db_connection()
     try:
@@ -87,6 +92,8 @@ The `feedback` table is simpler: it links a conversation to a +1 or -1.
 
 ## Saving data
 
+Use these functions to save conversations and feedback to the database:
+
 ```python
 def save_conversation(conversation_id, question, answer_data, course, timestamp=None):
     if timestamp is None:
@@ -122,8 +129,11 @@ def save_conversation(conversation_id, question, answer_data, course, timestamp=
         conn.commit()
     finally:
         conn.close()
+```
 
+Feedback is simpler, just a conversation ID and a score:
 
+```python
 def save_feedback(conversation_id, feedback, timestamp=None):
     if timestamp is None:
         timestamp = datetime.now(tz)
@@ -141,7 +151,7 @@ def save_feedback(conversation_id, feedback, timestamp=None):
 ```
 
 We use timezone-aware timestamps (`TIMESTAMP WITH TIME ZONE`). This
-matters for Grafana -- we want the dashboard to show times in the
+matters for Grafana, we want the dashboard to show times in the
 user's timezone, and Grafana handles this conversion when we use proper
 time zones.
 
@@ -168,7 +178,6 @@ def get_recent_conversations(limit=5, relevance=None):
             return cur.fetchall()
     finally:
         conn.close()
-
 
 def get_feedback_stats():
     conn = get_db_connection()

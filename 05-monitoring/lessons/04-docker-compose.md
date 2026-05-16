@@ -7,7 +7,9 @@ easier to manage them together.
 
 ## Project structure
 
-```
+The project contains the app, database schema, and infrastructure files:
+
+```text
 code/
 ├── docker-compose.yaml
 ├── Dockerfile
@@ -49,7 +51,7 @@ CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0
 
 The `.env` file stores configuration:
 
-```
+```text
 POSTGRES_DB=course_assistant
 POSTGRES_USER=user
 POSTGRES_PASSWORD=password
@@ -59,6 +61,9 @@ OPENAI_API_KEY=your-key-here
 
 
 ## Docker Compose
+
+The Compose file defines three services. First, PostgreSQL and the
+Streamlit app:
 
 ```yaml
 version: '3.8'
@@ -89,7 +94,11 @@ services:
       - "8501:8501"
     depends_on:
       - postgres
+```
 
+Grafana gets its own container with a persistent volume:
+
+```yaml
   grafana:
     image: grafana/grafana:latest
     ports:
@@ -127,6 +136,8 @@ if __name__ == '__main__':
 
 
 ## Starting everything
+
+To launch all services:
 
 ```bash
 docker compose up -d

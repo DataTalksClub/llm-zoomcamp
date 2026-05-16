@@ -1,12 +1,12 @@
 # Trajectory Evaluation
 
-In the previous lesson, we collected agent data -- for each question,
+In the previous lesson, we collected agent data - for each question,
 we have the tool call trajectory and the final answer. Now let's
 evaluate how efficiently the agent used its tools.
 
 A trajectory is the sequence of tool calls the agent made. For example:
 
-```
+```text
 1. search({'query': 'docker windows install'})
 2. search({'query': 'docker desktop windows setup'})
 ```
@@ -14,7 +14,7 @@ A trajectory is the sequence of tool calls the agent made. For example:
 This is a good trajectory: two relevant searches with different
 keywords. Compare with a bad trajectory:
 
-```
+```text
 1. search({'query': 'docker'})
 2. search({'query': 'docker'})
 3. search({'query': 'docker'})
@@ -23,7 +23,7 @@ keywords. Compare with a bad trajectory:
 Three duplicate calls that don't expand the search.
 
 
-## What makes a good trajectory?
+## Qualities of a good trajectory
 
 A good trajectory has:
 
@@ -60,6 +60,8 @@ def analyze_trajectory_simple(tools):
         'has_duplicates': num_duplicates > 0,
     }
 ```
+
+Run it on all agent results:
 
 ```python
 for i, result in agent_results.items():

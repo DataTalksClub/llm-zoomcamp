@@ -94,7 +94,7 @@ FAQ entries below it. This is exactly what we'll send to the LLM.
 
 The prompt looks something like:
 
-```
+```text
 Question:
 I just discovered the course. Can I join now?
 

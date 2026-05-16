@@ -26,6 +26,8 @@ stage, because better retrieval means better answers.
 
 ## Five techniques
 
+Here are the five techniques we'll cover:
+
 1. Small-to-big chunk retrieval - use small chunks for indexing
    but retrieve surrounding context for the LLM
 2. Leveraging document metadata - use titles, topics, dates, and
@@ -42,7 +44,7 @@ two techniques give the biggest improvement for the least effort.
 
 Slides: [llm-zoomcamp-best-practicies.pdf](../llm-zoomcamp-best-practicies.pdf)
 
-Further reading:
+To learn more:
 
 - [Five Techniques for Improving RAG Chatbots - Nikita Kozodoi](https://www.youtube.com/watch?v=xPYmKozodoi)
 - [Survey on RAG techniques](https://arxiv.org/abs/2312.10997)

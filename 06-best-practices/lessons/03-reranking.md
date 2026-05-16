@@ -20,7 +20,7 @@ One popular reranking method is Reciprocal Rank Fusion (RRF). It
 combines rankings from multiple search methods (vector, keyword,
 etc.) into a single score:
 
-```
+```text
 RRF(d) = sum(1 / (k + rank(d))) for each ranking
 ```
 
@@ -64,7 +64,11 @@ def elastic_search_hybrid_rrf(field, query, vector, course):
             }
         }
     }
+```
 
+Then execute the search with RRF ranking:
+
+```python
     response = es_client.search(
         index=index_name,
         query=keyword_query,
@@ -82,7 +86,7 @@ If you're using the free tier, you'll get an error.
 
 ## Implementing RRF ourselves
 
-We can implement RRF manually. The idea is to run vector and
+We can implement RRF manually. The approach is to run vector and
 keyword searches separately, compute RRF scores, and merge:
 
 ```python
@@ -101,7 +105,11 @@ def elastic_search_hybrid_rrf(field, query, vector, course, k=60):
             }
         }
     }
+```
 
+Define the keyword query and run both searches:
+
+```python
     keyword_query = {
         'bool': {
             'must': {
@@ -130,7 +138,11 @@ def elastic_search_hybrid_rrf(field, query, vector, course, k=60):
         query=keyword_query,
         size=5
     )
+```
 
+Now compute RRF scores from both result sets:
+
+```python
     rrf_scores = {}
 
     for rank, hit in enumerate(knn_response['hits']['hits']):
@@ -157,6 +169,8 @@ scores are summed, giving it a higher rank.
 
 ## Evaluation
 
+We evaluate RRF with the same ground truth data:
+
 ```python
 def question_text_hybrid_rrf(q):
     question = q['question']
@@ -178,7 +192,7 @@ Reranking improves both metrics by a few percent. The gain is
 modest here, but in production systems with more data and noisier
 queries, reranking can make a bigger difference.
 
-Further reading:
+To learn more:
 
 - [Reciprocal Rank Fusion - Elasticsearch Guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/rrf.html)
 - [RRF method - Original Paper](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf)

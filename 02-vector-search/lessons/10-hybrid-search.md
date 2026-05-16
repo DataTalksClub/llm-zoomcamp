@@ -52,8 +52,7 @@ Let's see how it works with an example.
 
 With `k = 1`:
 
-```
-Keyword ranks: A=0, B=1, C=2, D=3, E=4
+```text
 Vector ranks:  C=0, B=1, F=2, G=3, A=4
 
 RRF scores:
@@ -148,6 +147,8 @@ Try it:
 ```python
 hybrid_rag('How do I run Kafka?')
 ```
+
+Try another query:
 
 ```python
 hybrid_rag('uploading to S3 fails')

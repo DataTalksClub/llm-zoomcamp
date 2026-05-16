@@ -73,6 +73,6 @@ import numpy as np
 X = np.array(vectors)
 ```
 
-The shape of this matrix `X` is (1208, 384) - number of documents vs number of dimensions.
+This matrix `X` has shape (1208, 384) - number of documents vs number of dimensions.
 
 [← Embeddings](02-embeddings.md) | [Vector Search →](04-vector-search.md)

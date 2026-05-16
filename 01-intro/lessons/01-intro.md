@@ -7,12 +7,12 @@ No frameworks, no magic - just Python, a search index, and an LLM.
 
 Places where you can find me:
 
-- Alexey On Data substack: https://alexeyondata.substack.com/
-- LinkedIn: https://www.linkedin.com/in/agrigorev/
-- X: https://x.com/Al_Grigor
+- [My substack](https://alexeyondata.substack.com/)
+- [LinkedIn](https://www.linkedin.com/in/agrigorev/)
+- [X](https://x.com/Al_Grigor)
 
 
-## What are LLMs
+## LLMs
 
 An LLM (Large Language Model) is a neural network trained on massive
 amounts of text. Given a prompt, it generates a continuation - a
@@ -44,7 +44,7 @@ But LLMs have limitations:
   that are simply wrong.
 
 
-## What we'll build
+## The project
 
 RAG solves these problems by giving the LLM relevant documents at
 question time. Instead of hoping the model memorized the answer, we

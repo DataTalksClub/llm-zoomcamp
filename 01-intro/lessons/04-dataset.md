@@ -65,7 +65,7 @@ Each course has a slug - a short identifier used in URLs. For example,
 use these slugs for filtering in search.
 
 
-## How we'll use this data
+## Using this data
 
 In the RAG pipeline, this dataset serves as our knowledge base:
 

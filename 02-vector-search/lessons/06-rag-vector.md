@@ -14,7 +14,7 @@ The search step used keyword search. Now we can replace it with vector search.
 ## The keyword search RAG
 
 In module 1, we put all the RAG logic into a
-[`RAGBase`](../../01-intro/code/rag_helper.py)
+[RAGBase](../../01-intro/code/rag_helper.py)
 helper class.
 
 If you don't have it, let's download it: 
@@ -70,7 +70,7 @@ We already have:
 - The embeddings matrix `X` with all these documents
 - The vector search engine `vindex` 
 
-In order to add vector search to our RAG, we need to put `vindex` in RAG.
+To add vector search to our RAG, we need to put `vindex` in RAG.
 But we cannot just pass `vindex` there directly: we need to also update
 the `search` method to first transform the user query into a vector. 
 

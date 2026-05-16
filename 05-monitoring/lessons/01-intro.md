@@ -1,6 +1,6 @@
 # Monitoring
 
-In module 04, we evaluated our system offline -- before deployment. We
+In module 04, we evaluated our system offline, before deployment. We
 measured search quality with Hit Rate and MRR, and answer quality with
 cosine similarity and LLM-as-a-judge.
 
@@ -8,7 +8,7 @@ But what happens after we deploy? Users ask questions, the system gives
 answers, and we have no idea if the answers are good. Offline evaluation
 doesn't tell us how the system performs with real users.
 
-That's where monitoring comes in. Monitoring is online evaluation --
+That's where monitoring comes in. Monitoring is online evaluation,
 collecting metrics from a running system to track its health and quality.
 
 There are several things we want to monitor:

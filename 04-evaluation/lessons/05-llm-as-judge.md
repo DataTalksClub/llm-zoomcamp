@@ -2,7 +2,7 @@
 
 Cosine similarity gives us a number, but it doesn't tell us why an
 answer is good or bad. Two answers might have low cosine similarity even
-though the LLM answer is correct -- just phrased differently.
+though the LLM answer is correct - just phrased differently.
 
 A more flexible approach is to use an LLM to evaluate answers. We give
 the judge LLM a question, the original answer, and the LLM answer, and
@@ -11,7 +11,7 @@ ask it to rate the quality.
 This is called LLM-as-a-judge.
 
 
-## Why LLM as a judge?
+## Advantages of LLM judges
 
 LLM judges have several advantages over simple metrics:
 

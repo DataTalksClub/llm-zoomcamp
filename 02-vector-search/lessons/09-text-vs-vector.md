@@ -108,7 +108,7 @@ Neither is always better. This is why in the next section we'll combine
 them with hybrid search.
 
 
-## When to add vector search
+## Adding vector search
 
 Text search is cheap, fast, easy to implement, and easy to maintain.
 Vector search adds overhead: it's slower, requires a model, and adds
@@ -131,7 +131,7 @@ increase in search quality worth all the overhead we introduce?
 |---|---|---|
 | How it matches | Exact words | Semantic meaning |
 | Good for | Tool names, error messages, IDs | Natural language, paraphrased queries |
-| Speed | Very fast (no neural network) | Slower (needs embedding inference) |
+| Speed | Fast (no neural network) | Slower (needs embedding inference) |
 | Indexing | Instant (TF-IDF) | Slow (neural network inference) |
 | Persistence | Easy (re-index on startup) | Important (embeddings are expensive to recompute) |
 

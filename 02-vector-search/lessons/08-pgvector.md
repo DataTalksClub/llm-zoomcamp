@@ -30,6 +30,8 @@ creates a named volume so data persists across container restarts.
 
 ## Installing the Python client
 
+Install the driver:
+
 ```bash
 uv add psycopg2-binary
 ```
@@ -52,6 +54,8 @@ search operators.
 
 
 ## Creating a table
+
+Create a table for storing documents with their embeddings:
 
 ```python
 conn.execute("""
@@ -102,6 +106,8 @@ cast tells PostgreSQL to parse the string as a vector. We call
 
 
 ## Searching with cosine similarity
+
+Search with a query:
 
 ```python
 query = 'I just discovered the course. Can I still join it?'
@@ -165,6 +171,8 @@ faster at the cost of a small accuracy trade-off.
 
 ## Wrapping it in a function
 
+Let's wrap the search logic in a reusable function:
+
 ```python
 def pgvector_search(query, course='data-engineering-zoomcamp', num_results=5):
     query_vector = model.encode(query)
@@ -193,7 +201,7 @@ results = pgvector_search('How do I run Kafka?')
 ```
 
 
-## When to use PGVector
+## Using PGVector
 
 | | minsearch | sqlitesearch | PGVector |
 |---|---|---|---|

@@ -13,7 +13,7 @@ We create two types of data:
 ## Historical data
 
 We generate conversations with random questions, answers, and metrics,
-spaced out over the last 6 hours:
+spaced out over the last 6 hours. First, define the sample data:
 
 ```python
 import time
@@ -48,7 +48,12 @@ COURSES = [
 ]
 
 RELEVANCE = ['RELEVANT', 'PARTLY_RELEVANT', 'NON_RELEVANT']
+```
 
+The `generate_historical` function creates conversations spread across
+a time range:
+
+```python
 def generate_historical(start_time, end_time):
     current_time = start_time
     count = 0
@@ -82,8 +87,12 @@ def generate_historical(start_time, end_time):
         count += 1
 
     print(f'Generated {count} historical conversations')
+```
 
+The `generate_live` function keeps inserting new conversations every
+second:
 
+```python
 def generate_live():
     print('Starting live data generation (Ctrl+C to stop)...')
     try:
@@ -116,8 +125,11 @@ def generate_live():
             time.sleep(1)
     except KeyboardInterrupt:
         print('Stopped.')
+```
 
+Finally, the main block generates both historical and live data:
 
+```python
 if __name__ == '__main__':
     end_time = datetime.now(tz)
     start_time = end_time - timedelta(hours=6)

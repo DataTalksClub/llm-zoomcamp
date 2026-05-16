@@ -26,7 +26,7 @@ response.output_text
 
 The model answers from its general knowledge. It says something like
 "it depends on the course" or "check the course website". It doesn't
-know about our specific FAQ, so the answer is vague and not very
+know about our specific FAQ, so the answer is vague and not
 helpful.
 
 
@@ -158,4 +158,4 @@ Important point: LLMs are stateless between API calls. The memory is
 the list you send as `input`. If you leave out previous messages, the
 model doesn't know what happened.
 
-[← What Are Agents?](03-agents-concept.md) | [The Agentic Loop →](05-agentic-loop.md)
+[← Agents](03-agents-concept.md) | [The Agentic Loop →](05-agentic-loop.md)

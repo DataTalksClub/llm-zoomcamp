@@ -8,7 +8,7 @@ It works, but it has a few problems problem:
 - Keeping everything in memory
 - Brute-force search
 
-In case of text search, we didn't really feel these problems. Indexing was fast, becase we didn't need to embed text into vectors.
+In case of text search, we didn't feel these problems. Indexing was fast, becase we didn't need to embed text into vectors.
 
 For vector search, it takes some time: we run a neural network over every document.
 
@@ -81,6 +81,8 @@ the index later without re-indexing.
 
 
 ## Searching
+
+Search works the same way as with minsearch:
 
 ```python
 query = 'I just discovered the course. Can I still join it?'

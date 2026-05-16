@@ -78,7 +78,7 @@ df_eval.relevance.value_counts(normalize=True)
 
 You'll see something like:
 
-```
+```text
 RELEVANT          0.85
 PARTLY_RELEVANT   0.12
 NON_RELEVANT      0.03
@@ -121,7 +121,7 @@ df_eval.to_csv('data/rag-eval-gpt-4o.csv', index=False)
 ```
 
 This gives you a concrete way to decide if a more expensive model
-is worth the cost. Typically, the cheaper model gives very similar
+is worth the cost. Typically, the cheaper model gives similar
 results for most questions.
 
 [← Evaluating Retrieval](02-evaluating-retrieval.md) | [Interface and Ingestion Pipeline →](04-interface.md)

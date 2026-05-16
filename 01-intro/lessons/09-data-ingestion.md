@@ -172,17 +172,19 @@ to the new backend.
 
 With minsearch (single process):
 
-```
+```text
 Startup: fetch data -> parse -> index -> ready
 Every restart: repeat all steps
 ```
 
 With sqlitesearch (two processes):
 
-```
+```text
 Ingestion (runs once): fetch data -> parse -> write to faq.db
 Query (runs every time): open faq.db -> search -> ready
 ```
+
+Here is the full architecture:
 
 ```mermaid
 flowchart TD
@@ -255,7 +257,7 @@ For our FAQ dataset, both produce good results. The difference
 matters more at scale with diverse document lengths.
 
 
-## When to use what
+## Choosing an approach
 
 | | minsearch | sqlitesearch |
 |---|---|---|

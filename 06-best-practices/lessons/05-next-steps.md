@@ -1,6 +1,6 @@
 # Next Steps
 
-In this module, we covered hybrid search and document reranking --
+In this module, we covered hybrid search and document reranking,
 two of the most impactful techniques for improving RAG quality.
 
 The key takeaways:
@@ -29,7 +29,9 @@ Here are pointers for the rest:
   into a clearer search query before hitting the database.
 
 
-## Further reading
+## To learn more
+
+Check out these resources:
 
 - [Advanced RAG techniques overview](https://arxiv.org/abs/2312.10997)
 - [LangChain retrieval docs](https://python.langchain.com/docs/concepts/retrievers/)

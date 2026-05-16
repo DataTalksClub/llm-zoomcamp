@@ -21,6 +21,8 @@ Ollama for local models. If you're interested in that setup, see
 
 ## Further reading
 
+For additional resources:
+
 - Cohorts and materials:
   - 2024 cohort monitoring module:
     [2024/04-monitoring](../cohorts/2024/04-monitoring/)

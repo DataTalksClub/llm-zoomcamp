@@ -42,7 +42,11 @@ and provide your evaluation in parsable JSON without using code blocks:
   'Explanation': '[Provide a brief explanation for your evaluation]'
 }}
 """.strip()
+```
 
+Define the evaluation and cost helper functions:
+
+```python
 def evaluate_relevance(question, answer):
     prompt = evaluation_prompt_template.format(question=question, answer=answer)
     evaluation, tokens = llm(prompt, model='gpt-5.4-mini')
@@ -62,7 +66,11 @@ def calculate_openai_cost(model, tokens):
             + tokens['completion_tokens'] * 0.60
         ) / 1_000_000
     return openai_cost
+```
 
+Now update the `rag` function to call the evaluator and track costs:
+
+```python
 def rag(query, model='gpt-5.4-mini'):
     t0 = time()
 
@@ -117,7 +125,11 @@ def get_db_connection():
         user=os.getenv('POSTGRES_USER', 'user'),
         password=os.getenv('POSTGRES_PASSWORD', 'password'),
     )
+```
 
+Create the database schema with a table for conversations and a table for feedback:
+
+```python
 def init_db():
     conn = get_db_connection()
     try:
@@ -155,7 +167,11 @@ def init_db():
         conn.commit()
     finally:
         conn.close()
+```
 
+Add functions to save conversations and feedback:
+
+```python
 def save_conversation(conversation_id, question, answer_data, timestamp=None):
     if timestamp is None:
         timestamp = datetime.now(tz)
@@ -193,7 +209,11 @@ def save_conversation(conversation_id, question, answer_data, timestamp=None):
         conn.commit()
     finally:
         conn.close()
+```
 
+And a function to record user feedback:
+
+```python
 def save_feedback(conversation_id, feedback, timestamp=None):
     if timestamp is None:
         timestamp = datetime.now(tz)
@@ -247,7 +267,11 @@ def handle_question():
     }
 
     return jsonify(result)
+```
 
+Add a feedback endpoint:
+
+```python
 @app.route('/feedback', methods=['POST'])
 def handle_feedback():
     data = request.json
@@ -341,7 +365,7 @@ CMD ["python", "app.py"]
 
 The `.env` file:
 
-```
+```env
 OPENAI_API_KEY=your-key-here
 ```
 

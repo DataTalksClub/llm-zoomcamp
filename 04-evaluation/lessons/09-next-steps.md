@@ -6,8 +6,8 @@ In this module, we covered evaluation at three levels:
 2. RAG evaluation: cosine similarity and LLM-as-a-judge for answer quality
 3. Agent evaluation: trajectory and instruction following for tool-using agents
 
-Evaluation is not a one-time activity. As you change your system --
-tune search parameters, switch models, modify prompts -- you re-run
+Evaluation is not a one-time activity. As you change your system -
+tune search parameters, switch models, modify prompts - you re-run
 evaluation to make sure things are getting better, not worse.
 
 
@@ -40,6 +40,8 @@ Monitoring is covered in more detail in module 05.
 
 
 ## Further reading
+
+See also:
 
 - Cohorts and materials:
   - 2024 cohort evaluation module (uses Elasticsearch):
