@@ -114,13 +114,20 @@ their length:
 - 0.0 = perpendicular (unrelated)
 - -1.0 = opposite direction (opposite meaning)
 
-TODO: let theta be the angle between vectorts. cos(theta) = 1 when 
-cos(theta) = 0 when ..
+Formally, if `theta` is the angle between two vectors, cosine similarity
+is `cos(theta)`:
+
+- `cos(0) = 1` - vectors point in the same direction
+- `cos(90) = 0` - vectors are perpendicular
+- `cos(180) = -1` - vectors point in opposite directions
 
 Because our vectors are normalized, the dot product gives us cosine
 similarity directly. This is why we can use `v1.dot(dv)` to compare
 texts.
 
-In practive we rarely get vectors that are smaller than 0 (TODO explain why).
+In practice, we rarely get cosine similarity below 0. This is because
+the embedding model maps text to a region of the vector space where
+most vectors have positive components - there's no concept of "opposite
+meaning" that maps to pointing in the exact opposite direction.
 
 [← What is Vector Search](01-intro.md) | [Embedding Our Dataset →](03-embeddings-dataset.md)

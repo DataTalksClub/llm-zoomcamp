@@ -137,4 +137,4 @@ increase in search quality worth all the overhead we introduce?
 
 In the next section, we'll combine both approaches with hybrid search.
 
-[← Vector Search with PGVector](07-pgvector.md) | [Hybrid Search →](09-hybrid-search.md)
+[← Vector Search with PGVector](08-pgvector.md) | [Hybrid Search →](10-hybrid-search.md)

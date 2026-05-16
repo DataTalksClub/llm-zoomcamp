@@ -153,4 +153,4 @@ hybrid_rag('How do I run Kafka?')
 hybrid_rag('uploading to S3 fails')
 ```
 
-[← Text Search vs Vector Search](08-text-vs-vector.md) | [Using ONNX Runtime →](10-onnx-embedder.md)
+[← Text Search vs Vector Search](09-text-vs-vector.md) | [Using ONNX Runtime →](11-onnx-embedder.md)

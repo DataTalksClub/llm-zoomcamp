@@ -145,10 +145,8 @@ vs_index.close()
 
 ## Using sqlitesearch vector search in RAG
 
-Since sqlitesearch is persistant, we can open a separate notebook,
+Since sqlitesearch is persistent, we can open a separate notebook
 and use it without re-computing embeddings:
-
-TODO: take the code from the previous and this unit and use it here
 
 ```python
 from sentence_transformers import SentenceTransformer
@@ -158,7 +156,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 
 vs_index = VectorSearchIndex(
     keyword_fields=['course'],
-    mode='lsh',
+    mode='ivf',
     db_path='faq_vectors.db'
 )
 ```
@@ -176,12 +174,12 @@ from openai import OpenAI
 
 class RAGVector(RAGBase):
 
-    def __init__(self, model, **kwargs):
+    def __init__(self, embedder, **kwargs):
         super().__init__(**kwargs)
-        self.model = model
+        self.embedder = embedder
 
     def search(self, query, num_results=5):
-        query_vector = self.model.encode(query)
+        query_vector = self.embedder.encode(query)
         filter_dict = {'course': self.course}
 
         return self.index.search(
@@ -192,17 +190,10 @@ class RAGVector(RAGBase):
 
 openai_client = OpenAI()
 
-instructions = """
-You're a course teaching assistant.
-Answer the QUESTION based on the CONTEXT from the FAQ database.
-Use only the facts from the CONTEXT when answering the QUESTION.
-""".strip()
-
 assistant = RAGVector(
-    model=model,
+    embedder=model,
     index=vs_index,
     llm_client=openai_client,
-    instructions=instructions,
 )
 ```
 
@@ -222,4 +213,4 @@ assistant.rag('I just discovered the course. Can I still join it?')
 | Startup | Must re-compute embeddings | Open existing index |
 | Best for | Experiments, notebooks | Projects, persistence |
 
-[← RAG with Vector Search](05-rag-vector.md) | [Vector Search with PGVector →](07-pgvector.md)
+[← RAG with Vector Search](06-rag-vector.md) | [Vector Search with PGVector →](08-pgvector.md)

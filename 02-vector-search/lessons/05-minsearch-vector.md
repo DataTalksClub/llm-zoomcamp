@@ -84,4 +84,4 @@ results = vindex.search(
 Now we know to perform vector search, so we can use it in RAG.
 
 
-[← Embedding Our Dataset](03-embeddings-dataset.md) | [RAG with Vector Search →](05-rag-vector.md)
+[← Vector Search](04-vector-search.md) | [RAG with Vector Search →](06-rag-vector.md)

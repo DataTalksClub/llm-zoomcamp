@@ -13,9 +13,9 @@ The search step used keyword search. Now we can replace it with vector search.
 
 ## The keyword search RAG
 
-TODO: wrap RAG base into a link
-
-In module 1, we put all the RAG logic into a `RAGBase` helper class. 
+In module 1, we put all the RAG logic into a
+[`RAGBase`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/01-intro/code/rag_helper.py)
+helper class.
 
 If you don't have it, let's download it: 
 
@@ -121,4 +121,4 @@ vector search may handle rephrased questions better.
 
 
 
-[← Vector Search with minsearch](04-minsearch-vector.md) | [Vector Search with sqlitesearch →](06-sqlitesearch-vector.md)
+[← Vector Search with minsearch](05-minsearch-vector.md) | [Vector Search with sqlitesearch →](07-sqlitesearch-vector.md)
