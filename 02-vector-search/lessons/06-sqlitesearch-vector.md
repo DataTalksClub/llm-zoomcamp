@@ -1,56 +1,56 @@
 # Vector Search with sqlitesearch
 
-In the previous section, we used minsearch for vector search. It works,
-but it has a problem: re-indexing on startup.
+In the previous section, we used minsearch for vector search.
 
-It's fine for text search because it's fast, but for vector search, computing embeddings takes a long time: it involves running a neural network over every document.
+It works, but it has a few problems problem:
 
-For one document we don't feel it, but for a large collections, 
-it's significant and can take a lot of time.
+- Indexing on startup
+- Keeping everything in memory
+- Brute-force search
 
+In case of text search, we didn't really feel these problems. Indexing was fast, becase we didn't need to embed text into vectors.
 
-## Saving and loading minsearch vectors 
+For vector search, it takes some time: we run a neural network over every document.
 
-The simplest way to solve it is to save the vectors:
+Then, we keep everything in memory. For this dataset it's not a problem, but for larger datasets it would take too much space. 
 
-```python
-vindex.save('vector_index.pkl')
-```
+And the last problem - for each search query, we compare the query vector 
+with every single document (by doing matrix multiplication). Again, for such 
+a small dataset such as ours it's actually not a problem.
+It's probably even faster than other approaches.
 
-And load it back:
-
-```python
-vindex = VectorSearch.load('vector_index.pkl')
-```
-
-This avoids re-computing embeddings every time you restart.
+But as our dataset grows, it would take more and more time.
+Eventually we will need to switch to approximate methods and use 
+approximate nearest neighbor (ANN) search instead.
 
 
-But there are still two limitations with minsearch for vector search:
+## sqlitesearch
 
-1. It keeps everything in memory - for large collections, this uses
-   a lot of RAM
-2. It uses brute-force search - it compares the query against every
-   document. For our small dataset this is instant, but for millions
-   of documents it becomes slow. You'd want approximate nearest
-   neighbor (ANN) methods instead.
+sqlitesearch (the persistant sibling of minsearch) solves it.
 
-sqlitesearch solves it.
+We already used it in module 1 for persistant text search.
+It also supports vector search with its `VectorSearchIndex` class.
 
-In module 1, we used sqlitesearch as a persistent replacement for
-minsearch text search. sqlitesearch also supports vector search with
-its `VectorSearchIndex` class. It stores vectors in SQLite and uses
+It stores vectors in SQLite and uses
 approximate nearest neighbor (ANN) strategies for efficient retrieval.
 
+If you didn't install it in the previous module, add it to your project:
+
+```bash
+uv add sqlitesearch
+```
+
 ## Creating the index
+
+Now let's initialize it:
 
 ```python
 from sqlitesearch import VectorSearchIndex
 
 vs_index = VectorSearchIndex(
     keyword_fields=['course'],
-    mode='lsh',
-    db_path='faq_vectors.db'
+    mode='ivf',
+    db_path='faq_vectors2.db'
 )
 ```
 
@@ -103,7 +103,7 @@ Filtering works the same way:
 ```python
 results = vs_index.search(
     query_vector,
-    filter_dict={'course': 'data-engineering-zoomcamp'},
+    filter_dict={'course': 'llm-zoomcamp'},
     num_results=5
 )
 ```
@@ -119,7 +119,7 @@ from sqlitesearch import VectorSearchIndex
 
 vs_index = VectorSearchIndex(
     keyword_fields=['course'],
-    mode='lsh',
+    mode='ivf',
     db_path='faq_vectors.db'
 )
 
@@ -145,9 +145,10 @@ vs_index.close()
 
 ## Using sqlitesearch vector search in RAG
 
-The key advantage of sqlitesearch is persistence. In a separate
-notebook, we can open the index and use it without re-computing
-embeddings:
+Since sqlitesearch is persistant, we can open a separate notebook,
+and use it without re-computing embeddings:
+
+TODO: take the code from the previous and this unit and use it here
 
 ```python
 from sentence_transformers import SentenceTransformer

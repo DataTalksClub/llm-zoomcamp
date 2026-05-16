@@ -3,15 +3,19 @@
 In the previous section, we saw how vector search works with numpy:
 embed the query, compute dot products, find the best match.
 
-minsearch does exactly the same thing, but it follows the same interface we
-already know from module 1 - `fit`, `search`, `filter_dict`, and all
-the rest.
+We'll use [minsearch](https://github.com/alexeygrigorev/minsearch) for that. 
 
-[minsearch](https://github.com/alexeygrigorev/minsearch) is a small
-in-memory search library. In module 1, we used its `Index` class for
-keyword search. Now we'll use its `VectorSearch` class for vector
-search. Both classes share the same API: `fit` to index data, `search`
-to query, and `filter_dict` for filtering by keyword fields.
+It's  a small in-memory search library that we already used in module 1 for text search. 
+
+Now we'll use its `VectorSearch` class for vector
+search.
+
+Both classes share the same API:
+
+- `fit` to index data
+- `search` to query
+- `filter_dict` parameter in `search` for filtering by keyword
+
 
 It's the simplest way to get started with vector search.
 
@@ -44,16 +48,26 @@ query_vector = model.encode(query)
 results = vindex.search(query_vector, num_results=5)
 ```
 
+Under the hood it's doing the exact same thing we did in this module:
+it's comptuting the dot product between each vector (after filtering)
+and our query vector.
+
 Look at the top result:
 
 ```python
 results[0]
 ```
 
-It should return the document about joining the course late. The search
-found it even though the query "I just discovered the course" doesn't
-contain the exact keywords from the original question "Can I still join
-the course after the start date?"
+It should return the document about joining the course late:
+
+
+```python
+{'id': '74eb249bbf',
+ 'course': 'llm-zoomcamp',
+ 'section': 'General Course-Related Questions',
+ 'question': 'I just discovered the course. Can I still join?',
+ 'answer': 'Yes, but if you want to receive a certificate, you need to submit your project while we’re still accepting submissions.'}
+```
 
 ## Filtering by course
 
@@ -67,8 +81,7 @@ results = vindex.search(
 )
 ```
 
-This restricts the search to documents from the LLM Zoomcamp course.
+Now we know to perform vector search, so we can use it in RAG.
 
-Let's use it in RAG now.
 
 [← Embedding Our Dataset](03-embeddings-dataset.md) | [RAG with Vector Search →](05-rag-vector.md)
