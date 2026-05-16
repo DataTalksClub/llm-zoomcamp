@@ -1,7 +1,7 @@
 # Embedding Our Dataset
 
 In the previous lesson, we saw how embeddings work with simple examples.
-Now let's embed our entire FAQ dataset.
+In this lesson we apply them to the entire FAQ dataset.
 
 
 ## Loading the data
@@ -15,7 +15,7 @@ If you don't have it from the previous lesson, let's download it:
 wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-intro/code/ingest.py
 ```
 
-Now we can use it:
+We can use it:
 
 ```python
 from ingest import load_faq_data
@@ -46,8 +46,7 @@ First we'll import `tqdm` - we'll need it to see the progress.
 from tqdm.auto import tqdm
 ```
 
-Now let's chunk the dataset into batches of 50 and encode the
-vectors:
+Next, chunk the dataset into batches of 50 and encode the vectors:
 
 ```python
 batch_size = 50
@@ -61,9 +60,9 @@ for i in tqdm(range(0, len(texts), batch_size)):
 len(vectors)
 ```
 
-Now we have 1208 vectors.
+We end up with 1208 vectors.
 
-Let's turn them into a 2-dimentional array (matrix) where
+We turn them into a 2-dimensional array (matrix) where
 
 - rows are documents (vectors)
 - columns are dimenstions of the vectors

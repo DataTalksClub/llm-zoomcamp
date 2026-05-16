@@ -5,9 +5,9 @@ message, get a function call, run it, send the result, get the answer.
 That works for one function call. But what if the model wants to make
 multiple searches? What if the first search doesn't find the answer?
 
-We need a loop. That's what an agent is: a loop that keeps calling the
-model, executing tools, and sending results back until the model is
-done.
+We need a loop. An agent is exactly that - a loop that keeps calling
+the model, executing tools, and sending results back until the model
+is done.
 
 
 ## A stronger developer prompt
@@ -92,7 +92,7 @@ API call. If the response contains a function call, the updated
 
 ## The full agent loop
 
-Now we wrap this in a `while` loop. The loop keeps calling the model
+We wrap this in a `while` loop. The loop keeps calling the model
 until it returns a response without any function calls:
 
 ```python

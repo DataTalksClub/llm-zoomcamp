@@ -387,11 +387,10 @@ Access the app at `http://localhost:5000` and Grafana at
 
 ## Grafana dashboards
 
-Create the same dashboards from module 05 using SQL queries
-against the `conversations` and `feedback` tables. You can
-automate dashboard provisioning with a script that calls the
-Grafana API to create the PostgreSQL data source and load a
-dashboard JSON file.
+Create the same dashboards from module 05 using SQL queries against
+the `conversations` and `feedback` tables. To automate provisioning,
+write a script that calls the Grafana API. The script creates the
+PostgreSQL data source and loads a dashboard JSON file.
 
 The final project includes an automated `init.py` script for
 this in the `grafana/` directory.

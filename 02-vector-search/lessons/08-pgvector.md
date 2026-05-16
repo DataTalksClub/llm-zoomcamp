@@ -212,7 +212,9 @@ results = pgvector_search('How do I run Kafka?')
 | Best for | Notebooks, experiments | Pet projects | Production systems |
 
 PGVector is the right choice when you need production features:
-concurrent reads and writes, transactions, or integration with an
-existing Postgres-based application.
+
+- concurrent reads and writes
+- transactions
+- integration with an existing Postgres-based application
 
 [← Vector Search with sqlitesearch](07-sqlitesearch-vector.md) | [Text Search vs Vector Search →](09-text-vs-vector.md)

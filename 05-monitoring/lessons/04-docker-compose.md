@@ -1,8 +1,8 @@
 # Docker Compose
 
-Now we have three components: the Streamlit app, PostgreSQL, and (soon)
-Grafana. We could start each one manually, but Docker Compose makes it
-easier to manage them together.
+We now have three components - the Streamlit app, PostgreSQL, and
+(soon) Grafana. Starting each one manually works, but Docker Compose
+makes it easier to manage them together.
 
 
 ## Project structure

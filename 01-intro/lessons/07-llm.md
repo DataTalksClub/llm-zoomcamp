@@ -6,7 +6,7 @@ the prompt we built and generates an answer.
 
 ## Sending the prompt to the LLM
 
-Now we have the prompt from the previous section. Let's send it to the
+We have the prompt from the previous section. We send it to the
 LLM:
 
 ```python
@@ -98,9 +98,9 @@ Previously we sent only one string as input and got back a response.
 In practice, you typically send a message history - a list of messages
 where each message has a role.
 
-Think of ChatGPT: there's a system prompt (hidden, tells it how to
-behave), then your message, then the reply, then your next message,
-and so on. The LLM needs the full conversation history to continue
+Think of a ChatGPT conversation. It starts with a hidden system prompt
+that tells the LLM how to behave. After that, your messages and the
+LLM's replies alternate. The LLM needs the full history to continue
 the conversation.
 
 In our case, we send two messages:
@@ -123,9 +123,9 @@ response = openai_client.responses.create(
 This separates what the LLM should always do (the instructions, same
 every time) from what the user asks (varies from request to request).
 
-Why `developer` and not `system`? Both work. You can use either one -
-there is some difference between them, but in practice the result is
-the same. We use `developer` in this course.
+OpenAI accepts both `developer` and `system` for the instruction role.
+They have minor differences but produce the same result in practice.
+We use `developer` in this course.
 
 
 ## The LLM function
@@ -151,8 +151,7 @@ def llm(instructions, user_prompt, model='gpt-5.4-mini'):
 
 ## Full RAG
 
-Now we have all three components: search, prompt, and LLM. Let's wire
-them together:
+With search, the prompt, and the LLM ready, we wire them together:
 
 ```python
 def rag(query, model='gpt-5.4-mini'):
@@ -162,7 +161,7 @@ def rag(query, model='gpt-5.4-mini'):
     return answer
 ```
 
-Let's revise the flow:
+Here is the revised flow:
 
 ```mermaid
 flowchart TD
@@ -212,13 +211,14 @@ Try a few more:
 rag('How do I get a certificate?')
 ```
 
-Notice how the answers reference specific courses and sections.
-That's RAG in action - the LLM is reading from our knowledge base.
+Notice how the answers reference specific courses and sections. The
+LLM reads from our knowledge base before answering - that's how RAG
+works.
 
-This approach is modular. Each component is independent and
-replaceable: you can swap the search backend, the prompt template,
-or the LLM model without touching the rest. Later when we replace
-minsearch with sqlitesearch, only the `search` function changes.
+This approach is modular. You can swap the search backend, the prompt
+template, or the LLM model. Nothing else needs to change. Later when
+we replace minsearch with sqlitesearch, only the `search` function
+changes.
 
 Code: [notebook.ipynb](../code/notebook.ipynb)
 

@@ -8,8 +8,8 @@ term matches. Both have strengths:
 - Keyword search finds "pandas" when the user searches for "pandas"
   - no confusion with similar-sounding but unrelated concepts
 
-Hybrid search combines both approaches. The idea: run both searches,
-merge the results, and rank them together.
+Hybrid search combines both approaches. We run both searches, merge
+the results, and rank them together.
 
 ## Implementing hybrid search
 
@@ -44,7 +44,7 @@ Reciprocal Rank Fusion (RRF) is a simple fusion method. The score
 for each document is the sum of `1 / (k + rank + 1)` across all
 lists where it appears.
 
-Let's see how it works with an example.
+Here is how it works with an example.
 
 - text search: `[A, B, C, D, E]`
 - vector search: `[C, B, F, G, A]`

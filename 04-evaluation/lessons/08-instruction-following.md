@@ -185,7 +185,7 @@ for i, result in agent_results.items():
 
 ## Putting it all together
 
-Now we have three evaluation dimensions for each agent run:
+We have three evaluation dimensions for each agent run:
 
 ```python
 df_agent = pd.DataFrame(agent_results.values())

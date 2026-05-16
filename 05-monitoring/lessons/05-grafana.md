@@ -50,7 +50,7 @@ WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
 ORDER BY timestamp
 ```
 
-Panel type: Time series
+Use the Time series visualization for this panel.
 
 
 ## Relevance Distribution Panel
@@ -66,7 +66,7 @@ WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
 GROUP BY relevance
 ```
 
-Panel type: Gauge or Pie chart
+Use a Gauge or a Pie chart for this panel.
 
 
 ## Token Usage Panel
@@ -83,7 +83,7 @@ GROUP BY 1
 ORDER BY 1
 ```
 
-Panel type: Time series
+Use the Time series visualization for this panel.
 
 
 ## OpenAI Cost Panel
@@ -101,7 +101,7 @@ GROUP BY 1
 ORDER BY 1
 ```
 
-Panel type: Time series
+Use the Time series visualization for this panel.
 
 
 ## Model Usage Panel
@@ -117,7 +117,7 @@ WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
 GROUP BY model_used
 ```
 
-Panel type: Bar chart
+Use a Bar chart for this panel.
 
 
 ## Recent Conversations Panel
@@ -151,7 +151,7 @@ FROM feedback
 WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
 ```
 
-Panel type: Pie chart
+Use a Pie chart for this panel.
 
 
 ## Dashboard settings

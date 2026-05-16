@@ -77,7 +77,7 @@ top5 = top5[::-1]
 top5
 ```
 
-Now we can see the top 5 scores:
+We can see the top 5 scores:
 
 ```python
 scores[top5]

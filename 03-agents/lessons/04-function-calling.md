@@ -1,7 +1,7 @@
 # Function Calling
 
-So far, our RAG pipeline does search and then generation in a fixed
-order: we search, build a prompt, and send it to the LLM. The LLM
+So far, our RAG pipeline runs search and then generation in a fixed
+order. We search, build a prompt, and send it to the LLM. The LLM
 never decides whether to search - we always do it.
 
 Function calling changes that. We tell the LLM about our search
@@ -33,7 +33,7 @@ helpful.
 ## Defining the tool
 
 We need to tell the model about our search function. The model doesn't
-see our Python code - it only sees a schema that describes what the
+see our Python code. It only sees a schema that describes what the
 function does and what arguments it takes.
 
 ```python
@@ -138,7 +138,7 @@ turn, each one gets its own `call_id`.
 
 ## Asking the model again
 
-Now we call the API a second time with the expanded history:
+We call the API a second time with the expanded history:
 
 ```python
 response = openai_client.responses.create(
@@ -154,8 +154,8 @@ This time the model has the original question, its own decision to
 call `search`, and the FAQ results. It can now produce a proper
 course-specific answer.
 
-Important point: LLMs are stateless between API calls. The memory is
-the list you send as `input`. If you leave out previous messages, the
-model doesn't know what happened.
+LLMs are stateless between API calls. The memory is the list you send
+as `input`. If you leave out previous messages, the model doesn't know
+what happened.
 
 [← Agents](03-agents-concept.md) | [The Agentic Loop →](05-agentic-loop.md)

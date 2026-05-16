@@ -71,8 +71,8 @@ We already have:
 - The vector search engine `vindex` 
 
 To add vector search to our RAG, we need to put `vindex` in RAG.
-But we cannot just pass `vindex` there directly: we need to also update
-the `search` method to first transform the user query into a vector. 
+But we cannot just pass `vindex` there directly. We need to update
+the `search` method to first transform the user query into a vector.
 
 We will do it by creating a subclass of `RAGBase` that overrides the `search` method:
 

@@ -5,10 +5,10 @@
 We already have the `documents` list from the previous section. Now
 let's index it.
 
-Why do we need search? We have around 1100 documents. We don't want to
-send all of them to the LLM - it would be expensive, slow, and the LLM
-would get confused with too much data. Instead, we find the most
-relevant documents and only send those.
+Searching matters because we have around 1100 documents. Sending all
+of them to the LLM would be expensive and slow, and the model would
+get confused with too much data. Instead, search finds the most
+relevant documents to send.
 
 There are many search libraries you can use - Apache Lucene,
 Elasticsearch, Solr, and others. But these are somewhat heavy. For
@@ -19,10 +19,10 @@ in-memory search engine. It's a toy implementation - not production
 ready - but it illustrates how search engines work and it gives good
 results.
 
-I implemented this library for the first edition of LLM Zoomcamp. 
-Initially it was just a python file that we implemented together as
-a part of the [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) workshop 
-(see the [code](https://github.com/alexeygrigorev/build-your-own-search-engine) here).
+I implemented this library for the first edition of LLM Zoomcamp.
+Initially it was just a python file. We wrote it together as part
+of the [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) workshop
+(see the [code](https://github.com/alexeygrigorev/build-your-own-search-engine)).
 
 The concepts in minsearch (text fields, keyword fields, boosting,
 filtering) are the same concepts used by Elasticsearch, which in
@@ -30,9 +30,9 @@ turn comes from Lucene. So what you learn here transfers directly.
 
 We'll index the `question`, `section`, and `answer` fields as text
 (they'll be tokenized and ranked), and the `course` field as a
-keyword (for filtering):
+keyword (for filtering).
 
-What's the difference between text fields and keyword fields?
+The index tokenizes text fields and treats keyword fields as exact strings.
 
 Text fields are the fields you search through. When you type a query,
 the search engine looks at these fields, tokenizes them (splits into
@@ -86,7 +86,7 @@ We get back 5 results from the LLM Zoomcamp FAQ. The top result is
 the one that matches best - it's the FAQ entry "I just discovered the
 course. Can I still join?" which is exactly what we need.
 
-Let's see all the questions:
+Here are all the questions:
 
 ```python
 [doc['question'] for doc in search_results]

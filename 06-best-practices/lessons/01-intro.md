@@ -4,10 +4,10 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/Tq9Vbm_2z3o">
 </a>
 
-In the previous modules, we built search engines, agents, evaluation
+In the previous modules we built search engines, agents, evaluation
 pipelines, and monitoring dashboards. Now let's look at techniques
-that can improve retrieval quality - the most critical part of any
-RAG system.
+that improve retrieval quality - the most critical part of any RAG
+system.
 
 
 ## The RAG pipeline

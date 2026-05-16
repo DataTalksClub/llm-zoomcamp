@@ -199,7 +199,7 @@ for t in r['tools']:
 print('Answer:', r['answer'][:100], '...')
 ```
 
-Now we have the data we need. In the next two lessons, we'll evaluate
+We have the data we need. In the next two lessons, we'll evaluate
 the agent on three dimensions:
 
 1. Answer correctness (did it give the right answer?)

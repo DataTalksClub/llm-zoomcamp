@@ -50,8 +50,8 @@ smarter. We can let an LLM sit between the user and the database,
 deciding what questions to send to the knowledge base, how many, and
 so on.
 
-This is what agents are about. The LLM becomes an intelligent
-intermediary that can reason about what to search for. We'll cover
+An agent gives the LLM that intermediary role. It can reason about
+what to search for and decide when to call which tool. We'll cover
 agents in detail in module 03.
 
 

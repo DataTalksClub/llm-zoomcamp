@@ -67,7 +67,7 @@ use these slugs for filtering in search.
 
 ## Using this data
 
-In the RAG pipeline, this dataset serves as our knowledge base:
+In the RAG pipeline, this dataset is our knowledge base:
 
 1. We index all the documents (the search step)
 2. When a student asks a question, we search the index
@@ -90,8 +90,8 @@ format. We don't need to do much to prepare it.
 
 In reality, data preparation is often the most time-consuming part of
 building a RAG system. You may need to scrape websites, parse PDFs,
-clean text, chunk documents, and more. This step is often not visible
-but requires considerable effort. In this course we focus on the GenAI
+and clean and chunk documents. The step is often not visible but
+requires considerable effort. In this course we focus on the GenAI
 side, but keep in mind that in your projects you will likely spend a
 lot of time on data preparation.
 

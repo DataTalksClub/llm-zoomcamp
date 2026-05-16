@@ -1,7 +1,7 @@
 # Agents
 
 In our RAG pipeline, the flow is fixed: search, build prompt, LLM. The
-LLM never decides to search; it just receives the search results and
+LLM never decides to search. It just receives the search results and
 answers. It's a passenger, not a driver.
 
 An agent is different. With an agent, the LLM decides when to search,

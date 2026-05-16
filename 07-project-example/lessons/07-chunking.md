@@ -54,7 +54,7 @@ For books and other long-form content, apply this strategy:
 
 Visual content can be processed as follows:
 
-1. Describe images using an LLM (GPT-4o-mini works well)
+1. Describe images using an LLM like GPT-4o-mini
 2. Each image is a separate document
 3. For slide decks: deck = document, slide = chunk
 4. You can also use CLIP embeddings for direct image search

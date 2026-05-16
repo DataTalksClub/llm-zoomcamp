@@ -43,7 +43,7 @@ We'll use this ID to track which document was retrieved.
 
 ## Generating questions with structured output
 
-Now we use an LLM to generate questions for each document. We want the
+We use an LLM to generate questions for each document. We want the
 output as a list of strings, so we use structured output with a Pydantic
 model:
 
@@ -157,7 +157,7 @@ def process(doc):
     return results
 ```
 
-Now generate for all documents:
+Generate questions for all documents:
 
 ```python
 with ThreadPoolExecutor(max_workers=6) as pool:

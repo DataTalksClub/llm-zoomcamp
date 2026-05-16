@@ -2,11 +2,12 @@
 
 In modules 1 and 2, we built RAG pipelines. We used keyword search
 with minsearch and sqlitesearch, and vector search with the same tools
-plus PGVector. The idea was always the same: search the FAQ, build a
-prompt with the results, and send it to the LLM.
+plus PGVector. Every pipeline followed the same flow - search the FAQ,
+build a prompt with the results, and send it to the LLM.
 
-This works well when the user's query matches the documents. The search
-finds the right answer, the LLM reads it, and the response is good.
+This pipeline returns good answers when the user's query matches the
+documents. The search finds the right answer, the LLM reads it, and
+the response is good.
 
 But what happens when the search doesn't find anything useful? Maybe the
 user made a typo. Maybe they asked the question in an unusual way. Maybe
@@ -16,10 +17,13 @@ In our RAG pipeline, there's no recovery. The search runs once. If it
 returns garbage, the LLM gets garbage. The pipeline is rigid: it
 always does the same thing, no matter what.
 
-Sometimes the LLM needs to decide what to do. Maybe it should search
-with different terms. Maybe it should try a different course. Maybe it
-should ask the user a clarifying question. A fixed pipeline can't do
-any of this.
+Sometimes the LLM needs to decide what to do next:
+
+- search with different terms
+- try a different course
+- ask the user a clarifying question
+
+A fixed pipeline can't do any of this.
 
 That's what agents are for. An agent gives the LLM the ability to take
 actions and make decisions. Instead of a fixed pipeline, the LLM

@@ -127,9 +127,9 @@ Because our vectors are normalized, the dot product gives us cosine
 similarity directly. This is why we can use `v1.dot(dv)` to compare
 texts.
 
-In practice, we rarely get cosine similarity below 0. This is because
-the embedding model maps text to a region of the vector space where
-most vectors have positive components - there's no concept of "opposite
-meaning" that maps to pointing in the exact opposite direction.
+In practice, we rarely get cosine similarity below 0. The embedding
+model maps text to a region of the vector space where most vectors
+have positive components. There's no concept of "opposite meaning"
+that maps to a vector pointing the other way.
 
 [← What is Vector Search](01-intro.md) | [Embedding Our Dataset →](03-embeddings-dataset.md)

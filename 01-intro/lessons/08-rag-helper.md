@@ -1,9 +1,8 @@
 # RAG Helper
 
-In the previous lessons, we built the RAG flow piece by piece:
-search, prompt building, and the LLM call. Now we have a working
-pipeline. But every time we want to use it, we need to repeat the
-same code.
+In the previous lessons, we built the RAG flow piece by piece -
+search, then the prompt, then the LLM call. The pipeline works, but
+every time we want to use it, we need to repeat the same code.
 
 We'll use this code throughout the course, so let's put it into two
 reusable files:
@@ -62,9 +61,9 @@ to this same file.
 This file contains the RAG logic - the same functions we wrote in the
 previous lessons, now organized as a class.
 
-Why a class? Right now, `index` and `openai_client` are global
-variables. If we move the functions to a separate file, they won't be
-available. We could import them, but that makes the code difficult to
+We use a class because `index` and `openai_client` are currently
+global variables. Moving the functions to a separate file breaks that.
+Importing the globals back is possible but makes the code harder to
 reuse and adjust.
 
 Instead, we use a class to encapsulate the dependencies - the index

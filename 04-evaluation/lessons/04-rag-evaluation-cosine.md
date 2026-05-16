@@ -9,7 +9,7 @@ In this lesson, we evaluate the entire RAG pipeline: search + prompt +
 LLM. The question is: how good are the answers?
 
 
-## The A->Q->A' approach
+## Evaluating with A->Q->A'
 
 We already have ground truth data with questions generated from FAQ
 documents. Each FAQ document has an original answer. Here's the idea:

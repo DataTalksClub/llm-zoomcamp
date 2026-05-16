@@ -114,11 +114,11 @@ And the second similarity:
 v2.dot(dv)
 ```
 
-Same result as before: the first score is higher because the query
-about joining the course is more similar to the document about
-registration.
+We get the same result as before. The first score is higher because
+the query about joining the course is more similar to the document
+about registration.
 
-Now let's embed our FAQ dataset. First, load the documents:
+Embed our FAQ dataset. First, load the documents:
 
 ```python
 from rag_helper import load_faq_data
@@ -192,7 +192,10 @@ print(vectors.shape)
 ```
 
 Since the runtime only depends on `onnxruntime`, `tokenizers`, and
-`numpy`, you can deploy this in minimal environments: small Docker
-images, serverless functions, or edge devices.
+`numpy`, you can deploy this in minimal environments:
+
+- small Docker images
+- serverless functions
+- edge devices
 
 [← Hybrid Search](10-hybrid-search.md) | [Back to module →](../)

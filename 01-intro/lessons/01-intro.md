@@ -3,7 +3,7 @@
 In this module, you'll build a working Retrieval-Augmented
 Generation (RAG) system from scratch, step by step.
 
-No frameworks, no magic - just Python, a search index, and an LLM.
+You'll write everything in plain Python, build a small search index by hand, and call the LLM yourself - no frameworks involved.
 
 Places where you can find me:
 

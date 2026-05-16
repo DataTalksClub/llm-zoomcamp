@@ -15,9 +15,9 @@ of Python dictionaries - it's bound to the process where it's running.
 When you stop the process, the data disappears. You need to re-index
 every time you restart.
 
-The solution: separate ingestion from querying. One process writes
-the data to a persistent search index. Another process reads from it.
-The index survives restarts, so you only ingest once.
+Separate ingestion from querying. One process writes the data to a
+persistent search index. Another process reads from it. The index
+survives restarts, so you only ingest once.
 
 You can use any persistent search backend for this - Elasticsearch,
 OpenSearch, Qdrant, and so on. In this module, we'll use
@@ -111,8 +111,8 @@ Check how many documents are in the index:
 sqlite_index.count()
 ```
 
-Run this cell a few times while the other notebook is still ingesting -
-you'll see the number growing as ingestion progresses. This is normal
+Run this cell a few times while the other notebook is still ingesting.
+You'll see the number growing as ingestion progresses. This is normal
 database behavior: one process writes, another reads. With minsearch,
 this is impossible because the index lives in one process's memory.
 
@@ -142,8 +142,9 @@ assistant = RAGBase(
 )
 ```
 
-Notice: no `fit` call, no data loading. The index is already populated
-by the ingestion notebook. We just connect to the database file.
+This code skips both the `fit` call and the data loading. The index
+is already populated by the ingestion notebook, so we just connect to
+the database file.
 
 Try it:
 
@@ -157,9 +158,11 @@ data comes from a persistent index - no fetching, no processing, no
 indexing at startup. And we didn't have to rewrite any of the RAG
 logic - just swapped the index.
 
-This is the power of the modular design: `ingest.py` handles data
-loading and indexing, `rag_helper.py` handles the RAG pipeline, and
-the notebooks just wire them together.
+The modular design splits the work cleanly:
+
+- `ingest.py` handles data loading and indexing
+- `rag_helper.py` handles the RAG pipeline
+- the notebooks wire them together
 
 This works because sqlitesearch follows the same API as minsearch -
 both have a `search` method that takes a query, `boost_dict`,
@@ -267,10 +270,9 @@ matters more at scale with diverse document lengths.
 | Scale | Thousands of docs | Millions of docs |
 | When to use | Small data, fast startup | Large data, slow ingestion |
 
-The principle: use minsearch when you can load and index the data on
-startup without noticeable delay. Switch to a persistent backend when
-ingestion takes too long or when you need the index to survive
-restarts.
+Use minsearch when you can load and index the data on startup without
+noticeable delay. Switch to a persistent backend when ingestion takes
+too long or when you need the index to survive restarts.
 
 For larger production systems, you'd use the same pattern but with
 Elasticsearch, OpenSearch, or a vector database like Qdrant or

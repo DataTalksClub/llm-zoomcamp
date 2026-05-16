@@ -89,7 +89,7 @@ print('Vector search:')
 print([doc['question'] for doc in vector_search(query)])
 ```
 
-Vector search should do better here - it can match the meaning of
+Vector search should do better here. It can match the meaning of
 "trouble with homework submission" even if the FAQ doesn't use those
 exact words.
 
@@ -111,8 +111,8 @@ them with hybrid search.
 ## Adding vector search
 
 Text search is cheap, fast, easy to implement, and easy to maintain.
-Vector search adds overhead: it's slower, requires a model, and adds
-more dependencies.
+Vector search adds overhead. It runs slower, depends on a model, and
+brings more dependencies.
 
 So don't start with vector search. My first version always uses text
 search. Only after I see that the initial version works, I would try

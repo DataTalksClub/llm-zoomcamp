@@ -23,7 +23,7 @@ It's the simplest way to get started with vector search.
 ## Creating the index
 
 We already have our documents and vectors from the previous section.
-Now let's index them:
+Index them:
 
 ```python
 from minsearch import VectorSearch
@@ -48,9 +48,9 @@ query_vector = model.encode(query)
 results = vindex.search(query_vector, num_results=5)
 ```
 
-Under the hood it's doing the exact same thing we did in this module:
-it's comptuting the dot product between each vector (after filtering)
-and our query vector.
+Under the hood it does the exact same thing we did in this module.
+It computes the dot product between each vector (after filtering) and
+our query vector.
 
 Look at the top result:
 

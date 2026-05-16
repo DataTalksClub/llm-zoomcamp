@@ -198,7 +198,15 @@ uv run streamlit run app.py
 ```
 
 You should see a web interface where you can ask questions and give
-feedback. Each interaction is saved with the question, answer, response
-time, relevance, tokens, and cost.
+feedback.
+
+Each interaction is saved with:
+
+- the question
+- the answer
+- response time
+- relevance
+- tokens used
+- cost
 
 [← Monitoring](01-intro.md) | [Storing Data in PostgreSQL →](03-database.md)

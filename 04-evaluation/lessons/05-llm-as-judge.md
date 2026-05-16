@@ -27,7 +27,8 @@ cost is acceptable.
 
 ## Q->A evaluation
 
-The simplest form: given a question and an answer, is the answer good?
+We start with the simplest form. We give the judge LLM a question and
+an answer, and ask whether the answer is good.
 
 ```python
 from pydantic import BaseModel, Field

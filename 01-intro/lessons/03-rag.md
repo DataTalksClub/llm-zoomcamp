@@ -5,19 +5,19 @@ free courses on data engineering, machine learning, MLOps, and other
 topics. For each course, we maintain an FAQ document with common
 questions and answers.
 
-The problem: some of these documents have over 300 questions. Students
-ask us things in Slack like "Can I still join after the course started?"
-or "How do I get a certificate?" - and the answers are in the FAQ, but
-finding them is tedious.
+Some of these documents have over 300 questions. Students ask us
+things in Slack like "Can I still join after the course started?" or
+"How do I get a certificate?" Finding those answers in the FAQ is
+tedious.
 
-What we want: a bot that takes all this knowledge and answers student
+We want a bot that takes all this knowledge and answers student
 questions in natural language.
 
 In this module, we'll build that system. But first, let's see why we
 can't just use an LLM directly.
 
 
-## The problem with LLMs
+## Plain LLMs lack our data
 
 First, let's define a function to talk to the LLM:
 
@@ -58,9 +58,8 @@ our courses are not in the training data.
 
 ## Adding context manually
 
-What if we gave the LLM more context? We have a FAQ website with
-questions and answers about our courses. Let's copy some of that
-content and put it into context:
+More context can fix this. The FAQ website has questions and answers
+about our courses. Copy some of that content into the prompt:
 
 ```python
 context = '''
@@ -78,8 +77,7 @@ Check the quota and reset cycle carefully. Potential options include Google Cola
 '''
 ```
 
-We can now build a prompt that includes both the question and the
-context:
+Build a prompt that includes both the question and the context:
 
 ```python
 prompt = f'''
@@ -113,15 +111,15 @@ This is the answer we actually want to give to our students. What we
 just did is nothing but RAG.
 
 
-## The RAG idea
+## Retrieval plus generation
 
 RAG stands for Retrieval-Augmented Generation. There are two key words
 here: generation and retrieval. Generation is the LLM - it generates
 text. Retrieval is search. We use search to augment the LLM's
 generation.
 
-In other words: we retrieve relevant documents from our knowledge base,
-and use them to augment what the LLM generates.
+We retrieve relevant documents from our knowledge base and use them to
+augment what the LLM generates.
 
 The reason we use search (retrieval) is to give the LLM more
 information, more context, so it can give the right answer.
@@ -178,8 +176,8 @@ flowchart TD
 
 The LLM only sees the documents we hand it. So its answers are
 grounded in our data. If the right document is retrieved, the answer
-is good. If it's not, the answer suffers. Search quality is the
-backbone of RAG.
+is good. If it's not, the LLM gets the wrong context and the answer is
+wrong. Good search quality is essential for RAG.
 
 The database and the LLM can be anything. In this course we'll
 use minsearch and then sqlitesearch for search, and OpenAI for the
