@@ -5,10 +5,9 @@
 </a>
 
 In the previous modules we built search engines, agents, evaluation
-pipelines, and monitoring dashboards. Now let's look at techniques
+pipelines, and monitoring dashboards. This module covers techniques
 that improve retrieval quality - the most critical part of any RAG
 system.
-
 
 ## The RAG pipeline
 
@@ -22,7 +21,6 @@ A RAG system has two stages:
 
 Most of the improvements we'll discuss focus on the retrieval
 stage, because better retrieval means better answers.
-
 
 ## Five techniques
 

@@ -64,7 +64,6 @@ index.fit(documents)
 
 That's it. The index is built.
 
-
 ## Trying a search
 
 Let's try a search with the question we used before:
@@ -103,7 +102,6 @@ signal than if they appear in the section name.
 We used `filter_dict` to only return results from the LLM Zoomcamp
 course. Without this filter, we'd get results from all four courses.
 
-
 ## Boosting fields
 
 Not all fields are equally important. The `question` field is usually
@@ -128,10 +126,10 @@ Elasticsearch and Lucene.
 
 Try different boost values and see how the results change.
 
-
 ## Filtering by course
 
 Sometimes you want to restrict the search to a specific course.
+
 minsearch supports keyword filtering:
 
 ```python
@@ -149,10 +147,11 @@ different queries and courses to get a feel for the results.
 [doc['question'] for doc in results]
 ```
 
-
 ## Wrapping it in a function
 
-Let's wrap the search in a `search` function. This is the first
+Let's wrap the search in a `search` function.
+
+This is the first
 component of our RAG pipeline:
 
 ```python
@@ -168,7 +167,9 @@ def search(question, course='llm-zoomcamp'):
     )
 ```
 
-By default it searches the LLM Zoomcamp FAQ. You can pass a
+By default it searches the LLM Zoomcamp FAQ.
+
+You can pass a
 different course slug to search other courses:
 
 ```python

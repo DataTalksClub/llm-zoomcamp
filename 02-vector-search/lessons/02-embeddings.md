@@ -16,7 +16,6 @@ We'll use [sentence-transformers](https://www.sbert.net/), a popular
 open-source library for generating embeddings. It runs locally on your
 machine, so there are no API costs.
 
-
 ## Installing sentence-transformers
 
 Install the library:
@@ -27,7 +26,6 @@ uv add sentence-transformers
 
 This also installs PyTorch under the hood. The download may take a
 minute.
-
 
 ## Choosing a model
 
@@ -51,11 +49,12 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 The first time you run this, it downloads the model (~80 MB). After
 that, it loads from a local cache.
 
-
 ## Trying it with simple examples
 
 Let's see how embeddings work with
-a few examples. We'll start with a query:
+a few examples.
+
+We'll start with a query:
 
 ```python
 q1 = 'Can I still join the course after the start date?'
@@ -64,7 +63,7 @@ v1 = model.encode(q1)
 
 `v1` is a vector - an array with 384 numbers. 
 
-Now let's encode our document:
+Encode our document:
 
 ```python
 d  = "You don't need to register. You're accepted. You can also just start learning and submitting homework without registering."
@@ -100,7 +99,6 @@ The second score (`q2` vs `d`) is lower - it's near 0. Installing Docker has not
 
 This is the core idea behind vector search: similar texts get similar
 vectors, and we can measure similarity with a simple dot product.
-
 
 ## Cosine similarity
 

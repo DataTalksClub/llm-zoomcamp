@@ -8,7 +8,6 @@ We take the same monitoring approach from module 05 and apply it
 to our fitness assistant. Then we containerize everything with
 Docker Compose.
 
-
 ## Adding evaluation to the RAG flow
 
 First, add the LLM-as-a-judge evaluation directly into the RAG
@@ -102,7 +101,6 @@ def rag(query, model='gpt-5.4-mini'):
         'openai_cost': openai_cost,
     }
 ```
-
 
 ## Database functions
 
@@ -230,7 +228,6 @@ def save_feedback(conversation_id, feedback, timestamp=None):
         conn.close()
 ```
 
-
 ## Updated Flask API with logging
 
 Now the API saves every conversation and accepts feedback:
@@ -297,7 +294,6 @@ Install the database driver:
 ```bash
 uv add psycopg2-binary
 ```
-
 
 ## Docker Compose
 
@@ -383,7 +379,6 @@ uv run python -c "import db; db.init_db()"
 
 Access the app at `http://localhost:5000` and Grafana at
 `http://localhost:3000`.
-
 
 ## Grafana dashboards
 

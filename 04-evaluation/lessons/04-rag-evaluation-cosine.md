@@ -8,11 +8,12 @@ poor response.
 In this lesson, we evaluate the entire RAG pipeline: search + prompt +
 LLM. The question is: how good are the answers?
 
-
 ## Evaluating with A->Q->A'
 
 We already have ground truth data with questions generated from FAQ
-documents. Each FAQ document has an original answer. Here's the idea:
+documents. Each FAQ document has an original answer.
+
+Here's the idea:
 
 1. Take a question from the ground truth (generated from document D)
 2. Run the RAG pipeline to get an LLM answer
@@ -27,10 +28,11 @@ This is sometimes called the A->Q->A' evaluation:
 If the LLM answer is similar to the original answer, the RAG pipeline
 is working well.
 
-
 ## Generating RAG answers
 
-Let's run the RAG pipeline on our ground truth data. First, set up
+Let's run the RAG pipeline on our ground truth data.
+
+First, set up
 `RAGBase`:
 
 ```python
@@ -94,11 +96,12 @@ This takes a while because we're calling the LLM for each question.
 We can speed it up with `ThreadPoolExecutor` the same way we did for
 data generation.
 
-
 ## Cosine similarity
 
 To compare the LLM answer with the original answer, we compute cosine
-similarity. First, we turn both answers into vectors using an embedding
+similarity.
+
+First, we turn both answers into vectors using an embedding
 model:
 
 ```python
@@ -133,7 +136,9 @@ df_results = pd.DataFrame(results)
 ```
 
 The cosine similarity ranges from -1 to 1. Higher values mean the
-answers are more similar. Let's check the average:
+answers are more similar.
+
+Let's check the average:
 
 ```python
 df_results['cosine'].describe()
@@ -142,7 +147,6 @@ df_results['cosine'].describe()
 A typical result for a working RAG system might be around 0.7-0.8.
 Lower values suggest the LLM is not using the context well, or the
 search is returning irrelevant documents.
-
 
 ## Comparing models
 

@@ -3,7 +3,6 @@
 In the previous lesson, we saw how embeddings work with simple examples.
 In this lesson we apply them to the entire FAQ dataset.
 
-
 ## Loading the data
 
 In the previous module, we created a helper script for downloading the
@@ -23,11 +22,12 @@ from ingest import load_faq_data
 documents = load_faq_data()
 ```
 
-
 ## Generating embeddings
 
 For vector search, we want to embed a combination of the question and
-the answer. This way, when a user asks a question, we can match it
+the answer.
+
+This way, when a user asks a question, we can match it
 against both the questions and answers in our index:
 
 ```python

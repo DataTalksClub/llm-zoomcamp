@@ -23,7 +23,6 @@ But as our dataset grows, it would take more and more time.
 Eventually we will need to switch to approximate methods and use 
 approximate nearest neighbor (ANN) search instead.
 
-
 ## sqlitesearch
 
 sqlitesearch (the persistant sibling of minsearch) solves it.
@@ -42,7 +41,7 @@ uv add sqlitesearch
 
 ## Creating the index
 
-Now let's initialize it:
+Initialize it:
 
 ```python
 from sqlitesearch import VectorSearchIndex
@@ -66,7 +65,6 @@ For our small dataset, `lsh` is fine. All modes use two-phase search:
 approximate candidate retrieval, then exact cosine similarity
 reranking.
 
-
 ## Indexing the data
 
 Fit the index with our vectors and documents:
@@ -78,7 +76,6 @@ vs_index.fit(vectors, documents)
 The index is saved to `faq_vectors.db`. Unlike minsearch, this file
 persists on disk. You can search immediately after indexing, or reopen
 the index later without re-indexing.
-
 
 ## Searching
 
@@ -97,7 +94,6 @@ Look at the results:
 results
 ```
 
-
 ## Filtering by course
 
 Filtering works the same way:
@@ -110,10 +106,11 @@ results = vs_index.search(
 )
 ```
 
-
 ## Reopening the index
 
-The key advantage of sqlitesearch is persistence. In a new Python
+The key advantage of sqlitesearch is persistence.
+
+In a new Python
 session, you can reopen the index without re-computing embeddings:
 
 ```python
@@ -135,7 +132,6 @@ This is the same two-process architecture we used for text search in
 module 1: one process ingests and builds the index, another process
 queries it.
 
-
 ## Closing the connection
 
 When you're done:
@@ -143,7 +139,6 @@ When you're done:
 ```python
 vs_index.close()
 ```
-
 
 ## Using sqlitesearch vector search in RAG
 
@@ -166,9 +161,10 @@ vs_index = VectorSearchIndex(
 No `fit` call needed. One notebook built the index, another notebook
 queries it.
 
-Now let's use it in our RAG pipeline. We'll use `RAGVector` from the
-previous lesson - it's a subclass of `RAGBase` that handles embedding
-the query:
+We use it in our RAG pipeline.
+
+The `RAGVector` class from the previous lesson (a subclass of
+`RAGBase`) handles embedding the query:
 
 ```python
 from rag_helper import RAGBase
@@ -204,7 +200,6 @@ Try it:
 ```python
 assistant.rag('I just discovered the course. Can I still join it?')
 ```
-
 
 ## Comparing minsearch and sqlitesearch for vector search
 

@@ -7,7 +7,6 @@
 So far we've been working in notebooks. Now we turn the notebook
 into a proper application with an ingestion pipeline and a web API.
 
-
 ## From notebook to scripts
 
 Convert the notebook to Python:
@@ -31,10 +30,10 @@ db.py               # Database functions (added later)
 Since we're using `minsearch` as a package (installed with
 `uv add minsearch`), we don't need to copy `minsearch.py`.
 
-
 ## Ingestion
 
 The ingestion script loads the CSV and builds the search index.
+
 Since minsearch is in-memory, ingestion happens when the app
 starts:
 
@@ -68,7 +67,6 @@ def load_index(data_path=DATA_PATH):
 
 If you use a real database like Elasticsearch, ingestion would be
 a separate step that indexes documents into the database.
-
 
 ## RAG module
 
@@ -164,7 +162,6 @@ def rag(query, model='gpt-5.4-mini'):
     }
 ```
 
-
 ## Flask API
 
 Create a simple API endpoint:
@@ -218,7 +215,6 @@ curl -X POST http://localhost:5000/question \
   -H "Content-Type: application/json" \
   -d '{"question": "What exercises target the chest?"}'
 ```
-
 
 ## Improving the README
 

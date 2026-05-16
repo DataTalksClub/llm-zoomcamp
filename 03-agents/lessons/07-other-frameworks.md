@@ -10,7 +10,6 @@ use any production framework and know what it's doing.
 
 Here are some frameworks worth exploring:
 
-
 ## OpenAI Agents SDK
 
 The official SDK from OpenAI for building agents. It uses the same
@@ -24,7 +23,6 @@ uv add openai-agents
 Good choice if you're already using OpenAI and want something
 official and well-maintained.
 
-
 ## PydanticAI
 
 A type-safe agent framework that supports multiple LLM providers.
@@ -37,7 +35,6 @@ uv add pydantic-ai
 
 Good choice if you want type safety and multi-provider support.
 
-
 ## LangChain / LangGraph
 
 A popular framework with lots of integrations. LangChain handles the
@@ -46,7 +43,6 @@ patterns.
 
 Good choice if you need lots of integrations (vector stores, document
 loaders, etc.) and a large community.
-
 
 ## Others
 

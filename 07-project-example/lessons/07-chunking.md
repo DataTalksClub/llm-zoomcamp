@@ -9,10 +9,11 @@ pair. But what if your data is articles, transcripts, or slide
 decks? You need to chunk it into pieces that are the right size
 for embedding and retrieval.
 
-
 ## Multiple articles
 
-If you have multiple articles (blog posts, wiki pages, etc.):
+If you have multiple articles (blog posts, wiki pages, etc.
+
+):
 
 1. Assign each article a document ID
 2. Split each article into chunks
@@ -29,17 +30,17 @@ If you have multiple articles (blog posts, wiki pages, etc.):
 }
 ```
 
-
 ## Single article or transcript
 
 If you have one long piece of content (a YouTube transcript, a
-PDF, etc.):
+PDF, etc.
+
+):
 
 1. Split it into chunks
 2. Evaluate the same way as multiple articles
 3. You can use `youtube-transcript-api` to get transcripts
    programmatically
-
 
 ## Book or very long content
 
@@ -49,7 +50,6 @@ For books and other long-form content, apply this strategy:
 2. Experiment with different chunking strategies
 3. Use LLM-as-a-Judge to compare approaches
 
-
 ## Images and slides
 
 Visual content can be processed as follows:
@@ -58,7 +58,6 @@ Visual content can be processed as follows:
 2. Each image is a separate document
 3. For slide decks: deck = document, slide = chunk
 4. You can also use CLIP embeddings for direct image search
-
 
 ## Smart chunking with LLMs
 

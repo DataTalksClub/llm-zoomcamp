@@ -9,10 +9,11 @@ We need a loop. An agent is exactly that - a loop that keeps calling
 the model, executing tools, and sending results back until the model
 is done.
 
-
 ## A stronger developer prompt
 
-First, let's give the agent more explicit instructions. This prompt
+First, let's give the agent more explicit instructions.
+
+This prompt
 encourages the model to search multiple times and expand its search:
 
 ```python
@@ -29,7 +30,6 @@ based on the results you get from the search.
 At the end, ask if there are other areas that the user wants to explore.
 """.strip()
 ```
-
 
 ## A generic function-call helper
 
@@ -56,11 +56,12 @@ The helper returns the exact object shape the Responses API expects.
 registry like `{"search": search}` so the model can only call functions
 you intentionally expose.
 
-
 ## Processing one response
 
 Let's process a single model response. We append each output entry to
-the conversation. If it's a message, we print it. If it's a function
+the conversation. If it's a message, we print it.
+
+If it's a function
 call, we run it and append the result:
 
 ```python
@@ -89,10 +90,11 @@ The `has_function_calls` flag tells us whether the model needs another
 API call. If the response contains a function call, the updated
 `chat_messages` has tool output the model hasn't seen yet.
 
-
 ## The full agent loop
 
-We wrap this in a `while` loop. The loop keeps calling the model
+We wrap this in a `while` loop.
+
+The loop keeps calling the model
 until it returns a response without any function calls:
 
 ```python
@@ -124,7 +126,6 @@ This is the core agent loop. The model reasons about the next action,
 your code performs the action, and the model sees the result on the
 next turn. The loop stops when the model produces a final answer
 without requesting any more tool calls.
-
 
 ## Wrapping it in a function
 

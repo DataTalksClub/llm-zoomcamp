@@ -12,7 +12,6 @@ The indexing stage stays the same - we still use the same
 Elasticsearch index from the previous lesson. Only the retrieval
 code changes.
 
-
 ## Installing LangChain
 
 Install the LangChain packages:
@@ -21,11 +20,12 @@ Install the LangChain packages:
 uv add langchain langchain-elasticsearch langchain-huggingface
 ```
 
-
 ## Setting up the retriever
 
 LangChain provides `ElasticsearchRetriever`, a wrapper around the
-Elasticsearch client. We configure it with a hybrid query function:
+Elasticsearch client.
+
+We configure it with a hybrid query function:
 
 ```python
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -92,7 +92,6 @@ for result in results:
     print(result.metadata['_source']['question'])
     print(result.metadata['_score'])
 ```
-
 
 ## Evaluating with LangChain
 

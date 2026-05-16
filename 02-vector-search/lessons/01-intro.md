@@ -15,7 +15,6 @@ search engine would struggle to match them.
 Vector search solves this by working on the level of meaning. Instead of
 matching words, it matches ideas.
 
-
 ## The vector search process
 
 Vector search has two stages:
@@ -42,7 +41,6 @@ Cosine similarity measures the angle between two vectors:
 The larger the cosine similarity, the more semantically similar the
 texts are.
 
-
 ## Keyword search vs vector search
 
 | | Keyword search | Vector search |
@@ -55,7 +53,6 @@ texts are.
 
 In practice, both approaches work best together. We'll cover hybrid
 search at the end of this module.
-
 
 ## Building vector search
 
@@ -72,10 +69,11 @@ vector search with three tools:
 Then we'll integrate vector search into our RAG pipeline and explore
 hybrid search that combines keyword and vector search.
 
-
 ## Prerequisites
 
-In module 1, we set up a project with several libraries. If you're
+In module 1, we set up a project with several libraries.
+
+If you're
 starting this module from scratch, create a new project and install
 them:
 
@@ -89,6 +87,5 @@ uv add requests minsearch openai jupyter python-dotenv
 You also need a `.env` file with your API key. See the
 [module 1 environment setup](../../01-intro/lessons/02-environment.md)
 for details.
-
 
 [← Back to module](../) | [Embeddings →](02-embeddings.md)

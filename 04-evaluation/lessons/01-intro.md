@@ -9,7 +9,9 @@ We could try a few queries by hand and see what looks good. That works
 for a quick sanity check, but it doesn't scale. We need a systematic
 way to compare approaches.
 
-That's what evaluation is for. With evaluation, we can:
+That's what evaluation is for.
+
+With evaluation, we can:
 
 - Compare different search methods (minsearch vs vector search vs hybrid)
 - Tune parameters (boost values, number of results, prompt templates)

@@ -10,10 +10,11 @@ Let's build a chat app that:
 - Runs the RAG pipeline and shows the answer
 - Has thumbs up / thumbs down buttons for feedback
 
-
 ## Setting up the RAG pipeline
 
-First, the RAG pipeline. We use the `RAGBase` class from module 01:
+First, the RAG pipeline.
+
+We use the `RAGBase` class from module 01:
 
 ```python
 from rag_helper import RAGBase, load_faq_data
@@ -42,6 +43,7 @@ assistant = RAGBase(
 ```
 
 For monitoring, we need to track response time and token usage.
+
 We override the `llm` method to capture these metrics:
 
 ```python
@@ -71,7 +73,9 @@ def llm_with_metrics(prompt, model='gpt-5.4-mini'):
     return answer, tokens, response_time
 ```
 
-We also want to evaluate relevance automatically. We use the same
+We also want to evaluate relevance automatically.
+
+We use the same
 LLM-as-a-judge approach from module 04:
 
 ```python
@@ -133,7 +137,6 @@ def get_answer(query, course, model='gpt-5.4-mini'):
         'openai_cost': openai_cost,
     }
 ```
-
 
 ## Building the Streamlit app
 

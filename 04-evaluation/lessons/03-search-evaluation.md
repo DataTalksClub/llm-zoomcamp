@@ -6,7 +6,6 @@ retrieves the correct documents.
 For each question in our ground truth dataset, run the search and check
 if the correct document shows up in the results.
 
-
 ## Setting up search
 
 Let's set up our search using `RAGBase` from module 01:
@@ -40,6 +39,7 @@ assistant = RAGBase(
 ```
 
 We'll use `assistant.search` to evaluate different boost configurations.
+
 The default search function for evaluation:
 
 ```python
@@ -50,7 +50,6 @@ def search_fn(query, course):
         filter_dict={'course': course},
     )
 ```
-
 
 ## Collecting relevance data
 
@@ -67,26 +66,31 @@ for q in tqdm(ground_truth_flat):
     relevance_total.append(relevance)
 ```
 
-Each entry in `relevance_total` is a list of booleans. For example:
+Each entry in `relevance_total` is a list of booleans.
+
+For example:
 
 ```python
 [True, False, False, False, False]
 ```
 
-This means the correct document was at position 1. Or:
+This means the correct document was at position 1.
+
+Or:
 
 ```python
 [False, False, True, False, False]
 ```
 
-The correct document was at position 3. Or:
+The correct document was at position 3.
+
+Or:
 
 ```python
 [False, False, False, False, False]
 ```
 
 The correct document was not found at all.
-
 
 ## Hit Rate
 
@@ -131,10 +135,10 @@ hit_rate(example)
 
 7 out of 12 queries found the correct document somewhere in the results.
 
-
 ## Mean Reciprocal Rank (MRR)
 
 Hit Rate tells us if we found the right document, but not where it was.
+
 MRR also considers the position:
 
 ```python
@@ -161,7 +165,6 @@ systems that put the correct document near the top.
 mrr(example)
 # 0.5278
 ```
-
 
 ## Putting it together
 
@@ -198,7 +201,7 @@ You should see something like:
 {'hit_rate': 0.77, 'mrr': 0.66}
 ```
 
-Now we can try different boost values and see what works best:
+Try different boost values to see what works best:
 
 ```python
 def search_boost(query, course, question_boost):

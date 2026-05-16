@@ -1,7 +1,8 @@
 # Instruction Following
 
-In the previous lesson, we evaluated the agent's tool usage. Now let's
-check something else: does the agent actually follow its instructions?
+In the previous lesson, we evaluated the agent's tool usage. This
+lesson checks something else - does the agent actually follow its
+instructions?
 
 The developer prompt contains rules like:
 
@@ -15,10 +16,11 @@ unpredictable. Maybe it follows the rules this time, but not next time.
 Instruction following evaluation checks that the agent respects its
 prompt rules consistently.
 
-
 ## Answer correctness
 
-Before checking instructions, let's also evaluate answer quality. We
+Before checking instructions, let's also evaluate answer quality.
+
+We
 use the same LLM-as-a-judge approach from lesson 05:
 
 ```python
@@ -106,10 +108,9 @@ for i, result in agent_results.items():
     result['correctness_reasoning'] = eval_result.reasoning
 ```
 
-
 ## Instruction following
 
-Now let's check if the agent follows its developer prompt rules:
+Check if the agent follows its developer prompt rules:
 
 ```python
 class InstructionResult(BaseModel):
@@ -181,7 +182,6 @@ for i, result in agent_results.items():
     result['instruction_following'] = inst_eval.score
     result['instruction_reasoning'] = inst_eval.reasoning
 ```
-
 
 ## Putting it all together
 

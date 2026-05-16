@@ -13,12 +13,13 @@ Reranking re-orders retrieved documents by a better relevance
 score. It sits at the end of the search pipeline, after the
 initial retrieval.
 
-
 ## Reciprocal Rank Fusion (RRF)
 
 One popular reranking method is Reciprocal Rank Fusion (RRF). It
 combines rankings from multiple search methods (vector, keyword,
-etc.) into a single score:
+etc.
+
+) into a single score:
 
 ```text
 RRF(d) = sum(1 / (k + rank(d))) for each ranking
@@ -26,7 +27,6 @@ RRF(d) = sum(1 / (k + rank(d))) for each ranking
 
 where `k` is a constant (typically 60). Documents that appear
 high in multiple rankings get a higher combined score.
-
 
 ## RRF in Elasticsearch
 
@@ -83,10 +83,11 @@ Then execute the search with RRF ranking:
 Note: the built-in RRF requires a paid Elasticsearch subscription.
 If you're using the free tier, you'll get an error.
 
-
 ## Implementing RRF ourselves
 
-We can implement RRF manually. The approach is to run vector and
+We can implement RRF manually.
+
+The approach is to run vector and
 keyword searches separately, compute RRF scores, and merge:
 
 ```python
@@ -165,7 +166,6 @@ Now compute RRF scores from both result sets:
 
 When the same document appears in both search results, its RRF
 scores are summed, giving it a higher rank.
-
 
 ## Evaluation
 

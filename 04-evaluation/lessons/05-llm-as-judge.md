@@ -10,7 +10,6 @@ ask it to rate the quality.
 
 This is called LLM-as-a-judge.
 
-
 ## Advantages of LLM judges
 
 LLM judges have several advantages over simple metrics:
@@ -23,7 +22,6 @@ LLM judges have several advantages over simple metrics:
 The downside is that they're slower and more expensive than computing
 cosine similarity. But for evaluation (which you run occasionally), the
 cost is acceptable.
-
 
 ## Q->A evaluation
 
@@ -99,7 +97,6 @@ result = evaluate_qa(
 )
 print(result.score, result.reasoning)
 ```
-
 
 ## A->Q->A' evaluation
 
@@ -193,12 +190,12 @@ print(f'Good: {good_count}/{total_count} = {good_count/total_count:.2%}')
 ```
 
 This tells you what percentage of answers the judge considers correct.
+
 You can also look at the "bad" cases to understand what went wrong:
 
 ```python
 df_eval[df_eval['score'] == 'bad'].head()
 ```
-
 
 ## Combining metrics
 

@@ -13,7 +13,6 @@ The final project is at
 on GitHub. Check the final result - it's been polished beyond what
 we show in the videos.
 
-
 ## Project overview
 
 A RAG application that:
@@ -25,7 +24,6 @@ A RAG application that:
 - Includes an API interface (Flask)
 - Has monitoring with PostgreSQL and Grafana
 - Is containerized with Docker
-
 
 ## Setting up the project
 
@@ -56,7 +54,6 @@ Start Jupyter:
 ```bash
 uv run jupyter notebook
 ```
-
 
 ## Generating the dataset
 
@@ -113,11 +110,12 @@ print(f'Generated {len(df)} exercises')
 You may need to run this multiple times with different prompts
 to cover enough exercises. Append all results to `data/data.csv`.
 
-
 ## The RAG flow
 
-Now let's build the basic RAG flow in a notebook. First, load the
-data and create a search index:
+Build the basic RAG flow in a notebook.
+
+First, load the data and
+create a search index:
 
 ```python
 import pandas as pd

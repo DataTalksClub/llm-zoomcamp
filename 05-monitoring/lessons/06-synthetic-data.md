@@ -9,11 +9,12 @@ We create two types of data:
 - Historical data: conversations spread over the last 6 hours
 - Live data: new conversations inserted every second
 
-
 ## Historical data
 
 We generate conversations with random questions, answers, and metrics,
-spaced out over the last 6 hours. First, define the sample data:
+spaced out over the last 6 hours.
+
+First, define the sample data:
 
 ```python
 import time
@@ -149,7 +150,6 @@ uv run python generate_data.py
 The script first backfills 6 hours of data, then keeps generating live
 data every second. Switch to Grafana and you'll see the dashboard come
 alive with charts updating in real time.
-
 
 ## Timezone handling
 

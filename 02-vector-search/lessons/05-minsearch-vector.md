@@ -16,13 +16,12 @@ Both classes share the same API:
 - `search` to query
 - `filter_dict` parameter in `search` for filtering by keyword
 
-
 It's the simplest way to get started with vector search.
-
 
 ## Creating the index
 
 We already have our documents and vectors from the previous section.
+
 Index them:
 
 ```python
@@ -35,7 +34,6 @@ vindex.fit(X, documents)
 We pass the numpy array `X` with all embeddings and the list of
 documents as payload. The `keyword_fields` parameter works the same
 as in the text `Index` - it lets us filter by course.
-
 
 ## Searching
 
@@ -82,6 +80,5 @@ results = vindex.search(
 ```
 
 Now we know to perform vector search, so we can use it in RAG.
-
 
 [← Vector Search](04-vector-search.md) | [RAG with Vector Search →](06-rag-vector.md)

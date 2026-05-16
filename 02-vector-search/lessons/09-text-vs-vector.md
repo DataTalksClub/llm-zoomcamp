@@ -3,10 +3,11 @@
 Now that we've used both keyword search and vector search, let's compare
 them side by side on the same queries.
 
-
 ## Setting up both search functions
 
-We need both search functions ready. The vector search function is from
+We need both search functions ready.
+
+The vector search function is from
 the previous section:
 
 ```python
@@ -39,7 +40,6 @@ def keyword_search(query, course='data-engineering-zoomcamp', num_results=5):
         filter_dict={'course': course}
     )
 ```
-
 
 ## Comparing results
 
@@ -93,7 +93,6 @@ Vector search should do better here. It can match the meaning of
 "trouble with homework submission" even if the FAQ doesn't use those
 exact words.
 
-
 ## Observations
 
 In general:
@@ -106,7 +105,6 @@ In general:
 
 Neither is always better. This is why in the next section we'll combine
 them with hybrid search.
-
 
 ## Adding vector search
 
@@ -123,7 +121,6 @@ I add vector search.
 In practice, vector search does help - I see in many cases that the
 results become better. But the question is: how much better? And is the
 increase in search quality worth all the overhead we introduce?
-
 
 ## A quick comparison
 

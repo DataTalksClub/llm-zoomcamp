@@ -7,7 +7,9 @@
 Vector search finds documents by semantic meaning. Keyword search
 finds documents by exact word matches. Hybrid search combines both.
 
-The approach is simple: run both searches and merge the scores. Each
+The approach is simple: run both searches and merge the scores.
+
+Each
 search produces a ranked list with scores, and we combine them
 with a weighted sum:
 
@@ -18,11 +20,12 @@ score = alpha * vector_score + (1 - alpha) * keyword_score
 When `alpha = 1`, it's pure vector search. When `alpha = 0`,
 it's pure keyword search. Values in between give a mix.
 
-
 ## Setting up Elasticsearch
 
 We'll use Elasticsearch, which supports both vector (KNN) and
-keyword search natively. Start it in Docker:
+keyword search natively.
+
+Start it in Docker:
 
 ```bash
 docker run -it \
@@ -41,7 +44,6 @@ Install the Python client:
 ```bash
 uv add elasticsearch sentence-transformers tqdm
 ```
-
 
 ## Indexing documents
 
@@ -122,7 +124,6 @@ for doc in tqdm(documents):
     es_client.index(index=index_name, document=doc)
 ```
 
-
 ## Hybrid search query
 
 A hybrid search in Elasticsearch combines a KNN query (vector)
@@ -173,7 +174,6 @@ def elastic_search_hybrid(field, query, vector, course):
 
 The `boost` parameter controls the weight. Both are set to `0.5`
 here, giving equal weight to vector and keyword results.
-
 
 ## Evaluating hybrid search
 

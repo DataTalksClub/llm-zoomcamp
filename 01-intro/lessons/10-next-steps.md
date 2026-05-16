@@ -13,10 +13,11 @@ In this module, we:
 You now have a working RAG system and a clear mental model for how
 each piece fits together. The rest is making each piece better.
 
-
 ## Elasticsearch
 
-Elasticsearch is the industry standard for text search. It supports:
+Elasticsearch is the industry standard for text search.
+
+It supports:
 
 - Full-text search with BM25
 - Filtering, aggregations, and faceting
@@ -31,7 +32,6 @@ OpenSearch) is a common choice for the search backend.
 For an Elasticsearch tutorial, see the
 [supplementary materials for Module 1](../../cohorts/2025/01-intro/elastic-search.md).
 
-
 ## Vector Search
 
 In the next module, we'll cover vector search - matching documents by
@@ -40,7 +40,6 @@ semantic meaning instead of exact keywords.
 If you're curious about how we taught this before:
 - [2024 cohort](../../cohorts/2024/) used Elasticsearch for vector search
 - [2025 cohort](../../cohorts/2025/02-vector-search/) used Qdrant
-
 
 ## Agents
 
@@ -54,13 +53,14 @@ An agent gives the LLM that intermediary role. It can reason about
 what to search for and decide when to call which tool. We'll cover
 agents in detail in module 03.
 
-
 ## Fine-tuning vs RAG
 
 A common question is: why not just fine-tune the LLM on our data?
 
 Fine-tuning means taking a model's weights and adjusting them for
-your specific use case. This works, but it has downsides:
+your specific use case.
+
+This works, but it has downsides:
 
 - It requires special hardware (GPUs) and tools we don't cover in
   this course
@@ -72,7 +72,6 @@ your specific use case. This works, but it has downsides:
 RAG is more flexible, cheaper, and works with any LLM. In practice,
 fine-tuning is rarely needed - focus on RAG first, and only use
 fine-tuning when you need it.
-
 
 ## Moving forward
 

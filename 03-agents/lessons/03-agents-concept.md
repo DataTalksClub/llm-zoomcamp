@@ -14,7 +14,6 @@ The key difference is about who makes the decisions:
 - Agent: the LLM decides. It chooses which actions to take and when to
   stop.
 
-
 ## The agentic workflow
 
 We give the LLM a list of tools: functions it can call. For example,
@@ -37,10 +36,11 @@ This is sometimes called "agentic RAG" or "tool use" or "function
 calling". Different names, same idea: the LLM decides which tools to
 use.
 
-
 ## The typo example
 
-Remember the "ducker" example from the last lesson? Here's how an agent
+Remember the "ducker" example from the last lesson?
+
+Here's how an agent
 would handle it:
 
 ```mermaid

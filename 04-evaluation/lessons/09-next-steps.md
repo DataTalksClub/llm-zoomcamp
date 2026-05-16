@@ -10,7 +10,6 @@ Evaluation is not a one-time activity. As you change your system -
 tune search parameters, switch models, modify prompts - you re-run
 evaluation to make sure things are getting better, not worse.
 
-
 ## Evaluation frameworks
 
 For production systems, consider using evaluation frameworks that make
@@ -25,11 +24,12 @@ it easier to manage test datasets, run evaluations, and track results:
 These frameworks implement many of the concepts we covered here and
 add visualizations and experiment tracking.
 
-
 ## Monitoring
 
 Online evaluation (monitoring) is what you do after deploying your
-system. Key approaches:
+system.
+
+Key approaches:
 
 - User feedback: thumbs up/down buttons to collect signal
 - Logging: record queries, retrieved documents, and answers
@@ -37,7 +37,6 @@ system. Key approaches:
 - Alerts: get notified when metrics drop below a threshold
 
 Monitoring is covered in more detail in module 05.
-
 
 ## Further reading
 

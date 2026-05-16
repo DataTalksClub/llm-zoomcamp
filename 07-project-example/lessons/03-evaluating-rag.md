@@ -8,7 +8,6 @@ Retrieval evaluation tells us if we're finding the right documents.
 RAG evaluation tells us if the generated answers are actually good.
 We use the LLM-as-a-judge approach from module 04.
 
-
 ## LLM-as-a-Judge for RAG
 
 Since we don't have reference answers for every question, we use
@@ -90,10 +89,11 @@ Save the results:
 df_eval.to_csv('data/rag-eval-gpt-5.4-mini.csv', index=False)
 ```
 
-
 ## Comparing models
 
-You can also use evaluation to compare different LLMs. For example,
+You can also use evaluation to compare different LLMs.
+
+For example,
 compare gpt-5.4-mini with gpt-4o:
 
 ```python

@@ -11,13 +11,14 @@ You need the following:
   provider like Groq, Gemini, or Ollama)
 - Basic familiarity with Python and the command line
 
-
 ## Creating the project
 
 We'll start from scratch - no cloning needed. You'll create the
 project yourself, step by step.
 
-First, install uv (a fast Python package manager). On Mac or Linux:
+First, install uv (a fast Python package manager).
+
+On Mac or Linux:
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -56,7 +57,6 @@ This installs:
 - `jupyter` - the notebook environment where we'll write and run code
 - `python-dotenv` - to load API keys from a `.env` file
 
-
 ## Setting up API keys
 
 We need an API key to talk to the LLM. The safest way to store it
@@ -77,7 +77,6 @@ commit your key:
 ```
 
 Never commit `.env` to git. Never share your API key with anyone.
-
 
 ## Starting Jupyter
 
@@ -121,7 +120,6 @@ openai_client = OpenAI(
     base_url='https://api.groq.com/openai/v1'
 )
 ```
-
 
 ## (Optional) Auto-loading .env with dirdotenv
 

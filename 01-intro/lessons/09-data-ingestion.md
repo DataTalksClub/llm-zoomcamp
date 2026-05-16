@@ -39,7 +39,6 @@ Install it:
 uv add sqlitesearch
 ```
 
-
 ## Ingestion notebook
 
 Create a new notebook called `sqlite-ingest.ipynb` (see [persistent_rag_ingest.ipynb](../code/persistent_rag_ingest.ipynb) for reference). This is the
@@ -61,7 +60,6 @@ Filter to just the LLM Zoomcamp documents:
 docs_llm = [doc for doc in documents if doc['course'] == 'llm-zoomcamp']
 print(f'LLM Zoomcamp: {len(docs_llm)} documents')
 ```
-
 
 Now create a sqlitesearch index and add documents one by one with a
 small delay (to simulate slow ingestion):
@@ -89,11 +87,12 @@ Run this notebook. You'll see each document being added one by one.
 When it's done, there's a `faq.db` file on disk with the entire index.
 This file persists across restarts.
 
-
 ## Querying notebook
 
 While the ingestion is running (or after it finishes), create another
-notebook (see [persinsent_rag.ipynb](../code/persinsent_rag.ipynb) for reference). Connect to the same database:
+notebook (see [persinsent_rag.ipynb](../code/persinsent_rag.ipynb) for reference).
+
+Connect to the same database:
 
 ```python
 from sqlitesearch import TextSearchIndex
@@ -123,12 +122,13 @@ results = sqlite_index.search('Can I still join the course after it started?', n
 [doc['question'] for doc in results]
 ```
 
-
 ## RAG with sqlitesearch
 
-Now let's use the `RAGBase` class from `rag_helper.py` with this
-sqlitesearch index. Because our RAG is modular, we just swap the
-search index - the rest of the code stays the same:
+We use the `RAGBase` class from `rag_helper.py` with this sqlitesearch
+index.
+
+Because our RAG is modular, we just swap the search index - the
+rest of the code stays the same:
 
 ```python
 from rag_helper import RAGBase
@@ -169,7 +169,6 @@ both have a `search` method that takes a query, `boost_dict`,
 `filter_dict`, and `num_results`. If the API were different, we'd
 need to subclass `RAGBase` and override the `search` method to adapt
 to the new backend.
-
 
 ## Comparing the two approaches
 
@@ -259,7 +258,6 @@ flowchart TD
 For our FAQ dataset, both produce good results. The difference
 matters more at scale with diverse document lengths.
 
-
 ## Choosing an approach
 
 | | minsearch | sqlitesearch |
@@ -278,7 +276,6 @@ For larger production systems, you'd use the same pattern but with
 Elasticsearch, OpenSearch, or a vector database like Qdrant or
 Weaviate instead of sqlitesearch. The architecture stays the same:
 one process ingests, another queries.
-
 
 ## Cleaning up
 

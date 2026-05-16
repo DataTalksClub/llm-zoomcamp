@@ -1,9 +1,8 @@
 # Vector Search
 
 In the previous lesson, we embedded our FAQ dataset into a matrix `X`
-with 1208 document vectors. Now let's see how vector search works
-under the hood.
-
+with 1208 document vectors. This lesson shows how vector search
+works under the hood.
 
 ## Scoring documents
 
@@ -23,7 +22,6 @@ scores = X.dot(v_query)
 ```
 
 This is matrix-vector multiplication, and it's typically fast. Each element `i` of the `scores` vector is the cosine similarity between the document `i` (on row `i`) and `v_query`.
-
 
 ## Best match
 
@@ -54,7 +52,6 @@ We see:
  'answer': "Yes, even if you don't register, you're still eligible..."}
 ```
 
-
 ## Top 5 results
 
 We can also look at the top 5 results:
@@ -64,6 +61,7 @@ top5 = np.argsort(scores)[-5:]
 ```
 
 We get the last 5 results (sorting it from lowest to highest in numpy).
+
 This returns an array with 5 indicies:
 
 ```python

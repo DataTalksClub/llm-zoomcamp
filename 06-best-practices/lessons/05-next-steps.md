@@ -13,10 +13,10 @@ The key takeaways:
 - LangChain wraps Elasticsearch functionality in a cleaner
   interface, but the underlying queries are the same.
 
-
 ## Other techniques to explore
 
 We only covered two of the five techniques from the intro lesson.
+
 Here are pointers for the rest:
 
 - Small-to-big chunk retrieval: use small chunks for embedding
@@ -27,7 +27,6 @@ Here are pointers for the rest:
   ranking.
 - Query rewriting: ask an LLM to reformulate the user's question
   into a clearer search query before hitting the database.
-
 
 ## To learn more
 

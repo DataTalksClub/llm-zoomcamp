@@ -3,10 +3,11 @@
 The last component of our RAG pipeline is the LLM. It takes
 the prompt we built and generates an answer.
 
-
 ## Sending the prompt to the LLM
 
-We have the prompt from the previous section. We send it to the
+We have the prompt from the previous section.
+
+We send it to the
 LLM:
 
 ```python
@@ -26,11 +27,12 @@ Many other LLM providers (Groq, Gemini, etc.) support the chat
 completions API, so you can use the OpenAI client with them too. You
 would just need to use `chat.completions` instead of `responses`.
 
-
 ## Exploring the response
 
 The response is a Pydantic object. The answer is in `response.output` -
-a list of output items. The first one is the message:
+a list of output items.
+
+The first one is the message:
 
 ```python
 response.output[0]
@@ -42,7 +44,9 @@ The message has a `content` list, and the text is in the first item:
 response.output[0].content[0].text
 ```
 
-That's a lot of digging. There's a shortcut:
+That's a lot of digging.
+
+There's a shortcut:
 
 ```python
 response.output_text
@@ -64,10 +68,11 @@ You'll see something like:
 ResponseUsage(input_tokens=334, output_tokens=39, total_tokens=373)
 ```
 
-
 ## Calculating the price
 
-You can use different models. In this course we'll use
+You can use different models.
+
+In this course we'll use
 [gpt-5.4-mini](https://developers.openai.com/api/docs/models/gpt-5.4-mini):
 
 - Input: $0.75 per million tokens
@@ -90,7 +95,6 @@ cost
 This particular request costs a fraction of a cent. Even a full RAG
 query with a long prompt stays under $0.01. We need to send a
 lot of queries to even spend one cent.
-
 
 ## Message history
 
@@ -127,10 +131,11 @@ OpenAI accepts both `developer` and `system` for the instruction role.
 They have minor differences but produce the same result in practice.
 We use `developer` in this course.
 
-
 ## The LLM function
 
-We can now put this together into an updated `llm` function. It now
+We can now put this together into an updated `llm` function.
+
+It now
 takes both instructions and the user prompt:
 
 ```python
@@ -147,7 +152,6 @@ def llm(instructions, user_prompt, model='gpt-5.4-mini'):
 
     return response.output_text
 ```
-
 
 ## Full RAG
 
@@ -201,7 +205,6 @@ print(answer)
 The answer should be based on the FAQ documents - not on the LLM's
 general knowledge. The LLM read the search results and generated a
 response grounded in our data.
-
 
 ## Try more questions
 

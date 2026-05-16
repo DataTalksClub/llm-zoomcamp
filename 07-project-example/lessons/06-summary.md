@@ -7,7 +7,6 @@
 Between the previous video and this one, the project was polished
 further. Let's look at what changed and the final result.
 
-
 ## Post-recording improvements
 
 Several improvements were made after recording:
@@ -19,7 +18,6 @@ Several improvements were made after recording:
 - The README was polished with a generated banner image, better
   formatting, grammar fixes, and clearer instructions
 - Code readability improvements across all files
-
 
 ## Total cost
 
@@ -33,7 +31,6 @@ The entire project cost about $2 in OpenAI API calls:
 Using GPT-4o-mini keeps costs low. You could reduce costs
 further by using a local model or a cheaper provider.
 
-
 ## Tips for your project
 
 Keep these points in mind as you build your own project:
@@ -44,7 +41,6 @@ Keep these points in mind as you build your own project:
   enough for a course project
 - Polish your README: it's the first thing people see
 - Use the course project criteria as a checklist
-
 
 ## The final project
 

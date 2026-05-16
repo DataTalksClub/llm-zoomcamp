@@ -6,7 +6,9 @@ depends on PyTorch, which is huge. We can use ONNX Runtime
 instead: it's much smaller.
 
 I created two separate projects: one with sentence-transformers and
-one with ONNX Runtime. Then I measured the virtual environment sizes:
+one with ONNX Runtime.
+
+Then I measured the virtual environment sizes:
 
 | | sentence-transformers | ONNX Runtime |
 |---|---|---|
@@ -29,11 +31,12 @@ uv add --dev huggingface-hub
 
 `huggingface-hub` is only needed to download the model. At runtime we'll need `onnxruntime`, `tokenizers`, and `numpy`.
 
-
 ## Downloading the model
 
 We'll use [download.py](../embed/download.py) to fetch the ONNX model from
-HuggingFace. Download it:
+HuggingFace.
+
+Download it:
 
 ```bash
 wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/02-vector-search/embed/download.py
@@ -63,10 +66,10 @@ Add the models directory to `.gitignore`:
 models/
 ```
 
-
 ## The Embedder class
 
 We'll use [embedder.py](../embed/embedder.py) for generating embeddings.
+
 Download it:
 
 ```bash
@@ -82,10 +85,11 @@ Under the hood, it does four things:
 4. Normalize - divide by L2 norm so vectors can be compared with
    dot product
 
-
 ## Same pipeline, no PyTorch
 
-Let's repeat the same examples from earlier. First, comparing queries
+Let's repeat the same examples from earlier.
+
+First, comparing queries
 against a document:
 
 ```python
@@ -118,7 +122,9 @@ We get the same result as before. The first score is higher because
 the query about joining the course is more similar to the document
 about registration.
 
-Embed our FAQ dataset. First, load the documents:
+Embed our FAQ dataset.
+
+First, load the documents:
 
 ```python
 from rag_helper import load_faq_data
@@ -162,7 +168,6 @@ documents[idx]
 ```
 
 Same results, same pipeline, but ~33x lighter.
-
 
 ## Available models
 

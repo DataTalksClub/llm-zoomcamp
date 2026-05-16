@@ -8,7 +8,6 @@ transactions, and large datasets.
 
 We'll run PostgreSQL with pgvector in Docker.
 
-
 ## Starting Postgres with pgvector
 
 Pull the image and start a container:
@@ -26,7 +25,6 @@ docker run -it \
 
 This image has the pgvector extension pre-installed. The `-v` flag
 creates a named volume so data persists across container restarts.
-
 
 ## Installing the Python client
 
@@ -52,7 +50,6 @@ conn.execute("CREATE EXTENSION IF NOT EXISTS vector")
 The `vector` extension adds the `vector` column type and similarity
 search operators.
 
-
 ## Creating a table
 
 Create a table for storing documents with their embeddings:
@@ -77,10 +74,10 @@ conn.execute("""
 The `vector(384)` column stores our 384-dimensional embeddings from
 `all-MiniLM-L6-v2`.
 
-
 ## Inserting documents with embeddings
 
 We already have `documents` and `vectors` from the previous sections.
+
 Let's insert them into PGVector:
 
 ```python
@@ -103,7 +100,6 @@ conn.commit()
 This inserts each document along with its embedding vector. The `::vector`
 cast tells PostgreSQL to parse the string as a vector. We call
 `conn.commit()` to persist the changes.
-
 
 ## Searching with cosine similarity
 
@@ -132,7 +128,6 @@ for row in results:
 The `<=>` operator computes cosine distance (1 - cosine similarity).
 We order by ascending distance, so the closest vectors come first.
 
-
 ## Filtering by course
 
 Add a `WHERE` clause:
@@ -151,10 +146,11 @@ results = conn.execute(
 ).fetchall()
 ```
 
-
 ## Creating an index for faster search
 
-For small datasets, exact search is fine. For larger datasets, create
+For small datasets, exact search is fine.
+
+For larger datasets, create
 an HNSW index for approximate nearest neighbor search:
 
 ```python
@@ -167,7 +163,6 @@ conn.execute("""
 This builds an HNSW (Hierarchical Navigable Small World) index, the
 same algorithm used by dedicated vector databases. It makes search
 faster at the cost of a small accuracy trade-off.
-
 
 ## Wrapping it in a function
 
@@ -199,7 +194,6 @@ Try it:
 ```python
 results = pgvector_search('How do I run Kafka?')
 ```
-
 
 ## Using PGVector
 

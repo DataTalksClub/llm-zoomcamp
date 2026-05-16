@@ -9,10 +9,10 @@ We need two tables:
 - `conversations`: stores questions, answers, metrics
 - `feedback`: stores thumbs up / thumbs down
 
-
 ## Database schema
 
 The conversations table stores everything about each interaction.
+
 First, the connection helper and timezone:
 
 ```python
@@ -89,7 +89,6 @@ The `conversations` table has columns for:
 
 The `feedback` table is simpler: it links a conversation to a +1 or -1.
 
-
 ## Saving data
 
 Use these functions to save conversations and feedback to the database:
@@ -154,7 +153,6 @@ We use timezone-aware timestamps (`TIMESTAMP WITH TIME ZONE`). This
 matters for Grafana, we want the dashboard to show times in the
 user's timezone, and Grafana handles this conversion when we use proper
 time zones.
-
 
 ## Querying data
 

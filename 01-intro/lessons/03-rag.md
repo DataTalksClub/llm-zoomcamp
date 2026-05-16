@@ -16,7 +16,6 @@ questions in natural language.
 In this module, we'll build that system. But first, let's see why we
 can't just use an LLM directly.
 
-
 ## Plain LLMs lack our data
 
 First, let's define a function to talk to the LLM:
@@ -30,14 +29,18 @@ def llm(prompt):
     return response.output_text
 ```
 
-This is our black box - text goes in, text comes out. Let's test it:
+This is our black box - text goes in, text comes out.
+
+Let's test it:
 
 ```python
 llm("Hey, what's up?")
 ```
 
-It replies with something. The LLM works. Now let's ask it a
-course-specific question:
+It replies with something. The LLM works.
+
+Ask it a course-specific
+question:
 
 ```python
 question = 'I just discovered the course. Can I join now?'
@@ -55,11 +58,12 @@ This is different from a question like "how do I cook salmon?" - the
 LLM knows the answer because cooking salmon is common knowledge. But
 our courses are not in the training data.
 
-
 ## Adding context manually
 
 More context can fix this. The FAQ website has questions and answers
-about our courses. Copy some of that content into the prompt:
+about our courses.
+
+Copy some of that content into the prompt:
 
 ```python
 context = '''
@@ -110,7 +114,6 @@ submissions are still open."
 This is the answer we actually want to give to our students. What we
 just did is nothing but RAG.
 
-
 ## Retrieval plus generation
 
 RAG stands for Retrieval-Augmented Generation. There are two key words
@@ -138,7 +141,9 @@ def rag(question):
     return llm(user_prompt)
 ```
 
-That's the entire architecture. Three components:
+That's the entire architecture.
+
+Three components:
 
 - search
 - prompt
@@ -172,7 +177,6 @@ flowchart TD
     LLM --> ANSWER
     ANSWER --> U
 ```
-
 
 The LLM only sees the documents we hand it. So its answers are
 grounded in our data. If the right document is retrieved, the answer

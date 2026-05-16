@@ -19,7 +19,6 @@ questions. For each FAQ document, we ask the LLM to create 5 questions
 that this document would answer. Then we know that for each generated
 question, the source document is the correct answer.
 
-
 ## Loading the documents
 
 Let's load the FAQ data from the same dataset we used in previous
@@ -40,10 +39,11 @@ print(documents[0]['question'])
 
 We'll use this ID to track which document was retrieved.
 
-
 ## Generating questions with structured output
 
-We use an LLM to generate questions for each document. We want the
+We use an LLM to generate questions for each document.
+
+We want the
 output as a list of strings, so we use structured output with a Pydantic
 model:
 
@@ -106,10 +106,11 @@ print(result.questions)
 
 You should see 5 questions that relate to the first FAQ document.
 
-
 ## Parallel processing
 
-Generating questions for all documents takes a while. We can speed it
+Generating questions for all documents takes a while.
+
+We can speed it
 up with parallel processing:
 
 ```python

@@ -9,11 +9,12 @@ evaluate how well the retrieval works. We use the same approach
 from module 04: generate ground truth data and measure Hit Rate
 and MRR.
 
-
 ## Problem description and README
 
 First, write a clear README that describes the problem, the data,
-and how to run the project. A good README should include:
+and how to run the project.
+
+A good README should include:
 
 - What the project does
 - The dataset used
@@ -25,10 +26,11 @@ You can use ChatGPT to help draft the README. Give it your project
 criteria, describe your dataset, and ask it to write a problem
 description. Then edit the result to make it concise.
 
-
 ## Generating ground truth data
 
-We need questions with known relevant documents. We generate these
+We need questions with known relevant documents.
+
+We generate these
 with an LLM, asking it to create questions for each exercise:
 
 ```python
@@ -74,7 +76,6 @@ df_question = pd.read_csv('data/ground-truth-retrieval.csv')
 ground_truth = df_question.to_dict(orient='records')
 ```
 
-
 ## Evaluating retrieval quality
 
 We use the same Hit Rate and MRR metrics from module 04:
@@ -115,11 +116,12 @@ Evaluate the default search (no boosting):
 evaluate(ground_truth, lambda q: search(q['question']))
 ```
 
-
 ## Finding the best boost parameters
 
 We can optimize the boost values for each field using random
-search. Split the ground truth into validation and test sets:
+search.
+
+Split the ground truth into validation and test sets:
 
 ```python
 df_validation = df_question[:100]

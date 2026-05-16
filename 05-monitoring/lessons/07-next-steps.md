@@ -7,7 +7,9 @@ In this module, we built a monitoring system for our RAG pipeline:
 - Docker Compose to run everything together
 - Grafana dashboards for real-time monitoring
 
-This is a basic setup. For production, consider:
+This is a basic setup.
+
+For production, consider:
 
 - OpenTelemetry for standardized observability across services
 - Prometheus for metrics collection alongside Grafana
@@ -17,7 +19,6 @@ This is a basic setup. For production, consider:
 The 2024 cohort used Elasticsearch instead of minsearch, and included
 Ollama for local models. If you're interested in that setup, see
 [2024 monitoring module](../cohorts/2024/04-monitoring/).
-
 
 ## Further reading
 

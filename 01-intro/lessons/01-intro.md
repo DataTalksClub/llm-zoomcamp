@@ -11,7 +11,6 @@ Places where you can find me:
 - [LinkedIn](https://www.linkedin.com/in/agrigorev/)
 - [X](https://x.com/Al_Grigor)
 
-
 ## LLMs
 
 An LLM (Large Language Model) is a neural network trained on massive
@@ -42,7 +41,6 @@ But LLMs have limitations:
   or internal systems unless you provide that information.
 - Hallucinations: they sometimes produce confident-sounding answers
   that are simply wrong.
-
 
 ## The project
 

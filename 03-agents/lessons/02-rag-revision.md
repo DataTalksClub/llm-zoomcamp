@@ -6,7 +6,6 @@ Before we talk about agents, let's set up the RAG pipeline from module
 If you completed module 1, this will be a quick recap. If you skipped
 it, copy the `rag_helper.py` file from module 1 into your project.
 
-
 ## Setting up RAG
 
 First, load the data and create the search index:
@@ -37,7 +36,6 @@ assistant = RAGBase(
 )
 ```
 
-
 ## Testing it
 
 Let's try a question:
@@ -49,7 +47,7 @@ assistant.rag('How do I run Docker on Windows?')
 This should work fine. The search finds relevant FAQ entries about
 Docker, and the LLM gives a good answer.
 
-Now let's try something slightly different:
+Try something slightly different:
 
 ```python
 assistant.rag('How do I run ducker on windows?')
@@ -66,6 +64,5 @@ can't adapt - it doesn't know the search failed, and it can't try
 again with a corrected query.
 
 We need something smarter. We need an agent.
-
 
 [← Agents](01-intro.md) | [What Are Agents? →](03-agents-concept.md)

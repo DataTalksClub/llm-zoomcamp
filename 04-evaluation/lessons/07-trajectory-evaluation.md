@@ -1,10 +1,12 @@
 # Trajectory Evaluation
 
 In the previous lesson, we collected agent data - for each question,
-we have the tool call trajectory and the final answer. Now let's
-evaluate how efficiently the agent used its tools.
+we have the tool call trajectory and the final answer. This lesson
+evaluates how efficiently the agent used its tools.
 
-A trajectory is the sequence of tool calls the agent made. For example:
+A trajectory is the sequence of tool calls the agent made.
+
+For example:
 
 ```text
 1. search({'query': 'docker windows install'})
@@ -12,7 +14,9 @@ A trajectory is the sequence of tool calls the agent made. For example:
 ```
 
 This is a good trajectory: two relevant searches with different
-keywords. Compare with a bad trajectory:
+keywords.
+
+Compare with a bad trajectory:
 
 ```text
 1. search({'query': 'docker'})
@@ -21,7 +25,6 @@ keywords. Compare with a bad trajectory:
 ```
 
 Three duplicate calls that don't expand the search.
-
 
 ## Qualities of a good trajectory
 
@@ -40,7 +43,6 @@ A bad trajectory has:
 
 We can check some of these with simple code, and for the rest we use
 an LLM judge.
-
 
 ## Simple checks
 
@@ -77,10 +79,11 @@ Simple metrics like call count and duplicate detection are fast and
 free. They catch obvious problems. But they can't tell if the queries
 are relevant or well-formulated.
 
-
 ## LLM-based trajectory evaluation
 
-For a deeper evaluation, we ask an LLM to judge the trajectory. We
+For a deeper evaluation, we ask an LLM to judge the trajectory.
+
+We
 define the output format:
 
 ```python
@@ -196,7 +199,6 @@ for _, row in df_agent[df_agent['trajectory'] == 'bad'].iterrows():
 
 The judge gives you not only a score but also a suggestion for
 improvement. This helps you understand what to fix.
-
 
 ## Combining simple and LLM checks
 

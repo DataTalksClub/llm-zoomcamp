@@ -13,7 +13,6 @@ Important: ToyAIKit is a teaching and experimentation library. It is
 NOT recommended for production use. We use it here because it's
 minimal and educational - you can see what it does.
 
-
 ## Setup
 
 Install it:
@@ -30,7 +29,6 @@ from toyaikit.tools import Tools
 from toyaikit.chat import IPythonChatInterface
 from toyaikit.chat.runners import OpenAIResponsesRunner, DisplayingRunnerCallback
 ```
-
 
 ## Registering the tool
 
@@ -59,7 +57,6 @@ The `chat_interface` handles display in the notebook. The runner
 handles the agent loop - sending messages, executing function calls,
 adding tool outputs back, and repeating until the model is done.
 
-
 ## Running one prompt
 
 To run a single prompt and see the tool calls:
@@ -72,7 +69,6 @@ messages = runner.loop(prompt='How do I run Docker on Windows?', callback=callba
 The callback renders model messages, function calls, arguments, and
 tool outputs in the notebook. During development, this shows whether
 the model searched for the right thing.
-
 
 ## Interactive chat
 

@@ -4,6 +4,7 @@ Before we build the RAG pipeline, let's get familiar with the data
 we'll use as our knowledge base.
 
 The FAQ data is available as JSON from the DataTalks.Club website.
+
 Let's fetch it:
 
 ```python
@@ -15,7 +16,9 @@ courses_raw = response.json()
 ```
 
 This returns a list of courses. Each course has a `path` field that
-points to its FAQ data. Let's fetch all the FAQ documents from all
+points to its FAQ data.
+
+Let's fetch all the FAQ documents from all
 courses:
 
 ```python
@@ -64,7 +67,6 @@ Each course has a slug - a short identifier used in URLs. For example,
 `machine-learning-zoomcamp`, `data-engineering-zoomcamp`, etc. We'll
 use these slugs for filtering in search.
 
-
 ## Using this data
 
 In the RAG pipeline, this dataset is our knowledge base:
@@ -80,7 +82,6 @@ through. The `course` field lets us filter by course - if a student
 is asking about the data engineering course, we don't need results
 from the ML course. The `section` field helps with ranking - knowing
 which part of the course a question belongs to is useful context.
-
 
 ## A note on data preparation
 

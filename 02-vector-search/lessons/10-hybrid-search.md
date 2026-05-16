@@ -1,7 +1,9 @@
 # Hybrid Search
 
 Vector search captures semantic meaning. Keyword search captures exact
-term matches. Both have strengths:
+term matches.
+
+Both have strengths:
 
 - Vector search finds "Can I enroll late?" when the document says
   "Registration after the start date" - different words, same meaning
@@ -32,7 +34,6 @@ This works, but it's naive. Documents from keyword search always come
 first, and duplicates appear twice. Plus we return more than the user requested.
 
 There's a better way to merge them.
-
 
 ## Combining results
 
@@ -70,7 +71,6 @@ Final ranking: C, A/B (tie), F, D/G (tie), E
 C wins because it ranks high in both lists. Documents that only
 appear in one list get lower scores.
 
-
 The parameter `k` smooths the
 differences between ranks - higher `k` means rank position matters
 less.
@@ -107,7 +107,6 @@ def hybrid_search(query, course='data-engineering-zoomcamp', num_results=10):
     vector_results = vector_search(query, course=course, num_results=num_results)
     return rrf([keyword_results, vector_results], num_results=num_results)
 ```
-
 
 ## Using hybrid search in RAG
 

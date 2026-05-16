@@ -12,7 +12,6 @@ reusable files:
 
 Then in notebooks, we just import from these files and use them.
 
-
 ## ingest.py
 
 This file handles data loading and index creation - everything we
@@ -54,7 +53,6 @@ def build_index(documents):
 We'll use `load_faq_data()` to fetch the documents and `build_index()`
 to create the minsearch index. Later, we'll add sqlitesearch support
 to this same file.
-
 
 ## rag_helper.py
 
@@ -180,7 +178,6 @@ And the `rag` method wires it all together:
         return answer
 ```
 
-
 ## Using it in a notebook
 
 Now in a notebook, import from both files and put everything together:
@@ -208,7 +205,9 @@ print(answer)
 ```
 
 We don't need to pass `instructions` - the default from `rag_helper.py` is
-used. You can override it if you want different behavior:
+used.
+
+You can override it if you want different behavior:
 
 ```python
 custom_instructions = '''

@@ -7,7 +7,6 @@ never decides whether to search - we always do it.
 Function calling changes that. We tell the LLM about our search
 function and let it decide when to call it.
 
-
 ## Asking without tools
 
 First, let's see what happens when we ask the LLM a course-specific
@@ -28,7 +27,6 @@ The model answers from its general knowledge. It says something like
 "it depends on the course" or "check the course website". It doesn't
 know about our specific FAQ, so the answer is vague and not
 helpful.
-
 
 ## Defining the tool
 
@@ -69,7 +67,6 @@ Let's go through each field:
 - `additionalProperties: False` - tells the model it can only use the
   fields we listed, no extra ones
 
-
 ## Sending the question with the tool
 
 Now we send the same question, but this time we include the tool in the
@@ -101,10 +98,11 @@ contains a `function_call` entry. The model decided it needs to search
 the FAQ before answering. It didn't answer yet - it asked us to run
 the search function first.
 
-
 ## Executing the function and sending the result back
 
-The function call contains JSON arguments. We parse them, call our
+The function call contains JSON arguments.
+
+We parse them, call our
 Python `search` function, and serialize the result:
 
 ```python
@@ -119,7 +117,9 @@ result_json = json.dumps(results, indent=2)
 
 Now we need to send this result back to the model. First, we add the
 model's output to the conversation history - the model needs to see
-its own function call. Then we add the tool result:
+its own function call.
+
+Then we add the tool result:
 
 ```python
 chat_messages.extend(response.output)
@@ -134,7 +134,6 @@ chat_messages.append({
 The `call_id` links the tool result to the specific function call the
 model requested. If the model makes multiple function calls in one
 turn, each one gets its own `call_id`.
-
 
 ## Asking the model again
 

@@ -28,7 +28,6 @@ respond with "I don't know."
 
 This is what grounds the answer in our data and reduces hallucinations.
 
-
 ## The user prompt template
 
 The user prompt template has placeholders for the question and the
@@ -43,7 +42,6 @@ Context:
 {context}
 '''
 ```
-
 
 ## Building the context
 
@@ -65,7 +63,6 @@ def build_context(search_results):
 Each document becomes a block with the section, question, and answer.
 This format makes it easy for the LLM to read. We just turned a
 dictionary into a string - nothing fancy here.
-
 
 ## Building the prompt
 

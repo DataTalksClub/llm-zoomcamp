@@ -4,7 +4,6 @@ We now have three components - the Streamlit app, PostgreSQL, and
 (soon) Grafana. Starting each one manually works, but Docker Compose
 makes it easier to manage them together.
 
-
 ## Project structure
 
 The project contains the app, database schema, and infrastructure files:
@@ -24,10 +23,11 @@ code/
 └── generate_data.py # Synthetic data generator
 ```
 
-
 ## Dockerfile
 
-The Streamlit app needs its own container. We use uv inside Docker,
+The Streamlit app needs its own container.
+
+We use uv inside Docker,
 just like we do locally:
 
 ```dockerfile
@@ -46,7 +46,6 @@ COPY . .
 CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
 ```
 
-
 ## Environment variables
 
 The `.env` file stores configuration:
@@ -59,10 +58,11 @@ POSTGRES_HOST=postgres
 OPENAI_API_KEY=your-key-here
 ```
 
-
 ## Docker Compose
 
-The Compose file defines three services. First, PostgreSQL and the
+The Compose file defines three services.
+
+First, PostgreSQL and the
 Streamlit app:
 
 ```yaml
@@ -115,11 +115,12 @@ volumes:
   grafana_data:
 ```
 
-
 ## Preparation script
 
 Before using the app, we need to initialize the database and load the
-FAQ data. The `prep.py` script does this:
+FAQ data.
+
+The `prep.py` script does this:
 
 ```python
 from db import init_db
@@ -133,7 +134,6 @@ if __name__ == '__main__':
     print(f'Loaded {len(documents)} documents into search index.')
     print('Ready to use.')
 ```
-
 
 ## Starting everything
 

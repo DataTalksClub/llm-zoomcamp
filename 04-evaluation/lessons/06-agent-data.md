@@ -4,14 +4,18 @@ In module 03, we built agents that use tools to answer questions. The
 agent loop runs the LLM, checks for function calls, executes them, and
 repeats until the LLM gives a final answer.
 
-Evaluating agents is more complex than evaluating RAG. Not only do we
+Evaluating agents is more complex than evaluating RAG.
+
+Not only do we
 need to check if the answer is correct, but also:
 
 - Is the agent using tools efficiently?
 - Is it making unnecessary or duplicate tool calls?
 - Is it following the instructions in the developer prompt?
 
-Before we can evaluate any of this, we need to collect data. For each
+Before we can evaluate any of this, we need to collect data.
+
+For each
 query, we record:
 
 - The question
@@ -21,10 +25,11 @@ query, we record:
 In this lesson, we set up the agent with logging and collect data from
 our ground truth questions.
 
-
 ## Setting up the agent
 
-Let's set up the agent from module 03. The search function, search tool
+Let's set up the agent from module 03.
+
+The search function, search tool
 schema, and developer prompt are the same:
 
 ```python
@@ -119,7 +124,6 @@ def make_call(call):
     }
 ```
 
-
 ## Running the agent with logging
 
 We modify the agent loop to collect the tool call trajectory:
@@ -170,7 +174,6 @@ The `tools` list records every function call the agent makes. This is
 the trajectory - the sequence of actions the agent took to answer the
 question.
 
-
 ## Collecting results
 
 Let's run the agent on ground truth questions and collect the data:
@@ -199,7 +202,9 @@ for t in r['tools']:
 print('Answer:', r['answer'][:100], '...')
 ```
 
-We have the data we need. In the next two lessons, we'll evaluate
+We have the data we need.
+
+In the next two lessons, we'll evaluate
 the agent on three dimensions:
 
 1. Answer correctness (did it give the right answer?)

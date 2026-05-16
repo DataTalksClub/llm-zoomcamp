@@ -4,7 +4,6 @@ Grafana is a dashboard tool that visualizes data from databases. We
 already store conversations and feedback in PostgreSQL, so we can build
 dashboards that show what's happening in our system in real time.
 
-
 ## Setting up the data source
 
 Follow these steps to connect Grafana to PostgreSQL:
@@ -21,7 +20,6 @@ Follow these steps to connect Grafana to PostgreSQL:
    - SSL Mode: disable
 6. Click Save & Test. It should say "Database Connection OK"
 
-
 ## Creating the dashboard
 
 Create a new dashboard. We'll add panels one by one. Each panel has a
@@ -35,7 +33,6 @@ Grafana provides special SQL variables for time-based filtering:
 
 These let the user select "last 30 minutes" or "last 6 hours" and the
 queries automatically filter to that range.
-
 
 ## Response Time Panel
 
@@ -52,7 +49,6 @@ ORDER BY timestamp
 
 Use the Time series visualization for this panel.
 
-
 ## Relevance Distribution Panel
 
 Shows how many answers are RELEVANT, PARTLY_RELEVANT, or NON_RELEVANT:
@@ -67,7 +63,6 @@ GROUP BY relevance
 ```
 
 Use a Gauge or a Pie chart for this panel.
-
 
 ## Token Usage Panel
 
@@ -84,7 +79,6 @@ ORDER BY 1
 ```
 
 Use the Time series visualization for this panel.
-
 
 ## OpenAI Cost Panel
 
@@ -103,7 +97,6 @@ ORDER BY 1
 
 Use the Time series visualization for this panel.
 
-
 ## Model Usage Panel
 
 Shows which models are being used:
@@ -118,7 +111,6 @@ GROUP BY model_used
 ```
 
 Use a Bar chart for this panel.
-
 
 ## Recent Conversations Panel
 
@@ -138,7 +130,6 @@ LIMIT 5
 
 Panel type: Table
 
-
 ## Feedback Statistics Panel
 
 Shows thumbs up vs thumbs down:
@@ -153,13 +144,14 @@ WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
 
 Use a Pie chart for this panel.
 
-
 ## Dashboard settings
 
 Set the dashboard to auto-refresh every 30 seconds so the data stays
 current. You can also set the default time range to "Last 6 hours".
 
-Arrange the panels in a layout that makes sense. A common layout:
+Arrange the panels in a layout that makes sense.
+
+A common layout:
 
 - Top row: recent conversations table (wide)
 - Middle row: feedback pie chart | relevance gauge | model usage bar
