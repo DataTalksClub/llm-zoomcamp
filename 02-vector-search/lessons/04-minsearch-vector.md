@@ -1,8 +1,9 @@
 # Vector Search with minsearch
 
 In the previous section, we saw how vector search works with numpy:
-embed the query, compute dot products, find the best match. minsearch
-does exactly the same thing, but it follows the same interface we
+embed the query, compute dot products, find the best match.
+
+minsearch does exactly the same thing, but it follows the same interface we
 already know from module 1 - `fit`, `search`, `filter_dict`, and all
 the rest.
 

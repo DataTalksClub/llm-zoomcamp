@@ -61,19 +61,23 @@ v2 = model.encode(q2)
 dv = model.encode(d)
 ```
 
-Now let's compare the queries against the document using dot product:
+Now let's compare the queries against the document using dot product.
+
+For the first query:
 
 ```python
 v1.dot(dv)
 ```
 
+For the second query:
+
 ```python
 v2.dot(dv)
 ```
 
-The first score (q1 vs d) should be higher - the query about joining
+The first score (`q1` vs `d`) should be higher - the query about joining
 the course is more similar to the document about registration. The
-second score (q2 vs d) should be lower - installing Docker has nothing
+second score (`q2` vs `d`) should be lower - installing Docker has nothing
 to do with registration.
 
 This is the core idea behind vector search: similar texts get similar
