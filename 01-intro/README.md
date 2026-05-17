@@ -32,5 +32,5 @@ See old content for [2024](../cohorts/2024/) and [2025](../cohorts/2025/) cohort
 
 
 ## Notes 
-
+* [Notes from Vignesh Mayilappan](https://github.com/vigneshmailappan/llm-zoomcamp/tree/main/llm-zoomcamp-code#readme)
 - Add your notes above this line
