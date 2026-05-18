@@ -17,7 +17,6 @@ In this module, we will:
 - Generate embeddings using sentence-transformers
 - Build vector search with minsearch, sqlitesearch, and PGVector
 - Integrate vector search into our RAG pipeline
-- Combine keyword and vector search with hybrid search
 
 
 ## Lessons
@@ -30,9 +29,8 @@ In this module, we will:
 6. [RAG with Vector Search](lessons/06-rag-vector.md) - Replacing keyword search with vector search in our RAG pipeline
 7. [Vector Search with sqlitesearch](lessons/07-sqlitesearch-vector.md) - Persistent vector search backed by SQLite
 8. [Vector Search with PGVector](lessons/08-pgvector.md) - Production vector search with PostgreSQL and pgvector
-9. [Text vs Vector Search](lessons/09-text-vs-vector.md) - Comparing keyword and vector search side by side
-10. [Hybrid Search](lessons/10-hybrid-search.md) (Optional) - Combining keyword and vector search for better results
-11. [ONNX Embedder](lessons/11-onnx-embedder.md) (Optional) - Using ONNX Runtime instead of PyTorch for embeddings
+9. [ONNX Embedder](lessons/09-onnx-embedder.md) (Optional) - Using ONNX Runtime instead of PyTorch for embeddings
+10. [Next Steps](lessons/10-next-steps.md) - When to use vector search and what's next
 
 
 ## Old content

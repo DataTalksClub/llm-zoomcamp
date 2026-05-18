@@ -106,44 +106,19 @@ results = vs_index.search(
 )
 ```
 
-## Reopening the index
-
-The key advantage of sqlitesearch is persistence.
-
-In a new Python
-session, you can reopen the index without re-computing embeddings:
-
-```python
-from sqlitesearch import VectorSearchIndex
-
-vs_index = VectorSearchIndex(
-    keyword_fields=['course'],
-    mode='ivf',
-    db_path='faq_vectors.db'
-)
-
-query_vector = model.encode('How do I run Kafka?')
-results = vs_index.search(query_vector, num_results=5)
-```
-
-No `fit` call needed. The index is already built and ready.
-
-This is the same two-process architecture we used for text search in
-module 1: one process ingests and builds the index, another process
-queries it.
-
 ## Closing the connection
 
-When you're done:
+When you're done with the index:
 
 ```python
 vs_index.close()
 ```
 
-## Using sqlitesearch vector search in RAG
 
-Since sqlitesearch is persistent, we can open a separate notebook
-and use it without re-computing embeddings:
+## Reopening the index
+
+In a new Python
+session, you can reopen the index without re-computing embeddings:
 
 ```python
 from sentence_transformers import SentenceTransformer
@@ -158,13 +133,42 @@ vs_index = VectorSearchIndex(
 )
 ```
 
-No `fit` call needed. One notebook built the index, another notebook
+Now we can search:
+
+```python
+query_vector = model.encode('How do I run Kafka?')
+results = vs_index.search(query_vector, num_results=5)
+```
+
+We still need to load the embedding model - it's needed to encode the
+query. But we don't need to re-embed all the documents. No `fit` call
+needed. The index is already built and ready.
+
+This is the same two-process architecture we used for text search in
+module 1: one process ingests and builds the index, another process
 queries it.
 
-We use it in our RAG pipeline.
+## Using sqlitesearch vector search in RAG
 
-The `RAGVector` class from the previous lesson (a subclass of
-`RAGBase`) handles embedding the query:
+Let's use our persistent vector index in RAG. In a new notebook, set up
+the model and open the index (same as in the "Reopening the index"
+section above):
+
+```python
+from sentence_transformers import SentenceTransformer
+from sqlitesearch import VectorSearchIndex
+
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+vs_index = VectorSearchIndex(
+    keyword_fields=['course'],
+    mode='ivf',
+    db_path='faq_vectors.db'
+)
+```
+
+Now let's connect it to our RAG pipeline. The `RAGVector` class from the
+previous lesson (a subclass of `RAGBase`) handles embedding the query:
 
 ```python
 from rag_helper import RAGBase
@@ -185,10 +189,20 @@ class RAGVector(RAGBase):
             num_results=num_results,
             filter_dict=filter_dict
         )
+```
 
+Now create the vector assistant:
+
+```python
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
 openai_client = OpenAI()
+```
 
-assistant = RAGVector(
+```python
+vector_assistant = RAGVector(
     embedder=model,
     index=vs_index,
     llm_client=openai_client,
@@ -198,7 +212,13 @@ assistant = RAGVector(
 Try it:
 
 ```python
-assistant.rag('I just discovered the course. Can I still join it?')
+vector_assistant.rag('the program has already begun, can I still sign up?')
+```
+
+When you're done, close the connection:
+
+```python
+vs_index.close()
 ```
 
 ## Comparing minsearch and sqlitesearch for vector search

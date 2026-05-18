@@ -1,9 +1,5 @@
 # Document Reranking
 
-<a href="https://www.youtube.com/watch?v=H4M55Ptc5cM">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/H4M55Ptc5cM">
-</a>
-
 When we retrieve documents, they're ranked by cosine similarity.
 But cosine similarity doesn't always reflect true relevance to the
 user's question. The most relevant document might be at position

@@ -112,7 +112,7 @@ vector_assistant = RAGVector(
 Try it with different queries:
 
 ```python
-vector_assistant.rag('the course has already started, can I still enroll?')
+vector_assistant.rag('the program has already begun, can I still sign up?')
 ```
 
 The answers should be similar to what we got with keyword search, but

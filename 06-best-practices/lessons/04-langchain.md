@@ -1,9 +1,5 @@
 # Hybrid Search with LangChain
 
-<a href="https://www.youtube.com/watch?v=CRfg7tAsnUU">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/CRfg7tAsnUU">
-</a>
-
 So far we've been working with Elasticsearch directly. LangChain
 provides wrappers that simplify the code. In this lesson, we'll
 rewrite our hybrid search using LangChain's ElasticsearchRetriever.

@@ -31,12 +31,45 @@ creates a named volume so data persists across container restarts.
 Install the driver:
 
 ```bash
-uv add psycopg2-binary
+uv add psycopg[binary]
 ```
 
-We'll use `psycopg2` to connect and run queries.
+We'll use `psycopg` (v3) to connect and run queries. Note: this is
+different from `psycopg2` - psycopg v3 supports `conn.execute()`
+directly without creating a cursor.
 
-Let's connect to it:
+## Preparing the data
+
+We need the FAQ documents and their embeddings.
+
+Here's what we did in previous units as one script:
+
+```python
+import numpy as np
+from tqdm.auto import tqdm
+
+from ingest import load_faq_data
+from sentence_transformers import SentenceTransformer
+
+
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+documents = load_faq_data()
+texts = [doc['question'] + ' ' + doc['answer'] for doc in documents]
+
+batch_size = 50
+vectors = []
+
+for i in tqdm(range(0, len(texts), batch_size)):
+    batch = texts[i:i + batch_size]
+    batch_vectors = model.encode(batch)
+    vectors.extend(batch_vectors)
+
+X = np.array(vectors)
+```
+
+
+Now we connect to Postgres:
 
 ```python
 import psycopg
@@ -76,15 +109,13 @@ The `vector(384)` column stores our 384-dimensional embeddings from
 
 ## Inserting documents with embeddings
 
-We already have `documents` and `vectors` from the previous sections.
-
-Let's insert them into PGVector:
+Let's insert the documents and their vectors into PGVector:
 
 ```python
 def vec_to_str(vector):
     return '[' + ','.join(str(x) for x in vector) + ']'
 
-for doc, vec in zip(documents, vectors):
+for doc, vec in tqdm(zip(documents, vectors), total=len(documents)):
     conn.execute(
         """
         INSERT INTO documents (course, section, question, answer, embedding)
@@ -109,7 +140,9 @@ Search with a query:
 query = 'I just discovered the course. Can I still join it?'
 query_vector = model.encode(query)
 query_str = vec_to_str(query_vector)
+```
 
+```python
 results = conn.execute(
     """
     SELECT course, question, answer,
@@ -142,7 +175,7 @@ results = conn.execute(
     ORDER BY embedding <=> %s::vector
     LIMIT 5
     """,
-    (query_str, 'data-engineering-zoomcamp', query_str)
+    (query_str, 'llm-zoomcamp', query_str)
 ).fetchall()
 ```
 
@@ -169,7 +202,7 @@ faster at the cost of a small accuracy trade-off.
 Let's wrap the search logic in a reusable function:
 
 ```python
-def pgvector_search(query, course='data-engineering-zoomcamp', num_results=5):
+def pgvector_search(query, course='llm-zoomcamp', num_results=5):
     query_vector = model.encode(query)
     query_str = vec_to_str(query_vector)
     rows = conn.execute(
@@ -192,7 +225,69 @@ def pgvector_search(query, course='data-engineering-zoomcamp', num_results=5):
 Try it:
 
 ```python
-results = pgvector_search('How do I run Kafka?')
+results = pgvector_search('How do I join the course?')
+```
+
+## Using it in RAG
+
+Let's create a class that extends `RAGBase` with a custom `__init__`
+that doesn't require an index, and overrides `search` to query PGVector:
+
+```python
+from rag_helper import RAGBase
+
+class RAGPgVector(RAGBase):
+
+    def __init__(self, embedder, conn, **kwargs):
+        super().__init__(index=None, **kwargs)
+        self.embedder = embedder
+        self.conn = conn
+
+    def search(self, query, num_results=5):
+        query_vector = self.embedder.encode(query)
+        query_str = vec_to_str(query_vector)
+
+        rows = self.conn.execute(
+            """
+            SELECT course, section, question, answer
+            FROM documents
+            WHERE course = %s
+            ORDER BY embedding <=> %s::vector
+            LIMIT %s
+            """,
+            (self.course, query_str, num_results)
+        ).fetchall()
+
+        return [
+            {'course': r[0], 'section': r[1], 'question': r[2], 'answer': r[3]}
+            for r in rows
+        ]
+```
+
+Initialize OpenAI client:
+
+```python
+from dotenv import load_dotenv
+from openai import OpenAI
+
+load_dotenv()
+openai_client = OpenAI()
+```
+
+Create the vector assistant:
+
+```python
+vector_assistant = RAGPgVector(
+    embedder=model,
+    conn=conn,
+    llm_client=openai_client,
+)
+```
+
+Try it:
+
+```python
+vector_assistant.rag('the program has already begun, can I still sign up?')
 ```
 
 ## Using PGVector
@@ -211,4 +306,4 @@ PGVector is the right choice when you need production features:
 - transactions
 - integration with an existing Postgres-based application
 
-[← Vector Search with sqlitesearch](07-sqlitesearch-vector.md) | [Text Search vs Vector Search →](09-text-vs-vector.md)
+[← Vector Search with sqlitesearch](07-sqlitesearch-vector.md) | [Using ONNX Runtime →](09-onnx-embedder.md)

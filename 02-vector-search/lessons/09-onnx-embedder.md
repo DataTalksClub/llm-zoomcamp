@@ -203,4 +203,4 @@ Since the runtime only depends on `onnxruntime`, `tokenizers`, and
 - serverless functions
 - edge devices
 
-[← Hybrid Search](10-hybrid-search.md) | [Back to module →](../)
+[← Vector Search with PGVector](08-pgvector.md) | [Next Steps →](10-next-steps.md)

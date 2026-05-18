@@ -1,9 +1,5 @@
 # Best Practices for RAG
 
-<a href="https://www.youtube.com/watch?v=Tq9Vbm_2z3o">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/Tq9Vbm_2z3o">
-</a>
-
 In the previous modules we built search engines, agents, evaluation
 pipelines, and monitoring dashboards. This module covers techniques
 that improve retrieval quality - the most critical part of any RAG
@@ -44,7 +40,6 @@ Slides: [llm-zoomcamp-best-practicies.pdf](../llm-zoomcamp-best-practicies.pdf)
 
 To learn more:
 
-- [Five Techniques for Improving RAG Chatbots - Nikita Kozodoi](https://www.youtube.com/watch?v=xPYmKozodoi)
 - [Survey on RAG techniques](https://arxiv.org/abs/2312.10997)
 
 [← Back to module](../) | [Hybrid Search →](02-hybrid-search.md)
