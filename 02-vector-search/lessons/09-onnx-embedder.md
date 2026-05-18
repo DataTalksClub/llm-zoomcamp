@@ -24,12 +24,20 @@ Let's create a separate project for this lesson:
 
 ```bash
 mkdir llm-zoomcamp-onnx && cd llm-zoomcamp-onnx
-uv init
-uv add onnxruntime tokenizers numpy tqdm
-uv add --dev huggingface-hub
+uv init --no-workspace
+uv add onnxruntime tokenizers numpy tqdm minsearch
+uv add --dev huggingface-hub jupyter
 ```
 
+
 `huggingface-hub` is only needed to download the model. At runtime we'll need `onnxruntime`, `tokenizers`, and `numpy`.
+
+Then register a kernel for this project:
+
+```bash
+uv run python -m ipykernel install --user --name llm-zoomcamp-onnx --display-name "llm-zoomcamp-onnx"
+```
+
 
 ## Downloading the model
 
@@ -124,10 +132,19 @@ about registration.
 
 Embed our FAQ dataset.
 
-First, load the documents:
+First, we add the parent directory with helper scripts to our PYTHONPATH:
 
 ```python
-from rag_helper import load_faq_data
+import sys
+sys.path.insert(0, '..')
+```
+
+This lets us import `ingest.py` and `rag_helper.py`.
+
+Load the documents:
+
+```python
+from ingest import load_faq_data
 
 documents = load_faq_data()
 ```
@@ -141,7 +158,7 @@ texts = [doc['question'] + ' ' + doc['answer'] for doc in documents]
 Embed in batches:
 
 ```python
-from tqdm import tqdm
+from tqdm.auto import tqdm
 import numpy as np
 
 batch_size = 50

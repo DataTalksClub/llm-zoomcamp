@@ -50,6 +50,9 @@ Try these next steps:
 - Compare text search and vector search on your own data
 - Experiment with different embedding models
 - Try PGVector with a larger dataset
+- Try a different vector database - Elasticsearch, Qdrant,
+  Weaviate, Chroma, or any other. The concepts are the same:
+  embed documents, store vectors, search by similarity
 - Evaluate your search results (covered in a later module)
 
 [← Vector Search with PGVector](08-pgvector.md) | [Back to module →](../)
