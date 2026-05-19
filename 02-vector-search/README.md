@@ -20,7 +20,7 @@ In this module, we will:
 
 Video: https://www.youtube.com/live/BC3NsRUNEIg
 
-Code: https://github.com/alexeygrigorev/llm-zoomcamp-2026-vector
+Code: [code/](code/)
 
 
 ## Notes

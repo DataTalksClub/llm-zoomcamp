@@ -45,7 +45,6 @@ We need the FAQ documents and their embeddings.
 Here's what we did in previous units as one script:
 
 ```python
-import numpy as np
 from tqdm.auto import tqdm
 
 from ingest import load_faq_data
@@ -64,8 +63,6 @@ for i in tqdm(range(0, len(texts), batch_size)):
     batch = texts[i:i + batch_size]
     batch_vectors = model.encode(batch)
     vectors.extend(batch_vectors)
-
-X = np.array(vectors)
 ```
 
 

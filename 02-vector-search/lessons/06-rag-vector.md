@@ -52,6 +52,7 @@ assistant = RAGBase(
 Ask it a question:
 
 ```python
+query = 'I just found out about the program, can I still sign up?'
 assistant.rag(query)
 ```
 
@@ -88,7 +89,7 @@ class RAGVector(RAGBase):
         )
 ```
 
-Here in `__init__` we add a new argument: `embedder` for our sentence tranformer, 
+Here in `__init__` we add a new argument: `embedder` for our sentence transformer,
 which we later use in `search` for turning the query into a vector.
 
 ## Using it

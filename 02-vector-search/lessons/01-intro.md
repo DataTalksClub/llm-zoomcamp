@@ -70,7 +70,7 @@ Then we'll integrate vector search into our RAG pipeline and explore
 hybrid search that combines keyword and vector search.
 
 The code from this module is available in the
-[code repository](https://github.com/alexeygrigorev/llm-zoomcamp-2026-vector).
+[code directory](../code/).
 
 ## Prerequisites
 

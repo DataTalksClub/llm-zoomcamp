@@ -93,7 +93,7 @@ v2.dot(dv)
 
 And we get 0.01.
 
-The first score for `q1` vs `d` (0.32) is be higher, so the query is more similar to the document about registration.
+The first score for `q1` vs `d` (0.32) is higher, so the query is more similar to the document about registration.
 
 The second score (`q2` vs `d`) is lower - it's near 0. Installing Docker has nothing to do with registration.
 

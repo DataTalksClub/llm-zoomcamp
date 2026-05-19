@@ -9,7 +9,7 @@ In this module, we:
   class
 
 The code is available in the
-[code repository](https://github.com/alexeygrigorev/llm-zoomcamp-2026-vector).
+[code directory](../code/).
 
 
 ## When to use vector search

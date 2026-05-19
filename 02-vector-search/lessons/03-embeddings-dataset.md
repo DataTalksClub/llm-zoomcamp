@@ -16,7 +16,7 @@ documents = load_faq_data()
 
 If you don't have it, you can find it in the
 [module 1 code directory](../../01-intro/code/) or in the
-[code repository](https://github.com/alexeygrigorev/llm-zoomcamp-2026-vector).
+[code directory](../code/).
 
 ## Generating embeddings
 
@@ -61,7 +61,7 @@ We end up with 1208 vectors.
 We turn them into a 2-dimensional array (matrix) where
 
 - rows are documents (vectors)
-- columns are dimenstions of the vectors
+- columns are dimensions of the vectors
 
 ```python
 import numpy as np

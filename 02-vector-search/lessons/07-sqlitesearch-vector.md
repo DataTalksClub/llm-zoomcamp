@@ -2,13 +2,13 @@
 
 In the previous section, we used minsearch for vector search.
 
-It works, but it has a few problems problem:
+It works, but it has a few problems:
 
 - Indexing on startup
 - Keeping everything in memory
 - Brute-force search
 
-In case of text search, we didn't feel these problems. Indexing was fast, becase we didn't need to embed text into vectors.
+In case of text search, we didn't feel these problems. Indexing was fast, because we didn't need to embed text into vectors.
 
 For vector search, it takes some time: we run a neural network over every document.
 
@@ -25,9 +25,9 @@ approximate nearest neighbor (ANN) search instead.
 
 ## sqlitesearch
 
-sqlitesearch (the persistant sibling of minsearch) solves it.
+sqlitesearch (the persistent sibling of minsearch) solves it.
 
-We already used it in module 1 for persistant text search.
+We already used it in module 1 for persistent text search.
 It also supports vector search with its `VectorSearchIndex` class.
 
 It stores vectors in SQLite and uses
@@ -73,7 +73,7 @@ Fit the index with our vectors and documents:
 vs_index.fit(vectors, documents)
 ```
 
-The index is saved to `faq_vectors.db`. Unlike minsearch, this file
+The index is saved to `faq_vectors2.db`. Unlike minsearch, this file
 persists on disk. You can search immediately after indexing, or reopen
 the index later without re-indexing.
 
@@ -129,7 +129,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 vs_index = VectorSearchIndex(
     keyword_fields=['course'],
     mode='ivf',
-    db_path='faq_vectors.db'
+    db_path='faq_vectors2.db'
 )
 ```
 
@@ -163,16 +163,23 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 vs_index = VectorSearchIndex(
     keyword_fields=['course'],
     mode='ivf',
-    db_path='faq_vectors.db'
+    db_path='faq_vectors2.db'
 )
 ```
 
-Now let's connect it to our RAG pipeline. The `RAGVector` class from the
-previous lesson (a subclass of `RAGBase`) handles embedding the query:
+We'll use the `RAGVector` class we defined in the
+[previous lesson](06-rag-vector.md). It overrides the `search` method
+to embed the query and use vector search.
+
+Set up the OpenAI client and create the assistant:
 
 ```python
 from rag_helper import RAGBase
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()
+openai_client = OpenAI()
 
 class RAGVector(RAGBase):
 
@@ -189,19 +196,7 @@ class RAGVector(RAGBase):
             num_results=num_results,
             filter_dict=filter_dict
         )
-```
 
-Now create the vector assistant:
-
-```python
-from dotenv import load_dotenv
-from openai import OpenAI
-
-load_dotenv()
-openai_client = OpenAI()
-```
-
-```python
 vector_assistant = RAGVector(
     embedder=model,
     index=vs_index,
