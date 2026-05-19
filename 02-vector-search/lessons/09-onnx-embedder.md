@@ -41,16 +41,10 @@ uv run python -m ipykernel install --user --name llm-zoomcamp-onnx --display-nam
 
 ## Downloading the model
 
-We'll use [download.py](../embed/download.py) to fetch the ONNX model from
-HuggingFace.
+We'll use the [download.py](../embed/download.py) script from the
+`embed/` directory to fetch the ONNX model from HuggingFace.
 
-Download it:
-
-```bash
-wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/02-vector-search/embed/download.py
-```
-
-Now run:
+Copy it to your project, then run:
 
 ```bash
 uv run python download.py
@@ -76,13 +70,10 @@ models/
 
 ## The Embedder class
 
-We'll use [embedder.py](../embed/embedder.py) for generating embeddings.
+We'll use the [embedder.py](../embed/embedder.py) script from the
+`embed/` directory for generating embeddings.
 
-Download it:
-
-```bash
-wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/02-vector-search/embed/embedder.py
-```
+Copy it to your project as well.
 
 Under the hood, it does four things:
 

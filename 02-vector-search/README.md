@@ -18,8 +18,12 @@ In this module, we will:
 - Build vector search with minsearch, sqlitesearch, and PGVector
 - Integrate vector search into our RAG pipeline
 
+Video: https://www.youtube.com/live/BC3NsRUNEIg
 
-## Lessons
+Code: https://github.com/alexeygrigorev/llm-zoomcamp-2026-vector
+
+
+## Notes
 
 1. [What is Vector Search](lessons/01-intro.md) - Keyword search vs vector search, why it matters
 2. [Embeddings](lessons/02-embeddings.md) - Turning text into vectors with sentence-transformers
@@ -36,3 +40,8 @@ In this module, we will:
 ## Old content
 
 See [2024](../cohorts/2024/) and [2025](../cohorts/2025/) cohorts.
+
+
+## Notes 
+
+- Add your notes above this line

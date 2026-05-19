@@ -8,6 +8,9 @@ In this module, we:
 - Integrated vector search into our RAG pipeline with the `RAGVector`
   class
 
+The code is available in the
+[code repository](https://github.com/alexeygrigorev/llm-zoomcamp-2026-vector).
+
 
 ## When to use vector search
 

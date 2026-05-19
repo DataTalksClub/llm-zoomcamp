@@ -54,21 +54,14 @@ We see:
 
 ## Top 5 results
 
-We can also look at the top 5 results:
+We can also look at the top 5 results. `np.argsort` sorts from lowest
+to highest, so the last 5 are the top ones:
 
 ```python
 top5 = np.argsort(scores)[-5:]
 ```
 
-We get the last 5 results (sorting it from lowest to highest in numpy).
-
-This returns an array with 5 indicies:
-
-```python
-array([558, 472,  29, 955, 553])
-```
-
-Next, we need to reverse them:
+We need to reverse them to get the highest first:
 
 ```python
 top5 = top5[::-1]
@@ -79,6 +72,13 @@ We can see the top 5 scores:
 
 ```python
 scores[top5]
+```
+
+There's also a shortcut - negate the scores first, so `argsort` gives
+us the highest first directly:
+
+```python
+top5 = np.argsort(-scores)[:5]
 ```
 
 Let's see the actual documents:

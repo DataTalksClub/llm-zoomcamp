@@ -10,20 +10,14 @@ def rag(question):
 ```
 
 The search step used keyword search. Now we can replace it with vector search.
+Because RAG is modular, this is the only step we need to change.
 
-## The keyword search RAG
+## Using RAGBase
 
 In module 1, we put all the RAG logic into a
 [RAGBase](../../01-intro/code/rag_helper.py)
-helper class.
-
-If you don't have it, let's download it: 
-
-```bash
-wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-intro/code/rag_helper.py
-```
-
-Let's quickly go over what we did previously.
+helper class. It has search, build_prompt, and llm methods.
+We only need to override the search method.
 
 First, create the OpenAI client:
 
@@ -44,7 +38,7 @@ documents = load_faq_data()
 index = build_index(documents)
 ```
 
-Finally, use the `RAGBase` class:
+Then use the `RAGBase` class:
 
 ```python
 from rag_helper import RAGBase
@@ -61,7 +55,7 @@ Ask it a question:
 assistant.rag(query)
 ```
 
-## Swapping into RAG
+This uses keyword search. Now let's swap it for vector search.
 
 We already have:
 
