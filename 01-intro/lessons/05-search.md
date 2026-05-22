@@ -81,9 +81,9 @@ search_results = index.search(
 search_results
 ```
 
-We get back 5 results from the LLM Zoomcamp FAQ. The top result is
-the one that matches best - it's the FAQ entry "I just discovered the
-course. Can I still join?" which is exactly what we need.
+We get back 5 results from the LLM Zoomcamp FAQ. The best match is the FAQ
+entry "I just discovered the course. Can I still join?" which is exactly what
+we need.
 
 Here are all the questions:
 
