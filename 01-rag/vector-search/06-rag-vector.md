@@ -15,7 +15,7 @@ Because RAG is modular, this is the only step we need to change.
 ## Using RAGBase
 
 In module 1, we put all the RAG logic into a
-[RAGBase](../../01-intro/code/rag_helper.py)
+[RAGBase](../code/rag_helper.py)
 helper class. It has search, build_prompt, and llm methods.
 We only need to override the search method.
 

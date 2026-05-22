@@ -81,9 +81,9 @@ Self-paced steps:
 
 ## 📚 Course Syllabus
 
-- [1. Introduction to LLMs & RAG](01-intro/). Build a basic RAG pipeline with text search
-- [2. Vector Search](02-vector-search/). Index and retrieve documents using semantic embeddings
-- [3. Agents](03-agents/). Add autonomous tool use and function calling to RAG
+- [1. RAG and Vector Search](01-rag/). Build a RAG pipeline with text search and semantic vector search
+- [2. Agents](02-agents/). Add autonomous tool use and function calling to RAG
+- [3. Orchestration](03-orchestration/). AI orchestration with Kestra
 - [Workshop - Data Ingestion](cohorts/2025/workshops/dlt.md). Ingest data with dlt from external sources into your RAG system
 - [4. Evaluation](04-evaluation/). Measure retrieval and answer quality with offline and online eval
 - [5. Monitoring](05-monitoring/). Monitor user feedback and system health with live dashboards
@@ -161,6 +161,12 @@ To earn your certificate:
 ## Sponsors
 
 A huge thanks to our sponsors for making this course possible!
+
+<p align="center">
+  <a href="https://kestra.io/">
+    <img height="80" src="https://github.com/DataTalksClub/data-engineering-zoomcamp/raw/main/images/kestra.svg" alt="Kestra - Open-Source Orchestration Platform" />
+  </a>
+</p>
 
 <p align="center">
   <a href="https://dlthub.com/">

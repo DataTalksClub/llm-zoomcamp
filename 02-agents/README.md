@@ -1,9 +1,9 @@
-# Module 3: Agents
+# Module 2: Agents
 
-In modules 1 and 2, we built RAG pipelines with keyword search and
-vector search. The pipeline was always fixed: search once, build a
-prompt, send to the LLM. But what if the search doesn't find what we
-need? What if the user makes a typo?
+In module 1, we built RAG pipelines with keyword search and vector
+search. The pipeline was always fixed: search once, build a prompt, send
+to the LLM. But what if the search doesn't find what we need? What if
+the user makes a typo?
 
 Agents give the LLM the ability to decide what to do. Instead of a
 fixed pipeline, the LLM chooses which tools to call, when to call them,

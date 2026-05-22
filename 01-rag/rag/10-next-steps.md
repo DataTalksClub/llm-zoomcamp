@@ -34,8 +34,8 @@ For an Elasticsearch tutorial, see the
 
 ## Vector Search
 
-In the next module, we'll cover vector search - matching documents by
-semantic meaning instead of exact keywords.
+In the next part of this module, we'll cover vector search - matching
+documents by semantic meaning instead of exact keywords.
 
 If you're curious about how we taught this before:
 - [2024 cohort](../../cohorts/2024/) used Elasticsearch for vector search
@@ -51,7 +51,7 @@ so on.
 
 An agent gives the LLM that intermediary role. It can reason about
 what to search for and decide when to call which tool. We'll cover
-agents in detail in module 03.
+agents in detail in module 2.
 
 ## Fine-tuning vs RAG
 

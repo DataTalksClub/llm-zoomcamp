@@ -6,7 +6,7 @@ In this lesson we apply them to the entire FAQ dataset.
 ## Loading the data
 
 In module 1, we created a helper script for downloading the
-data ([ingest.py](../../01-intro/code/ingest.py)). We use it here:
+data ([ingest.py](../code/ingest.py)). We use it here:
 
 ```python
 from ingest import load_faq_data
@@ -15,7 +15,7 @@ documents = load_faq_data()
 ```
 
 If you don't have it, you can find it in the
-[module 1 code directory](../../01-intro/code/) or in the
+[module 1 code directory](../code/) or in the
 [code directory](../code/).
 
 ## Generating embeddings
