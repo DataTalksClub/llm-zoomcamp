@@ -6,7 +6,9 @@ In this lesson we apply them to the entire FAQ dataset.
 ## Loading the data
 
 In module 1, we created a helper script for downloading the
-data ([ingest.py](../code/ingest.py)). We use it here:
+data ([ingest.py](../code/ingest.py)).
+
+We use it here:
 
 ```python
 from ingest import load_faq_data
@@ -23,8 +25,8 @@ If you don't have it, you can find it in the
 For vector search, we want to embed a combination of the question and
 the answer.
 
-This way, when a user asks a question, we can match it
-against both the questions and answers in our index:
+This way, user queries match against both questions and answers
+in our index:
 
 ```python
 texts = []

@@ -62,7 +62,7 @@ def build_context(search_results):
 
 Each document becomes a block with the section, question, and answer.
 This format makes it easy for the LLM to read. We just turned a
-dictionary into a string - nothing fancy here.
+dictionary into a string - a plain text format the LLM can process.
 
 ## Building the prompt
 

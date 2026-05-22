@@ -1,10 +1,10 @@
 # Vector Search with PGVector
 
 [pgvector](https://github.com/pgvector/pgvector) is a PostgreSQL
-extension that adds vector similarity search to PostgreSQL. It's a
-good choice when you already use Postgres in your stack or when you
-need a production-grade solution that handles concurrent access,
-transactions, and large datasets.
+extension that adds vector similarity search to PostgreSQL. Use it
+when you already have Postgres in your stack. It also provides
+production features like concurrent access, transactions, and
+large-scale data.
 
 We'll run PostgreSQL with pgvector in Docker.
 
@@ -49,7 +49,6 @@ from tqdm.auto import tqdm
 
 from ingest import load_faq_data
 from sentence_transformers import SentenceTransformer
-
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
@@ -138,6 +137,8 @@ query = 'I just discovered the course. Can I still join it?'
 query_vector = model.encode(query)
 query_str = vec_to_str(query_vector)
 ```
+
+Search for the most similar documents:
 
 ```python
 results = conn.execute(
@@ -289,13 +290,12 @@ vector_assistant.rag('the program has already begun, can I still sign up?')
 
 ## Using PGVector
 
-| | minsearch | sqlitesearch | PGVector |
-|---|---|---|---|
-| Setup | None | None | Docker container |
-| Persistence | In-memory | SQLite file | Postgres database |
-| Concurrent access | No | Limited | Yes |
-| Scale | Thousands | Hundreds of thousands | Millions |
-| Best for | Notebooks, experiments | Pet projects | Production systems |
+Comparison with minsearch and sqlitesearch:
+
+- minsearch: no setup, in-memory, best for notebooks and experiments
+- sqlitesearch: no setup, SQLite file persistence, best for pet projects
+- PGVector: requires Docker, Postgres database with concurrent access,
+  handles millions of records, best for production systems
 
 PGVector is the right choice when you need production features:
 

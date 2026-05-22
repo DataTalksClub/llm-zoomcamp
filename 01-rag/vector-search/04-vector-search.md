@@ -23,6 +23,16 @@ scores = X.dot(v_query)
 
 This is matrix-vector multiplication, and it's typically fast. Each element `i` of the `scores` vector is the cosine similarity between the document `i` (on row `i`) and `v_query`.
 
+We could do the same thing with a for loop:
+
+```python
+scores = [v_query.dot(X[i]) for i in range(len(X))]
+```
+
+But `X.dot(v_query)` is much faster. Numpy uses optimized C code
+under the hood instead of iterating in Python. The outcome is the same:
+a score for every document.
+
 ## Best match
 
 The highest score is the most similar document:
@@ -54,8 +64,9 @@ We see:
 
 ## Top 5 results
 
-We can also look at the top 5 results. `np.argsort` sorts from lowest
-to highest, so the last 5 are the top ones:
+We can also look at the top 5 results.
+
+`np.argsort` sorts from lowest to highest, so the last 5 are the top ones:
 
 ```python
 top5 = np.argsort(scores)[-5:]
@@ -90,8 +101,16 @@ for idx in top5:
     print()
 ```
 
-This is vector search in its simplest form: embed the query, compute
-dot products with all documents, return the ones with the highest scores.
+This is vector search in its simplest form. We embed the query, compute
+dot products with all documents, and return the highest-scoring ones.
+
+We return top 5 and not just the best match. The answer to a question
+might be spread across multiple documents. One has part of it, another
+fills in the rest. Sometimes the top result is not the right one, but
+the second is. We send all 5 to the LLM so it can combine them.
+
+The number 5 is a starting point. Later, when we evaluate our search
+quality, we can test whether 3 or 10 works better for our data.
 
 Doing this manually with numpy works fine for small datasets. For
 larger ones, you'd want a search library that handles filtering and ranking.

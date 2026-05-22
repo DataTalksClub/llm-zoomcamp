@@ -1,16 +1,53 @@
 # Embeddings
 
 Before we can do vector search, we need to convert our text into
-vectors. This process is called embedding the text into the vector space,
-or "embedding" for short. Also, often by "embeddings" we also mean the 
-vectors that we get as a result of this transformation.
+vectors. This process is called embedding - we embed text into a vector
+space. The resulting vectors are also called "embeddings."
+
+## Word embeddings and sentence embeddings
+
+This concept comes from
+[word2vec](https://en.wikipedia.org/wiki/Word2vec). The model learns to
+represent words as points in a multi-dimensional space. Words with
+similar meanings end up close to each other.
+
+Imagine a 2D space where "enroll" and "join" are near each other and
+"Docker" is far away:
+
+```text
+        · enroll
+       · join
+                   · Docker
+```
+
+The same idea works for entire sentences:
+
+```text
+Q1: "I just discovered the course. Can I still join it?"
+Q2: "I just found out about the program. Can I still enroll?"
+
+These two are close - they mean the same thing.
+
+Q3: "How do I run Docker on Windows?"
+
+This one is far away from Q1 and Q2.
+```
+
+Now imagine all 1200 documents in our FAQ dataset. Each one is a point
+in this space. When a user asks a question, we embed it into the same
+space and find the closest documents. These nearest neighbors are the
+search results.
+
+Because the model encodes the entire sentence (not just individual
+words), it can disambiguate words based on context. Consider the word
+"judge." In "the judge ruled out the possibility of crime" (legal) it
+gets one vector. In "LLM-as-a-judge approach to evaluate LLMs" (ML
+evaluation) it gets a different one. The surrounding context changes
+the embedding.
 
 An embedding model takes text as input and outputs a fixed-length array
-of numbers (a vector).
-
-The embedding model is trained in a way that texts with similar
-meanings get similar vectors. This makes semantic search
-possible.
+of numbers (a vector). The model is trained so that texts with similar
+meanings get similar vectors.
 
 We'll use [sentence-transformers](https://www.sbert.net/), a popular
 open-source library for generating embeddings. It runs locally on your
@@ -98,7 +135,7 @@ The first score for `q1` vs `d` (0.32) is higher, so the query is more similar t
 The second score (`q2` vs `d`) is lower - it's near 0. Installing Docker has nothing to do with registration.
 
 This is the core idea behind vector search: similar texts get similar
-vectors, and we can measure similarity with a simple dot product.
+vectors. We can measure similarity with a simple dot product.
 
 ## Cosine similarity
 

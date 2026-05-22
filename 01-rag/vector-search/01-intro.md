@@ -1,8 +1,8 @@
 # Vector Search
 
 In the first module, we used keyword search with minsearch and
-sqlitesearch. Keyword search works by matching exact words. If you
-search for "Docker" and the document contains "Docker", it matches.
+sqlitesearch. This approach matches exact words. Search for "Docker"
+and the document must contain "Docker" to match.
 
 But consider these two questions:
 
@@ -17,18 +17,17 @@ matching words, it matches ideas.
 
 ## The vector search process
 
-Vector search has two stages:
+Vector search has two stages.
 
-1. Offline (indexing): Convert all your documents into vectors
-   (arrays of numbers) and store them in an index.
-2. Online (querying): Convert the user's query into a vector using
-   the same model, then find the closest document vectors by
-   similarity.
+1. Offline (indexing): Convert all documents into vectors (arrays of
+   numbers). Store them in an index.
+2. Online (querying): Convert the user's query into a vector with
+   the same model. Find the closest document vectors by similarity.
 
 The vectors are produced by an embedding model - a neural network
 trained to capture semantic meaning. Similar texts get similar vectors.
-The similarity between vectors is measured with a distance metric, most
-commonly cosine similarity.
+Similarity between vectors is measured with a distance metric. The most
+common one is cosine similarity.
 
 Cosine similarity measures the angle between two vectors:
 
@@ -43,13 +42,18 @@ texts are.
 
 ## Keyword search vs vector search
 
-| | Keyword search | Vector search |
-|---|---|---|
-| Matches on | Exact words | Semantic meaning |
-| Good for | Specific terms, IDs, names | Paraphrased questions, natural language |
-| Example query | "pandas dataframe" | "How do I work with tabular data?" |
-| Index | Inverted index (BM25, TF-IDF) | Vector index (cosine similarity) |
-| Limitations | Misses synonyms, paraphrases | Misses exact term matches |
+Key differences between the two approaches:
+
+- Keyword search matches exact words. Vector search matches semantic
+  meaning.
+- Keyword search suits specific terms, IDs, and names. Vector search
+  suits paraphrased questions and natural language.
+- Keyword search example: "pandas dataframe". Vector search example:
+  "How do I work with tabular data?"
+- Keyword search uses an inverted index (BM25, TF-IDF). Vector search
+  uses a vector index based on cosine similarity.
+- Keyword search misses synonyms and paraphrases. Vector search misses
+  exact term matches.
 
 In practice, both approaches work best together. We'll cover hybrid
 search at the end of this module.

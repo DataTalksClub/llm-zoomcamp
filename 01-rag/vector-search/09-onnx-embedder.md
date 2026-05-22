@@ -10,10 +10,8 @@ one with ONNX Runtime.
 
 Then I measured the virtual environment sizes:
 
-| | sentence-transformers | ONNX Runtime |
-|---|---|---|
-| Size | 4.8 GB | 147 MB |
-| Packages | 58 | 27 |
+- sentence-transformers: 4.8 GB, 58 packages
+- ONNX Runtime: 147 MB, 27 packages
 
 That's 33x smaller. Same embeddings, same results.
 
@@ -121,7 +119,7 @@ We get the same result as before. The first score is higher because
 the query about joining the course is more similar to the document
 about registration.
 
-Embed our FAQ dataset.
+Next, we embed the FAQ dataset.
 
 First, we add the parent directory with helper scripts to our PYTHONPATH:
 
@@ -182,18 +180,16 @@ Same results, same pipeline, but ~33x lighter.
 All of these work with the same code - just change the model name in
 `download.py` and the path in `Embedder()`:
 
-| Model | Dimensions | Notes |
-|---|---|---|
-| [Xenova/all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-MiniLM-L6-v2) | 384 | Best small general-purpose |
-| [Xenova/all-MiniLM-L12-v2](https://huggingface.co/Xenova/all-MiniLM-L12-v2) | 384 | Better quality, slower |
-| [Xenova/paraphrase-MiniLM-L6-v2](https://huggingface.co/Xenova/paraphrase-MiniLM-L6-v2) | 384 | Paraphrase detection |
-| [Xenova/paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2) | 384 | Multilingual |
-| [Xenova/multilingual-e5-small](https://huggingface.co/Xenova/multilingual-e5-small) | 384 | Multilingual retrieval |
-| [Xenova/multilingual-e5-base](https://huggingface.co/Xenova/multilingual-e5-base) | 768 | Stronger multilingual |
-| [Xenova/bge-small-en-v1.5](https://huggingface.co/Xenova/bge-small-en-v1.5) | 384 | Strong retrieval |
-| [Xenova/bge-base-en-v1.5](https://huggingface.co/Xenova/bge-base-en-v1.5) | 768 | Stronger retrieval |
-| [Xenova/gte-small](https://huggingface.co/Xenova/gte-small) | 384 | Lightweight modern model |
-| [Xenova/gte-base](https://huggingface.co/Xenova/gte-base) | 768 | Stronger GTE |
+- [Xenova/all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-MiniLM-L6-v2) (384d) - best small general-purpose
+- [Xenova/all-MiniLM-L12-v2](https://huggingface.co/Xenova/all-MiniLM-L12-v2) (384d) - better quality, slower
+- [Xenova/paraphrase-MiniLM-L6-v2](https://huggingface.co/Xenova/paraphrase-MiniLM-L6-v2) (384d) - paraphrase detection
+- [Xenova/paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2) (384d) - multilingual
+- [Xenova/multilingual-e5-small](https://huggingface.co/Xenova/multilingual-e5-small) (384d) - multilingual retrieval
+- [Xenova/multilingual-e5-base](https://huggingface.co/Xenova/multilingual-e5-base) (768d) - stronger multilingual
+- [Xenova/bge-small-en-v1.5](https://huggingface.co/Xenova/bge-small-en-v1.5) (384d) - strong retrieval
+- [Xenova/bge-base-en-v1.5](https://huggingface.co/Xenova/bge-base-en-v1.5) (768d) - stronger retrieval
+- [Xenova/gte-small](https://huggingface.co/Xenova/gte-small) (384d) - lightweight modern model
+- [Xenova/gte-base](https://huggingface.co/Xenova/gte-base) (768d) - stronger GTE
 
 To use a different model, add it to `download.py`, run the download,
 then update the path:

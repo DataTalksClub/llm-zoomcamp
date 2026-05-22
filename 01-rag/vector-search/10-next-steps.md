@@ -12,25 +12,40 @@ The code is available in the
 [code directory](../code/).
 
 
-## When to use vector search
+## Using vector search
 
-Text search (keyword search) is simple and fast. For many applications,
-it's all you need. Start with text search first.
+Text search (keyword search) is simple and fast, and for many
+applications it is all you need. Start with text search first.
 
-Vector search adds complexity: you need an embedding model, you need to
-compute and store embeddings, and the search itself is more involved.
-Don't add this complexity unless you have a reason.
+Vector search adds complexity:
 
-The right time to switch to vector search is when you notice that text
-search misses relevant results - when users ask questions in different
-words than what's in your documents. That's when the semantic matching
-of vector search helps.
+- You need an embedding model
+- You need to compute and store embeddings
+- At query time you need to encode the query before searching
 
-But how do you know when text search is not enough? That's what
-evaluation is for. In a later module, we'll cover how to evaluate
+Even with the smallest model, the overhead is considerable. Don't add
+this complexity unless you have a reason.
+
+Many RAG tutorials and articles assume you need vector search from the
+start. Many of these come from companies that sell vector databases.
+You don't need it from the start.
+
+A reasonable progression:
+
+1. v1: Start with text search. Get your RAG pipeline working end to end.
+   For our FAQ dataset, text search already handles most questions well.
+   We saw that in module 1.
+2. v2: Add vector search when you can measure that text search misses
+   relevant results. This happens when users ask questions in different
+   words than what is in your documents.
+3. v3: Combine both with hybrid search (text + vector), which typically
+   outperforms either one alone.
+
+The right time to move from one version to the next is when evaluation
+shows it is justified. In a later module, we will cover how to evaluate
 search quality and compare different search methods. With evaluation,
-you can measure which approach works best for your data and make an
-informed decision.
+you can measure whether the improvement from vector search is marginal
+(not worth the overhead) or significant (justified).
 
 
 ## Hybrid search and reranking
@@ -39,7 +54,7 @@ Once you have both text search and vector search, you can combine them.
 Hybrid search runs both methods and merges the results using techniques
 like Reciprocal Rank Fusion (RRF).
 
-Reranking takes it further: after retrieving candidate documents, a
+Reranking takes it further. After retrieving candidate documents, a
 separate model re-scores them for relevance.
 
 Both techniques can improve retrieval quality. We cover them in the

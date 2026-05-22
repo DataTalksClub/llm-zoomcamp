@@ -43,11 +43,10 @@ If you're curious about how we taught this before:
 
 ## Agents
 
-In our RAG pipeline, the flow is fixed: we always take the user's
-question and send it directly to the knowledge base. But we can be
-smarter. We can let an LLM sit between the user and the database,
-deciding what questions to send to the knowledge base, how many, and
-so on.
+In our RAG pipeline, the flow is fixed. The user's question goes
+directly to the knowledge base. But we can be smarter - an LLM can
+sit between the user and the database, deciding what to search for,
+how many queries to make, and so on.
 
 An agent gives the LLM that intermediary role. It can reason about
 what to search for and decide when to call which tool. We'll cover

@@ -1,9 +1,8 @@
 # RAG
 
-In our community at DataTalks.Club, we run multiple Zoomcamp courses -
-free courses on data engineering, machine learning, MLOps, and other
-topics. For each course, we maintain an FAQ document with common
-questions and answers.
+We run free Zoomcamp courses at DataTalks.Club on data engineering,
+machine learning, MLOps, and other topics. Each course has its own
+FAQ document with common questions and answers.
 
 Some of these documents have over 300 questions. Students ask us
 things in Slack like "Can I still join after the course started?" or
@@ -48,11 +47,10 @@ answer = llm(question)
 print(answer)
 ```
 
-The LLM gives a generic answer - something like "if enrollment is still
-open, you can usually join" or "check the course website." It doesn't
-know about our specific Zoomcamp courses, their enrollment policies, or
-their schedules. It tries to be helpful, but it has no idea if
-enrollment is still open, what the policies are, and so on.
+The LLM gives a generic answer. It might say "you can usually join" or
+"check the course website." It doesn't know about our specific Zoomcamp
+courses, their enrollment policies, or their schedules. It tries to be
+helpful, but has no idea about actual enrollment status or policies.
 
 This is different from a question like "how do I cook salmon?" - the
 LLM knows the answer because cooking salmon is common knowledge. But
@@ -116,16 +114,14 @@ just did is nothing but RAG.
 
 ## Retrieval plus generation
 
-RAG stands for Retrieval-Augmented Generation. There are two key words
-here: generation and retrieval. Generation is the LLM - it generates
-text. Retrieval is search. We use search to augment the LLM's
-generation.
+RAG stands for Retrieval-Augmented Generation. The two key words are
+generation and retrieval: generation is the LLM producing text, and
+retrieval is search. We use search to augment what the LLM generates.
 
 We retrieve relevant documents from our knowledge base and use them to
 augment what the LLM generates.
 
-The reason we use search (retrieval) is to give the LLM more
-information, more context, so it can give the right answer.
+Search gives the LLM the context it needs to answer correctly.
 
 Right now we used a naive way of selecting context - we knew in advance
 which FAQ entry contained the answer. But what we want is to

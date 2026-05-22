@@ -3,7 +3,8 @@
 In this module, you'll build a working Retrieval-Augmented
 Generation (RAG) system from scratch, step by step.
 
-You'll write everything in plain Python, build a small search index by hand, and call the LLM yourself - no frameworks involved.
+You'll write everything in plain Python, build a small search index by
+hand, and call the LLM yourself. No frameworks involved.
 
 Places where you can find me:
 
@@ -17,16 +18,15 @@ An LLM (Large Language Model) is a neural network trained on massive
 amounts of text. Given a prompt, it generates a continuation - a
 plausible next piece of text.
 
-Think of your phone. When you type "how are" in WhatsApp, it
-suggests "you" as the next word - because "how are you" is the most
-common continuation. Your phone uses a simple language model for
-that. It predicts the next word based on what you typed so far.
+Think of your phone. When you type "how are" in WhatsApp, it suggests
+"you" as the next word. "How are you" is the most common continuation.
+Your phone uses a simple language model for that. It predicts the next
+word based on what you typed so far.
 
-A large language model does the same thing, but at a much larger
-scale. It has billions of parameters, is trained on tons of data,
-and when it predicts the next word, it feels like you're talking to
-an intelligent being. It understands what you ask and gives
-meaningful answers.
+A large language model does the same thing, but at a much larger scale.
+It has billions of parameters and is trained on tons of data. When it
+predicts the next word, it feels like you are talking to an intelligent
+being. It understands what you ask and gives meaningful answers.
 
 In this course, we treat LLMs as black boxes. We won't look inside
 or cover the theory. For us, an LLM is a box: text goes in, text
@@ -46,8 +46,8 @@ But LLMs have limitations:
 
 RAG solves these problems by giving the LLM relevant documents at
 question time. Instead of hoping the model memorized the answer, we
-retrieve the right information and hand it to the LLM to generate
-a grounded response.
+retrieve the right information and hand it to the LLM. The model then
+generates a grounded response.
 
 In this module, we will:
 

@@ -5,15 +5,14 @@ startup. With minsearch, this is fine - our FAQ dataset is small, so
 indexing takes less than a second. The entire pipeline runs in one
 process.
 
-But what happens when the dataset grows? If you have millions of
-documents, or if fetching the data takes time (calling APIs, parsing
-files, cleaning text), the startup becomes slow. You don't want to
-wait minutes every time your service restarts.
+But what happens when the dataset grows? Fetching data takes time -
+calling APIs, parsing files, cleaning text. With millions of documents,
+the startup becomes slow. You don't want to wait minutes every time
+your service restarts.
 
-The problem with minsearch is that it's in-memory. It's just a bunch
-of Python dictionaries - it's bound to the process where it's running.
-When you stop the process, the data disappears. You need to re-index
-every time you restart.
+Minsearch is in-memory. It's just a bunch of Python dictionaries -
+bound to the process where it's running. When you stop the process,
+the data disappears. You need to re-index every time you restart.
 
 Separate ingestion from querying. One process writes the data to a
 persistent search index. Another process reads from it. The index
@@ -186,73 +185,54 @@ Ingestion (runs once): fetch data -> parse -> write to faq.db
 Query (runs every time): open faq.db -> search -> ready
 ```
 
-Here is the full architecture:
+The full architecture:
 
 ```mermaid
 flowchart TD
 
-    %% =============================
-    %% INGESTION
-    %% =============================
-
     subgraph ING["INGESTION"]
         direction LR
-
         FAQ[FAQ.json]
-
         INGESTOR[Ingestor<br/>parse, chunk, embed, metadata]
-
         FAQ --> INGESTOR
     end
 
-    %% =============================
-    %% RAG ASSISTANT
-    %% =============================
+    subgraph KB["KNOWLEDGE BASE"]
+        DB[(DB)]
+    end
+
+    INGESTOR -->|Index Documents| DB
+```
+
+The ingestion process writes documents to the knowledge base.
+
+The RAG assistant then reads from it:
+
+```mermaid
+flowchart TD
 
     subgraph RAG["RAG ASSISTANT"]
-
         U([🙂 User])
-
         APP[Application]
-
         DOCS[[D1 ... D5]]
-
         PROMPT[Build Prompt<br/>Question + Context]
-
         LLM[LLM]
-
         ANSWER([Answer])
 
         U -->|Question| APP
-
         DOCS --> APP
-
         APP --> PROMPT
         PROMPT --> LLM
-
         LLM --> ANSWER
         ANSWER --> U
-
     end
-
-    %% =============================
-    %% KNOWLEDGE BASE
-    %% =============================
 
     subgraph KB["KNOWLEDGE BASE"]
-
         DB[(DB)]
-
     end
-
-    %% =============================
-    %% CONNECTIONS
-    %% =============================
 
     APP -->|Query| DB
     DB -->|Retrieved Data| DOCS
-
-    INGESTOR -->|Index Documents| DB
 ```
 
 For our FAQ dataset, both produce good results. The difference
@@ -260,22 +240,26 @@ matters more at scale with diverse document lengths.
 
 ## Choosing an approach
 
-| | minsearch | sqlitesearch |
-|---|---|---|
-| Architecture | Single process | Ingestion + query |
-| Persistence | In-memory only | File-based (SQLite) |
-| Startup time | Index every time | Open existing index |
-| Scale | Thousands of docs | Millions of docs |
-| When to use | Small data, fast startup | Large data, slow ingestion |
+Pick the right tool for your data:
+
+- `minsearch`: single process, in-memory only, re-indexes on every
+  startup. Use when data is small and indexing is fast.
+- `sqlitesearch`: separate ingestion and query, file-based (SQLite),
+  opens existing index. Use when data is large or ingestion is slow.
 
 Use minsearch when you can load and index the data on startup without
 noticeable delay. Switch to a persistent backend when ingestion takes
 too long or when you need the index to survive restarts.
 
-For larger production systems, you'd use the same pattern but with
-Elasticsearch, OpenSearch, or a vector database like Qdrant or
-Weaviate instead of sqlitesearch. The architecture stays the same:
-one process ingests, another queries.
+For larger production systems, use the same pattern with a different
+backend:
+
+- Elasticsearch
+- OpenSearch
+- Qdrant (vector database)
+- Weaviate (vector database)
+
+The architecture stays the same: one process ingests, another queries.
 
 ## Cleaning up
 

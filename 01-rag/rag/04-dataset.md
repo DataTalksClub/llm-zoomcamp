@@ -78,23 +78,23 @@ In the RAG pipeline, this dataset is our knowledge base:
 5. The LLM generates an answer based on the context
 
 The `question` and `answer` fields contain the text we'll search
-through. The `course` field lets us filter by course - if a student
-is asking about the data engineering course, we don't need results
-from the ML course. The `section` field helps with ranking - knowing
-which part of the course a question belongs to is useful context.
+through. The `course` field lets us filter by course. For example, if a
+student asks about the data engineering course, we skip results from
+the ML course. The `section` field helps with ranking - knowing which
+part of the course a question belongs to is useful context.
 
 ## A note on data preparation
 
-In our case, the data is already prepared - I maintain this FAQ
-website, so I made sure the data is available in a convenient JSON
-format. We don't need to do much to prepare it.
+In our case, the data is already prepared. I maintain this FAQ website
+and made sure the data is available in a convenient JSON format. We
+don't need to do much to prepare it.
 
 In reality, data preparation is often the most time-consuming part of
 building a RAG system. You may need to scrape websites, parse PDFs,
 and clean and chunk documents. The step is often not visible but
-requires considerable effort. In this course we focus on the GenAI
-side, but keep in mind that in your projects you will likely spend a
-lot of time on data preparation.
+requires considerable effort. In this course, we focus on the GenAI
+side. In your own projects, expect to spend significant time on data
+preparation.
 
 In the next section, we'll build the search index.
 

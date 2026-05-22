@@ -1,7 +1,7 @@
 # Vector Search with minsearch
 
-In the previous section, we saw how vector search works with numpy:
-embed the query, compute dot products, find the best match.
+In the previous section, we implemented vector search with numpy.
+We embed the query, compute dot products, and find the best match.
 
 We'll use [minsearch](https://github.com/alexeygrigorev/minsearch) for that. 
 

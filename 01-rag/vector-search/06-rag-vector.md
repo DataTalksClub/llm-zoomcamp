@@ -56,7 +56,7 @@ query = 'I just found out about the program, can I still sign up?'
 assistant.rag(query)
 ```
 
-This uses keyword search. Now let's swap it for vector search.
+This uses keyword search. Next, we replace it with vector search.
 
 We already have:
 
@@ -89,8 +89,8 @@ class RAGVector(RAGBase):
         )
 ```
 
-Here in `__init__` we add a new argument: `embedder` for our sentence transformer,
-which we later use in `search` for turning the query into a vector.
+The `__init__` method adds an `embedder` argument for the sentence
+transformer. We use it in `search` to turn the query into a vector.
 
 ## Using it
 

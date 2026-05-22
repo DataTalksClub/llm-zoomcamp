@@ -24,8 +24,8 @@ course started, the Responses API didn't exist, so we used chat
 completions. Now we prefer responses - it's more convenient.
 
 Many other LLM providers (Groq, Gemini, etc.) support the chat
-completions API, so you can use the OpenAI client with them too. You
-would just need to use `chat.completions` instead of `responses`.
+completions API. To use them, call `chat.completions` instead of
+`responses`.
 
 ## Exploring the response
 
@@ -124,8 +124,8 @@ response = openai_client.responses.create(
 )
 ```
 
-This separates what the LLM should always do (the instructions, same
-every time) from what the user asks (varies from request to request).
+This separates the fixed instructions from the user prompt, which
+changes every request.
 
 OpenAI accepts both `developer` and `system` for the instruction role.
 They have minor differences but produce the same result in practice.
@@ -165,7 +165,7 @@ def rag(query, model='gpt-5.4-mini'):
     return answer
 ```
 
-Here is the revised flow:
+The revised architecture:
 
 ```mermaid
 flowchart TD
