@@ -81,8 +81,8 @@ Self-paced steps:
 
 ## 📚 Course Syllabus
 
-- [1. RAG and Vector Search](01-rag/). Build a RAG pipeline with text search and semantic vector search
-- [2. Agents](02-agents/). Add autonomous tool use and function calling to RAG
+- [1. Agentic RAG](01-agentic-rag/). Build a RAG pipeline with keyword search, then make it agentic with function calling
+- [2. Vector Search](02-vector-search/). Semantic search with embeddings, minsearch, sqlitesearch, and PGVector
 - [3. Orchestration](03-orchestration/). AI orchestration with Kestra
 - [Workshop - Data Ingestion](cohorts/2025/workshops/dlt.md). Ingest data with dlt from external sources into your RAG system
 - [4. Evaluation](04-evaluation/). Measure retrieval and answer quality with offline and online eval
