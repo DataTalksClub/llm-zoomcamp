@@ -19,7 +19,7 @@ what does `sim` actually compute?
   many words the query and the document share. It looks at the surface
   form, the actual words, and matches them exactly.
 
-- vector/semantic search ([next section](11-vector-search-intro.md)):
+- vector/semantic search (covered in [module 2](../../02-vector-search/)):
   `sim` compares the meaning of the query and the document. Same
   function, different similarity measure.
 

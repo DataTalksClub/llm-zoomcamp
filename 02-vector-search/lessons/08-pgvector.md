@@ -303,4 +303,4 @@ PGVector is the right choice when you need production features:
 - transactions
 - integration with an existing Postgres-based application
 
-[← Vector Search with sqlitesearch](17-sqlitesearch-vector.md) | [Using ONNX Runtime →](19-onnx-embedder.md)
+[← Vector Search with sqlitesearch](07-sqlitesearch-vector.md) | [Using ONNX Runtime →](09-onnx-embedder.md)

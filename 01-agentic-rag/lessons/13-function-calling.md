@@ -208,4 +208,4 @@ That's the full function-calling loop for a single turn. This pattern
 is sometimes called "agentic RAG" or "tool use" - different names,
 same idea: the LLM decides which tools to call.
 
-[← Quick RAG Revision](02-rag-revision.md) | [The Agentic Loop →](04-agentic-loop.md)
+[← Quick RAG Revision](12-rag-revision.md) | [The Agentic Loop →](14-agentic-loop.md)

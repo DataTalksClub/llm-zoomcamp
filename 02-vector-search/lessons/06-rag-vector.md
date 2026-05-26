@@ -14,10 +14,18 @@ Because RAG is modular, this is the only step we need to change.
 
 ## Using RAGBase
 
-In module 1, we put all the RAG logic into a
-[RAGBase](../code/rag_helper.py)
-helper class. It has search, build_prompt, and llm methods.
-We only need to override the search method.
+In [module 1](../../01-agentic-rag/) we put all the RAG logic into a
+[`RAGBase`](../../01-agentic-rag/code/rag_helper.py) helper class.
+It has `search`, `build_prompt`, and `llm` methods. We only need to
+override the `search` method.
+
+Download `rag_helper.py` (and `ingest.py` if you didn't get it earlier)
+into your project:
+
+```bash
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/rag_helper.py
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/ingest.py
+```
 
 First, create the OpenAI client:
 
@@ -113,4 +121,4 @@ vector_assistant.rag('the program has already begun, can I still sign up?')
 The answers should be similar to what we got with keyword search, but
 vector search may handle rephrased questions better.
 
-[← Vector Search with minsearch](15-minsearch-vector.md) | [Vector Search with sqlitesearch →](17-sqlitesearch-vector.md)
+[← Vector Search with minsearch](05-minsearch-vector.md) | [Vector Search with sqlitesearch →](07-sqlitesearch-vector.md)

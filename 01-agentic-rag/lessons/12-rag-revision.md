@@ -1,18 +1,19 @@
 # Quick RAG Revision
 
-Before we talk about agents, let's set up the RAG pipeline from module
-1.
+Before we talk about agents, let's set up the RAG pipeline we built
+in Part 1.
 
-We'll use two helpers that we defined previously in [module 1](../../01-rag/):
+We'll use two helpers we defined earlier in this module:
 
-- [`rag_helper.py`](../../01-rag/code/rag_helper.py) - the `RAGBase` class wrapping search, prompt building, and the LLM call
-- [`ingest.py`](../../01-rag/code/ingest.py) - `load_faq_data` and `build_index` for loading the FAQ and building a minsearch index
+- [`rag_helper.py`](../code/rag_helper.py) - the `RAGBase` class wrapping search, prompt building, and the LLM call
+- [`ingest.py`](../code/ingest.py) - `load_faq_data` and `build_index` for loading the FAQ and building a minsearch index
 
-Let's download them:
+If you're working through Part 2 as a standalone workshop (without
+Part 1), download them into your project:
 
 ```bash
-wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-rag/code/rag_helper.py
-wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-rag/code/ingest.py
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/rag_helper.py
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/ingest.py
 ```
 
 ## Setting up RAG
@@ -82,4 +83,4 @@ again with a corrected query.
 
 We need something smarter. We need an agent.
 
-[← Introduction](01-intro.md) | [Function Calling →](03-function-calling.md)
+[← Agents (Part 2 intro)](11-agents-intro.md) | [Function Calling →](13-function-calling.md)

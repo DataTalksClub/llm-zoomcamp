@@ -1,13 +1,10 @@
-# Module 1: RAG and Vector Search
+# Module 1: Agentic RAG
 
 In this module, we learn what LLMs and RAG are, build a simple RAG
-pipeline using keyword search, and then improve it with vector search
-that matches on meaning rather than exact words.
+pipeline using keyword search, and then make it agentic - the LLM
+decides when and what to search instead of running a fixed pipeline.
 
-Videos:
-
-- RAG: https://www.youtube.com/watch?v=KSItlTAsMsk
-- Vector Search: https://www.youtube.com/watch?v=BC3NsRUNEIg
+Video: https://www.youtube.com/watch?v=KSItlTAsMsk
 
 Code: [code/](code/)
 
@@ -23,21 +20,17 @@ Code: [code/](code/)
 7. [RAG Pipeline](lessons/07-llm.md) - Wiring search + prompt + LLM together
 8. [RAG Helper](lessons/08-rag-helper.md) - Reusable RAGBase class and data loading
 9. [Data Ingestion](lessons/09-data-ingestion.md) - Persistent search with sqlitesearch
-10. [Next Steps (RAG)](lessons/10-rag-next-steps.md) - Wrap-up of part 1
+10. [Wrap-up of Part 1](lessons/10-rag-next-steps.md) - Where to go from here
 
 
-## Part 2: Vector Search
+## Part 2: Agents
 
-11. [What is Vector Search](lessons/11-vector-search-intro.md) - Keyword search vs vector search, why it matters
-12. [Embeddings](lessons/12-embeddings.md) - Turning text into vectors with sentence-transformers
-13. [Embedding Our Dataset](lessons/13-embeddings-dataset.md) - Generating embeddings for the FAQ dataset
-14. [Vector Search](lessons/14-vector-search.md) - Vector search with numpy
-15. [Vector Search with minsearch](lessons/15-minsearch-vector.md) - In-memory vector search
-16. [RAG with Vector Search](lessons/16-rag-vector.md) - Replacing keyword search with vector search in our RAG pipeline
-17. [Vector Search with sqlitesearch](lessons/17-sqlitesearch-vector.md) - Persistent vector search backed by SQLite
-18. [Vector Search with PGVector](lessons/18-pgvector.md) - Production vector search with PostgreSQL and pgvector
-19. [ONNX Embedder](lessons/19-onnx-embedder.md) (Optional) - Using ONNX Runtime instead of PyTorch for embeddings
-20. [Next Steps](lessons/20-next-steps.md) - When to use vector search and what's next
+11. [Agents](lessons/11-agents-intro.md) - Why a fixed RAG pipeline isn't enough
+12. [Quick RAG Revision](lessons/12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)
+13. [Function Calling](lessons/13-function-calling.md) - Giving the LLM tools it can use
+14. [The Agentic Loop](lessons/14-agentic-loop.md) - Repeating until the model stops calling tools
+15. [ToyAIKit](lessons/15-frameworks.md) - A teaching framework for the agent loop
+16. [Other Frameworks](lessons/16-other-frameworks.md) - Production frameworks worth exploring
 
 
 ## Optional
@@ -50,6 +43,6 @@ Code: [code/](code/)
 See old content for [2024](../cohorts/2024/) and [2025](../cohorts/2025/) cohorts.
 
 
-## Notes 
+## Notes
 
 - Add your notes above this line
