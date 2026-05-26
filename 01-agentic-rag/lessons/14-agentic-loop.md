@@ -1,20 +1,24 @@
 # The Agentic Loop
 
-In the previous lesson, we did function calling by hand: send a
-message, get a function call, run it, send the result, get the answer.
-That works for one function call. But what if the model wants to make
-multiple searches? What if the first search doesn't find the answer?
+In the previous lesson, we did function calling by hand. We sent a
+message and got a function call. We ran it, sent the result back, and
+got the answer.
 
-We need a loop. An agent is exactly that - a loop that keeps calling
-the model, executing tools, and sending results back until the model
-is done.
+That works for one function call. It breaks down when the model wants
+to search multiple times, or when the first search doesn't find the
+answer.
 
-## A stronger developer prompt
+We need a loop. An agent is exactly that.
 
-First, let's give the agent more explicit instructions.
+A loop that keeps calling the model and executing tools, sending
+results back, until the model is done.
 
-This prompt
-encourages the model to search multiple times and expand its search:
+## A developer prompt
+
+So far we've relied on the model to figure out when to search. We can
+make that more reliable by giving it a `developer` message that
+spells out how to behave. The same message can also push it toward
+multiple searches when the first one doesn't find the answer.
 
 ```python
 developer_prompt = """
@@ -31,19 +35,21 @@ At the end, ask if there are other areas that the user wants to explore.
 """.strip()
 ```
 
-## A generic function-call helper
+## A function-call helper
 
-Instead of hard-coding the search function, let's create a helper that
-reads the function name from the model output and calls the matching
-Python function:
+We'll be running function calls repeatedly inside the loop, so let's
+wrap that in a small helper. We only have one tool for now, so we
+dispatch on the function name directly.
 
 ```python
 def make_call(call):
     args = json.loads(call.arguments)
-    f_name = call.name
-    f = globals()[f_name]
-    result = f(**args)
+
+    if call.name == 'search':
+        result = search(**args)
+
     result_json = json.dumps(result, indent=2)
+
     return {
         "type": "function_call_output",
         'call_id': call.call_id,
@@ -51,18 +57,15 @@ def make_call(call):
     }
 ```
 
-The helper returns the exact object shape the Responses API expects.
-`globals()` is fine for notebooks - in production code, use an explicit
-registry like `{"search": search}` so the model can only call functions
-you intentionally expose.
+The helper returns the exact structure the Responses API expects.
+When we add more tools later, we'll extend this with more `if`
+branches (or switch to a registry).
 
 ## Processing one response
 
 Let's process a single model response. We append each output entry to
-the conversation. If it's a message, we print it.
-
-If it's a function
-call, we run it and append the result:
+the conversation, print any messages, and run any function calls.
+Function-call results get appended too.
 
 ```python
 response = openai_client.responses.create(
@@ -122,10 +125,10 @@ while True:
         break
 ```
 
-This is the core agent loop. The model reasons about the next action,
-your code performs the action, and the model sees the result on the
-next turn. The loop stops when the model produces a final answer
-without requesting any more tool calls.
+This is the core agent loop. The model reasons about the next action.
+Your code performs it, and the model sees the result on the next
+turn. The loop stops when the model produces a final answer without
+any more tool calls.
 
 ## Wrapping it in a function
 
@@ -165,11 +168,11 @@ def agent_loop(question, model='gpt-5.4-mini'):
 Let's test it with a question that has a typo:
 
 ```python
-agent_loop('How do I run ducker on windows?')
+agent_loop('How do I run Olama locally?')
 ```
 
-Watch what happens. The agent searches for "ducker", gets poor results,
-then searches again with "docker" and finds the answer. The agent
+Watch what happens. The agent searches for "Olama", gets poor results,
+then searches again with "Ollama" and finds the answer. The agent
 loop lets the model recover from bad searches on its own.
 
 Also try the course enrollment question:
@@ -179,7 +182,7 @@ agent_loop('I just discovered the course. Can I still join it?')
 ```
 
 This handwritten loop is the best way to understand what frameworks
-hide from you. Every agent framework - LangChain, PydanticAI, OpenAI
-Agents SDK - wraps this same pattern.
+hide from you. Every agent framework wraps this same pattern -
+LangChain, PydanticAI, and the OpenAI Agents SDK all do it.
 
-[← Function Calling](04-function-calling.md) | [ToyAIKit →](06-frameworks.md)
+[← Function Calling](13-function-calling.md) | [ToyAIKit →](15-frameworks.md)

@@ -14,10 +14,18 @@ Because RAG is modular, this is the only step we need to change.
 
 ## Using RAGBase
 
-In module 1, we put all the RAG logic into a
-[RAGBase](../code/rag_helper.py)
-helper class. It has search, build_prompt, and llm methods.
-We only need to override the search method.
+In [module 1](../../01-agentic-rag/) we put all the RAG logic into a
+[`RAGBase`](../../01-agentic-rag/code/rag_helper.py) helper class.
+It has `search`, `build_prompt`, and `llm` methods. We only need to
+override the `search` method.
+
+Download `rag_helper.py` (and `ingest.py` if you didn't get it earlier)
+into your project:
+
+```bash
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/rag_helper.py
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/ingest.py
+```
 
 First, create the OpenAI client:
 

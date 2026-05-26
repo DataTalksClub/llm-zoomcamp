@@ -1,8 +1,8 @@
 # Vector Search
 
 In the previous lesson, we embedded our FAQ dataset into a matrix `X`
-with 1208 document vectors. This lesson shows how vector search
-works under the hood.
+with 1208 document vectors. Here we look at how vector search works
+under the hood.
 
 ## Scoring documents
 

@@ -12,14 +12,15 @@ score = sim(query, document)
 ```
 
 For each document in the database, you compute this score. Then you
-rank all documents by score and return the top N. The key question is:
-what does `sim` actually compute?
+rank all documents by score and return the top N. What makes a search
+engine different from another search engine is what `sim` actually
+computes.
 
 - text/lexical search (covered in this section): `sim` counts how
   many words the query and the document share. It looks at the surface
   form, the actual words, and matches them exactly.
 
-- vector/semantic search ([next section](../vector-search/01-intro.md)):
+- vector/semantic search (covered in [module 2](../../02-vector-search/)):
   `sim` compares the meaning of the query and the document. Same
   function, different similarity measure.
 

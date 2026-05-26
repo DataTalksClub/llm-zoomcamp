@@ -1,6 +1,6 @@
-# Next Steps
+# Wrap-up of Part 1
 
-In this module, we:
+In Part 1 of this module, we:
 
 - Learned what RAG is and why it matters: retrieve documents, build a
   prompt, let the LLM generate a grounded answer
@@ -12,6 +12,17 @@ In this module, we:
 
 You now have a working RAG system and a clear mental model for how
 each piece fits together. The rest is making each piece better.
+
+## Two directions forward
+
+[Part 2 of this module: Agents](11-agents-intro.md). Our pipeline runs
+search once with the exact user query. If the search returns garbage,
+the LLM has no way to recover. An agent puts the LLM in charge - it
+decides what to search for and when to search again.
+
+[Module 2: Vector Search](../../02-vector-search/). Keyword matches
+are exact. Vector search matches by semantic meaning instead, which
+helps when the user phrases things differently from the FAQ.
 
 ## Elasticsearch
 
@@ -32,29 +43,10 @@ OpenSearch) is a common choice for the search backend.
 For an Elasticsearch tutorial, see the
 [supplementary materials for Module 1](../../cohorts/2025/01-intro/elastic-search.md).
 
-## Vector Search
-
-In the next part of this module, we'll cover vector search - matching
-documents by semantic meaning instead of exact keywords.
-
-If you're curious about how we taught this before:
-- [2024 cohort](../../cohorts/2024/) used Elasticsearch for vector search
-- [2025 cohort](../../cohorts/2025/02-vector-search/) used Qdrant
-
-## Agents
-
-In our RAG pipeline, the flow is fixed. The user's question goes
-directly to the knowledge base. But we can be smarter - an LLM can
-sit between the user and the database, deciding what to search for,
-how many queries to make, and so on.
-
-An agent gives the LLM that intermediary role. It can reason about
-what to search for and decide when to call which tool. We'll cover
-agents in detail in module 2.
-
 ## Fine-tuning vs RAG
 
-A common question is: why not just fine-tune the LLM on our data?
+Instead of retrieving documents at query time, you could fine-tune
+the LLM on your data.
 
 Fine-tuning means taking a model's weights and adjusting them for
 your specific use case.
@@ -82,4 +74,4 @@ Try these next steps:
   models via Ollama)
 - Try Elasticsearch as a search backend
 
-[← Data Ingestion](09-data-ingestion.md) | [Back to module →](../)
+[← Data Ingestion](09-data-ingestion.md) | [Agents →](11-agents-intro.md)

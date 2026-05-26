@@ -1,12 +1,12 @@
 # Other Frameworks
 
-The concepts you learned in this module - function calling, the agent
-loop, tool definitions - are the same across all frameworks. They all
-wrap the same pattern: send messages, check for function calls, execute
-tools, repeat.
+The concepts you learned in Part 2 are the same across frameworks.
+Function calling, the agent loop, and tool definitions all wrap the
+same pattern. Send messages, run any function calls, and repeat until
+the model is done.
 
-Now that you understand how the loop works under the hood, you can
-use any production framework and know what it's doing.
+Now that you understand how the loop works, you can pick up any
+production framework and know what it's doing.
 
 Here are some frameworks worth exploring:
 
@@ -38,8 +38,8 @@ Good choice if you want type safety and multi-provider support.
 ## LangChain / LangGraph
 
 A popular framework with lots of integrations. LangChain handles the
-basics. LangGraph adds graph-based workflows for more complex agent
-patterns.
+basics, and LangGraph adds graph-based workflows for more complex
+agent patterns.
 
 Good choice if you need lots of integrations (vector stores, document
 loaders, etc.) and a large community.
@@ -57,4 +57,4 @@ Other frameworks worth knowing:
 Pick one that fits your stack and your needs. The hard part is
 designing good tools and prompts - the loop is always the same.
 
-[← ToyAIKit](06-frameworks.md) | [Back to module →](../)
+[← ToyAIKit](15-frameworks.md) | [Back to module →](../)

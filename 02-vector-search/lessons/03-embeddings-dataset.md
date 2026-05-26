@@ -5,8 +5,15 @@ In this lesson we apply them to the entire FAQ dataset.
 
 ## Loading the data
 
-In module 1, we created a helper script for downloading the
-data ([ingest.py](../code/ingest.py)).
+In [module 1](../../01-agentic-rag/) we created
+[`ingest.py`](../../01-agentic-rag/code/ingest.py) for loading the
+FAQ data.
+
+Download it into your project:
+
+```bash
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/ingest.py
+```
 
 We use it here:
 
@@ -15,10 +22,6 @@ from ingest import load_faq_data
 
 documents = load_faq_data()
 ```
-
-If you don't have it, you can find it in the
-[module 1 code directory](../code/) or in the
-[code directory](../code/).
 
 ## Generating embeddings
 
@@ -70,6 +73,6 @@ import numpy as np
 X = np.array(vectors)
 ```
 
-This matrix `X` has shape (1208, 384) - number of documents vs number of dimensions.
+Calling `X.shape` returns (1208, 384) - number of documents vs number of dimensions.
 
 [← Embeddings](02-embeddings.md) | [Vector Search →](04-vector-search.md)

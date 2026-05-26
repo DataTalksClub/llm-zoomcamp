@@ -121,14 +121,11 @@ about registration.
 
 Next, we embed the FAQ dataset.
 
-First, we add the parent directory with helper scripts to our PYTHONPATH:
+If you didn't fetch `ingest.py` earlier, grab it now:
 
-```python
-import sys
-sys.path.insert(0, '..')
+```bash
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/ingest.py
 ```
-
-This lets us import `ingest.py` and `rag_helper.py`.
 
 Load the documents:
 

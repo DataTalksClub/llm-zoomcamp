@@ -5,10 +5,10 @@ startup. With minsearch, this is fine - our FAQ dataset is small, so
 indexing takes less than a second. The entire pipeline runs in one
 process.
 
-But what happens when the dataset grows? Fetching data takes time -
-calling APIs, parsing files, cleaning text. With millions of documents,
-the startup becomes slow. You don't want to wait minutes every time
-your service restarts.
+This breaks down as the dataset grows. Fetching data takes time -
+calling APIs, parsing files, cleaning text. With millions of
+documents, the startup becomes slow. You don't want to wait minutes
+every time your service restarts.
 
 Minsearch is in-memory. It's just a bunch of Python dictionaries -
 bound to the process where it's running. When you stop the process,
@@ -273,4 +273,4 @@ Or just let Python clean it up when the notebook kernel shuts down.
 
 Code: [persistent_rag_ingest.ipynb](../code/persistent_rag_ingest.ipynb) | [persinsent_rag.ipynb](../code/persinsent_rag.ipynb)
 
-[← RAG Helper](08-rag-helper.md) | [Next Steps →](10-next-steps.md)
+[← RAG Helper](08-rag-helper.md) | [Wrap-up of Part 1 →](10-rag-next-steps.md)
