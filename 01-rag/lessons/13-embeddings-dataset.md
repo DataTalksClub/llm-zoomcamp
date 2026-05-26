@@ -72,4 +72,4 @@ X = np.array(vectors)
 
 This matrix `X` has shape (1208, 384) - number of documents vs number of dimensions.
 
-[← Embeddings](02-embeddings.md) | [Vector Search →](04-vector-search.md)
+[← Embeddings](12-embeddings.md) | [Vector Search →](14-vector-search.md)

@@ -207,4 +207,4 @@ Since the runtime only depends on `onnxruntime`, `tokenizers`, and
 - serverless functions
 - edge devices
 
-[← Vector Search with PGVector](08-pgvector.md) | [Next Steps →](10-next-steps.md)
+[← Vector Search with PGVector](18-pgvector.md) | [Next Steps →](20-next-steps.md)

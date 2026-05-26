@@ -1,28 +1,45 @@
 # Quick RAG Revision
 
 Before we talk about agents, let's set up the RAG pipeline from module
-1. We'll use the `RAGBase` class we created in lesson 08.
+1.
 
-If you completed module 1, this will be a quick recap. If you skipped
-it, copy the `rag_helper.py` file from module 1 into your project.
+We'll use two helpers that we defined previously in [module 1](../../01-rag/):
+
+- [`rag_helper.py`](../../01-rag/code/rag_helper.py) - the `RAGBase` class wrapping search, prompt building, and the LLM call
+- [`ingest.py`](../../01-rag/code/ingest.py) - `load_faq_data` and `build_index` for loading the FAQ and building a minsearch index
+
+Let's download them:
+
+```bash
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-rag/code/rag_helper.py
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-rag/code/ingest.py
+```
 
 ## Setting up RAG
 
-First, load the data and create the search index:
+Set up the OpenAI client:
 
 ```python
-from rag_helper import RAGBase, load_faq_data
-from minsearch import Index
+from dotenv import load_dotenv
 from openai import OpenAI
 
+load_dotenv()
+openai_client = OpenAI()
+```
+
+Load the data and build the search index:
+
+```python
+from rag_helper import RAGBase
+from ingest import load_faq_data, build_index
+
 documents = load_faq_data()
+index = build_index(documents)
+```
 
-index = Index(
-    text_fields=['question', 'section', 'answer'],
-    keyword_fields=['course']
-)
-index.fit(documents)
+Create the assistant:
 
+```python
 instructions = """
 You're a course teaching assistant.
 Answer the QUESTION based on the CONTEXT from the FAQ database.
@@ -31,7 +48,7 @@ Use only the facts from the CONTEXT when answering the QUESTION.
 
 assistant = RAGBase(
     index=index,
-    llm_client=OpenAI(),
+    llm_client=openai_client,
     instructions=instructions,
 )
 ```
@@ -41,19 +58,19 @@ assistant = RAGBase(
 Let's try a question:
 
 ```python
-assistant.rag('How do I run Docker on Windows?')
+assistant.rag('How do I run Ollama locally?')
 ```
 
 This should work fine. The search finds relevant FAQ entries about
-Docker, and the LLM gives a good answer.
+Ollama, and the LLM gives a good answer.
 
 Try something slightly different:
 
 ```python
-assistant.rag('How do I run ducker on windows?')
+assistant.rag('How do I run Olama locally?')
 ```
 
-The word "ducker" doesn't match "Docker" in our index. The search
+The word "Olama" doesn't match "Ollama" in our index. The search
 returns poor results - maybe some unrelated documents about other
 topics. The LLM gets these bad results and either says "I don't know"
 or tries to answer with irrelevant information.
@@ -65,4 +82,4 @@ again with a corrected query.
 
 We need something smarter. We need an agent.
 
-[← Agents](01-intro.md) | [What Are Agents? →](03-agents-concept.md)
+[← Introduction](01-intro.md) | [Function Calling →](03-function-calling.md)

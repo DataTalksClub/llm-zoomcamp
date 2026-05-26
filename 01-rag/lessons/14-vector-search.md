@@ -116,4 +116,4 @@ Doing this manually with numpy works fine for small datasets. For
 larger ones, you'd want a search library that handles filtering and ranking.
 We'll use special libraries for that.
 
-[← Embedding Our Dataset](03-embeddings-dataset.md) | [Vector Search with minsearch →](05-minsearch-vector.md)
+[← Embedding Our Dataset](13-embeddings-dataset.md) | [Vector Search with minsearch →](15-minsearch-vector.md)

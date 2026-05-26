@@ -113,4 +113,4 @@ vector_assistant.rag('the program has already begun, can I still sign up?')
 The answers should be similar to what we got with keyword search, but
 vector search may handle rephrased questions better.
 
-[← Vector Search with minsearch](05-minsearch-vector.md) | [Vector Search with sqlitesearch →](07-sqlitesearch-vector.md)
+[← Vector Search with minsearch](15-minsearch-vector.md) | [Vector Search with sqlitesearch →](17-sqlitesearch-vector.md)

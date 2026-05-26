@@ -185,7 +185,7 @@ vs_index = VectorSearchIndex(
 ```
 
 We'll use the `RAGVector` class we defined in the
-[previous lesson](06-rag-vector.md). It overrides the `search` method
+[previous lesson](16-rag-vector.md). It overrides the `search` method
 to embed the query and use vector search.
 
 Set up the OpenAI client and create the assistant:
@@ -244,4 +244,4 @@ Here is how the two compare:
   (LSH/IVF/HNSW) with exact rerank, can open an existing index, good
   for projects and persistence
 
-[← RAG with Vector Search](06-rag-vector.md) | [Vector Search with PGVector →](08-pgvector.md)
+[← RAG with Vector Search](16-rag-vector.md) | [Vector Search with PGVector →](18-pgvector.md)

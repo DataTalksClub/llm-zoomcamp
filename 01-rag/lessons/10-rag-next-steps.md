@@ -82,4 +82,4 @@ Try these next steps:
   models via Ollama)
 - Try Elasticsearch as a search backend
 
-[← Data Ingestion](09-data-ingestion.md) | [Back to module →](../)
+[← Data Ingestion](09-data-ingestion.md) | [What is Vector Search →](11-vector-search-intro.md)

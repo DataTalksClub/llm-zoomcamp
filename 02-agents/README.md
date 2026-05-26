@@ -22,11 +22,10 @@ In this module, we will:
 
 1. [Introduction](lessons/01-intro.md) - What we'll cover in this module
 2. [Quick RAG Revision](lessons/02-rag-revision.md) - Setting up the RAG pipeline from module 1
-3. [What Are Agents?](lessons/03-agents-concept.md) - Conceptual overview of agents vs RAG
-4. [Function Calling](lessons/04-function-calling.md) - Giving the LLM tools it can use
-5. [The Agentic Loop](lessons/05-agentic-loop.md) - Repeating until the model stops calling tools
-6. [ToyAIKit](lessons/06-frameworks.md) - A teaching framework for the agent loop
-7. [Other Frameworks](lessons/07-other-frameworks.md) - Production frameworks worth exploring
+3. [Function Calling](lessons/03-function-calling.md) - Why fixed RAG breaks, and how function calling lets the LLM use tools
+4. [The Agentic Loop](lessons/04-agentic-loop.md) - Repeating until the model stops calling tools
+5. [ToyAIKit](lessons/05-frameworks.md) - A teaching framework for the agent loop
+6. [Other Frameworks](lessons/06-other-frameworks.md) - Production frameworks worth exploring
 
 
 ## Old content

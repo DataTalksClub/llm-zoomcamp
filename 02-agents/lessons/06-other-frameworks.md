@@ -57,4 +57,4 @@ Other frameworks worth knowing:
 Pick one that fits your stack and your needs. The hard part is
 designing good tools and prompts - the loop is always the same.
 
-[← ToyAIKit](06-frameworks.md) | [Back to module →](../)
+[← ToyAIKit](05-frameworks.md) | [Back to module →](../)

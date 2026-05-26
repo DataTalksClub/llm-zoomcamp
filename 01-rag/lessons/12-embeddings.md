@@ -167,4 +167,4 @@ model maps text to a region of the vector space where most vectors
 have positive components. There's no concept of "opposite meaning"
 that maps to a vector pointing the other way.
 
-[← What is Vector Search](01-intro.md) | [Embedding Our Dataset →](03-embeddings-dataset.md)
+[← What is Vector Search](11-vector-search-intro.md) | [Embedding Our Dataset →](13-embeddings-dataset.md)
