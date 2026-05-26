@@ -273,4 +273,4 @@ Or just let Python clean it up when the notebook kernel shuts down.
 
 Code: [persistent_rag_ingest.ipynb](../code/persistent_rag_ingest.ipynb) | [persinsent_rag.ipynb](../code/persinsent_rag.ipynb)
 
-[← RAG Helper](08-rag-helper.md) | [Next Steps →](10-next-steps.md)
+[← RAG Helper](08-rag-helper.md) | [Wrap-up of Part 1 →](10-rag-next-steps.md)

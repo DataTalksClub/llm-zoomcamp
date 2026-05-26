@@ -13,22 +13,22 @@ In Part 1 of this module, we:
 You now have a working RAG system and a clear mental model for how
 each piece fits together. The rest is making each piece better.
 
-## What's next
+## Two directions forward
 
-Two directions from here:
+[Part 2 of this module: Agents](11-agents-intro.md). Our pipeline runs
+search once with the exact user query. If the search returns garbage,
+the LLM has no way to recover. An agent puts the LLM in charge - it
+decides what to search for and when to search again.
 
-- **Part 2 of this module: Agents.** Our pipeline runs search once
-  with the exact user query. If the search returns garbage, the LLM
-  has no way to recover. An agent puts the LLM in charge - it decides
-  what to search for and when to search again. Continue with
-  [Agents](11-agents-intro.md).
-- **[Module 2: Vector Search](../../02-vector-search/).** So far we
-  matched by exact keywords. Vector search matches by semantic meaning
-  - useful when the user phrases things differently from the FAQ.
+[Module 2: Vector Search](../../02-vector-search/). Keyword matches
+are exact. Vector search matches by semantic meaning instead, which
+helps when the user phrases things differently from the FAQ.
 
 ## Elasticsearch
 
-Elasticsearch is the industry standard for text search. It supports:
+Elasticsearch is the industry standard for text search.
+
+It supports:
 
 - Full-text search with BM25
 - Filtering, aggregations, and faceting
@@ -45,7 +45,8 @@ For an Elasticsearch tutorial, see the
 
 ## Fine-tuning vs RAG
 
-A common question is: why not just fine-tune the LLM on our data?
+Instead of retrieving documents at query time, you could fine-tune
+the LLM on your data.
 
 Fine-tuning means taking a model's weights and adjusting them for
 your specific use case.

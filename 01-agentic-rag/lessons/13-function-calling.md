@@ -1,10 +1,10 @@
 # Function Calling
 
 In the previous lesson we built a RAG pipeline with `RAGBase.rag()`
-and saw it fail on the "Olama" typo: the search returns nothing
-useful, and the LLM has no way to recover.
+and saw it fail on the "Olama" typo. The search returned nothing
+useful, and the LLM had no way to recover.
 
-Here's the flow that broke:
+The flow that broke:
 
 ```mermaid
 flowchart TD
@@ -25,14 +25,17 @@ def rag(self, query):
     return answer
 ```
 
-The LLM is a passenger, not a driver - it never sees the bad search
+The LLM is a passenger, not a driver. It never sees the bad search
 results, so it can't try again with a corrected query.
 
-## What an agent does instead
+## The agent alternative
 
-An agent puts the LLM in charge. Instead of running search ourselves,
-we give the LLM a `search` tool and let it decide when (and what) to
-call. The same typo question now goes like this:
+An agent puts the LLM in charge.
+
+Instead of running search ourselves, we give the LLM a `search` tool
+and let it decide when (and what) to call.
+
+The same typo question now goes like this:
 
 ```mermaid
 flowchart TD
@@ -62,8 +65,8 @@ what the rest of this lesson is about.
 
 ## Asking without tools
 
-Before wiring up function calling, let's see what the LLM does when we
-ask it a course-specific question with no tools at all:
+First, see what the LLM does without any tools. We ask it a
+course-specific question and see the answer.
 
 ```python
 messages = [
@@ -84,10 +87,10 @@ about our specific FAQ, so the answer is vague and not helpful.
 
 ## Defining the tool
 
-First, let's define a top-level `search` function that queries the
-`index` directly. The model will reference it by this name, so
-keeping the Python function and the tool name aligned makes the
-dispatch later easier:
+First, define a top-level `search` function that queries the `index`
+directly. The model will reference it by this name. Keeping the
+Python function and the tool name aligned makes the dispatch easier
+later.
 
 ```python
 def search(query):
@@ -103,8 +106,8 @@ def search(query):
 ```
 
 Next, we tell the model about this function. The model doesn't see
-our Python code - it only sees a schema describing what the function
-does and what arguments it takes:
+our Python code - only a schema describing what the function does and
+what arguments it takes.
 
 ```python
 search_tool = {
@@ -152,7 +155,7 @@ the search function first.
 ## Executing the function and sending the result back
 
 The function call contains JSON arguments. We parse them, call our
-`search` function, and serialize the result:
+`search` function, and serialize the result.
 
 ```python
 import json
@@ -166,7 +169,7 @@ result_json = json.dumps(results, indent=2)
 
 Now we send this result back to the model. First, we add the model's
 output to the conversation history - the model needs to see its own
-function call. Then we add the tool result:
+function call. Then we add the tool result.
 
 ```python
 messages.extend(response.output)
@@ -204,8 +207,9 @@ LLMs are stateless between API calls. The memory is the list you send
 as `input`. If you leave out previous messages, the model doesn't know
 what happened.
 
-That's the full function-calling loop for a single turn. This pattern
-is sometimes called "agentic RAG" or "tool use" - different names,
-same idea: the LLM decides which tools to call.
+That's the full function-calling loop for a single turn. The same
+pattern goes by different names ("agentic RAG", "tool use", "function
+calling"). The idea stays the same - the LLM decides which tools to
+call.
 
 [← Quick RAG Revision](12-rag-revision.md) | [The Agentic Loop →](14-agentic-loop.md)

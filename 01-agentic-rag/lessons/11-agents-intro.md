@@ -12,15 +12,15 @@ This pipeline returns good answers when the user's query matches the
 documents. The search finds the right answer, the LLM reads it, and
 the response is good.
 
-But what happens when the search doesn't find anything useful?
+Often the search returns nothing useful.
 
 - Maybe the user made a typo.
 - Maybe they asked the question in an unusual way.
 - Maybe they need information from two different searches.
 
-In our RAG pipeline, there's no recovery. The search runs once. If it
-returns garbage, the LLM gets garbage. The pipeline is rigid: it
-always does the same thing, no matter what.
+In our RAG pipeline, there's no recovery: the search runs once, and
+if it returns garbage the LLM gets garbage. The pipeline is rigid -
+it always does the same thing, no matter what.
 
 But instead of directing the user question directly to search, we can let
 the LLM take care of it.

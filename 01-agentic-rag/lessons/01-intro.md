@@ -49,14 +49,18 @@ question time. Instead of hoping the model memorized the answer, we
 retrieve the right information and hand it to the LLM. The model then
 generates a grounded response.
 
-In this module, we will:
+This module has two parts.
+
+In Part 1 (the next 9 lessons) we will:
 
 - Understand what RAG is and how it works
 - Build a search engine over a real FAQ dataset
 - Write a prompt that combines the user's question with search results
 - Wire it all together into a working RAG pipeline
 - Split ingestion and query into separate processes
-- Discuss what comes next (agents, vector search, Elasticsearch)
+
+In Part 2, we make the pipeline agentic. The LLM decides when and
+what to search, instead of running the same fixed flow every time.
 
 The final code from this module is available in the
 [code/](../code/) directory.

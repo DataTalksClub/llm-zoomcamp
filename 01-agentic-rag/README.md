@@ -1,15 +1,18 @@
 # Module 1: Agentic RAG
 
-In this module, we learn what LLMs and RAG are, build a simple RAG
-pipeline using keyword search, and then make it agentic - the LLM
+In this module, we learn what LLMs are and build a simple RAG
+pipeline using keyword search. Then we make it agentic, so the LLM
 decides when and what to search instead of running a fixed pipeline.
 
-Video: https://www.youtube.com/watch?v=KSItlTAsMsk
+Video: [Module 1 walkthrough](https://www.youtube.com/watch?v=KSItlTAsMsk)
 
 Code: [code/](code/)
 
 
 ## Part 1: RAG
+
+The first 10 lessons walk through building a working RAG pipeline
+from scratch with keyword search.
 
 1. [Introduction](lessons/01-intro.md) - What we'll build and why
 2. [Environment Setup](lessons/02-environment.md) - Python, uv, OpenAI API
@@ -25,6 +28,9 @@ Code: [code/](code/)
 
 ## Part 2: Agents
 
+Part 2 puts the LLM in charge of the search decisions, turning the
+fixed pipeline into an agent.
+
 11. [Agents](lessons/11-agents-intro.md) - Why a fixed RAG pipeline isn't enough
 12. [Quick RAG Revision](lessons/12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)
 13. [Function Calling](lessons/13-function-calling.md) - Giving the LLM tools it can use
@@ -35,14 +41,20 @@ Code: [code/](code/)
 
 ## Optional
 
+Extra material for going deeper on search internals.
+
 - [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) ([Code](https://github.com/alexeygrigorev/build-your-own-search-engine)) - How minsearch was built from scratch
 
 
 ## Old content
 
-See old content for [2024](../cohorts/2024/) and [2025](../cohorts/2025/) cohorts.
+Earlier cohorts taught this module differently. See the archived
+materials for the [2024](../cohorts/2024/) and
+[2025](../cohorts/2025/) cohorts.
 
 
 ## Notes
+
+Write your own notes below this line:
 
 - Add your notes above this line

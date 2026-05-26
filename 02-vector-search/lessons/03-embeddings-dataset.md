@@ -5,8 +5,10 @@ In this lesson we apply them to the entire FAQ dataset.
 
 ## Loading the data
 
-In [module 1](../../01-agentic-rag/) we created a helper script for
-loading the FAQ data ([`ingest.py`](../../01-agentic-rag/code/ingest.py)).
+In [module 1](../../01-agentic-rag/) we created
+[`ingest.py`](../../01-agentic-rag/code/ingest.py) for loading the
+FAQ data.
+
 Download it into your project:
 
 ```bash

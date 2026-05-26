@@ -42,9 +42,10 @@ agent_tools.add_tool(search, search_tool)
 
 ## Letting ToyAIKit generate the schema
 
-We don't actually need to write the schema ourselves. If we add a type
-hint and a docstring to `search`, ToyAIKit can derive the schema from
-the function:
+We don't actually need to write the schema ourselves.
+
+If we add a type hint and a docstring to `search`, ToyAIKit can
+derive the schema from the function:
 
 ```python
 def search(query: str):
@@ -86,13 +87,13 @@ runner = OpenAIResponsesRunner(
 ```
 
 The `chat_interface` handles display in the notebook. The runner
-handles the agent loop - sending messages, executing function calls,
-adding tool outputs back, and repeating until the model is done.
+handles the agent loop. It sends messages, executes function calls,
+adds tool outputs back, and repeats until the model is done.
 
 ## Running one prompt
 
-First, set up a callback that renders model messages, function calls,
-arguments, and tool outputs in the notebook:
+First, set up a callback that renders model messages and function
+calls in the notebook:
 
 ```python
 callback = DisplayingRunnerCallback(chat_interface)
@@ -113,7 +114,7 @@ from token usage).
 
 ## Cost and tokens
 
-Inspect what the call cost:
+Look at what the call cost:
 
 ```python
 print(f"Tokens: {result.tokens.input_tokens} in / {result.tokens.output_tokens} out")

@@ -55,8 +55,9 @@ Key differences between the two approaches:
 - Keyword search misses synonyms and paraphrases. Vector search misses
   exact term matches.
 
-In practice, both approaches work best together. We'll cover hybrid
-search at the end of this module.
+In practice, both approaches work best together. Hybrid search
+combines them, and we cover it in the
+[Best Practices module](../../06-best-practices/lessons/02-hybrid-search.md).
 
 ## Building vector search
 
@@ -70,8 +71,7 @@ vector search with three tools:
 3. PGVector - vector search in PostgreSQL (scalable, runs in
    Docker)
 
-Then we'll integrate vector search into our RAG pipeline and explore
-hybrid search that combines keyword and vector search.
+Then we'll integrate vector search into our RAG pipeline.
 
 The code from this module is available in the
 [code directory](../code/).
