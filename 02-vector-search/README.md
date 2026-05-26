@@ -40,6 +40,4 @@ materials for the [2024](../cohorts/2024/) and
 
 ## Notes
 
-Add your own notes below this line.
-
 - Add your notes above this line
