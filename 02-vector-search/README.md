@@ -10,6 +10,7 @@ lightweight deployments.
 Video: [Vector Search workshop](https://www.youtube.com/watch?v=BC3NsRUNEIg)
 
 Code: [code/](code/)
+
 Embeddings runtime: [embed/](embed/)
 
 
@@ -38,5 +39,7 @@ materials for the [2024](../cohorts/2024/) and
 
 
 ## Notes
+
+Add your own notes below this line.
 
 - Add your notes above this line

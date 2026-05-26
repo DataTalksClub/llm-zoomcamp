@@ -12,8 +12,9 @@ score = sim(query, document)
 ```
 
 For each document in the database, you compute this score. Then you
-rank all documents by score and return the top N. The key question is:
-what does `sim` actually compute?
+rank all documents by score and return the top N. What makes a search
+engine different from another search engine is what `sim` actually
+computes.
 
 - text/lexical search (covered in this section): `sim` counts how
   many words the query and the document share. It looks at the surface

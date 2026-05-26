@@ -5,10 +5,10 @@ startup. With minsearch, this is fine - our FAQ dataset is small, so
 indexing takes less than a second. The entire pipeline runs in one
 process.
 
-But what happens when the dataset grows? Fetching data takes time -
-calling APIs, parsing files, cleaning text. With millions of documents,
-the startup becomes slow. You don't want to wait minutes every time
-your service restarts.
+This breaks down as the dataset grows. Fetching data takes time -
+calling APIs, parsing files, cleaning text. With millions of
+documents, the startup becomes slow. You don't want to wait minutes
+every time your service restarts.
 
 Minsearch is in-memory. It's just a bunch of Python dictionaries -
 bound to the process where it's running. When you stop the process,
