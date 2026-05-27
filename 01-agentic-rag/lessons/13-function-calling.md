@@ -212,4 +212,46 @@ pattern goes by different names ("agentic RAG", "tool use", "function
 calling"). The idea stays the same - the LLM decides which tools to
 call.
 
+## Token usage and cost
+
+We just made two API calls instead of one. Each call we send to the
+model costs money, so it's worth checking how much one tool-using turn
+actually costs.
+
+The response has a `usage` field with the token counts:
+
+```python
+usage = response.usage
+usage.input_tokens, usage.output_tokens
+```
+
+For each model the provider publishes a price per million input tokens
+and per million output tokens. Plug those numbers in to convert tokens
+to dollars.
+
+```python
+def calculate_gpt54mini_price(input_tokens, output_tokens):
+    INPUT_PRICE_PER_MILLION = 0.15
+    OUTPUT_PRICE_PER_MILLION = 0.60
+
+    input_cost = (input_tokens / 1_000_000) * INPUT_PRICE_PER_MILLION
+    output_cost = (output_tokens / 1_000_000) * OUTPUT_PRICE_PER_MILLION
+    total_cost = input_cost + output_cost
+
+    return {
+        "input_cost": input_cost,
+        "output_cost": output_cost,
+        "total_cost": total_cost,
+    }
+
+result = calculate_gpt54mini_price(652, 33)
+print("Total cost: $", round(result["total_cost"], 8))
+```
+
+This was just the second API call.
+The first call (where the model decided to invoke `search`) also has
+its own usage and its own cost. Two calls means we pay twice.
+With a real agent loop the model can make many calls, so the costs
+add up. Keep an eye on `usage` while you develop.
+
 [← Quick RAG Revision](12-rag-revision.md) | [The Agentic Loop →](14-agentic-loop.md)
