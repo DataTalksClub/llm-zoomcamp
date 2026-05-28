@@ -52,14 +52,14 @@ Let's start with checks we can do without an LLM:
 def analyze_trajectory_simple(tools):
     num_calls = len(tools)
 
-    queries = [t['args'] for t in tools]
+    queries = [t["args"] for t in tools]
     unique_queries = set(queries)
     num_duplicates = num_calls - len(unique_queries)
 
     return {
-        'num_calls': num_calls,
-        'num_duplicates': num_duplicates,
-        'has_duplicates': num_duplicates > 0,
+        "num_calls": num_calls,
+        "num_duplicates": num_duplicates,
+        "has_duplicates": num_duplicates > 0,
     }
 ```
 
@@ -67,12 +67,12 @@ Run it on all agent results:
 
 ```python
 for i, result in agent_results.items():
-    analysis = analyze_trajectory_simple(result['tools'])
-    result['num_calls'] = analysis['num_calls']
-    result['has_duplicates'] = analysis['has_duplicates']
+    analysis = analyze_trajectory_simple(result["tools"])
+    result["num_calls"] = analysis["num_calls"]
+    result["has_duplicates"] = analysis["has_duplicates"]
 
-    print(f"[{i}] calls={analysis['num_calls']}, "
-          f"duplicates={analysis['num_duplicates']}")
+    print(f"""[{i}] calls={analysis["num_calls"]}, """
+          f"""duplicates={analysis["num_duplicates"]}""")
 ```
 
 Simple metrics like call count and duplicate detection are fast and
@@ -92,9 +92,9 @@ from typing import Literal
 
 class TrajectoryResult(BaseModel):
     reasoning: str = Field(
-        description='Step-by-step reasoning about the tool call trajectory.'
+        description="Step-by-step reasoning about the tool call trajectory."
     )
-    score: Literal['good', 'bad'] = Field(
+    score: Literal["good", "bad"] = Field(
         description="'good' if the trajectory was efficient, 'bad' if clearly wasteful."
     )
     suggestion: str = Field(
@@ -139,11 +139,11 @@ Agent's Final Answer:
 The evaluation function:
 
 ```python
-def evaluate_trajectory(question, tools, answer, model='gpt-5.4-mini'):
-    tools_str = '\n'.join(
-        f"{i+1}. {t['name']}({t['args']})"
+def evaluate_trajectory(question, tools, answer, model="gpt-5.4-mini"):
+    tools_str = "\n".join(
+        f"""{i+1}. {t["name"]}({t["args"]})"""
         for i, t in enumerate(tools)
-    ) or '(no tool calls)'
+    ) or "(no tool calls)"
 
     prompt = trajectory_prompt.format(
         question=question,
@@ -152,8 +152,8 @@ def evaluate_trajectory(question, tools, answer, model='gpt-5.4-mini'):
     )
 
     messages = [
-        {'role': 'developer', 'content': trajectory_instructions},
-        {'role': 'user', 'content': prompt}
+        {"role": "developer", "content": trajectory_instructions},
+        {"role": "user", "content": prompt}
     ]
 
     response = openai_client.responses.parse(
@@ -170,14 +170,14 @@ Now evaluate all trajectories:
 ```python
 for i, result in agent_results.items():
     traj_eval = evaluate_trajectory(
-        question=result['question'],
-        tools=result['tools'],
-        answer=result['answer']
+        question=result["question"],
+        tools=result["tools"],
+        answer=result["answer"]
     )
 
-    result['trajectory'] = traj_eval.score
-    result['trajectory_reasoning'] = traj_eval.reasoning
-    result['trajectory_suggestion'] = traj_eval.suggestion
+    result["trajectory"] = traj_eval.score
+    result["trajectory_reasoning"] = traj_eval.reasoning
+    result["trajectory_suggestion"] = traj_eval.suggestion
 ```
 
 Check the results:
@@ -187,13 +187,13 @@ import pandas as pd
 
 df_agent = pd.DataFrame(agent_results.values())
 
-print('Trajectory scores:')
-print(df_agent['trajectory'].value_counts())
+print("Trajectory scores:")
+print(df_agent["trajectory"].value_counts())
 print()
-print('Bad trajectories:')
-for _, row in df_agent[df_agent['trajectory'] == 'bad'].iterrows():
-    print(f"  Q: {row['question'][:60]}...")
-    print(f"  Suggestion: {row['trajectory_suggestion']}")
+print("Bad trajectories:")
+for _, row in df_agent[df_agent["trajectory"] == "bad"].iterrows():
+    print(f"""  Q: {row["question"][:60]}...""")
+    print(f"""  Suggestion: {row["trajectory_suggestion"]}""")
     print()
 ```
 
@@ -207,21 +207,21 @@ For a comprehensive view, combine both:
 ```python
 for i, result in agent_results.items():
     issues = []
-    if result['has_duplicates']:
-        issues.append('duplicates')
-    if result['num_calls'] > 5:
-        issues.append('excessive')
-    if result['trajectory'] == 'bad':
-        issues.append('llm_flagged')
+    if result["has_duplicates"]:
+        issues.append("duplicates")
+    if result["num_calls"] > 5:
+        issues.append("excessive")
+    if result["trajectory"] == "bad":
+        issues.append("llm_flagged")
 
-    result['issues'] = issues
+    result["issues"] = issues
 
-clean = sum(1 for r in agent_results.values() if not r['issues'])
+clean = sum(1 for r in agent_results.values() if not r["issues"])
 total = len(agent_results)
-print(f'Clean trajectories: {clean}/{total}')
+print(f"Clean trajectories: {clean}/{total}")
 ```
 
 Simple checks are fast and deterministic. LLM checks are more nuanced
 but slower and less consistent. Using both gives you the best coverage.
 
-[← Collecting Agent Data](06-agent-data.md) | [Instruction Following →](08-instruction-following.md)
+[← Collecting Agent Data](08-agent-data.md) | [Instruction Following →](10-instruction-following.md)

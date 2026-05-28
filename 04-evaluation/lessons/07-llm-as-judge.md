@@ -34,9 +34,9 @@ from typing import Literal
 
 class AnswerEvaluation(BaseModel):
     reasoning: str = Field(
-        description='Step-by-step reasoning about the quality of the answer.'
+        description="Step-by-step reasoning about the quality of the answer."
     )
-    score: Literal['good', 'bad'] = Field(
+    score: Literal["good", "bad"] = Field(
         description="Overall quality: 'good' if the answer is correct and complete, 'bad' otherwise."
     )
 ```
@@ -71,12 +71,12 @@ Answer:
 Running the judge:
 
 ```python
-def evaluate_qa(question, answer, model='gpt-5.4-mini'):
+def evaluate_qa(question, answer, model="gpt-5.4-mini"):
     prompt = qa_judge_prompt.format(question=question, answer=answer)
 
     messages = [
-        {'role': 'developer', 'content': qa_judge_instructions},
-        {'role': 'user', 'content': prompt}
+        {"role": "developer", "content": qa_judge_instructions},
+        {"role": "user", "content": prompt}
     ]
 
     response = openai_client.responses.parse(
@@ -92,8 +92,8 @@ Let's test it:
 
 ```python
 result = evaluate_qa(
-    question='How do I run Docker on Windows?',
-    answer='To run Docker on Windows, install Docker Desktop for Windows.'
+    question="How do I run Docker on Windows?",
+    answer="To run Docker on Windows, install Docker Desktop for Windows."
 )
 print(result.score, result.reasoning)
 ```
@@ -138,7 +138,7 @@ AI Answer:
 Now we can evaluate our RAG answers:
 
 ```python
-def evaluate_aqa(question, answer_orig, answer_llm, model='gpt-5.4-mini'):
+def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
     prompt = aqa_judge_prompt.format(
         question=question,
         answer_orig=answer_orig,
@@ -146,8 +146,8 @@ def evaluate_aqa(question, answer_orig, answer_llm, model='gpt-5.4-mini'):
     )
 
     messages = [
-        {'role': 'developer', 'content': aqa_judge_instructions},
-        {'role': 'user', 'content': prompt}
+        {"role": "developer", "content": aqa_judge_instructions},
+        {"role": "user", "content": prompt}
     ]
 
     response = openai_client.responses.parse(
@@ -166,16 +166,16 @@ evaluations = []
 
 for i, rec in tqdm(answers.items()):
     eval_result = evaluate_aqa(
-        question=rec['question'],
-        answer_orig=rec['answer_orig'],
-        answer_llm=rec['answer_llm']
+        question=rec["question"],
+        answer_orig=rec["answer_orig"],
+        answer_llm=rec["answer_llm"]
     )
 
     evaluations.append({
-        'question': rec['question'],
-        'document': rec['document'],
-        'score': eval_result.score,
-        'reasoning': eval_result.reasoning,
+        "question": rec["question"],
+        "document": rec["document"],
+        "score": eval_result.score,
+        "reasoning": eval_result.reasoning,
     })
 
 df_eval = pd.DataFrame(evaluations)
@@ -184,9 +184,9 @@ df_eval = pd.DataFrame(evaluations)
 Let's check the results:
 
 ```python
-good_count = (df_eval['score'] == 'good').sum()
+good_count = (df_eval["score"] == "good").sum()
 total_count = len(df_eval)
-print(f'Good: {good_count}/{total_count} = {good_count/total_count:.2%}')
+print(f"Good: {good_count}/{total_count} = {good_count/total_count:.2%}")
 ```
 
 This tells you what percentage of answers the judge considers correct.
@@ -194,7 +194,7 @@ This tells you what percentage of answers the judge considers correct.
 You can also look at the "bad" cases to understand what went wrong:
 
 ```python
-df_eval[df_eval['score'] == 'bad'].head()
+df_eval[df_eval["score"] == "bad"].head()
 ```
 
 ## Combining metrics
@@ -205,13 +205,13 @@ For a comprehensive evaluation, combine multiple metrics:
 combined = []
 
 for i, rec in answers.items():
-    v_llm = embedding_model.encode(rec['answer_llm'])
-    v_orig = embedding_model.encode(rec['answer_orig'])
+    v_llm = embedding_model.encode(rec["answer_llm"])
+    v_orig = embedding_model.encode(rec["answer_orig"])
     cosine = v_llm.dot(v_orig)
 
     combined.append({
-        'question': rec['question'],
-        'cosine': cosine,
+        "question": rec["question"],
+        "cosine": cosine,
         **evaluations[i]
     })
 
@@ -221,7 +221,7 @@ df_combined = pd.DataFrame(combined)
 Look at the correlation between cosine similarity and judge scores:
 
 ```python
-df_combined.groupby('score')['cosine'].describe()
+df_combined.groupby("score")["cosine"].describe()
 ```
 
 If "good" answers have high cosine and "bad" answers have low cosine,
@@ -231,4 +231,4 @@ that cosine misses (or vice versa).
 Using both metrics together gives you a more complete picture of your
 RAG system's quality.
 
-[← RAG Evaluation: Cosine Similarity](04-rag-evaluation-cosine.md) | [Collecting Agent Data →](06-agent-data.md)
+[← RAG Evaluation: Cosine Similarity](06-rag-evaluation-cosine.md) | [Collecting Agent Data →](08-agent-data.md)

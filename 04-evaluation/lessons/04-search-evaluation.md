@@ -11,12 +11,6 @@ check whether the results include the correct document.
 Create a new notebook for search evaluation. We'll use the ground truth
 CSV from the previous lesson and set up the search index here.
 
-If you don't have `pandas` and `tqdm` installed yet, add them first:
-
-```bash
-uv add pandas tqdm
-```
-
 For search evaluation, we only need the search part of the RAG
 pipeline. We don't need to call the LLM yet.
 
@@ -179,8 +173,10 @@ relevance_total = compute_relevance_total_text(ground_truth)
 
 Each entry in `relevance_total` is a relevance list.
 
-Next, make the relevance functions generic, so they can use any search
-function:
+Next, make the relevance functions generic. We start with text search,
+but later we may want to evaluate vector search, hybrid search, or
+another retrieval method. The relevance logic is the same. Only the
+search function changes.
 
 ```python
 def compute_relevance(q, search_function):
@@ -209,133 +205,13 @@ def compute_relevance_total(ground_truth, search_function):
     return relevance_total
 ```
 
-## Hit Rate
-
-Hit Rate (also called Recall@k) measures the fraction of queries where
-the correct document appears anywhere in the results:
+Use it with `text_search`:
 
 ```python
-def hit_rate(relevance_total):
-    cnt = 0
-
-    for line in relevance_total:
-        if 1 in line:
-            cnt = cnt + 1
-
-    return cnt / len(relevance_total)
+relevance_total = compute_relevance_total(ground_truth, text_search)
 ```
 
-If the correct document is in the top 5 results, that's a hit. Hit Rate
-is the percentage of queries that are hits.
+Now we can represent search results as relevance lists. In the next
+lesson, we'll turn these lists into metrics: Hit Rate and MRR.
 
-Let's check with an example:
-
-```python
-example = [
-    [1, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [0, 0, 1, 0, 0],
-    [0, 0, 0, 0, 0],
-]
-
-hit_rate(example)
-# 0.5833
-```
-
-7 out of 12 queries found the correct document somewhere in the results.
-
-## Mean Reciprocal Rank (MRR)
-
-Hit Rate tells us if we found the right document, but not where it was.
-
-MRR also considers the position:
-
-```python
-def mrr(relevance_total):
-    total_score = 0.0
-
-    for line in relevance_total:
-        for rank in range(len(line)):
-            if line[rank] == 1:
-                total_score = total_score + 1 / (rank + 1)
-
-    return total_score / len(relevance_total)
-```
-
-For each query, the score is `1/rank` where rank is the position of the
-first correct document. If the correct document is at position 1, the
-score is 1.0. At position 2, it's 0.5. At position 3, it's 0.333. If
-not found, the score is 0.
-
-MRR is the average of these scores across all queries. It rewards
-systems that put the correct document near the top.
-
-```python
-mrr(example)
-# 0.5278
-```
-
-## Putting it together
-
-Wrap the metrics in a reusable evaluation function:
-
-```python
-def evaluate(ground_truth, search_function):
-    relevance_total = compute_relevance_total(ground_truth, search_function)
-
-    return {
-        "hit_rate": hit_rate(relevance_total),
-        "mrr": mrr(relevance_total),
-    }
-```
-
-We can evaluate any search function:
-
-```python
-evaluate(
-    ground_truth,
-    text_search
-)
-```
-
-You should see something like:
-
-```python
-{"hit_rate": 0.77, "mrr": 0.66}
-```
-
-Try different boost values to see what works best:
-
-```python
-def search_boost(query, question_boost):
-    boost_dict = {"question": question_boost, "section": 0.5}
-    filter_dict = {"course": "llm-zoomcamp"}
-
-    return index.search(
-        query,
-        num_results=5,
-        boost_dict=boost_dict,
-        filter_dict=filter_dict,
-    )
-
-for boost in [1.0, 3.0, 5.0, 10.0]:
-    result = evaluate(
-        ground_truth,
-        lambda q: search_boost(q["question"], boost)
-    )
-    print(f"boost={boost}: {result}")
-```
-
-This is how you tune search parameters. Instead of guessing, you measure.
-The ground truth dataset gives you a reliable way to compare different
-configurations.
-
-[← Generating Ground Truth Data](02-generating-ground-truth.md) | [RAG Evaluation: Cosine Similarity →](04-rag-evaluation-cosine.md)
+[← Generating Ground Truth for All Documents](03-generating-ground-truth-batch.md) | [Search Evaluation Metrics →](05-search-metrics.md)

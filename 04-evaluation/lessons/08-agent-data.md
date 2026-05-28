@@ -40,8 +40,8 @@ from openai import OpenAI
 documents = load_faq_data()
 
 index = Index(
-    text_fields=['question', 'section', 'answer'],
-    keyword_fields=['course']
+    text_fields=["question", "section", "answer"],
+    keyword_fields=["course"]
 )
 index.fit(documents)
 
@@ -59,11 +59,11 @@ assistant = RAGBase(
     instructions=instructions,
 )
 
-def search(query, course='data-engineering-zoomcamp'):
+def search(query, course="data-engineering-zoomcamp"):
     return assistant.search(
         query,
-        boost_dict={'question': 3.0, 'section': 0.5},
-        filter_dict={'course': course},
+        boost_dict={"question": 3.0, "section": 0.5},
+        filter_dict={"course": course},
     )
 ```
 
@@ -75,18 +75,18 @@ import json
 
 search_tool = {
     "type": "function",
-    'name': 'search',
-    'description': 'Search the FAQ database for entries matching the given query.',
-    'parameters': {
+    "name": "search",
+    "description": "Search the FAQ database for entries matching the given query.",
+    "parameters": {
         "type": "object",
         "properties": {
-            'query': {
+            "query": {
                 "type": "string",
-                'description': 'Search query text to look up in the course FAQ.'
+                "description": "Search query text to look up in the course FAQ."
             }
         },
         "required": ["query"],
-        'additionalProperties': False
+        "additionalProperties": False
     }
 }
 ```
@@ -119,8 +119,8 @@ def make_call(call):
     result_json = json.dumps(result, indent=2)
     return {
         "type": "function_call_output",
-        'call_id': call.call_id,
-        'output': result_json,
+        "call_id": call.call_id,
+        "output": result_json,
     }
 ```
 
@@ -129,10 +129,10 @@ def make_call(call):
 We modify the agent loop to collect the tool call trajectory:
 
 ```python
-def agent_with_logging(question, model='gpt-5.4-mini'):
+def agent_with_logging(question, model="gpt-5.4-mini"):
     chat_messages = [
-        {'role': 'developer', 'content': developer_prompt},
-        {'role': 'user', 'content': question}
+        {"role": "developer", "content": developer_prompt},
+        {"role": "user", "content": question}
     ]
 
     tools = []
@@ -149,12 +149,12 @@ def agent_with_logging(question, model='gpt-5.4-mini'):
         has_function_calls = False
 
         for entry in response.output:
-            if entry.type == 'message':
+            if entry.type == "message":
                 answer = entry.content[0].text
-            if entry.type == 'function_call':
+            if entry.type == "function_call":
                 tools.append({
-                    'name': entry.name,
-                    'args': entry.arguments
+                    "name": entry.name,
+                    "args": entry.arguments
                 })
                 result = make_call(entry)
                 chat_messages.append(result)
@@ -164,9 +164,9 @@ def agent_with_logging(question, model='gpt-5.4-mini'):
             break
 
     return {
-        'question': question,
-        'tools': tools,
-        'answer': answer,
+        "question": question,
+        "tools": tools,
+        "answer": answer,
     }
 ```
 
@@ -181,13 +181,13 @@ Let's run the agent on ground truth questions and collect the data:
 ```python
 from tqdm.auto import tqdm
 
-doc_idx = {d['id']: d for d in documents}
+doc_idx = {d["id"]: d for d in documents}
 agent_results = {}
 
 for i, rec in enumerate(tqdm(ground_truth_flat[:50])):
-    result = agent_with_logging(rec['question'])
-    result['document'] = rec['document']
-    result['course'] = rec['course']
+    result = agent_with_logging(rec["question"])
+    result["document"] = rec["document"]
+    result["course"] = rec["course"]
     agent_results[i] = result
 ```
 
@@ -195,11 +195,11 @@ Let's look at a result:
 
 ```python
 r = agent_results[0]
-print('Question:', r['question'])
-print('Tool calls:', len(r['tools']))
-for t in r['tools']:
-    print(f"  {t['name']}({t['args']})")
-print('Answer:', r['answer'][:100], '...')
+print("Question:", r["question"])
+print("Tool calls:", len(r["tools"]))
+for t in r["tools"]:
+    print(f"""  {t["name"]}({t["args"]})""")
+print("Answer:", r["answer"][:100], "...")
 ```
 
 We have the data we need.
@@ -211,4 +211,4 @@ the agent on three dimensions:
 2. Trajectory efficiency (did it use tools well?)
 3. Instruction following (did it follow the developer prompt rules?)
 
-[← LLM as a Judge](05-llm-as-judge.md) | [Trajectory Evaluation →](07-trajectory-evaluation.md)
+[← LLM as a Judge](07-llm-as-judge.md) | [Trajectory Evaluation →](09-trajectory-evaluation.md)

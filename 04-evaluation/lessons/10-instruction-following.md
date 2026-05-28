@@ -26,9 +26,9 @@ use the same LLM-as-a-judge approach from lesson 05:
 ```python
 class AnswerEvaluation(BaseModel):
     reasoning: str = Field(
-        description='Step-by-step reasoning about the quality of the answer.'
+        description="Step-by-step reasoning about the quality of the answer."
     )
-    score: Literal['good', 'bad'] = Field(
+    score: Literal["good", "bad"] = Field(
         description="'good' if correct, 'bad' otherwise."
     )
 ```
@@ -69,7 +69,7 @@ AI Answer:
 The evaluation function sends both answers to the judge:
 
 ```python
-def evaluate_aqa(question, answer_orig, answer_llm, model='gpt-5.4-mini'):
+def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
     prompt = aqa_judge_prompt.format(
         question=question,
         answer_orig=answer_orig,
@@ -77,8 +77,8 @@ def evaluate_aqa(question, answer_orig, answer_llm, model='gpt-5.4-mini'):
     )
 
     messages = [
-        {'role': 'developer', 'content': aqa_judge_instructions},
-        {'role': 'user', 'content': prompt}
+        {"role": "developer", "content": aqa_judge_instructions},
+        {"role": "user", "content": prompt}
     ]
 
     response = openai_client.responses.parse(
@@ -94,18 +94,18 @@ Evaluate agent answers:
 
 ```python
 for i, result in agent_results.items():
-    doc_id = result['document']
+    doc_id = result["document"]
     original_doc = doc_idx[doc_id]
-    answer_orig = original_doc['answer']
+    answer_orig = original_doc["answer"]
 
     eval_result = evaluate_aqa(
-        question=result['question'],
+        question=result["question"],
         answer_orig=answer_orig,
-        answer_llm=result['answer']
+        answer_llm=result["answer"]
     )
 
-    result['correctness'] = eval_result.score
-    result['correctness_reasoning'] = eval_result.reasoning
+    result["correctness"] = eval_result.score
+    result["correctness_reasoning"] = eval_result.reasoning
 ```
 
 ## Instruction following
@@ -115,9 +115,9 @@ Check if the agent follows its developer prompt rules:
 ```python
 class InstructionResult(BaseModel):
     reasoning: str = Field(
-        description='Step-by-step reasoning about instruction following.'
+        description="Step-by-step reasoning about instruction following."
     )
-    score: Literal['good', 'bad'] = Field(
+    score: Literal["good", "bad"] = Field(
         description="'good' if instructions were followed, 'bad' if violated."
     )
 
@@ -149,7 +149,7 @@ instruction_prompt = """
 Now the evaluation function:
 
 ```python
-def evaluate_instructions(question, answer, model='gpt-5.4-mini'):
+def evaluate_instructions(question, answer, model="gpt-5.4-mini"):
     prompt = instruction_prompt.format(
         instructions=developer_prompt,
         question=question,
@@ -157,8 +157,8 @@ def evaluate_instructions(question, answer, model='gpt-5.4-mini'):
     )
 
     messages = [
-        {'role': 'developer', 'content': instruction_instructions},
-        {'role': 'user', 'content': prompt}
+        {"role": "developer", "content": instruction_instructions},
+        {"role": "user", "content": prompt}
     ]
 
     response = openai_client.responses.parse(
@@ -175,12 +175,12 @@ Evaluate:
 ```python
 for i, result in agent_results.items():
     inst_eval = evaluate_instructions(
-        question=result['question'],
-        answer=result['answer']
+        question=result["question"],
+        answer=result["answer"]
     )
 
-    result['instruction_following'] = inst_eval.score
-    result['instruction_reasoning'] = inst_eval.reasoning
+    result["instruction_following"] = inst_eval.score
+    result["instruction_reasoning"] = inst_eval.reasoning
 ```
 
 ## Putting it all together
@@ -190,9 +190,9 @@ We have three evaluation dimensions for each agent run:
 ```python
 df_agent = pd.DataFrame(agent_results.values())
 
-print('Correctness:', (df_agent['correctness'] == 'good').mean())
-print('Trajectory:', (df_agent['trajectory'] == 'good').mean())
-print('Instructions:', (df_agent['instruction_following'] == 'good').mean())
+print("Correctness:", (df_agent["correctness"] == "good").mean())
+print("Trajectory:", (df_agent["trajectory"] == "good").mean())
+print("Instructions:", (df_agent["instruction_following"] == "good").mean())
 ```
 
 These three metrics give you a comprehensive view of agent quality:
@@ -209,4 +209,4 @@ prompt rules might need to be clearer.
 For production systems, you'd run these evaluations on a larger dataset
 and track the metrics over time as you iterate on the agent.
 
-[← Trajectory Evaluation](07-trajectory-evaluation.md) | [Next Steps →](09-next-steps.md)
+[← Trajectory Evaluation](09-trajectory-evaluation.md) | [Next Steps →](11-next-steps.md)

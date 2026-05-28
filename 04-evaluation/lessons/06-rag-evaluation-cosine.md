@@ -6,14 +6,14 @@ answers. The LLM might ignore the context, hallucinate, or produce a
 poor response.
 
 In this lesson, we evaluate the entire RAG pipeline: search + prompt +
-LLM. The question is: how good are the answers?
+LLM. We measure answer quality, not only retrieval quality.
 
 ## Evaluating with A->Q->A'
 
 We already have ground truth data with questions generated from FAQ
 documents. Each FAQ document has an original answer.
 
-Here's the idea:
+The process is:
 
 1. Take a question from the ground truth (generated from document D)
 2. Run the RAG pipeline to get an LLM answer
@@ -43,8 +43,8 @@ from openai import OpenAI
 documents = load_faq_data()
 
 index = Index(
-    text_fields=['question', 'section', 'answer'],
-    keyword_fields=['course']
+    text_fields=["question", "section", "answer"],
+    keyword_fields=["course"]
 )
 index.fit(documents)
 
@@ -67,7 +67,7 @@ Now run RAG on all ground truth questions and collect both the LLM
 answer and the original answer:
 
 ```python
-doc_idx = {d['id']: d for d in documents}
+doc_idx = {d["id"]: d for d in documents}
 
 answers = {}
 
@@ -76,19 +76,19 @@ for i, rec in enumerate(tqdm(ground_truth_flat)):
         continue
 
     answer_llm = assistant.rag(
-        rec['question'],
-        filter_dict={'course': rec['course']}
+        rec["question"],
+        filter_dict={"course": rec["course"]}
     )
-    doc_id = rec['document']
+    doc_id = rec["document"]
     original_doc = doc_idx[doc_id]
-    answer_orig = original_doc['answer']
+    answer_orig = original_doc["answer"]
 
     answers[i] = {
-        'answer_llm': answer_llm,
-        'answer_orig': answer_orig,
-        'document': doc_id,
-        'question': rec['question'],
-        'course': rec['course'],
+        "answer_llm": answer_llm,
+        "answer_orig": answer_orig,
+        "document": doc_id,
+        "question": rec["question"],
+        "course": rec["course"],
     }
 ```
 
@@ -107,7 +107,7 @@ model:
 ```python
 from sentence_transformers import SentenceTransformer
 
-model_name = 'multi-qa-MiniLM-L6-cos-v1'
+model_name = "multi-qa-MiniLM-L6-cos-v1"
 embedding_model = SentenceTransformer(model_name)
 ```
 
@@ -119,17 +119,17 @@ import numpy as np
 results = []
 
 for i, rec in answers.items():
-    v_llm = embedding_model.encode(rec['answer_llm'])
-    v_orig = embedding_model.encode(rec['answer_orig'])
+    v_llm = embedding_model.encode(rec["answer_llm"])
+    v_orig = embedding_model.encode(rec["answer_orig"])
     score = v_llm.dot(v_orig)
 
     results.append({
-        'answer_llm': rec['answer_llm'],
-        'answer_orig': rec['answer_orig'],
-        'cosine': score,
-        'document': rec['document'],
-        'question': rec['question'],
-        'course': rec['course'],
+        "answer_llm": rec["answer_llm"],
+        "answer_orig": rec["answer_orig"],
+        "cosine": score,
+        "document": rec["document"],
+        "question": rec["question"],
+        "course": rec["course"],
     })
 
 df_results = pd.DataFrame(results)
@@ -141,7 +141,7 @@ answers are more similar.
 Let's check the average:
 
 ```python
-df_results['cosine'].describe()
+df_results["cosine"].describe()
 ```
 
 A typical result for a working RAG system might be around 0.7-0.8.
@@ -153,7 +153,7 @@ search is returning irrelevant documents.
 With this framework, we can compare different LLMs:
 
 ```python
-models = ['gpt-5.4-mini']
+models = ["gpt-5.4-mini"]
 
 for model_name in models:
     assistant_model = RAGBase(
@@ -167,25 +167,25 @@ for model_name in models:
 
     for i, rec in enumerate(tqdm(ground_truth_flat)):
         answer_llm = assistant_model.rag(
-            rec['question'],
-            filter_dict={'course': rec['course']}
+            rec["question"],
+            filter_dict={"course": rec["course"]}
         )
-        doc_id = rec['document']
+        doc_id = rec["document"]
         original_doc = doc_idx[doc_id]
-        answer_orig = original_doc['answer']
+        answer_orig = original_doc["answer"]
 
         answers_model[i] = {
-            'answer_llm': answer_llm,
-            'answer_orig': answer_orig,
+            "answer_llm": answer_llm,
+            "answer_orig": answer_orig,
         }
 
     cosines = []
     for rec in answers_model.values():
-        v_llm = embedding_model.encode(rec['answer_llm'])
-        v_orig = embedding_model.encode(rec['answer_orig'])
+        v_llm = embedding_model.encode(rec["answer_llm"])
+        v_orig = embedding_model.encode(rec["answer_orig"])
         cosines.append(v_llm.dot(v_orig))
 
-    print(f'{model_name}: mean cosine = {np.mean(cosines):.3f}')
+    print(f"{model_name}: mean cosine = {np.mean(cosines):.3f}")
 ```
 
 This gives you a number you can use to decide which model produces
@@ -196,4 +196,4 @@ answers can be semantically similar but have different wording, and the
 score might not reflect the true quality. In the next lesson, we'll use
 an LLM to judge answer quality directly.
 
-[← Search Evaluation](03-search-evaluation.md) | [LLM as a Judge →](05-llm-as-judge.md)
+[← Search Evaluation Metrics](05-search-metrics.md) | [LLM as a Judge →](07-llm-as-judge.md)
