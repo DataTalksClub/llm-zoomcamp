@@ -161,7 +161,7 @@ Now do the same thing for all ground truth questions:
 ```python
 from tqdm.auto import tqdm
 
-def compute_relevance_total(ground_truth):
+def compute_relevance_total_text(ground_truth):
     relevance_total = []
 
     for q in tqdm(ground_truth):
@@ -174,10 +174,40 @@ def compute_relevance_total(ground_truth):
 Call it for the ground truth dataset:
 
 ```python
-relevance_total = compute_relevance_total(ground_truth)
+relevance_total = compute_relevance_total_text(ground_truth)
 ```
 
 Each entry in `relevance_total` is a relevance list.
+
+Next, make the relevance functions generic, so they can use any search
+function:
+
+```python
+def compute_relevance(q, search_function):
+    doc_id = q["document"]
+    results = search_function(q["question"])
+
+    relevance = []
+    for d in results:
+        relevance.append(int(d["id"] == doc_id))
+
+    return relevance
+```
+
+The total relevance function gets a `search_function` too.
+
+We need to provide it explicitly:
+
+```python
+def compute_relevance_total(ground_truth, search_function):
+    relevance_total = []
+
+    for q in tqdm(ground_truth):
+        relevance = compute_relevance(q, search_function)
+        relevance_total.append(relevance)
+
+    return relevance_total
+```
 
 ## Hit Rate
 
@@ -255,35 +285,7 @@ mrr(example)
 
 ## Putting it together
 
-Next, make the relevance functions generic, so they can use any search
-function:
-
-```python
-def compute_relevance(q, search_function):
-    doc_id = q["document"]
-    results = search_function(q["question"])
-
-    relevance = []
-    for d in results:
-        relevance.append(int(d["id"] == doc_id))
-
-    return relevance
-```
-
-The total relevance function gets a `search_function` too:
-
-```python
-def compute_relevance_total(ground_truth, search_function):
-    relevance_total = []
-
-    for q in tqdm(ground_truth):
-        relevance = compute_relevance(q, search_function)
-        relevance_total.append(relevance)
-
-    return relevance_total
-```
-
-Then wrap the metrics in a reusable evaluation function:
+Wrap the metrics in a reusable evaluation function:
 
 ```python
 def evaluate(ground_truth, search_function):
