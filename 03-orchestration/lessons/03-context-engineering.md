@@ -28,4 +28,4 @@ Without proper context, generic AI assistants hallucinate outdated or incorrect 
 
 In the next section, we'll see how Kestra's AI Copilot solves this problem by giving the model everything it needs to generate correct flows.
 
-[← Introduction](01-intro.md) | [AI Copilot →](03-ai-copilot.md)
+[← Getting Started](02-setup.md) | [AI Copilot →](04-ai-copilot.md)

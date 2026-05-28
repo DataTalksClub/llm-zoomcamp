@@ -14,9 +14,18 @@
 
 AI features use LLM APIs, which have costs based on token usage.
 
-**Gemini 2.5 Flash Pricing (as of late 2025):**
-- **Free Tier**: Free for both input and output (with rate limits)
-- **Paid Tier** (per 1M tokens): $0.30 input / $2.50 output
+**Pricing per 1M tokens ([full pricing page](https://ai.google.dev/gemini-api/docs/pricing)):**
+
+| Model | Tier | Input | Output |
+|-------|------|-------|--------|
+| Gemini 2.5 Flash | Free | $0.00 | $0.00 |
+| Gemini 2.5 Flash | Batch / Flex | $0.15 | $1.25 |
+| Gemini 3.5 Flash | Free | $0.00 | $0.00 |
+| Gemini 3.5 Flash | Standard | $1.50 | $9.00 |
+| Gemini 3.5 Flash | Batch / Flex | $0.75 | $4.50 |
+| Gemini 3.5 Flash | Priority | $2.70 | $16.20 |
+
+Use Gemini 2.5 Flash for most workflows — it's cheaper and free for standard inference. Step up to Gemini 3.5 Flash when you need stronger reasoning for complex agent tasks.
 
 **Cost-saving tips:**
 
@@ -38,7 +47,7 @@ apiKey: "sk-abc123def456"
 apiKey: "{{ secret('GEMINI_API_KEY') }}"
 ```
 
-Export base64-encoded keys as `SECRET_`-prefixed environment variables before starting Kestra. Rotate keys regularly (e.g., every 90 days) and monitor usage.
+Export base64-encoded keys as `SECRET_`-prefixed environment variables before starting Kestra. Rotate keys regularly (e.g., every 90 days) and monitor usage. Read more about secrets in the [Kestra documentation](https://kestra.io/docs/concepts/secret).
 
 ## Observability and Debugging
 
@@ -68,4 +77,4 @@ Before deploying AI workflows to production:
 3. **Set limits** — cap `maxOutputTokens` to control costs
 4. **Document behavior** — explain what the agent does in your flow and task descriptions
 
-[← Getting Started](07-setup.md) | [Back to module →](../)
+[← Multi-Agent Systems](07-multi-agent.md) | [Back to module →](../)

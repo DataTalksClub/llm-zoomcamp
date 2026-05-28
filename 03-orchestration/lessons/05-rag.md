@@ -58,4 +58,4 @@ Import and run `2_chat_with_rag.yaml` and compare the output quality against the
 3. **Test retrieval quality**: Verify that the right documents are retrieved
 4. **Consider costs**: Embedding and storage have costs, so balance accuracy vs. budget
 
-[← AI Copilot](03-ai-copilot.md) | [AI Agents →](05-agents.md)
+[← AI Copilot](04-ai-copilot.md) | [AI Agents →](06-agents.md)

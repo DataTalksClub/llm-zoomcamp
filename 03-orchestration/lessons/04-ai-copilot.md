@@ -68,4 +68,4 @@ You're collaborating with AI, not starting from scratch each time.
 - **Configure triggers**: "Add a webhook trigger"
 - **Add error handling**: "Add retry logic with exponential backoff"
 
-[← Context Engineering](02-context-engineering.md) | [RAG →](04-rag.md)
+[← Context Engineering](03-context-engineering.md) | [RAG →](05-rag.md)

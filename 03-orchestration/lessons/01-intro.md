@@ -36,4 +36,4 @@ Traditional AI assistants (like ChatGPT or Gemini in a browser) don't have conte
 
 By integrating AI directly into Kestra and using techniques like RAG and specialized agents, we can provide this context and get much better results.
 
-[← Back to module](../) | [Context Engineering →](02-context-engineering.md)
+[← Back to module](../) | [Getting Started →](02-setup.md)

@@ -120,4 +120,4 @@ provider:
     logResponses: true
 ```
 
-[← RAG](04-rag.md) | [Multi-Agent Systems →](06-multi-agent.md)
+[← RAG](05-rag.md) | [Multi-Agent Systems →](07-multi-agent.md)

@@ -32,4 +32,4 @@ The key pattern here is using `AIAgent` as a tool. The main agent treats the res
 2. **Monitor token usage**: Multiple agents means multiple LLM calls — costs add up
 3. **Document agent purposes**: Make the system maintainable by describing what each agent does in your flow and task descriptions
 
-[← AI Agents](05-agents.md) | [Getting Started →](07-setup.md)
+[← AI Agents](06-agents.md) | [Best Practices →](08-best-practices.md)

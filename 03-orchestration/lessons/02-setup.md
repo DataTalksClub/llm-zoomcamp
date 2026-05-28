@@ -90,4 +90,4 @@ docker compose up -d
 5. Watch the execution and review the outputs
 6. Then run `4_web_research_agent` and `5_multi_agent_research` and analyze the logs and outputs
 
-[← Multi-Agent Systems](06-multi-agent.md) | [Best Practices →](08-best-practices.md)
+[← Introduction](01-intro.md) | [Context Engineering →](03-context-engineering.md)

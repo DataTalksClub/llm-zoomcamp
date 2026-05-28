@@ -13,7 +13,7 @@ tasks:
     description: Query about Kestra 1.1 features WITHOUT RAG
     provider:
       type: io.kestra.plugin.ai.provider.GoogleGemini
-      modelName: gemini-3.5-flash
+      modelName: gemini-2.5-flash
       apiKey: "{{ secret('GEMINI_API_KEY') }}"
     messages:
       - type: USER
