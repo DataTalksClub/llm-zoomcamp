@@ -1,6 +1,10 @@
 # AI Copilot
 
-Kestra's AI Copilot is specifically designed to generate and modify Kestra flows with full context about the latest plugins, syntax, and best practices.
+Building workflows manually can be slow. You need to know which plugin to use, look up the exact property names, remember the right syntax, and connect each task together in the correct order. For a non-trivial flow, this can take a long time before you even run it once. While Kestra's autocomplete helps, you still have to build each task one at a time.
+
+AI Copilot changes the approach. Instead of building each step manually, you describe your inputs and your goal — and the AI Copilot generates the flow structure for you. You then tweak the last 5% to get the exact behaviour you want. The AI Copilot handles the boilerplate; you focus on the logic that's specific to your use case.
+
+This works reliably because Kestra's AI Copilot is grounded in the current plugin documentation, valid property names, and best practices for your running version of Kestra — unlike a generic AI assistant, which guesses.
 
 ## Setup
 
@@ -42,11 +46,11 @@ Use the same prompt from the previous lesson, but this time with AI Copilot:
    ```
 3. **Observe the results** — correct, up-to-date plugin types, valid property names, and working executable YAML.
 
-## Why Does Copilot Work Better?
+## The 5% Rule
 
-Kestra's AI Copilot has access to current plugin documentation (all available plugins and their exact syntax), the flow context of whatever you're already editing, best practices recommended by Kestra, and version-specific details for your running instance.
+Copilot gets you to a working flow quickly, but it won't know everything about your environment. After generation, review the output and make the small adjustments that are specific to your setup - your environment variables, your secrets, your error handling preferences, or a task that needs a slightly different configuration than the default.
 
-This is **context engineering** in action: by giving the AI the right context, we get reliable, production-ready results.
+The bulk of the structure is done. You're just closing the gap between a general solution and your exact requirements.
 
 ## Iterative Refinement
 
@@ -59,7 +63,7 @@ AI Copilot helps with both creating new flows and refining existing ones. The co
 3. "Schedule the flow to run daily at 9 AM UTC" → Copilot adds a `Schedule` trigger
 4. "Send a Slack notification if it fails" → Copilot adds a `SlackIncomingWebhook` task in an `errors` branch
 
-You're collaborating with AI, not starting from scratch each time.
+Then you make the final tweaks manually - adjusting the SQL query, setting your specific Slack channel, or adding a retry count that matches your SLA. You're collaborating with AI, not starting from scratch each time.
 
 ## Example Use Cases
 

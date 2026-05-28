@@ -6,6 +6,8 @@ While AI Copilot helps you *build* workflows faster, AI Agents help you *run* wo
 
 An **AI Agent** is an autonomous system that uses an LLM to reason and make decisions, has access to tools (web search, task execution, etc.), can remember context across executions, and dynamically decides which actions to take and in what order.
 
+For a deeper dive into agents and the agentic loop, see [Module 1](../../01-agentic-rag/lessons/11-agents-intro.md).
+
 **Traditional Workflow** — fixed sequence, predetermined logic:
 
 ```yaml

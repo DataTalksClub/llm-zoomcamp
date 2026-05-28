@@ -60,7 +60,7 @@ services:
           ai:
             type: gemini
             gemini:
-              model-name: gemini-3.5-flash
+              model-name: gemini-2.5-flash
               api-key: ${GEMINI_API_KEY}
     ports:
       - "8080:8080"
