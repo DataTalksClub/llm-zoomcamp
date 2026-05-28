@@ -25,7 +25,7 @@ Part 2 evaluates answer quality after retrieval. It also shows the
 basic idea of agent evaluation: save the final answer and the tool-call
 trajectory.
 
-11. [RAG and Agent Evaluation](lessons/11-rag-and-agent-evaluation-intro.md) - What changes after retrieval
+11. [RAG and Agent Evaluation](lessons/11-evaluation-intro.md) - What changes after retrieval
 12. [Generating RAG Answers](lessons/12-rag-answers.md) - Running RAG on the ground truth questions
 13. [LLM as a Judge](lessons/13-llm-as-judge.md) - Using an LLM to evaluate answer quality
 14. [Agent Evaluation](lessons/14-agent-evaluation.md) - Capturing answers and tool-call trajectories

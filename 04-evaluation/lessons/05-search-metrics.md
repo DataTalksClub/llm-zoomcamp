@@ -135,4 +135,4 @@ configurations.
 Search metrics tell us whether retrieval works. Next, we'll evaluate
 the answers produced by RAG and agent systems.
 
-[← Search Evaluation](04-search-evaluation.md) | [RAG and Agent Evaluation →](11-rag-and-agent-evaluation-intro.md)
+[← Search Evaluation](04-search-evaluation.md) | [RAG and Agent Evaluation →](11-evaluation-intro.md)

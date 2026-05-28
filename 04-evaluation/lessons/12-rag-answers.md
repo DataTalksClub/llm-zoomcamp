@@ -137,4 +137,4 @@ df_answers.to_csv("data/rag-answers.csv", index=False)
 
 In the next lesson, we'll evaluate these answers with an LLM judge.
 
-[← RAG and Agent Evaluation](11-rag-and-agent-evaluation-intro.md) | [LLM as a Judge →](13-llm-as-judge.md)
+[← RAG and Agent Evaluation](11-evaluation-intro.md) | [LLM as a Judge →](13-llm-as-judge.md)
