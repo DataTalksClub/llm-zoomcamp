@@ -65,9 +65,9 @@ Initialize it:
 from sqlitesearch import VectorSearchIndex
 
 vs_index = VectorSearchIndex(
-    keyword_fields=['course'],
-    mode='ivf',
-    db_path='faq_vectors2.db'
+    keyword_fields=["course"],
+    mode="ivf",
+    db_path="faq_vectors2.db"
 )
 ```
 
@@ -98,7 +98,7 @@ the index later without re-indexing.
 Search works the same way as with minsearch:
 
 ```python
-query = 'I just discovered the course. Can I still join it?'
+query = "I just discovered the course. Can I still join it?"
 query_vector = model.encode(query)
 
 results = vs_index.search(query_vector, num_results=5)
@@ -117,7 +117,7 @@ Filtering works the same way:
 ```python
 results = vs_index.search(
     query_vector,
-    filter_dict={'course': 'llm-zoomcamp'},
+    filter_dict={"course": "llm-zoomcamp"},
     num_results=5
 )
 ```
@@ -140,19 +140,19 @@ embeddings:
 from sentence_transformers import SentenceTransformer
 from sqlitesearch import VectorSearchIndex
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer("all-MiniLM-L6-v2")
 
 vs_index = VectorSearchIndex(
-    keyword_fields=['course'],
-    mode='ivf',
-    db_path='faq_vectors2.db'
+    keyword_fields=["course"],
+    mode="ivf",
+    db_path="faq_vectors2.db"
 )
 ```
 
 Now we can search:
 
 ```python
-query_vector = model.encode('How do I run Kafka?')
+query_vector = model.encode("How do I run Kafka?")
 results = vs_index.search(query_vector, num_results=5)
 ```
 
@@ -175,12 +175,12 @@ the "Reopening the index" section above):
 from sentence_transformers import SentenceTransformer
 from sqlitesearch import VectorSearchIndex
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer("all-MiniLM-L6-v2")
 
 vs_index = VectorSearchIndex(
-    keyword_fields=['course'],
-    mode='ivf',
-    db_path='faq_vectors2.db'
+    keyword_fields=["course"],
+    mode="ivf",
+    db_path="faq_vectors2.db"
 )
 ```
 
@@ -206,7 +206,7 @@ class RAGVector(RAGBase):
 
     def search(self, query, num_results=5):
         query_vector = self.embedder.encode(query)
-        filter_dict = {'course': self.course}
+        filter_dict = {"course": self.course}
 
         return self.index.search(
             query_vector,
@@ -224,7 +224,7 @@ vector_assistant = RAGVector(
 Try it:
 
 ```python
-vector_assistant.rag('the program has already begun, can I still sign up?')
+vector_assistant.rag("the program has already begun, can I still sign up?")
 ```
 
 When you're done, close the connection:

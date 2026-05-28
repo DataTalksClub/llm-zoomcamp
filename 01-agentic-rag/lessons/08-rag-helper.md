@@ -24,15 +24,15 @@ import requests
 from minsearch import Index
 
 def load_faq_data():
-    docs_url = 'https://datatalks.club/faq/json/courses.json'
+    docs_url = "https://datatalks.club/faq/json/courses.json"
     response = requests.get(docs_url)
     courses_raw = response.json()
 
     documents = []
-    url_prefix = 'https://datatalks.club/faq'
+    url_prefix = "https://datatalks.club/faq"
 
     for course in courses_raw:
-        course_url = f'{url_prefix}{course["path"]}'
+        course_url = f"""{url_prefix}{course["path"]}"""
         course_response = requests.get(course_url)
         course_response.raise_for_status()
         course_data = course_response.json()
@@ -43,8 +43,8 @@ def load_faq_data():
 
 def build_index(documents):
     index = Index(
-        text_fields=['question', 'section', 'answer'],
-        keyword_fields=['course']
+        text_fields=["question", "section", "answer"],
+        keyword_fields=["course"]
     )
     index.fit(documents)
     return index
@@ -72,21 +72,21 @@ any of the RAG code.
 Create `rag_helper.py`:
 
 ```python
-INSTRUCTIONS = '''
+INSTRUCTIONS = """
 Your task is to answer questions from the course participants
 based on the provided context.
 
 Use the context to find relevant information and provide accurate
 answers. If the answer is not found in the context,
 respond with "I don't know."
-'''
+"""
 
-PROMPT_TEMPLATE = '''
+PROMPT_TEMPLATE = """
 QUESTION: {question}
 
 CONTEXT:
 {context}
-'''.strip()
+""".strip()
 ```
 
 Now the class:
@@ -99,8 +99,8 @@ Now the class:
         llm_client,
         instructions=INSTRUCTIONS,
         prompt_template=PROMPT_TEMPLATE,
-        course='llm-zoomcamp',
-        model='gpt-5.4-mini'
+        course="llm-zoomcamp",
+        model="gpt-5.4-mini"
     ):
         self.index = index
         self.llm_client = llm_client
@@ -118,8 +118,8 @@ The `search` method delegates to the index:
 
 ```python
     def search(self, query, num_results=5):
-        boost_dict = {'question': 3.0, 'section': 0.5}
-        filter_dict = {'course': self.course}
+        boost_dict = {"question": 3.0, "section": 0.5}
+        filter_dict = {"course": self.course}
 
         return self.index.search(
             query,
@@ -137,12 +137,12 @@ results:
         lines = []
 
         for doc in search_results:
-            lines.append(doc['section'])
-            lines.append('Q: ' + doc['question'])
-            lines.append('A: ' + doc['answer'])
-            lines.append('')
+            lines.append(doc["section"])
+            lines.append("Q: " + doc["question"])
+            lines.append("A: " + doc["answer"])
+            lines.append("")
 
-        return '\n'.join(lines).strip()
+        return "\n".join(lines).strip()
 
     def build_prompt(self, query, search_results):
         context = self.build_context(search_results)
@@ -156,8 +156,8 @@ The `llm` method sends the prompt to the LLM:
 ```python
     def llm(self, prompt):
         input_messages = [
-            {'role': 'developer', 'content': self.instructions},
-            {'role': 'user', 'content': prompt}
+            {"role": "developer", "content": self.instructions},
+            {"role": "user", "content": prompt}
         ]
 
         response = self.llm_client.responses.create(
@@ -200,7 +200,7 @@ assistant = RAGBase(
     llm_client=openai_client,
 )
 
-answer = assistant.rag('I just discovered the course. Can I join now?')
+answer = assistant.rag("I just discovered the course. Can I join now?")
 print(answer)
 ```
 
@@ -210,11 +210,11 @@ used.
 You can override it if you want different behavior:
 
 ```python
-custom_instructions = '''
+custom_instructions = """
 You're a course teaching assistant.
 Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
-'''.strip()
+""".strip()
 
 assistant = RAGBase(
     index=index,
@@ -226,8 +226,8 @@ assistant = RAGBase(
 Try more questions:
 
 ```python
-assistant.rag('How do I get a certificate?')
-assistant.rag('Can I still join the course after it started?')
+assistant.rag("How do I get a certificate?")
+assistant.rag("Can I still join the course after it started?")
 ```
 
 We'll use these two files throughout the course. In the next lesson,

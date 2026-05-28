@@ -27,7 +27,7 @@ Index them:
 ```python
 from minsearch import VectorSearch
 
-vindex = VectorSearch(keyword_fields=['course'])
+vindex = VectorSearch(keyword_fields=["course"])
 vindex.fit(X, documents)
 ```
 
@@ -40,7 +40,7 @@ as in the text `Index` - it lets us filter by course.
 Let's search for a question:
 
 ```python
-query = 'I just discovered the course. Can I still join it?'
+query = "I just discovered the course. Can I still join it?"
 query_vector = model.encode(query)
 
 results = vindex.search(query_vector, num_results=5)
@@ -60,11 +60,11 @@ It should return the document about joining the course late:
 
 
 ```python
-{'id': '74eb249bbf',
- 'course': 'llm-zoomcamp',
- 'section': 'General Course-Related Questions',
- 'question': 'I just discovered the course. Can I still join?',
- 'answer': 'Yes, but if you want to receive a certificate, you need to submit your project while we’re still accepting submissions.'}
+{"id": "74eb249bbf",
+ "course": "llm-zoomcamp",
+ "section": "General Course-Related Questions",
+ "question": "I just discovered the course. Can I still join?",
+ "answer": "Yes, but if you want to receive a certificate, you need to submit your project while we’re still accepting submissions."}
 ```
 
 ## Filtering by course
@@ -74,7 +74,7 @@ Like the text index, we can filter by keyword fields:
 ```python
 results = vindex.search(
     query_vector,
-    filter_dict={'course': 'llm-zoomcamp'},
+    filter_dict={"course": "llm-zoomcamp"},
     num_results=5
 )
 ```

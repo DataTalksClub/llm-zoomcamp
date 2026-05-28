@@ -70,11 +70,11 @@ course-specific question and see the answer.
 
 ```python
 messages = [
-    {'role': 'user', 'content': 'I just discovered the course. Can I join it?'}
+    {"role": "user", "content": "I just discovered the course. Can I join it?"}
 ]
 
 response = openai_client.responses.create(
-    model='gpt-5.4-mini',
+    model="gpt-5.4-mini",
     input=messages,
 )
 
@@ -94,8 +94,8 @@ later.
 
 ```python
 def search(query):
-    boost_dict = {'question': 3.0, 'section': 0.5}
-    filter_dict = {'course': 'llm-zoomcamp'}
+    boost_dict = {"question": 3.0, "section": 0.5}
+    filter_dict = {"course": "llm-zoomcamp"}
 
     return index.search(
         query,
@@ -112,18 +112,18 @@ what arguments it takes.
 ```python
 search_tool = {
     "type": "function",
-    'name': 'search',
-    'description': 'Search the FAQ database for entries matching the given query.',
-    'parameters': {
+    "name": "search",
+    "description": "Search the FAQ database for entries matching the given query.",
+    "parameters": {
         "type": "object",
         "properties": {
-            'query': {
+            "query": {
                 "type": "string",
-                'description': 'Search query text to look up in the course FAQ.'
+                "description": "Search query text to look up in the course FAQ."
             }
         },
         "required": ["query"],
-        'additionalProperties': False
+        "additionalProperties": False
     }
 }
 ```
@@ -139,7 +139,7 @@ tool in the request:
 
 ```python
 response = openai_client.responses.create(
-    model='gpt-5.4-mini',
+    model="gpt-5.4-mini",
     input=messages,
     tools=[search_tool],
 )
@@ -176,8 +176,8 @@ messages.extend(response.output)
 
 messages.append({
     "type": "function_call_output",
-    'call_id': call.call_id,
-    'output': result_json,
+    "call_id": call.call_id,
+    "output": result_json,
 })
 ```
 
@@ -191,7 +191,7 @@ We call the API a second time with the expanded history:
 
 ```python
 response = openai_client.responses.create(
-    model='gpt-5.4-mini',
+    model="gpt-5.4-mini",
     input=messages,
     tools=[search_tool],
 )

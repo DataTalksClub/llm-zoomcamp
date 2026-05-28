@@ -12,7 +12,7 @@ LLM:
 
 ```python
 response = openai_client.responses.create(
-    model='gpt-5.4-mini',
+    model="gpt-5.4-mini",
     input=prompt
 )
 ```
@@ -114,12 +114,12 @@ In our case, we send two messages:
 
 ```python
 message_history = [
-    {'role': 'developer', 'content': INSTRUCTIONS},
-    {'role': 'user', 'content': prompt}
+    {"role": "developer", "content": INSTRUCTIONS},
+    {"role": "user", "content": prompt}
 ]
 
 response = openai_client.responses.create(
-    model='gpt-5.4-mini',
+    model="gpt-5.4-mini",
     input=message_history
 )
 ```
@@ -139,10 +139,10 @@ It now
 takes both instructions and the user prompt:
 
 ```python
-def llm(instructions, user_prompt, model='gpt-5.4-mini'):
+def llm(instructions, user_prompt, model="gpt-5.4-mini"):
     message_history = [
-        {'role': 'developer', 'content': instructions},
-        {'role': 'user', 'content': user_prompt}
+        {"role": "developer", "content": instructions},
+        {"role": "user", "content": user_prompt}
     ]
 
     response = openai_client.responses.create(
@@ -158,7 +158,7 @@ def llm(instructions, user_prompt, model='gpt-5.4-mini'):
 With search, the prompt, and the LLM ready, we wire them together:
 
 ```python
-def rag(query, model='gpt-5.4-mini'):
+def rag(query, model="gpt-5.4-mini"):
     search_results = search(query)
     prompt = build_prompt(query, search_results)
     answer = llm(INSTRUCTIONS, prompt, model=model)
@@ -198,7 +198,7 @@ flowchart TD
 Try it:
 
 ```python
-answer = rag('I just discovered the course. Can I join now?')
+answer = rag("I just discovered the course. Can I join now?")
 print(answer)
 ```
 
@@ -211,7 +211,7 @@ response grounded in our data.
 Try a few more:
 
 ```python
-rag('How do I get a certificate?')
+rag("How do I get a certificate?")
 ```
 
 Notice how the answers reference specific courses and sections. The

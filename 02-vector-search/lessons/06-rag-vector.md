@@ -60,7 +60,7 @@ assistant = RAGBase(
 Ask it a question:
 
 ```python
-query = 'I just found out about the program, can I still sign up?'
+query = "I just found out about the program, can I still sign up?"
 assistant.rag(query)
 ```
 
@@ -88,7 +88,7 @@ class RAGVector(RAGBase):
 
     def search(self, query, num_results=5):
         query_vector = self.embedder.encode(query)
-        filter_dict = {'course': self.course}
+        filter_dict = {"course": self.course}
 
         return self.index.search(
             query_vector,
@@ -115,7 +115,7 @@ vector_assistant = RAGVector(
 Try it with different queries:
 
 ```python
-vector_assistant.rag('the program has already begun, can I still sign up?')
+vector_assistant.rag("the program has already begun, can I still sign up?")
 ```
 
 The answers should be similar to what we got with keyword search, but

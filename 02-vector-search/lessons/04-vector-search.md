@@ -11,7 +11,7 @@ We have a matrix `X` with all document embeddings.
 When a query comes in, we embed it:
 
 ```python
-query = 'Can I still join the course after the start date?'
+query = "Can I still join the course after the start date?"
 v_query = model.encode(query)
 ```
 
@@ -55,11 +55,11 @@ documents[idx]
 We see:
 
 ```python
-{'id': '3f1424af17',
- 'course': 'data-engineering-zoomcamp',
- 'section': 'General Course-Related Questions',
- 'question': 'Course: Can I still join the course after the start date?',
- 'answer': "Yes, even if you don't register, you're still eligible..."}
+{"id": "3f1424af17",
+ "course": "data-engineering-zoomcamp",
+ "section": "General Course-Related Questions",
+ "question": "Course: Can I still join the course after the start date?",
+ "answer": "Yes, even if you don't register, you're still eligible..."}
 ```
 
 ## Top 5 results

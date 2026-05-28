@@ -22,7 +22,7 @@ First, let's define a function to talk to the LLM:
 ```python
 def llm(prompt):
     response = openai_client.responses.create(
-        model='gpt-5.4-mini',
+        model="gpt-5.4-mini",
         input=prompt
     )
     return response.output_text
@@ -42,7 +42,7 @@ Ask it a course-specific
 question:
 
 ```python
-question = 'I just discovered the course. Can I join now?'
+question = "I just discovered the course. Can I join now?"
 answer = llm(question)
 print(answer)
 ```
@@ -64,7 +64,7 @@ about our courses.
 Copy some of that content into the prompt:
 
 ```python
-context = '''
+context = """
 I just discovered the course. Can I still join?
 Yes, but if you want to receive a certificate, you need to submit your project while we're still accepting submissions.
 
@@ -76,13 +76,13 @@ The zoom link is only published to instructors/presenters/TAs. Students particip
 
 Cloud alternatives with GPU
 Check the quota and reset cycle carefully. Potential options include Google Colab, Kaggle, Databricks.
-'''
+"""
 ```
 
 Build a prompt that includes both the question and the context:
 
 ```python
-prompt = f'''
+prompt = f"""
 Your task is to answer questions from the course participants
 based on the provided context.
 
@@ -95,7 +95,7 @@ Question:
 
 Context:
 {context}
-'''
+"""
 ```
 
 Instead of sending the raw question to the LLM, we send this prompt:

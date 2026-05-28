@@ -63,15 +63,15 @@ dispatch on the function name directly.
 def make_call(call):
     args = json.loads(call.arguments)
 
-    if call.name == 'search':
+    if call.name == "search":
         result = search(**args)
 
     result_json = json.dumps(result, indent=2)
 
     return {
         "type": "function_call_output",
-        'call_id': call.call_id,
-        'output': result_json,
+        "call_id": call.call_id,
+        "output": result_json,
     }
 ```
 
@@ -86,15 +86,15 @@ the conversation, print any messages, and run any function calls.
 Function-call results get appended too.
 
 ```python
-question = 'I just discovered the course. Can I join it?'
+question = "I just discovered the course. Can I join it?"
 
 messages = [
-    {'role': 'developer', 'content': instructions},
-    {'role': 'user', 'content': question},
+    {"role": "developer", "content": instructions},
+    {"role": "user", "content": question},
 ]
 
 response = openai_client.responses.create(
-    model='gpt-5.4-mini',
+    model="gpt-5.4-mini",
     input=messages,
     tools=[search_tool],
 )
@@ -103,14 +103,14 @@ messages.extend(response.output)
 has_function_calls = False
 
 for item in response.output:
-    if item.type == 'function_call':
-        print('function_call:', item.name, item.arguments)
+    if item.type == "function_call":
+        print("function_call:", item.name, item.arguments)
         call_output = make_call(item)
         messages.append(call_output)
         has_function_calls = True
 
-    elif item.type == 'message':
-        print('ASSISTANT:')
+    elif item.type == "message":
+        print("ASSISTANT:")
         print(item.content[0].text)
 ```
 
@@ -128,11 +128,11 @@ iteration counter so we can see how many round-trips happened.
 it = 1
 
 while True:
-    print(f'iteration #{it}...')
+    print(f"iteration #{it}...")
     has_function_calls = False
 
     response = openai_client.responses.create(
-        model='gpt-5.4-mini',
+        model="gpt-5.4-mini",
         input=messages,
         tools=[search_tool],
     )
@@ -140,14 +140,14 @@ while True:
     messages.extend(response.output)
 
     for item in response.output:
-        if item.type == 'function_call':
-            print('function_call:', item.name, item.arguments)
+        if item.type == "function_call":
+            print("function_call:", item.name, item.arguments)
             call_output = make_call(item)
             messages.append(call_output)
             has_function_calls = True
 
-        elif item.type == 'message':
-            print('ASSISTANT:')
+        elif item.type == "message":
+            print("ASSISTANT:")
             print(item.content[0].text)
 
     it = it + 1
@@ -174,16 +174,16 @@ takes the instructions and the question as parameters, and returns
 the final answer.
 
 ```python
-def agent_loop(instructions, question, model='gpt-5.4-mini') -> str:
+def agent_loop(instructions, question, model="gpt-5.4-mini") -> str:
     messages = [
-        {'role': 'developer', 'content': instructions},
-        {'role': 'user', 'content': question}
+        {"role": "developer", "content": instructions},
+        {"role": "user", "content": question}
     ]
 
     it = 1
 
     while True:
-        print(f'iteration #{it}...')
+        print(f"iteration #{it}...")
         has_function_calls = False
 
         response = openai_client.responses.create(
@@ -195,14 +195,14 @@ def agent_loop(instructions, question, model='gpt-5.4-mini') -> str:
         messages.extend(response.output)
 
         for item in response.output:
-            if item.type == 'function_call':
-                print('function_call:', item.name, item.arguments)
+            if item.type == "function_call":
+                print("function_call:", item.name, item.arguments)
                 call_output = make_call(item)
                 messages.append(call_output)
                 has_function_calls = True
 
-            elif item.type == 'message':
-                print('ASSISTANT:')
+            elif item.type == "message":
+                print("ASSISTANT:")
                 last_answer = item.content[0].text
                 print(item.content[0].text)
 
@@ -216,7 +216,7 @@ def agent_loop(instructions, question, model='gpt-5.4-mini') -> str:
 Let's test it with a question that has a typo:
 
 ```python
-agent_loop(instructions, 'How do I run Olama locally?')
+agent_loop(instructions, "How do I run Olama locally?")
 ```
 
 Watch what happens. The agent searches for "Olama", gets poor results,
@@ -226,7 +226,7 @@ loop lets the model recover from bad searches on its own.
 Also try the course enrollment question:
 
 ```python
-agent_loop(instructions, 'I just discovered the course. Can I still join it?')
+agent_loop(instructions, "I just discovered the course. Can I still join it?")
 ```
 
 ## Encouraging multiple searches
@@ -249,7 +249,7 @@ and then perform more searches.
 At the end, ask if there are other areas that the user wants to explore.
 """.strip()
 
-agent_loop(instructions, 'I just discovered the course. Can I join it?')
+agent_loop(instructions, "I just discovered the course. Can I join it?")
 ```
 
 Now the agent makes multiple searches per question and doesn't stop

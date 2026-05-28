@@ -55,8 +55,8 @@ def search(query: str) -> dict[str, str]:
     return index.search(
         query,
         num_results=5,
-        boost_dict={'question': 3.0, 'section': 0.5},
-        filter_dict={'course': 'llm-zoomcamp'}
+        boost_dict={"question": 3.0, "section": 0.5},
+        filter_dict={"course": "llm-zoomcamp"}
     )
 ```
 
@@ -92,7 +92,7 @@ runner = OpenAIResponsesRunner(
     tools=agent_tools,
     developer_prompt=instructions,
     chat_interface=chat_interface,
-    llm_client=OpenAIClient(model='gpt-5.4-mini')
+    llm_client=OpenAIClient(model="gpt-5.4-mini")
 )
 ```
 
@@ -112,7 +112,7 @@ Run a single prompt:
 
 ```python
 result = runner.loop(
-    prompt='How do I run Olama locally?',
+    prompt="How do I run Olama locally?",
     callback=callback,
 )
 ```
@@ -152,7 +152,7 @@ Take the messages from the previous result and pass them as
 
 ```python
 result2 = runner.loop(
-    prompt='How do I run a different model?',
+    prompt="How do I run a different model?",
     previous_messages=result.all_messages,
     callback=callback,
 )
