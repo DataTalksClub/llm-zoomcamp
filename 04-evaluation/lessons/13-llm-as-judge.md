@@ -43,6 +43,7 @@ Start from the CSV we created in the previous lesson:
 import pandas as pd
 
 df_answers = pd.read_csv("data/rag-answers.csv")
+answers = df_answers.to_dict(orient="records")
 ```
 
 Each row has the generated question, the original FAQ answer, and the
@@ -120,7 +121,7 @@ Import the structured-output helper:
 ```python
 from dotenv import load_dotenv
 from openai import OpenAI
-from evaluation_utils import calc_price, llm_structured
+from evaluation_utils import calc_price, llm_structured, map_progress
 
 load_dotenv()
 openai_client = OpenAI()
@@ -147,10 +148,10 @@ def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
     return result, usage
 ```
 
-Test it on one row:
+Test it on one record:
 
 ```python
-rec = df_answers.iloc[0]
+rec = answers[0]
 
 eval_result, usage = evaluate_aqa(
     question=rec["question"],
@@ -172,26 +173,46 @@ calc_price(usage)
 Run the evaluation on all answers:
 
 ```python
-from tqdm.auto import tqdm
-
-evaluations = []
-usages = []
-
-for _, rec in tqdm(df_answers.iterrows(), total=len(df_answers)):
+def judge_record(rec):
     eval_result, usage = evaluate_aqa(
         question=rec["question"],
         answer_orig=rec["answer_orig"],
         answer_llm=rec["answer_llm"]
     )
 
-    evaluations.append({
+    result = {
         "question": rec["question"],
         "document": rec["document"],
         "score": eval_result.score,
         "reasoning": eval_result.reasoning,
-    })
-    usages.append(usage)
+    }
 
+    return result, usage
+```
+
+Use the same parallel processing helper:
+
+```python
+from concurrent.futures import ThreadPoolExecutor
+
+with ThreadPoolExecutor(max_workers=6) as pool:
+    results = map_progress(pool, answers, judge_record)
+```
+
+Split the results:
+
+```python
+evaluations = []
+usages = []
+
+for evaluation, usage in results:
+    evaluations.append(evaluation)
+    usages.append(usage)
+```
+
+Create a dataframe:
+
+```python
 df_eval = pd.DataFrame(evaluations)
 ```
 
@@ -232,6 +253,27 @@ Save the judged answers:
 
 ```python
 df_eval.to_csv("data/rag-evaluations.csv", index=False)
+```
+
+We generated this file for the course materials on May 28, 2026. The
+run used 395 RAG answers.
+
+The results were:
+
+- Good: 365
+- Bad: 30
+
+The token usage was:
+
+- Input tokens: 159,689
+- Output tokens: 28,718
+- Cost with the prices above: $0.248998, about 25 cents
+
+If you don't want to run the judge yourself, download the file we
+prepared:
+
+```bash
+wget -O data/rag-evaluations.csv https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/data/rag-evaluations.csv
 ```
 
 We now have an answer-quality score for the RAG pipeline. In the next

@@ -247,7 +247,7 @@ The token usage was:
 
 - Input tokens: 282,544
 - Output tokens: 24,339
-- Estimated cost with the prices above: $0.321433, about 32 cents
+- Cost with the prices above: $0.321433, about 32 cents
 
 If you don't want to generate the RAG answers yourself, download the
 file we prepared:

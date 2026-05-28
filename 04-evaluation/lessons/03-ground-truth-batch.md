@@ -197,7 +197,7 @@ The token usage was:
 
 - Input tokens: 21,762
 - Output tokens: 9,699
-- Estimated cost with the prices above: $0.059967, about 6 cents
+- Cost with the prices above: $0.059967, about 6 cents
 
 If you don't want to generate the questions yourself, download the file
 we prepared:

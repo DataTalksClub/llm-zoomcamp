@@ -1,179 +1,494 @@
 # Agent Evaluation
 
-For RAG, we saved the final answer and compared it with the original
-FAQ answer.
+For RAG, we used the A->Q->A' setup:
 
-For agents, we do the same thing, but we also save the tool calls. The
-tool calls show the trajectory: what the agent decided to do before it
-produced the final answer.
+- A = original answer in the FAQ
+- Q = generated question from this answer
+- A' = answer produced by our RAG system
 
-This is the extra part of agent evaluation. With normal RAG, the
-pipeline is fixed: search runs, then the LLM answers. With an agent,
-the LLM makes decisions before answering.
+For agents, we use the same setup. A' comes from an agent instead of a
+fixed RAG pipeline.
 
-It can decide:
+We also save the trajectory. Here, the trajectory means only the tool
+calls the agent made before producing the final answer.
 
-- which tool to call
-- what query to use
-- whether it needs another tool call
+## Loading the data
 
-We'll keep this simple and reuse the agent from module 01.
-
-For each question, we capture:
-
-- the user question
-- the final answer
-- the tool calls made by the agent
-
-Then we can check if the answer is good and look at whether the
-trajectory makes sense.
-
-The trajectory helps us debug failures. If the answer is wrong, we can
-check what happened before the final answer. Maybe the agent searched
-for the wrong thing, repeated the same query, or stopped before finding
-useful context.
-
-## Capturing tool calls
-
-Use the same `search` function and `search_tool` schema from the
-agentic RAG lesson.
-
-The only change is that we keep a list of tool calls while the agent
-runs:
+Use the same ground truth questions:
 
 ```python
-import json
+import pandas as pd
 
-def make_call(call):
-    args = json.loads(call.arguments)
-    result = search(**args)
-    result_json = json.dumps(result, indent=2)
-
-    return {
-        "type": "function_call_output",
-        "call_id": call.call_id,
-        "output": result_json,
-    }
+df_ground_truth = pd.read_csv("data/ground-truth-data.csv")
+ground_truth = df_ground_truth.to_dict(orient="records")
 ```
 
-Now run the agent.
-
-Store the answer and the trajectory:
+Load the FAQ documents and the search index:
 
 ```python
-def agent_with_logging(question, model="gpt-5.4-mini"):
-    messages = [
-        {"role": "developer", "content": developer_prompt},
-        {"role": "user", "content": question}
-    ]
-    tool_calls = []
-    answer = None
+from ingest import load_faq_data, build_index
 
-    while True:
-        response = openai_client.responses.create(
-            model=model,
-            input=messages,
-            tools=[search_tool],
-        )
-        messages.extend(response.output)
-        has_tool_calls = False
-
-        for entry in response.output:
-            if entry.type == "message":
-                answer = entry.content[0].text
-
-            if entry.type == "function_call":
-                tool_calls.append({
-                    "name": entry.name,
-                    "arguments": entry.arguments,
-                })
-
-                result = make_call(entry)
-                messages.append(result)
-                has_tool_calls = True
-
-        if not has_tool_calls:
-            break
-
-    return {
-        "answer": answer,
-        "tool_calls": tool_calls,
-    }
+documents = load_faq_data()
+index = build_index(documents)
 ```
 
-The `answer` is what we evaluate the same way as before. The
-`tool_calls` list lets us see how the agent got there.
+Create a lookup table:
 
-## Trying one question
+```python
+doc_idx = {}
 
-Run the agent for one ground truth question:
+for doc in documents:
+    doc_idx[doc["id"]] = doc
+```
+
+## Running the agent
+
+Reuse the ToyAIKit agent from module 01. It handles the agent loop and
+stores the full message history.
+
+First, set up the model clients:
+
+```python
+from dotenv import load_dotenv
+from openai import OpenAI
+from toyaikit.llm import OpenAIClient as ToyOpenAIClient
+
+load_dotenv()
+openai_client = OpenAI()
+```
+
+Define the search tool:
+
+```python
+def search(query: str) -> list[dict]:
+    """
+    Search the FAQ database for entries matching the given query.
+    """
+    return index.search(
+        query,
+        num_results=5,
+        boost_dict={"question": 3.0, "section": 0.5},
+        filter_dict={"course": "llm-zoomcamp"}
+    )
+```
+
+Create the runner:
+
+```python
+from toyaikit.tools import Tools
+from toyaikit.chat.runners import OpenAIResponsesRunner
+
+agent_tools = Tools()
+agent_tools.add_tool(search)
+
+instructions = """
+You're a course teaching assistant. Answer student questions based on
+the FAQ search results. Use the search tool before answering.
+""".strip()
+
+runner = OpenAIResponsesRunner(
+    tools=agent_tools,
+    developer_prompt=instructions,
+    llm_client=ToyOpenAIClient(model="gpt-5.4-mini")
+)
+```
+
+The result contains:
+
+- `last_message`: the final response
+- `all_messages`: the full message history
+- `cost`: the cost of all LLM calls in this run
+
+Run it for one ground truth question:
 
 ```python
 rec = ground_truth[0]
-agent_result = agent_with_logging(rec["question"])
+
+result = runner.loop(prompt=rec["question"])
+```
+
+Look at the full message history:
+
+```python
+result.all_messages
+```
+
+For this lesson, the trajectory is only the tool calls. We don't need
+to send the full message history to the judge.
+
+Extract the function name and arguments:
+
+```python
+def extract_tool_calls(messages):
+    tool_calls = []
+
+    for message in messages:
+        if isinstance(message, dict):
+            continue
+
+        if message.type == "function_call":
+            tool_calls.append({
+                "name": message.name,
+                "arguments": message.arguments,
+            })
+
+    return tool_calls
+```
+
+For this example:
+
+```python
+tool_calls = extract_tool_calls(result.all_messages)
+
+tool_calls
+```
+
+You should see something like this:
+
+```python
+[
+    {
+        "name": "search",
+        "arguments": "{\"query\":\"own pace certificate at the end self-paced course certificate\"}"
+    }
+]
+```
+
+Get the original answer:
+
+```python
+doc_id = rec["document"]
+original_doc = doc_idx[doc_id]
+answer_orig = original_doc["answer"]
+```
+
+Save the A->Q->A' record and the trajectory:
+
+```python
+agent_result = {
+    "question": rec["question"],
+    "answer_agent": result.last_message,
+    "answer_orig": answer_orig,
+    "tool_calls": tool_calls,
+    "cost": result.cost.total_cost,
+    "document": doc_id,
+}
 
 agent_result
 ```
 
-Print the trajectory:
-
-```python
-for call in agent_result["tool_calls"]:
-    print(call["name"], call["arguments"])
-```
-
-This is the extra signal we get from an agent. If the answer is wrong,
-the trajectory can help explain why. Maybe the agent searched for the
-wrong thing, repeated the same query, or stopped too early.
+The `answer_agent` field is what we evaluate with the LLM judge. The
+`tool_calls` field lets the judge see how the agent got there.
 
 ## Processing multiple questions
 
-Run the agent for a small sample:
+Create a function that processes one ground truth record:
 
 ```python
-from tqdm.auto import tqdm
+def generate_agent_answer(rec):
+    doc_id = rec["document"]
+    original_doc = doc_idx[doc_id]
 
-agent_results = []
+    result = runner.loop(prompt=rec["question"])
 
-for rec in tqdm(ground_truth[:50]):
-    result = agent_with_logging(rec["question"])
-    result["document"] = rec["document"]
-    agent_results.append(result)
+    tool_calls = extract_tool_calls(result.all_messages)
+
+    answer_record = {
+        "question": rec["question"],
+        "answer_agent": result.last_message,
+        "answer_orig": original_doc["answer"],
+        "tool_calls": tool_calls,
+        "cost": result.cost.total_cost,
+        "document": doc_id,
+    }
+
+    return answer_record
+```
+
+Run it for a small sample in parallel:
+
+```python
+from concurrent.futures import ThreadPoolExecutor
+from evaluation_utils import map_progress
+
+with ThreadPoolExecutor(max_workers=6) as pool:
+    agent_answers = map_progress(pool, ground_truth[:50], generate_agent_answer)
 ```
 
 Turn it into a dataframe:
 
 ```python
-import pandas as pd
-
-df_agent = pd.DataFrame(agent_results)
+df_agent = pd.DataFrame(agent_answers)
 ```
 
-Add a simple tool-call count:
+Calculate the total cost:
 
 ```python
-tool_call_counts = []
-
-for calls in df_agent["tool_calls"]:
-    tool_call_counts.append(len(calls))
-
-df_agent["num_tool_calls"] = tool_call_counts
+df_agent["cost"].sum()
 ```
 
-Check the distribution:
+Save the results:
 
 ```python
-df_agent["num_tool_calls"].describe()
+df_agent.to_csv("data/agent-answers.csv", index=False)
 ```
 
-Look at examples with many tool calls:
+Now we have the same A->Q->A' data as before, plus the tool calls for
+each agent run.
+
+We generated this file for the course materials on May 28, 2026. The
+run used 50 ground truth questions. ToyAIKit tracks the agent cost for
+each run, so we can sum the `cost` column directly.
+
+The total agent cost was $0.06993300, about 7 cents.
+
+If you don't want to run the agent yourself, download the file we
+prepared:
+
+```bash
+wget -O data/agent-answers.csv https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/data/agent-answers.csv
+```
+
+Then load it:
 
 ```python
-df_agent.sort_values("num_tool_calls", ascending=False).head()
+df_agent = pd.read_csv("data/agent-answers.csv")
+agent_answers = df_agent.to_dict(orient="records")
 ```
 
-This is enough for a first pass. We can evaluate the final answer with
-the same LLM-as-a-judge approach as in the previous lesson. Then we use
-the trajectory to understand how the agent behaved.
+Our judge can look at both:
+
+- whether `answer_agent` matches `answer_orig`
+- whether the tool calls look reasonable for the question
+
+This lets us evaluate the final answer and the agent behavior in one
+place.
+
+## Judging answers and trajectories
+
+A good trajectory is not just "many tool calls". A good trajectory uses
+the available tools in a way that helps answer the question.
+
+For our search agent, a good trajectory has these properties:
+
+- The search query is relevant to the user question
+- The query includes the important keywords from the question
+- The agent avoids duplicate searches with the same arguments
+- If it searches more than once, the next query is a useful refinement
+- It usually uses 1 search call
+- 2-3 calls can be okay for harder questions
+- More than 3 search calls needs a clear reason
+- The tool calls support the final answer
+- The agent does not stop too early or keep searching without a reason
+
+Now define a judge output type with two scores:
+
+```python
+from pydantic import BaseModel, Field
+from typing import Literal
+
+class AgentEvaluation(BaseModel):
+    answer_reasoning: str = Field(
+        description="Reasoning about whether the final answer is correct."
+    )
+    answer_score: Literal["good", "bad"] = Field(
+        description="'good' if the final answer matches the original answer."
+    )
+    trajectory_reasoning: str = Field(
+        description="Reasoning about whether the tool calls were useful."
+    )
+    trajectory_score: Literal["good", "bad"] = Field(
+        description="'good' if the tool calls were reasonable for the question."
+    )
+```
+
+The judge instructions:
+
+```python
+agent_judge_instructions = """
+You are an expert evaluator. You will be given:
+1. A question from a student
+2. The original answer from the FAQ (ground truth)
+3. An answer generated by an AI agent
+4. The tool calls made by the agent
+
+Evaluate two things:
+
+Answer quality:
+- Does the agent answer match the original answer?
+- It does not need to be word-for-word identical.
+- It should contain the same key information.
+
+Trajectory quality:
+- Were the search queries relevant to the question?
+- Did the queries include important keywords from the question?
+- Did the agent avoid duplicate or unnecessary tool calls?
+- If it made multiple searches, did the later searches refine the query?
+- Was the number of search calls reasonable? Usually 1 is enough, 2-3
+  can be okay, and more than 3 needs a clear reason.
+- Did the tool calls support the final answer?
+
+Mark answer_score as 'good' if the final answer is correct.
+Mark trajectory_score as 'good' if the tool calls were reasonable.
+""".strip()
+
+agent_judge_prompt = """
+Question:
+{question}
+
+Original Answer (ground truth):
+{answer_orig}
+
+Agent Answer:
+{answer_agent}
+
+Tool Calls:
+{tool_calls}
+""".strip()
+```
+
+Define the judge function:
+
+```python
+import json
+from evaluation_utils import calc_price, llm_structured
+
+def evaluate_agent_answer(rec, model="gpt-5.4-mini"):
+    tool_calls = rec["tool_calls"]
+
+    if isinstance(tool_calls, str):
+        tool_calls = json.loads(tool_calls)
+
+    prompt = agent_judge_prompt.format(
+        question=rec["question"],
+        answer_orig=rec["answer_orig"],
+        answer_agent=rec["answer_agent"],
+        tool_calls=json.dumps(tool_calls, indent=2),
+    )
+
+    result, usage = llm_structured(
+        openai_client,
+        agent_judge_instructions,
+        prompt,
+        AgentEvaluation,
+        model=model,
+    )
+
+    return result, usage
+```
+
+Test it on one agent result:
+
+```python
+agent_eval, usage = evaluate_agent_answer(agent_answers[0])
+
+agent_eval
+```
+
+When the answer is bad, the trajectory score tells us whether the
+problem started with tool use. If the answer is bad but the trajectory
+is good, the model may have used the retrieved context poorly.
+If both are bad, the agent likely searched for the wrong thing. It may
+also have stopped too early.
+
+## Running the agent judge
+
+Run the judge for all agent answers:
+
+```python
+def judge_agent_record(rec):
+    agent_eval, usage = evaluate_agent_answer(rec)
+
+    result = {
+        "question": rec["question"],
+        "document": rec["document"],
+        "answer_score": agent_eval.answer_score,
+        "answer_reasoning": agent_eval.answer_reasoning,
+        "trajectory_score": agent_eval.trajectory_score,
+        "trajectory_reasoning": agent_eval.trajectory_reasoning,
+    }
+
+    return result, usage
+```
+
+Use the same parallel helper:
+
+```python
+with ThreadPoolExecutor(max_workers=6) as pool:
+    results = map_progress(pool, agent_answers, judge_agent_record)
+```
+
+Split the results:
+
+```python
+agent_evaluations = []
+usages = []
+
+for evaluation, usage in results:
+    agent_evaluations.append(evaluation)
+    usages.append(usage)
+```
+
+Create a dataframe:
+
+```python
+df_agent_eval = pd.DataFrame(agent_evaluations)
+```
+
+Calculate the judge cost from the token usage:
+
+```python
+total_cost = 0.0
+
+for usage in usages:
+    cost = calc_price(usage)
+    total_cost = total_cost + cost["total_cost"]
+
+total_cost
+```
+
+Check the answer scores:
+
+```python
+df_agent_eval["answer_score"].value_counts()
+```
+
+Check the trajectory scores:
+
+```python
+df_agent_eval["trajectory_score"].value_counts()
+```
+
+Save the judge results:
+
+```python
+df_agent_eval.to_csv("data/agent-evaluations.csv", index=False)
+```
+
+We generated this file for the course materials on May 28, 2026. The
+run judged 50 agent answers.
+
+The answer scores were:
+
+- Good: 45
+- Bad: 5
+
+The trajectory scores were:
+
+- Good: 49
+- Bad: 1
+
+The judge token usage was:
+
+- Input tokens: 29,228
+- Output tokens: 6,984
+- Cost with the prices above: $0.053349, about 5 cents
+
+If you don't want to run the judge yourself, download the file we
+prepared:
+
+```bash
+wget -O data/agent-evaluations.csv https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/data/agent-evaluations.csv
+```
 
 [← LLM as a Judge](13-llm-as-judge.md) | [Next Steps →](15-next-steps.md)
