@@ -21,14 +21,16 @@ quality.
 
 ## Part 2: RAG and Agent Evaluation
 
-Part 2 evaluates answer quality and agent behavior after retrieval.
+Part 2 evaluates answer quality after retrieval. It also shows the
+basic idea of agent evaluation: save the final answer and the tool-call
+trajectory.
 
-6. [RAG Evaluation: Cosine Similarity](lessons/06-rag-evaluation-cosine.md) - A->Q->A' evaluation with embeddings
-7. [LLM as a Judge](lessons/07-llm-as-judge.md) - Using an LLM to evaluate answer quality
-8. [Collecting Agent Data](lessons/08-agent-data.md) - Running the agent with logging, collecting trajectories
-9. [Trajectory Evaluation](lessons/09-trajectory-evaluation.md) - Simple checks and LLM-based trajectory scoring
-10. [Instruction Following](lessons/10-instruction-following.md) - Answer correctness and instruction following
-11. [Next Steps](lessons/11-next-steps.md) - Evaluation frameworks, monitoring, and resources
+11. [RAG and Agent Evaluation](lessons/11-rag-and-agent-evaluation-intro.md) - What changes after retrieval
+12. [Generating RAG Answers](lessons/12-rag-answers.md) - Running RAG on the ground truth questions
+13. [RAG Evaluation: Cosine Similarity](lessons/13-rag-evaluation-cosine.md) - Comparing generated answers with original answers
+14. [LLM as a Judge](lessons/14-llm-as-judge.md) - Using an LLM to evaluate answer quality
+15. [Agent Evaluation](lessons/15-agent-evaluation.md) - Capturing answers and tool-call trajectories
+16. [Next Steps](lessons/16-next-steps.md) - Evaluation frameworks, monitoring, and resources
 
 
 ## Older content

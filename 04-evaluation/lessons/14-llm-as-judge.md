@@ -5,8 +5,8 @@ answer is good or bad. Two answers might have low cosine similarity even
 though the LLM answer is correct - just phrased differently.
 
 A more flexible approach is to use an LLM to evaluate answers. We give
-the judge LLM a question, the original answer, and the LLM answer, and
-ask it to rate the quality.
+the judge LLM the question and answers, then ask it to rate the
+quality.
 
 This is called LLM-as-a-judge.
 
@@ -19,9 +19,9 @@ LLM judges have several advantages over simple metrics:
 - They can check specific criteria (hallucination, completeness, relevance)
 - They can handle different answer formats and styles
 
-The downside is that they're slower and more expensive than computing
-cosine similarity. But for evaluation (which you run occasionally), the
-cost is acceptable.
+LLM judges are slower and more expensive than computing cosine
+similarity. For evaluation that you run occasionally, the cost is
+acceptable.
 
 ## Q->A evaluation
 
@@ -68,24 +68,24 @@ Answer:
 """.strip()
 ```
 
+We'll reuse the `llm_structured` helper from the ground truth notebook.
+The only difference is the output type: here we ask for
+`AnswerEvaluation`.
+
 Running the judge:
 
 ```python
 def evaluate_qa(question, answer, model="gpt-5.4-mini"):
     prompt = qa_judge_prompt.format(question=question, answer=answer)
 
-    messages = [
-        {"role": "developer", "content": qa_judge_instructions},
-        {"role": "user", "content": prompt}
-    ]
-
-    response = openai_client.responses.parse(
+    result, usage = llm_structured(
+        qa_judge_instructions,
+        prompt,
+        AnswerEvaluation,
         model=model,
-        input=messages,
-        text_format=AnswerEvaluation
     )
 
-    return response.output_parsed
+    return result
 ```
 
 Let's test it:
@@ -145,18 +145,14 @@ def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
         answer_llm=answer_llm
     )
 
-    messages = [
-        {"role": "developer", "content": aqa_judge_instructions},
-        {"role": "user", "content": prompt}
-    ]
-
-    response = openai_client.responses.parse(
+    result, usage = llm_structured(
+        aqa_judge_instructions,
+        prompt,
+        AnswerEvaluation,
         model=model,
-        input=messages,
-        text_format=AnswerEvaluation
     )
 
-    return response.output_parsed
+    return result
 ```
 
 Running the evaluation on all results:
@@ -164,7 +160,7 @@ Running the evaluation on all results:
 ```python
 evaluations = []
 
-for i, rec in tqdm(answers.items()):
+for _, rec in tqdm(df_answers.iterrows(), total=len(df_answers)):
     eval_result = evaluate_aqa(
         question=rec["question"],
         answer_orig=rec["answer_orig"],
@@ -202,20 +198,11 @@ df_eval[df_eval["score"] == "bad"].head()
 For a comprehensive evaluation, combine multiple metrics:
 
 ```python
-combined = []
-
-for i, rec in answers.items():
-    v_llm = embedding_model.encode(rec["answer_llm"])
-    v_orig = embedding_model.encode(rec["answer_orig"])
-    cosine = v_llm.dot(v_orig)
-
-    combined.append({
-        "question": rec["question"],
-        "cosine": cosine,
-        **evaluations[i]
-    })
-
-df_combined = pd.DataFrame(combined)
+df_combined = df_answers.merge(
+    df_eval,
+    on=["question", "document"],
+    how="left",
+)
 ```
 
 Look at the correlation between cosine similarity and judge scores:
@@ -228,7 +215,7 @@ If "good" answers have high cosine and "bad" answers have low cosine,
 both metrics agree. If they disagree, the judge might be catching things
 that cosine misses (or vice versa).
 
-Using both metrics together gives you a more complete picture of your
-RAG system's quality.
+Using both metrics together gives a more complete picture of your RAG
+system's quality.
 
-[← RAG Evaluation: Cosine Similarity](06-rag-evaluation-cosine.md) | [Collecting Agent Data →](08-agent-data.md)
+[← RAG Evaluation: Cosine Similarity](13-rag-evaluation-cosine.md) | [Agent Evaluation →](15-agent-evaluation.md)

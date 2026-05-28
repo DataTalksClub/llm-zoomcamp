@@ -4,11 +4,11 @@ In this module, we covered evaluation at three levels:
 
 1. Search evaluation: Hit Rate and MRR to measure retrieval quality
 2. RAG evaluation: cosine similarity and LLM-as-a-judge for answer quality
-3. Agent evaluation: trajectory and instruction following for tool-using agents
+3. Agent evaluation: final answers plus tool-call trajectories
 
-Evaluation is not a one-time activity. As you change your system -
-tune search parameters, switch models, modify prompts - you re-run
-evaluation to make sure things are getting better, not worse.
+Evaluation is not a one-time activity. As you tune search parameters,
+switch models, or modify prompts, re-run evaluation. Make sure the
+system is getting better, not worse.
 
 ## Evaluation frameworks
 
@@ -38,14 +38,14 @@ Key approaches:
 
 Monitoring is covered in more detail in module 05.
 
-## Further reading
+## To learn more
 
 See also:
 
 - Cohorts and materials:
   - 2024 cohort evaluation module (uses Elasticsearch):
-    [2024/04-monitoring](../cohorts/2024/04-monitoring/)
+    [2024/04-monitoring](../../cohorts/2024/04-monitoring/)
   - 2025 cohort evaluation module:
-    [2025/03-evaluation](../cohorts/2025/03-evaluation/)
+    [2025/03-evaluation](../../cohorts/2025/03-evaluation/)
 
-[← Instruction Following](10-instruction-following.md) | [Back to module →](../)
+[← Agent Evaluation](15-agent-evaluation.md) | [Back to module →](../)

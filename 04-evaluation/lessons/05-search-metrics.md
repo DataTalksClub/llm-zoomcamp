@@ -133,7 +133,6 @@ The ground truth dataset gives you a reliable way to compare different
 configurations.
 
 Search metrics tell us whether retrieval works. Next, we'll evaluate
-the full RAG pipeline and compare generated answers with the original
-FAQ answers.
+the answers produced by RAG and agent systems.
 
-[← Search Evaluation](04-search-evaluation.md) | [RAG Evaluation: Cosine Similarity →](06-rag-evaluation-cosine.md)
+[← Search Evaluation](04-search-evaluation.md) | [RAG and Agent Evaluation →](11-rag-and-agent-evaluation-intro.md)
