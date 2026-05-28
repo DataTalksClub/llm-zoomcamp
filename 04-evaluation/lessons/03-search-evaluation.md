@@ -3,94 +3,181 @@
 Now that we have ground truth data, we can evaluate how well our search
 retrieves the correct documents.
 
-For each question in our ground truth dataset, run the search and check
-if the correct document shows up in the results.
+For each question in our ground truth dataset, we run search. Then we
+check whether the results include the correct document.
 
 ## Setting up search
 
-Let's set up our search using `RAGBase` from module 01:
+Create a new notebook for search evaluation. We'll use the ground truth
+CSV from the previous lesson and set up the search index here.
 
-```python
-from rag_helper import RAGBase, load_faq_data
-from minsearch import Index
-from openai import OpenAI
+If you don't have `pandas` and `tqdm` installed yet, add them first:
 
-documents = load_faq_data()
-
-index = Index(
-    text_fields=['question', 'section', 'answer'],
-    keyword_fields=['course']
-)
-index.fit(documents)
-
-openai_client = OpenAI()
-
-instructions = """
-You're a course teaching assistant.
-Answer the QUESTION based on the CONTEXT from the FAQ database.
-Use only the facts from the CONTEXT when answering the QUESTION.
-""".strip()
-
-assistant = RAGBase(
-    index=index,
-    llm_client=openai_client,
-    instructions=instructions,
-)
+```bash
+uv add pandas tqdm
 ```
 
-We'll use `assistant.search` to evaluate different boost configurations.
+For search evaluation, we only need the search part of the RAG
+pipeline. We don't need to call the LLM yet.
 
-The default search function for evaluation:
+Load the ground truth file from the previous notebook:
 
 ```python
-def search_fn(query, course):
-    return assistant.search(
+import pandas as pd
+
+df_ground_truth = pd.read_csv("data/ground-truth-data.csv")
+ground_truth = df_ground_truth.to_dict(orient="records")
+```
+
+Use the same `ingest.py` file we downloaded in the previous notebook.
+
+Load the documents and build a minsearch index:
+
+```python
+from ingest import load_faq_data, build_index
+
+documents = load_faq_data()
+index = build_index(documents)
+```
+
+Wrap the search call in a function called `text_search`. Later, we can
+compare it with other search functions.
+
+```python
+def text_search(query):
+    boost_dict = {"question": 3.0, "section": 0.5}
+    filter_dict = {"course": "llm-zoomcamp"}
+
+    return index.search(
         query,
-        boost_dict={'question': 3.0, 'section': 0.5},
-        filter_dict={'course': course},
+        num_results=5,
+        boost_dict=boost_dict,
+        filter_dict=filter_dict,
     )
 ```
 
 ## Collecting relevance data
 
-For each ground truth question, we run the search and check if the
-correct document appears in the results:
+Start with one ground truth record:
 
 ```python
-relevance_total = []
-
-for q in tqdm(ground_truth_flat):
-    doc_id = q['document']
-    results = search_fn(query=q['question'], course=q['course'])
-    relevance = [d['id'] == doc_id for d in results]
-    relevance_total.append(relevance)
+q = ground_truth[0]
+q
 ```
 
-Each entry in `relevance_total` is a list of booleans.
-
-For example:
+Run search for this question:
 
 ```python
-[True, False, False, False, False]
+doc_id = q["document"]
+results = text_search(query=q["question"])
 ```
 
-This means the correct document was at position 1.
-
-Or:
+First, compare the retrieved document IDs with the correct document ID:
 
 ```python
-[False, False, True, False, False]
+for d in results:
+    print(d["id"], doc_id, d["id"] == doc_id)
 ```
 
-The correct document was at position 3.
-
-Or:
+Then turn this comparison into a relevance list. In this lesson,
+relevance means whether a retrieved document is the correct document
+for this question.
 
 ```python
-[False, False, False, False, False]
+relevance = []
+
+for d in results:
+    relevance.append(int(d["id"] == doc_id))
+
+relevance
+```
+
+This gives a list of `0` and `1` values. `1` means the retrieved
+document has the same ID as the correct document.
+
+Put this logic into a function:
+
+```python
+def compute_relevance_text(q):
+    doc_id = q["document"]
+    results = text_search(query=q["question"])
+
+    relevance = []
+    for d in results:
+        relevance.append(int(d["id"] == doc_id))
+
+    return relevance
+```
+
+For the first ground truth record, the relevance list is:
+
+```python
+q = ground_truth[0]
+q["question"]
+# 'Can I take this course at my own pace and still receive a certificate at the end?'
+```
+
+Compute relevance for it:
+
+```python
+compute_relevance_text(q)
+# [1, 0, 0, 0, 0]
+```
+
+The correct document was the first search result.
+
+Here are two more examples from the generated ground truth data.
+
+For this question:
+
+```python
+q = ground_truth[11]
+q["question"]
+# 'If I sign up late, what do I need to do in order to still earn the course certificate?'
+
+compute_relevance_text(q)
+# [0, 0, 1, 0, 0]
+```
+
+Here, the first two retrieved documents are not correct. The third
+retrieved document has the same ID as the ground truth document, so the
+`1` is in position 3.
+
+For this question:
+
+```python
+q = ground_truth[12]
+q["question"]
+# 'Is it okay to start the course after it has already begun, or is there a deadline for joining?'
+
+compute_relevance_text(q)
+# [0, 0, 0, 0, 0]
 ```
 
 The correct document was not found at all.
+
+Now do the same thing for all ground truth questions:
+
+```python
+from tqdm.auto import tqdm
+
+def compute_relevance_total(ground_truth):
+    relevance_total = []
+
+    for q in tqdm(ground_truth):
+        relevance = compute_relevance_text(q)
+        relevance_total.append(relevance)
+
+    return relevance_total
+```
+
+Call it for the ground truth dataset:
+
+```python
+relevance_total = compute_relevance_total(ground_truth)
+```
+
+Each entry in `relevance_total` is a relevance list.
 
 ## Hit Rate
 
@@ -102,7 +189,7 @@ def hit_rate(relevance_total):
     cnt = 0
 
     for line in relevance_total:
-        if True in line:
+        if 1 in line:
             cnt = cnt + 1
 
     return cnt / len(relevance_total)
@@ -115,18 +202,18 @@ Let's check with an example:
 
 ```python
 example = [
-    [True,  False, False, False, False],
-    [False, False, False, False, False],
-    [False, False, False, False, False],
-    [False, False, False, False, False],
-    [False, False, False, False, False],
-    [True,  False, False, False, False],
-    [True,  False, False, False, False],
-    [True,  False, False, False, False],
-    [True,  False, False, False, False],
-    [True,  False, False, False, False],
-    [False, False, True,  False, False],
-    [False, False, False, False, False],
+    [1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0],
 ]
 
 hit_rate(example)
@@ -147,7 +234,7 @@ def mrr(relevance_total):
 
     for line in relevance_total:
         for rank in range(len(line)):
-            if line[rank] == True:
+            if line[rank] == 1:
                 total_score = total_score + 1 / (rank + 1)
 
     return total_score / len(relevance_total)
@@ -168,55 +255,81 @@ mrr(example)
 
 ## Putting it together
 
-We can wrap the evaluation in a reusable function:
+Next, make the relevance functions generic, so they can use any search
+function:
 
 ```python
-def evaluate(ground_truth, search_function):
+def compute_relevance(q, search_function):
+    doc_id = q["document"]
+    results = search_function(q["question"])
+
+    relevance = []
+    for d in results:
+        relevance.append(int(d["id"] == doc_id))
+
+    return relevance
+```
+
+The total relevance function gets a `search_function` too:
+
+```python
+def compute_relevance_total(ground_truth, search_function):
     relevance_total = []
 
     for q in tqdm(ground_truth):
-        doc_id = q['document']
-        results = search_function(q)
-        relevance = [d['id'] == doc_id for d in results]
+        relevance = compute_relevance(q, search_function)
         relevance_total.append(relevance)
 
+    return relevance_total
+```
+
+Then wrap the metrics in a reusable evaluation function:
+
+```python
+def evaluate(ground_truth, search_function):
+    relevance_total = compute_relevance_total(ground_truth, search_function)
+
     return {
-        'hit_rate': hit_rate(relevance_total),
-        'mrr': mrr(relevance_total),
+        "hit_rate": hit_rate(relevance_total),
+        "mrr": mrr(relevance_total),
     }
 ```
 
-Now we can evaluate any search function:
+We can evaluate any search function:
 
 ```python
 evaluate(
-    ground_truth_flat,
-    lambda q: search_fn(q['question'], q['course'])
+    ground_truth,
+    text_search
 )
 ```
 
 You should see something like:
 
 ```python
-{'hit_rate': 0.77, 'mrr': 0.66}
+{"hit_rate": 0.77, "mrr": 0.66}
 ```
 
 Try different boost values to see what works best:
 
 ```python
-def search_boost(query, course, question_boost):
-    return assistant.search(
+def search_boost(query, question_boost):
+    boost_dict = {"question": question_boost, "section": 0.5}
+    filter_dict = {"course": "llm-zoomcamp"}
+
+    return index.search(
         query,
-        boost_dict={'question': question_boost, 'section': 0.5},
-        filter_dict={'course': course},
+        num_results=5,
+        boost_dict=boost_dict,
+        filter_dict=filter_dict,
     )
 
 for boost in [1.0, 3.0, 5.0, 10.0]:
     result = evaluate(
-        ground_truth_flat,
-        lambda q: search_boost(q['question'], q['course'], boost)
+        ground_truth,
+        lambda q: search_boost(q["question"], boost)
     )
-    print(f'boost={boost}: {result}')
+    print(f"boost={boost}: {result}")
 ```
 
 This is how you tune search parameters. Instead of guessing, you measure.

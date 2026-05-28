@@ -1,0 +1,396 @@
+question,course,document
+Can I take this course at my own pace and still receive a certificate at the end?,llm-zoomcamp,69d122f12e
+Is a certificate available if I complete the course without joining a live cohort?,llm-zoomcamp,69d122f12e
+Do self-paced learners get any certificate for finishing all the materials?,llm-zoomcamp,69d122f12e
+Why are certificates not issued for the self-paced version of the course?,llm-zoomcamp,69d122f12e
+Is peer review of capstone projects required in order to qualify for the certificate?,llm-zoomcamp,69d122f12e
+How do students join the Office Hours or live workshop stream if the Zoom link is only for instructors and TAs?,llm-zoomcamp,489dd1c9d9
+Where should I look for the live video URL before an Office Hours session starts?,llm-zoomcamp,489dd1c9d9
+"Can I watch the workshop live on YouTube, and if so, which channel is used?",llm-zoomcamp,489dd1c9d9
+How are questions supposed to be submitted during the live session instead of posting them in chat?,llm-zoomcamp,489dd1c9d9
+Why shouldn’t I ask questions in the chat during a very active live stream?,llm-zoomcamp,489dd1c9d9
+"I just found this course. Am I still allowed to join now, and does that affect my chance to get a certificate?",llm-zoomcamp,74eb249bbf
+"If I sign up late, what do I need to do in order to still earn the course certificate?",llm-zoomcamp,74eb249bbf
+"Is it okay to start the course after it has already begun, or is there a deadline for joining?",llm-zoomcamp,74eb249bbf
+"Can I still submit the final project after joining late, and will that count toward certification?",llm-zoomcamp,74eb249bbf
+What is the latest point at which I can join the course and still be eligible for a certificate?,llm-zoomcamp,74eb249bbf
+"I registered for the LLM Zoomcamp, but I still haven’t gotten any confirmation email — should I be worried or wait for something to arrive?",llm-zoomcamp,977bf7786c
+"Do I actually need a confirmation email before I can start the course and submit homework, or can I begin right away?",llm-zoomcamp,977bf7786c
+"Is the course checking homework submissions against a list of registered students, or can anyone submit while the form is open?",llm-zoomcamp,977bf7786c
+What is the purpose of registration if there is no confirmation email and no checked registration list?,llm-zoomcamp,977bf7786c
+"If I already signed up, does that mean I’m accepted, or is there another approval step later?",llm-zoomcamp,977bf7786c
+How can I find my own entry on the leaderboard if I can’t spot it right away?,llm-zoomcamp,c2903069a0
+Why do I appear under a random name on the leaderboard when I create an account?,llm-zoomcamp,c2903069a0
+Where can I check what my current display name or nickname is in the course platform?,llm-zoomcamp,c2903069a0
+What should I edit if I want my leaderboard name to be different from the default one?,llm-zoomcamp,c2903069a0
+Which name field do I need to set to make sure my certificate shows my official name instead of the random default?,llm-zoomcamp,c2903069a0
+What are some cloud GPU alternatives I can use for the course besides the usual options like Colab or Kaggle?,llm-zoomcamp,c6c2888275
+"How does the free-hours quota work on cloud platforms — is it monthly or weekly, and what happens if I change the configuration?",llm-zoomcamp,c6c2888275
+Could changing the setup on a GPU cloud service reduce my free usage allowance or make it bill separately?,llm-zoomcamp,c6c2888275
+Are there platforms like Databricks that might work for running course notebooks with GPUs?,llm-zoomcamp,c6c2888275
+What should I check about install permissions and free versus paid tiers before choosing a GPU cloud service?,llm-zoomcamp,c6c2888275
+Why do the homework materials seem to change so often in this course?,llm-zoomcamp,96286b4be4
+"Is the course still being finalized, or is everything already set in place?",llm-zoomcamp,96286b4be4
+"If I start the homework before a module is officially ready, could the final version be different from what I worked on?",llm-zoomcamp,96286b4be4
+Will updates to the course material be announced once a module is finished and ready?,llm-zoomcamp,96286b4be4
+"Is it safe to work ahead on the assignments, or should I wait until the module is released?",llm-zoomcamp,96286b4be4
+"Where can I find the course lectures or videos, and is there a specific YouTube channel I should check?",llm-zoomcamp,31456f4b5f
+"If I’m looking for the class recordings, should I look at the bookmarks or pinned links first?",llm-zoomcamp,31456f4b5f
+Is there a place where all the lecture videos are collected for this course?,llm-zoomcamp,31456f4b5f
+"Besides the main course page, which links are recommended for finding the videos?",llm-zoomcamp,31456f4b5f
+Which YouTube account does the course use for the lecture videos?,llm-zoomcamp,31456f4b5f
+When is the next time this course will run?,llm-zoomcamp,bd31146b0e
+Do you know the next offering date for the course?,llm-zoomcamp,bd31146b0e
+What term is the course scheduled for next?,llm-zoomcamp,bd31146b0e
+When should I expect the course to be available again?,llm-zoomcamp,bd31146b0e
+Is the next course session planned for Summer 2025?,llm-zoomcamp,bd31146b0e
+"If I missed the first homework, am I still eligible for the certificate as long as I complete the Capstone project?",llm-zoomcamp,9f689c185f
+"Do I have to submit every homework assignment to receive the course certificate, or is that optional?",llm-zoomcamp,9f689c185f
+"What is required to earn the certificate in this course, and does the Capstone project matter more than homework?",llm-zoomcamp,9f689c185f
+"Are homework submissions mandatory for certification, or are they mainly recommended for practice and leaderboard points?",llm-zoomcamp,9f689c185f
+"Can I still get certified if I skip some homework, provided I pass the Capstone project?",llm-zoomcamp,9f689c185f
+"Why does WSL2 say the model needs more system memory than is available even though my PC has enough RAM, and how can I fix it?",llm-zoomcamp,f3dd94f323
+"Where do I create the `.wslconfig` file to give WSL2 more memory, and what should I put in it?",llm-zoomcamp,f3dd94f323
+"After changing the WSL2 memory limit, what command should I run to apply the new setting?",llm-zoomcamp,f3dd94f323
+How can I check inside WSL whether the RAM allocation was updated successfully?,llm-zoomcamp,f3dd94f323
+"Is WSL2 using only part of my computer’s memory, and does that explain the memory error I’m seeing?",llm-zoomcamp,f3dd94f323
+"Why do I get a 500 error and ""Third-Party Login Failure"" when I try to sign in with GitHub for homework submission?",llm-zoomcamp,c774542f32
+Is there a workaround if GitHub login keeps failing on the course homework site?,llm-zoomcamp,c774542f32
+Should I switch to Google or Slack to submit homework when GitHub authentication errors out?,llm-zoomcamp,c774542f32
+"Does the GitHub login problem affect every user, or is it only happening sometimes?",llm-zoomcamp,c774542f32
+What should I do right now if I cannot access homework submission because of a GitHub server error?,llm-zoomcamp,c774542f32
+Why do we avoid using Langchain in this course instead of starting with it right away?,llm-zoomcamp,b7cdde6b25
+"What is Langchain, and what role does it usually play in building LLM apps?",llm-zoomcamp,b7cdde6b25
+Why does the course prefer teaching the fundamentals before introducing a framework like Langchain?,llm-zoomcamp,b7cdde6b25
+"Can you explain the idea behind learning the basic pieces first, like HTML, CSS, and JavaScript, before a framework?",llm-zoomcamp,b7cdde6b25
+What is the reasoning for not relying on Langchain when learning the basics of LLM-powered applications?,llm-zoomcamp,b7cdde6b25
+Why do I get an OpenAI API error about insufficient credits when I run `chat.completions.create`?,llm-zoomcamp,f5df151c59
+"What does the ""Insufficient credits"" error from OpenAI usually mean in this command?",llm-zoomcamp,f5df151c59
+How can I explain the failure of `openai.chat.completions.create` if my account has no remaining credits?,llm-zoomcamp,f5df151c59
+Is an OpenAI credit shortage a possible reason for an error while calling `chat.completions.create`?,llm-zoomcamp,f5df151c59
+What should I check if `chat.completions.create` throws an OpenAI API error saying credits are insufficient?,llm-zoomcamp,f5df151c59
+"What does a 429 RateLimitError from OpenAI usually mean, and is it caused by the API being down?",llm-zoomcamp,152af39a53
+Why am I getting an insufficient_quota message when I try to call chat.completions.create with gpt-4o?,llm-zoomcamp,152af39a53
+How can I fix the OpenAI quota error if my Python code keeps failing with code 429?,llm-zoomcamp,152af39a53
+Do I need to add credits or change anything in my OpenAI account before rerunning the command?,llm-zoomcamp,152af39a53
+"After topping up my account, should I create a new API key or can I keep using the old one?",llm-zoomcamp,152af39a53
+I keep getting “Cannot import name OpenAI from openai” when I try to use the OpenAI client in this module. What version change fixes it?,llm-zoomcamp,35e1ef85a1
+"Why does importing OpenAI fail with my current setup, and what should I upgrade the openai package to?",llm-zoomcamp,35e1ef85a1
+My notebook throws an import error for OpenAI from the openai package. Which openai release line is required to resolve this?,llm-zoomcamp,35e1ef85a1
+How do I fix the “Cannot import name OpenAI from openai” error in LLM Zoomcamp Module 1?,llm-zoomcamp,35e1ef85a1
+"Is this import problem caused by using openai 0.27.0, and if so, what version should I install instead?",llm-zoomcamp,35e1ef85a1
+How much money do I need to add to start using the OpenAI API?,llm-zoomcamp,554d0eb78b
+Is it expensive to use the OpenAI API for a beginner?,llm-zoomcamp,554d0eb78b
+What is the minimum recharge amount for OpenAI API usage?,llm-zoomcamp,554d0eb78b
+Around how much might initial usage of the OpenAI API cost?,llm-zoomcamp,554d0eb78b
+Do I need to spend a lot of money to try the OpenAI API?,llm-zoomcamp,554d0eb78b
+"How can I keep several API keys in a file without committing them to GitHub, and then read them in a notebook?",llm-zoomcamp,8d23fe792f
+"What steps do I need to create a YAML file for secrets, add it to .gitignore, and load the keys with Python?",llm-zoomcamp,8d23fe792f
+Is there a simple way to store OpenAI and Groq keys together outside the code and access them with yaml.safe_load?,llm-zoomcamp,8d23fe792f
+"Do I need any extra package to open a local YAML file that contains API keys, and how do I use it in Jupyter?",llm-zoomcamp,8d23fe792f
+"Can I replace environment variables with values loaded from a private api_keys.yml file, and what would that look like?",llm-zoomcamp,8d23fe792f
+How can I keep an API key in a .env file and read it in Python without hardcoding it?,llm-zoomcamp,233dabe430
+What modules do I need to import to load environment variables from a .env file?,llm-zoomcamp,233dabe430
+How do I make Python load a specific .env file from a given path?,llm-zoomcamp,233dabe430
+"After loading the .env file, how do I get the value of API_KEY_abc in my code?",llm-zoomcamp,233dabe430
+Why should I include the .env file in .gitignore when storing API keys?,llm-zoomcamp,233dabe430
+"Why does my notebook say the OpenAI API key is missing, and what should I check first?",llm-zoomcamp,86d99bbf21
+How can I load my key from a .envrc file when Jupyter doesn’t see OPENAI_API_KEY?,llm-zoomcamp,86d99bbf21
+What should I do if I get an OpenAIError saying the api_key must be set?,llm-zoomcamp,86d99bbf21
+How do I make my API key available in a GitHub Codespaces session?,llm-zoomcamp,86d99bbf21
+What are the steps to use a secret in Codespaces so the notebook can access my OpenAI key?,llm-zoomcamp,86d99bbf21
+Can I use Groq or another LLM provider instead of OpenAI for the experiments and the project?,llm-zoomcamp,ee43413718
+Is the homework built so that I can finish it without paying for any external API service?,llm-zoomcamp,ee43413718
+"If I switch from OpenAI to a different LLM platform, what changes do I need to make in the code?",llm-zoomcamp,ee43413718
+Will I be able to complete this module locally without access to a paid service?,llm-zoomcamp,ee43413718
+Where should I look for guidance when adapting the project to a different LLM platform?,llm-zoomcamp,ee43413718
+How can I estimate the GPT-4o token count for homework question 6 when using Groq and there is no tokenizer library available?,llm-zoomcamp,fe8fed31e6
+Do I need an OpenAI API key in order to use tiktoken and count the tokens for the homework prompt?,llm-zoomcamp,fe8fed31e6
+"Which model’s token count is the homework question asking for, GPT-4o or Groq’s model?",llm-zoomcamp,fe8fed31e6
+What Python tool can I use to check how many tokens the provided code uses?,llm-zoomcamp,fe8fed31e6
+"If I follow the code in the assignment, can I get the token number without access to OpenAI’s API?",llm-zoomcamp,fe8fed31e6
+Do I need to subscribe to and pay for the OpenAI API to finish the course homework?,llm-zoomcamp,85384a18e5
+"If I don’t want to pay for OpenAI, are there free alternatives I can use for the assignments?",llm-zoomcamp,85384a18e5
+Where can I find the list of free OpenAI alternatives mentioned for this course?,llm-zoomcamp,85384a18e5
+"Is using the paid OpenAI API required anywhere in Module 1, or can I complete it without paying?",llm-zoomcamp,85384a18e5
+Can I rely on the alternatives in the course GitHub instead of setting up a paid OpenAI account?,llm-zoomcamp,85384a18e5
+Can I use an open-source alternative instead of the OpenAI API for this course?,llm-zoomcamp,3fd5c51182
+Where should I look in the course materials for open-source options to the OpenAI API?,llm-zoomcamp,3fd5c51182
+Is there a recommended place in module 1 that lists OpenAI API alternatives?,llm-zoomcamp,3fd5c51182
+"If I want to avoid using OpenAI, which later module explains the alternatives?",llm-zoomcamp,3fd5c51182
+"Does the course allow using open-source APIs in place of OpenAI, and where is that documented?",llm-zoomcamp,3fd5c51182
+"Why am I getting a 429 ""insufficient_quota"" error from OpenAI even though it sounds like a rate limit, and what does it actually mean?",llm-zoomcamp,6e1d8a7b29
+"If my OpenAI account has no credit left, what is the quickest way to keep using the API for the course?",llm-zoomcamp,6e1d8a7b29
+"How much money do I need to add to my OpenAI account, and is it okay to use a cheaper model after topping up?",llm-zoomcamp,6e1d8a7b29
+"What free OpenAI-style alternatives can I use instead of OpenAI, especially ones that work with tools or can run locally?",llm-zoomcamp,6e1d8a7b29
+Is there a course-approved list of API providers compatible with OpenAI that I can check for alternatives?,llm-zoomcamp,6e1d8a7b29
+"Why do I get an empty list after filtering my query in HW Q3, and could the issue be with how I indexed the data?",llm-zoomcamp,83da208a64
+What should I check first if my filtered query returns nothing for the homework question about Q3?,llm-zoomcamp,83da208a64
+Do I need to define index settings before inserting the data into the index for this assignment?,llm-zoomcamp,83da208a64
+"I can run the query, but the filter gives no results — what part of the indexing setup might I have missed?",llm-zoomcamp,83da208a64
+"For the homework on returning an empty list after filtering, what is the correct order for creating the index settings and adding the data?",llm-zoomcamp,83da208a64
+"I get a ModuleNotFoundError when importing docx in parse-faq.ipynb. What package should I install instead, and how do I install it?",llm-zoomcamp,cf93377279
+"Why does importing docx fail in the notebook, even though I thought it was the right package name?",llm-zoomcamp,cf93377279
+"In parse-faq.ipynb, what is the correct pip package for working with docx files?",llm-zoomcamp,cf93377279
+How should I fix the import error for docx in Module 1 of the LLM Zoomcamp?,llm-zoomcamp,cf93377279
+What command do I need to run so the notebook can use the docx library without the ModuleNotFoundError?,llm-zoomcamp,cf93377279
+Why do I get a SyntaxError about an invalid character when I run the file I downloaded from GitHub?,llm-zoomcamp,f3a92e7c81
+"Could the problem be that I saved the GitHub page instead of the actual Python source, and how can I get the correct file?",llm-zoomcamp,f3a92e7c81
+What is the easiest way to avoid this invalid character error with minsearch?,llm-zoomcamp,f3a92e7c81
+Should I use the Raw button or a raw.githubusercontent.com link when downloading the code?,llm-zoomcamp,f3a92e7c81
+"Is installing minsearch from PyPI the recommended fix, and what command should I use?",llm-zoomcamp,f3a92e7c81
+Why can `tiktoken.encode()` give me a smaller token count than OpenAI’s API for the same chat prompt?,llm-zoomcamp,bf0403d21b
+How many extra tokens does a `chat.completions.create()` message usually add because of chat formatting?,llm-zoomcamp,bf0403d21b
+What is the purpose of the 2 global tokens OpenAI adds before the assistant starts generating a reply?,llm-zoomcamp,bf0403d21b
+"Can newlines, spaces, or unusual Unicode characters change the token count in an OpenAI chat request?",llm-zoomcamp,bf0403d21b
+"If my prompt text is 320 tokens by `tiktoken`, why might OpenAI report something like 327 tokens?",llm-zoomcamp,bf0403d21b
+"Why is `cl100k_base` not a good default for Gemini, Mistral, or Hugging Face models when I want to estimate token usage?",llm-zoomcamp,4d8c1f5b3a
+What tokenizer should I use instead of `tiktoken` if I'm working with a Gemini model and need an accurate token count?,llm-zoomcamp,4d8c1f5b3a
+How can I count tokens for an open-source model from Hugging Face with its own tokenizer rather than an OpenAI tokenizer?,llm-zoomcamp,4d8c1f5b3a
+"Is there a provider-specific way to count tokens for Mistral models, and which package should I use?",llm-zoomcamp,4d8c1f5b3a
+"Can I rely on `tiktoken` for non-OpenAI models, or do I need to use each model's native tokenization method?",llm-zoomcamp,4d8c1f5b3a
+How can I avoid re-exporting my API key in every new terminal session for this project?,llm-zoomcamp,8b2f5e9d04
+"What tool can automatically load environment variables when I enter a project folder, and how do I set it up?",llm-zoomcamp,8b2f5e9d04
+How do I keep my secret key out of GitHub when storing it for local development?,llm-zoomcamp,8b2f5e9d04
+What should I use for API keys in GitHub Codespaces instead of putting them in files in the repository?,llm-zoomcamp,8b2f5e9d04
+"In a Python script, how can I load variables from a .env file at startup?",llm-zoomcamp,8b2f5e9d04
+"How do I get Ollama installed on macOS, Windows, or Linux for this course?",llm-zoomcamp,1d0b969028
+What command should I run after installation to start a local LLaMA 3 chat in Ollama?,llm-zoomcamp,1d0b969028
+How can I check whether the Ollama server is responding on my machine?,llm-zoomcamp,1d0b969028
+"Which package do I need to install to use Ollama from Python, and what is the install command?",llm-zoomcamp,1d0b969028
+Can you show me a minimal Python snippet that sends a message to Ollama and prints the reply?,llm-zoomcamp,1d0b969028
+How can I fix a connection refused error when prompting the Ollama RAG during the homework?,llm-zoomcamp,c6fc2d4d11
+What should I do if the notebook shows a refused connection while using Ollama for the assignment?,llm-zoomcamp,c6fc2d4d11
+Is there a command to restart the Ollama server after a connection refused problem appears?,llm-zoomcamp,c6fc2d4d11
+Do I need to rerun the cell with `ollama serve` after stopping and starting the notebook?,llm-zoomcamp,c6fc2d4d11
+What is the recommended way to bring the Ollama service back up if the RAG prompt fails with a connection error?,llm-zoomcamp,c6fc2d4d11
+Which Groq models can I use for free in development if I need tool use support?,llm-zoomcamp,0d74a3616f
+"Does Groq provide any free model that supports tool use, and if so which ones?",llm-zoomcamp,0d74a3616f
+Can you name a couple of Groq models with tool-use capability that are available at no cost for development?,llm-zoomcamp,0d74a3616f
+I’m looking for a no-charge model with tool use support on Groq; what are my options?,llm-zoomcamp,0d74a3616f
+Are Deepseek R1 and Llama 4 supported by Groq’s tool use feature for free development use?,llm-zoomcamp,0d74a3616f
+Why does my FastMCP tool reject a float with a validation error that says it expected a number?,llm-zoomcamp,5beafdd0c8
+"In FastMCP, what does JSON Schema mean by ""number"" when I pass tool arguments?",llm-zoomcamp,5beafdd0c8
+Is a Python float supposed to be accepted by a tool schema that says the field type is number?,llm-zoomcamp,5beafdd0c8
+How should I match the values in arguments with the tool’s declared input schema when calling a FastMCP tool?,llm-zoomcamp,5beafdd0c8
+What type should I use in the JSON for a numeric tool field like temp so FastMCP validates it correctly?,llm-zoomcamp,5beafdd0c8
+How do I install the MCP Inspector from the command line?,llm-zoomcamp,d09e8d4843
+What do I need to have installed before I can set up the MCP Inspector?,llm-zoomcamp,d09e8d4843
+Which npm package should I use to get the MCP Inspector?,llm-zoomcamp,d09e8d4843
+Can you show the terminal command for installing the MCP Inspector?,llm-zoomcamp,d09e8d4843
+"Is Node.js required before installing the MCP Inspector, and what is the install command?",llm-zoomcamp,d09e8d4843
+"Which non-OpenAI model providers are confirmed to work with tool or function calling in this module, and do they need any code changes?",llm-zoomcamp,2a8f6c4d91
+"If I want to replace OpenAI for tool use, which Groq, Mistral, Gemini, or Ollama options are actually supported here?",llm-zoomcamp,2a8f6c4d91
+Are there any free-tier alternatives to OpenAI that can still do function calling for the agents homework?,llm-zoomcamp,2a8f6c4d91
+"When using another model provider for tool use, what parts of the homework code usually need adjustment because the API format is different?",llm-zoomcamp,2a8f6c4d91
+"Can you list the non-OpenAI choices for tool calling mentioned in the course and note whether they use a local setup, an OpenAI-style endpoint, or a provider-specific SDK?",llm-zoomcamp,2a8f6c4d91
+Why do I get `AttributeError: 'str' object has no attribute 'output'` after calling `client.responses.create(...)` with a model from another provider like Mistral or Groq?,llm-zoomcamp,9e7b3f0c25
+"Is `response.output` only supported by OpenAI's Responses API, and what should I use instead for non-OpenAI models?",llm-zoomcamp,9e7b3f0c25
+How can I change my code to work with providers that don't implement `client.responses.create(...)`?,llm-zoomcamp,9e7b3f0c25
+"When using a non-OpenAI model, where should I read the assistant text from: `response.output` or `response.choices[0].message.content`?",llm-zoomcamp,9e7b3f0c25
+Do I also need to modify the tools schema when switching from OpenAI to another provider's chat-completions API?,llm-zoomcamp,9e7b3f0c25
+How do I start the MCP Inspector from the terminal?,llm-zoomcamp,42c7af7ed5
+What command should I run to launch the MCP Inspector tool?,llm-zoomcamp,42c7af7ed5
+Can you show the terminal command for opening MCP Inspector?,llm-zoomcamp,42c7af7ed5
+What is the exact npx command needed to run the MCP Inspector?,llm-zoomcamp,42c7af7ed5
+How can I execute the MCP Inspector using the command line?,llm-zoomcamp,42c7af7ed5
+"Why do I get `RuntimeError: Already running asyncio in this thread` when I call `asyncio.run(...)` in Jupyter, and what should I do instead?",llm-zoomcamp,7c4e1a3b58
+"In a notebook cell, how can I execute an async function without wrapping it in `asyncio.run()`?",llm-zoomcamp,7c4e1a3b58
+"For the FastMCP server in the agents homework, should I use `mcp.run_async()` or `asyncio.run(...)` inside Jupyter?",llm-zoomcamp,7c4e1a3b58
+"When the homework says to run the MCP server, am I supposed to start it from the notebook or from the terminal?",llm-zoomcamp,7c4e1a3b58
+What is the correct way to launch `weather_server.py` for the agents homework if I’m working in Jupyter?,llm-zoomcamp,7c4e1a3b58
+How do I connect to the MCP Server in the inspector?,llm-zoomcamp,9c2fd5451c
+What can the MCP inspector show once it is connected to a server?,llm-zoomcamp,9c2fd5451c
+"Can the inspector list tools, templates, resources, and prompts from an MCP Server?",llm-zoomcamp,9c2fd5451c
+Is there a guide for testing an MCP Server with MCP Inspector?,llm-zoomcamp,9c2fd5451c
+"After connecting to the MCP Server, what kinds of items can I inspect in it?",llm-zoomcamp,9c2fd5451c
+"Why do I get a ""RuntimeError: asyncio.run() cannot be called from a running event loop"" when I try this in a Jupyter notebook cell?",llm-zoomcamp,f96fde1726
+What should I use in a notebook instead of calling `asyncio.run(main())` for an async function?,llm-zoomcamp,f96fde1726
+"Can I use `await main()` directly inside Jupyter, and why does that work when `asyncio.run()` fails?",llm-zoomcamp,f96fde1726
+What is causing the event loop conflict in notebooks when I use `asyncio.run()`?,llm-zoomcamp,f96fde1726
+How should I change my async code in a notebook so it works with the loop that Jupyter already started?,llm-zoomcamp,f96fde1726
+"How would you define embeddings in the context of vector search, and why are they useful for preserving meaning?",llm-zoomcamp,69430a79a8
+Why do similar pieces of non-numerical data produce nearby numerical representations after embedding?,llm-zoomcamp,69430a79a8
+How do embeddings make it possible to use mathematical methods for semantic similarity between texts?,llm-zoomcamp,69430a79a8
+What is the relationship between embeddings and the vector space model in machine learning?,llm-zoomcamp,69430a79a8
+In what way are embeddings connected to dimensionality reduction when turning text or other data into numbers?,llm-zoomcamp,69430a79a8
+How should I change the `get_weather_tool` definition for Azure OpenAI if I get `Missing required parameter: 'tools[0].function'`?,llm-zoomcamp,b9c7c6bb34
+What JSON structure does Azure OpenAI expect for a function tool when using `get_weather`?,llm-zoomcamp,b9c7c6bb34
+"If Azure OpenAI says `tools[0].function` is missing, what should the `get_weather_tool` object look like?",llm-zoomcamp,b9c7c6bb34
+"How do I define the `get_weather` function schema with `name`, `description`, and `parameters` so the 400 error goes away?",llm-zoomcamp,b9c7c6bb34
+What is the correct tool format for passing a city argument in `get_weather_tool` on Azure OpenAI?,llm-zoomcamp,b9c7c6bb34
+"Why did the lesson use .dot(...) straight away for similarity, instead of first normalizing the vectors?",llm-zoomcamp,92cd22cada
+When is a dot product the same as cosine similarity for embeddings?,llm-zoomcamp,92cd22cada
+Why do we need to normalize vectors in the homework but not in the lesson examples?,llm-zoomcamp,92cd22cada
+"Are the embeddings from model.encode(...) already unit-length, and how does that affect similarity calculation?",llm-zoomcamp,92cd22cada
+What changes when using TF-IDF + SVD embeddings so that dot product is no longer enough?,llm-zoomcamp,92cd22cada
+How can I get rid of the warning about the `multi-qa-mpnet-base-dot-v1` model being made on sentence-transformers v3.0.0 beta?,llm-zoomcamp,aa3f597424
+What should I install or upgrade if I keep seeing this sentence-transformers version warning?,llm-zoomcamp,aa3f597424
+Is there a command I can run to suppress the model compatibility warning in Module 3 vector search?,llm-zoomcamp,aa3f597424
+Do I need a newer `sentence-transformers` release to avoid the `multi-qa-mpnet-base-dot-v1` warning?,llm-zoomcamp,aa3f597424
+What is the simplest fix for the beta-version warning from `multi-qa-mpnet-base-dot-v1`?,llm-zoomcamp,aa3f597424
+"For vector search in this module, do we need to embed only the answer text, only the question, or both together?",llm-zoomcamp,5c4a8d2e60
+Why does embedding the answer text alone sometimes work well for retrieval?,llm-zoomcamp,5c4a8d2e60
+In what situation would embedding just the question be a good choice for vector search?,llm-zoomcamp,5c4a8d2e60
+What are the trade-offs of combining the question and answer text into one embedding input?,llm-zoomcamp,5c4a8d2e60
+"How should I decide which embedding approach is best for my dataset, and what metric should I compare?",llm-zoomcamp,5c4a8d2e60
+Why do I get `JSONDecodeError: Expecting value` when I call `json.loads(response)` on the model output while generating ground-truth questions?,llm-zoomcamp,a3c7e1b4f9
+How can I make the LLM return valid JSON instead of wrapping it in a code fence or adding extra text?,llm-zoomcamp,a3c7e1b4f9
+What `response_format` setting should I use with OpenAI chat completions to force a JSON object response?,llm-zoomcamp,a3c7e1b4f9
+What should I say in the prompt so the model outputs only a JSON object with a `questions` list of 5 strings and nothing else?,llm-zoomcamp,a3c7e1b4f9
+Is there an equivalent JSON-output option for other providers like Gemini or Groq?,llm-zoomcamp,a3c7e1b4f9
+Why can cosine similarity between a query and document embeddings be computed as a dot product after normalization?,llm-zoomcamp,95feb4e75b
+"What changes when all embeddings are scaled to unit length, and how does that affect cosine similarity?",llm-zoomcamp,95feb4e75b
+How does using normalized vectors let us compare a query against many documents with a single matrix multiplication?,llm-zoomcamp,95feb4e75b
+Why does vector magnitude stop mattering in cosine similarity once the embeddings are unit normalized?,llm-zoomcamp,95feb4e75b
+"In the vector search setup, why is matrix multiplication enough to score the query against all document embeddings?",llm-zoomcamp,95feb4e75b
+Why does the Jupyter kernel crash when I try to embed the ground-truth set in the evaluation notebook?,llm-zoomcamp,b8f2d6a30c
+What can I do on a low-RAM machine if loading the embedder together with the notebook state runs out of memory?,llm-zoomcamp,b8f2d6a30c
+"Is there a smaller embedding model I can use as a drop-in replacement, and do I need to re-run the evaluation after changing it?",llm-zoomcamp,b8f2d6a30c
+Would it help to move the embedding step into a separate script and save the vectors before loading them back into the notebook?,llm-zoomcamp,b8f2d6a30c
+Can I avoid the memory issue by processing the ground-truth data in batches and clearing memory between batches?,llm-zoomcamp,b8f2d6a30c
+"How do we measure how alike two non-zero vectors are in text analysis, especially when comparing documents by their word counts or TF-IDF values?",llm-zoomcamp,db78580409
+What does the cosine of the angle between two document vectors tell us about their similarity?,llm-zoomcamp,db78580409
+"In vector search, what similarity score ranges from -1 to 1 and says whether two vectors are identical, unrelated, or opposite?",llm-zoomcamp,db78580409
+Why is cosine similarity commonly used to compare the content of two documents?,llm-zoomcamp,db78580409
+"If two vectors have a cosine similarity of 1, 0, or -1, what does each value mean?",llm-zoomcamp,db78580409
+Why does adding `time.sleep(4)` still not fully prevent Gemini rate-limit errors when generating the ground-truth dataset?,llm-zoomcamp,c1e9f4b820
+What should I do if I keep hitting free-tier Gemini limits while building the evaluation dataset?,llm-zoomcamp,c1e9f4b820
+Is paying for OpenAI `gpt-4o-mini` a practical workaround for rate limits in this ground-truth generation task?,llm-zoomcamp,c1e9f4b820
+How can I reduce rate-limit problems if I’m using a thread pool to call the API in parallel?,llm-zoomcamp,c1e9f4b820
+What is the best way to avoid losing progress when an API quota stops my long dataset-generation run?,llm-zoomcamp,c1e9f4b820
+How can I make Pandas display the full text in a column instead of cutting it off at 50 characters?,llm-zoomcamp,641aedbbf5
+What setting should I use in Pandas to see the entire Explanation column in the offline-rag-evaluation notebook?,llm-zoomcamp,641aedbbf5
+"Is there a way to disable the ""..."" truncation for long text fields when printing a Pandas DataFrame?",llm-zoomcamp,641aedbbf5
+"Which Pandas option controls the maximum column width, and how do I set it for unlimited text display?",llm-zoomcamp,641aedbbf5
+"In the LLM-as-judge section, how do I show the full judge explanation text without it being shortened by Pandas?",llm-zoomcamp,641aedbbf5
+How can I normalize each vector stored in a Pandas DataFrame column so that every row gets a unit-length vector?,llm-zoomcamp,5039707c1a
+What is a simple way to apply vector normalization to a Pandas Series containing NumPy arrays?,llm-zoomcamp,5039707c1a
+How do I create a new DataFrame column with normalized versions of the vectors from an existing column?,llm-zoomcamp,5039707c1a
+What code can I use in Pandas to divide each vector by its own norm across a column of vectors?,llm-zoomcamp,5039707c1a
+"In Pandas, how can I use NumPy's linear algebra norm to normalize vectors inside a column with apply?",llm-zoomcamp,5039707c1a
+"I get a psycopg2 OperationalError saying it cannot translate the host name ""postgres"". What should I change in my `.env` file to make `prep.py` connect successfully?",llm-zoomcamp,4b65d5542d
+"When I run `python prep.py`, it fails with ""could not translate host name 'postgres' to address"". How can I fix the database host setting?",llm-zoomcamp,4b65d5542d
+"My setup throws an OperationalError from psycopg2 because the hostname ""postgres"" is unknown. Which environment variable needs to be updated, and to what value?",llm-zoomcamp,4b65d5542d
+`prep.py` is crashing with a host resolution error for `postgres`. What is the correct `POSTGRES_HOST` value for local execution?,llm-zoomcamp,4b65d5542d
+How do I resolve the connection error caused by `postgres` not being recognized as a host when running the preparation script?,llm-zoomcamp,4b65d5542d
+How can I get the 75th percentile from a Pandas DataFrame column using a simple one-liner?,llm-zoomcamp,b4c8ac5a0c
+What is the Pandas command for finding a column’s 0.75 quantile?,llm-zoomcamp,b4c8ac5a0c
+"If I have a Series in Pandas, how do I calculate its 75% percentile value?",llm-zoomcamp,b4c8ac5a0c
+How do I use the quantile method on a DataFrame column to return the 75th percentile?,llm-zoomcamp,b4c8ac5a0c
+What code should I write in Pandas to compute a column percentile at q=0.75?,llm-zoomcamp,b4c8ac5a0c
+"How do I force-remove every Docker container from the terminal, including ones that are still running?",llm-zoomcamp,66ccbb7da0
+What command can I use to delete all Docker images at once from the command line?,llm-zoomcamp,66ccbb7da0
+How can I remove every Docker volume using a terminal command?,llm-zoomcamp,66ccbb7da0
+"What is the quickest way to clean up all containers, images, and volumes in Docker from the CLI?",llm-zoomcamp,66ccbb7da0
+"Which Docker commands are used to wipe all existing containers, images, and volumes from the system?",llm-zoomcamp,66ccbb7da0
+How can I fix the WinError 126 error on Windows when Python says it cannot load torch\lib\fbgemm.dll or one of its dependencies?,llm-zoomcamp,15e931476c
+What should I install on Windows if I get an OSError about fbgemm.dll being missing from the PyTorch package?,llm-zoomcamp,15e931476c
+"Does this error usually mean I need Visual C++ Redistributable, or is Visual Studio required as well?",llm-zoomcamp,15e931476c
+"Why does PyTorch fail to import on Windows with a message about fbgemm.dll, and what is the recommended fix?",llm-zoomcamp,15e931476c
+"If I see the specified module could not be found for fbgemm.dll in Windows, what installation steps should I try first?",llm-zoomcamp,15e931476c
+"Do I have to turn in two capstone projects, or is one project enough?",llm-zoomcamp,d5fc98925d
+What do attempt #1 and attempt #2 mean for the capstone submission window?,llm-zoomcamp,d5fc98925d
+"If my first submission is not accepted, can I revise the project and submit again later?",llm-zoomcamp,d5fc98925d
+"If I miss the first capstone deadline, can I still submit in the second window and catch up?",llm-zoomcamp,d5fc98925d
+"If I submit a project, does it count for certification even if I do not review three peers?",llm-zoomcamp,d5fc98925d
+"Is the capstone project done individually, or do we work in a team?",llm-zoomcamp,0fab61eca2
+"Do we need to collaborate with other students on the capstone, or is it meant to be completed alone?",llm-zoomcamp,0fab61eca2
+"Can the capstone be a group effort, or must each student submit their own project?",llm-zoomcamp,0fab61eca2
+"Should I expect to form a group for the capstone project, or is it strictly individual work?",llm-zoomcamp,0fab61eca2
+"For the final capstone, do students submit one project per person rather than a shared group project?",llm-zoomcamp,0fab61eca2
+"Can I treat the competition as my capstone project, or are they considered separate things?",llm-zoomcamp,e892d44e42
+"Is it allowed to join the math-kaggle-llm-competition with a team, and how does that differ from the capstone requirement?",llm-zoomcamp,e892d44e42
+"If I participate in the competition, does that satisfy the capstone, or do I still need to do the capstone on my own?",llm-zoomcamp,e892d44e42
+Can students team up for the math-kaggle-llm-competition while the capstone project remains individual?,llm-zoomcamp,e892d44e42
+What is the relationship between the competition and the capstone—does entering the competition replace the capstone or not?,llm-zoomcamp,e892d44e42
+"Why do I get `exec: ""streamlit"": executable file not found in $PATH` when I start my Streamlit app with `docker-compose`, even though it works outside Docker?",llm-zoomcamp,e8df9f0d12
+What do I need to add or check in my Docker setup so `docker-compose` can run a Streamlit app without the OCI runtime error?,llm-zoomcamp,e8df9f0d12
+"Do I need a `Dockerfile` for a Streamlit app launched with `docker-compose`, and what should I do if I forgot to create one?",llm-zoomcamp,e8df9f0d12
+"After updating my `docker-compose` file to include Streamlit, what is the correct command to rebuild the image and start the container again?",llm-zoomcamp,e8df9f0d12
+My Streamlit app runs normally on my machine but fails in `docker-compose` with a missing executable error; what is the fix in the Docker configuration?,llm-zoomcamp,e8df9f0d12
+How will my capstone project be judged after I submit it?,llm-zoomcamp,9a2e2d2008
+Who is assigned to review each submitted capstone project?,llm-zoomcamp,9a2e2d2008
+Do I need to grade other students’ capstone projects as well?,llm-zoomcamp,9a2e2d2008
+What happens if I do not complete the required peer grading for the capstone?,llm-zoomcamp,9a2e2d2008
+How is the final capstone score calculated from the reviewers’ grades?,llm-zoomcamp,9a2e2d2008
+"After the deadline for submissions passes, what happens with project review assignments for each participant?",llm-zoomcamp,eae0fb50aa
+"How many projects does each participant get assigned to review or grade, and in what format will that information be shared?",llm-zoomcamp,eae0fb50aa
+"Will project review assignments be given before or after the submission deadline, and how are they distributed?",llm-zoomcamp,eae0fb50aa
+What should I expect once the project submission deadline has ended regarding grading assignments?,llm-zoomcamp,eae0fb50aa
+"Is there an Excel sheet used for assigning capstone project reviews, and how many projects will it list per participant?",llm-zoomcamp,eae0fb50aa
+"How can I make sure a user can give feedback only once per submission, with just one +1 or -1 vote allowed?",llm-zoomcamp,2e729f1271
+Why does my feedback button stay disabled or re-enable even though `st.session.submitted` should remain false after I press it?,llm-zoomcamp,2e729f1271
+What should I check when `st.session.submitted` gets set back to True after one of the feedback buttons is clicked?,llm-zoomcamp,2e729f1271
+Is there a known fix for the issue where Streamlit session state seems to reassign `submitted` unexpectedly after feedback is given?,llm-zoomcamp,2e729f1271
+Where can I find the recommended solution for the Streamlit session attribute problem related to one-time feedback per submission?,llm-zoomcamp,2e729f1271
+"I submitted my capstone project already, but I still can’t see anything to review — when will projects be assigned for evaluation?",llm-zoomcamp,a8a7fef016
+"After the submission deadline passes, do I get to pick which projects I evaluate, or are they assigned automatically?",llm-zoomcamp,a8a7fef016
+Why am I unable to start reviewing other projects before the project list is released?,llm-zoomcamp,a8a7fef016
+"Does submitting my own project unlock the ability to review projects right away, or is there another waiting period?",llm-zoomcamp,a8a7fef016
+"If the deadline has passed, what determines when I’ll get projects to evaluate in the capstone project?",llm-zoomcamp,a8a7fef016
+Where can I look for project ideas and datasets for the capstone assignment?,llm-zoomcamp,e76a70cde3
+Is there a page with suggested datasets and topics I can use for my project?,llm-zoomcamp,e76a70cde3
+What resource should I check if I need help choosing an idea for the capstone project?,llm-zoomcamp,e76a70cde3
+Do you have a link that lists possible project datasets and some guidance?,llm-zoomcamp,e76a70cde3
+"Where can I find tips, guidelines, and example datasets for the course project?",llm-zoomcamp,e76a70cde3
+"For the capstone project, is an orchestration tool like Airflow, Mage, or Kestra required, or is a plain Python script enough for the ingestion pipeline?",llm-zoomcamp,d4f7c08ea1
+"If I build the ingestion flow in a Jupyter notebook instead of a Python script, how many points would that be worth for the ingestion pipeline criterion?",llm-zoomcamp,d4f7c08ea1
+"When would it make sense to use an orchestrator in the capstone project, rather than avoiding one completely?",llm-zoomcamp,d4f7c08ea1
+"Should I add an orchestration tool only to satisfy the capstone scoring rubric, or only when it matches the project needs?",llm-zoomcamp,d4f7c08ea1
+"For a data source that gets updated every day, would using an orchestrator be a reasonable choice in the capstone project?",llm-zoomcamp,d4f7c08ea1
+How can I evaluate a recommender-style RAG system when I don't have obvious Q&A ground truth labels?,llm-zoomcamp,9b0e2d6a47
+What is a practical way to create synthetic ground truth for retrieval evaluation in a recommendation setting?,llm-zoomcamp,9b0e2d6a47
+How do I use an LLM to generate test queries from each item description and then measure retrieval quality?,llm-zoomcamp,9b0e2d6a47
+"For end-to-end evaluation of a recommender RAG, how can an LLM act as a judge and what rubric should I use?",llm-zoomcamp,9b0e2d6a47
+"When multiple retrieved items could be acceptable, why is NDCG often a better metric than hit rate?",llm-zoomcamp,9b0e2d6a47
+"Can I use the workshop content in my own capstone project, since dlt is open-source?",llm-zoomcamp,d850a0e7ea
+"Is it okay to reuse these workshop materials for another Zoomcamp project, such as MLOps?",llm-zoomcamp,d850a0e7ea
+Does the workshop allow me to apply dlt directly in my own projects without restrictions?,llm-zoomcamp,d850a0e7ea
+"If I have questions about using the materials in a project, can I ask about it?",llm-zoomcamp,d850a0e7ea
+"Are these workshop resources meant only for the workshop, or can I use them more broadly in my work?",llm-zoomcamp,d850a0e7ea
+"For a large corpus with long PDFs and lots of paragraphs, what chunking approach should I start with before trying anything more advanced?",llm-zoomcamp,6f2a8b3d10
+"How can I split documents into more meaningful chunks than fixed-size windows, and is it worth asking an LLM to do the splitting?",llm-zoomcamp,6f2a8b3d10
+"Should I create a short summary for every chunk and use it in retrieval, and if so how does that help?",llm-zoomcamp,6f2a8b3d10
+"When the documents are long and structured, like legal or financial PDFs, why would hybrid search be better than only dense embeddings?",llm-zoomcamp,6f2a8b3d10
+"What tools can I use to turn PDFs into cleaner markdown before chunking, and how should I check whether a new chunking method is actually better?",llm-zoomcamp,6f2a8b3d10
+"In the capstone project, what does reproducibility mean for the reviewer, and do they ever need my API keys?",llm-zoomcamp,e5d8a2c761
+How should I let a peer recreate the search index and system from scratch when they clone my repository?,llm-zoomcamp,e5d8a2c761
+"What should I put in a .env.example file, and why must the real .env stay out of version control?",llm-zoomcamp,e5d8a2c761
+Which model should I use so the reviewer does not waste too many credits while testing the project?,llm-zoomcamp,e5d8a2c761
+What dependency and environment versions do I need to pin or document to make the project easier to run again?,llm-zoomcamp,e5d8a2c761
+How do I create a fresh dlt project for loading data from a cloud filesystem into DuckDB?,llm-zoomcamp,6bceeebf04
+What command should I run to initialize a new dlt pipeline using the filesystem source and DuckDB destination?,llm-zoomcamp,6bceeebf04
+"If I want to start a dlt project from scratch for cloud loading, what is the setup command?",llm-zoomcamp,6bceeebf04
+"Which initialization command should I use when working with dlt, filesystem, and DuckDB together?",llm-zoomcamp,6bceeebf04
+Where can I find the next steps after running the dlt filesystem-to-DuckDB init command?,llm-zoomcamp,6bceeebf04
+"Does DLT currently provide ready-made connectors for ClickHouse or StarRocks, or are those still missing?",llm-zoomcamp,cd19f122f3
+"If I want to use ClickHouse or StarRocks with DLT, is there already built-in support for them?",llm-zoomcamp,cd19f122f3
+"Are connectors for ClickHouse and StarRocks available in DLT today, or would I need to rely on something else?",llm-zoomcamp,cd19f122f3
+Does DLT support loading data into ClickHouse or StarRocks through official connectors right now?,llm-zoomcamp,cd19f122f3
+"What is the current status of ClickHouse and StarRocks connector support in DLT, and can the community help add them?",llm-zoomcamp,cd19f122f3
+How can I see the full list of tables currently stored in the database?,llm-zoomcamp,e394e6f738
+What method should I call to get all table names from the database?,llm-zoomcamp,e394e6f738
+Is there a way to check which tables exist in the DB using dlt?,llm-zoomcamp,e394e6f738
+How do I retrieve the names of every table in the database?,llm-zoomcamp,e394e6f738
+Which function returns the table names so I can inspect the DB contents?,llm-zoomcamp,e394e6f738
+Why do I get a `FileNotFoundError` when I try to open `notion_pages___homework` with `db.open_table(...)`?,llm-zoomcamp,0407213397
+What should I check if the table name still causes `Table notion_pages___homework does not exist` during the dlt workshop?,llm-zoomcamp,0407213397
+Could this table-opening error mean I forgot to update every `employee_handbook` reference to `homework` in my pipeline settings?,llm-zoomcamp,0407213397
+How can I fix the issue where `db.create_table(...)` is suggested even though I expected `notion_pages___homework` to already exist?,llm-zoomcamp,0407213397
+Is the problem caused by leaving some old `employee_handbook` names unchanged when I switched the pipeline to `homework`?,llm-zoomcamp,0407213397
+How should I fix the FileNotFoundError saying that the table notion_pages___homework does not exist when I run main()?,llm-zoomcamp,e95bfafc0e
+"In the dlt workshop code, which table name should I open on line 3 to avoid the missing table error?",llm-zoomcamp,e95bfafc0e
+What change do I need to make if db.create_table is not called and the error says notion_pages___homework is missing?,llm-zoomcamp,e95bfafc0e
+Where should I point db.open_table so main() can work without the table-not-found failure?,llm-zoomcamp,e95bfafc0e
+"If I get an error about table notion_pages___homework not existing, what is the correct table opening line in the script?",llm-zoomcamp,e95bfafc0e
+"Why do I get a 401 Unauthorized when my notebook calls the Notion search endpoint, and what should I check first?",llm-zoomcamp,0dfba07ace
+"If my notebook says it does not have secret access, could the Notion integration token or key be wrong or missing permissions?",llm-zoomcamp,0dfba07ace
+"How can I tell whether the issue is an expired token, a bad endpoint, or some other auth configuration problem with Notion API access?",llm-zoomcamp,0dfba07ace
+What steps should I follow to fix authorization errors when using the Notion API in the dlt workshop notebook?,llm-zoomcamp,0dfba07ace
+Where should I look in my setup if the notebook can’t access api.notion.com/v1/search due to an authentication problem?,llm-zoomcamp,0dfba07ace
+How can I install the specific requests release that lanceDB needs when pip keeps giving me 2.28 instead of 2.32?,llm-zoomcamp,4b30b918bc
+What command should I use to pull requests directly from the project archive rather than the default package index?,llm-zoomcamp,4b30b918bc
+"If I run into a 401 Client Error during this setup, what should I check about the key or access permissions?",llm-zoomcamp,4b30b918bc
+Is there a way to force-install requests version 2.32.3 from GitHub for this workshop?,llm-zoomcamp,4b30b918bc
+"Why am I seeing an older requests version in my environment, and how do I get the newer one required by lancedb?",llm-zoomcamp,4b30b918bc
