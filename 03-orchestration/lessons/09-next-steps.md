@@ -38,4 +38,11 @@ You now have the building blocks to use AI across the full workflow lifecycle �
 - [Tavily Web Search](https://docs.tavily.com/)
 - [Kestra GitHub](https://github.com/kestra-io/kestra)
 
+## Homework
+
+Complete the hands-on assignment to test your understanding of AI
+Copilot, RAG workflows, and agents in Kestra.
+
+See: [Module 3 Homework](../../cohorts/2026/03-orchestration/homework.md)
+
 [← Best Practices](08-best-practices.md) | [Back to module →](../)
