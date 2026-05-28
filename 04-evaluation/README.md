@@ -13,10 +13,11 @@ Part 1 creates a ground truth dataset and uses it to evaluate retrieval
 quality.
 
 1. [Intro](lessons/01-intro.md) - Why evaluation matters, offline vs online
-2. [Generating Ground Truth](lessons/02-generating-ground-truth.md) - Structured output for one document
-3. [Generating Ground Truth for All Documents](lessons/03-generating-ground-truth-batch.md) - Batch generation, cost, and prepared data
+2. [Generating Ground Truth](lessons/02-ground-truth.md) - Structured output for one document
+3. [Generating Ground Truth for All Documents](lessons/03-ground-truth-batch.md) - Batch generation, cost, and prepared data
 4. [Search Evaluation](lessons/04-search-evaluation.md) - Search setup and relevance lists
 5. [Search Evaluation Metrics](lessons/05-search-metrics.md) - Hit Rate, MRR, the evaluate() function
+6. [Search Parameter Tuning](lessons/06-search-tuning.md) - Using metrics to tune boost values
 
 
 ## Part 2: RAG and Agent Evaluation

@@ -15,6 +15,10 @@ This is the A->Q->A' setup:
 
 If A' is close to A, the RAG system is doing a good job.
 
+This is still offline evaluation. We can compare A and A' because our
+questions came from FAQ records. For each question, we know which
+original answer it came from.
+
 ## Loading the data
 
 Create a new notebook for RAG evaluation.
@@ -67,6 +71,10 @@ assistant = RAGBase(
 )
 ```
 
+For each question, `RAGBase` searches the FAQ, builds a prompt with the
+retrieved context, and asks the LLM to answer. We save the answer so the
+next lesson can judge it.
+
 Run RAG for one question:
 
 ```python
@@ -74,6 +82,36 @@ rec = ground_truth[0]
 question = rec["question"]
 
 answer_llm = assistant.rag(question)
+answer_llm
+```
+
+The `rag` method returns the answer, but it doesn't return token usage.
+
+For this notebook, use a small wrapper that returns both:
+
+```python
+def rag_with_usage(question):
+    search_results = assistant.search(question)
+    prompt = assistant.build_prompt(question, search_results)
+
+    messages = [
+        {"role": "developer", "content": assistant.instructions},
+        {"role": "user", "content": prompt}
+    ]
+
+    response = openai_client.responses.create(
+        model=assistant.model,
+        input=messages
+    )
+
+    return response.output_text, response.usage
+```
+
+Test it:
+
+```python
+answer_llm, usage = rag_with_usage(question)
+
 answer_llm
 ```
 
@@ -100,39 +138,122 @@ rag_result = {
 rag_result
 ```
 
-## Processing all questions
+Calculate the price from `response.usage`, using the helper from the
+ground truth generation notebook.
 
-Do the same thing for all ground truth questions:
+Import it:
 
 ```python
-from tqdm.auto import tqdm
+from evaluation_utils import calc_price
+```
 
-answers = []
+Check the cost of one call:
 
-for rec in tqdm(ground_truth):
+```python
+calc_price(usage)
+```
+
+## Processing all questions
+
+Create a function that processes one ground truth record:
+
+```python
+def generate_rag_answer(rec):
     question = rec["question"]
     doc_id = rec["document"]
     original_doc = doc_idx[doc_id]
 
-    answer_llm = assistant.rag(question)
+    answer_llm, usage = rag_with_usage(question)
     answer_orig = original_doc["answer"]
 
-    answers.append({
+    result = {
         "question": question,
         "answer_llm": answer_llm,
         "answer_orig": answer_orig,
         "document": doc_id,
-    })
+    }
+
+    return result, usage
+```
+
+Test it on one record:
+
+```python
+answer_record, usage = generate_rag_answer(ground_truth[0])
+
+answer_record
+```
+
+And check the cost:
+
+```python
+calc_price(usage)
 ```
 
 This calls the LLM once per ground truth question, so it can take some
-time.
+time. Let's process the questions in parallel and track progress.
+
+Import the parallel processing helper from the same utility file:
+
+```python
+from concurrent.futures import ThreadPoolExecutor
+from evaluation_utils import map_progress
+```
+
+Run RAG for all ground truth questions:
+
+```python
+with ThreadPoolExecutor(max_workers=6) as pool:
+    results = map_progress(pool, ground_truth, generate_rag_answer)
+```
+
+`generate_rag_answer` returns two things for each question: the answer
+record and the token usage.
+
+Split those into separate lists:
+
+```python
+answers = []
+usages = []
+
+for answer_record, usage in results:
+    answers.append(answer_record)
+    usages.append(usage)
+```
+
+Calculate the total cost:
+
+```python
+total_cost = 0.0
+
+for usage in usages:
+    cost = calc_price(usage)
+    total_cost = total_cost + cost["total_cost"]
+
+total_cost
+```
 
 Save the answers:
 
 ```python
 df_answers = pd.DataFrame(answers)
 df_answers.to_csv("data/rag-answers.csv", index=False)
+```
+
+We generated this file for the course materials on May 28, 2026. The
+run used 395 ground truth questions.
+
+The token usage was:
+
+- Input tokens: 282,544
+- Output tokens: 24,339
+- Estimated cost with the prices above: $0.321433, about 32 cents
+
+If you don't want to generate the RAG answers yourself, download the
+file we prepared:
+
+```bash
+wget -O data/rag-answers.csv https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/data/rag-answers.csv
 ```
 
 In the next lesson, we'll evaluate these answers with an LLM judge.

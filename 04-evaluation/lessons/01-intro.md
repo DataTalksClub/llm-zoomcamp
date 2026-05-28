@@ -23,6 +23,11 @@ There are two types of evaluation:
 - Offline evaluation: run the system on a test dataset and compute metrics
 - Online evaluation: collect feedback from real users in production
 
+Offline evaluation is what we do before putting changes in front of
+users. It lets us compare search settings, prompts, or models on the
+same dataset. Online evaluation happens after deployment. It uses real
+traffic, feedback, logs, and dashboards to monitor quality.
+
 In this module, we focus on offline evaluation. We'll generate a test
 dataset, run our search and RAG systems on it, and measure how well they
 perform.
@@ -39,4 +44,4 @@ look at the final answer and the tool-call trajectory.
 
 Let's start with generating the test data we need.
 
-[← Back to module](../) | [Generating Ground Truth Data →](02-generating-ground-truth.md)
+[← Back to module](../) | [Generating Ground Truth Data →](02-ground-truth.md)

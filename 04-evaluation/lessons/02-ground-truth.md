@@ -163,22 +163,23 @@ usage = response.usage
 usage.input_tokens, usage.output_tokens
 ```
 
-As in the agents module, we calculate the price from `response.usage`:
+As in the agents module, we calculate the price from `response.usage`.
+We'll also use the same file for structured-output calls.
+
+```bash
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/code/evaluation_utils.py
+```
+
+The file contains:
+
+- `calc_price`: calculates the price from `response.usage`
+- `llm_structured`: calls the OpenAI API with structured output
+- `map_progress`: runs work in parallel and tracks progress
+
+Import the helpers:
 
 ```python
-def calc_price(usage):
-    INPUT_PRICE_PER_MILLION = 0.75
-    OUTPUT_PRICE_PER_MILLION = 4.50
-
-    input_cost = (usage.input_tokens / 1_000_000) * INPUT_PRICE_PER_MILLION
-    output_cost = (usage.output_tokens / 1_000_000) * OUTPUT_PRICE_PER_MILLION
-    total_cost = input_cost + output_cost
-
-    return {
-        "input_cost": input_cost,
-        "output_cost": output_cost,
-        "total_cost": total_cost,
-    }
+from evaluation_utils import calc_price, llm_structured
 ```
 
 Calculate the cost of this call:
@@ -189,31 +190,17 @@ cost = calc_price(usage)
 cost
 ```
 
-Wrap the structured-output call into a function so we can reuse it for
-all documents:
-
-```python
-def llm_structured(instructions, user_prompt, output_type, model="gpt-5.4-mini"):
-    messages = [
-        {"role": "developer", "content": instructions},
-        {"role": "user", "content": user_prompt}
-    ]
-
-    response = openai_client.responses.parse(
-        model=model,
-        input=messages,
-        text_format=output_type
-    )
-
-    return response.output_parsed, response.usage
-```
-
-Test it on the same document:
+Use the structured-output helper on the same document:
 
 ```python
 user_prompt = json.dumps(doc)
 
-out, usage = llm_structured(data_gen_instructions, user_prompt, Questions)
+out, usage = llm_structured(
+    openai_client,
+    data_gen_instructions,
+    user_prompt,
+    Questions
+)
 
 print(out.questions)
 print(calc_price(usage))
@@ -249,4 +236,4 @@ We now know how to generate and store questions for one document. In
 the next lesson, we'll run this for all LLM Zoomcamp FAQ documents and
 save the full ground truth dataset.
 
-[← Evaluation](01-intro.md) | [Generating Ground Truth for All Documents →](03-generating-ground-truth-batch.md)
+[← Evaluation](01-intro.md) | [Generating Ground Truth for All Documents →](03-ground-truth-batch.md)

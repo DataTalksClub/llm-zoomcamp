@@ -31,6 +31,12 @@ the document that should answer the question.
 When we send many requests, one of them might fail. We don't want the
 entire batch to fail because of one temporary error.
 
+Import the helper from the previous lesson:
+
+```python
+from evaluation_utils import calc_price, llm_structured, map_progress
+```
+
 Add a retry wrapper:
 
 ```python
@@ -39,7 +45,12 @@ import time
 def llm_structured_retry(instructions, user_prompt, output_type, max_retries=3):
     for attempt in range(max_retries):
         try:
-            return llm_structured(instructions, user_prompt, output_type)
+            return llm_structured(
+                openai_client,
+                instructions,
+                user_prompt,
+                output_type
+            )
         except Exception:
             if attempt == max_retries - 1:
                 raise
@@ -94,27 +105,10 @@ documents this way would take too long.
 We want to process documents in parallel and track progress while the
 requests are running.
 
-We'll use this helper:
+Import `ThreadPoolExecutor`:
 
 ```python
 from concurrent.futures import ThreadPoolExecutor
-
-def map_progress(pool, seq, f):
-    results = []
-
-    with tqdm(total=len(seq)) as progress:
-        futures = []
-
-        for el in seq:
-            future = pool.submit(f, el)
-            future.add_done_callback(lambda p: progress.update())
-            futures.append(future)
-
-        for future in futures:
-            result = future.result()
-            results.append(result)
-
-    return results
 ```
 
 This submits one job per document, updates the progress bar when a job
@@ -209,7 +203,6 @@ If you don't want to generate the questions yourself, download the file
 we prepared:
 
 ```bash
-mkdir -p data
 wget -O data/ground-truth-data.csv https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/data/ground-truth-data.csv
 ```
 
@@ -217,4 +210,4 @@ Now we have questions with known correct documents. In the next lesson,
 we'll run search for these questions and check whether the correct
 documents appear in the results.
 
-[← Generating Ground Truth Data](02-generating-ground-truth.md) | [Search Evaluation →](04-search-evaluation.md)
+[← Generating Ground Truth Data](02-ground-truth.md) | [Search Evaluation →](04-search-evaluation.md)

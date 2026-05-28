@@ -8,6 +8,18 @@ produce a final answer. For RAG, this means checking the generated
 answer. For agents, it also means looking at the tool calls the model
 made before producing the answer.
 
+RAG evaluation checks the whole flow together.
+
+This includes:
+
+- search
+- prompt
+- LLM
+
+If the final answer is bad, the problem can come from any of these
+steps. The search might retrieve the wrong document, the prompt might
+omit important context, or the LLM might ignore the context.
+
 In this part, we'll evaluate:
 
 - RAG answers with an LLM judge
@@ -21,4 +33,4 @@ trajectory looks reasonable.
 Next, we'll start with the RAG case and generate answers for the ground
 truth questions.
 
-[← Search Evaluation Metrics](05-search-metrics.md) | [Generating RAG Answers →](12-rag-answers.md)
+[← Search Parameter Tuning](06-search-tuning.md) | [Generating RAG Answers →](12-rag-answers.md)

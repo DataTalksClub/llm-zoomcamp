@@ -7,6 +7,16 @@ For agents, we do the same thing, but we also save the tool calls. The
 tool calls show the trajectory: what the agent decided to do before it
 produced the final answer.
 
+This is the extra part of agent evaluation. With normal RAG, the
+pipeline is fixed: search runs, then the LLM answers. With an agent,
+the LLM makes decisions before answering.
+
+It can decide:
+
+- which tool to call
+- what query to use
+- whether it needs another tool call
+
 We'll keep this simple and reuse the agent from module 01.
 
 For each question, we capture:
@@ -17,6 +27,11 @@ For each question, we capture:
 
 Then we can check if the answer is good and look at whether the
 trajectory makes sense.
+
+The trajectory helps us debug failures. If the answer is wrong, we can
+check what happened before the final answer. Maybe the agent searched
+for the wrong thing, repeated the same query, or stopped before finding
+useful context.
 
 ## Capturing tool calls
 

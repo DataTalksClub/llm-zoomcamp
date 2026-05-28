@@ -106,33 +106,7 @@ You should see something like:
 {"hit_rate": 0.77, "mrr": 0.66}
 ```
 
-Try different boost values to see what works best:
+Search metrics tell us whether retrieval works. Next, we'll use these
+metrics to tune the search parameters.
 
-```python
-def search_boost(query, question_boost):
-    boost_dict = {"question": question_boost, "section": 0.5}
-    filter_dict = {"course": "llm-zoomcamp"}
-
-    return index.search(
-        query,
-        num_results=5,
-        boost_dict=boost_dict,
-        filter_dict=filter_dict,
-    )
-
-for boost in [1.0, 3.0, 5.0, 10.0]:
-    result = evaluate(
-        ground_truth,
-        lambda q: search_boost(q["question"], boost)
-    )
-    print(f"boost={boost}: {result}")
-```
-
-This is how you tune search parameters. Instead of guessing, you measure.
-The ground truth dataset gives you a reliable way to compare different
-configurations.
-
-Search metrics tell us whether retrieval works. Next, we'll evaluate
-the answers produced by RAG and agent systems.
-
-[← Search Evaluation](04-search-evaluation.md) | [RAG and Agent Evaluation →](11-evaluation-intro.md)
+[← Search Evaluation](04-search-evaluation.md) | [Search Parameter Tuning →](06-search-tuning.md)
