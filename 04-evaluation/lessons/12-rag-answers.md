@@ -135,7 +135,6 @@ df_answers = pd.DataFrame(answers)
 df_answers.to_csv("data/rag-answers.csv", index=False)
 ```
 
-In the next lesson, we'll evaluate these answers with cosine
-similarity.
+In the next lesson, we'll evaluate these answers with an LLM judge.
 
-[← RAG and Agent Evaluation](11-rag-and-agent-evaluation-intro.md) | [RAG Evaluation: Cosine Similarity →](13-rag-evaluation-cosine.md)
+[← RAG and Agent Evaluation](11-rag-and-agent-evaluation-intro.md) | [LLM as a Judge →](13-llm-as-judge.md)

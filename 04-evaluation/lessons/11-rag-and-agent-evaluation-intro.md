@@ -10,7 +10,6 @@ made before producing the answer.
 
 In this part, we'll evaluate:
 
-- RAG answers with cosine similarity
 - RAG answers with an LLM judge
 - Agent answers and tool-call trajectories
 

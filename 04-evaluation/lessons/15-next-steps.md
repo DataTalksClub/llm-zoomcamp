@@ -3,7 +3,7 @@
 In this module, we covered evaluation at three levels:
 
 1. Search evaluation: Hit Rate and MRR to measure retrieval quality
-2. RAG evaluation: cosine similarity and LLM-as-a-judge for answer quality
+2. RAG evaluation: LLM-as-a-judge for answer quality
 3. Agent evaluation: final answers plus tool-call trajectories
 
 Evaluation is not a one-time activity. As you tune search parameters,
@@ -48,4 +48,4 @@ See also:
   - 2025 cohort evaluation module:
     [2025/03-evaluation](../../cohorts/2025/03-evaluation/)
 
-[← Agent Evaluation](15-agent-evaluation.md) | [Back to module →](../)
+[← Agent Evaluation](14-agent-evaluation.md) | [Back to module →](../)

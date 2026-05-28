@@ -1,27 +1,25 @@
 # LLM as a Judge
 
-Cosine similarity gives us a number, but it doesn't tell us why an
-answer is good or bad. Two answers might have low cosine similarity even
-though the LLM answer is correct - just phrased differently.
+In the previous lesson, we generated RAG answers for our ground truth
+questions. Now we need to decide whether these answers are good.
 
-A more flexible approach is to use an LLM to evaluate answers. We give
-the judge LLM the question and answers, then ask it to rate the
+We'll use an LLM as a judge. We give the judge LLM the question, the
+original FAQ answer, and the RAG answer. Then we ask it to rate the
 quality.
 
 This is called LLM-as-a-judge.
 
 ## Advantages of LLM judges
 
-LLM judges have several advantages over simple metrics:
+LLM judges are useful because:
 
-- They can evaluate semantic correctness, not just text similarity
+- They can evaluate semantic correctness
 - They provide explanations for their ratings
 - They can check specific criteria (hallucination, completeness, relevance)
 - They can handle different answer formats and styles
 
-LLM judges are slower and more expensive than computing cosine
-similarity. For evaluation that you run occasionally, the cost is
-acceptable.
+LLM judges are slower and more expensive than deterministic checks. For
+evaluation that you run occasionally, the cost is acceptable.
 
 ## Q->A evaluation
 
@@ -193,29 +191,16 @@ You can also look at the "bad" cases to understand what went wrong:
 df_eval[df_eval["score"] == "bad"].head()
 ```
 
-## Combining metrics
+## Saving the results
 
-For a comprehensive evaluation, combine multiple metrics:
-
-```python
-df_combined = df_answers.merge(
-    df_eval,
-    on=["question", "document"],
-    how="left",
-)
-```
-
-Look at the correlation between cosine similarity and judge scores:
+Save the judged answers:
 
 ```python
-df_combined.groupby("score")["cosine"].describe()
+df_eval.to_csv("data/rag-evaluations.csv", index=False)
 ```
 
-If "good" answers have high cosine and "bad" answers have low cosine,
-both metrics agree. If they disagree, the judge might be catching things
-that cosine misses (or vice versa).
+We now have an answer-quality score for the RAG pipeline. In the next
+lesson, we'll apply the same idea to an agent and also capture the tool
+calls it made.
 
-Using both metrics together gives a more complete picture of your RAG
-system's quality.
-
-[← RAG Evaluation: Cosine Similarity](13-rag-evaluation-cosine.md) | [Agent Evaluation →](15-agent-evaluation.md)
+[← Generating RAG Answers](12-rag-answers.md) | [Agent Evaluation →](14-agent-evaluation.md)

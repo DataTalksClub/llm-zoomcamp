@@ -2,8 +2,8 @@
 
 In the previous modules, we built search engines and RAG pipelines.
 We tried different approaches: keyword search with minsearch, vector
-search, agents with function calling. But how do we know which one is
-actually better?
+search, agents with function calling. Now we need a way to decide which
+one is actually better.
 
 We could try a few queries by hand and see what looks good. That works
 for a quick sanity check, but it doesn't scale. We need a systematic
@@ -34,8 +34,8 @@ We'll cover three levels of evaluation:
 3. Agent evaluation: does the agent use tools efficiently?
 
 For search, we'll use two metrics: Hit Rate and MRR (Mean Reciprocal
-Rank). For RAG quality, we'll use cosine similarity and LLM-as-a-judge.
-For agents, we'll look at trajectory evaluation and instruction following.
+Rank). For RAG quality, we'll use LLM-as-a-judge. For agents, we'll
+look at the final answer and the tool-call trajectory.
 
 Let's start with generating the test data we need.
 

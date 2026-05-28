@@ -161,4 +161,4 @@ This is enough for a first pass. We can evaluate the final answer with
 the same LLM-as-a-judge approach as in the previous lesson. Then we use
 the trajectory to understand how the agent behaved.
 
-[← LLM as a Judge](14-llm-as-judge.md) | [Next Steps →](16-next-steps.md)
+[← LLM as a Judge](13-llm-as-judge.md) | [Next Steps →](15-next-steps.md)

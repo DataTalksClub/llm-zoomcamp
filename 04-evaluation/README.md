@@ -4,7 +4,7 @@ This module covers systematic evaluation for search, RAG, and agent
 systems.
 
 We generate ground truth data with an LLM. Then we measure performance
-with Hit Rate, MRR, cosine similarity, and LLM-as-a-judge.
+with Hit Rate, MRR, and LLM-as-a-judge.
 
 
 ## Part 1: Search Evaluation
@@ -27,10 +27,9 @@ trajectory.
 
 11. [RAG and Agent Evaluation](lessons/11-rag-and-agent-evaluation-intro.md) - What changes after retrieval
 12. [Generating RAG Answers](lessons/12-rag-answers.md) - Running RAG on the ground truth questions
-13. [RAG Evaluation: Cosine Similarity](lessons/13-rag-evaluation-cosine.md) - Comparing generated answers with original answers
-14. [LLM as a Judge](lessons/14-llm-as-judge.md) - Using an LLM to evaluate answer quality
-15. [Agent Evaluation](lessons/15-agent-evaluation.md) - Capturing answers and tool-call trajectories
-16. [Next Steps](lessons/16-next-steps.md) - Evaluation frameworks, monitoring, and resources
+13. [LLM as a Judge](lessons/13-llm-as-judge.md) - Using an LLM to evaluate answer quality
+14. [Agent Evaluation](lessons/14-agent-evaluation.md) - Capturing answers and tool-call trajectories
+15. [Next Steps](lessons/15-next-steps.md) - Evaluation frameworks, monitoring, and resources
 
 
 ## Older content
