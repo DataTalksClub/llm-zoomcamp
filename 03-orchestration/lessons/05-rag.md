@@ -10,22 +10,33 @@ For a deeper dive into RAG and vector search, see [Module 2](../../02-vector-sea
 
 ## How RAG Works in Kestra
 
+RAG has two phases. In the demo flows below they run back-to-back, but in production you'd typically schedule them separately — ingest on a cadence, query on demand.
+
 ```mermaid
 graph LR
-    A[Ask AI] --> B[Fetch Docs]
-    B --> C[Create Embeddings]
-    C --> D[Find Similar Content]
-    D --> E[Add Context to Prompt]
-    E --> F[LLM Answer]
+    subgraph Ingest ["Ingest (run once / on schedule)"]
+        A[Fetch Docs] --> B[Create Embeddings]
+        B --> C[Store in KV Store]
+    end
+    subgraph Query ["Query (run on demand)"]
+        D[User Question] --> E[Find Similar Content]
+        E --> F[Add Context to Prompt]
+        F --> G[LLM Answer]
+    end
+    C --> E
 ```
 
-The process:
+**Ingest phase** (run once, or on a schedule when your data changes):
 
-1. **Ingest documents**: Load documentation, release notes, or other data sources
-2. **Create embeddings**: Convert text into vector representations using an LLM
-3. **Store embeddings**: Save vectors in Kestra's KV Store (or a vector database)
-4. **Query with context**: When you ask a question, retrieve relevant embeddings and include them in the prompt
-5. **Generate response**: The LLM has real context and provides accurate answers
+1. **Fetch documents**: Load documentation, release notes, or other data sources
+2. **Create embeddings**: Convert text into vectors using an embedding model
+3. **Store embeddings**: Save vectors in Kestra's KV Store
+
+**Query phase** (runs every time a question is asked):
+
+4. **Retrieve context**: Find the embeddings most similar to the user's question
+5. **Augment the prompt**: Add the retrieved content to the LLM prompt
+6. **Generate response**: The LLM answers using real, grounded context
 
 ## Example: Kestra Release Features
 

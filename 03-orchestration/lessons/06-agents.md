@@ -1,12 +1,8 @@
 # AI Agents
 
-While AI Copilot helps you *build* workflows faster, AI Agents help you *run* workflows that can make autonomous decisions.
+In [Module 1](../../01-agentic-rag/lessons/11-agents-intro.md) you built the agentic loop by hand: a `while` loop that called the LLM, executed any tool calls it returned, sent the results back, and stopped when the model produced a final answer with no more tool calls. That pattern is the foundation of every agent framework.
 
-## What is an AI Agent?
-
-An **AI Agent** is an autonomous system that uses an LLM to reason and make decisions, has access to tools (web search, task execution, etc.), can remember context across executions, and dynamically decides which actions to take and in what order.
-
-For a deeper dive into agents and the agentic loop, see [Module 1](../../01-agentic-rag/lessons/11-agents-intro.md).
+In Kestra, the `AIAgent` plugin handles that loop for you. You define the goal, the tools, and optionally a system message - Kestra drives the loop, manages conversation history, and surfaces the result as a task output.
 
 **Traditional Workflow** — fixed sequence, predetermined logic:
 
