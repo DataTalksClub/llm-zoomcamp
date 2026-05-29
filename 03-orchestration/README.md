@@ -5,10 +5,10 @@ We start from the context problem that makes generic AI assistants unreliable, a
 
 Flows: [flows/](flows/)
 
-Video: [Using AI in Workflows](https://youtu.be/0tG0Ao5iL8o)
+Video: [Using AI in Workflows](https://youtu.be/l9w6oeUtrpk)
 Video: [Setting up Kestra](https://youtu.be/ghkf93rfb2w)
-Video: [AI Copilot](#)
-Video: [RAG Workflows](#)
+Video: [AI Copilot](https://youtu.be/OTiOdt17hZg)
+Video: [RAG Workflows](https://youtu.be/FhGZV173xrk)
 Video: [Agentic Workflows](#)
 
 
@@ -51,6 +51,10 @@ Part 5 covers what you need to know before going to production - cost, security,
 8. [Best Practices](lessons/08-best-practices.md) - Cost, security, observability, and production readiness
 9. [Next Steps](lessons/09-next-steps.md) - Resources, further reading, and where to go from here
 
+
+## Videos
+
+[Full Module 3 Playlist](https://youtube.com/playlist?list=PLEK3H8YwZn1oc6ReY4el9jT-mLlw-hs3r&si=yLtndNW5lhFcVuUJ)
 
 ## Extra Resources
 

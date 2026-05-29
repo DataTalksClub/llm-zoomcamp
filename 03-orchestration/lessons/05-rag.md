@@ -1,6 +1,6 @@
 # Retrieval Augmented Generation
 
-Video: [RAG Workflows](#)
+Video: [RAG Workflows](https://youtu.be/FhGZV173xrk)
 
 AI Copilot solves the context problem for flow generation. But what about workflows that need to answer questions from your own data? That's where RAG comes in.
 

@@ -1,6 +1,6 @@
 # AI Copilot
 
-Video: [AI Copilot](#)
+Video: [AI Copilot](https://youtu.be/OTiOdt17hZg)
 
 Building workflows manually can be slow. You need to know which plugin to use, look up the exact property names, remember the right syntax, and connect each task together in the correct order. For a non-trivial flow, this can take a long time before you even run it once. While Kestra's autocomplete helps, you still have to build each task one at a time.
 
@@ -56,5 +56,9 @@ Then you make the final tweaks manually - adjusting the SQL query, setting your 
 - Add tasks: "Add an If-task performing conditional branching"
 - Configure triggers: "Add a webhook trigger"
 - Add error handling: "Add retry logic with exponential backoff"
+
+## Alternative: Agent Skills
+
+If you're using an AI coding assistant (such as Claude or Cursor), Kestra's [agent-skills](https://github.com/kestra-io/agent-skills) repository gives your AI assistant the same grounding that AI Copilot has inside the UI — current plugin documentation, valid property names, and best practices. This means you can generate reliable, correct Kestra flows directly from your editor without switching to the Kestra UI.
 
 [← Getting Started](03-setup.md) | [RAG →](05-rag.md)
