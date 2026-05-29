@@ -14,7 +14,7 @@
 
 AI features use LLM APIs, which have costs based on token usage.
 
-**Pricing per 1M tokens ([full pricing page](https://ai.google.dev/gemini-api/docs/pricing)):**
+Pricing per 1M tokens ([full pricing page](https://ai.google.dev/gemini-api/docs/pricing)):
 
 | Model | Tier | Input | Output |
 |-------|------|-------|--------|
@@ -27,7 +27,7 @@ AI features use LLM APIs, which have costs based on token usage.
 
 Use Gemini 2.5 Flash for most workflows — it's cheaper and free for standard inference. Step up to Gemini 3.5 Flash when you need stronger reasoning for complex agent tasks.
 
-**Cost-saving tips:**
+Cost-saving tips:
 
 1. Start with the free tier for learning and development
 2. Use smaller/cheaper models for simple tasks — check the [pricing page](https://ai.google.dev/gemini-api/docs/pricing)
@@ -62,7 +62,7 @@ provider:
 
 Monitor token usage per execution, agent tool calls and decisions, execution time and costs, and output quality.
 
-**Debugging tips:**
+Debugging tips:
 
 1. Start with simple prompts and iterate
 2. Check logs for LLM reasoning
@@ -72,9 +72,9 @@ Monitor token usage per execution, agent tool calls and decisions, execution tim
 
 Before deploying AI workflows to production:
 
-1. **Test thoroughly** — run multiple times with different inputs, verify outputs are consistent and accurate
-2. **Add fallbacks** — handle API failures with retries and configure alerts on failure
-3. **Set limits** — cap `maxOutputTokens` to control costs
-4. **Document behavior** — explain what the agent does in your flow and task descriptions
+1. Test thoroughly — run multiple times with different inputs, verify outputs are consistent and accurate
+2. Add fallbacks — handle API failures with retries and configure alerts on failure
+3. Set limits — cap `maxOutputTokens` to control costs
+4. Document behavior — explain what the agent does in your flow and task descriptions
 
 [← Multi-Agent Systems](07-multi-agent.md) | [Next Steps →](09-next-steps.md)

@@ -13,13 +13,13 @@ You now have the building blocks to use AI across the full workflow lifecycle â€
 
 ## Where to go from here
 
-**Experiment with different LLM providers.** The flows in this module use Gemini, but Kestra's AI plugin supports other providers too. Try swapping the provider and comparing results.
+Experiment with different LLM providers. The flows in this module use Gemini, but Kestra's AI plugin supports other providers too. Try swapping the provider and comparing results.
 
-**Build custom agents for your data pipelines.** Take a workflow you already run and ask: which parts involve decisions that depend on external data? Those are good candidates for an agent.
+Build custom agents for your data pipelines. Take a workflow you already run and ask: which parts involve decisions that depend on external data? Those are good candidates for an agent.
 
-**Explore Kestra Blueprints.** The [Blueprints library](https://kestra.io/blueprints) has pre-built workflow examples you can import and adapt, including AI and agent patterns.
+Explore Kestra Blueprints. The [Blueprints library](https://kestra.io/blueprints) has pre-built workflow examples you can import and adapt, including AI and agent patterns.
 
-**Share your learnings.** Join the [Kestra Slack community](https://kestra.io/slack) to ask questions, share what you've built, and see what others are working on.
+Share your learnings. Join the [Kestra Slack community](https://kestra.io/slack) to ask questions, share what you've built, and see what others are working on.
 
 ## Kestra documentation
 

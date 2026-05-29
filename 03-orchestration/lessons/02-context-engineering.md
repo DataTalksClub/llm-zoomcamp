@@ -6,23 +6,23 @@ Let's start by seeing what happens when AI lacks proper context.
 
 ## Experiment: ChatGPT Without Context
 
-1. **Open ChatGPT in a private browser window** (to avoid any existing chat context)
+1. Open ChatGPT in a private browser window (to avoid any existing chat context)
 
-2. **Enter this prompt:**
+2. Enter this prompt:
    ```
    Create a Kestra flow that loads NYC taxi data from a CSV file to BigQuery. The flow should extract data, upload to GCS, and load to BigQuery.
    ```
 
-3. **Observe the results.** ChatGPT will generate a Kestra flow, but it likely contains:
-   - **Outdated plugin syntax** (e.g., old task types that have been renamed)
-   - **Incorrect property names** (e.g., properties that don't exist in current versions)
-   - **Hallucinated features** (e.g., tasks, triggers, or properties that never existed)
+3. Observe the results. ChatGPT will generate a Kestra flow, but it likely contains:
+   - Outdated plugin syntax (e.g., old task types that have been renamed)
+   - Incorrect property names (e.g., properties that don't exist in current versions)
+   - Hallucinated features (e.g., tasks, triggers, or properties that never existed)
 
 ## Why Does This Happen?
 
 Large Language Models like GPT are trained on data up to a specific point in time. They don't automatically know about software updates and new releases, renamed plugins or changed APIs, new best practices in your organisation, or specific configurations for your infrastructure.
 
-This is the fundamental challenge of using AI: **the model can only work with information it has access to.**
+This is the fundamental challenge of using AI: the model can only work with information it has access to.
 
 ## Context is Everything
 

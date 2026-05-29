@@ -9,7 +9,7 @@ In Kestra, the `AIAgent` plugin handles that loop for you. You define the goal, 
 > [!NOTE]
 > The flows in this lesson use `{{ secret('GEMINI_API_KEY') }}`. Make sure you've completed the [setup instructions](03-setup.md) to configure this secret before running them.
 
-**Traditional Workflow** — fixed sequence, predetermined logic:
+Traditional Workflow — fixed sequence, predetermined logic:
 
 ```yaml
 tasks:
@@ -21,7 +21,7 @@ tasks:
     type: Task3
 ```
 
-**AI Agent Workflow** — agent decides what to do, in what order, based on the goal:
+AI Agent Workflow — agent decides what to do, in what order, based on the goal:
 
 ```yaml
 tasks:
@@ -85,8 +85,8 @@ Flow: [`5_web_research_agent.yaml`](../flows/5_web_research_agent.yaml)
 
 This flow demonstrates an agent with autonomous tool usage:
 
-1. Receives a research **prompt** (e.g., "Latest trends in workflow orchestration")
-2. Decides to use the **web search tool** to gather information
+1. Receives a research prompt (e.g., "Latest trends in workflow orchestration")
+2. Decides to use the web search tool to gather information
 3. Evaluates search results and determines if more searches are needed
 4. Synthesizes findings into a structured markdown report
 5. Saves the report to a file using the filesystem tool

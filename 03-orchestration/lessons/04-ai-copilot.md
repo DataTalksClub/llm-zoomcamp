@@ -12,22 +12,22 @@ This works reliably because Kestra's AI Copilot is grounded in the current plugi
 
 Before using AI Copilot, you need to configure Gemini API access in your Kestra instance. If you haven't done this yet, follow the [setup instructions](03-setup.md) to obtain your Gemini API key and configure it as a secret.
 
-**Access AI Copilot:**
+Access AI Copilot:
 
 1. Open Kestra UI at http://localhost:8080
 2. Create a new flow or open an existing one
-3. Click the **AI Copilot** button (sparkle icon ✨) in the top-right corner of the Flow Editor
+3. Click the AI Copilot button (sparkle icon ✨) in the top-right corner of the Flow Editor
 
 ## Hands-On: Compare Copilot vs. Raw ChatGPT
 
 Use the same prompt from the previous lesson, but this time with AI Copilot:
 
-1. **Click the AI Copilot button** in Kestra's Flow Editor
-2. **Enter:**
+1. Click the AI Copilot button in Kestra's Flow Editor
+2. Enter:
    ```
    Create a Kestra flow that loads NYC taxi data from a CSV file to BigQuery. The flow should extract data, upload to GCS, and load to BigQuery.
    ```
-3. **Observe the results** — correct, up-to-date plugin types, valid property names, and working executable YAML.
+3. Observe the results — correct, up-to-date plugin types, valid property names, and working executable YAML.
 
 ## The 5% Rule
 
@@ -39,7 +39,7 @@ The bulk of the structure is done. You're just closing the gap between a general
 
 AI Copilot helps with both creating new flows and refining existing ones. The conversation is cumulative — each follow-up preserves the existing flow structure and only modifies what's needed.
 
-**Example conversation:**
+Example conversation:
 
 1. "Create a flow that downloads a CSV file and loads it to BigQuery" → Copilot generates a basic flow
 2. "Add a task that checks data quality in BigQuery" → Copilot adds SQL validation tasks
@@ -50,9 +50,9 @@ Then you make the final tweaks manually - adjusting the SQL query, setting your 
 
 ## Example Use Cases
 
-- **Generate new flows**: "Create a flow that syncs data from Postgres to GCS"
-- **Add tasks**: "Add an If-task performing conditional branching"
-- **Configure triggers**: "Add a webhook trigger"
-- **Add error handling**: "Add retry logic with exponential backoff"
+- Generate new flows: "Create a flow that syncs data from Postgres to GCS"
+- Add tasks: "Add an If-task performing conditional branching"
+- Configure triggers: "Add a webhook trigger"
+- Add error handling: "Add retry logic with exponential backoff"
 
 [← Getting Started](03-setup.md) | [RAG →](05-rag.md)

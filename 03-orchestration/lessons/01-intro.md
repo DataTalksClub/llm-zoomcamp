@@ -25,10 +25,10 @@ By the end of this module, you will:
 
 When building LLM applications and workflows, we often spend significant time writing boilerplate code, searching documentation, and structuring pipelines. AI tools can help us:
 
-- **Generate workflows faster**: Describe what you want in natural language instead of writing YAML from scratch
-- **Avoid errors**: Get syntax-correct, up-to-date code that follows best practices
-- **Automate complex decisions**: Let AI agents dynamically orchestrate tasks based on changing conditions
-- **Ground responses in data**: Use RAG to ensure AI provides accurate, contextual information
+- Generate workflows faster: describe what you want in natural language instead of writing YAML from scratch
+- Avoid errors: get syntax-correct, up-to-date code that follows best practices
+- Automate complex decisions: let AI agents dynamically orchestrate tasks based on changing conditions
+- Ground responses in data: use RAG to ensure AI provides accurate, contextual information
 
 However, AI is only as good as the context we provide. This module teaches you how to engineer that context for reliable, production-ready workflows.
 

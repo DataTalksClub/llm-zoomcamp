@@ -23,7 +23,7 @@ docker compose down
 
 ## Step 2: Obtain API Keys
 
-**Gemini API Key (Required)**
+Gemini API Key (Required)
 
 1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey)
 2. Sign in with your Google account
@@ -31,7 +31,7 @@ docker compose down
 
 The free tier has a generous quota suitable for learning (rate limits apply).
 
-**Tavily API Key (Optional, for web search examples)**
+Tavily API Key (Optional, for web search examples)
 
 1. Visit [Tavily](https://tavily.com/)
 2. Sign up for the free tier
