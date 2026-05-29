@@ -4,9 +4,8 @@
   <img src="https://markdown-videos-api.jorgenkh.no/youtube/E9O0Tg68PPg">
 </a>
 
-In this module, we walk through building a complete RAG project
-from scratch - a fitness assistant that helps users with exercise
-questions.
+In this module, we build a complete RAG project from scratch. The
+project is a fitness assistant that helps users with exercise questions.
 
 The final project is at
 [alexeygrigorev/fitness-assistant](https://github.com/alexeygrigorev/fitness-assistant)
@@ -69,13 +68,13 @@ from typing import List
 
 class Exercise(BaseModel):
     id: str = Field(description="Unique identifier, e.g. 'push-up-001'")
-    exercise_name: str = Field(description='Name of the exercise')
-    type_of_activity: str = Field(description='Strength, Cardio, Flexibility, etc.')
-    type_of_equipment: str = Field(description='Dumbbells, Barbell, None (bodyweight), etc.')
-    body_part: str = Field(description='Chest, Back, Legs, etc.')
-    type: str = Field(description='Compound, Isolation, etc.')
+    exercise_name: str = Field(description="Name of the exercise")
+    type_of_activity: str = Field(description="Strength, Cardio, Flexibility, etc.")
+    type_of_equipment: str = Field(description="Dumbbells, Barbell, None (bodyweight), etc.")
+    body_part: str = Field(description="Chest, Back, Legs, etc.")
+    type: str = Field(description="Compound, Isolation, etc.")
     muscle_groups_activated: str = Field(description="Comma-separated list, e.g. 'Chest, Triceps, Shoulders'")
-    instructions: str = Field(description='Detailed step-by-step instructions')
+    instructions: str = Field(description="Detailed step-by-step instructions")
 
 class ExerciseDataset(BaseModel):
     exercises: List[Exercise]
@@ -96,15 +95,15 @@ Include bodyweight exercises, free weights, and machine exercises.
 """.strip()
 
 response = openai_client.responses.parse(
-    model='gpt-5.4-mini',
-    input=[{'role': 'user', 'content': prompt}],
+    model="gpt-5.4-mini",
+    input=[{"role": "user", "content": prompt}],
     text_format=ExerciseDataset,
 )
 
 dataset = response.output_parsed
 df = pd.DataFrame([ex.model_dump() for ex in dataset.exercises])
-df.to_csv('data/data.csv', index=False)
-print(f'Generated {len(df)} exercises')
+df.to_csv("data/data.csv", index=False)
+print(f"Generated {len(df)} exercises")
 ```
 
 You may need to run this multiple times with different prompts
@@ -121,20 +120,20 @@ create a search index:
 import pandas as pd
 from minsearch import Index
 
-df = pd.read_csv('data/data.csv')
-documents = df.to_dict(orient='records')
+df = pd.read_csv("data/data.csv")
+documents = df.to_dict(orient="records")
 
 index = Index(
     text_fields=[
-        'exercise_name',
-        'type_of_activity',
-        'type_of_equipment',
-        'body_part',
-        'type',
-        'muscle_groups_activated',
-        'instructions',
+        "exercise_name",
+        "type_of_activity",
+        "type_of_equipment",
+        "body_part",
+        "type",
+        "muscle_groups_activated",
+        "instructions",
     ],
-    keyword_fields=['id']
+    keyword_fields=["id"]
 )
 
 index.fit(documents)
@@ -180,10 +179,10 @@ instructions: {instructions}
 """.strip()
 
 def build_prompt(query, search_results):
-    context = ''
+    context = ""
 
     for doc in search_results:
-        context = context + entry_template.format(**doc) + '\n\n'
+        context = context + entry_template.format(**doc) + "\n\n"
 
     prompt = prompt_template.format(question=query, context=context).strip()
     return prompt
@@ -196,10 +195,10 @@ from openai import OpenAI
 
 openai_client = OpenAI()
 
-def llm(prompt, model='gpt-5.4-mini'):
+def llm(prompt, model="gpt-5.4-mini"):
     response = openai_client.responses.create(
         model=model,
-        input=[{'role': 'user', 'content': prompt}]
+        input=[{"role": "user", "content": prompt}]
     )
 
     return response.output_text
@@ -208,7 +207,7 @@ def llm(prompt, model='gpt-5.4-mini'):
 Put it together:
 
 ```python
-def rag(query, model='gpt-5.4-mini'):
+def rag(query, model="gpt-5.4-mini"):
     search_results = search(query)
     prompt = build_prompt(query, search_results)
     answer = llm(prompt, model=model)
@@ -218,7 +217,7 @@ def rag(query, model='gpt-5.4-mini'):
 Test it:
 
 ```python
-question = 'Is the Lat Pulldown considered a strength training activity, and if so, why?'
+question = "Is the Lat Pulldown considered a strength training activity, and if so, why?"
 answer = rag(question)
 print(answer)
 ```

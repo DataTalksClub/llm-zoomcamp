@@ -255,7 +255,6 @@ prepared:
 
 ```bash
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
-
 wget -O data/agent-answers.csv ${PREFIX}/04-evaluation/data/agent-answers.csv
 ```
 

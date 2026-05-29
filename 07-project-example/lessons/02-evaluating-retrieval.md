@@ -50,30 +50,30 @@ Instructions: {instructions}
 from tqdm.auto import tqdm
 import json
 
-df = pd.read_csv('data/data.csv')
+df = pd.read_csv("data/data.csv")
 
 results = []
 
 for _, row in tqdm(df.iterrows(), total=len(df)):
     prompt = prompt1_template.format(**row.to_dict())
     response = openai_client.responses.create(
-        model='gpt-5.4-mini',
-        input=[{'role': 'user', 'content': prompt}]
+        model="gpt-5.4-mini",
+        input=[{"role": "user", "content": prompt}]
     )
     questions = json.loads(response.output_text)
     for q in questions:
-        q['id'] = row['id']
+        q["id"] = row["id"]
         results.append(q)
 
 df_questions = pd.DataFrame(results)
-df_questions.to_csv('data/ground-truth-retrieval.csv', index=False)
+df_questions.to_csv("data/ground-truth-retrieval.csv", index=False)
 ```
 
 Load the ground truth:
 
 ```python
-df_question = pd.read_csv('data/ground-truth-retrieval.csv')
-ground_truth = df_question.to_dict(orient='records')
+df_question = pd.read_csv("data/ground-truth-retrieval.csv")
+ground_truth = df_question.to_dict(orient="records")
 ```
 
 ## Evaluating retrieval quality
@@ -100,20 +100,20 @@ def mrr(relevance_total):
 def evaluate(ground_truth, search_function):
     relevance_total = []
     for q in tqdm(ground_truth):
-        doc_id = q['id']
+        doc_id = q["id"]
         results = search_function(q)
-        relevance = [d['id'] == doc_id for d in results]
+        relevance = [d["id"] == doc_id for d in results]
         relevance_total.append(relevance)
     return {
-        'hit_rate': hit_rate(relevance_total),
-        'mrr': mrr(relevance_total)
+        "hit_rate": hit_rate(relevance_total),
+        "mrr": mrr(relevance_total)
     }
 ```
 
 Evaluate the default search (no boosting):
 
 ```python
-evaluate(ground_truth, lambda q: search(q['question']))
+evaluate(ground_truth, lambda q: search(q["question"]))
 ```
 
 ## Finding the best boost parameters
@@ -127,8 +127,8 @@ Split the ground truth into validation and test sets:
 df_validation = df_question[:100]
 df_test = df_question[100:]
 
-gt_val = df_validation.to_dict(orient='records')
-gt_test = df_test.to_dict(orient='records')
+gt_val = df_validation.to_dict(orient="records")
+gt_test = df_test.to_dict(orient="records")
 ```
 
 Define the search function with configurable boost:
@@ -154,7 +154,7 @@ import random
 
 def simple_optimize(param_ranges, objective_function, n_iterations=10):
     best_params = None
-    best_score = float('-inf')
+    best_score = float("-inf")
 
     for _ in range(n_iterations):
         current_params = {}
@@ -170,24 +170,24 @@ def simple_optimize(param_ranges, objective_function, n_iterations=10):
     return best_params
 
 param_ranges = {
-    'exercise_name': (0.0, 3.0),
-    'type_of_activity': (0.0, 3.0),
-    'type_of_equipment': (0.0, 3.0),
-    'body_part': (0.0, 3.0),
-    'type': (0.0, 3.0),
-    'muscle_groups_activated': (0.0, 3.0),
-    'instructions': (0.0, 3.0),
+    "exercise_name": (0.0, 3.0),
+    "type_of_activity": (0.0, 3.0),
+    "type_of_equipment": (0.0, 3.0),
+    "body_part": (0.0, 3.0),
+    "type": (0.0, 3.0),
+    "muscle_groups_activated": (0.0, 3.0),
+    "instructions": (0.0, 3.0),
 }
 
 def objective(boost_params):
     def search_function(q):
-        return minsearch_search(q['question'], boost=boost_params)
+        return minsearch_search(q["question"], boost=boost_params)
 
     results = evaluate(gt_val, search_function)
-    return results['hit_rate']
+    return results["hit_rate"]
 
 best_params = simple_optimize(param_ranges, objective, n_iterations=20)
-print('Best boost parameters:', best_params)
+print("Best boost parameters:", best_params)
 ```
 
 Now use these optimized boost values in the search:
@@ -195,13 +195,13 @@ Now use these optimized boost values in the search:
 ```python
 def search(query):
     boost = {
-        'exercise_name': 2.11,
-        'type_of_activity': 1.46,
-        'type_of_equipment': 0.65,
-        'body_part': 2.65,
-        'type': 1.31,
-        'muscle_groups_activated': 2.54,
-        'instructions': 0.74
+        "exercise_name": 2.11,
+        "type_of_activity": 1.46,
+        "type_of_equipment": 0.65,
+        "body_part": 2.65,
+        "type": 1.31,
+        "muscle_groups_activated": 2.54,
+        "instructions": 0.74
     }
 
     results = index.search(
@@ -217,7 +217,7 @@ def search(query):
 Evaluate on the test set:
 
 ```python
-evaluate(gt_test, lambda q: search(q['question']))
+evaluate(gt_test, lambda q: search(q["question"]))
 ```
 
 The optimized boost values should give significantly better Hit

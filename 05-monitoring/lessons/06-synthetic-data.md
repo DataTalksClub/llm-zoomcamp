@@ -24,31 +24,31 @@ from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from db import save_conversation, save_feedback
 
-tz = ZoneInfo('Europe/Berlin')
+tz = ZoneInfo("Europe/Berlin")
 
 SAMPLE_QUESTIONS = [
-    'How do I install Docker?',
-    'Can I still join the course?',
-    'What are the prerequisites?',
-    'How do I submit homework?',
-    'When are the office hours?',
+    "How do I install Docker?",
+    "Can I still join the course?",
+    "What are the prerequisites?",
+    "How do I submit homework?",
+    "When are the office hours?",
 ]
 
 SAMPLE_ANSWERS = [
-    'You can install Docker by downloading Docker Desktop from the official website.',
-    'Yes, you can join at any time. The materials remain available.',
-    'You need basic Python knowledge and familiarity with the command line.',
-    'Submit your homework through the course portal before the deadline.',
-    'Office hours are held weekly. Check the calendar for details.',
+    "You can install Docker by downloading Docker Desktop from the official website.",
+    "Yes, you can join at any time. The materials remain available.",
+    "You need basic Python knowledge and familiarity with the command line.",
+    "Submit your homework through the course portal before the deadline.",
+    "Office hours are held weekly. Check the calendar for details.",
 ]
 
 COURSES = [
-    'data-engineering-zoomcamp',
-    'machine-learning-zoomcamp',
-    'mlops-zoomcamp',
+    "data-engineering-zoomcamp",
+    "machine-learning-zoomcamp",
+    "mlops-zoomcamp",
 ]
 
-RELEVANCE = ['RELEVANT', 'PARTLY_RELEVANT', 'NON_RELEVANT']
+RELEVANCE = ["RELEVANT", "PARTLY_RELEVANT", "NON_RELEVANT"]
 ```
 
 The `generate_historical` function creates conversations spread across
@@ -67,15 +67,15 @@ def generate_historical(start_time, end_time):
         relevance = random.choice(RELEVANCE)
 
         answer_data = {
-            'answer': answer,
-            'response_time': random.uniform(0.5, 5.0),
-            'relevance': relevance,
-            'relevance_explanation': f'Answer is {relevance.lower()}.',
-            'model_used': 'gpt-5.4-mini',
-            'prompt_tokens': random.randint(50, 200),
-            'completion_tokens': random.randint(50, 300),
-            'total_tokens': random.randint(100, 500),
-            'openai_cost': random.uniform(0.0001, 0.01),
+            "answer": answer,
+            "response_time": random.uniform(0.5, 5.0),
+            "relevance": relevance,
+            "relevance_explanation": f"Answer is {relevance.lower()}.",
+            "model_used": "gpt-5.4-mini",
+            "prompt_tokens": random.randint(50, 200),
+            "completion_tokens": random.randint(50, 300),
+            "total_tokens": random.randint(100, 500),
+            "openai_cost": random.uniform(0.0001, 0.01),
         }
 
         save_conversation(conversation_id, question, answer_data, course, current_time)
@@ -87,7 +87,7 @@ def generate_historical(start_time, end_time):
         current_time += timedelta(minutes=random.randint(1, 15))
         count += 1
 
-    print(f'Generated {count} historical conversations')
+    print(f"Generated {count} historical conversations")
 ```
 
 The `generate_live` function keeps inserting new conversations every
@@ -95,7 +95,7 @@ second:
 
 ```python
 def generate_live():
-    print('Starting live data generation (Ctrl+C to stop)...')
+    print("Starting live data generation (Ctrl+C to stop)...")
     try:
         while True:
             current_time = datetime.now(tz)
@@ -106,15 +106,15 @@ def generate_live():
             relevance = random.choice(RELEVANCE)
 
             answer_data = {
-                'answer': answer,
-                'response_time': random.uniform(0.5, 5.0),
-                'relevance': relevance,
-                'relevance_explanation': f'Answer is {relevance.lower()}.',
-                'model_used': 'gpt-5.4-mini',
-                'prompt_tokens': random.randint(50, 200),
-                'completion_tokens': random.randint(50, 300),
-                'total_tokens': random.randint(100, 500),
-                'openai_cost': random.uniform(0.0001, 0.01),
+                "answer": answer,
+                "response_time": random.uniform(0.5, 5.0),
+                "relevance": relevance,
+                "relevance_explanation": f"Answer is {relevance.lower()}.",
+                "model_used": "gpt-5.4-mini",
+                "prompt_tokens": random.randint(50, 200),
+                "completion_tokens": random.randint(50, 300),
+                "total_tokens": random.randint(100, 500),
+                "openai_cost": random.uniform(0.0001, 0.01),
             }
 
             save_conversation(conversation_id, question, answer_data, course, current_time)
@@ -125,17 +125,17 @@ def generate_live():
 
             time.sleep(1)
     except KeyboardInterrupt:
-        print('Stopped.')
+        print("Stopped.")
 ```
 
 Finally, the main block generates both historical and live data:
 
 ```python
-if __name__ == '__main__':
+if __name__ == "__main__":
     end_time = datetime.now(tz)
     start_time = end_time - timedelta(hours=6)
 
-    print(f'Generating data from {start_time} to {end_time}')
+    print(f"Generating data from {start_time} to {end_time}")
     generate_historical(start_time, end_time)
 
     generate_live()
@@ -153,8 +153,8 @@ alive with charts updating in real time.
 
 ## Timezone handling
 
-Notice the `tz = ZoneInfo("Europe/Berlin")` in the script. This
-ensures timestamps are stored with proper timezone information. Grafana
+Notice the `tz = ZoneInfo("Europe/Berlin")` in the script. This ensures
+timestamps are stored with proper timezone information, and Grafana
 respects these timezones when displaying data.
 
 If your users are in a different timezone, adjust this accordingly. The

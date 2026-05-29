@@ -43,12 +43,12 @@ import json
 from tqdm.auto import tqdm
 
 df_sample = df_question.sample(n=200, random_state=1)
-sample = df_sample.to_dict(orient='records')
+sample = df_sample.to_dict(orient="records")
 
 evaluations = []
 
 for record in tqdm(sample):
-    question = record['question']
+    question = record["question"]
     answer_llm = rag(question)
 
     prompt = prompt2_template.format(
@@ -65,12 +65,12 @@ for record in tqdm(sample):
 Analyze the results:
 
 ```python
-df_eval = pd.DataFrame(evaluations, columns=['record', 'answer', 'evaluation'])
+df_eval = pd.DataFrame(evaluations, columns=["record", "answer", "evaluation"])
 
-df_eval['id'] = df_eval.record.apply(lambda d: d['id'])
-df_eval['question'] = df_eval.record.apply(lambda d: d['question'])
-df_eval['relevance'] = df_eval.evaluation.apply(lambda d: d['Relevance'])
-df_eval['explanation'] = df_eval.evaluation.apply(lambda d: d['Explanation'])
+df_eval["id"] = df_eval.record.apply(lambda d: d["id"])
+df_eval["question"] = df_eval.record.apply(lambda d: d["question"])
+df_eval["relevance"] = df_eval.evaluation.apply(lambda d: d["Relevance"])
+df_eval["explanation"] = df_eval.evaluation.apply(lambda d: d["Explanation"])
 
 df_eval.relevance.value_counts(normalize=True)
 ```
@@ -86,7 +86,7 @@ NON_RELEVANT      0.03
 Save the results:
 
 ```python
-df_eval.to_csv('data/rag-eval-gpt-5.4-mini.csv', index=False)
+df_eval.to_csv("data/rag-eval-gpt-5.4-mini.csv", index=False)
 ```
 
 ## Comparing models
@@ -100,8 +100,8 @@ compare gpt-5.4-mini with gpt-4o:
 evaluations_gpt4o = []
 
 for record in tqdm(sample):
-    question = record['question']
-    answer_llm = rag(question, model='gpt-4o')
+    question = record["question"]
+    answer_llm = rag(question, model="gpt-4o")
 
     prompt = prompt2_template.format(
         question=question,
@@ -113,11 +113,11 @@ for record in tqdm(sample):
 
     evaluations_gpt4o.append((record, answer_llm, evaluation))
 
-df_eval = pd.DataFrame(evaluations_gpt4o, columns=['record', 'answer', 'evaluation'])
-df_eval['relevance'] = df_eval.evaluation.apply(lambda d: d['Relevance'])
+df_eval = pd.DataFrame(evaluations_gpt4o, columns=["record", "answer", "evaluation"])
+df_eval["relevance"] = df_eval.evaluation.apply(lambda d: d["Relevance"])
 df_eval.relevance.value_counts(normalize=True)
 
-df_eval.to_csv('data/rag-eval-gpt-4o.csv', index=False)
+df_eval.to_csv("data/rag-eval-gpt-4o.csv", index=False)
 ```
 
 This gives you a concrete way to decide if a more expensive model
