@@ -29,7 +29,7 @@ services:
     volumes:
       - kestra_data:/app/storage
       - /var/run/docker.sock:/var/run/docker.sock
-      - kestra_tmp:/tmp/kestra-wd
+      - /tmp/kestra-wd:/tmp/kestra-wd
     environment:
       SECRET_GEMINI_API_KEY: ${SECRET_GEMINI_API_KEY}
       SECRET_TAVILY_API_KEY: ${SECRET_TAVILY_API_KEY}
