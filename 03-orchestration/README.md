@@ -9,7 +9,7 @@ Video: [Using AI in Workflows](https://youtu.be/l9w6oeUtrpk)
 Video: [Setting up Kestra](https://youtu.be/ghkf93rfb2w)
 Video: [AI Copilot](https://youtu.be/OTiOdt17hZg)
 Video: [RAG Workflows](https://youtu.be/FhGZV173xrk)
-Video: [Agentic Workflows](#)
+Video: [Agentic Workflows](https://youtu.be/7tvpR8EE0gs)
 
 
 ## Part 1: Using AI in Workflows
