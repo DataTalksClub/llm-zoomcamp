@@ -1,5 +1,7 @@
 # AI Copilot
 
+Video: [AI Copilot](#)
+
 Building workflows manually can be slow. You need to know which plugin to use, look up the exact property names, remember the right syntax, and connect each task together in the correct order. For a non-trivial flow, this can take a long time before you even run it once. While Kestra's autocomplete helps, you still have to build each task one at a time.
 
 AI Copilot changes the approach. Instead of building each step manually, you describe your inputs and your goal — and the AI Copilot generates the flow structure for you. You then tweak the last 5% to get the exact behaviour you want. The AI Copilot handles the boilerplate; you focus on the logic that's specific to your use case.
@@ -72,4 +74,4 @@ Then you make the final tweaks manually - adjusting the SQL query, setting your 
 - **Configure triggers**: "Add a webhook trigger"
 - **Add error handling**: "Add retry logic with exponential backoff"
 
-[← Context Engineering](03-context-engineering.md) | [RAG →](05-rag.md)
+[← Getting Started](03-setup.md) | [RAG →](05-rag.md)

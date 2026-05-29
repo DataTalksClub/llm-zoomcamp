@@ -1,4 +1,6 @@
-# Getting Started
+# Setting up Kestra
+
+Video: [Setting up Kestra](#)
 
 Here's how to set up everything you need to run the example flows in this module.
 
@@ -90,4 +92,4 @@ docker compose up -d
 5. Watch the execution and review the outputs
 6. Then run `4_web_research_agent` and `5_multi_agent_research` and analyze the logs and outputs
 
-[← Introduction](01-intro.md) | [Context Engineering →](03-context-engineering.md)
+[← Context Engineering](02-context-engineering.md) | [AI Copilot →](04-ai-copilot.md)

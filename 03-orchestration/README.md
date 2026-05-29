@@ -5,14 +5,20 @@ We start from the context problem that makes generic AI assistants unreliable, a
 
 Flows: [flows/](flows/)
 
+Video: [Using AI in Workflows](#)
+Video: [Setting up Kestra](#)
+Video: [AI Copilot](#)
+Video: [RAG Workflows](#)
+Video: [Agentic Workflows](#)
+
 
 ## Part 1: Using AI in Workflows
 
 The first three lessons cover the theory behind using AI reliably in workflows — why context matters, why generic AI assistants fail, and how to set up your environment.
 
 1. [Introduction](lessons/01-intro.md) - Learning objectives, prerequisites, and why AI for workflows
-2. [Getting Started](lessons/02-setup.md) - Kestra setup, API keys, and importing the example flows
-3. [Context Engineering](lessons/03-context-engineering.md) - Why generic AI assistants produce incorrect Kestra flows
+2. [Context Engineering](lessons/02-context-engineering.md) - Why generic AI assistants produce incorrect Kestra flows
+3. [Setting up Kestra](lessons/03-setup.md) - Kestra setup, API keys, and importing the example flows
 
 
 ## Part 2: AI Copilot

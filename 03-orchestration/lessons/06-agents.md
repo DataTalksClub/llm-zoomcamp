@@ -1,5 +1,7 @@
 # AI Agents
 
+Video: [Agentic Workflows](#)
+
 In [Module 1](../../01-agentic-rag/lessons/11-agents-intro.md) you built the agentic loop by hand: a `while` loop that called the LLM, executed any tool calls it returned, sent the results back, and stopped when the model produced a final answer with no more tool calls. That pattern is the foundation of every agent framework.
 
 In Kestra, the `AIAgent` plugin handles that loop for you. You define the goal, the tools, and optionally a system message - Kestra drives the loop, manages conversation history, and surfaces the result as a task output.
