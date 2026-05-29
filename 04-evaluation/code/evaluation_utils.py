@@ -78,6 +78,17 @@ class RAGWithUsage(RAGBase):
         self.usages = []
         self.last_usage = None
 
+    def search(self, query, num_results=5):
+        boost_dict = {"question": 1.0, "answer": 2.0, "section": 0.1}
+        filter_dict = {"course": self.course}
+
+        return self.index.search(
+            query,
+            num_results=num_results,
+            boost_dict=boost_dict,
+            filter_dict=filter_dict
+        )
+
     def llm(self, prompt):
         input_messages = [
             {"role": "developer", "content": self.instructions},

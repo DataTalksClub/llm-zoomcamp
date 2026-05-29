@@ -59,7 +59,7 @@ First, set up the model clients:
 ```python
 from dotenv import load_dotenv
 from openai import OpenAI
-from toyaikit.llm import OpenAIClient as ToyOpenAIClient
+from toyaikit.llm import OpenAIClient
 
 load_dotenv()
 openai_client = OpenAI()
@@ -75,7 +75,7 @@ def search(query: str) -> list[dict]:
     return index.search(
         query,
         num_results=5,
-        boost_dict={"question": 3.0, "section": 0.5},
+        boost_dict={"question": 1.0, "answer": 2.0, "section": 0.1},
         filter_dict={"course": "llm-zoomcamp"}
     )
 ```
@@ -97,7 +97,7 @@ the FAQ search results. Use the search tool before answering.
 runner = OpenAIResponsesRunner(
     tools=agent_tools,
     developer_prompt=instructions,
-    llm_client=ToyOpenAIClient(model="gpt-5.4-mini")
+    llm_client=OpenAIClient(model="gpt-5.4-mini")
 )
 ```
 

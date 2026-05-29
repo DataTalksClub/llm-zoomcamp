@@ -89,6 +89,9 @@ subclasses `RAGBase` from module 01, so it has the same `rag` method.
 It stores token usage after each LLM call. Then we can calculate the
 total cost later.
 
+It also uses the search boosts we selected in the search tuning lesson:
+`question=1.0`, `answer=2.0`, and `section=0.1`.
+
 ```python
 from evaluation_utils import RAGWithUsage
 
