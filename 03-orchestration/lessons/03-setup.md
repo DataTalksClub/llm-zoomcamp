@@ -67,9 +67,10 @@ cd 03-orchestration
 # Adjust username and password to match your Kestra setup
 curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/1_chat_without_rag.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/2_chat_with_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/3_simple_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/4_web_research_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/5_multi_agent_research.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/3_rag_with_websearch.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/4_simple_agent.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/5_web_research_agent.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/6_multi_agent_research.yaml
 ```
 
 Alternatively, copy-paste the flow YAML directly into Kestra's UI.
@@ -87,9 +88,9 @@ docker compose up -d
 
 1. Open Kestra UI at http://localhost:8080
 2. Navigate to the `zoomcamp` namespace
-3. Find the `3_simple_agent` flow and click "Execute"
+3. Find the `4_simple_agent` flow and click "Execute"
 4. Leave default inputs or customize them
 5. Watch the execution and review the outputs
-6. Then run `4_web_research_agent` and `5_multi_agent_research` and analyze the logs and outputs
+6. Then run `5_web_research_agent` and `6_multi_agent_research` and analyze the logs and outputs
 
 [← Context Engineering](02-context-engineering.md) | [AI Copilot →](04-ai-copilot.md)

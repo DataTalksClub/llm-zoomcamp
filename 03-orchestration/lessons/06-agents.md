@@ -72,13 +72,13 @@ tasks:
 
 ## Simple Agent Example
 
-Flow: [`3_simple_agent.yaml`](../flows/3_simple_agent.yaml)
+Flow: [`4_simple_agent.yaml`](../flows/4_simple_agent.yaml)
 
 This flow demonstrates a basic AI agent that summarizes text with controllable length and language. It shows how to structure agent prompts, chain agent tasks, use `pluginDefaults` to avoid repetition, and track token usage for cost monitoring.
 
 ## Advanced Agent Example: Web Research
 
-Flow: [`4_web_research_agent.yaml`](../flows/4_web_research_agent.yaml)
+Flow: [`5_web_research_agent.yaml`](../flows/5_web_research_agent.yaml)
 
 This flow demonstrates an agent with autonomous tool usage:
 

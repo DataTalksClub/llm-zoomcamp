@@ -8,7 +8,7 @@ The main benefits are separation of concerns (each agent focuses on one thing) a
 
 ## Example: Company Research
 
-Flow: [`5_multi_agent_research.yaml`](../flows/5_multi_agent_research.yaml)
+Flow: [`6_multi_agent_research.yaml`](../flows/6_multi_agent_research.yaml)
 
 This flow demonstrates a two-agent system for competitor research:
 
