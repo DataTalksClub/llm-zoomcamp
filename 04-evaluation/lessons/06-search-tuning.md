@@ -17,20 +17,18 @@ Start with a search function where the question boost is configurable:
 ```python
 def search_boost(query, question_boost):
     boost_dict = {"question": question_boost, "section": 0.5}
-    filter_dict = {"course": "llm-zoomcamp"}
 
     return index.search(
         query,
         num_results=5,
         boost_dict=boost_dict,
-        filter_dict=filter_dict,
     )
 ```
 
 Evaluate several boost values:
 
 ```python
-for boost in [1.0, 3.0, 5.0, 10.0]:
+for boost in [0.5, 1.0, 3.0, 5.0, 10.0]:
     result = evaluate(
         ground_truth,
         lambda query, boost=boost: search_boost(query, boost)
@@ -38,13 +36,14 @@ for boost in [1.0, 3.0, 5.0, 10.0]:
     print(f"boost={boost}: {result}")
 ```
 
-For the data we prepared on May 28, 2026, this gives:
+For the data we prepared on May 29, 2026, this gives:
 
 ```python
-boost=1.0: {'hit_rate': 0.9291139240506329, 'mrr': 0.829873417721519}
-boost=3.0: {'hit_rate': 0.8860759493670886, 'mrr': 0.7705063291139239}
-boost=5.0: {'hit_rate': 0.8632911392405064, 'mrr': 0.7422784810126583}
-boost=10.0: {'hit_rate': 0.8354430379746836, 'mrr': 0.7121097046413503}
+boost=0.5: {'hit_rate': 0.9113924050632911, 'mrr': 0.800548523206751}
+boost=1.0: {'hit_rate': 0.9240506329113924, 'mrr': 0.8139240506329113}
+boost=3.0: {'hit_rate': 0.8987341772151899, 'mrr': 0.7693248945147676}
+boost=5.0: {'hit_rate': 0.8708860759493671, 'mrr': 0.7401265822784809}
+boost=10.0: {'hit_rate': 0.8582278481012658, 'mrr': 0.7122362869198313}
 ```
 
 Increasing only the question boost makes the metrics worse. The best
@@ -62,13 +61,11 @@ def search_boosts(query, question_boost, answer_boost, section_boost):
         "section": section_boost,
         "answer": answer_boost,
     }
-    filter_dict = {"course": "llm-zoomcamp"}
 
     return index.search(
         query,
         num_results=5,
         boost_dict=boost_dict,
-        filter_dict=filter_dict,
     )
 ```
 
@@ -78,7 +75,7 @@ Now do a small grid search:
 results = []
 
 for question_boost in [1.0, 2.0, 5.0]:
-    for answer_boost in [2.0, 4.0, 10.0]:
+    for answer_boost in [1.0, 2.0, 4.0, 10.0]:
         for section_boost in [0.1, 0.2, 0.5]:
             result = evaluate(
                 ground_truth,
@@ -110,10 +107,16 @@ For the same data, the best rows are:
 
 ```text
 question  answer  section  hit_rate  mrr
-5.0       10.0    0.5      0.975     0.908
-2.0       4.0     0.2      0.975     0.908
-1.0       2.0     0.1      0.975     0.908
-2.0       4.0     0.5      0.975     0.900
+1.0       2.0     0.1      0.975     0.885
+2.0       4.0     0.2      0.975     0.885
+5.0       10.0    0.5      0.975     0.885
+5.0       10.0    0.2      0.975     0.884
+5.0       10.0    0.1      0.975     0.884
+2.0       4.0     0.1      0.975     0.884
+2.0       4.0     0.5      0.977     0.884
+1.0       2.0     0.2      0.977     0.884
+1.0       2.0     0.5      0.965     0.862
+1.0       4.0     0.1      0.970     0.862
 ```
 
 The question-only experiment showed that `question_boost=1.0` was best
@@ -140,13 +143,11 @@ def text_search(query):
         "answer": 2.0,
         "section": 0.1,
     }
-    filter_dict = {"course": "llm-zoomcamp"}
 
     return index.search(
         query,
         num_results=5,
         boost_dict=boost_dict,
-        filter_dict=filter_dict,
     )
 ```
 

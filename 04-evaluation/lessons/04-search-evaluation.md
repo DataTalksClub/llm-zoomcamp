@@ -19,7 +19,7 @@ Load the ground truth file from the previous notebook:
 ```python
 import pandas as pd
 
-df_ground_truth = pd.read_csv("data/ground-truth-data.csv")
+df_ground_truth = pd.read_csv("data/ground_truth-new.csv")
 ground_truth = df_ground_truth.to_dict(orient="records")
 ```
 
@@ -48,13 +48,11 @@ compare it with other search functions.
 ```python
 def text_search(query):
     boost_dict = {"question": 3.0, "section": 0.5}
-    filter_dict = {"course": "llm-zoomcamp"}
 
     return index.search(
         query,
         num_results=5,
-        boost_dict=boost_dict,
-        filter_dict=filter_dict,
+        boost_dict=boost_dict
     )
 ```
 
@@ -130,23 +128,21 @@ For this question:
 q = ground_truth[11]
 print(q["question"])
 compute_relevance_text(q)
-# [0, 0, 1, 0, 0]
+# [1, 0, 0, 0, 0]
 ```
 
-Here, the first two retrieved documents are not correct. The third
-retrieved document has the same ID as the ground truth document, so the
-`1` is in position 3.
+Here, the correct document was also the first search result.
 
 For this question:
 
 ```python
-q = ground_truth[12]
+q = ground_truth[50]
 print(q["question"])
 compute_relevance_text(q)
-# [0, 0, 0, 0, 0]
+# [1, 0, 0, 0, 0]
 ```
 
-The correct document was not found at all.
+The correct document was found at the first position again.
 
 Now do the same thing for all ground truth questions:
 
@@ -176,24 +172,24 @@ Look at the results:
 relevance_total_text
 ```
 
-For the data we prepared on May 28, 2026, this gives:
+For the data we prepared on May 29, 2026, this gives:
 
 ```python
 [
     [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
     [0, 1, 0, 0, 0],
     [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [0, 1, 0, 0, 0],
     [0, 0, 0, 0, 0],
     [0, 1, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
     [1, 0, 0, 0, 0],
 ]
 ```
@@ -210,7 +206,7 @@ search function changes.
 ```python
 def compute_relevance(q, search_function):
     doc_id = q["document"]
-    results = search_function(q["question"])
+    results = search_function(query=q["question"])
 
     relevance = []
     for d in results:

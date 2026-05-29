@@ -25,8 +25,8 @@ For each document, we:
 - ask the LLM to return a `Questions` object
 - create one ground truth record for each generated question
 
-Each record contains the generated question, the course, and the ID of
-the document that should answer the question.
+Each record contains the generated question and the ID of the document
+that should answer the question.
 
 When we send many requests, one of them might fail. We don't want the
 entire batch to fail because of one temporary error.
@@ -59,14 +59,13 @@ def generate_ground_truth(doc):
     for q in out.questions:
         results.append({
             "question": q,
-            "course": doc["course"],
             "document": doc["id"]
         })
 
     return results, usage
 ```
 
-Try it for the first 10 documents.
+Try it for the first 5 documents.
 
 Import `tqdm` and run the loop:
 
@@ -76,7 +75,7 @@ from tqdm.auto import tqdm
 ground_truth = []
 usages = []
 
-for doc in tqdm(documents[:10]):
+for doc in tqdm(documents[:5]):
     records, usage = generate_ground_truth(doc)
     ground_truth.extend(records)
     usages.append(usage)
@@ -170,22 +169,17 @@ truth we need for evaluation.
 Save it for later use:
 
 ```python
-from pathlib import Path
-df_ground_truth.to_csv("data/ground-truth-data.csv", index=False)
+df_ground_truth.to_csv("data/ground_truth-new.csv", index=False)
 ```
 
-We generated this file for the course materials on May 28, 2026. The
+We generated this file for the course materials on May 29, 2026. The
 run used 79 LLM Zoomcamp documents and produced 395 questions.
 
 The FAQ data can change over time. If you run the notebook later, you
 may see different documents and generated questions. Token usage, cost,
 and search evaluation results may also change.
 
-The token usage was:
-
-- Input tokens: 21,762
-- Output tokens: 9,699
-- Cost with the prices above: $0.059967, about 6 cents
+The total cost was $0.057187, about 6 cents.
 
 If you don't want to generate the questions yourself, download the file
 we prepared:
@@ -193,7 +187,7 @@ we prepared:
 ```bash
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
 
-wget -O data/ground-truth-data.csv ${PREFIX}/04-evaluation/data/ground-truth-data.csv
+wget -O data/ground_truth-new.csv ${PREFIX}/04-evaluation/data/ground_truth-new.csv
 ```
 
 Now we have questions with known correct documents. In the next lesson,

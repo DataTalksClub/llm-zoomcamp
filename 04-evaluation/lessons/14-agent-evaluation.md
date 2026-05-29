@@ -19,7 +19,7 @@ Use the same ground truth questions:
 ```python
 import pandas as pd
 
-df_ground_truth = pd.read_csv("data/ground-truth-data.csv")
+df_ground_truth = pd.read_csv("data/ground_truth-new.csv")
 ground_truth = df_ground_truth.to_dict(orient="records")
 ```
 
@@ -244,7 +244,7 @@ df_agent.to_csv("data/agent-answers.csv", index=False)
 Now we have the same A->Q->A' data as before, plus the tool calls for
 each agent run.
 
-We generated this file for the course materials on May 28, 2026. The
+We generated this file for the course materials on May 29, 2026. The
 run used 50 ground truth questions. ToyAIKit tracks the agent cost for
 each run, so we can sum the `cost` column directly.
 
@@ -468,7 +468,7 @@ Save the judge results:
 df_agent_eval.to_csv("data/agent-evaluations.csv", index=False)
 ```
 
-We generated this file for the course materials on May 28, 2026. The
+We generated this file for the course materials on May 29, 2026. The
 run judged 50 agent answers.
 
 The answer scores were:

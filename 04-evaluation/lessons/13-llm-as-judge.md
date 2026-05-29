@@ -42,7 +42,7 @@ Start from the CSV we created in the previous lesson:
 ```python
 import pandas as pd
 
-df_answers = pd.read_csv("data/rag-answers.csv")
+df_answers = pd.read_csv("data/rag-answers-new.csv")
 answers = df_answers.to_dict(orient="records")
 ```
 
@@ -279,29 +279,25 @@ doesn't know even though the FAQ had the answer.
 Save the judged answers:
 
 ```python
-df_eval.to_csv("data/rag-evaluations.csv", index=False)
+df_eval.to_csv("data/rag-evaluations-new.csv", index=False)
 ```
 
-We generated this file for the course materials on May 28, 2026. The
+We generated this file for the course materials on May 29, 2026. The
 run used 395 RAG answers.
 
 The results were:
 
-- Good: 365
-- Bad: 30
+- Good: 379
+- Bad: 16
 
-The token usage was:
-
-- Input tokens: 159,689
-- Output tokens: 28,718
-- Cost with the prices above: $0.248998, about 25 cents
+The total cost was $0.251331, about 25 cents.
 
 If you don't want to run the judge yourself, download the file we
 prepared:
 
 ```bash
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
-wget -O data/rag-evaluations.csv ${PREFIX}/04-evaluation/data/rag-evaluations.csv
+wget -O data/rag-evaluations-new.csv ${PREFIX}/04-evaluation/data/rag-evaluations-new.csv
 ```
 
 We now have an answer-quality score for the RAG pipeline. In the next

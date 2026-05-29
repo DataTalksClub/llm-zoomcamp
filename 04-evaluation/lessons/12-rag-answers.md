@@ -28,7 +28,7 @@ Load the ground truth questions:
 ```python
 import pandas as pd
 
-df_ground_truth = pd.read_csv("data/ground-truth-data.csv")
+df_ground_truth = pd.read_csv("data/ground_truth-new.csv")
 ground_truth = df_ground_truth.to_dict(orient="records")
 ```
 
@@ -104,9 +104,6 @@ question = rec["question"]
 answer_llm = assistant.rag(question)
 answer_llm
 ```
-
-`RAGWithUsage` is a small subclass of `RAGBase`. It works the same way,
-but it also stores token usage after each LLM call.
 
 Check the cost of this call:
 
@@ -212,17 +209,13 @@ Save the answers:
 
 ```python
 df_answers = pd.DataFrame(answers)
-df_answers.to_csv("data/rag-answers.csv", index=False)
+df_answers.to_csv("data/rag-answers-new.csv", index=False)
 ```
 
-We generated this file for the course materials on May 28, 2026. The
+We generated this file for the course materials on May 29, 2026. The
 run used 395 ground truth questions.
 
-The token usage was:
-
-- Input tokens: 282,544
-- Output tokens: 24,339
-- Cost with the prices above: $0.321433, about 32 cents
+The total cost was $0.34332825, about 34 cents.
 
 If you don't want to generate the RAG answers yourself, download the
 file we prepared:
@@ -230,7 +223,7 @@ file we prepared:
 ```bash
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
 
-wget -O data/rag-answers.csv ${PREFIX}/04-evaluation/data/rag-answers.csv
+wget -O data/rag-answers-new.csv ${PREFIX}/04-evaluation/data/rag-answers-new.csv
 ```
 
 In the next lesson, we'll evaluate these answers with an LLM judge.

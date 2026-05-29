@@ -6,6 +6,8 @@ systems.
 We generate ground truth data with an LLM. Then we measure performance
 with Hit Rate, MRR, and LLM-as-a-judge.
 
+Code notebooks are in [code](code/).
+
 
 ## Part 1: Search Evaluation
 

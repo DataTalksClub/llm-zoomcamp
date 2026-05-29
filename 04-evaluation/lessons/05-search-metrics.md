@@ -11,19 +11,19 @@ the correct document appears anywhere in the results:
 ```python
 example = [
     [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
     [0, 1, 0, 0, 0],
     [1, 0, 0, 0, 0],
-    [1, 0, 0, 0, 0],
-    [0, 1, 0, 0, 0],
     [0, 0, 0, 0, 0],
     [0, 1, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [0, 0, 1, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
     [1, 0, 0, 0, 0],
 ]
 ```
@@ -93,13 +93,13 @@ document:
 - position 3: score is 0.333
 - not found: score is 0
 
-In the example, most hits are at the first position. Some hits are at
-the second position.
+In the example, most hits are at the first position. Some hits are
+lower in the list.
 
 Look at that line:
 
 ```python
-example[8]
+example[1]
 # [0, 1, 0, 0, 0]
 ```
 
@@ -120,13 +120,13 @@ for line in example:
 total_score
 ```
 
-The total score is `12.5`.
+The total score is `12.333333333333334`.
 
 Divide it by the number of queries:
 
 ```python
 total_score / len(example)
-# 0.833
+# 0.822
 ```
 
 MRR is the average of these scores across all queries. It rewards
@@ -155,7 +155,7 @@ Check it on the same example:
 
 ```python
 mrr(example)
-# 0.833
+# 0.822
 ```
 
 ## Putting it together
@@ -184,7 +184,7 @@ evaluate(
 You should see something like:
 
 ```python
-{"hit_rate": 0.886, "mrr": 0.771}
+{"hit_rate": 0.899, "mrr": 0.769}
 ```
 
 Search metrics tell us whether retrieval works. Next, we'll use these
