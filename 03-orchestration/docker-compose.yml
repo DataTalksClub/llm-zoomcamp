@@ -33,6 +33,7 @@ services:
     environment:
       SECRET_GEMINI_API_KEY: ${SECRET_GEMINI_API_KEY}
       SECRET_TAVILY_API_KEY: ${SECRET_TAVILY_API_KEY}
+      SECRET_OPENAI_API_KEY: ${SECRET_OPENAI_API_KEY}
       KESTRA_CONFIGURATION: |
         datasources:
           postgres:
