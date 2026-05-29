@@ -21,6 +21,8 @@ By the end of this module, you will:
 - Google Cloud account with access to Gemini API
 - Basic understanding of YAML and workflow concepts
 
+> Note: The flows in this module use Gemini, but Kestra's AI plugins support any major provider — OpenAI, Gemini, Anthropic, and more. See the [full list of supported providers](https://kestra.io/plugins/plugin-ai/provider). You can swap the provider in your flows without changing anything else.
+
 ## Why AI for Workflows?
 
 When building LLM applications and workflows, we often spend significant time writing boilerplate code, searching documentation, and structuring pipelines. AI tools can help us:

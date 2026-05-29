@@ -4,8 +4,7 @@ Video: [RAG Workflows](#)
 
 AI Copilot solves the context problem for flow generation. But what about workflows that need to answer questions from your own data? That's where RAG comes in.
 
-> [!NOTE]
-> The flows in this lesson use `{{ secret('GEMINI_API_KEY') }}`. The web search flow also uses `{{ secret('TAVILY_API_KEY') }}`. Make sure you've completed the [setup instructions](03-setup.md) to configure these secrets before running them.
+> Note: The flows in this lesson use `{{ secret('GEMINI_API_KEY') }}`. The web search flow also uses `{{ secret('TAVILY_API_KEY') }}`. Make sure you've completed the [setup instructions](03-setup.md) to configure these secrets before running them.
 
 ## What is RAG?
 

@@ -10,6 +10,8 @@ This works reliably because Kestra's AI Copilot is grounded in the current plugi
 
 ## Setup
 
+> Note: In Kestra's Open Source edition, the AI Copilot only supports Gemini as its AI provider.
+
 Before using AI Copilot, you need to configure Gemini API access in your Kestra instance. If you haven't done this yet, follow the [setup instructions](03-setup.md) to obtain your Gemini API key and configure it as a secret.
 
 Access AI Copilot:

@@ -6,8 +6,9 @@ In [Module 1](../../01-agentic-rag/lessons/11-agents-intro.md) you built the age
 
 In Kestra, the `AIAgent` plugin handles that loop for you. You define the goal, the tools, and optionally a system message - Kestra drives the loop, manages conversation history, and surfaces the result as a task output.
 
-> [!NOTE]
-> The flows in this lesson use `{{ secret('GEMINI_API_KEY') }}`. Make sure you've completed the [setup instructions](03-setup.md) to configure this secret before running them.
+> Note: The flows in this lesson use `{{ secret('GEMINI_API_KEY') }}`. Make sure you've completed the [setup instructions](03-setup.md) to configure this secret before running them.
+
+The example flows use Gemini, but the `provider` block supports any major AI provider — swap `io.kestra.plugin.ai.provider.GoogleGemini` for `OpenAI`, `Anthropic`, or others. See the [full list of supported providers](https://kestra.io/plugins/plugin-ai/provider).
 
 Traditional Workflow — fixed sequence, predetermined logic:
 
