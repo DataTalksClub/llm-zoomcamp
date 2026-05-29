@@ -31,6 +31,11 @@ Gemini API Key (Required)
 
 The free tier has a generous quota suitable for learning (rate limits apply).
 
+OpenAI API Key (Required for flow 3)
+
+1. Visit [platform.openai.com](https://platform.openai.com/home) and sign in or create an account
+2. Go to **API keys** and create a new key
+
 Tavily API Key (Optional, for web search examples)
 
 1. Visit [Tavily](https://tavily.com/)
@@ -45,7 +50,8 @@ Kestra reads secrets from environment variables prefixed with `SECRET_` where th
 
 ```bash
 export SECRET_GEMINI_API_KEY=$(echo -n "your-gemini-api-key-here" | base64)
-export SECRET_TAVILY_API_KEY=$(echo -n "your-tavily-api-key-here" | base64)  # optional
+export SECRET_OPENAI_API_KEY=$(echo -n "your-openai-api-key-here" | base64)   # required for flow 3
+export SECRET_TAVILY_API_KEY=$(echo -n "your-tavily-api-key-here" | base64)   # optional
 ```
 
 Then start (or restart) Kestra:

@@ -4,7 +4,7 @@ Video: [RAG Workflows](#)
 
 AI Copilot solves the context problem for flow generation. But what about workflows that need to answer questions from your own data? That's where RAG comes in.
 
-> Note: The flows in this lesson use `{{ secret('GEMINI_API_KEY') }}`. The web search flow also uses `{{ secret('TAVILY_API_KEY') }}`. Make sure you've completed the [setup instructions](03-setup.md) to configure these secrets before running them.
+> Note: Flows 1 and 2 use `{{ secret('GEMINI_API_KEY') }}`. Flow 3 uses `{{ secret('OPENAI_API_KEY') }}` and `{{ secret('TAVILY_API_KEY') }}`. Make sure you've completed the [setup instructions](03-setup.md) to configure the relevant secrets before running them.
 
 ## What is RAG?
 
@@ -74,7 +74,20 @@ The examples above use static RAG — documents are ingested once and stored in 
 
 Flow: [`3_rag_with_websearch.yaml`](../flows/3_rag_with_websearch.yaml)
 
-The `TavilyWebSearch` retriever queries [Tavily](https://www.tavily.com/) and injects the results as context before the LLM generates a response — no ingestion step required.
+> Note: This flow uses OpenAI as its AI provider. To run it, you'll need an OpenAI API key:
+>
+> 1. Visit [platform.openai.com](https://platform.openai.com/home) and sign in or create an account
+> 2. Go to API keys and create a new key
+> 3. Export it as a secret before starting Kestra:
+>    ```bash
+>    export SECRET_OPENAI_API_KEY=$(echo -n "your-openai-api-key-here" | base64)
+>    docker compose up -d
+>    ```
+> 4. Reference it in flows with `{{ secret('OPENAI_API_KEY') }}`
+>
+> If you'd prefer to keep using Gemini, swap the `provider` block for `io.kestra.plugin.ai.provider.GoogleGemini` with your Gemini API key. See the [full list of supported providers](https://kestra.io/plugins/plugin-ai/provider).
+
+The `TavilyWebSearch` retriever queries [Tavily](https://www.tavily.com/) and injects the results as context before the LLM generates a response — no ingestion step required. However, the results are only as good as the search engine, and may not be relevant or accurate. Always test the quality of retrieved context when using web search RAG.
 
 ### Static RAG vs. web search RAG
 
