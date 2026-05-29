@@ -29,6 +29,14 @@ Load the FAQ documents and the search index:
 from ingest import load_faq_data, build_index
 
 documents = load_faq_data()
+
+documents_llm = []
+
+for doc in documents:
+    if doc["course"] == "llm-zoomcamp":
+        documents_llm.append(doc)
+
+documents = documents_llm
 index = build_index(documents)
 ```
 
@@ -246,7 +254,9 @@ If you don't want to run the agent yourself, download the file we
 prepared:
 
 ```bash
-wget -O data/agent-answers.csv https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/data/agent-answers.csv
+PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
+
+wget -O data/agent-answers.csv ${PREFIX}/04-evaluation/data/agent-answers.csv
 ```
 
 Then load it:
@@ -351,7 +361,7 @@ Define the judge function:
 
 ```python
 import json
-from evaluation_utils import calc_price, llm_structured
+from evaluation_utils import calc_total_price, llm_structured_retry
 
 def evaluate_agent_answer(rec, model="gpt-5.4-mini"):
     tool_calls = rec["tool_calls"]
@@ -366,7 +376,7 @@ def evaluate_agent_answer(rec, model="gpt-5.4-mini"):
         tool_calls=json.dumps(tool_calls, indent=2),
     )
 
-    result, usage = llm_structured(
+    result, usage = llm_structured_retry(
         openai_client,
         agent_judge_instructions,
         prompt,
@@ -438,13 +448,7 @@ df_agent_eval = pd.DataFrame(agent_evaluations)
 Calculate the judge cost from the token usage:
 
 ```python
-total_cost = 0.0
-
-for usage in usages:
-    cost = calc_price(usage)
-    total_cost = total_cost + cost["total_cost"]
-
-total_cost
+calc_total_price(usages)
 ```
 
 Check the answer scores:
@@ -488,7 +492,9 @@ If you don't want to run the judge yourself, download the file we
 prepared:
 
 ```bash
-wget -O data/agent-evaluations.csv https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/data/agent-evaluations.csv
+PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
+
+wget -O data/agent-evaluations.csv ${PREFIX}/04-evaluation/data/agent-evaluations.csv
 ```
 
 [← LLM as a Judge](13-llm-as-judge.md) | [Next Steps →](15-next-steps.md)

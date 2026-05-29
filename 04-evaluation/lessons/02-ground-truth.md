@@ -33,7 +33,6 @@ Then load the FAQ data:
 
 ```python
 from ingest import load_faq_data
-
 documents = load_faq_data()
 ```
 
@@ -48,9 +47,13 @@ for doc in documents:
     if doc["course"] == "llm-zoomcamp":
         documents_llm.append(doc)
 
-documents = documents_llm
+len(documents_llm)
+```
 
-len(documents)
+We'll use these documents from now on so let's name them as `documents`
+
+```python
+documents = documents_llm
 ```
 
 Each document already has an `id` field:
@@ -115,13 +118,17 @@ load_dotenv()
 openai_client = OpenAI()
 ```
 
-Create the messages:
+Prepare the document as JSON:
 
 ```python
 import json
 
 user_prompt = json.dumps(doc)
+```
 
+Create the messages:
+
+```python
 messages = [
     {"role": "developer", "content": data_gen_instructions},
     {"role": "user", "content": user_prompt}
@@ -154,32 +161,61 @@ print(result.questions)
 
 You should see 5 questions that relate to the first FAQ document.
 
-## Tracking cost
+## Reusable utilities
 
-The response also contains token usage:
+We'll need this pattern again in other evaluation sections today, so
+we put it in a reusable helper.
 
-```python
-usage = response.usage
-usage.input_tokens, usage.output_tokens
-```
-
-As in the agents module, we calculate the price from `response.usage`.
-We'll also use the same file for structured-output calls.
+Download the utility file:
 
 ```bash
 wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/code/evaluation_utils.py
 ```
 
-The file contains:
+It contains helper functions we'll reuse in this module:
 
-- `calc_price`: calculates the price from `response.usage`
 - `llm_structured`: calls the OpenAI API with structured output
-- `map_progress`: runs work in parallel and tracks progress
+- `llm_structured_retry`: retries structured-output calls when a
+  request fails
+- `calc_price`: calculates the price from token usage
+- `calc_total_price`: calculates the total price from multiple usage
+  objects
+- `map_progress`: runs work in parallel and tracks progress. We'll use it
+  in the next lesson.
 
-Import the helpers:
+Import the structured-output helper:
 
 ```python
-from evaluation_utils import calc_price, llm_structured
+from evaluation_utils import llm_structured
+```
+
+Use it on the same document:
+
+```python
+result, usage = llm_structured(
+    openai_client,
+    data_gen_instructions,
+    user_prompt,
+    Questions
+)
+
+print(result.questions)
+```
+
+## Tracking cost
+
+The response also contains token usage:
+
+```python
+usage.input_tokens, usage.output_tokens
+```
+
+As in the agents module, we calculate the price from `response.usage`.
+
+Import the price helper:
+
+```python
+from evaluation_utils import calc_price
 ```
 
 Calculate the cost of this call:
@@ -190,28 +226,12 @@ cost = calc_price(usage)
 cost
 ```
 
-Use the structured-output helper on the same document:
-
-```python
-user_prompt = json.dumps(doc)
-
-out, usage = llm_structured(
-    openai_client,
-    data_gen_instructions,
-    user_prompt,
-    Questions
-)
-
-print(out.questions)
-print(calc_price(usage))
-```
-
 Now convert these questions into ground truth records:
 
 ```python
 records = []
 
-for q in out.questions:
+for q in result.questions:
     records.append({
         "question": q,
         "course": doc["course"],

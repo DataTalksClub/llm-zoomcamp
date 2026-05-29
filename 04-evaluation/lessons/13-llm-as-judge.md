@@ -83,7 +83,8 @@ The judge returns two fields. The `score` gives us a metric we can
 aggregate. The `reasoning` explains the score, which helps when we look
 at bad examples.
 
-The judge instructions:
+First, write the judge instructions. This tells the judge what to
+compare and how to assign the score.
 
 ```python
 aqa_judge_instructions = """
@@ -103,7 +104,12 @@ Rules:
 
 Be fair and focus on correctness, not style.
 """.strip()
+```
 
+Then define the prompt template. This is the data we pass to the judge
+for each answer.
+
+```python
 aqa_judge_prompt = """
 Question:
 {question}
@@ -121,13 +127,48 @@ Import the structured-output helper:
 ```python
 from dotenv import load_dotenv
 from openai import OpenAI
-from evaluation_utils import calc_price, llm_structured, map_progress
+from evaluation_utils import calc_price, calc_total_price, llm_structured_retry, map_progress
 
 load_dotenv()
 openai_client = OpenAI()
 ```
 
-Now define the judge function:
+Take one record:
+
+```python
+rec = answers[0]
+```
+
+Create the judge prompt:
+
+```python
+prompt = aqa_judge_prompt.format(
+    question=rec["question"],
+    answer_orig=rec["answer_orig"],
+    answer_llm=rec["answer_llm"]
+)
+```
+
+Call the judge:
+
+```python
+eval_result, usage = llm_structured_retry(
+    openai_client,
+    aqa_judge_instructions,
+    prompt,
+    AnswerEvaluation,
+)
+
+eval_result
+```
+
+Check the cost:
+
+```python
+calc_price(usage)
+```
+
+Now put the same logic into a function:
 
 ```python
 def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
@@ -137,7 +178,7 @@ def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
         answer_llm=answer_llm
     )
 
-    result, usage = llm_structured(
+    result, usage = llm_structured_retry(
         openai_client,
         aqa_judge_instructions,
         prompt,
@@ -148,11 +189,9 @@ def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
     return result, usage
 ```
 
-Test it on one record:
+Test it on the same record:
 
 ```python
-rec = answers[0]
-
 eval_result, usage = evaluate_aqa(
     question=rec["question"],
     answer_orig=rec["answer_orig"],
@@ -160,12 +199,6 @@ eval_result, usage = evaluate_aqa(
 )
 
 eval_result
-```
-
-Check the cost:
-
-```python
-calc_price(usage)
 ```
 
 ## Running the judge
@@ -219,13 +252,7 @@ df_eval = pd.DataFrame(evaluations)
 Calculate the total cost:
 
 ```python
-total_cost = 0.0
-
-for usage in usages:
-    cost = calc_price(usage)
-    total_cost = total_cost + cost["total_cost"]
-
-total_cost
+calc_total_price(usages)
 ```
 
 Check the results:
@@ -273,7 +300,8 @@ If you don't want to run the judge yourself, download the file we
 prepared:
 
 ```bash
-wget -O data/rag-evaluations.csv https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/data/rag-evaluations.csv
+PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
+wget -O data/rag-evaluations.csv ${PREFIX}/04-evaluation/data/rag-evaluations.csv
 ```
 
 We now have an answer-quality score for the RAG pipeline. In the next
