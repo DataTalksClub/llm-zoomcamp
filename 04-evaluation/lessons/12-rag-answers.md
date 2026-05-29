@@ -23,16 +23,6 @@ original answer it came from.
 
 Create a new notebook for RAG evaluation.
 
-Download the helper files:
-
-```bash
-PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
-
-wget ${PREFIX}/01-agentic-rag/code/ingest.py
-wget ${PREFIX}/01-agentic-rag/code/rag_helper.py
-wget ${PREFIX}/04-evaluation/code/evaluation_utils.py
-```
-
 Load the ground truth questions:
 
 ```python

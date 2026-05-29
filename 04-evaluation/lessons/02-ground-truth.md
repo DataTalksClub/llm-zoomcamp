@@ -21,12 +21,16 @@ question, the source document is the correct answer.
 
 ## Loading the documents
 
-We'll use the same ingestion script from module 01.
+We'll use helper files from module 01 and this module.
 
-If you don't have `ingest.py` in your notebook directory, download it:
+If you don't have them in your notebook directory, download them:
 
 ```bash
-wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/ingest.py
+PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
+
+wget ${PREFIX}/01-agentic-rag/code/ingest.py
+wget ${PREFIX}/01-agentic-rag/code/rag_helper.py
+wget ${PREFIX}/04-evaluation/code/evaluation_utils.py
 ```
 
 Then load the FAQ data:
@@ -165,12 +169,6 @@ You should see 5 questions that relate to the first FAQ document.
 
 We'll need this pattern again in other evaluation sections today, so
 we put it in a reusable helper.
-
-Download the utility file:
-
-```bash
-wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/04-evaluation/code/evaluation_utils.py
-```
 
 It contains helper functions we'll reuse in this module:
 
