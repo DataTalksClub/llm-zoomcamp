@@ -1,6 +1,6 @@
 # Setting up Kestra
 
-Video: [Setting up Kestra](#)
+Video: [Setting up Kestra](https://youtu.be/ghkf93rfb2w)
 
 Here's how to set up everything you need to run the example flows in this module.
 

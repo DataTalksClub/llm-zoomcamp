@@ -1,6 +1,6 @@
 # AI Orchestration
 
-Video: [Using AI in Workflows](#)
+Video: [Using AI in Workflows](https://youtu.be/0tG0Ao5iL8o)
 
 This module introduces AI-powered workflow orchestration using Kestra. You'll learn how AI can accelerate workflow development and enable autonomous task automation through three techniques: AI Copilot for generating flows, RAG for grounding responses in real data, and AI Agents for autonomous task execution.
 
