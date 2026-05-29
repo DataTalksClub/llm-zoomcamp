@@ -4,6 +4,9 @@ Video: [RAG Workflows](#)
 
 AI Copilot solves the context problem for flow generation. But what about workflows that need to answer questions from your own data? That's where RAG comes in.
 
+> [!NOTE]
+> The flows in this lesson use `{{ secret('GEMINI_API_KEY') }}`. Make sure you've completed the [setup instructions](03-setup.md) to configure this secret before running them.
+
 ## What is RAG?
 
 **RAG (Retrieval Augmented Generation)** is a technique that retrieves relevant information from your data sources, augments the AI prompt with that context, and generates a response grounded in real data. This solves the hallucination problem by ensuring the AI has access to current, accurate information at query time.

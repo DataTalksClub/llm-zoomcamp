@@ -10,26 +10,7 @@ This works reliably because Kestra's AI Copilot is grounded in the current plugi
 
 ## Setup
 
-Before using AI Copilot, you need to configure Gemini API access in your Kestra instance.
-
-**Get your Gemini API key:**
-
-1. Visit [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Sign in with your Google account
-3. Click "Create API Key" and copy the generated key
-
-> [!WARNING]
-> Never commit API keys to Git. Always use environment variables.
-
-**Configure Kestra:**
-
-The `docker-compose.yml` in this module already includes the AI configuration. Set your API key and restart Kestra:
-
-```bash
-cd 03-orchestration
-export GEMINI_API_KEY="your-api-key-here"
-docker compose up -d
-```
+Before using AI Copilot, you need to configure Gemini API access in your Kestra instance. If you haven't done this yet, follow the [setup instructions](03-setup.md) to obtain your Gemini API key and configure it as a secret.
 
 **Access AI Copilot:**
 
