@@ -8,6 +8,8 @@ with Hit Rate, MRR, and LLM-as-a-judge.
 
 Code notebooks are in [code](code/).
 
+- [Workshop recording](https://www.youtube.com/watch?v=WUGtDveIe7A)
+
 
 ## Part 1: Search Evaluation
 

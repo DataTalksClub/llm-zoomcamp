@@ -190,4 +190,31 @@ You should see something like:
 Search metrics tell us whether retrieval works. Next, we'll use these
 metrics to tune the search parameters.
 
+## Interpreting the metrics
+
+A few things to keep in mind when reading these numbers:
+
+Our ground truth assumes only one relevant document per query. In
+practice, other retrieved documents might also be relevant. A 50% hit
+rate does not mean that half the results are useless. It means the
+document we generated the question from did not appear in the top
+results for half the queries. Other relevant documents may still be
+there.
+
+With synthetic data, the generated questions can be too close to the
+original FAQ text. This inflates hit rate and MRR. If you see numbers
+above 95%, treat them with caution and check whether the questions are
+realistic enough.
+
+Good thresholds depend on your use case. A 50% hit rate is acceptable
+for some applications, while others need 90% or higher. The right
+number depends on how much the downstream LLM can compensate for
+imperfect retrieval. It also depends on user tolerance for wrong
+answers.
+
+Look at the system holistically. A high MRR means the relevant document
+is near the top, which helps the LLM focus on the right context. A low
+MRR with a high hit rate means the document is there, but buried under
+less relevant results.
+
 [← Search Evaluation](04-search-evaluation.md) | [Search Parameter Tuning →](06-search-tuning.md)

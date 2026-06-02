@@ -11,6 +11,29 @@ way to compare approaches.
 
 That's what evaluation is for.
 
+## The evaluation setup
+
+For search evaluation, we need a dataset of questions where we know
+which document is the correct answer. We'll use an LLM to generate
+these questions from our FAQ data.
+
+The approach works like this:
+
+- A = the original answer in the FAQ
+- Q* = a question generated from that answer by an LLM
+- We send Q* through our search and check if the original document
+  appears in the results
+
+For RAG evaluation, we go one step further:
+
+- A = the original answer in the FAQ
+- Q* = a question generated from that answer by an LLM
+- A' = the answer produced by our RAG system when given Q*
+- We compare A' with A to see if the system produced the right answer
+
+This is the A → Q* → A' pattern. We know the answer for each generated
+question because we created the question from that answer.
+
 With evaluation, we can:
 
 - Compare different search methods (minsearch vs vector search vs hybrid)
@@ -31,6 +54,11 @@ traffic, feedback, logs, and dashboards to monitor quality.
 In this module, we focus on offline evaluation. We'll generate a test
 dataset, run our search and RAG systems on it, and measure how well they
 perform.
+
+Synthetic data is a good starting point when you don't have real user
+data. But generated questions can be too similar to the original FAQ
+text, which inflates the metrics. As soon as you can, start collecting
+real user queries and use them to validate your evaluation framework.
 
 We'll cover three levels of evaluation:
 

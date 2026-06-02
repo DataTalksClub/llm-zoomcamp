@@ -77,6 +77,11 @@ results = []
 for question_boost in [1.0, 2.0, 5.0]:
     for answer_boost in [1.0, 2.0, 4.0, 10.0]:
         for section_boost in [0.1, 0.2, 0.5]:
+            print(
+                f"Evaluating question_boost={question_boost},"
+                f" answer_boost={answer_boost},"
+                f" section_boost={section_boost}..."
+            )
             result = evaluate(
                 ground_truth,
                 lambda query, question_boost=question_boost, answer_boost=answer_boost, section_boost=section_boost: search_boosts(
@@ -166,6 +171,21 @@ Grid search is fine when there are only a few settings. For a larger
 parameter space, use a smarter search strategy. You can sample random
 combinations, use Bayesian optimization, or keep a validation split so
 you don't overfit the evaluation set.
+
+For text search on our dataset, grid search takes about one second per
+combination. That makes it practical to try many options. When each
+evaluation takes minutes instead of seconds, grid search becomes too
+expensive. In those cases, use Bayesian optimization with a library like
+hyperopt. It explores the parameter space more efficiently by focusing
+on combinations that are likely to improve the metric.
+
+## Top-K tradeoffs
+
+We return 5 results from search. Increasing top-K to 10 would improve
+hit rate because there are more chances to find the correct document.
+But more results means more context sent to the LLM. That costs more
+and makes it harder for the model to identify what is relevant. Five
+results is a reasonable default for short FAQ-style documents.
 
 Next, we'll move from retrieval quality to answer quality and evaluate
 the full RAG pipeline.
