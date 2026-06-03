@@ -70,10 +70,5 @@ col1.metric("Thumbs up", int(thumbs_up or 0))
 col2.metric("Thumbs down", int(thumbs_down or 0))
 ```
 
-Run it:
 
-```bash
-uv run streamlit run dashboard.py --server.port 8502
-```
-
-[← Streamlit Dashboard](07-streamlit-dashboard.md) | [User Feedback →](09-user-feedback.md)
+[← Built-in Judge](09-built-in-judge.md) | [Synthetic Data →](11-synthetic-data.md)

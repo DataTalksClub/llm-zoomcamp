@@ -84,9 +84,9 @@ GROUP BY 1
 ORDER BY 1
 ```
 
-`$__timeGroup` rounds timestamps into buckets. `GROUP BY 1` groups
-by the first column (the bucket). `AVG` gives the average tokens per
-bucket.
+- `$__timeGroup` rounds timestamps into buckets.
+- `GROUP BY 1` groups by the first column (the bucket). 
+- `AVG` gives the average tokens per bucket.
 
 Use the Time series visualization for this panel.
 

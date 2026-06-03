@@ -9,23 +9,23 @@ We create two types of data:
 - Historical data: conversations spread over the last 6 hours
 - Live data: new conversations inserted every second
 
-## Historical data
+## Sample data
 
-We generate conversations with random questions, answers, and metrics,
-spaced out over the last 6 hours.
+Create `generate_data.py`.
 
-First, define the sample data:
+Imports and sample data:
 
 ```python
 import time
 import random
-import uuid
 from datetime import datetime, timedelta
-from zoneinfo import ZoneInfo
-from db import save_conversation, save_feedback
+from db_init import get_db_connection, DB_TIMEZONE
+from db_save import save_conversation
+from db_feedback import save_feedback
+from metrics import LLMCallRecord
+```
 
-tz = ZoneInfo("Europe/Berlin")
-
+```python
 SAMPLE_QUESTIONS = [
     "How do I install Docker?",
     "Can I still join the course?",
@@ -51,8 +51,28 @@ COURSES = [
 RELEVANCE = ["RELEVANT", "PARTLY_RELEVANT", "NON_RELEVANT"]
 ```
 
-The `generate_historical` function creates conversations spread across
-a time range:
+## Generating conversations
+
+A helper to create a fake `LLMCallRecord`:
+
+```python
+def fake_record(question, answer):
+    return LLMCallRecord(
+        model="gpt-5.4-mini",
+        prompt=question,
+        instructions="",
+        answer=answer,
+        prompt_tokens=random.randint(50, 200),
+        completion_tokens=random.randint(50, 300),
+        total_tokens=random.randint(100, 500),
+        response_time=random.uniform(0.5, 5.0),
+        cost=random.uniform(0.0001, 0.01),
+    )
+```
+
+## Historical data
+
+Generate conversations spread across a time range:
 
 ```python
 def generate_historical(start_time, end_time):
@@ -60,29 +80,24 @@ def generate_historical(start_time, end_time):
     count = 0
 
     while current_time < end_time:
-        conversation_id = str(uuid.uuid4())
         question = random.choice(SAMPLE_QUESTIONS)
         answer = random.choice(SAMPLE_ANSWERS)
         course = random.choice(COURSES)
-        relevance = random.choice(RELEVANCE)
+        record = fake_record(question, answer)
 
-        answer_data = {
-            "answer": answer,
-            "response_time": random.uniform(0.5, 5.0),
-            "relevance": relevance,
-            "relevance_explanation": f"Answer is {relevance.lower()}.",
-            "model_used": "gpt-5.4-mini",
-            "prompt_tokens": random.randint(50, 200),
-            "completion_tokens": random.randint(50, 300),
-            "total_tokens": random.randint(100, 500),
-            "openai_cost": random.uniform(0.0001, 0.01),
-        }
-
-        save_conversation(conversation_id, question, answer_data, course, current_time)
+        conversation_id = save_conversation(record, question, course)
 
         if random.random() < 0.7:
-            feedback = 1 if random.random() < 0.8 else -1
-            save_feedback(conversation_id, feedback, current_time)
+            relevance = random.choice(RELEVANCE)
+            save_feedback(
+                conversation_id, "judge",
+                relevance=relevance,
+                explanation=f"Answer is {relevance.lower()}.",
+            )
+
+        if random.random() < 0.5:
+            score = 1 if random.random() < 0.8 else -1
+            save_feedback(conversation_id, "user", score=score)
 
         current_time += timedelta(minutes=random.randint(1, 15))
         count += 1
@@ -90,49 +105,44 @@ def generate_historical(start_time, end_time):
     print(f"Generated {count} historical conversations")
 ```
 
-The `generate_live` function keeps inserting new conversations every
-second:
+## Live data
+
+Keep inserting new conversations every second:
 
 ```python
 def generate_live():
     print("Starting live data generation (Ctrl+C to stop)...")
     try:
         while True:
-            current_time = datetime.now(tz)
-            conversation_id = str(uuid.uuid4())
             question = random.choice(SAMPLE_QUESTIONS)
             answer = random.choice(SAMPLE_ANSWERS)
             course = random.choice(COURSES)
-            relevance = random.choice(RELEVANCE)
+            record = fake_record(question, answer)
 
-            answer_data = {
-                "answer": answer,
-                "response_time": random.uniform(0.5, 5.0),
-                "relevance": relevance,
-                "relevance_explanation": f"Answer is {relevance.lower()}.",
-                "model_used": "gpt-5.4-mini",
-                "prompt_tokens": random.randint(50, 200),
-                "completion_tokens": random.randint(50, 300),
-                "total_tokens": random.randint(100, 500),
-                "openai_cost": random.uniform(0.0001, 0.01),
-            }
-
-            save_conversation(conversation_id, question, answer_data, course, current_time)
+            conversation_id = save_conversation(record, question, course)
 
             if random.random() < 0.7:
-                feedback = 1 if random.random() < 0.8 else -1
-                save_feedback(conversation_id, feedback, current_time)
+                relevance = random.choice(RELEVANCE)
+                save_feedback(
+                    conversation_id, "judge",
+                    relevance=relevance,
+                    explanation=f"Answer is {relevance.lower()}.",
+                )
+
+            if random.random() < 0.5:
+                score = 1 if random.random() < 0.8 else -1
+                save_feedback(conversation_id, "user", score=score)
 
             time.sleep(1)
     except KeyboardInterrupt:
         print("Stopped.")
 ```
 
-Finally, the main block generates both historical and live data:
+## Running it
 
 ```python
 if __name__ == "__main__":
-    end_time = datetime.now(tz)
+    end_time = datetime.now(DB_TIMEZONE)
     start_time = end_time - timedelta(hours=6)
 
     print(f"Generating data from {start_time} to {end_time}")
@@ -148,17 +158,7 @@ uv run python generate_data.py
 ```
 
 The script first backfills 6 hours of data, then keeps generating live
-data every second. Switch to Grafana and you'll see the dashboard come
-alive with charts updating in real time.
+data every second. We'll use this data in Grafana in the next lesson to
+see the dashboard come alive with charts updating in real time.
 
-## Timezone handling
-
-Notice the `tz = ZoneInfo("Europe/Berlin")` in the script. This ensures
-timestamps are stored with proper timezone information, and Grafana
-respects these timezones when displaying data.
-
-If your users are in a different timezone, adjust this accordingly. The
-important thing is to use `TIMESTAMP WITH TIME ZONE` in PostgreSQL and
-always store timezone-aware datetimes.
-
-[← Built-in Judge](10-built-in-judge.md) | [Grafana →](12-grafana.md)
+[← Feedback Dashboard](10-feedback-dashboard.md) | [Grafana →](12-grafana.md)

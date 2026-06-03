@@ -60,6 +60,7 @@ Create `db_feedback.py`:
 from datetime import datetime
 from db_init import get_db_connection, DB_TIMEZONE
 
+
 def save_feedback(conversation_id, source, relevance=None,
                   explanation=None, score=None):
     timestamp = datetime.now(DB_TIMEZONE)
@@ -101,16 +102,18 @@ Update the ask button to save the conversation ID:
 ```python
 if st.button("Ask"):
     with st.spinner("Processing..."):
-        assistant.rag(user_input)
+        answer = assistant.rag(user_input)
+        st.success("Completed!")
+        st.write(answer)
+
         record = assistant.last_call
+        st.write(f"Response time: {record.response_time:.2f}s")
+        st.write(f"Prompt tokens: {record.prompt_tokens}")
+        st.write(f"Completion tokens: {record.completion_tokens}")
+        st.write(f"Cost: ${record.cost:.4f}")
+
         conversation_id = save_conversation(record, user_input, "llm-zoomcamp")
         st.session_state.conversation_id = conversation_id
-
-        st.success("Completed!")
-        st.write(record.answer)
-
-        st.write(f"Response time: {record.response_time:.2f}s")
-        st.write(f"Cost: ${record.cost:.4f}")
 ```
 
 Now add the feedback buttons:
@@ -133,4 +136,4 @@ with col2:
 Now users can rate each answer. In the next lesson, we'll add an
 LLM judge that uses the same feedback table.
 
-[← Feedback Dashboard](08-feedback-dashboard.md) | [Built-in Judge →](10-built-in-judge.md)
+[← Streamlit Dashboard](07-streamlit-dashboard.md) | [Built-in Judge →](09-built-in-judge.md)

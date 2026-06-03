@@ -37,6 +37,7 @@ def get_stats():
             row = cur.fetchone()
     finally:
         conn.close()
+
     return Stats(
         total=row[0],
         avg_response_time=row[1],
@@ -94,13 +95,7 @@ st.subheader("Response time over time")
 st.line_chart(df, x="timestamp", y="response_time")
 ```
 
-Run it:
-
-```bash
-uv run streamlit run dashboard.py
-```
-
-If port 8501 is already in use (e.g. by the chat app), use a
+Run it. The port 8501 is already in use (by the chat app), so we will use a
 different port:
 
 ```bash
@@ -109,4 +104,4 @@ uv run streamlit run dashboard.py --server.port 8502
 
 Later we'll set up Grafana for a more production-ready dashboard.
 
-[← Querying Data](06-querying.md) | [Feedback Dashboard →](08-feedback-dashboard.md)
+[← Querying Data](06-querying.md) | [User Feedback →](08-user-feedback.md)

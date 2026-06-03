@@ -23,14 +23,19 @@ Create `judge.py`:
 
 ```python
 import json
+
 from pydantic import BaseModel
 from typing import Literal
-from evaluation_utils import llm_structured_retry
 from openai import OpenAI
+from dotenv import load_dotenv
+
+from evaluation_utils import llm_structured_retry
+
 
 class RelevanceVerdict(BaseModel):
     relevance: Literal["NON_RELEVANT", "PARTLY_RELEVANT", "RELEVANT"]
     explanation: str
+
 
 judge_instructions = """
 You are an expert evaluator for a RAG system.
@@ -56,7 +61,10 @@ def evaluate_relevance(question, answer, client=None):
     if client is None:
         client = OpenAI()
 
-    prompt = judge_prompt.format(question=question, answer=answer)
+    prompt = judge_prompt.format(
+        question=question,
+        answer=answer
+    )
 
     result, usage = llm_structured_retry(
         client,
@@ -72,6 +80,8 @@ Test it:
 
 ```python
 if __name__ == "__main__":
+    load_dotenv()
+
     question = "Can I still join the course?"
     answer = "Yes, you can still join. The course is self-paced."
 
@@ -86,7 +96,7 @@ uv run python judge.py
 
 ## Saving judge feedback to the database
 
-We already created the `feedback` table in lesson 09. It has a
+We already created the `feedback` table in lesson 08. It has a
 `source` column that tells us where the feedback came from.
 
 We already have `db_feedback.py` with `save_feedback`. We just need
@@ -99,15 +109,29 @@ In `app.py`, call the judge after getting the answer and save it:
 ```python
 from judge import evaluate_relevance
 from db_feedback import save_feedback
+```
 
-        assistant.rag(user_input)
-        record = assistant.last_call
-        save_conversation(record, user_input, "llm-zoomcamp")
+And later:
 
-        relevance, explanation = evaluate_relevance(user_input, record.answer)
-        save_feedback(record.id, "judge",
-                      relevance=relevance, explanation=explanation)
-        st.write(f"Relevance: {relevance}")
+```python
+answer = assistant.rag(user_input)
+st.success("Completed!")
+st.write(answer)
+
+record = assistant.last_call
+st.write(f"Response time: {record.response_time:.2f}s")
+st.write(f"Prompt tokens: {record.prompt_tokens}")
+st.write(f"Completion tokens: {record.completion_tokens}")
+st.write(f"Cost: ${record.cost:.4f}")
+
+conversation_id = save_conversation(record, user_input, "llm-zoomcamp")
+st.session_state.conversation_id = conversation_id
+
+relevance, explanation = evaluate_relevance(user_input, answer)
+save_feedback(conversation_id, "judge",
+                relevance=relevance, explanation=explanation)
+st.write(f"Relevance: {relevance}")
+st.write(f"Explanation: {explanation}")
 ```
 
 Now each answer comes with an automatic relevance label. This is useful
@@ -122,4 +146,4 @@ The judge adds an extra LLM call per question, which increases cost and
 latency. For high-traffic applications, evaluate only a sample of
 answers instead of every one.
 
-[← User Feedback](09-user-feedback.md) | [Synthetic Data →](11-synthetic-data.md)
+[← User Feedback](08-user-feedback.md) | [Feedback Dashboard →](10-feedback-dashboard.md)

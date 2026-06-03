@@ -115,7 +115,7 @@ volumes:
 Start all services:
 
 ```bash
-docker compose up -d
+docker-compose up
 ```
 
 Initialize the database:
@@ -130,7 +130,7 @@ Access the app at `http://localhost:8501` and Grafana at
 To stop:
 
 ```bash
-docker compose down
+docker-compose down
 ```
 
 The data in PostgreSQL and Grafana persists across restarts thanks to

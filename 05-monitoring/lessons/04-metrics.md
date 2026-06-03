@@ -65,7 +65,6 @@ class RAGWithMetrics(RAGBase):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.last_call: LLMCallRecord = None
-        self.logs: list[LLMCallRecord] = []
 
     def _call_llm(self, prompt):
         input_messages = [
@@ -93,9 +92,9 @@ class RAGWithMetrics(RAGBase):
             response_time=response_time,
             cost=cost,
         )
+    
         print(call_record)
         self.last_call = call_record
-        self.logs.append(call_record)
 ```
 
 The `llm` method ties it all together:
@@ -113,16 +112,18 @@ Now update `assistant.py` to import `RAGWithMetrics` and use it in
 `create_assistant`:
 
 ```python
+from dotenv import load_dotenv
 from metrics import RAGWithMetrics
 
 def create_assistant():
+    load_dotenv()
+
     documents = load_faq_data()
     index = build_index(documents)
 
     return RAGWithMetrics(
         index=index,
         llm_client=OpenAI(),
-        instructions=INSTRUCTIONS,
     )
 ```
 
@@ -136,11 +137,11 @@ But now we can also display the metrics:
 ```python
 if st.button("Ask"):
     with st.spinner("Processing..."):
-        assistant.rag(user_input)
-        record = assistant.last_call
+        answer = assistant.rag(user_input)
         st.success("Completed!")
-        st.write(record.answer)
+        st.write(answer)
 
+        record = assistant.last_call
         st.write(f"Response time: {record.response_time:.2f}s")
         st.write(f"Prompt tokens: {record.prompt_tokens}")
         st.write(f"Completion tokens: {record.completion_tokens}")

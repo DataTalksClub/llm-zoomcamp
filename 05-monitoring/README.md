@@ -17,9 +17,9 @@ in PostgreSQL, and create Grafana dashboards for real-time monitoring.
 5. [Database](lessons/05-database.md) - PostgreSQL with Docker, saving conversations
 6. [Querying Data](lessons/06-querying.md) - Fetching stored conversations
 7. [Streamlit Dashboard](lessons/07-streamlit-dashboard.md) - Visualizing metrics in Streamlit
-8. [Feedback Dashboard](lessons/08-feedback-dashboard.md) - Adding feedback panels to the Streamlit dashboard
-9. [User Feedback](lessons/09-user-feedback.md) - Thumbs up/down buttons
-10. [Built-in Judge](lessons/10-built-in-judge.md) - LLM-as-a-judge for automatic relevance evaluation
+8. [User Feedback](lessons/08-user-feedback.md) - Thumbs up/down buttons
+9. [Built-in Judge](lessons/09-built-in-judge.md) - LLM-as-a-judge for automatic relevance evaluation
+10. [Feedback Dashboard](lessons/10-feedback-dashboard.md) - Adding feedback panels to the Streamlit dashboard
 11. [Synthetic Data](lessons/11-synthetic-data.md) - Generating test data for dashboards
 12. [Grafana Dashboards](lessons/12-grafana.md) - SQL queries and dashboard panels
 13. [Docker Compose](lessons/13-docker-compose.md) - Running everything together

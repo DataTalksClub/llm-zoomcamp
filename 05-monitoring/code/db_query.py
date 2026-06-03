@@ -1,21 +1,17 @@
-# Querying Data
-
-Now that we're saving conversations to PostgreSQL, let's query them.
-
-Create `db_query.py`. Connect to the same database:
-
-```python
 from dataclasses import dataclass
 
 from db_init import get_db_connection
 from metrics import LLMCallRecord
-```
 
-## Fetching conversations
 
-A helper to convert a database row into an `LLMCallRecord`:
+@dataclass
+class Stats:
+    total: int
+    avg_response_time: float
+    total_cost: float
+    avg_tokens: float
 
-```python
+
 def row_to_record(row):
     return LLMCallRecord(
         model=row[4],
@@ -29,11 +25,7 @@ def row_to_record(row):
         cost=row[11],
         timestamp=row[12],
     )
-```
 
-Now update `get_conversations` to use it:
-
-```python
 def get_conversations(limit=10):
     conn = get_db_connection()
     try:
@@ -55,21 +47,34 @@ def get_conversations(limit=10):
         conn.close()
 
     return [row_to_record(row) for row in rows]
-```
 
-Now you can use the same dataclass for live calls and database results.
 
-Test it:
 
-```python
+def get_stats():
+    conn = get_db_connection()
+    try:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT
+                    COUNT(*),
+                    AVG(response_time),
+                    SUM(cost),
+                    AVG(total_tokens)
+                FROM conversations
+            """)
+            row = cur.fetchone()
+    finally:
+        conn.close()
+
+    return Stats(
+        total=row[0],
+        avg_response_time=row[1],
+        total_cost=row[2],
+        avg_tokens=row[3],
+    )
+
+
 if __name__ == "__main__":
     records = get_conversations()
     for record in records:
         print(record)
-```
-
-```bash
-uv run python db_query.py
-```
-
-[← Storing Data in PostgreSQL](05-database.md) | [Streamlit Dashboard →](07-streamlit-dashboard.md)

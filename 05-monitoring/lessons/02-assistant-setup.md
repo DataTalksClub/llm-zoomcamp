@@ -16,6 +16,14 @@ wget ${PREFIX}/01-agentic-rag/code/ingest.py
 wget ${PREFIX}/01-agentic-rag/code/rag_helper.py
 ```
 
+Add dependencies:
+
+```bash
+uv add python-dotenv
+```
+
+We use `python-dotenv` to load the `OPENAI_API_KEY` from a `.env` file.
+
 ## Creating the assistant
 
 Create `assistant.py`.
@@ -38,32 +46,25 @@ Imports:
 ```python
 import sys
 
-from rag_helper import RAGBase
-from ingest import load_faq_data, build_index
+from dotenv import load_dotenv
 from openai import OpenAI
-```
 
-Instructions for the LLM:
-
-```python
-INSTRUCTIONS = """
-You're a course teaching assistant.
-Answer the QUESTION based on the CONTEXT from the FAQ database.
-Use only the facts from the CONTEXT when answering the QUESTION.
-""".strip()
+from ingest import load_faq_data, build_index
+from rag_helper import RAGBase
 ```
 
 A function to create the assistant:
 
 ```python
 def create_assistant():
+    load_dotenv()
+
     documents = load_faq_data()
     index = build_index(documents)
 
     return RAGBase(
         index=index,
         llm_client=OpenAI(),
-        instructions=INSTRUCTIONS,
     )
 ```
 

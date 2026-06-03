@@ -166,12 +166,13 @@ The SQL we want to execute:
 
 ```sql
 INSERT INTO conversations (
-    id, question, answer, course, model,
+    question, answer, course, model, instructions, prompt,
     prompt_tokens, completion_tokens, total_tokens,
     response_time, cost, timestamp
 ) VALUES (
-    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
 )
+RETURNING id
 ```
 
 Create `db_save.py`.
@@ -262,10 +263,21 @@ In `app.py`, just add the import and one line after `assistant.rag()`:
 from db_save import save_conversation
 ```
 
+And later:
+
 ```python
-assistant.rag(user_input)
+answer = assistant.rag(user_input)
+st.success("Completed!")
+st.write(answer)
+
 record = assistant.last_call
-save_conversation(record, user_input, "llm-zoomcamp")
+st.write(f"Response time: {record.response_time:.2f}s")
+st.write(f"Prompt tokens: {record.prompt_tokens}")
+st.write(f"Completion tokens: {record.completion_tokens}")
+st.write(f"Cost: ${record.cost:.4f}")
+
+conversation_id = save_conversation(record, user_input, "llm-zoomcamp")
+st.session_state.conversation_id = conversation_id
 ```
 
 That's it - every question and answer is now saved to PostgreSQL. In the next
