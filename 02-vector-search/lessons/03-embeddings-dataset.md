@@ -35,7 +35,7 @@ in our index:
 texts = []
 
 for doc in documents:
-    text = doc['question'] + ' ' + doc['answer']
+    text = doc["question"] + " " + doc["answer"]
     texts.append(text)
 ```
 

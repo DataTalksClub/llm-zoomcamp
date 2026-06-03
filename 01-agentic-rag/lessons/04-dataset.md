@@ -10,7 +10,7 @@ Let's fetch it:
 ```python
 import requests
 
-docs_url = 'https://datatalks.club/faq/json/courses.json'
+docs_url = "https://datatalks.club/faq/json/courses.json"
 response = requests.get(docs_url)
 courses_raw = response.json()
 ```
@@ -23,10 +23,10 @@ courses:
 
 ```python
 documents = []
-url_prefix = 'https://datatalks.club/faq'
+url_prefix = "https://datatalks.club/faq"
 
 for course in courses_raw:
-    course_url = f'{url_prefix}{course['path']}'
+    course_url = f"""{url_prefix}{course["path"]}"""
 
     course_response = requests.get(course_url)
     course_response.raise_for_status()
@@ -55,11 +55,11 @@ You should see something like:
 
 ```python
 {
-    'id': '0e38656cfb',
-    'course': 'machine-learning-zoomcamp',
-    'section': 'General Course-Related Questions',
-    'question': 'How do I submit homework?',
-    'answer': '- Do the tasks locally\n- Publish your code ...'
+    "id": "0e38656cfb",
+    "course": "machine-learning-zoomcamp",
+    "section": "General Course-Related Questions",
+    "question": "How do I submit homework?",
+    "answer": "- Do the tasks locally\n- Publish your code ..."
 }
 ```
 

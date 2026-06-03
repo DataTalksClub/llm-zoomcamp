@@ -28,4 +28,4 @@ For additional resources:
   - 2024 cohort monitoring module:
     [2024/04-monitoring](../cohorts/2024/04-monitoring/)
 
-[← Synthetic Data Generation](06-synthetic-data.md) | [Back to module →](../)
+[← Synthetic Data Generation](07-synthetic-data.md) | [Back to module →](../)

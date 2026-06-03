@@ -50,14 +50,14 @@ First, load the data using the function from `ingest.py`:
 from ingest import load_faq_data
 
 documents = load_faq_data()
-print(f'Loaded {len(documents)} documents')
+print(f"Loaded {len(documents)} documents")
 ```
 
 Filter to just the LLM Zoomcamp documents:
 
 ```python
-docs_llm = [doc for doc in documents if doc['course'] == 'llm-zoomcamp']
-print(f'LLM Zoomcamp: {len(docs_llm)} documents')
+docs_llm = [doc for doc in documents if doc["course"] == "llm-zoomcamp"]
+print(f"LLM Zoomcamp: {len(docs_llm)} documents")
 ```
 
 Now create a sqlitesearch index and add documents one by one with a
@@ -68,18 +68,18 @@ import time
 from sqlitesearch import TextSearchIndex
 
 index = TextSearchIndex(
-    text_fields=['question', 'section', 'answer'],
-    keyword_fields=['course'],
-    db_path='faq.db'
+    text_fields=["question", "section", "answer"],
+    keyword_fields=["course"],
+    db_path="faq.db"
 )
 
 for doc in docs_llm:
     index.add(doc)
-    print(f'Added: {doc["question"][:60]}...')
+    print(f"""Added: {doc["question"][:60]}...""")
     time.sleep(0.5)
 
 index.close()
-print('Done. Index saved to faq.db')
+print("Done. Index saved to faq.db")
 ```
 
 Run this notebook. You'll see each document being added one by one.
@@ -97,9 +97,9 @@ Connect to the same database:
 from sqlitesearch import TextSearchIndex
 
 sqlite_index = TextSearchIndex(
-    text_fields=['question', 'section', 'answer'],
-    keyword_fields=['course'],
-    db_path='faq.db'
+    text_fields=["question", "section", "answer"],
+    keyword_fields=["course"],
+    db_path="faq.db"
 )
 ```
 
@@ -117,8 +117,8 @@ this is impossible because the index lives in one process's memory.
 Try a search:
 
 ```python
-results = sqlite_index.search('Can I still join the course after it started?', num_results=5)
-[doc['question'] for doc in results]
+results = sqlite_index.search("Can I still join the course after it started?", num_results=5)
+[doc["question"] for doc in results]
 ```
 
 ## RAG with sqlitesearch
@@ -148,7 +148,7 @@ the database file.
 Try it:
 
 ```python
-answer = assistant.rag('Can I still join the course after it started?')
+answer = assistant.rag("Can I still join the course after it started?")
 print(answer)
 ```
 

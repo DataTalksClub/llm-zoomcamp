@@ -42,23 +42,23 @@ import os
 import pandas as pd
 from minsearch import Index
 
-DATA_PATH = os.getenv('DATA_PATH', 'data/data.csv')
+DATA_PATH = os.getenv("DATA_PATH", "data/data.csv")
 
 def load_index(data_path=DATA_PATH):
     df = pd.read_csv(data_path)
-    documents = df.to_dict(orient='records')
+    documents = df.to_dict(orient="records")
 
     index = Index(
         text_fields=[
-            'exercise_name',
-            'type_of_activity',
-            'type_of_equipment',
-            'body_part',
+            "exercise_name",
+            "type_of_activity",
+            "type_of_equipment",
+            "body_part",
             "type",
-            'muscle_groups_activated',
-            'instructions',
+            "muscle_groups_activated",
+            "instructions",
         ],
-        keyword_fields=['id'],
+        keyword_fields=["id"],
     )
 
     index.fit(documents)
@@ -83,13 +83,13 @@ index = ingest.load_index()
 
 def search(query):
     boost = {
-        'exercise_name': 2.11,
-        'type_of_activity': 1.46,
-        'type_of_equipment': 0.65,
-        'body_part': 2.65,
-        'type': 1.31,
-        'muscle_groups_activated': 2.54,
-        'instructions': 0.74
+        "exercise_name": 2.11,
+        "type_of_activity": 1.46,
+        "type_of_equipment": 0.65,
+        "body_part": 2.65,
+        "type": 1.31,
+        "muscle_groups_activated": 2.54,
+        "instructions": 0.74
     }
 
     results = index.search(
@@ -122,9 +122,9 @@ instructions: {instructions}
 """.strip()
 
 def build_prompt(query, search_results):
-    context = ''
+    context = ""
     for doc in search_results:
-        context = context + entry_template.format(**doc) + '\n\n'
+        context = context + entry_template.format(**doc) + "\n\n"
     prompt = prompt_template.format(question=query, context=context).strip()
     return prompt
 ```
@@ -132,20 +132,20 @@ def build_prompt(query, search_results):
 Add the LLM call and the full RAG function:
 
 ```python
-def llm(prompt, model='gpt-5.4-mini'):
+def llm(prompt, model="gpt-5.4-mini"):
     response = openai_client.responses.create(
         model=model,
-        input=[{'role': 'user', 'content': prompt}]
+        input=[{"role": "user", "content": prompt}]
     )
     answer = response.output_text
     token_stats = {
-        'prompt_tokens': response.usage.input_tokens,
-        'completion_tokens': response.usage.output_tokens,
-        'total_tokens': response.usage.total_tokens,
+        "prompt_tokens": response.usage.input_tokens,
+        "completion_tokens": response.usage.output_tokens,
+        "total_tokens": response.usage.total_tokens,
     }
     return answer, token_stats
 
-def rag(query, model='gpt-5.4-mini'):
+def rag(query, model="gpt-5.4-mini"):
     t0 = time()
     search_results = search(query)
     prompt = build_prompt(query, search_results)
@@ -153,12 +153,12 @@ def rag(query, model='gpt-5.4-mini'):
     took = time() - t0
 
     return {
-        'answer': answer,
-        'model_used': model,
-        'response_time': took,
-        'prompt_tokens': token_stats['prompt_tokens'],
-        'completion_tokens': token_stats['completion_tokens'],
-        'total_tokens': token_stats['total_tokens'],
+        "answer": answer,
+        "model_used": model,
+        "response_time": took,
+        "prompt_tokens": token_stats["prompt_tokens"],
+        "completion_tokens": token_stats["completion_tokens"],
+        "total_tokens": token_stats["total_tokens"],
     }
 ```
 
@@ -173,27 +173,27 @@ from rag import rag
 
 app = Flask(__name__)
 
-@app.route('/question', methods=['POST'])
+@app.route("/question", methods=["POST"])
 def handle_question():
     data = request.json
-    question = data['question']
+    question = data["question"]
 
     if not question:
-        return jsonify({'error': 'No question provided'}), 400
+        return jsonify({"error": "No question provided"}), 400
 
     conversation_id = str(uuid.uuid4())
     answer_data = rag(question)
 
     result = {
-        'conversation_id': conversation_id,
-        'question': question,
-        'answer': answer_data['answer'],
+        "conversation_id": conversation_id,
+        "question": question,
+        "answer": answer_data["answer"],
     }
 
     return jsonify(result)
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5000)
 ```
 
 Install Flask:

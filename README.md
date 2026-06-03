@@ -84,7 +84,7 @@ Self-paced steps:
 - [1. Agentic RAG](01-agentic-rag/). Build a RAG pipeline with keyword search, then make it agentic with function calling
 - [2. Vector Search](02-vector-search/). Semantic search with embeddings, minsearch, sqlitesearch, and PGVector
 - [3. Orchestration](03-orchestration/). AI orchestration with Kestra
-- [Workshop - Data Ingestion](cohorts/2025/workshops/dlt.md). Ingest data with dlt from external sources into your RAG system
+- [Workshop - Data Ingestion](cohorts/2026/workshops/dlt.md). Pull traces from a monitoring service for analytics with dlt
 - [4. Evaluation](04-evaluation/). Measure retrieval and answer quality with offline and online eval
 - [5. Monitoring](05-monitoring/). Monitor user feedback and system health with live dashboards
 - [6. Best Practices](06-best-practices/). LangChain, hybrid search. Combine vector + keyword search; rerank results for higher precision

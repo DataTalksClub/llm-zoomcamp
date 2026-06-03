@@ -59,7 +59,7 @@ assistant = RAGBase(
 Let's try a question:
 
 ```python
-assistant.rag('How do I run Ollama locally?')
+assistant.rag("How do I run Ollama locally?")
 ```
 
 This should work fine. The search finds relevant FAQ entries about
@@ -68,7 +68,7 @@ Ollama, and the LLM gives a good answer.
 Try something slightly different:
 
 ```python
-assistant.rag('How do I run Olama locally?')
+assistant.rag("How do I run Olama locally?")
 ```
 
 The word "Olama" doesn't match "Ollama" in our index. The search

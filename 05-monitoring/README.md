@@ -11,12 +11,13 @@ in PostgreSQL, and create Grafana dashboards for real-time monitoring.
 ## Lessons
 
 1. [Intro](lessons/01-intro.md) - Why monitoring matters, what we'll build
-2. [Chat App with Feedback](lessons/02-chat-app.md) - Streamlit app with RAG and thumbs up/down
+2. [Chat App](lessons/02-chat-app.md) - Streamlit app with RAG and metrics
 3. [Database](lessons/03-database.md) - PostgreSQL schema for conversations and feedback
-4. [Docker Compose](lessons/04-docker-compose.md) - Running PostgreSQL, Streamlit, and Grafana together
-5. [Grafana Dashboards](lessons/05-grafana.md) - SQL queries and dashboard panels
-6. [Synthetic Data](lessons/06-synthetic-data.md) - Generating test data for dashboards
-7. [Next Steps](lessons/07-next-steps.md) - OpenTelemetry, alerting, further reading
+4. [Built-in Judge](lessons/04-built-in-judge.md) - LLM-as-a-judge for automatic relevance evaluation
+5. [Docker Compose](lessons/05-docker-compose.md) - Running PostgreSQL, Streamlit, and Grafana together
+6. [Grafana Dashboards](lessons/06-grafana.md) - SQL queries and dashboard panels
+7. [Synthetic Data](lessons/07-synthetic-data.md) - Generating test data for dashboards
+8. [Next Steps](lessons/08-next-steps.md) - OpenTelemetry, alerting, further reading
 
 
 ## Older content

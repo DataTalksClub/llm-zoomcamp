@@ -22,14 +22,14 @@ from psycopg2.extras import DictCursor
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-tz = ZoneInfo('Europe/Berlin')
+tz = ZoneInfo("Europe/Berlin")
 
 def get_db_connection():
     return psycopg2.connect(
-        host=os.getenv('POSTGRES_HOST', 'localhost'),
-        database=os.getenv('POSTGRES_DB', 'course_assistant'),
-        user=os.getenv('POSTGRES_USER', 'user'),
-        password=os.getenv('POSTGRES_PASSWORD', 'password'),
+        host=os.getenv("POSTGRES_HOST", "localhost"),
+        database=os.getenv("POSTGRES_DB", "course_assistant"),
+        user=os.getenv("POSTGRES_USER", "user"),
+        password=os.getenv("POSTGRES_PASSWORD", "password"),
     )
 ```
 
@@ -112,16 +112,16 @@ def save_conversation(conversation_id, question, answer_data, course, timestamp=
                 (
                     conversation_id,
                     question,
-                    answer_data['answer'],
+                    answer_data["answer"],
                     course,
-                    answer_data['model_used'],
-                    answer_data['response_time'],
-                    answer_data['relevance'],
-                    answer_data['relevance_explanation'],
-                    answer_data['prompt_tokens'],
-                    answer_data['completion_tokens'],
-                    answer_data['total_tokens'],
-                    answer_data['openai_cost'],
+                    answer_data["model_used"],
+                    answer_data["response_time"],
+                    answer_data["relevance"],
+                    answer_data["relevance_explanation"],
+                    answer_data["prompt_tokens"],
+                    answer_data["completion_tokens"],
+                    answer_data["total_tokens"],
+                    answer_data["openai_cost"],
                     timestamp,
                 ),
             )
@@ -150,9 +150,10 @@ def save_feedback(conversation_id, feedback, timestamp=None):
 ```
 
 We use timezone-aware timestamps (`TIMESTAMP WITH TIME ZONE`). This
-matters for Grafana, we want the dashboard to show times in the
-user's timezone, and Grafana handles this conversion when we use proper
-time zones.
+matters for Grafana.
+
+We want the dashboard to show times in the user's timezone. Grafana
+handles this conversion when we use proper time zones.
 
 ## Querying data
 
@@ -170,7 +171,7 @@ def get_recent_conversations(limit=5, relevance=None):
             """
             if relevance:
                 query += f" WHERE c.relevance = '{relevance}'"
-            query += ' ORDER BY c.timestamp DESC LIMIT %s'
+            query += " ORDER BY c.timestamp DESC LIMIT %s"
 
             cur.execute(query, (limit,))
             return cur.fetchall()
@@ -196,4 +197,4 @@ Grafana queries the database directly, so we don't need Python
 functions for the dashboard. But for the Streamlit app, these are
 useful to show recent conversations and feedback stats.
 
-[← Chat App with Feedback](02-chat-app.md) | [Docker Compose →](04-docker-compose.md)
+[← Chat App with Feedback](02-chat-app.md) | [Built-in Judge →](04-built-in-judge.md)

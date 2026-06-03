@@ -80,7 +80,7 @@ We'll use `all-MiniLM-L6-v2`:
 ```python
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer("all-MiniLM-L6-v2")
 ```
 
 The first time you run this, it downloads the model (~80 MB). After
@@ -94,7 +94,7 @@ a few examples.
 We'll start with a query:
 
 ```python
-q1 = 'Can I still join the course after the start date?'
+q1 = "Can I still join the course after the start date?"
 v1 = model.encode(q1)
 ```
 
@@ -118,7 +118,7 @@ We get 0.32.
 Let's take a different query:
 
 ```python
-q2 = 'How to install Docker on Windows?'
+q2 = "How to install Docker on Windows?"
 v2 = model.encode(q2)
 ```
 

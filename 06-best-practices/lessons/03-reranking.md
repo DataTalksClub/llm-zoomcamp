@@ -31,31 +31,31 @@ Elasticsearch 8.9+ supports RRF natively:
 ```python
 def elastic_search_hybrid_rrf(field, query, vector, course):
     knn_query = {
-        'field': field,
-        'query_vector': vector,
-        'k': 5,
-        'num_candidates': 10000,
-        'boost': 0.5,
-        'filter': {
-            'term': {
-                'course': course
+        "field": field,
+        "query_vector": vector,
+        "k": 5,
+        "num_candidates": 10000,
+        "boost": 0.5,
+        "filter": {
+            "term": {
+                "course": course
             }
         }
     }
 
     keyword_query = {
-        'bool': {
-            'must': {
-                'multi_match': {
-                    'query': query,
-                    'fields': ['question^3', 'text', 'section'],
+        "bool": {
+            "must": {
+                "multi_match": {
+                    "query": query,
+                    "fields": ["question^3", "text", "section"],
                     "type": "best_fields",
-                    'boost': 0.5,
+                    "boost": 0.5,
                 }
             },
-            'filter': {
-                'term': {
-                    'course': course
+            "filter": {
+                "term": {
+                    "course": course
                 }
             }
         }
@@ -70,10 +70,10 @@ Then execute the search with RRF ranking:
         query=keyword_query,
         knn=knn_query,
         size=5,
-        rank={'rrf': {}}
+        rank={"rrf": {}}
     )
 
-    return [hit['_source'] for hit in response['hits']['hits']]
+    return [hit["_source"] for hit in response["hits"]["hits"]]
 ```
 
 Note: the built-in RRF requires a paid Elasticsearch subscription.
@@ -92,13 +92,13 @@ def compute_rrf(rank, k=60):
 
 def elastic_search_hybrid_rrf(field, query, vector, course, k=60):
     knn_query = {
-        'field': field,
-        'query_vector': vector,
-        'k': 5,
-        'num_candidates': 10000,
-        'filter': {
-            'term': {
-                'course': course
+        "field": field,
+        "query_vector": vector,
+        "k": 5,
+        "num_candidates": 10000,
+        "filter": {
+            "term": {
+                "course": course
             }
         }
     }
@@ -108,17 +108,17 @@ Define the keyword query and run both searches:
 
 ```python
     keyword_query = {
-        'bool': {
-            'must': {
-                'multi_match': {
-                    'query': query,
-                    'fields': ['question^3', 'text', 'section'],
+        "bool": {
+            "must": {
+                "multi_match": {
+                    "query": query,
+                    "fields": ["question^3", "text", "section"],
                     "type": "best_fields",
                 }
             },
-            'filter': {
-                'term': {
-                    'course': course
+            "filter": {
+                "term": {
+                    "course": course
                 }
             }
         }
@@ -142,17 +142,17 @@ Now compute RRF scores from both result sets:
 ```python
     rrf_scores = {}
 
-    for rank, hit in enumerate(knn_response['hits']['hits']):
-        doc_id = hit['_source']['id']
+    for rank, hit in enumerate(knn_response["hits"]["hits"]):
+        doc_id = hit["_source"]["id"]
         rrf_scores[doc_id] = rrf_scores.get(doc_id, 0) + compute_rrf(rank, k)
 
-    for rank, hit in enumerate(keyword_response['hits']['hits']):
-        doc_id = hit['_source']['id']
+    for rank, hit in enumerate(keyword_response["hits"]["hits"]):
+        doc_id = hit["_source"]["id"]
         rrf_scores[doc_id] = rrf_scores.get(doc_id, 0) + compute_rrf(rank, k)
 
     all_docs = {
-        hit['_source']['id']: hit['_source']
-        for hit in knn_response['hits']['hits'] + keyword_response['hits']['hits']
+        hit["_source"]["id"]: hit["_source"]
+        for hit in knn_response["hits"]["hits"] + keyword_response["hits"]["hits"]
     }
 
     sorted_docs = sorted(rrf_scores.items(), key=lambda x: x[1], reverse=True)
@@ -169,24 +169,22 @@ We evaluate RRF with the same ground truth data:
 
 ```python
 def question_text_hybrid_rrf(q):
-    question = q['question']
-    course = q['course']
+    question = q["question"]
+    course = q["course"]
     v_q = model.encode(question)
-    return elastic_search_hybrid_rrf('question_text_vector', question, v_q, course)
+    return elastic_search_hybrid_rrf("question_text_vector", question, v_q, course)
 
 evaluate(ground_truth, question_text_hybrid_rrf)
 ```
 
 Results with all approaches:
 
-| Approach | Hit Rate | MRR |
-|---|---|---|
-| Hybrid (no reranking) | 0.917 | 0.824 |
-| Hybrid + RRF | 0.925 | 0.851 |
+- Hybrid without reranking: Hit Rate 0.917, MRR 0.824
+- Hybrid with RRF: Hit Rate 0.925, MRR 0.851
 
 Reranking improves both metrics by a few percent. The gain is
-modest here, but in production systems with more data and noisier
-queries, reranking can make a bigger difference.
+modest here. In production systems with more data and noisier queries,
+reranking can make a bigger difference.
 
 To learn more:
 

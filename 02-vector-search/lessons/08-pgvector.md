@@ -50,10 +50,10 @@ from tqdm.auto import tqdm
 from ingest import load_faq_data
 from sentence_transformers import SentenceTransformer
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer("all-MiniLM-L6-v2")
 
 documents = load_faq_data()
-texts = [doc['question'] + ' ' + doc['answer'] for doc in documents]
+texts = [doc["question"] + " " + doc["answer"] for doc in documents]
 
 batch_size = 50
 vectors = []
@@ -71,7 +71,7 @@ Now we connect to Postgres:
 import psycopg
 
 conn = psycopg.connect(
-    'postgresql://user:pswd@localhost:5432/faq'
+    "postgresql://user:pswd@localhost:5432/faq"
 )
 conn.execute("CREATE EXTENSION IF NOT EXISTS vector")
 ```
@@ -109,7 +109,7 @@ Let's insert the documents and their vectors into PGVector:
 
 ```python
 def vec_to_str(vector):
-    return '[' + ','.join(str(x) for x in vector) + ']'
+    return "[" + ",".join(str(x) for x in vector) + "]"
 
 for doc, vec in tqdm(zip(documents, vectors), total=len(documents)):
     conn.execute(
@@ -117,7 +117,7 @@ for doc, vec in tqdm(zip(documents, vectors), total=len(documents)):
         INSERT INTO documents (course, section, question, answer, embedding)
         VALUES (%s, %s, %s, %s, %s::vector)
         """,
-        (doc['course'], doc['section'], doc['question'], doc['answer'],
+        (doc["course"], doc["section"], doc["question"], doc["answer"],
          vec_to_str(vec))
     )
 
@@ -133,7 +133,7 @@ cast tells PostgreSQL to parse the string as a vector. We call
 Search with a query:
 
 ```python
-query = 'I just discovered the course. Can I still join it?'
+query = "I just discovered the course. Can I still join it?"
 query_vector = model.encode(query)
 query_str = vec_to_str(query_vector)
 ```
@@ -153,7 +153,7 @@ results = conn.execute(
 ).fetchall()
 
 for row in results:
-    print(f'[{row[0]}] {row[1]} (similarity: {row[3]:.4f})')
+    print(f"[{row[0]}] {row[1]} (similarity: {row[3]:.4f})")
 ```
 
 The `<=>` operator computes cosine distance (1 - cosine similarity).
@@ -173,7 +173,7 @@ results = conn.execute(
     ORDER BY embedding <=> %s::vector
     LIMIT 5
     """,
-    (query_str, 'llm-zoomcamp', query_str)
+    (query_str, "llm-zoomcamp", query_str)
 ).fetchall()
 ```
 
@@ -200,7 +200,7 @@ faster at the cost of a small accuracy trade-off.
 Let's wrap the search logic in a reusable function:
 
 ```python
-def pgvector_search(query, course='llm-zoomcamp', num_results=5):
+def pgvector_search(query, course="llm-zoomcamp", num_results=5):
     query_vector = model.encode(query)
     query_str = vec_to_str(query_vector)
     rows = conn.execute(
@@ -215,7 +215,7 @@ def pgvector_search(query, course='llm-zoomcamp', num_results=5):
     ).fetchall()
 
     return [
-        {'course': r[0], 'section': r[1], 'question': r[2], 'answer': r[3]}
+        {"course": r[0], "section": r[1], "question": r[2], "answer": r[3]}
         for r in rows
     ]
 ```
@@ -223,7 +223,7 @@ def pgvector_search(query, course='llm-zoomcamp', num_results=5):
 Try it:
 
 ```python
-results = pgvector_search('How do I join the course?')
+results = pgvector_search("How do I join the course?")
 ```
 
 ## Using it in RAG
@@ -257,7 +257,7 @@ class RAGPgVector(RAGBase):
         ).fetchall()
 
         return [
-            {'course': r[0], 'section': r[1], 'question': r[2], 'answer': r[3]}
+            {"course": r[0], "section": r[1], "question": r[2], "answer": r[3]}
             for r in rows
         ]
 ```
@@ -285,7 +285,7 @@ vector_assistant = RAGPgVector(
 Try it:
 
 ```python
-vector_assistant.rag('the program has already begun, can I still sign up?')
+vector_assistant.rag("the program has already begun, can I still sign up?")
 ```
 
 ## Using PGVector

@@ -126,13 +126,13 @@ The `prep.py` script does this:
 from db import init_db
 from assistant import index, documents
 
-if __name__ == '__main__':
-    print('Initializing database...')
+if __name__ == "__main__":
+    print("Initializing database...")
     init_db()
-    print('Database initialized.')
+    print("Database initialized.")
 
-    print(f'Loaded {len(documents)} documents into search index.')
-    print('Ready to use.')
+    print(f"Loaded {len(documents)} documents into search index.")
+    print("Ready to use.")
 ```
 
 ## Starting everything
@@ -161,4 +161,4 @@ docker compose down
 The data in PostgreSQL and Grafana persists across restarts thanks to
 Docker volumes.
 
-[← Storing Data in PostgreSQL](03-database.md) | [Grafana Dashboards →](05-grafana.md)
+[← Built-in Judge](04-built-in-judge.md) | [Grafana Dashboards →](06-grafana.md)

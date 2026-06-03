@@ -93,8 +93,8 @@ here with minsearch transfers directly to production search engines.
 from minsearch import Index
 
 index = Index(
-    text_fields=['question', 'section', 'answer'],
-    keyword_fields=['course']
+    text_fields=["question", "section", "answer"],
+    keyword_fields=["course"]
 )
 
 index.fit(documents)
@@ -107,12 +107,12 @@ That's it. The index is built.
 Let's try a search with the question we used before:
 
 ```python
-question = 'I just discovered the course. Can I join now?'
+question = "I just discovered the course. Can I join now?"
 
 search_results = index.search(
     question,
-    boost_dict={'question': 2.0, 'section': 0.5},
-    filter_dict={'course': 'llm-zoomcamp'},
+    boost_dict={"question": 2.0, "section": 0.5},
+    filter_dict={"course": "llm-zoomcamp"},
     num_results=5
 )
 
@@ -126,7 +126,7 @@ we need.
 Here are all the questions:
 
 ```python
-[doc['question'] for doc in search_results]
+[doc["question"] for doc in search_results]
 ```
 
 We see questions about joining the course, registration, certificates,
@@ -152,7 +152,7 @@ minsearch supports field boosting to reflect this:
 results = index.search(
     question,
     num_results=5,
-    boost_dict={'question': 2.0, 'section': 0.5}
+    boost_dict={"question": 2.0, "section": 0.5}
 )
 ```
 
@@ -173,7 +173,7 @@ minsearch supports keyword filtering:
 results = index.search(
     question,
     num_results=5,
-    filter_dict={'course': 'mlops-zoomcamp'}
+    filter_dict={"course": "mlops-zoomcamp"}
 )
 ```
 
@@ -181,7 +181,7 @@ This only returns documents from the MLOps Zoomcamp. Try a few
 different queries and courses to get a feel for the results.
 
 ```python
-[doc['question'] for doc in results]
+[doc["question"] for doc in results]
 ```
 
 ## Wrapping it in a function
@@ -190,9 +190,9 @@ Let's wrap the search in a `search` function - the first component of
 our RAG pipeline:
 
 ```python
-def search(question, course='llm-zoomcamp'):
-    boost_dict = {'question': 2.0, 'section': 0.5}
-    filter_dict = {'course': course}
+def search(question, course="llm-zoomcamp"):
+    boost_dict = {"question": 2.0, "section": 0.5}
+    filter_dict = {"course": course}
 
     return index.search(
         question,

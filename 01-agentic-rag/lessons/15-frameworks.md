@@ -48,15 +48,15 @@ If we add a type hint and a docstring to `search`, ToyAIKit can
 derive the schema from the function:
 
 ```python
-def search(query: str):
+def search(query: str) -> dict[str, str]:
     """
     Search the FAQ database for entries matching the given query.
     """
     return index.search(
         query,
         num_results=5,
-        boost_dict={'question': 3.0, 'section': 0.5},
-        filter_dict={'course': 'llm-zoomcamp'}
+        boost_dict={"question": 3.0, "section": 0.5},
+        filter_dict={"course": "llm-zoomcamp"}
     )
 ```
 
@@ -67,62 +67,83 @@ agent_tools = Tools()
 agent_tools.add_tool(search)
 ```
 
-ToyAIKit reads the function name, type hints, and docstring and builds
-the JSON schema automatically. The schema stays in sync with the
-function.
+You can look at what ToyAIKit produced.
+
+```python
+agent_tools.get_tools()
+```
+
+The output is the same JSON schema we hand-wrote in the function
+calling lesson, just generated for us.
+
+Every modern agent framework does this same trick. OpenAI Agents SDK,
+PydanticAI, LangChain, and Google ADK all generate the schema from a
+typed Python function with a docstring.
 
 ## The chat interface and runner
 
-Create the chat interface and the runner:
+Create the chat interface and a callback, then build the runner:
 
 ```python
 chat_interface = IPythonChatInterface()
+callback = DisplayingRunnerCallback(chat_interface)
 
 runner = OpenAIResponsesRunner(
     tools=agent_tools,
-    developer_prompt=developer_prompt,
+    developer_prompt=instructions,
     chat_interface=chat_interface,
-    llm_client=OpenAIClient()
+    llm_client=OpenAIClient(model="gpt-5.4-mini")
 )
 ```
 
-The `chat_interface` handles display in the notebook. The runner
-handles the agent loop. It sends messages, executes function calls,
-adds tool outputs back, and repeats until the model is done.
+The `chat_interface` handles display in the notebook. The `callback`
+renders model messages and tool calls as they happen. The runner
+handles the agent loop - the same `while True` we wrote by hand. It
+sends messages, executes function calls, adds tool outputs back, and
+repeats until the model is done.
+
+We explicitly pick `gpt-5.4-mini` here. Without it, ToyAIKit falls
+back to a smaller/faster default that won't follow the instructions
+as reliably.
 
 ## Running one prompt
 
-First, set up a callback that renders model messages and function
-calls in the notebook:
-
-```python
-callback = DisplayingRunnerCallback(chat_interface)
-```
-
-Now run a single prompt:
+Run a single prompt:
 
 ```python
 result = runner.loop(
-    prompt='How do I run Ollama locally?',
+    prompt="How do I run Olama locally?",
     callback=callback,
 )
 ```
 
+Notice we used the typo "Olama" on purpose. The agent searches, sees
+poor results, and retries with "Ollama". The recovery is the same as
+the handwritten loop. The notebook output is nicer to watch because
+every tool call and message is rendered inline.
+
 The `result` is a `LoopResult` with `all_messages` (the full
-conversation), `tokens` (input/output counts), and `cost` (computed
-from token usage).
+conversation), token counts, and `cost` (computed from token usage).
 
 ## Cost and tokens
 
 Look at what the call cost:
 
 ```python
-print(f"Tokens: {result.tokens.input_tokens} in / {result.tokens.output_tokens} out")
-print(f"Cost: ${result.cost.total_cost:.6f}")
+result.cost
 ```
 
 Useful while developing - especially with multi-turn agents where one
-prompt can trigger several model calls.
+prompt can trigger several model calls. The handwritten loop made you
+compute this by hand. The framework keeps a running total for you.
+
+You can also look at the full message history.
+
+```python
+result.all_messages
+```
+
+This is just a list - the same `messages` list we maintained by hand.
 
 ## Continuing the conversation
 
@@ -130,19 +151,16 @@ Take the messages from the previous result and pass them as
 `previous_messages` on the next `loop` call:
 
 ```python
-messages = result.all_messages
-
-result = runner.loop(
-    prompt='What about on Windows?',
-    previous_messages=messages,
+result2 = runner.loop(
+    prompt="How do I run a different model?",
+    previous_messages=result.all_messages,
     callback=callback,
 )
-
-messages = result.all_messages
 ```
 
 The runner picks up where the last call left off - same agent loop,
-extended history.
+extended history. The model knows "different model" refers to Ollama
+because it sees the previous turn in memory.
 
 ## Interactive chat
 

@@ -1,18 +1,18 @@
 # Hybrid Search
 
-Vector search finds documents by semantic meaning. Keyword search
+Vector search finds documents by semantic meaning, while keyword search
 finds documents by exact word matches. Hybrid search combines both.
 
-Each
-search produces a ranked list with scores, and we combine them
-with a weighted sum:
+Each search produces a ranked list with scores.
+
+We combine them with a weighted sum:
 
 ```text
 score = alpha * vector_score + (1 - alpha) * keyword_score
 ```
 
-When `alpha = 1`, it's pure vector search. When `alpha = 0`,
-it's pure keyword search. Values in between give a mix.
+When `alpha = 1`, it's pure vector search. When `alpha = 0`, it's pure
+keyword search, and values in between give a mix.
 
 ## Reciprocal Rank Fusion
 
@@ -66,7 +66,7 @@ def rrf(search_results, k=1, num_results=10):
 
     for results in search_results:
         for rank, doc in enumerate(results):
-            key = doc['question']
+            key = doc["question"]
             if key not in scores:
                 scores[key] = 0
                 doc_map[key] = doc
@@ -79,7 +79,7 @@ def rrf(search_results, k=1, num_results=10):
 Let's put everything together:
 
 ```python
-def hybrid_search(query, course='data-engineering-zoomcamp', num_results=10):
+def hybrid_search(query, course="data-engineering-zoomcamp", num_results=10):
     keyword_results = keyword_search(query, course=course, num_results=num_results)
     vector_results = vector_search(query, course=course, num_results=num_results)
     return rrf([keyword_results, vector_results], num_results=num_results)
