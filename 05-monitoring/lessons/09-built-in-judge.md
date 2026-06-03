@@ -11,6 +11,14 @@ feedback.
 
 We use structured output to get a clean classification from the judge.
 
+We need `evaluation_utils` from module 04. Download it if you don't
+have it:
+
+```bash
+PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
+wget ${PREFIX}/04-evaluation/code/evaluation_utils.py
+```
+
 Create `judge.py`:
 
 ```python
@@ -40,26 +48,18 @@ Generated Answer: {answer}
 """.strip()
 ```
 
-We need `evaluation_utils` from module 04. Download it if you don't
-have it:
 
-```bash
-PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
-wget ${PREFIX}/04-evaluation/code/evaluation_utils.py
-```
-
-The evaluation function. Add this to `metrics.py`:
+The evaluation function. Add this to `judge.py`:
 
 ```python
-from openai import OpenAI
+def evaluate_relevance(question, answer, client=None):
+    if client is None:
+        client = OpenAI()
 
-openai_client = OpenAI()
-
-def evaluate_relevance(question, answer):
     prompt = judge_prompt.format(question=question, answer=answer)
 
     result, usage = llm_structured_retry(
-        openai_client,
+        client,
         judge_instructions,
         prompt,
         RelevanceVerdict,
@@ -68,99 +68,36 @@ def evaluate_relevance(question, answer):
     return result.relevance, result.explanation
 ```
 
-Test it on one answer:
-
-```python
-question = "Can I still join the course?"
-answer = "Yes, you can still join. The course is self-paced."
-
-relevance, explanation = evaluate_relevance(question, answer)
-print(relevance)
-print(explanation)
-```
-
-## Saving feedback to the database
-
-Create a generic feedback table that works for both LLM judge
-evaluations and user thumbs up/down. The `source` column tells us
-where the feedback came from.
-
-Add a new function `init_feedback` to `db_init.py`:
-
-```python
-def init_feedback():
-    conn = get_db_connection()
-    try:
-        with conn.cursor() as cur:
-            cur.execute("DROP TABLE IF EXISTS feedback")
-
-            cur.execute("""
-                CREATE TABLE feedback (
-                    id SERIAL PRIMARY KEY,
-                    conversation_id INTEGER REFERENCES conversations(id),
-                    source TEXT NOT NULL,
-                    relevance TEXT,
-                    explanation TEXT,
-                    score INTEGER,
-                    timestamp TIMESTAMP WITH TIME ZONE NOT NULL
-                )
-            """)
-        conn.commit()
-    finally:
-        conn.close()
-```
-
-Update the `__main__` block to call both:
+Test it:
 
 ```python
 if __name__ == "__main__":
-    init_db()
-    init_feedback()
-    print("Database initialized")
+    question = "Can I still join the course?"
+    answer = "Yes, you can still join. The course is self-paced."
+
+    relevance, explanation = evaluate_relevance(question, answer)
+    print(relevance)
+    print(explanation)
 ```
 
-- `source`: `"judge"` for LLM evaluations, `"user"` for human feedback
-- `relevance` and `explanation`: used by the judge
-- `score`: used by user feedback (+1 or -1)
-
-Create `db_feedback.py` to save feedback:
-
-```python
-from datetime import datetime
-from db_init import get_db_connection
-
-tz = datetime.now().astimezone().tzinfo
-
-def save_feedback(conversation_id, source, relevance=None,
-                  explanation=None, score=None):
-    timestamp = datetime.now(tz)
-
-    conn = get_db_connection()
-    try:
-        with conn.cursor() as cur:
-            cur.execute(
-                """
-                INSERT INTO feedback (
-                    conversation_id, source, relevance,
-                    explanation, score, timestamp
-                ) VALUES (
-                    %s, %s, %s, %s, %s, %s
-                )
-                """,
-                (conversation_id, source, relevance,
-                 explanation, score, timestamp),
-            )
-        conn.commit()
-    finally:
-        conn.close()
+```bash
+uv run python judge.py
 ```
+
+## Saving judge feedback to the database
+
+We already created the `feedback` table in lesson 08. It has a
+`source` column that tells us where the feedback came from.
+
+We already have `db_feedback.py` with `save_feedback`. We just need
+to call it with `source="judge"`.
 
 ## Integrating with the app
 
 In `app.py`, call the judge after getting the answer and save it:
 
 ```python
-from metrics import evaluate_relevance
+from judge import evaluate_relevance
 from db_feedback import save_feedback
 
         assistant.rag(user_input)
