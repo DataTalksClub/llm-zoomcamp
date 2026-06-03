@@ -1,8 +1,8 @@
 # Grafana Dashboards
 
 Grafana is a dashboard tool that visualizes data from databases. We
-already store conversations in PostgreSQL. We can build dashboards
-that show what's happening in our system in real time.
+store conversations and feedback in PostgreSQL. We can build
+dashboards that show what's happening in our system in real time.
 
 ## Starting Grafana with Docker
 
@@ -113,6 +113,38 @@ GROUP BY model
 
 Use a Bar chart for this panel.
 
+## Relevance Distribution Panel
+
+Shows how many answers are RELEVANT, PARTLY_RELEVANT, or
+NON_RELEVANT according to the judge:
+
+```sql
+SELECT
+  relevance,
+  COUNT(*) as count
+FROM feedback
+WHERE source = 'judge'
+  AND timestamp BETWEEN $__timeFrom() AND $__timeTo()
+GROUP BY relevance
+```
+
+Use a Pie chart for this panel.
+
+## User Feedback Panel
+
+Shows thumbs up vs thumbs down:
+
+```sql
+SELECT
+  SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) as thumbs_up,
+  SUM(CASE WHEN score < 0 THEN 1 ELSE 0 END) as thumbs_down
+FROM feedback
+WHERE source = 'user'
+  AND timestamp BETWEEN $__timeFrom() AND $__timeTo()
+```
+
+Use a Gauge or Pie chart for this panel.
+
 ## Recent Conversations Panel
 
 Shows the last 5 conversations in a table:
@@ -140,10 +172,10 @@ current. You can also set the default time range to "Last 6 hours".
 Arrange the panels in a layout that makes sense:
 
 - Top row: recent conversations table (wide)
-- Middle row: model usage bar chart
+- Middle row: model usage bar chart | relevance pie chart
 - Bottom row: response time | token usage | cost
 
 This dashboard gives you a clear view of system performance. It covers
-response speed, cost, and model popularity at a glance.
+response speed, cost, relevance, and user satisfaction at a glance.
 
 [← Synthetic Data](10-synthetic-data.md) | [Docker Compose →](12-docker-compose.md)
