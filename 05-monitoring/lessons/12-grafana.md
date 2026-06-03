@@ -52,7 +52,9 @@ queries automatically filter to that range.
 
 ## Response Time Panel
 
-Shows how long the LLM takes to respond over time:
+Shows how long the LLM takes to respond over time. This is a simple
+query - each row in the conversations table is already one LLM call,
+so we just plot the raw values:
 
 ```sql
 SELECT
@@ -67,7 +69,10 @@ Use the Time series visualization for this panel.
 
 ## Token Usage Panel
 
-Shows token consumption over time:
+Shows token consumption over time. Here we can't plot every single
+row because over a long time range there would be too many points.
+Instead, we group by time intervals (e.g. every 5 minutes) and take
+the average within each bucket:
 
 ```sql
 SELECT
@@ -79,11 +84,16 @@ GROUP BY 1
 ORDER BY 1
 ```
 
+`$__timeGroup` rounds timestamps into buckets. `GROUP BY 1` groups
+by the first column (the bucket). `AVG` gives the average tokens per
+bucket.
+
 Use the Time series visualization for this panel.
 
 ## Cost Panel
 
-Shows cumulative cost over time:
+Shows cumulative cost over time. Same idea - we group into time
+buckets, but here we `SUM` the costs instead of averaging:
 
 ```sql
 SELECT
@@ -178,4 +188,4 @@ Arrange the panels in a layout that makes sense:
 This dashboard gives you a clear view of system performance. It covers
 response speed, cost, relevance, and user satisfaction at a glance.
 
-[← Synthetic Data](10-synthetic-data.md) | [Docker Compose →](12-docker-compose.md)
+[← Synthetic Data](11-synthetic-data.md) | [Docker Compose →](13-docker-compose.md)

@@ -17,12 +17,13 @@ in PostgreSQL, and create Grafana dashboards for real-time monitoring.
 5. [Database](lessons/05-database.md) - PostgreSQL with Docker, saving conversations
 6. [Querying Data](lessons/06-querying.md) - Fetching stored conversations
 7. [Streamlit Dashboard](lessons/07-streamlit-dashboard.md) - Visualizing metrics in Streamlit
-8. [User Feedback](lessons/08-user-feedback.md) - Thumbs up/down buttons
-9. [Built-in Judge](lessons/09-built-in-judge.md) - LLM-as-a-judge for automatic relevance evaluation
-10. [Synthetic Data](lessons/10-synthetic-data.md) - Generating test data for dashboards
-11. [Grafana Dashboards](lessons/11-grafana.md) - SQL queries and dashboard panels
-12. [Docker Compose](lessons/12-docker-compose.md) - Running everything together
-13. [Next Steps](lessons/13-next-steps.md) - OpenTelemetry, alerting, further reading
+8. [Feedback Dashboard](lessons/08-feedback-dashboard.md) - Adding feedback panels to the Streamlit dashboard
+9. [User Feedback](lessons/09-user-feedback.md) - Thumbs up/down buttons
+10. [Built-in Judge](lessons/10-built-in-judge.md) - LLM-as-a-judge for automatic relevance evaluation
+11. [Synthetic Data](lessons/11-synthetic-data.md) - Generating test data for dashboards
+12. [Grafana Dashboards](lessons/12-grafana.md) - SQL queries and dashboard panels
+13. [Docker Compose](lessons/13-docker-compose.md) - Running everything together
+14. [Next Steps](lessons/14-next-steps.md) - OpenTelemetry, alerting, further reading
 
 
 ## Older content

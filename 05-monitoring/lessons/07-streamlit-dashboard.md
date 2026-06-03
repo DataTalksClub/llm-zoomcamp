@@ -109,4 +109,4 @@ uv run streamlit run dashboard.py --server.port 8502
 
 Later we'll set up Grafana for a more production-ready dashboard.
 
-[← Querying Data](06-querying.md) | [User Feedback →](08-user-feedback.md)
+[← Querying Data](06-querying.md) | [Feedback Dashboard →](08-feedback-dashboard.md)

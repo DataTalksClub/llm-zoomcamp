@@ -86,7 +86,7 @@ uv run python judge.py
 
 ## Saving judge feedback to the database
 
-We already created the `feedback` table in lesson 08. It has a
+We already created the `feedback` table in lesson 09. It has a
 `source` column that tells us where the feedback came from.
 
 We already have `db_feedback.py` with `save_feedback`. We just need
@@ -122,4 +122,4 @@ The judge adds an extra LLM call per question, which increases cost and
 latency. For high-traffic applications, evaluate only a sample of
 answers instead of every one.
 
-[← User Feedback](08-user-feedback.md) | [Synthetic Data →](10-synthetic-data.md)
+[← User Feedback](09-user-feedback.md) | [Synthetic Data →](11-synthetic-data.md)

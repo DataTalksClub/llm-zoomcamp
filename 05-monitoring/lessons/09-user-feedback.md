@@ -133,4 +133,4 @@ with col2:
 Now users can rate each answer. In the next lesson, we'll add an
 LLM judge that uses the same feedback table.
 
-[← Streamlit Dashboard](07-streamlit-dashboard.md) | [Built-in Judge →](09-built-in-judge.md)
+[← Feedback Dashboard](08-feedback-dashboard.md) | [Built-in Judge →](10-built-in-judge.md)
