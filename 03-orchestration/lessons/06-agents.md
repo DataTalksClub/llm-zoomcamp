@@ -115,13 +115,17 @@ Kestra provides full observability for agent executions — token usage, tool ex
 Enable detailed logging via the `configuration` property:
 
 ```yaml
-provider:
-  type: io.kestra.plugin.ai.provider.GoogleGemini
-  modelName: gemini-2.5-flash
-  apiKey: "{{ secret('GEMINI_API_KEY') }}"
-  configuration:
-    logRequests: true
-    logResponses: true
+tasks:
+  - id: research_agent
+    type: io.kestra.plugin.ai.agent.AIAgent
+    description: Autonomous research agent with web search capabilities
+    provider:
+      type: io.kestra.plugin.ai.provider.GoogleGemini
+      apiKey: "{{ secret('GEMINI_API_KEY') }}"
+      modelName: gemini-2.5-flash
+    configuration:
+      logRequests: true
+      logResponses: true
 ```
 
 [← RAG](05-rag.md) | [Multi-Agent Systems →](07-multi-agent.md)
