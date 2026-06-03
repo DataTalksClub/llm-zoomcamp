@@ -54,4 +54,4 @@ Right now we don't track anything - no response time, no token usage,
 no cost. In the next lesson, we'll add metrics capture to monitor the
 LLM calls.
 
-[← Assistant](02-assistant.md) | [Capturing Metrics →](04-metrics.md)
+[← Assistant](02-assistant-setup.md) | [Capturing Metrics →](04-metrics.md)

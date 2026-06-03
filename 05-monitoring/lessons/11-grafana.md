@@ -146,4 +146,4 @@ Arrange the panels in a layout that makes sense:
 This dashboard gives you a clear view of system performance. It covers
 response speed, cost, and model popularity at a glance.
 
-[← Built-in Judge](08-built-in-judge.md) | [Docker Compose →](10-docker-compose.md)
+[← Synthetic Data](10-synthetic-data.md) | [Docker Compose →](12-docker-compose.md)

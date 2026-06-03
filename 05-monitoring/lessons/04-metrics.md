@@ -158,4 +158,4 @@ Now you can see response time, token usage, and cost for each answer.
 In the next lesson, we'll save these records to a database so we can
 track usage over time.
 
-[← Chat App](02-chat-app.md) | [Storing Data in PostgreSQL →](04-database.md)
+[← Chat App](03-chat-app.md) | [Storing Data in PostgreSQL →](05-database.md)

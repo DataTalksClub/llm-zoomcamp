@@ -161,4 +161,4 @@ If your users are in a different timezone, adjust this accordingly. The
 important thing is to use `TIMESTAMP WITH TIME ZONE` in PostgreSQL and
 always store timezone-aware datetimes.
 
-[← Docker Compose](10-docker-compose.md) | [Next Steps →](12-next-steps.md)
+[← Grafana Dashboards](11-grafana.md) | [Next Steps →](13-next-steps.md)

@@ -36,4 +36,4 @@ We'll cover:
 - Grafana dashboards with SQL queries
 - Generating synthetic data to test dashboards
 
-[← Back to module](../) | [Chat App →](02-chat-app.md)
+[← Back to module](../) | [Assistant →](02-assistant-setup.md)

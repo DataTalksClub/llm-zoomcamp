@@ -11,17 +11,18 @@ in PostgreSQL, and create Grafana dashboards for real-time monitoring.
 ## Lessons
 
 1. [Intro](lessons/01-intro.md) - Why monitoring matters, what we'll build
-2. [Chat App](lessons/02-chat-app.md) - Basic Streamlit app with RAG
-3. [Capturing Metrics](lessons/03-metrics.md) - LLMCallRecord, cost tracking
-4. [Database](lessons/04-database.md) - PostgreSQL with Docker, saving conversations
-5. [Querying Data](lessons/05-querying.md) - Fetching stored conversations
-6. [Streamlit Dashboard](lessons/06-streamlit-dashboard.md) - Visualizing metrics in Streamlit
-7. [User Feedback](lessons/07-user-feedback.md) - Thumbs up/down buttons
-8. [Built-in Judge](lessons/08-built-in-judge.md) - LLM-as-a-judge for automatic relevance evaluation
-9. [Grafana Dashboards](lessons/09-grafana.md) - SQL queries and dashboard panels
-10. [Docker Compose](lessons/10-docker-compose.md) - Running everything together
-11. [Synthetic Data](lessons/11-synthetic-data.md) - Generating test data for dashboards
-12. [Next Steps](lessons/12-next-steps.md) - OpenTelemetry, alerting, further reading
+2. [Assistant Setup](lessons/02-assistant-setup.md) - Setting up the RAG assistant
+3. [Chat App](lessons/03-chat-app.md) - Basic Streamlit app with RAG
+4. [Capturing Metrics](lessons/04-metrics.md) - LLMCallRecord, cost tracking
+5. [Database](lessons/05-database.md) - PostgreSQL with Docker, saving conversations
+6. [Querying Data](lessons/06-querying.md) - Fetching stored conversations
+7. [Streamlit Dashboard](lessons/07-streamlit-dashboard.md) - Visualizing metrics in Streamlit
+8. [User Feedback](lessons/08-user-feedback.md) - Thumbs up/down buttons
+9. [Built-in Judge](lessons/09-built-in-judge.md) - LLM-as-a-judge for automatic relevance evaluation
+10. [Synthetic Data](lessons/10-synthetic-data.md) - Generating test data for dashboards
+11. [Grafana Dashboards](lessons/11-grafana.md) - SQL queries and dashboard panels
+12. [Docker Compose](lessons/12-docker-compose.md) - Running everything together
+13. [Next Steps](lessons/13-next-steps.md) - OpenTelemetry, alerting, further reading
 
 
 ## Older content

@@ -70,4 +70,4 @@ if __name__ == "__main__":
 uv run python db_query.py
 ```
 
-[← Storing Data in PostgreSQL](04-database.md) | [Streamlit Dashboard →](06-streamlit-dashboard.md)
+[← Storing Data in PostgreSQL](05-database.md) | [Streamlit Dashboard →](07-streamlit-dashboard.md)

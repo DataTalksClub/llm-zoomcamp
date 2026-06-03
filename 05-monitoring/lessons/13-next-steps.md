@@ -29,4 +29,4 @@ For additional resources:
   - 2024 cohort monitoring module:
     [2024/04-monitoring](../cohorts/2024/04-monitoring/)
 
-[← Synthetic Data Generation](11-synthetic-data.md) | [Back to module →](../)
+[← Docker Compose](12-docker-compose.md) | [Back to module →](../)

@@ -109,4 +109,4 @@ uv run python assistant.py "How do I join the course?"
 You should see an answer printed to the console. In the next lesson,
 we'll wrap this in a Streamlit app.
 
-[← Monitoring](01-intro.md) | [Chat App →](02-chat-app.md)
+[← Intro](01-intro.md) | [Chat App →](03-chat-app.md)

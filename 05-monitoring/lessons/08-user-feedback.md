@@ -86,7 +86,7 @@ def save_feedback(conversation_id, source, relevance=None,
 
 ## Adding buttons to the app
 
-We already save conversations in `app.py` from lesson 04. Now we need
+We already save conversations in `app.py` from lesson 05. Now we need
 to capture the `conversation_id` returned by `save_conversation` and
 add feedback buttons.
 
@@ -133,4 +133,4 @@ with col2:
 Now users can rate each answer. In the next lesson, we'll add an
 LLM judge that uses the same feedback table.
 
-[← Streamlit Dashboard](06-streamlit-dashboard.md) | [Built-in Judge →](08-built-in-judge.md)
+[← Streamlit Dashboard](07-streamlit-dashboard.md) | [Built-in Judge →](09-built-in-judge.md)

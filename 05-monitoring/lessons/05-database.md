@@ -271,4 +271,4 @@ save_conversation(record, user_input, "llm-zoomcamp")
 That's it - every question and answer is now saved to PostgreSQL. In the next
 lesson, we'll query the data to see recent conversations.
 
-[← Capturing Metrics](03-metrics.md) | [Querying Data →](05-querying.md)
+[← Capturing Metrics](04-metrics.md) | [Querying Data →](06-querying.md)
