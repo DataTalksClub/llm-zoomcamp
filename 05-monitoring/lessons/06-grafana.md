@@ -161,4 +161,4 @@ With this dashboard, you can see at a glance how your system is
 performing: are answers relevant? are users happy? how much is it
 costing? which models are popular?
 
-[← Docker Compose](04-docker-compose.md) | [Synthetic Data Generation →](06-synthetic-data.md)
+[← Docker Compose](05-docker-compose.md) | [Synthetic Data Generation →](07-synthetic-data.md)

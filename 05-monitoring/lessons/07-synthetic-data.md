@@ -161,4 +161,4 @@ If your users are in a different timezone, adjust this accordingly. The
 important thing is to use `TIMESTAMP WITH TIME ZONE` in PostgreSQL and
 always store timezone-aware datetimes.
 
-[← Grafana Dashboards](05-grafana.md) | [Next Steps →](07-next-steps.md)
+[← Grafana Dashboards](06-grafana.md) | [Next Steps →](08-next-steps.md)
