@@ -4,9 +4,9 @@ In module 04, we evaluated our system offline, before deployment. We
 measured search quality with Hit Rate and MRR, and answer quality with
 cosine similarity and LLM-as-a-judge.
 
-But what happens after we deploy? Users ask questions, the system gives
-answers, and we have no idea if the answers are good. Offline evaluation
-doesn't tell us how the system performs with real users.
+After we deploy, users ask questions and the system gives answers. But we
+have no idea if the answers are good. Offline evaluation doesn't tell us
+how the system performs with real users.
 
 That's where monitoring comes in. Monitoring is online evaluation,
 collecting metrics from a running system to track its health and quality.
@@ -36,4 +36,4 @@ We'll cover:
 - Grafana dashboards with SQL queries
 - Generating synthetic data to test dashboards
 
-[← Back to module](../) | [Chat App with Feedback →](02-chat-app.md)
+[← Back to module](../) | [Chat App →](02-chat-app.md)

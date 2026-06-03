@@ -1,12 +1,13 @@
 # Docker Compose
 
-We now have three components - the Streamlit app, PostgreSQL, and
-(soon) Grafana. Starting each one manually works, but Docker Compose
-makes it easier to manage them together.
+We now have three components running - PostgreSQL, Grafana, and the
+Streamlit app. Starting each one manually and connecting them with
+networks works, but Docker Compose makes it easier to manage them
+together.
 
 ## Project structure
 
-The project contains the app, database schema, and infrastructure files:
+The project layout:
 
 ```text
 code/
@@ -18,17 +19,14 @@ code/
 ├── .python-version
 ├── app.py           # Streamlit app
 ├── assistant.py     # RAG pipeline + LLM
-├── db.py            # Database functions
-├── prep.py          # Initialize DB and load data
-└── generate_data.py # Synthetic data generator
+├── db_init.py       # Database init
+├── db_save.py       # Save conversations
+└── dashboard.py     # Streamlit dashboard
 ```
 
 ## Dockerfile
 
-The Streamlit app needs its own container.
-
-We use uv inside Docker,
-just like we do locally:
+The Streamlit app needs its own container:
 
 ```dockerfile
 FROM python:3.14-slim
@@ -60,17 +58,14 @@ OPENAI_API_KEY=your-key-here
 
 ## Docker Compose
 
-The Compose file defines three services.
-
-First, PostgreSQL and the
-Streamlit app:
+The Compose file defines all three services on the same network:
 
 ```yaml
 version: '3.8'
 
 services:
   postgres:
-    image: postgres:16
+    image: postgres:17
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -80,6 +75,21 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - postgres
+```
+
+The Streamlit service is built from the Dockerfile:
+
+```yaml
   streamlit:
     build:
       context: .
@@ -94,59 +104,24 @@ services:
       - "8501:8501"
     depends_on:
       - postgres
-```
-
-Grafana gets its own container with a persistent volume:
-
-```yaml
-  grafana:
-    image: grafana/grafana:latest
-    ports:
-      - "3000:3000"
-    volumes:
-      - grafana_data:/var/lib/grafana
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
-    depends_on:
-      - postgres
 
 volumes:
   postgres_data:
   grafana_data:
 ```
 
-## Preparation script
-
-Before using the app, we need to initialize the database and load the
-FAQ data.
-
-The `prep.py` script does this:
-
-```python
-from db import init_db
-from assistant import index, documents
-
-if __name__ == "__main__":
-    print("Initializing database...")
-    init_db()
-    print("Database initialized.")
-
-    print(f"Loaded {len(documents)} documents into search index.")
-    print("Ready to use.")
-```
-
 ## Starting everything
 
-To launch all services:
+Start all services:
 
 ```bash
 docker compose up -d
 ```
 
-Then initialize the database:
+Initialize the database:
 
 ```bash
-uv run python prep.py
+uv run python db_init.py
 ```
 
 Access the app at `http://localhost:8501` and Grafana at
@@ -161,4 +136,4 @@ docker compose down
 The data in PostgreSQL and Grafana persists across restarts thanks to
 Docker volumes.
 
-[← Built-in Judge](04-built-in-judge.md) | [Grafana Dashboards →](06-grafana.md)
+[← Grafana Dashboards](09-grafana.md) | [Synthetic Data Generation →](11-synthetic-data.md)

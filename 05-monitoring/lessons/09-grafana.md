@@ -1,24 +1,40 @@
 # Grafana Dashboards
 
 Grafana is a dashboard tool that visualizes data from databases. We
-already store conversations and feedback in PostgreSQL, so we can build
-dashboards that show what's happening in our system in real time.
+already store conversations in PostgreSQL. We can build dashboards
+that show what's happening in our system in real time.
+
+## Starting Grafana with Docker
+
+Start Grafana on the same network with a volume for data persistence:
+
+```bash
+docker run -d \
+    --name grafana \
+    --network monitoring \
+    -p 3000:3000 \
+    -v grafana_data:/var/lib/grafana \
+    grafana/grafana
+```
+
+We already created the network and started PostgreSQL on it in the
+database lesson.
+
+Access Grafana at `http://localhost:3000` (login: admin / admin).
 
 ## Setting up the data source
 
-Follow these steps to connect Grafana to PostgreSQL:
+Connect Grafana to PostgreSQL:
 
-1. Open Grafana at `http://localhost:3000`
-2. Login with admin / admin
-3. Go to Configuration > Data Sources > Add data source
-4. Select PostgreSQL
-5. Fill in the connection details:
-   - Host: `postgres:5432`
+1. Go to Configuration > Data Sources > Add data source
+2. Select PostgreSQL
+3. Fill in the connection details:
+   - Host: `course-assistant-pg:5432`
    - Database: `course_assistant`
    - User: `user`
    - Password: `password`
    - SSL Mode: disable
-6. Click Save & Test. It should say "Database Connection OK"
+4. Click Save & Test. It should say "Database Connection OK"
 
 ## Creating the dashboard
 
@@ -49,21 +65,6 @@ ORDER BY timestamp
 
 Use the Time series visualization for this panel.
 
-## Relevance Distribution Panel
-
-Shows how many answers are RELEVANT, PARTLY_RELEVANT, or NON_RELEVANT:
-
-```sql
-SELECT
-  relevance,
-  COUNT(*) as count
-FROM conversations
-WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
-GROUP BY relevance
-```
-
-Use a Gauge or a Pie chart for this panel.
-
 ## Token Usage Panel
 
 Shows token consumption over time:
@@ -80,17 +81,17 @@ ORDER BY 1
 
 Use the Time series visualization for this panel.
 
-## OpenAI Cost Panel
+## Cost Panel
 
 Shows cumulative cost over time:
 
 ```sql
 SELECT
   $__timeGroup(timestamp, $__interval) AS time,
-  SUM(openai_cost) AS total_cost
+  SUM(cost) AS total_cost
 FROM conversations
 WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
-  AND openai_cost > 0
+  AND cost > 0
 GROUP BY 1
 ORDER BY 1
 ```
@@ -103,11 +104,11 @@ Shows which models are being used:
 
 ```sql
 SELECT
-  model_used,
+  model,
   COUNT(*) as count
 FROM conversations
 WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
-GROUP BY model_used
+GROUP BY model
 ```
 
 Use a Bar chart for this panel.
@@ -121,7 +122,8 @@ SELECT
   timestamp AS time,
   question,
   answer,
-  relevance
+  response_time,
+  cost
 FROM conversations
 WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
 ORDER BY timestamp DESC
@@ -130,35 +132,18 @@ LIMIT 5
 
 Panel type: Table
 
-## Feedback Statistics Panel
-
-Shows thumbs up vs thumbs down:
-
-```sql
-SELECT
-  SUM(CASE WHEN feedback > 0 THEN 1 ELSE 0 END) as thumbs_up,
-  SUM(CASE WHEN feedback < 0 THEN 1 ELSE 0 END) as thumbs_down
-FROM feedback
-WHERE timestamp BETWEEN $__timeFrom() AND $__timeTo()
-```
-
-Use a Pie chart for this panel.
-
 ## Dashboard settings
 
 Set the dashboard to auto-refresh every 30 seconds so the data stays
 current. You can also set the default time range to "Last 6 hours".
 
-Arrange the panels in a layout that makes sense.
-
-A common layout:
+Arrange the panels in a layout that makes sense:
 
 - Top row: recent conversations table (wide)
-- Middle row: feedback pie chart | relevance gauge | model usage bar
+- Middle row: model usage bar chart
 - Bottom row: response time | token usage | cost
 
-With this dashboard, you can see at a glance how your system is
-performing: are answers relevant? are users happy? how much is it
-costing? which models are popular?
+This dashboard gives you a clear view of system performance. It covers
+response speed, cost, and model popularity at a glance.
 
-[← Docker Compose](05-docker-compose.md) | [Synthetic Data Generation →](07-synthetic-data.md)
+[← Built-in Judge](08-built-in-judge.md) | [Docker Compose →](10-docker-compose.md)

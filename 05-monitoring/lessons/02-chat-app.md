@@ -1,122 +1,89 @@
-# Chat App with Feedback
+# Chat App
 
-We need a user interface where people can ask questions and give
-feedback on the answers. Streamlit is a Python framework that makes it
-easy to build web apps with minimal code.
+We need a user interface where people can ask questions and see
+answers. Streamlit is a Python framework that makes it easy to build
+web apps with minimal code.
 
 Let's build a chat app that:
 
 - Lets the user select a course and ask a question
 - Runs the RAG pipeline and shows the answer
-- Has thumbs up / thumbs down buttons for feedback
 
 ## Setting up the RAG pipeline
 
 First, the RAG pipeline.
 
-We use the `RAGBase` class from module 01:
+We'll use helper files from module 01.
+
+If you don't have them, download them:
+
+```bash
+PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
+
+wget ${PREFIX}/01-agentic-rag/code/ingest.py
+wget ${PREFIX}/01-agentic-rag/code/rag_helper.py
+```
+
+Create `assistant.py`.
+
+Imports:
 
 ```python
-from rag_helper import RAGBase, load_faq_data
-from minsearch import Index
+import sys
+
+from rag_helper import RAGBase
+from ingest import load_faq_data, build_index
 from openai import OpenAI
+```
 
-documents = load_faq_data()
+Instructions for the LLM:
 
-index = Index(
-    text_fields=["question", "section", "answer"],
-    keyword_fields=["course"]
-)
-index.fit(documents)
-
+```python
 INSTRUCTIONS = """
 You're a course teaching assistant.
 Answer the QUESTION based on the CONTEXT from the FAQ database.
 Use only the facts from the CONTEXT when answering the QUESTION.
 """.strip()
-
-assistant = RAGBase(
-    index=index,
-    llm_client=OpenAI(),
-    instructions=INSTRUCTIONS,
-)
 ```
 
-For monitoring, we need to track response time and token usage.
-
-We create a subclass of `RAGBase` that captures these metrics
-automatically. This way we don't have to instrument each LLM call by
-hand. Every time `rag()` calls the LLM internally, the metrics are
-recorded.
+A function to create the assistant:
 
 ```python
-import time
+def create_assistant():
+    documents = load_faq_data()
+    index = build_index(documents)
 
-class RAGWithMetrics(RAGBase):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.last_response_time = None
-        self.last_tokens = None
-
-    def llm(self, prompt):
-        start_time = time.time()
-
-        input_messages = [
-            {"role": "developer", "content": self.instructions},
-            {"role": "user", "content": prompt}
-        ]
-        response = self.llm_client.responses.create(
-            model=self.model,
-            input=input_messages
-        )
-
-        self.last_response_time = time.time() - start_time
-        self.last_tokens = {
-            "prompt_tokens": response.usage.input_tokens,
-            "completion_tokens": response.usage.output_tokens,
-            "total_tokens": response.usage.total_tokens
-        }
-
-        return response.output_text
+    return RAGBase(
+        index=index,
+        llm_client=OpenAI(),
+        instructions=INSTRUCTIONS,
+    )
 ```
 
-Use the subclass instead of `RAGBase`:
+Test it from the command line:
 
 ```python
-assistant = RAGWithMetrics(
-    index=index,
-    llm_client=OpenAI(),
-    instructions=INSTRUCTIONS,
-)
-```
+if __name__ == "__main__":
+    assistant = create_assistant()
 
-Now when we call `assistant.rag(question)`, the metrics are available
-as `assistant.last_response_time` and `assistant.last_tokens`.
+    query = "How do I join the course?"
+    if len(sys.argv) > 1:
+        query = sys.argv[1]
 
-The main function that ties it together:
-
-```python
-def calculate_cost(model, tokens):
-    cost = 0
-    if "gpt-5.4-mini" in model:
-        cost = (tokens["prompt_tokens"] * 0.15 + tokens["completion_tokens"] * 0.60) / 1_000_000
-    return cost
-
-def get_answer(query, course):
     answer = assistant.rag(query)
+    print(answer)
+```
 
-    openai_cost = calculate_cost(assistant.model, assistant.last_tokens)
+Run the assistant:
 
-    return {
-        "answer": answer,
-        "response_time": assistant.last_response_time,
-        "model_used": assistant.model,
-        "prompt_tokens": assistant.last_tokens["prompt_tokens"],
-        "completion_tokens": assistant.last_tokens["completion_tokens"],
-        "total_tokens": assistant.last_tokens["total_tokens"],
-        "openai_cost": openai_cost,
-    }
+```bash
+uv run python assistant.py
+```
+
+Or with a custom question:
+
+```bash
+uv run python assistant.py "How do I join the course?"
 ```
 
 ## Building the Streamlit app
@@ -127,28 +94,23 @@ Add Streamlit to your project:
 uv add streamlit
 ```
 
-Now the Streamlit interface:
+Now the Streamlit interface - put this in `app.py`:
 
 ```python
 import streamlit as st
-from assistant import get_answer
+from assistant import create_assistant
+
+assistant = create_assistant()
 
 st.title("Course Assistant")
-
-course = st.selectbox(
-    "Select a course:",
-    ["data-engineering-zoomcamp", "machine-learning-zoomcamp", "mlops-zoomcamp", "llm-zoomcamp"],
-)
 
 user_input = st.text_input("Enter your question:")
 
 if st.button("Ask"):
     with st.spinner("Processing..."):
-        answer_data = get_answer(user_input, course)
+        answer = assistant.rag(user_input)
         st.success("Completed!")
-        st.write(answer_data["answer"])
-
-        st.write(f"""Response time: {answer_data["response_time"]:.2f}s""")
+        st.write(answer)
 ```
 
 Run the app:
@@ -157,10 +119,11 @@ Run the app:
 uv run streamlit run app.py
 ```
 
-You should see a web interface where you can ask questions and see the
-answer with response time and token usage.
+You should see a web interface where you can ask questions and see
+the answer.
 
-In the next lesson, we'll add persistence to save conversations and
-feedback to a database.
+Right now we don't track anything - no response time, no token usage,
+no cost. In the next lesson, we'll add metrics capture to monitor the
+LLM calls.
 
-[← Monitoring](01-intro.md) | [Storing Data in PostgreSQL →](03-database.md)
+[← Monitoring](01-intro.md) | [Capturing Metrics →](03-metrics.md)

@@ -2,10 +2,11 @@
 
 In this module, we built a monitoring system for our RAG pipeline:
 
-- Streamlit app for the user interface with feedback buttons
-- PostgreSQL for storing conversations and feedback
-- Docker Compose to run everything together
+- Streamlit app for the user interface
+- Metrics capture with LLMCallRecord
+- PostgreSQL for storing conversations
 - Grafana dashboards for real-time monitoring
+- Docker Compose to run everything together
 
 This is a basic setup.
 
@@ -20,7 +21,7 @@ The 2024 cohort used Elasticsearch instead of minsearch, and included
 Ollama for local models. If you're interested in that setup, see
 [2024 monitoring module](../cohorts/2024/04-monitoring/).
 
-## Further reading
+## To learn more
 
 For additional resources:
 
@@ -28,4 +29,4 @@ For additional resources:
   - 2024 cohort monitoring module:
     [2024/04-monitoring](../cohorts/2024/04-monitoring/)
 
-[← Synthetic Data Generation](07-synthetic-data.md) | [Back to module →](../)
+[← Synthetic Data Generation](11-synthetic-data.md) | [Back to module →](../)
