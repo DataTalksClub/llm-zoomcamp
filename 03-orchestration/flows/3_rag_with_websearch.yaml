@@ -1,0 +1,20 @@
+id: 3_rag_with_websearch
+namespace: zoomcamp
+
+description: |
+  This flow demonstrates RAG (Retrieval Augmented Generation) by means of a live web search to look up Kestra release information and answer questions accurately.
+  
+  Compare this with 2_chat_with_rag.yaml which uses static content ingestion and an embedding store.
+
+tasks:
+  - id: chat_with_rag_and_websearch_content_retriever
+    type: io.kestra.plugin.ai.rag.ChatCompletion
+    chatProvider:
+      type: io.kestra.plugin.ai.provider.OpenAI
+      apiKey: "{{ secret('OPENAI_API_KEY') }}"
+      modelName: gpt-5-mini
+    contentRetrievers:
+      - type: io.kestra.plugin.ai.retriever.TavilyWebSearch
+        apiKey: "{{ secret('TAVILY_API_KEY') }}"
+    systemMessage: You are a helpful assistant that can answer questions about Kestra.
+    prompt: What is the latest release of Kestra?
