@@ -1,30 +1,11 @@
-# Synthetic Data Generation
-
-When you first set up Grafana, there's no data to visualize. You could
-use the app manually for a while, but that's slow. Instead, we generate
-synthetic data to populate the dashboards.
-
-We'll create a script that keeps inserting new conversations every
-second until we stop it.
-
-## Sample data
-
-Create `generate_data.py`.
-
-Imports and sample data:
-
-```python
 import time
 import random
 
 from metrics import LLMCallRecord
 from db_save import save_conversation
 from db_feedback import save_feedback
-```
 
-Sample data:
 
-```python
 SAMPLE_QUESTIONS = [
     "How do I install Docker?",
     "Can I still join the course?",
@@ -42,13 +23,8 @@ SAMPLE_ANSWERS = [
 ]
 
 RELEVANCE = ["RELEVANT", "PARTLY_RELEVANT", "NON_RELEVANT"]
-```
 
-## Generating conversations
 
-A helper to create a fake `LLMCallRecord`:
-
-```python
 def fake_record(question, answer):
     return LLMCallRecord(
         model="gpt-5.4-mini",
@@ -61,22 +37,12 @@ def fake_record(question, answer):
         response_time=random.uniform(0.5, 5.0),
         cost=random.uniform(0.0001, 0.01),
     )
-```
 
-## Generating one conversation
 
-A helper to randomly pick a thumbs up or down.
-
-We put more 1s than -1s to simulate that most users are happy with the answers:
-
-```python
 def random_score():
     return random.choice([1, 1, 1, 1, -1])
-```
 
-A function that generates a single conversation with optional feedback:
 
-```python
 def generate_one():
     question = random.choice(SAMPLE_QUESTIONS)
     answer = random.choice(SAMPLE_ANSWERS)
@@ -97,40 +63,17 @@ def generate_one():
     if random.random() < 0.5:
         score = random_score()
         save_feedback(conversation_id, "user", score=score)
-```
 
-## Live data
 
-Keep inserting new conversations every second:
-
-```python
 def generate_live():
     print("Starting live data generation (Ctrl+C to stop)...", flush=True)
     while True:
         generate_one()
         time.sleep(1)
-```
 
-## Running it
 
-The entry point:
-
-```python
 if __name__ == "__main__":
     try:
         generate_live()
     except KeyboardInterrupt:
         print("Stopped.")
-```
-
-Run it:
-
-```bash
-uv run python generate_data.py
-```
-
-The script keeps generating live data every second. We'll use this data
-in Grafana in the next lesson. The dashboard will come alive with charts
-updating in real time.
-
-[← Feedback Dashboard](10-feedback-dashboard.md) | [Grafana →](12-grafana.md)

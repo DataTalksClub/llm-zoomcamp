@@ -29,19 +29,6 @@ We use `python-dotenv` to load the `OPENAI_API_KEY` from a `.env` file.
 
 Create `assistant.py`.
 
-```makefile
-run:
-	uv run python assistant.py
-```
-
-Now we can run:
-
-```bash
-make run
-```
-
-We'll add more targets for repeated actions as we go.
-
 Imports:
 
 ```python

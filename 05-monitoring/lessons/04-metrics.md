@@ -66,6 +66,17 @@ class RAGWithMetrics(RAGBase):
         super().__init__(*args, **kwargs)
         self.last_call: LLMCallRecord = None
 
+    def llm(self, prompt):
+        start_time = time.time()
+        response = self._call_llm(prompt)
+        response_time = time.time() - start_time
+        self._log_response(prompt, response, response_time)
+        return response.output_text
+```
+
+The `_call_llm` method sends the request to the LLM:
+
+```python
     def _call_llm(self, prompt):
         input_messages = [
             {"role": "developer", "content": self.instructions},
@@ -76,7 +87,11 @@ class RAGWithMetrics(RAGBase):
             input=input_messages
         )
         return response
+```
 
+The `_log_response` method captures all the metrics:
+
+```python
     def _log_response(self, prompt, response, response_time):
         usage = response.usage
         cost = calculate_cost(self.model, usage)
@@ -97,22 +112,15 @@ class RAGWithMetrics(RAGBase):
         self.last_call = call_record
 ```
 
-The `llm` method ties it all together:
+Now update `assistant.py` to import `RAGWithMetrics` instead of `RAGBase`:
 
 ```python
-    def llm(self, prompt):
-        start_time = time.time()
-        response = self._call_llm(prompt)
-        response_time = time.time() - start_time
-        self._log_response(prompt, response, response_time)
-        return response.output_text
-```
+import sys
 
-Now update `assistant.py` to import `RAGWithMetrics` and use it in
-`create_assistant`:
-
-```python
 from dotenv import load_dotenv
+from openai import OpenAI
+
+from ingest import load_faq_data, build_index
 from metrics import RAGWithMetrics
 
 def create_assistant():
@@ -123,7 +131,7 @@ def create_assistant():
 
     return RAGWithMetrics(
         index=index,
-        llm_client=OpenAI(),
+        llm_client=OpenAI()
     )
 ```
 

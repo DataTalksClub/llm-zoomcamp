@@ -6,11 +6,9 @@ for many use cases.
 
 First, add aggregate queries to `db_query.py`.
 
-A dataclass for the stats:
+Add a `Stats` dataclass to `db_query.py`:
 
 ```python
-from dataclasses import dataclass
-
 @dataclass
 class Stats:
     total: int
@@ -69,19 +67,6 @@ col3.metric("Total cost", f"${stats.total_cost:.4f}")
 col4.metric("Avg tokens", f"{stats.avg_tokens:.0f}")
 ```
 
-Recent conversations:
-
-```python
-st.subheader("Recent conversations")
-records = get_conversations(limit=20)
-
-for record in records:
-    st.write(f"**{record.prompt[:80]}...**")
-    st.write(f"{record.answer[:200]}...")
-    st.write(f"Time: {record.response_time:.2f}s | Cost: ${record.cost:.4f}")
-    st.divider()
-```
-
 Charts for cost and response time over time:
 
 ```python
@@ -93,6 +78,19 @@ st.line_chart(df, x="timestamp", y="cost")
 
 st.subheader("Response time over time")
 st.line_chart(df, x="timestamp", y="response_time")
+```
+
+Recent conversations:
+
+```python
+st.subheader("Recent conversations")
+records = get_conversations(limit=20)
+
+for record in records:
+    st.write(f"**{record.prompt[:80]}...**")
+    st.write(f"{record.answer[:200]}...")
+    st.write(f"Time: {record.response_time:.2f}s | Cost: ${record.cost:.4f}")
+    st.divider()
 ```
 
 Run it.
