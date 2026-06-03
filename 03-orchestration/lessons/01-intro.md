@@ -17,7 +17,7 @@ By the end of this module, you will:
 
 ## Prerequisites
 
-- Kestra running locally (see [Getting Started](07-setup.md))
+- Kestra running locally (see [Setting up Kestra](03-setup.md))
 - Google Cloud account with access to Gemini API
 - Basic understanding of YAML and workflow concepts
 
