@@ -29,6 +29,37 @@ docker run -it \
     postgres:17
 ```
 
+We'll be running this a lot, so let's add it to the `Makefile` we
+created in lesson 02. Add these targets:
+
+```makefile
+network:
+	docker network create monitoring
+
+postgres: network
+	docker run -it \
+		--name course-assistant-pg \
+		--network monitoring \
+		-e POSTGRES_USER=user \
+		-e POSTGRES_PASSWORD=password \
+		-e POSTGRES_DB=course_assistant \
+		-p 5432:5432 \
+		-v pgdata:/var/lib/postgresql/data \
+		postgres:17
+```
+
+Now we can just run:
+
+```bash
+make postgres
+```
+
+
+We need `psycopg` to connect to PostgreSQL from Python:
+
+```bash
+uv add "psycopg[binary]"
+```
 
 ## Initializing the database
 
@@ -60,17 +91,16 @@ CREATE TABLE conversations (
 We can run this via `psql` or any other tool, but let's create a
 Python script.
 
-We need `psycopg` to connect to PostgreSQL from Python:
-
-```bash
-uv add "psycopg[binary]"
-```
 
 Create `db_init.py`. Imports:
 
 ```python
 import os
 import psycopg
+from datetime import datetime
+
+DB_TIMEZONE = datetime.now().astimezone().tzinfo
+print(f"Using timezone: {DB_TIMEZONE}")
 ```
 
 A helper to connect to the database. It uses environment variables
@@ -86,15 +116,16 @@ def get_db_connection():
     )
 ```
 
-The init function drops the table if it exists and creates a fresh one.
-Be careful: this deletes all existing data.
+The init function creates the table. With `drop=True` it drops the
+table first, which deletes all existing data:
 
 ```python
-def init_db():
+def init_db(drop=False):
     conn = get_db_connection()
     try:
         with conn.cursor() as cur:
-            cur.execute("DROP TABLE IF EXISTS conversations")
+            if drop:
+                cur.execute("DROP TABLE IF EXISTS conversations")
 
             cur.execute("""
                 CREATE TABLE conversations (
@@ -149,17 +180,7 @@ Imports:
 
 ```python
 from datetime import datetime
-from db_init import get_db_connection
-```
-
-We use a timezone-aware timestamp. This matters for Grafana - it
-ensures dashboards show times in the user's local time.
-
-Auto-detect the local timezone:
-
-```python
-tz = datetime.now().astimezone().tzinfo
-print(f"Using timezone: {tz}")
+from db_init import get_db_connection, DB_TIMEZONE
 ```
 
 The save function takes an `LLMCallRecord` and inserts it into the
@@ -167,7 +188,7 @@ database:
 
 ```python
 def save_conversation(record, question, course):
-    timestamp = datetime.now(tz)
+    timestamp = datetime.now(DB_TIMEZONE)
 
     conn = get_db_connection()
     try:
@@ -181,6 +202,7 @@ def save_conversation(record, question, course):
                 ) VALUES (
                     %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
                 )
+                RETURNING id
                 """,
                 (
                     question,
@@ -197,9 +219,11 @@ def save_conversation(record, question, course):
                     timestamp,
                 ),
             )
+            conversation_id = cur.fetchone()[0]
         conn.commit()
     finally:
         conn.close()
+    return conversation_id
 ```
 
 We can also add it to the `__main__` block in `assistant.py` so every

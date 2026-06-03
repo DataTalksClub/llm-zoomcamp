@@ -185,4 +185,4 @@ The judge adds an extra LLM call per question, which increases cost and
 latency. For high-traffic applications, evaluate only a sample of
 answers instead of every one.
 
-[← User Feedback](07-user-feedback.md) | [Grafana Dashboards →](09-grafana.md)
+[← User Feedback](07-user-feedback.md) | [Synthetic Data →](09-synthetic-data.md)

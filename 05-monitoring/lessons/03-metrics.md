@@ -150,7 +150,7 @@ if st.button("Ask"):
 Run the app again:
 
 ```bash
-uv run streamlit run app.py
+make chat
 ```
 
 Now you can see response time, token usage, and cost for each answer.

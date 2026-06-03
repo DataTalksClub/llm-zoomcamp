@@ -58,9 +58,7 @@ Create `db_feedback.py`:
 
 ```python
 from datetime import datetime
-from db_init import get_db_connection
-
-tz = datetime.now().astimezone().tzinfo
+from db_init import get_db_connection, DB_TIMEZONE
 
 def save_feedback(conversation_id, source, relevance=None,
                   explanation=None, score=None):
@@ -88,70 +86,46 @@ def save_feedback(conversation_id, source, relevance=None,
 
 ## Adding buttons to the app
 
-Update `app.py` to show thumbs up/down buttons:
+We already save conversations in `app.py` from lesson 04. Now we need
+to capture the `conversation_id` returned by `save_conversation` and
+add feedback buttons.
+
+Add this import to `app.py`:
 
 ```python
 from db_feedback import save_feedback
+```
 
+Update the ask button to save the conversation ID:
+
+```python
 if st.button("Ask"):
     with st.spinner("Processing..."):
         assistant.rag(user_input)
         record = assistant.last_call
-        save_conversation(record, user_input, "llm-zoomcamp")
+        conversation_id = save_conversation(record, user_input, "llm-zoomcamp")
+        st.session_state.conversation_id = conversation_id
 
         st.success("Completed!")
         st.write(record.answer)
 
         st.write(f"Response time: {record.response_time:.2f}s")
         st.write(f"Cost: ${record.cost:.4f}")
-
-        st.session_state.last_conversation_id = record.id
 ```
 
-Wait, `record.id` is from `LLMCallRecord` which doesn't have an `id`
-field. We need the database row ID. Let's update `save_conversation`
-to return it:
-
-```python
-def save_conversation(record, question, course):
-    timestamp = datetime.now(tz)
-
-    conn = get_db_connection()
-    try:
-        with conn.cursor() as cur:
-            cur.execute(
-                """
-                INSERT INTO conversations (
-                    question, answer, course, model, instructions, prompt,
-                    prompt_tokens, completion_tokens, total_tokens,
-                    response_time, cost, timestamp
-                ) VALUES (
-                    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
-                )
-                RETURNING id
-                """,
-                (...),
-            )
-            conversation_id = cur.fetchone()[0]
-        conn.commit()
-    finally:
-        conn.close()
-    return conversation_id
-```
-
-Now the feedback buttons:
+Now add the feedback buttons:
 
 ```python
 col1, col2 = st.columns(2)
 with col1:
     if st.button("+1"):
-        cid = st.session_state.last_conversation_id
+        cid = st.session_state.conversation_id
         save_feedback(cid, "user", score=1)
         st.write("Thanks!")
 
 with col2:
     if st.button("-1"):
-        cid = st.session_state.last_conversation_id
+        cid = st.session_state.conversation_id
         save_feedback(cid, "user", score=-1)
         st.write("Thanks for the feedback!")
 ```
