@@ -36,6 +36,8 @@ Ingest phase (run once, or on a schedule when your data changes):
 2. Create embeddings: convert text into vectors using an embedding model
 3. Store embeddings: save vectors in Kestra's KV Store
 
+> Note: The flows store embeddings in Kestra's KV Store for simplicity. This is convenient for learning and small-scale demos, but it is not a replacement for a proper vector database. For any serious workload, e.g. larger document sets, low-latency retrieval, or production use, you should use a dedicated vector store. See [Module 2: Vector Search](../../02-vector-search/lessons/04-vector-search.md) for a deeper look at vector search in practice.
+
 Query phase (runs every time a question is asked):
 
 4. Retrieve context: find the embeddings most similar to the user's question
