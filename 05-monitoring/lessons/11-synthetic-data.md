@@ -25,6 +25,8 @@ from db_feedback import save_feedback
 from metrics import LLMCallRecord
 ```
 
+Sample data:
+
 ```python
 SAMPLE_QUESTIONS = [
     "How do I install Docker?",
@@ -140,6 +142,8 @@ def generate_live():
 
 ## Running it
 
+The main script generates both historical and live data:
+
 ```python
 if __name__ == "__main__":
     end_time = datetime.now(DB_TIMEZONE)
@@ -158,7 +162,7 @@ uv run python generate_data.py
 ```
 
 The script first backfills 6 hours of data, then keeps generating live
-data every second. We'll use this data in Grafana in the next lesson to
-see the dashboard come alive with charts updating in real time.
+data every second. We'll use this data in Grafana in the next lesson.
+The dashboard will come alive with charts updating in real time.
 
 [← Feedback Dashboard](10-feedback-dashboard.md) | [Grafana →](12-grafana.md)

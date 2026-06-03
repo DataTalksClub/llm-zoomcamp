@@ -6,8 +6,9 @@ Let's set it up step by step.
 
 ## Setting up
 
-We'll use helper files from module 01. If you don't have them,
-download them:
+We'll use helper files from module 01.
+
+If you don't have them, download them:
 
 ```bash
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main

@@ -95,7 +95,9 @@ st.subheader("Response time over time")
 st.line_chart(df, x="timestamp", y="response_time")
 ```
 
-Run it. The port 8501 is already in use (by the chat app), so we will use a
+Run it.
+
+The port 8501 is already in use (by the chat app), so we will use a
 different port:
 
 ```bash

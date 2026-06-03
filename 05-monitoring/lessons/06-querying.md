@@ -2,7 +2,9 @@
 
 Now that we're saving conversations to PostgreSQL, let's query them.
 
-Create `db_query.py`. Connect to the same database:
+Create `db_query.py`.
+
+Connect to the same database:
 
 ```python
 from dataclasses import dataclass
@@ -67,6 +69,8 @@ if __name__ == "__main__":
     for record in records:
         print(record)
 ```
+
+Run it:
 
 ```bash
 uv run python db_query.py

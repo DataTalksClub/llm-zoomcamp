@@ -1,6 +1,6 @@
 # Chat App
 
-Now let's wrap the assistant in a web interface. Streamlit is a Python
+Wrap the assistant in a web interface. Streamlit is a Python
 framework that makes it easy to build web apps with minimal code.
 
 Add Streamlit to your project:

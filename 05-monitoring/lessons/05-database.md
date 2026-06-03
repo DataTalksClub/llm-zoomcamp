@@ -30,7 +30,9 @@ docker run -it \
 ```
 
 We'll be running this a lot, so let's add it to the `Makefile` we
-created in lesson 02. Add these targets:
+created in lesson 02.
+
+Add these targets:
 
 ```makefile
 network:
@@ -92,7 +94,9 @@ We can run this via `psql` or any other tool, but let's create a
 Python script.
 
 
-Create `db_init.py`. Imports:
+Create `db_init.py`.
+
+Imports:
 
 ```python
 import os
@@ -103,8 +107,10 @@ DB_TIMEZONE = datetime.now().astimezone().tzinfo
 print(f"Using timezone: {DB_TIMEZONE}")
 ```
 
-A helper to connect to the database. It uses environment variables
-with defaults matching the Docker container we just started:
+A helper to connect to the database.
+
+It uses environment variables with defaults matching the Docker
+container we just started:
 
 ```python
 def get_db_connection():
@@ -116,8 +122,10 @@ def get_db_connection():
     )
 ```
 
-The init function creates the table. With `drop=True` it drops the
-table first, which deletes all existing data:
+The init function creates the table.
+
+With `drop=True` it drops the table first, which deletes all
+existing data:
 
 ```python
 def init_db(drop=False):
@@ -162,6 +170,7 @@ uv run python db_init.py
 ## Saving conversations
 
 We want to insert an `LLMCallRecord` into the `conversations` table.
+
 The SQL we want to execute:
 
 ```sql

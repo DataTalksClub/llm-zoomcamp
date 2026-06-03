@@ -5,8 +5,8 @@ answers helpful. Let's add thumbs up/down buttons to collect feedback.
 
 ## Feedback table
 
-Create a generic feedback table. The `source` column tells us where
-the feedback came from. For now we use `source="user"` with a score.
+We create a generic feedback table where the `source` column tells us
+where the feedback came from. For now we use `source="user"` with a score.
 
 Add a new function `init_feedback` to `db_init.py`:
 
@@ -59,7 +59,6 @@ Create `db_feedback.py`:
 ```python
 from datetime import datetime
 from db_init import get_db_connection, DB_TIMEZONE
-
 
 def save_feedback(conversation_id, source, relevance=None,
                   explanation=None, score=None):

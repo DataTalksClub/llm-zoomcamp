@@ -52,9 +52,10 @@ queries automatically filter to that range.
 
 ## Response Time Panel
 
-Shows how long the LLM takes to respond over time. This is a simple
-query - each row in the conversations table is already one LLM call,
-so we just plot the raw values:
+Shows how long the LLM takes to respond over time.
+
+Each row in the conversations table is already one LLM call, so we
+just plot the raw values:
 
 ```sql
 SELECT
@@ -69,10 +70,13 @@ Use the Time series visualization for this panel.
 
 ## Token Usage Panel
 
-Shows token consumption over time. Here we can't plot every single
-row because over a long time range there would be too many points.
-Instead, we group by time intervals (e.g. every 5 minutes) and take
-the average within each bucket:
+Shows token consumption over time.
+
+Over a long time range there would be too many points to plot
+individually.
+
+We group by time intervals (e.g. every 5 minutes) and take the average
+within each bucket:
 
 ```sql
 SELECT
@@ -92,8 +96,10 @@ Use the Time series visualization for this panel.
 
 ## Cost Panel
 
-Shows cumulative cost over time. Same idea - we group into time
-buckets, but here we `SUM` the costs instead of averaging:
+Shows cumulative cost over time.
+
+Same idea, but instead of averaging we `SUM` the costs within each
+time bucket:
 
 ```sql
 SELECT

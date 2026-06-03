@@ -11,8 +11,9 @@ feedback.
 
 We use structured output to get a clean classification from the judge.
 
-We need `evaluation_utils` from module 04. Download it if you don't
-have it:
+We need `evaluation_utils` from module 04.
+
+Download it if you don't have it:
 
 ```bash
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
@@ -31,11 +32,9 @@ from dotenv import load_dotenv
 
 from evaluation_utils import llm_structured_retry
 
-
 class RelevanceVerdict(BaseModel):
     relevance: Literal["NON_RELEVANT", "PARTLY_RELEVANT", "RELEVANT"]
     explanation: str
-
 
 judge_instructions = """
 You are an expert evaluator for a RAG system.
@@ -54,7 +53,9 @@ Generated Answer: {answer}
 ```
 
 
-The evaluation function. Add this to `judge.py`:
+The evaluation function.
+
+Add this to `judge.py`:
 
 ```python
 def evaluate_relevance(question, answer, client=None):
@@ -89,6 +90,8 @@ if __name__ == "__main__":
     print(relevance)
     print(explanation)
 ```
+
+Run it:
 
 ```bash
 uv run python judge.py
