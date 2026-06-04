@@ -1,5 +1,7 @@
 # LLM as a Judge
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=BEXVULgalDM&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson, we generated RAG answers for our ground truth
 questions. Now we need to decide whether these answers are good enough.
 

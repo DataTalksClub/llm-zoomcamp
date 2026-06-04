@@ -1,5 +1,7 @@
 # Search Parameter Tuning
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=rSBSS_kCYN0&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson, we defined Hit Rate, MRR, and the `evaluate`
 function. Now we can use them to tune search parameters.
 

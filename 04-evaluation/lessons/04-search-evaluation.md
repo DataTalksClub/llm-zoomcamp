@@ -1,5 +1,7 @@
 # Search Evaluation
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=KoyYkv8P_jU&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Now that we have ground truth data, we can evaluate how well our search
 retrieves the correct documents.
 

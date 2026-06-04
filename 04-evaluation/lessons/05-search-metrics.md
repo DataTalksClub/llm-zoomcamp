@@ -1,5 +1,7 @@
 # Search Evaluation Metrics
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=TuirMy3Pdbk&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson, we computed relevance lists for search results.
 We can turn those lists into metrics.
 

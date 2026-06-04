@@ -1,5 +1,7 @@
 # Generating Ground Truth Data
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=YScoH28cVf8&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 To evaluate search, we need a dataset of queries where we know which
 document is the correct answer. This is called ground truth (or gold
 standard) data.

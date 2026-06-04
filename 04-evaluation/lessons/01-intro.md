@@ -1,5 +1,7 @@
 # Evaluation
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=eC_IcxfxoiQ&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous modules, we built search engines and RAG pipelines.
 We tried different approaches: keyword search with minsearch, vector
 search, agents with function calling. But we never answered the obvious

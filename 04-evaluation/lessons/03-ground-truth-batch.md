@@ -1,5 +1,7 @@
 # Generating Ground Truth for All Documents
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=eM6xmdZDT6k&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson, we generated questions for one document and
 converted them into ground truth records.
 
