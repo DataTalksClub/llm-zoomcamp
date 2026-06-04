@@ -1,5 +1,7 @@
 # RAG
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=JktYwBIDErk&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 We run free Zoomcamp courses at DataTalks.Club on data engineering,
 machine learning, MLOps, and other topics. Each course has its own
 FAQ document with common questions and answers.

@@ -1,5 +1,7 @@
 # Wrap-up of Part 1
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=RPXMz5p5fb8&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In Part 1 of this module, we:
 
 - Learned what RAG is and why it matters: retrieve documents, build a

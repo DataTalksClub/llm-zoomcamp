@@ -1,5 +1,7 @@
 # Search
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=GYgpNKiuCJU&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 ## Search basics
 
 At its core, every search engine does the same thing. It takes a query,

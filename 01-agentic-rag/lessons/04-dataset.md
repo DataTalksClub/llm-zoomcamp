@@ -1,5 +1,7 @@
 # The Course FAQ Dataset
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=Mx6EqvzVDz0&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Before we build the RAG pipeline, let's get familiar with the data
 we'll use as our knowledge base.
 

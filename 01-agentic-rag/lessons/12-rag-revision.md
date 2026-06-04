@@ -1,4 +1,4 @@
-# Quick RAG Revision
+# Quick RAG Revision (Optional)
 
 Before we talk about agents, let's set up the RAG pipeline we built
 in Part 1.

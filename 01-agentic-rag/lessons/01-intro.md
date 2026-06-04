@@ -1,5 +1,7 @@
 # Introduction
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=rQYyFxf1FWw&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In this module, we'll build a working Retrieval-Augmented
 Generation (RAG) system from scratch, step by step.
 

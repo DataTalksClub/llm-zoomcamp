@@ -1,5 +1,7 @@
 # Building the Prompt
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=DV4e2n-dIv0&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The LLM doesn't see our documents unless we pass them in. So we need
 to build a prompt that includes the user's question and the search
 results.

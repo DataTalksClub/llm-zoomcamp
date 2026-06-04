@@ -1,5 +1,7 @@
 # Data Ingestion
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=e0owGI2JV-s&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 So far, our RAG pipeline loads data and builds the search index at
 startup. With minsearch, this is fine - our FAQ dataset is small, so
 indexing takes less than a second. The entire pipeline runs in one

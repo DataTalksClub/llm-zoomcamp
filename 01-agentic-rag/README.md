@@ -34,7 +34,7 @@ fixed pipeline into an agent.
 Video: [From RAG to AI agents: function calling and tool use](https://www.youtube.com/watch?v=RAqLWJsLZb4)
 
 11. [Agents](lessons/11-agents-intro.md) - Why a fixed RAG pipeline isn't enough
-12. [Quick RAG Revision](lessons/12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)
+12. [Quick RAG Revision (Optional)](lessons/12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)
 13. [Function Calling](lessons/13-function-calling.md) - Giving the LLM tools it can use
 14. [The Agentic Loop](lessons/14-agentic-loop.md) - Repeating until the model stops calling tools
 15. [ToyAIKit](lessons/15-frameworks.md) - A teaching framework for the agent loop

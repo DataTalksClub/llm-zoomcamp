@@ -1,5 +1,7 @@
 # RAG Helper
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=JxaC6Hrym6c&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lessons, we built the RAG flow piece by piece -
 search, then the prompt, then the LLM call. The pipeline works, but
 every time we want to use it, we need to repeat the same code.

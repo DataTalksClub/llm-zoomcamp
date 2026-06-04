@@ -1,5 +1,7 @@
 # The LLM
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=KHePGkeFn54&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The last component of our RAG pipeline is the LLM. It takes
 the prompt we built and generates an answer.
 

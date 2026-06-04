@@ -2,8 +2,9 @@
 
 Important links:
 
-- [2026 Edition Youtube Playlist]()
-- [Course management platform]()
+- Pre-Course Q&A Stream: [video](https://www.youtube.com/watch?v=RspWoRtittU)
+- [2026 Edition Youtube Playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJAmLLf2x1LSKRKbZwKXoHd)
+- [Course management platform](https://courses.datatalks.club/llm-zoomcamp-2026/)
 
 
 [**Module 1: Agentic RAG**](01-agentic-rag)
