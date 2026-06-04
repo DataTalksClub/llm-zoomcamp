@@ -4,6 +4,10 @@ Video: [Setting up Kestra](https://youtu.be/ghkf93rfb2w)
 
 Here's how to set up everything you need to run the example flows in this module.
 
+## Prerequisites
+
+This module requires [Docker](https://docs.docker.com/get-started/get-docker/) with Docker Compose to run Kestra locally. [Docker Desktop](https://www.docker.com/products/docker-desktop/) is the easiest way to get both on Mac and Windows. If you don't have Docker installed, set that up before proceeding.
+
 ## Step 1: Start Kestra
 
 This module includes a `docker-compose.yml` with Kestra pre-configured:
