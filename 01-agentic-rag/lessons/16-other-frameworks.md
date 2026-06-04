@@ -1,5 +1,7 @@
 # Other Frameworks
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=4yiCbKX9RhI&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The concepts you learned in Part 2 are the same across frameworks.
 Function calling, the agent loop, and tool definitions all wrap the
 same pattern. Send messages, run any function calls, and repeat until

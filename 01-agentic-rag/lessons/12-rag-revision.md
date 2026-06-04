@@ -1,5 +1,7 @@
 # Quick RAG Revision (Optional)
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=gH8fB-6Emmo&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Before we talk about agents, let's set up the RAG pipeline we built
 in Part 1.
 

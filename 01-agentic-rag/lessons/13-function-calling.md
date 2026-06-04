@@ -1,5 +1,7 @@
 # Function Calling
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=CeEki_0mdGo&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson we built a RAG pipeline with `RAGBase.rag()`
 and saw it fail on the "Olama" typo. The search returned nothing
 useful, and the LLM had no way to recover.

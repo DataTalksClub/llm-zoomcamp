@@ -1,5 +1,7 @@
 # ToyAIKit
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=PQpQOR3Un3w&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The handwritten agent loop from the previous lesson is educational but
 repetitive. Every time you build a new agent, you'd write the same
 while-loop, the same function-call handling, the same message

@@ -1,5 +1,7 @@
 # Agents
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=6uG4_Ivv60E&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In Part 1 of this module we built RAG pipelines.
 
 Every pipeline we wrote followed the same flow:

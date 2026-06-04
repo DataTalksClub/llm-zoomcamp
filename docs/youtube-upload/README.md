@@ -65,13 +65,19 @@ without a console encoding error.
 
 ## Files
 
-- **`rename.py`** — match manually-uploaded videos and set metadata + playlist
-  via `videos.update`. **This is the one to use.**
+- **`rename.py`** — match manually-uploaded videos by filename and set metadata
+  (title/description/tags), visibility, and playlist via `videos.update`.
+  **The main script.**
+- **`add_chapters.py`** — append chapter timecodes to each video's description
+  (`videos.update`).
+- **`clip_transcript.py`** — slice the original recording's transcript into
+  per-clip, clip-relative transcripts (using the chop spec) so chapters can be
+  prepared before YouTube's ASR is ready; handles multi-segment clips.
 - **`upload.py`** — full API upload via `videos.insert`. Works, but on an
   unaudited project the uploaded videos are locked to **private** until the
   project is audited. Only useful if your project is already audited.
-- **`part1-manifest.json`** — Module 1 Part 1 titles/descriptions; template for
-  other modules.
+- **`part1-manifest.json`, `part2-manifest.json`** — per-video titles &
+  descriptions (Module 1 Parts 1 & 2); templates for the other modules.
 
 ## Quota & cost
 
@@ -111,6 +117,29 @@ These can be fetched and turned into chapter timecodes for the description.
 3. **(Optional) Add chapters to the video** by appending the block to the
    description via `videos.update` (same auth as `rename.py`). This is a normal
    update — not subject to the upload audit lock.
+
+### Preparing timecodes in advance (no waiting for ASR)
+
+You don't have to wait for YouTube to generate captions after upload. The
+original recording's transcript (the one used to build the chop plan) is
+already accurate, and the spec records each clip's exact segment ranges. Use
+`clip_transcript.py` to slice that transcript into per-clip, **clip-relative**
+transcripts right after chopping:
+
+```bash
+uv run python clip_transcript.py \
+  --transcript ../transcripts/<module>.txt \
+  --spec ../<module>.spec \
+  --out-dir captions
+```
+
+It handles clips that drop bits from the middle (**multi-segment** clips): each
+kept segment is shifted by the cumulative duration of the segments before it,
+so the timecodes line up with the concatenated clip — a single-segment clip is
+just `t − start`, a multi-segment clip is the piecewise version of the same.
+Generate chapters from these files exactly as you would from YouTube-fetched
+captions, and they're ready to inject the moment the uploads register.
+(Fetching YouTube's own ASR still works as a fallback once it's ready.)
 
 ## Linking the videos in the lessons
 

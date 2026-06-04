@@ -1,5 +1,7 @@
 # The Agentic Loop
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=ePlQUcTPPjw&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson, we did function calling by hand. We sent a
 message and got back a function call. We ran it, sent the result back,
 and got the answer.

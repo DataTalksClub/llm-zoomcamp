@@ -17,8 +17,10 @@ specs, credentials) live in the repo's gitignored `.tmp/` directory.
 5. **Upload** — bulk drag-and-drop the clips into YouTube Studio.
 6. **Set metadata** — `rename.py`: titles, descriptions, tags; set unlisted;
    add to the course playlist.
-7. **Add chapters** — fetch the auto-captions, generate chapter timecodes, and
-   append them to each description with `add_chapters.py`.
+7. **Add chapters** — get chapter timecodes (fetch YouTube's auto-captions, or
+   prepare them in advance from the original transcript with
+   `clip_transcript.py`) and append them to each description with
+   `add_chapters.py`.
 8. **Link in the lessons** — add `Video: [Watch this lesson](…&list=<playlist>)`
    at the top of each lesson markdown (playlist-embedded URL).
 9. **Publish** — clear the Studio "Draft" state (bulk visibility edit in
