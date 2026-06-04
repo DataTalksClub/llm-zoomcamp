@@ -29,7 +29,7 @@ docker compose down
 2. Sign in with your Google account
 3. Click "Create API Key" and copy your key
 
-The free tier has a generous quota suitable for learning (rate limits apply).
+The free tier is sufficient for light use, but rate limits are relatively low — you may hit quota quickly if you run the agent and multi-agent flows repeatedly. If you run into `429 Resource Exhausted` errors, wait a minute before retrying, or consider upgrading to a paid tier.
 
 **OpenAI API Key (Required for flow 3)**
 
