@@ -1,5 +1,7 @@
 # Next Steps
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=vhNfnNUz3A0&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In this module, we:
 
 - Learned what embeddings are and how they turn text into vectors

@@ -1,5 +1,7 @@
 # Vector Search with PGVector
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=0P54MFyz-mc&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Many real databases can do vector search. Elasticsearch has it, and
 there are dedicated stores like Qdrant and Chroma. We'll go with
 Postgres. Most of us already run it at work, and the data engineering

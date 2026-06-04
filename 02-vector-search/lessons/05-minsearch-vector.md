@@ -1,5 +1,7 @@
 # Vector Search with minsearch
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=E7KdO3xmESg&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous section we did vector search by hand with numpy. We
 embedded the query, computed dot products, and found the best matches.
 Writing the argsort and matrix code every time gets old, and it can't

@@ -1,5 +1,7 @@
 # Using ONNX Runtime instead of PyTorch
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=BMqa4OsCk58&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 When you move to production, you want to cut overhead, both the
 dependencies and the size of your deployment. sentence-transformers
 drags in PyTorch plus a pile of Nvidia libraries, which is a lot. ONNX

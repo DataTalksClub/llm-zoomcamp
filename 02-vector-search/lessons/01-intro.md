@@ -1,5 +1,7 @@
 # Vector Search
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=qyZgxTmC2cY&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In module 1 we used keyword search with minsearch and sqlitesearch.
 It matches exact words. If you search for "Docker", the document has
 to contain "Docker" to come back.

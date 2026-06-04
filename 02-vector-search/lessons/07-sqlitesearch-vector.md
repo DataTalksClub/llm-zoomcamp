@@ -1,5 +1,7 @@
 # Vector Search with sqlitesearch
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=csxKescwJYM&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous section we used minsearch for vector search.
 
 It works, but it has three problems:

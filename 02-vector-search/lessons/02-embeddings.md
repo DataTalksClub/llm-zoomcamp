@@ -1,5 +1,7 @@
 # Embeddings
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=kJOlW1HeMp4&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Before we can do vector search, we need to turn our text into vectors.
 We call this process embedding: we embed text into a vector space. The
 vectors we get back are also called "embeddings."

@@ -1,5 +1,7 @@
 # RAG with Vector Search
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=-GBW3g3PVTM&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In module 1, we built a RAG pipeline with three steps:
 
 ```python

@@ -1,5 +1,7 @@
 # Embedding Our Dataset
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=NC89mz1iG4E&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson we saw how embeddings work on a couple of
 examples. Now we apply them to the whole FAQ dataset.
 

@@ -1,5 +1,7 @@
 # Vector Search
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=h-_tdBc24qc&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson we embedded our FAQ dataset into a matrix `X`
 with 1208 document vectors. Here we see how vector search works under
 the hood.
