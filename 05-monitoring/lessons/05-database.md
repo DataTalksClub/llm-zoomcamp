@@ -1,5 +1,7 @@
 # Storing Data in PostgreSQL
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=iXRu_AbMtuU&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The metrics disappear when we close the app, so we need somewhere to
 keep them. We store every conversation in PostgreSQL, which we run only
 for monitoring. No other part of the system touches this database. We

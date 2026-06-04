@@ -1,5 +1,7 @@
 # Built-in Judge
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=YLOLQyrMDuY&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous module we used an LLM as a judge for offline evaluation.
 One LLM grades the output of another. We can run the same idea online.
 
