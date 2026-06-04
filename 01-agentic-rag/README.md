@@ -4,8 +4,6 @@ In this module, we learn what LLMs are and build a simple RAG
 pipeline using keyword search. Then we make it agentic, so the LLM
 decides when and what to search instead of running a fixed pipeline.
 
-Video: [Module 1 walkthrough](https://www.youtube.com/watch?v=KSItlTAsMsk)
-
 Code: [code/](code/)
 
 
@@ -13,6 +11,8 @@ Code: [code/](code/)
 
 The first 10 lessons walk through building a working RAG pipeline
 from scratch with keyword search.
+
+Video: [Build your first RAG application](https://www.youtube.com/watch?v=KSItlTAsMsk)
 
 1. [Introduction](lessons/01-intro.md) - What we'll build and why
 2. [Environment Setup](lessons/02-environment.md) - Python, uv, OpenAI API
@@ -30,6 +30,8 @@ from scratch with keyword search.
 
 Part 2 puts the LLM in charge of the search decisions, turning the
 fixed pipeline into an agent.
+
+Video: [From RAG to AI agents: function calling and tool use](https://www.youtube.com/watch?v=RAqLWJsLZb4)
 
 11. [Agents](lessons/11-agents-intro.md) - Why a fixed RAG pipeline isn't enough
 12. [Quick RAG Revision](lessons/12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)

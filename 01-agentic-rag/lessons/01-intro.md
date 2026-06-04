@@ -1,10 +1,12 @@
 # Introduction
 
-In this module, you'll build a working Retrieval-Augmented
+In this module, we'll build a working Retrieval-Augmented
 Generation (RAG) system from scratch, step by step.
 
-You'll write everything in plain Python, build a small search index by
-hand, and call the LLM yourself. No frameworks involved.
+We write everything in plain Python. We build a small search index by
+hand and call the LLM ourselves. I want you to see every piece first.
+That way you know what a framework does for you before you reach for
+one.
 
 Places where you can find me:
 
@@ -24,13 +26,15 @@ Your phone uses a simple language model for that. It predicts the next
 word based on what you typed so far.
 
 A large language model does the same thing, but at a much larger scale.
-It has billions of parameters and is trained on tons of data. When it
-predicts the next word, it feels like you are talking to an intelligent
-being. It understands what you ask and gives meaningful answers.
+It has billions of parameters and is trained on most of the text on the
+internet. When it predicts the next word, it feels like you're talking
+to an intelligent being. It understands what you ask and gives
+meaningful answers.
 
-In this course, we treat LLMs as black boxes. We won't look inside
-or cover the theory. For us, an LLM is a box: text goes in, text
-comes out.
+In this course, we treat LLMs as black boxes. We won't look inside or
+cover the theory, and we won't host a model ourselves. We use an LLM
+provider and call it over an API. For us, an LLM is a box: text goes in,
+text comes out.
 
 But LLMs have limitations:
 
@@ -45,9 +49,15 @@ But LLMs have limitations:
 ## The project
 
 RAG solves these problems by giving the LLM relevant documents at
-question time. Instead of hoping the model memorized the answer, we
-retrieve the right information and hand it to the LLM. The model then
-generates a grounded response.
+question time. We don't hope the model memorized the answer. We
+retrieve the right information and hand it to the LLM, and the model
+generates a grounded response. This lets us inject knowledge the model
+never saw during training. That's why RAG is still the most common way
+people use LLMs in the industry.
+
+To make this concrete, we build a FAQ agent for our course. A student
+asks something like "when does the course start?" and the agent answers
+from the FAQ data we prepared.
 
 This module has two parts.
 
