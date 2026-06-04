@@ -1,8 +1,20 @@
 # Streamlit Dashboard
 
-Before setting up Grafana, let's build a quick dashboard in Streamlit
-to visualize the data we're collecting. This is simpler and good enough
-for many use cases.
+Before we reach for Grafana, let's build a quick dashboard right in
+Streamlit. For a lot of projects this is all you need. When you're
+getting started, seeing latency, cost, and recent conversations in one
+place is already enough. You often don't need Grafana at all.
+
+If you stop here, you don't even need Postgres. You could swap it for
+SQLite and skip Docker entirely. We're on Postgres only because Grafana
+connects to it more easily than to SQLite, which matters later. For a
+lightweight project, SQLite plus a Streamlit dashboard is a perfectly
+good place to stop.
+
+I'm not a Streamlit expert. When I build these pages, I describe what I
+want to ChatGPT or a coding assistant. Then I let it write the layout. I
+kept this one simple on purpose, so you can read it top to bottom and
+follow what's happening.
 
 First, add aggregate queries to `db_query.py`.
 
@@ -53,7 +65,11 @@ import pandas as pd
 from db_query import get_conversations, get_stats
 ```
 
-Show summary metrics at the top:
+At the top we show four summary numbers, the ones most worth watching
+when you're getting started. You can show far more, but these are a good
+starting point.
+
+Show the summary metrics:
 
 ```python
 st.title("Course Assistant Dashboard")
@@ -66,6 +82,12 @@ col2.metric("Avg response time", f"{stats.avg_response_time:.2f}s")
 col3.metric("Total cost", f"${stats.total_cost:.4f}")
 col4.metric("Avg tokens", f"{stats.avg_tokens:.0f}")
 ```
+
+For the time charts we pull the last 100 conversations and let Streamlit
+plot them. This isn't the most efficient way to do it. We fetch whole
+records just to chart two columns. A leaner version would query only the
+timestamp and the value we want. With our volume it's fine, so we keep it
+short.
 
 Charts for cost and response time over time:
 
@@ -102,6 +124,9 @@ different port:
 uv run streamlit run dashboard.py --server.port 8502
 ```
 
-Later we'll set up Grafana for a more production-ready dashboard.
+We didn't even use a table for the conversations - plain text is enough
+to make the point. This simple dashboard already gives us real
+visibility into the system. Later we set up Grafana for a more powerful
+view, with alerting and richer panels.
 
 [← Querying Data](06-querying.md) | [User Feedback →](08-user-feedback.md)

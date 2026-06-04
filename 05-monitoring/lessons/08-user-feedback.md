@@ -1,12 +1,25 @@
 # User Feedback
 
-We track LLM calls and costs, but we don't know if users find the
-answers helpful. Let's add thumbs up/down buttons to collect feedback.
+So far we capture execution metrics like response time, tokens, and
+cost. But none of that tells us whether the answer was any good. The
+people using the system know, the way you can rate a reply in ChatGPT. So
+we add thumbs-up and thumbs-down buttons, then record what people click.
+
+This feedback is worth collecting beyond the dashboard. It feeds back
+into evaluation. If a user marks an answer as good, the judge you built
+in the previous module should ideally agree. That agreement gives you
+data to align the judge against.
+
+The signal is noisy. Someone clicks by accident, or rates a bad answer as
+good (I do it myself in the demo). But it's still valuable for building an
+evaluation dataset. And on the dashboard, a wave of thumbs-down in the
+last hour is a clear sign. Go check what broke.
 
 ## Feedback table
 
-We create a generic feedback table where the `source` column tells us
-where the feedback came from. For now we use `source="user"` with a score.
+Feedback can come from a person or, later, from an LLM judge. So we use
+one feedback table with a `source` column that records where each row
+came from. For now `source` is `"user"` and we store a score.
 
 Add a new function `init_feedback` to `db_init.py`:
 
@@ -86,9 +99,11 @@ def save_feedback(conversation_id, source, relevance=None,
 
 ## Adding buttons to the app
 
-We already save conversations in `app.py` from lesson 05. Now we need
-to capture the `conversation_id` returned by `save_conversation` and
-add feedback buttons.
+We already save conversations in `app.py` from lesson 05. To attach
+feedback to the right answer, we need the `conversation_id` that
+`save_conversation` returns. We keep it in `st.session_state`. Streamlit
+reruns the whole script on every click. Session state is how we carry the
+id from the answer to the button press.
 
 Add this import to `app.py`:
 
@@ -132,7 +147,13 @@ with col2:
         st.write("Thanks for the feedback!")
 ```
 
-Now users can rate each answer. In the next lesson, we'll add an
-LLM judge that uses the same feedback table.
+Now people can rate each answer. We show the buttons all the time rather
+than only after a response. It would be cleaner to reveal them once the
+answer is in. But that adds logic I'd rather keep out of this small app.
+If you want it, ask a coding assistant to gate the buttons on having an
+answer.
+
+Next we add a second source of feedback to the same table. An LLM judge
+scores answers automatically, without waiting for anyone to click.
 
 [← Streamlit Dashboard](07-streamlit-dashboard.md) | [Built-in Judge →](09-built-in-judge.md)

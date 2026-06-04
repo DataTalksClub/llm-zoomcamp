@@ -1,6 +1,10 @@
 # Querying Data
 
-Now that we're saving conversations to PostgreSQL, let's query them.
+We're saving conversations now, so the next step is reading them back.
+That's what the dashboard runs on. Normally I'd open a Jupyter notebook
+here and poke at the data first. I'd try a few queries to see what the
+rows look like. Our data is small and simple, so we skip that and go
+straight to a script.
 
 Create `db_query.py`.
 
@@ -14,6 +18,11 @@ from metrics import LLMCallRecord
 ```
 
 ## Fetching conversations
+
+A query returns each row as a plain tuple. You have to remember that
+column 4 is the model and column 6 is the prompt. That's no fun to work
+with. So we convert each row back into the `LLMCallRecord` dataclass we
+already use for live calls.
 
 A helper to convert a database row into an `LLMCallRecord`:
 
@@ -59,7 +68,11 @@ def get_conversations(limit=10):
     return [row_to_record(row) for row in rows]
 ```
 
-Now you can use the same dataclass for live calls and database results.
+We order by `timestamp` to get the most recent calls. One thing to keep
+in mind as the table grows: there's no index on `timestamp`, but there
+is one on `id`. Since ids increase over time anyway, ordering by `id`
+would be faster - or you add an index on `timestamp`. With a handful of
+rows it doesn't matter, so we leave it simple for now.
 
 Test it:
 
@@ -75,5 +88,9 @@ Run it:
 ```bash
 uv run python db_query.py
 ```
+
+The output is a wall of text, not something you'd want to read all day.
+Still, it proves we can pull the data back out of the database. Now we
+put it in front of a dashboard.
 
 [← Storing Data in PostgreSQL](05-database.md) | [Streamlit Dashboard →](07-streamlit-dashboard.md)

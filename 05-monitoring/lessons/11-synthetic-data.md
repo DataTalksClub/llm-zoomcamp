@@ -1,11 +1,13 @@
 # Synthetic Data Generation
 
-When you first set up Grafana, there's no data to visualize. You could
-use the app manually for a while, but that's slow. Instead, we generate
-synthetic data to populate the dashboards.
+A fresh dashboard with three conversations in it doesn't show much. You
+could keep asking the app questions until there's enough to chart, but
+that's slow and dull. Instead we write a small script that pumps fake
+conversations into Postgres. Then we can see how the dashboard behaves
+with real volume.
 
-We'll create a script that keeps inserting new conversations every
-second until we stop it.
+The script inserts a new conversation every second until we stop it. That
+also lets us watch Grafana update in close to real time.
 
 ## Sample data
 

@@ -1,10 +1,9 @@
 # Capturing Metrics
 
-Right now our chat app works, but we have no visibility into what's
-happening. We don't know how long responses take, how many tokens
-we're using, or how much each call costs.
-
-Let's fix that by instrumenting the RAG pipeline.
+Our chat app works, but every call is a black box. We don't know how
+long it took, how many tokens it used, or what it cost. To monitor the
+system, we first have to capture those numbers as they happen. So we
+instrument the RAG pipeline.
 
 Create `metrics.py`.
 
@@ -18,7 +17,12 @@ from datetime import datetime
 from rag_helper import RAGBase
 ```
 
-A dataclass to store all the details of each call:
+Every call produces a bundle of values we want to keep together. We
+could pass them around as a dictionary, but then you have to remember
+what keys are in it. A dataclass spells the fields out, so anyone reading
+the code can see what we record for each call.
+
+The `LLMCallRecord` dataclass:
 
 ```python
 @dataclass
@@ -37,7 +41,11 @@ class LLMCallRecord:
 
 ## Cost calculation
 
-A function to calculate the cost of an LLM call:
+Next we need the cost of each call. The provider charges a price per
+million input tokens and another per million output tokens. So we
+multiply each count by its rate and divide by a million. The `usage`
+object comes straight from the LLM response. It carries the token counts
+for the call we just made.
 
 ```python
 def calculate_cost(model, usage):
@@ -47,15 +55,19 @@ def calculate_cost(model, usage):
     return cost
 ```
 
+I keep copy-pasting a version of this function across modules, which
+isn't the tidiest thing in the world. For a real project you'd pull it
+into one shared place, but here it keeps each lesson self-contained.
+
 ## Instrumented RAG
 
-Now we create a subclass of `RAGBase` that captures metrics
-automatically. This way we don't have to instrument each LLM call by
-hand. Every time `rag()` calls the LLM internally, the metrics are
-recorded.
+`RAGBase` already works, and I like carrying it around as-is because it
+keeps things simple. So instead of rewriting it, we subclass it and only
+change the one method that calls the LLM. Everything else stays the same,
+and every time `rag()` makes a call, the metrics get recorded for free.
 
-The same approach works for agentic workflows too. Just capture tool
-calls the same way we did in the evaluations module.
+The same trick works for agents. You'd capture each tool call the same
+way we captured LLM calls in the evaluation module.
 
 Also in `metrics.py`, the subclass that captures metrics:
 
@@ -88,6 +100,14 @@ The `_call_llm` method sends the request to the LLM:
         )
         return response
 ```
+
+The `_log_response` method builds the record and stashes it on
+`self.last_call`. Keeping state on the object isn't the cleanest design.
+If two things called it at once, they'd fight over `last_call`.
+
+But it lets us read the metrics back without changing the method's return
+type. For one person clicking through a Streamlit app, that's good
+enough. We also print the record so we can see what we're capturing.
 
 The `_log_response` method captures all the metrics:
 
@@ -162,9 +182,13 @@ Run the app again:
 make chat
 ```
 
-Now you can see response time, token usage, and cost for each answer.
+Now you can see response time, token usage, and cost under each answer.
+It isn't a pretty panel, but it shows the numbers we care about. One
+naming note: I call these `prompt_tokens` and `completion_tokens` to
+follow the API. The names `input_tokens` and `output_tokens` read more
+clearly, so feel free to rename them in your own version.
 
-In the next lesson, we'll save these records to a database so we can
-track usage over time.
+We capture the metrics now, but they vanish the moment we close the app.
+Next we save each record to a database so we can track usage over time.
 
 [← Chat App](03-chat-app.md) | [Storing Data in PostgreSQL →](05-database.md)

@@ -1,8 +1,14 @@
 # Grafana Dashboards
 
-Grafana is a dashboard tool that visualizes data from databases. We
-store conversations and feedback in PostgreSQL. We can build
-dashboards that show what's happening in our system in real time.
+Our Streamlit dashboard already works. We bring in Grafana because it
+does more. It's a dedicated dashboarding tool: it connects to many data
+sources and offers more panel types. It can also raise alerts when a
+metric crosses a line.
+
+The tradeoff is that it's a separate, heavier application to run. That's
+exactly why, if your needs are simple, the Streamlit dashboard is enough.
+When you want more, Grafana reads straight from the Postgres we already
+have and shows what's happening in real time.
 
 ## Starting Grafana with Docker
 
@@ -18,9 +24,14 @@ docker run -d \
 ```
 
 We already created the network and started PostgreSQL on it in the
-database lesson.
+database lesson. We run Grafana detached with `-d`. If you'd rather watch
+its logs while you set things up, drop the `-d` and run it attached. The
+volume means everything you build in Grafana survives a restart, both
+data sources and dashboards.
 
-Access Grafana at `http://localhost:3000` (login: admin / admin).
+Access Grafana at `http://localhost:3000`. The first login is admin /
+admin, and it asks you to set a new password. For local work, admin /
+admin again is fine.
 
 ## Setting up the data source
 
@@ -38,17 +49,23 @@ Connect Grafana to PostgreSQL:
 
 ## Creating the dashboard
 
-Create a new dashboard. We'll add panels one by one. Each panel has a
+Create a new dashboard. We add panels one at a time, and each panel is a
 SQL query that Grafana runs against PostgreSQL.
 
-Grafana provides special SQL variables for time-based filtering:
+Two habits make these queries behave. First, alias your time column as
+`time`. Grafana reads that column to place points on the x-axis, so a
+time chart needs it. Second, filter on the selected time range. The panel
+then follows whatever you pick at the top instead of the whole table.
+
+Grafana gives us special SQL variables for exactly that filtering:
 
 - `$__timeFrom()`: start of the selected time range
 - `$__timeTo()`: end of the selected time range
 - `$__timeGroup(column, interval)`: groups results by time intervals
 
-These let the user select "last 30 minutes" or "last 6 hours" and the
-queries automatically filter to that range.
+Including `$__timeFrom()` and `$__timeTo()` in the `WHERE` clause isn't
+strictly required, but it's better to be explicit. The panel then tracks
+whatever range you select at the top.
 
 ## Response Time Panel
 
@@ -191,7 +208,12 @@ Arrange the panels in a layout that makes sense:
 - Middle row: model usage bar chart | relevance pie chart
 - Bottom row: response time | token usage | cost
 
-This dashboard gives you a clear view of system performance. It covers
-response speed, cost, relevance, and user satisfaction at a glance.
+Don't treat these panel types as fixed. On the same query you can try a
+bar chart, a pie, or a time series. Experiment and keep whatever reads
+best. With the synthetic data still streaming in, you'll see the charts
+move as you go.
+
+This dashboard gives you a clear view of how the system is doing. Response
+speed, cost, relevance, and user ratings are all in one place.
 
 [← Synthetic Data](11-synthetic-data.md) | [Docker Compose →](13-docker-compose.md)

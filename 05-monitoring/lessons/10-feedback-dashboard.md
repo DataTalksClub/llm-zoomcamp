@@ -1,7 +1,9 @@
 # Feedback Dashboard
 
-Now that we have both user feedback and judge evaluations, let's add
-them to the Streamlit dashboard.
+We collect two kinds of feedback now. People give thumbs up and down, and
+the judge gives relevance labels. But we can't see either one yet. So we
+add them to the Streamlit dashboard from lesson 07, beside the cost and
+latency panels.
 
 First, add feedback queries to `db_query.py`.
 
@@ -70,5 +72,9 @@ col1.metric("Thumbs up", int(thumbs_up or 0))
 col2.metric("Thumbs down", int(thumbs_down or 0))
 ```
 
+The dashboard now shows quality alongside cost and speed. The catch is
+that with only a few real conversations, the charts look empty. Before
+we move to Grafana, let's fill the database with some data so there's
+actually something to look at.
 
 [← Built-in Judge](09-built-in-judge.md) | [Synthetic Data →](11-synthetic-data.md)

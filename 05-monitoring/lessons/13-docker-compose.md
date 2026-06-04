@@ -1,9 +1,13 @@
 # Docker Compose
 
-We now have three components running - PostgreSQL, Grafana, and the
-Streamlit app. Starting each one manually and connecting them with
-networks works, but Docker Compose makes it easier to manage them
-together.
+By now we have three pieces running - PostgreSQL, Grafana, and the
+Streamlit app. Starting each by hand works, but it adds up. You have to
+remember the network and type out long commands. Next time around, Docker
+complains that a container with that name already exists, and you have to
+go remove it.
+
+Docker Compose describes all three services in one file and starts them
+together on a shared network. You run one command instead.
 
 ## Project structure
 

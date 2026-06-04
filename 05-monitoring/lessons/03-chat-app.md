@@ -1,7 +1,14 @@
 # Chat App
 
-Wrap the assistant in a web interface. Streamlit is a Python
-framework that makes it easy to build web apps with minimal code.
+The command line works, but we want something closer to how a person
+would actually talk to the assistant. So we wrap it in a small web
+interface. We use Streamlit, a Python framework for building front ends
+with almost no code.
+
+This isn't the final product, and it isn't meant to be pretty. I kept it
+deliberately simple so there's nothing to explain. If you want a nicer
+interface, hand it to a coding assistant like Claude Code or Codex. Ask
+it to improve the layout. For now, plain is fine.
 
 Add Streamlit to your project:
 
@@ -34,7 +41,7 @@ Run the app:
 uv run streamlit run app.py
 ```
 
-Add a `chat` target to the `Makefile`:
+That's another long command, so it goes into the `Makefile` too:
 
 ```makefile
 chat:
@@ -47,11 +54,12 @@ Now we can run:
 make chat
 ```
 
-You should see a web interface where you can ask questions and see
-the answer.
+If you're in GitHub Codespaces, it detects the port and forwards it for
+you. Open the link and you get a web interface. Ask a question like "How
+do I join the course?" and the answer comes back.
 
-Right now we don't track anything - no response time, no token usage,
-no cost. In the next lesson, we'll add metrics capture to monitor the
-LLM calls.
+The RAG works, but right now we track nothing about it: no response
+time, no token usage, no cost. That's exactly the visibility monitoring
+is supposed to give us, so that's what we add next.
 
 [← Assistant](02-assistant-setup.md) | [Capturing Metrics →](04-metrics.md)

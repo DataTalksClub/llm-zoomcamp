@@ -1,15 +1,24 @@
 # Built-in Judge
 
-In module 04, we used LLM-as-a-judge for offline evaluation. We can
-use the same approach online. After each answer, ask an LLM to evaluate
-whether the answer is relevant to the question.
+In the previous module we used an LLM as a judge for offline evaluation.
+One LLM grades the output of another. We can run the same idea online.
 
-Now we have an automatic relevance signal without waiting for user
-feedback.
+After each answer, we ask a judge whether it's relevant to the question.
+That gives us an automatic quality signal on every response. We don't
+have to wait for anyone to click thumbs up or down.
+
+There's one real difference from the offline setup. Back then we had
+ground truth: a reference answer to compare against. The judge could
+check our answer against that known-good one. Online we don't have it.
+
+The judge now only sees the question and the answer. It has to make the
+call on its own. That's a harder job, so in the instructions we describe
+more carefully what a good answer looks like.
 
 ## Adding relevance evaluation
 
-We use structured output to get a clean classification from the judge.
+We use structured output so the judge returns a clean label instead of
+free text we'd have to parse.
 
 We need `evaluation_utils` from module 04.
 
@@ -52,6 +61,20 @@ Generated Answer: {answer}
 """.strip()
 ```
 
+
+The `explanation` field matters even though we don't always do anything
+with it. Asking the judge to explain forces it to reason about the answer
+before it commits to a label. That tends to make the label better.
+
+We call the judge through `llm_structured_retry`, the helper from the
+previous module. It's the same as `llm_structured`, but it retries if
+something breaks.
+
+Once in a while a model returns JSON that doesn't quite match the
+structure we asked for. It's rare with OpenAI's small models, maybe once
+or twice in my experience. It's more common with other providers, where
+it might be a handful out of a thousand calls. The retry covers those
+cases.
 
 The evaluation function.
 
@@ -97,6 +120,17 @@ Run it:
 uv run python judge.py
 ```
 
+This judge is deliberately basic, so handle its verdicts with care.
+Sometimes it'll call a weak answer relevant, or the other way around.
+When you build your own, spend time on the prompt until "relevant" means
+relevant.
+
+The way to get there is alignment. You collect some labels from your
+users, or label a sample yourself. Then you tune the judge until it
+agrees with them. The team at Evidently has a good talk on this on our
+DataTalks Club channel. Look for
+[automated prompt optimization](https://www.youtube.com/watch?v=uMNYVw4jh-8).
+
 ## Saving judge feedback to the database
 
 We already created the `feedback` table in lesson 08. It has a
@@ -137,16 +171,24 @@ st.write(f"Relevance: {relevance}")
 st.write(f"Explanation: {explanation}")
 ```
 
-Now each answer comes with an automatic relevance label. This is useful
-for monitoring: if relevance drops, something is wrong with the search
-or the prompt.
+Now every answer carries an automatic relevance label. It lands in the
+same `feedback` table as the user's thumbs up and down from lesson 08.
+Because both are there, we can compare what the judge thinks with what
+people think. And if relevance starts dropping on the dashboard,
+something is off with the search or the prompt.
 
-Later we'll also save user feedback (+1/-1) to the same table with
-`source="user"` and `score=+1` or `score=-1`. This way we can compare
-human judgment with the LLM judge.
+A few things to keep in mind for anything beyond a demo:
 
-The judge adds an extra LLM call per question, which increases cost and
-latency. For high-traffic applications, evaluate only a sample of
-answers instead of every one.
+- The judge is an extra LLM call per question, so it adds latency and
+  cost. In a real system you'd run it asynchronously. Return the answer
+  to the user first, then score it in the background.
+- Track the judge's own cost separately, since it spends money too. A
+  `judge_feedback` table with relevance, explanation, and cost would do
+  it.
+- Once you have real traffic, you don't have to judge every answer.
+  Sample, say one in ten, and you still get the signal at a fraction of
+  the cost.
+
+Here we run it inline on every call to keep the code simple.
 
 [← User Feedback](08-user-feedback.md) | [Feedback Dashboard →](10-feedback-dashboard.md)

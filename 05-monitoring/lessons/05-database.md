@@ -1,14 +1,18 @@
 # Storing Data in PostgreSQL
 
-Right now the metrics are lost when we close the app. We need to store
-every conversation so we can track usage over time and build
-dashboards. PostgreSQL is a good choice: it handles structured data
-well and integrates with Grafana.
+The metrics disappear when we close the app, so we need somewhere to
+keep them. We store every conversation in PostgreSQL, which we run only
+for monitoring. No other part of the system touches this database. We
+pick Postgres for two reasons: it handles structured data well, and
+Grafana connects to it easily later on.
 
 ## Starting PostgreSQL with Docker
 
-First, create a Docker network so that later Grafana can connect to
-PostgreSQL:
+First we create a Docker network. Postgres and Grafana both run in
+containers, and Grafana reaches Postgres by name, so they need to share
+a network.
+
+Create the network:
 
 ```bash
 docker network create monitoring
@@ -29,8 +33,15 @@ docker run -it \
     postgres:17
 ```
 
-We'll be running this a lot, so let's add it to the `Makefile` we
-created in lesson 02.
+If the commands feel opaque, paste them into ChatGPT and ask it to walk
+you through each flag. The first module of our
+[data-engineering-zoomcamp](https://github.com/DataTalksClub/data-engineering-zoomcamp)
+goes deeper into Docker if you want the longer version.
+
+These are long commands we'll run again and again, so they go in the
+`Makefile` from lesson 02. The `postgres` target depends on `network`,
+so `make postgres` creates the network first and then starts the
+container.
 
 Add these targets:
 
@@ -57,7 +68,7 @@ make postgres
 ```
 
 
-We need `psycopg` to connect to PostgreSQL from Python:
+To reach Postgres from Python, we install the `psycopg` driver:
 
 ```bash
 uv add "psycopg[binary]"
@@ -65,10 +76,18 @@ uv add "psycopg[binary]"
 
 ## Initializing the database
 
-The `conversations` table stores everything from our `LLMCallRecord`
-plus the question and course. We use timezone-aware timestamps
-(`TIMESTAMP WITH TIME ZONE`) - this matters for Grafana dashboards
-later.
+The table stores everything from our `LLMCallRecord`, plus the question
+and the course. I call it `conversations`, which isn't the best name. I
+carried it over from materials I recorded a couple of years ago.
+Something like `llm_call_records` would describe it better, but the name
+stuck. Name yours however you like.
+
+Two fields are worth a word. We store the `course` because the same
+assistant can serve more than one course. Right now everything is
+`llm-zoomcamp`, but keeping the column means we don't have to reshape the
+table when we add others. The `timestamp` is timezone-aware
+(`TIMESTAMP WITH TIME ZONE`) on purpose. Without the time zone, Grafana
+won't line the data up correctly on its time axis later.
 
 The SQL to create the table:
 
@@ -122,10 +141,10 @@ def get_db_connection():
     )
 ```
 
-The init function creates the table.
-
-With `drop=True` it drops the table first, which deletes all
-existing data:
+The init function creates the table. With `drop=True` it drops the table
+first, which wipes all existing data. That's handy while we're still
+changing the schema and want a clean start. But be careful with it. You
+never want to run a drop against a real database by accident.
 
 ```python
 def init_db(drop=False):
@@ -167,9 +186,18 @@ Run the init script:
 uv run python db_init.py
 ```
 
+We run this once and don't add it to the `Makefile`. The `postgres`
+container uses a named volume (`pgdata`), so the data survives restarts.
+The table is still there next time we start Postgres. We only run
+`db_init.py` again when we change the schema.
+
 ## Saving conversations
 
-We want to insert an `LLMCallRecord` into the `conversations` table.
+We want to insert an `LLMCallRecord` into the `conversations` table. The
+`id` column is a `SERIAL`, so Postgres assigns it automatically. We add
+`RETURNING id` to get that value back, because we need it later. When a
+user rates an answer, we have to know which conversation the feedback
+belongs to.
 
 The SQL we want to execute:
 
@@ -192,6 +220,13 @@ Imports:
 from datetime import datetime
 from db_init import get_db_connection, DB_TIMEZONE
 ```
+
+We pass `question` in separately rather than reading it off the record.
+The record's `prompt` is the full text we send to the model, specific to
+how we call the LLM. The raw question the user typed is a different
+thing. We want it in its own column so we always know what was actually
+asked. You could fold the question into the prompt instead, but here we
+keep them apart.
 
 The save function takes an `LLMCallRecord` and inserts it into the
 database:
@@ -289,7 +324,7 @@ conversation_id = save_conversation(record, user_input, "llm-zoomcamp")
 st.session_state.conversation_id = conversation_id
 ```
 
-That's it - every question and answer is now saved to PostgreSQL. In the next
-lesson, we'll query the data to see recent conversations.
+Every question and answer is now saved to PostgreSQL. Next we query the
+data to pull recent conversations back out.
 
 [← Capturing Metrics](04-metrics.md) | [Querying Data →](06-querying.md)

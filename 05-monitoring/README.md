@@ -1,14 +1,18 @@
 # Module 5: Monitoring
 
-How do you know if your RAG system is performing well after deployment?
-This module covers online monitoring: collecting metrics from real users
-and visualizing them on a dashboard.
+Offline evaluation can't tell you how your RAG system performs once real
+people use it. This module covers online monitoring: collecting metrics
+from real traffic and visualizing them on a dashboard.
 
 We build a Streamlit chat app, capture metrics, store conversations
 in PostgreSQL, and create Grafana dashboards for real-time monitoring.
 
+Video: [Module 5 walkthrough](https://www.youtube.com/watch?v=ImY5-Q97sRw)
+
 
 ## Lessons
+
+Work through them in order:
 
 1. [Intro](lessons/01-intro.md) - Why monitoring matters, what we'll build
 2. [Assistant Setup](lessons/02-assistant-setup.md) - Setting up the RAG assistant
@@ -23,10 +27,12 @@ in PostgreSQL, and create Grafana dashboards for real-time monitoring.
 11. [Synthetic Data](lessons/11-synthetic-data.md) - Generating test data for dashboards
 12. [Grafana Dashboards](lessons/12-grafana.md) - SQL queries and dashboard panels
 13. [Docker Compose](lessons/13-docker-compose.md) - Running everything together
-14. [Next Steps](lessons/14-next-steps.md) - OpenTelemetry, alerting, further reading
+14. [Next Steps](lessons/14-next-steps.md) - OpenTelemetry, alerting, frameworks to learn more
 
 
 ## Older content
+
+Earlier cohorts ran this module with a different stack:
 
 - [2024 edition](../cohorts/2024/04-monitoring/)
 - [2025 edition](../cohorts/2025/04-monitoring/)

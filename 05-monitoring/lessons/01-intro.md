@@ -1,39 +1,39 @@
 # Monitoring
 
-In module 04, we evaluated our system offline, before deployment. We
-measured search quality with Hit Rate and MRR, and answer quality with
-cosine similarity and LLM-as-a-judge.
+In the previous module we evaluated our system offline, before anyone
+used it. We measured search quality with Hit Rate and MRR, and answer
+quality with cosine similarity and an LLM judge.
 
-After we deploy, users ask questions and the system gives answers. But we
-have no idea if the answers are good. Offline evaluation doesn't tell us
-how the system performs with real users.
+But once we deploy, real people start asking real questions. The offline
+numbers stop telling the whole story. We don't know how long answers
+take, what they cost, or whether anyone finds them useful. We need to
+watch the system while it runs.
 
-That's where monitoring comes in. Monitoring is online evaluation,
-collecting metrics from a running system to track its health and quality.
+That's monitoring: online evaluation. We collect metrics from the
+running system and put them on a dashboard. Then we can see how it
+performs with real traffic.
 
-There are several things we want to monitor:
+For every question that comes in, there's a lot we can capture:
 
-- User feedback: thumbs up / thumbs down on answers
-- Response time: how long the LLM takes to answer
-- Relevance: is the answer relevant to the question?
-- Token usage and cost: how much are we spending?
-- Model usage: which models are being used?
+- The instructions, prompt, and model behind the answer
+- Input and output tokens, and how much the call cost
+- Response time: how long the person waited
+- User feedback: a thumbs up or thumbs down on the answer
+- Relevance: does the answer address the question?
 
-To collect this data, we need:
+Collecting and viewing all of this takes three new pieces:
 
-- A user interface where users can interact with the system
-- A database to store conversations and feedback
-- A dashboard to visualize the metrics
+- a user interface where people ask questions
+- a database to store conversations and feedback
+- a dashboard to visualize the metrics
 
-In this module, we'll build all three. We'll use Streamlit for the UI,
-PostgreSQL for the database, and Grafana for the dashboard.
+We build all three on top of the RAG pipeline from the earlier modules.
+We don't rebuild the RAG part. We wrap it in a Streamlit app and save
+every interaction to PostgreSQL. Then we put a dashboard in front of the
+data. At the end we add Grafana for a more powerful view.
 
-We'll cover:
-
-- Building a chat app with Streamlit and feedback buttons
-- Storing conversations and feedback in PostgreSQL
-- Docker Compose to run everything together
-- Grafana dashboards with SQL queries
-- Generating synthetic data to test dashboards
+We focus on RAG here. Monitoring an agent works almost the same way, so
+we leave it as homework. The [agents module](../../01-agentic-rag/)
+already has the pieces you need to apply these same ideas there.
 
 [← Back to module](../) | [Assistant →](02-assistant-setup.md)
