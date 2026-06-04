@@ -120,7 +120,9 @@ for line in example:
 total_score
 ```
 
-The total score is `12.333333333333334`.
+The total score is `12.333333333333334`. We use `rank + 1` because
+Python counts positions from zero. The first position should score
+`1/1`, and without the `+ 1` we'd divide by zero.
 
 Divide it by the number of queries:
 

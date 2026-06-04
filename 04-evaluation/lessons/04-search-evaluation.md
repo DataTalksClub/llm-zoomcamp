@@ -42,8 +42,12 @@ documents = documents_llm
 index = build_index(documents)
 ```
 
-Wrap the search call in a function called `text_search`. Later, we can
-compare it with other search functions.
+Wrap the search call in a function called `text_search`. The name is
+deliberate. Later we'll write `vector_search` or a hybrid version and
+run the exact same evaluation on it. Everything downstream only needs a
+function that takes a query and returns results, so we can swap one for
+another. That mirrors how RAG works: the retrieval step doesn't care
+which search function sits behind it.
 
 ```python
 def text_search(query):

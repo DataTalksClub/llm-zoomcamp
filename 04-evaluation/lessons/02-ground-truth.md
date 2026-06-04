@@ -70,9 +70,14 @@ print(doc["answer"])
 ```
 
 The ID becomes the label in our ground truth dataset. We generate
-questions from a document, so we know that this document contains the
-answer. Later, search evaluation checks whether search retrieves the
+questions from a document, so we know that this document holds the
+answer. Later, search evaluation checks whether search brings back the
 document with this ID.
+
+This is why every record needs a stable ID. If you can't uniquely
+identify a document, you can't tell whether search retrieved the right
+one. When you build your own evaluation set, assign an ID to each record
+in your knowledge base first.
 
 ## Generating questions with structured output
 
@@ -143,6 +148,11 @@ messages = [
 ]
 ```
 
+Until now we called `responses.create` and read `response.output_text`.
+For structured output we switch to `responses.parse` and pass
+`text_format=Questions`, which tells the API to return our class instead
+of free text.
+
 Call the model:
 
 ```python
@@ -153,7 +163,7 @@ response = openai_client.responses.parse(
 )
 ```
 
-The parsed output is available in `response.output_parsed`:
+The parsed object is available in `response.output_parsed`:
 
 ```python
 result = response.output_parsed
