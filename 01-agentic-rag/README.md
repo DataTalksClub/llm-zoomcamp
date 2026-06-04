@@ -12,8 +12,6 @@ Code: [code/](code/)
 The first 10 lessons walk through building a working RAG pipeline
 from scratch with keyword search.
 
-Video: [Build your first RAG application](https://www.youtube.com/watch?v=KSItlTAsMsk)
-
 1. [Introduction](lessons/01-intro.md) - What we'll build and why
 2. [Environment Setup](lessons/02-environment.md) - Python, uv, OpenAI API
 3. [What is RAG](lessons/03-rag.md) - Why LLMs need context, the RAG architecture
@@ -31,8 +29,6 @@ Video: [Build your first RAG application](https://www.youtube.com/watch?v=KSItlT
 Part 2 puts the LLM in charge of the search decisions, turning the
 fixed pipeline into an agent.
 
-Video: [From RAG to AI agents: function calling and tool use](https://www.youtube.com/watch?v=RAqLWJsLZb4)
-
 11. [Agents](lessons/11-agents-intro.md) - Why a fixed RAG pipeline isn't enough
 12. [Quick RAG Revision (Optional)](lessons/12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)
 13. [Function Calling](lessons/13-function-calling.md) - Giving the LLM tools it can use
@@ -46,6 +42,15 @@ Video: [From RAG to AI agents: function calling and tool use](https://www.youtub
 Extra material for going deeper on search internals.
 
 - [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) ([Code](https://github.com/alexeygrigorev/build-your-own-search-engine)) - How minsearch was built from scratch
+
+
+## Original workshop recordings
+
+This module was taught as two live workshops, which we chopped into the
+per-lesson videos above. To watch the full uncut recordings:
+
+- Part 1 – RAG: [Build Your First RAG Application](https://www.youtube.com/watch?v=KSItlTAsMsk)
+- Part 2 – Agents: [From RAG to AI Agents: Function Calling and Tool Use](https://www.youtube.com/watch?v=RAqLWJsLZb4)
 
 
 ## Old content

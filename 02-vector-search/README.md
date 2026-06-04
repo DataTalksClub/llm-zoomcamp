@@ -7,8 +7,6 @@ overlap. We start from embeddings and end with persistent vector
 indexes (sqlitesearch, PGVector) and ONNX-based embedders for
 lightweight deployments.
 
-Video: [Vector Search workshop](https://www.youtube.com/watch?v=BC3NsRUNEIg)
-
 Code: [code/](code/)
 
 Embeddings runtime: [embed/](embed/)
@@ -29,6 +27,14 @@ persistent indexes.
 8. [Vector Search with PGVector](lessons/08-pgvector.md) - Production vector search with PostgreSQL and pgvector
 9. [ONNX Embedder](lessons/09-onnx-embedder.md) (Optional) - Using ONNX Runtime instead of PyTorch for embeddings
 10. [Next Steps](lessons/10-next-steps.md) - When to use vector search and what's next
+
+
+## Original workshop recording
+
+This module was taught as a live workshop, which we chopped into the
+per-lesson videos above. To watch the full uncut recording:
+
+- [Vector Databases: Embeddings, Semantic Search, and Hybrid Retrieval](https://www.youtube.com/watch?v=BC3NsRUNEIg)
 
 
 ## Old content

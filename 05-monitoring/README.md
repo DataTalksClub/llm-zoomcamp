@@ -7,9 +7,6 @@ from real traffic and visualizing them on a dashboard.
 We build a Streamlit chat app, capture metrics, store conversations
 in PostgreSQL, and create Grafana dashboards for real-time monitoring.
 
-Video: [Module 5 walkthrough](https://www.youtube.com/watch?v=ImY5-Q97sRw)
-
-
 ## Lessons
 
 Work through them in order:
@@ -28,6 +25,14 @@ Work through them in order:
 12. [Grafana Dashboards](lessons/12-grafana.md) - SQL queries and dashboard panels
 13. [Docker Compose](lessons/13-docker-compose.md) - Running everything together
 14. [Next Steps](lessons/14-next-steps.md) - OpenTelemetry, alerting, frameworks to learn more
+
+
+## Original workshop recording
+
+This module was taught as a live workshop, which we chopped into the
+per-lesson videos above. To watch the full uncut recording:
+
+- [Monitoring LLM Applications: Traces, Feedback, and Production Quality](https://www.youtube.com/watch?v=ImY5-Q97sRw)
 
 
 ## Older content

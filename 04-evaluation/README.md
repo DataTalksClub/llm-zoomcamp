@@ -8,8 +8,6 @@ with Hit Rate, MRR, and LLM-as-a-judge.
 
 Code notebooks are in [code](code/).
 
-- [Workshop recording](https://www.youtube.com/watch?v=WUGtDveIe7A)
-
 
 ## Part 1: Search Evaluation
 
@@ -35,6 +33,14 @@ trajectory.
 13. [LLM as a Judge](lessons/13-llm-as-judge.md) - Using an LLM to evaluate answer quality
 14. [Agent Evaluation](lessons/14-agent-evaluation.md) - Capturing answers and tool-call trajectories
 15. [Next Steps](lessons/15-next-steps.md) - Evaluation frameworks, monitoring, and resources
+
+
+## Original workshop recording
+
+This module was taught as a live workshop, which we chopped into the
+per-lesson videos above. To watch the full uncut recording:
+
+- [RAG and Agents Evaluation: Measuring Retrieval and LLM Answer Quality](https://www.youtube.com/watch?v=WUGtDveIe7A)
 
 
 ## Older content
