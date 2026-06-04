@@ -13,7 +13,8 @@ specs, credentials) live in the repo's gitignored `.tmp/` directory.
    boundaries (per-module `<module>.spec` + `<module>-chop-plan.md`).
 4. **Chop + normalize** — `chop.sh` re-encodes each lesson clip and applies
    YouTube loudness normalization.
-   → Steps 1–4 are detailed in **[video-lesson-chopping.md](video-lesson-chopping.md)**.
+   → Steps 1–4 are detailed in **[video-lesson-chopping.md](video-lesson-chopping.md)**;
+   the final per-module cut lists are in **[chop-specs/](chop-specs/)**.
 5. **Upload** — bulk drag-and-drop the clips into YouTube Studio.
 6. **Set metadata** — `rename.py`: titles, descriptions, tags; set unlisted;
    add to the course playlist.
