@@ -148,7 +148,7 @@ Based on what you learned in this module, for production workflows requiring det
 
 ## Submitting the Solutions
 
-* Form for submitting: [Link will be provided by course organisers]
+* Form for submitting: https://courses.datatalks.club/llm-zoomcamp-2026/hw3
 * Check the link above to see the due date
 
 ---
