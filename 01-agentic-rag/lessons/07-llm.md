@@ -25,10 +25,55 @@ older one, and it's now considered legacy. When the first edition of
 this course started, the Responses API didn't exist, so we used chat
 completions. Now we prefer responses because it's more convenient.
 
-There's a catch worth knowing. Many other providers like Groq and
-Gemini give you an OpenAI-compatible client. But they expose chat
-completions, not responses. So if you switch providers, you keep the
-OpenAI client but call `chat.completions` instead of `responses`.
+If you decide to use an alternative provider like Groq, you have multiple ways to call their models.
+
+Depending on your preference, you can choose between these two approaches:
+
+**Option A: The OpenAI Client Wrapper (Recommended)**
+
+To make developer lives easier, Groq updated their servers to handle OpenAI's modern design patterns. 
+This allows you to keep using the exact same OpenAI client from your main project, change the base_url, and seamlessly use the cleaner `responses.create` syntax.
+
+```python
+import os
+from openai import OpenAI
+
+# Use the OpenAI client, but route it to Groq's infrastructure
+openai_compatible_client = OpenAI(
+    api_key=os.getenv("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1"
+)
+
+response = openai_compatible_client.responses.create(
+    model="openai/gpt-oss-20b",
+    input=prompt
+)
+
+print(response.output_text)
+```
+
+**Option B: The Native Groq SDK (Traditional Chat Completions)**
+
+This was the original way to use Groq. It uses Groq's dedicated Python library and the traditional `chat.completions` setup. Because it's an older standard, your prompt must be wrapped inside a structured messages list, and you have to dig into the `response` object to find your text.
+
+```python
+import os
+from groq import Groq
+
+groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+
+chat_completion = groq_client.chat.completions.create(
+    model="openai/gpt-oss-20b",
+    messages=[
+        {
+            "role": "user",
+            "content": prompt,
+        }
+    ],
+)
+
+print(chat_completion.choices[0].message.content)
+```
 
 ## Exploring the response
 
