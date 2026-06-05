@@ -22,7 +22,7 @@
 | Resource | Link |
 |-|-|
 | 📁 Course materials | [GitHub repository](https://github.com/DataTalksClub/llm-zoomcamp) |
-| 🎥 Video lectures | [YouTube playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R) |
+| 🎥 Video lectures | [YouTube playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv) |
 | 📅 Cohort schedule & deadlines | [courses.datatalks.club](https://courses.datatalks.club/llm-zoomcamp-2026) |
 | 💬 Slack community | [#course-llm-zoomcamp](https://app.slack.com/client/T01ATQK62F8/C06TEGTGM3J) |
 | 📣 Announcements | [Telegram](https://t.me/llm_zoomcamp) |
