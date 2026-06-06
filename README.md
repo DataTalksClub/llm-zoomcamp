@@ -200,7 +200,7 @@ A huge thanks to our sponsors for making this course possible!
 Join the [`#course-llm-zoomcamp`](https://app.slack.com/client/T01ATQK62F8/C06TEGTGM3J) channel on [DataTalks.Club Slack](https://datatalks.club/slack.html) for discussions, troubleshooting, and networking with fellow learners and the course team.
 
 To keep discussions useful for everyone:
-- Follow [our posting guidelines](asking-questions.md) when asking questions
+- Follow [our posting guidelines](https://datatalks.club/docs/courses/zoomcamp-logistics/asking-questions/) when asking questions
 - Review the [community guidelines](https://datatalks.club/slack/guidelines.html)
 
 ### Learning in Public
