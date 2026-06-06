@@ -14,19 +14,20 @@ to deliver a project. There are two attempts for that.
 ## Objective
 
 The goal of this project is to apply the course material.
-You will build an end-to-end RAG application.
+You will build an end-to-end RAG or agent application.
 
 
 ## Problem statement
 
-For the project, we ask you to build an end-to-end RAG project.
+For the project, we ask you to build an end-to-end LLM application.
+It can be a RAG application, an agent application, or a combination of both.
 
 For that, you need:
 
-* Select a dataset that you're interested in (see [Datasets](#datasets) for examples and ideas)
-* Ingest the data into a knowledge base
-* Implement the retrieval flow: query the knowledge base, build the prompt, send the promt to an LLM
-* Evaluate the performance of your RAG flow
+* Select a dataset or API-backed data source that you're interested in (see [Datasets](#datasets) for examples and ideas)
+* Ingest the data into a knowledge base, or connect to the API that provides the data
+* Implement the application flow: retrieve context from the data, optionally call tools, build the prompt, and send it to an LLM
+* Evaluate the performance of your RAG or agent flow
 * Create an interface for the application
 * Collect user feedback and monitor your application
 
@@ -64,7 +65,7 @@ You can use alternatives as well:
 * Knowledge base: any text, relational or vector database, including in-memory ones like we implemented in the course or SQLite
 * Monitoring: Grafana, Kibana, Streamlit, dash, etc
 * Interface: Streamlit, dash, Flask, FastAPI, Django, etc (could be UI or API)
-* Ingestion pipeline: Mage, dlt, Airflow, Prefect, python script, etc
+* Ingestion pipeline: Kestra, dlt, Mage, Airflow, Prefect, python scripts, etc
 
 If you use a tool that wasn't covered in the course, explain what that tool does.
 Also explain how to use it.
