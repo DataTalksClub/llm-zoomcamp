@@ -5,7 +5,7 @@ We start from the context problem that makes generic AI assistants unreliable, a
 
 Flows: [flows/](flows/)
 
-Video: [Using AI in Workflows](https://youtu.be/l9w6oeUtrpk)
+Video: [Using AI in Workflows](https://youtu.be/xUAkcgNIcRI)
 Video: [Setting up Kestra](https://youtu.be/ghkf93rfb2w)
 Video: [AI Copilot](https://youtu.be/OTiOdt17hZg)
 Video: [RAG Workflows](https://youtu.be/FhGZV173xrk)
