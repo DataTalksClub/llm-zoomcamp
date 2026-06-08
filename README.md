@@ -140,7 +140,7 @@ To earn your certificate:
 
 ## 👨‍🏫 Meet the Instructors
 
-- [Alexey Grigorev](https://linkedin.com/in/agrigorev/) - Founder of DataTalks.Club and creator of multiple open-source ML courses. Former principal data scientist.
+- [Alexey Grigorev](https://linkedin.com/in/agrigorev/) - Founder of DataTalks.Club and creator of the Zoomcamp series. Principal data scientist.
 - [Will Russell](https://www.linkedin.com/in/wrussell1999/) - Developer Relations at Kestra.
 - [Timur Kamaliev](https://www.linkedin.com/in/timurkamaliev/) - AI engineer building production LLM systems, RAG pipelines, and agentic applications.
 
