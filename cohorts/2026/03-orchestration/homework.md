@@ -169,7 +169,7 @@ Free course by @DataTalksClub: https://github.com/DataTalksClub/llm-zoomcamp/
 
 ## Submitting the Solutions
 
-* Form for submitting: https://courses.datatalks.club/llm-zoomcamp-2026/hw3
+* Form for submitting: https://courses.datatalks.club/llm-zoomcamp-2026/homework/hw3
 * Check the link above to see the due date
 
 ## Tips for Success

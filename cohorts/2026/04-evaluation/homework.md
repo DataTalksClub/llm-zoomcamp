@@ -17,4 +17,4 @@ TODO
 
 ## Submit the results
 
-* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2026/hw4
+* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2026/homework/hw4
