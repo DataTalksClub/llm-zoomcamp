@@ -139,24 +139,45 @@ To earn your certificate:
 
 ## 👨‍🏫 Meet the Instructors
 
-<table>
-  <tr>
-    <td align="center" width="50%">
-      <img src="https://avatars.githubusercontent.com/u/875246" width="120px;" alt="Alexey Grigorev" /><br /><br />
-      <a href="https://linkedin.com/in/agrigorev/"><b>Alexey Grigorev</b></a><br />
-      <sub>Founder, DataTalks.Club</sub><br /><br />
-      <sub>Founder of DataTalks.Club and creator of multiple open-source ML courses reaching tens of thousands of learners worldwide. Former principal data scientist with deep expertise in ML systems and engineering.</sub>
-    </td>
-    <td align="center" width="50%">
-      <img src="https://avatars.githubusercontent.com/SVizor42" width="120px;" alt="Timur Kamaliev" /><br /><br />
-      <a href="https://www.linkedin.com/in/timurkamaliev/"><b>Timur Kamaliev</b></a><br />
-      <sub>Senior Data Scientist</sub><br /><br />
-      <sub>AI Engineer specializing in building production LLM systems, RAG pipelines, and agentic applications. Hands-on practitioner with real-world experience shipping GenAI products.</sub>
-    </td>
-  </tr>
-</table>
+- [Alexey Grigorev](https://linkedin.com/in/agrigorev/) - Founder of DataTalks.Club and creator of multiple open-source ML courses. Former principal data scientist.
+- [Will Russell](https://www.linkedin.com/in/wrussell1999/) - Developer Relations at Kestra.
+- [Timur Kamaliev](https://www.linkedin.com/in/timurkamaliev/) - AI engineer building production LLM systems, RAG pipelines, and agentic applications.
 
 
+
+## 🚀 AI Shipping Labs
+
+If you want extra support and structure while going through the course, [AI Shipping Labs](https://aishippinglabs.com/?utm_source=github&utm_medium=referral&utm_campaign=llm_zoomcamp_2026_june&utm_content=homepage) is a paid community focused on AI engineering where you can get it. It is also a way to support the course.
+
+But we want to assure you that everything we do at DataTalks.Club is free and will stay free. This is optional, only for people who want to get extra on top of the free content.
+
+What you get:
+
+- Regular [office hours](https://aishippinglabs.com/events/groups/llm-zoomcamp-2026-office-hours?utm_source=github&utm_medium=referral&utm_campaign=llm_zoomcamp_2026_june&utm_content=office_hours) on Zoom where you can ask questions. They are recorded if you can't make it.
+- Accountability sprints. You join a sprint, show up, and share your progress on a call. Knowing you have to report keeps you consistent. The sprint dedicated to LLM Zoomcamp starts one week after the course starts.
+- Personalized onboarding. When you enroll, you have a one-on-one with the founders to set your goals and build a plan to reach them.
+- Going through the course together with other members.
+
+Membership:
+
+- These benefits start from the middle tier. The basic tier does not include them.
+- You can pay monthly or yearly. The benefits are the same. Yearly is cheaper (you get about two months free) and is a stronger commitment.
+- There are no location-based discounts right now.
+
+Membership is not tied only to LLM Zoomcamp. It also includes:
+
+- Regular hands-on, member-only workshops and group coding sessions
+- Career guidance, including resume, LinkedIn, and GitHub reviews
+- Mini-courses on specialized AI topics
+- Community hackathons
+- Personal branding and developer productivity guidance
+- A closed community of practitioners for mentorship and networking
+- Exclusive content, tutorials, and breakdowns of new AI tools
+
+Links:
+
+- [AI Shipping Labs](https://aishippinglabs.com/?utm_source=github&utm_medium=referral&utm_campaign=llm_zoomcamp_2026_june&utm_content=homepage)
+- [Events and workshops](https://aishippinglabs.com/events?utm_source=github&utm_medium=referral&utm_campaign=llm_zoomcamp_2026_june&utm_content=events)
 
 ## Sponsors
 
