@@ -10,6 +10,11 @@ hand and call the LLM ourselves. I want you to see every piece first.
 That way you know what a framework does for you before you reach for
 one.
 
+Before you start, it's important to go through the course documentation:
+
+- [Zoomcamp Logistics](https://datatalks.club/docs/courses/zoomcamp-logistics/)
+- [LLM Zoomcamp](https://datatalks.club/docs/courses/llm-zoomcamp/)
+
 Places where you can find me:
 
 - [My substack](https://alexeyondata.substack.com/)
