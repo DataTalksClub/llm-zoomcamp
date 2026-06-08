@@ -37,6 +37,11 @@ fixed pipeline into an agent.
 16. [Other Frameworks](lessons/16-other-frameworks.md) - Production frameworks worth exploring
 
 
+## Homework
+
+- [Homework](../cohorts/2026/01-agentic-rag/homework.md)
+
+
 ## Optional
 
 Extra material for going deeper on search internals.

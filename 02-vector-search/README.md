@@ -29,6 +29,11 @@ persistent indexes.
 10. [Next Steps](lessons/10-next-steps.md) - When to use vector search and what's next
 
 
+## Homework
+
+- [Homework](../cohorts/2026/02-vector-search/homework.md)
+
+
 ## Original workshop recording
 
 This module was taught as a live workshop, which we chopped into the

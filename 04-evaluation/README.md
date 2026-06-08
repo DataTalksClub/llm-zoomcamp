@@ -35,6 +35,11 @@ trajectory.
 15. [Next Steps](lessons/15-next-steps.md) - Evaluation frameworks, monitoring, and resources
 
 
+## Homework
+
+- [Homework](../cohorts/2026/04-evaluation/homework.md)
+
+
 ## Original workshop recording
 
 This module was taught as a live workshop, which we chopped into the

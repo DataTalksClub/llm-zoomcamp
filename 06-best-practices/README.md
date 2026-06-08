@@ -25,7 +25,7 @@ uses older libraries and approaches.
 
 ## Homework
 
-TBD
+There's no homework for this module.
 
 ## Notes
 

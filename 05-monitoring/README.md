@@ -27,6 +27,11 @@ Work through them in order:
 14. [Next Steps](lessons/14-next-steps.md) - OpenTelemetry, alerting, frameworks to learn more
 
 
+## Homework
+
+- [Homework](../cohorts/2026/05-monitoring/homework.md)
+
+
 ## Original workshop recording
 
 This module was taught as a live workshop, which we chopped into the

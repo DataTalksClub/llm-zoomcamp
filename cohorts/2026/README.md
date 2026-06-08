@@ -3,6 +3,7 @@
 Important links:
 
 - Pre-Course Q&A Stream: [video](https://www.youtube.com/watch?v=RspWoRtittU)
+- Course Launch Stream: [video](https://www.youtube.com/watch?v=7TuZTVwnmhk)
 - [2026 Edition Youtube Playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hJAmLLf2x1LSKRKbZwKXoHd)
 - [Course management platform](https://courses.datatalks.club/llm-zoomcamp-2026/)
 

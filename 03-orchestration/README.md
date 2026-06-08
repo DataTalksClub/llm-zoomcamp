@@ -48,6 +48,11 @@ Part 5 covers what you need to know before going to production - cost, security,
 9. [Next Steps](lessons/09-next-steps.md) - Resources, further reading, and where to go from here
 
 
+## Homework
+
+- [Homework](../cohorts/2026/03-orchestration/homework.md)
+
+
 ## Extra Resources
 
 - [Meet Kestra in 60 seconds](https://youtu.be/1DMXb98nTik?si=4ndF_W-v6vhgX9I-) — a quick overview of what Kestra is
