@@ -1,5 +1,7 @@
 # Querying Data
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=18vEtjPJwLc&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 We're saving conversations now, so the next step is reading them back.
 That's what the dashboard runs on. Normally I'd open a Jupyter notebook
 here and poke at the data first. I'd try a few queries to see what the

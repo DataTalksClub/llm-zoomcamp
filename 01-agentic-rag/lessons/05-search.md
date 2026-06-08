@@ -1,5 +1,7 @@
 # Search
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=GYgpNKiuCJU&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 ## Search basics
 
 At its core, every search engine does the same thing. It takes a query,
@@ -51,18 +53,24 @@ Elasticsearch, Solr, and others. But these are somewhat heavy. For
 example, to run Elasticsearch, you need to start a Docker container.
 
 [minsearch](https://github.com/alexeygrigorev/minsearch) is a simple
-in-memory search engine. It's a toy implementation - not production
-ready - but it illustrates how search engines work and it gives good
-results.
+in-memory search engine. It's lightweight, so it runs anywhere Python
+runs, including Google Colab where you can't start a Docker container.
+It's a toy implementation, not production ready, but it illustrates how
+search engines work and it gives good results.
 
-I implemented this library for the first edition of LLM Zoomcamp.
-Initially it was just a python file. We wrote it together as part
-of the [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) workshop
+I should add a disclaimer: I wrote this library and I maintain it. It
+started as a single Python file in the first edition of LLM Zoomcamp. I
+wanted to show that keyword search isn't magic. We wrote it together as
+part of the [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) workshop
 (see the [code](https://github.com/alexeygrigorev/build-your-own-search-engine)).
 
+It turned out useful beyond teaching. After two years across many
+projects, it's pretty reliable for small datasets.
+
 The concepts in minsearch are the same as in Elasticsearch (which
-comes from Lucene): text fields, keyword fields, boosting, filtering.
-What you learn here transfers directly.
+comes from Lucene): text fields, keyword fields, boosting, filtering. I
+borrowed those terms from Elasticsearch on purpose, since I wanted a
+lightweight stand-in for it. So what you learn here transfers directly.
 
 We'll index the `question`, `section`, and `answer` fields as text
 (they'll be tokenized and ranked), and the `course` field as a
@@ -82,12 +90,9 @@ results must come from the specified course, no matter what ranking or
 boosting you do for text fields.
 
 You use keyword fields to restrict the search space to a particular
-subset. In our case, we have four courses. If you are taking the LLM
-course, you do not want results from other courses.
-
-This terminology (text fields, keyword fields) comes from
-Elasticsearch, which in turn comes from Apache Lucene. What you learn
-here with minsearch transfers directly to production search engines.
+subset. In our case, we have four courses. Say you're taking the LLM
+course and ask a question. You don't want answers from the MLOps or
+machine learning courses mixed in.
 
 ```python
 from minsearch import Index
@@ -100,7 +105,8 @@ index = Index(
 index.fit(documents)
 ```
 
-That's it. The index is built.
+That's it, the index is built. The `fit` name comes from scikit-learn,
+where you fit a model on data. Here we fit an index on our documents.
 
 ## Trying a search
 
@@ -157,8 +163,12 @@ results = index.search(
 ```
 
 All fields have a default boost of 1. Giving `question` a boost of 2
-means it counts two times as much. Giving `section` 0.5 means it
-counts half as much. This is the same boosting mechanism used by
+means it counts two times as much. Take a question about certificates.
+The word "certificate" in the question field now weighs twice what it
+does in the answer.
+
+Giving `section` 0.5 means it counts half as much, since a match there
+tells us less. This is the same boosting mechanism used by
 Elasticsearch and Lucene.
 
 Try different boost values and see how the results change.

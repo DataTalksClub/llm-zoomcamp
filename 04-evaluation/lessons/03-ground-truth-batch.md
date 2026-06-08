@@ -1,5 +1,7 @@
 # Generating Ground Truth for All Documents
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=eM6xmdZDT6k&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson, we generated questions for one document and
 converted them into ground truth records.
 
@@ -86,8 +88,13 @@ documents this way would take too long.
 
 ## Parallel processing
 
-We want to process documents in parallel and track progress while the
-requests are running.
+Running the calls one after another wastes most of the time waiting on
+the network. Each request just sits there until OpenAI responds, so we
+can fire several at once and wait on them together. We process the
+documents in parallel and track progress while the requests run.
+
+One caution: don't open too many connections at once, or you'll hit the
+provider's rate limits. Five or six workers is a safe default here.
 
 Import `ThreadPoolExecutor`:
 

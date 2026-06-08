@@ -4,8 +4,6 @@ In this module, we learn what LLMs are and build a simple RAG
 pipeline using keyword search. Then we make it agentic, so the LLM
 decides when and what to search instead of running a fixed pipeline.
 
-Video: [Module 1 walkthrough](https://www.youtube.com/watch?v=KSItlTAsMsk)
-
 Code: [code/](code/)
 
 
@@ -32,11 +30,16 @@ Part 2 puts the LLM in charge of the search decisions, turning the
 fixed pipeline into an agent.
 
 11. [Agents](lessons/11-agents-intro.md) - Why a fixed RAG pipeline isn't enough
-12. [Quick RAG Revision](lessons/12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)
+12. [Quick RAG Revision (Optional)](lessons/12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)
 13. [Function Calling](lessons/13-function-calling.md) - Giving the LLM tools it can use
 14. [The Agentic Loop](lessons/14-agentic-loop.md) - Repeating until the model stops calling tools
 15. [ToyAIKit](lessons/15-frameworks.md) - A teaching framework for the agent loop
 16. [Other Frameworks](lessons/16-other-frameworks.md) - Production frameworks worth exploring
+
+
+## Homework
+
+- [Homework](../cohorts/2026/01-agentic-rag/homework.md)
 
 
 ## Optional
@@ -44,6 +47,15 @@ fixed pipeline into an agent.
 Extra material for going deeper on search internals.
 
 - [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) ([Code](https://github.com/alexeygrigorev/build-your-own-search-engine)) - How minsearch was built from scratch
+
+
+## Original workshop recordings
+
+This module was taught as two live workshops, which we chopped into the
+per-lesson videos above. To watch the full uncut recordings:
+
+- Part 1 – RAG: [Build Your First RAG Application](https://www.youtube.com/watch?v=KSItlTAsMsk)
+- Part 2 – Agents: [From RAG to AI Agents: Function Calling and Tool Use](https://www.youtube.com/watch?v=RAqLWJsLZb4)
 
 
 ## Old content

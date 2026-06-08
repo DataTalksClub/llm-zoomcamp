@@ -54,7 +54,12 @@ Export base64-encoded keys as `SECRET_`-prefixed environment variables before st
 Enable detailed logging when troubleshooting:
 
 ```yaml
-provider:
+- id: my_agent_task
+  type: io.kestra.plugin.ai.agent.AIAgent
+  provider:
+    # ...
+    # provider settings
+    # ...
   configuration:
     logRequests: true
     logResponses: true

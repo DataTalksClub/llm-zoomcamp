@@ -1,15 +1,21 @@
 # Building the Prompt
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=DV4e2n-dIv0&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The LLM doesn't see our documents unless we pass them in. So we need
 to build a prompt that includes the user's question and the search
 results.
 
-Typically when we build AI systems, the prompt consists of two parts:
+When we build AI systems, we usually split the prompt into two parts:
 
-- Instructions (also called system prompt): this tells the LLM how to
-  behave. It never changes - it's the same for every request.
-- User prompt: this changes with every request. It contains the actual
+- Instructions (also called the system prompt): this tells the LLM how
+  to behave. It never changes, so it's the same for every request.
+- User prompt: this changes with every request. It carries the actual
   question and the retrieved context.
+
+We split them because the instructions are fixed and the user prompt is
+not. Keeping them apart makes the fixed part easy to reuse and the
+changing part easy to build fresh each time.
 
 ## Instructions
 
@@ -61,8 +67,9 @@ def build_context(search_results):
 ```
 
 Each document becomes a block with the section, question, and answer.
-This format makes it easy for the LLM to read. We just turned a
-dictionary into a string - a plain text format the LLM can process.
+This format makes it easy for the LLM to read. We turned a list of
+dictionaries into one string. It's a small preprocessing step before we
+send the data to the LLM.
 
 ## Building the prompt
 
@@ -107,14 +114,14 @@ A: You don't need it. You're accepted. You can also just start learning and subm
 ...
 ```
 
-The prompt is the bridge between search and the LLM. A bad prompt
-means the LLM ignores the context and hallucinates. A good prompt
-keeps the answer grounded.
+The prompt is the bridge between search and the LLM. A bad prompt lets
+the LLM ignore the context and hallucinate. A good prompt keeps the
+answer grounded.
 
-Prompt engineering is a mix of art and science. You experiment, try
-different things, and see what works. Later in the course we'll talk
-about evaluation metrics so you can numerically measure how well your
-prompt performs. For now, this template is a good starting point.
+Prompt engineering is part art, part science. You experiment, try
+different things, and see what works. Later in the course we cover
+evaluation metrics so you can measure how well your prompt performs
+instead of guessing. For now, this template is a good starting point.
 
 Code: [notebook.ipynb](../code/notebook.ipynb)
 

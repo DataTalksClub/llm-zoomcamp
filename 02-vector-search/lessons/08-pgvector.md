@@ -1,12 +1,19 @@
 # Vector Search with PGVector
 
-[pgvector](https://github.com/pgvector/pgvector) is a PostgreSQL
-extension that adds vector similarity search to PostgreSQL. Use it
-when you already have Postgres in your stack. It also provides
-production features like concurrent access, transactions, and
-large-scale data.
+Video: [Watch this lesson](https://www.youtube.com/watch?v=0P54MFyz-mc&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
 
-We'll run PostgreSQL with pgvector in Docker.
+Many real databases can do vector search. Elasticsearch has it, and
+there are dedicated stores like Qdrant and Chroma. We'll go with
+Postgres. Most of us already run it at work, and the data engineering
+course uses it too. The concept is the same as with sqlitesearch, only
+the database under the hood changes.
+
+[pgvector](https://github.com/pgvector/pgvector) is the PostgreSQL
+extension that makes this work. Install it and Postgres can do vector
+similarity search. On top of that you get the usual production features,
+like concurrent access, transactions, and large datasets.
+
+We'll run Postgres with pgvector in Docker.
 
 ## Starting Postgres with pgvector
 
@@ -76,8 +83,9 @@ conn = psycopg.connect(
 conn.execute("CREATE EXTENSION IF NOT EXISTS vector")
 ```
 
-The `vector` extension adds the `vector` column type and similarity
-search operators.
+The second line activates pgvector. The Docker image we started isn't
+plain Postgres, it ships the extension inside, and this turns it on. It
+adds the `vector` column type and the similarity search operators.
 
 ## Creating a table
 
@@ -124,9 +132,10 @@ for doc, vec in tqdm(zip(documents, vectors), total=len(documents)):
 conn.commit()
 ```
 
-This inserts each document along with its embedding vector. The `::vector`
-cast tells PostgreSQL to parse the string as a vector. We call
-`conn.commit()` to persist the changes.
+We loop over the documents and insert each one with its embedding. We
+hand Postgres the vector as text, so the `::vector` cast tells it to
+parse that string back into a vector. We call `conn.commit()` to persist
+the changes.
 
 ## Searching with cosine similarity
 
@@ -161,7 +170,8 @@ We order by ascending distance, so the closest vectors come first.
 
 ## Filtering by course
 
-Add a `WHERE` clause:
+Because this is plain SQL, filtering by course is one extra `WHERE`
+clause:
 
 ```python
 results = conn.execute(
@@ -179,10 +189,10 @@ results = conn.execute(
 
 ## Creating an index for faster search
 
-For small datasets, exact search is fine.
+So far this runs brute-force search, comparing our query against every
+row. For our small dataset that's fine.
 
-For larger datasets, create
-an HNSW index for approximate nearest neighbor search:
+For a larger one, create an HNSW index to switch to approximate search:
 
 ```python
 conn.execute("""
@@ -192,8 +202,8 @@ conn.execute("""
 ```
 
 This builds an HNSW (Hierarchical Navigable Small World) index, the
-same algorithm used by dedicated vector databases. It makes search
-faster at the cost of a small accuracy trade-off.
+same state-of-the-art algorithm dedicated vector databases use. It makes
+search faster, at the cost of a small accuracy trade-off.
 
 ## Wrapping it in a function
 
@@ -228,8 +238,11 @@ results = pgvector_search("How do I join the course?")
 
 ## Using it in RAG
 
-Let's create a class that extends `RAGBase` with a custom `__init__`
-that doesn't require an index, and overrides `search` to query PGVector:
+We take the same `search` function from above and move it into a class.
+We pass the Postgres connection instead of an index. We set `index=None`
+because `RAGBase` expects an index and would complain otherwise.
+
+The class overrides `search` to query PGVector:
 
 ```python
 from rag_helper import RAGBase
@@ -290,14 +303,14 @@ vector_assistant.rag("the program has already begun, can I still sign up?")
 
 ## Using PGVector
 
-Comparison with minsearch and sqlitesearch:
+Here's how PGVector compares with the two tools we used earlier:
 
 - minsearch: no setup, in-memory, best for notebooks and experiments
 - sqlitesearch: no setup, SQLite file persistence, best for pet projects
 - PGVector: requires Docker, Postgres database with concurrent access,
   handles millions of records, best for production systems
 
-PGVector is the right choice when you need production features:
+Reach for PGVector when you need production features:
 
 - concurrent reads and writes
 - transactions

@@ -1,5 +1,7 @@
 # Capturing Metrics
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=JGh6-DqaueA&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Our chat app works, but every call is a black box. We don't know how
 long it took, how many tokens it used, or what it cost. To monitor the
 system, we first have to capture those numbers as they happen. So we

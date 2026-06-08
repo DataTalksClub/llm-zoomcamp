@@ -1,5 +1,7 @@
 # Search Evaluation Metrics
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=TuirMy3Pdbk&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lesson, we computed relevance lists for search results.
 We can turn those lists into metrics.
 
@@ -120,7 +122,9 @@ for line in example:
 total_score
 ```
 
-The total score is `12.333333333333334`.
+The total score is `12.333333333333334`. We use `rank + 1` because
+Python counts positions from zero. The first position should score
+`1/1`, and without the `+ 1` we'd divide by zero.
 
 Divide it by the number of queries:
 

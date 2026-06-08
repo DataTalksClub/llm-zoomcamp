@@ -1,5 +1,7 @@
 # Next Steps
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=GpQeAniVGfk&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Let's recap what we did. We took the RAG pipeline from the earlier
 modules and wrapped it in a simple Streamlit interface. We started
 recording every interaction to PostgreSQL.

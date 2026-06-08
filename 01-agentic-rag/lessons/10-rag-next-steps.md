@@ -1,5 +1,7 @@
 # Wrap-up of Part 1
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=RPXMz5p5fb8&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In Part 1 of this module, we:
 
 - Learned what RAG is and why it matters: retrieve documents, build a
@@ -10,15 +12,19 @@ In Part 1 of this module, we:
 - Wired search + prompt + LLM into a working RAG pipeline
 - Split ingestion and query into separate processes with sqlitesearch
 
-You now have a working RAG system and a clear mental model for how
-each piece fits together. The rest is making each piece better.
+You now have a working RAG system and a clear mental model for how each
+piece fits together. From here, the work is making each piece better.
 
 ## Two directions forward
 
 [Part 2 of this module: Agents](11-agents-intro.md). Our pipeline runs
-search once with the exact user query. If the search returns garbage,
-the LLM has no way to recover. An agent puts the LLM in charge - it
-decides what to search for and when to search again.
+search once with the exact user query, unchanged. If that search
+returns garbage, the LLM has no way to recover. An agent puts the LLM
+in charge instead. It decides what to search for, how many searches to
+run, and when to stop.
+
+An agent also handles questions in another language. It translates the
+query before searching, then translates the answer back afterward.
 
 [Module 2: Vector Search](../../02-vector-search/). Keyword matches
 are exact. Vector search matches by semantic meaning instead, which
@@ -61,8 +67,10 @@ This works, but it has downsides:
   information it wasn't trained on
 
 RAG is more flexible, cheaper, and works with any LLM. In practice,
-fine-tuning is rarely needed - focus on RAG first, and only use
-fine-tuning when you need it.
+fine-tuning is rarely needed. I've never personally hit a case that
+required it. When I analyzed around 2,500 job descriptions for my AI
+engineering field guide, few asked for it. So focus on RAG first, and
+reach for fine-tuning only when you genuinely need it.
 
 ## Moving forward
 

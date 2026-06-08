@@ -1,15 +1,17 @@
 # Embeddings
 
-Before we can do vector search, we need to convert our text into
-vectors. This process is called embedding - we embed text into a vector
-space. The resulting vectors are also called "embeddings."
+Video: [Watch this lesson](https://www.youtube.com/watch?v=kJOlW1HeMp4&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
+Before we can do vector search, we need to turn our text into vectors.
+We call this process embedding: we embed text into a vector space. The
+vectors we get back are also called "embeddings."
 
 ## Word embeddings and sentence embeddings
 
-This concept comes from
+This idea comes from
 [word2vec](https://en.wikipedia.org/wiki/Word2vec). The model learns to
-represent words as points in a multi-dimensional space. Words with
-similar meanings end up close to each other.
+place words as points in a multi-dimensional space. Words with similar
+meanings land close to each other.
 
 Imagine a 2D space where "enroll" and "join" are near each other and
 "Docker" is far away:
@@ -33,25 +35,26 @@ Q3: "How do I run Docker on Windows?"
 This one is far away from Q1 and Q2.
 ```
 
-Now imagine all 1200 documents in our FAQ dataset. Each one is a point
-in this space. When a user asks a question, we embed it into the same
-space and find the closest documents. These nearest neighbors are the
-search results.
+Now imagine all 1200 documents in our FAQ dataset. Each one becomes a
+point in this space. When a user asks a question, we embed it into the
+same space and find the closest documents. Those nearest neighbors are
+our search results.
 
-Because the model encodes the entire sentence (not just individual
-words), it can disambiguate words based on context. Consider the word
-"judge." In "the judge ruled out the possibility of crime" (legal) it
-gets one vector. In "LLM-as-a-judge approach to evaluate LLMs" (ML
-evaluation) it gets a different one. The surrounding context changes
-the embedding.
+The model encodes the whole sentence, not the words in isolation. So it
+can tell apart the same word in different contexts.
 
-An embedding model takes text as input and outputs a fixed-length array
-of numbers (a vector). The model is trained so that texts with similar
-meanings get similar vectors.
+Take the word "judge." In "the judge ruled out the possibility of crime"
+(legal) it gets one vector. In "LLM-as-a-judge approach to evaluate
+LLMs" (ML evaluation) it gets a different one. The surrounding context
+changes the embedding.
+
+So an embedding model takes text in and returns a fixed-length array of
+numbers. We train it so that texts with similar meanings get similar
+vectors.
 
 We'll use [sentence-transformers](https://www.sbert.net/), a popular
-open-source library for generating embeddings. It runs locally on your
-machine, so there are no API costs.
+open-source library for embeddings. It runs locally on your machine, so
+there are no API costs.
 
 ## Installing sentence-transformers
 
@@ -61,14 +64,18 @@ Install the library:
 uv add sentence-transformers
 ```
 
-This also installs PyTorch under the hood. The download may take a
-minute.
+This also pulls in PyTorch under the hood, so it downloads a lot. You'll
+see CUDA and other Nvidia packages go by. That's fine for experiments,
+and we'll trim it down for production in a
+[later lesson](09-onnx-embedder.md).
 
 ## Choosing a model
 
-Sentence-transformers supports many models. The choice depends on your
-task, language, and how much resources you have. For our FAQ dataset
-(short English texts), a small model is sufficient.
+Sentence-transformers supports many models. The right one depends on
+your task, your language, and the resources you have. Larger models are
+usually slower, so for our FAQ dataset of short English texts a small
+model is enough. Try a few on your own data and keep the one that works
+best.
 
 We'll use `all-MiniLM-L6-v2`:
 
@@ -83,13 +90,13 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("all-MiniLM-L6-v2")
 ```
 
-The first time you run this, it downloads the model (~80 MB). After
-that, it loads from a local cache.
+The first time you run this, it downloads the model (~80 MB) and the
+tokenizer from HuggingFace. The tokenizer turns text into something the
+model can read. After that, both load from a local cache.
 
 ## Trying it with simple examples
 
-Let's see how embeddings work with
-a few examples.
+Let's see how embeddings work on a few examples.
 
 We'll start with a query:
 
@@ -98,7 +105,9 @@ q1 = "Can I still join the course after the start date?"
 v1 = model.encode(q1)
 ```
 
-`v1` is a vector - an array with 384 numbers. 
+`v1` is a vector, an array of 384 numbers. Each number stands for some
+concept the model learned. We can't read off what any one of them means.
+But two vectors with similar values point to texts about similar things.
 
 Encode our document:
 
@@ -115,14 +124,14 @@ v1.dot(dv)
 
 We get 0.32.
 
-Let's take a different query:
+Now we try an unrelated query:
 
 ```python
 q2 = "How to install Docker on Windows?"
 v2 = model.encode(q2)
 ```
 
-We can see that the similarity between this query and the document is smaller - they are less similar:
+This time the similarity with the document should be much smaller:
 
 ```python
 v2.dot(dv)
@@ -130,12 +139,14 @@ v2.dot(dv)
 
 And we get 0.01.
 
-The first score for `q1` vs `d` (0.32) is higher, so the query is more similar to the document about registration.
+The first score for `q1` vs `d` (0.32) is higher, so that query is more
+similar to the document about registration. The second score for `q2`
+vs `d` sits near 0, because installing Docker has nothing to do with
+registration. A score near 0 means the two vectors are about as
+different as they can be.
 
-The second score (`q2` vs `d`) is lower - it's near 0. Installing Docker has nothing to do with registration.
-
-This is the core idea behind vector search: similar texts get similar
-vectors. We can measure similarity with a simple dot product.
+That's the whole idea behind vector search: similar texts get similar
+vectors, and a dot product tells us how similar.
 
 ## Cosine similarity
 

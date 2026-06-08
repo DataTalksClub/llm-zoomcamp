@@ -1,5 +1,7 @@
 # Next Steps
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=vhNfnNUz3A0&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In this module, we:
 
 - Learned what embeddings are and how they turn text into vectors
@@ -14,21 +16,22 @@ The code is available in the
 
 ## Using vector search
 
-Text search (keyword search) is simple and fast, and for many
-applications it is all you need. Start with text search first.
+Text search is simple and fast, and for many applications it's all you
+need. Start there.
 
-Vector search adds complexity:
+Vector search adds real overhead:
 
 - You need an embedding model
 - You need to compute and store embeddings
-- At query time you need to encode the query before searching
+- At query time you encode the query before you can search
 
-Even with the smallest model, the overhead is considerable. Don't add
-this complexity unless you have a reason.
+Even with the smallest model that overhead is considerable, and that's
+before counting the extra dependencies. Don't take it on without a
+reason.
 
-Many RAG tutorials and articles assume you need vector search from the
-start. Many of these come from companies that sell vector databases.
-You don't need it from the start.
+Most RAG tutorials assume you need vector search from the start. Quite a
+few of them come from companies that sell vector databases. So of course
+they push it. You don't need it on day one.
 
 A reasonable progression:
 
@@ -42,10 +45,10 @@ A reasonable progression:
    outperforms either one alone.
 
 The right time to move from one version to the next is when evaluation
-shows it is justified. In a later module, we will cover how to evaluate
-search quality and compare different search methods. With evaluation,
-you can measure whether the improvement from vector search is marginal
-(not worth the overhead) or significant (justified).
+shows it's justified. A later module covers how to evaluate search
+quality and compare methods. With numbers in hand, you can tell a
+marginal gain from a real one. A marginal gain isn't worth the overhead.
+A real one is.
 
 
 ## Hybrid search and reranking

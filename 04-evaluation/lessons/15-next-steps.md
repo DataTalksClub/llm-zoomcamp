@@ -1,5 +1,7 @@
 # Next Steps
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=TlKPBjItUw8&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In this module, we covered evaluation at three levels:
 
 1. Search evaluation: Hit Rate and MRR to measure retrieval quality

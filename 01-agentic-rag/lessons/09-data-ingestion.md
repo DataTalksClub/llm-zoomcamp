@@ -1,5 +1,7 @@
 # Data Ingestion
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=e0owGI2JV-s&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 So far, our RAG pipeline loads data and builds the search index at
 startup. With minsearch, this is fine - our FAQ dataset is small, so
 indexing takes less than a second. The entire pipeline runs in one
@@ -10,25 +12,31 @@ calling APIs, parsing files, cleaning text. With millions of
 documents, the startup becomes slow. You don't want to wait minutes
 every time your service restarts.
 
-Minsearch is in-memory. It's just a bunch of Python dictionaries -
-bound to the process where it's running. When you stop the process,
-the data disappears. You need to re-index every time you restart.
+Minsearch is in-memory. It's a bunch of Python dictionaries bound to
+the process where it's running. When you stop the process, the data
+disappears, so you re-index every time you restart. That's wasteful if
+indexing is slow or the data takes time to prepare.
 
-Separate ingestion from querying. One process writes the data to a
-persistent search index. Another process reads from it. The index
-survives restarts, so you only ingest once.
+So we separate ingestion from querying. One process writes the data to
+a persistent search index. Another process reads from it. The two run
+independently and only share the index between them.
 
-You can use any persistent search backend for this - Elasticsearch,
-OpenSearch, Qdrant, and so on. In this module, we'll use
-[sqlitesearch](https://github.com/alexeygrigorev/sqlitesearch) - a
+The index survives restarts, so we ingest once and query as often as
+we like. This is the ingestion step from data engineering. We move data
+from its source into a target system the application can use.
+
+You can use any persistent search backend for this, such as
+Elasticsearch, OpenSearch, or Qdrant. In this module, we use
+[sqlitesearch](https://github.com/alexeygrigorev/sqlitesearch), a
 lightweight search library backed by SQLite FTS5. It has the same API
-as minsearch, so switching is straightforward - it's a drop-in
-replacement, but persistent.
+as minsearch, so it's a drop-in replacement that happens to be
+persistent.
 
-SQLite comes with Python - you don't need any extra dependencies. And
-SQLite has FTS5 (full text search) built in. So if you have Python,
-you already have access to a full text search engine. sqlitesearch is
-just a convenient wrapper around it.
+I picked SQLite because it asks nothing of you. It ships with Python,
+so you don't add any dependency, and it has FTS5 (full text search)
+built in. If you have Python, you already have a full text search
+engine. Using FTS5 directly is a bit awkward, so I wrote sqlitesearch
+as a convenient wrapper around it.
 
 You can read more about the history of this library [here](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight).
 
@@ -111,8 +119,9 @@ sqlite_index.count()
 
 Run this cell a few times while the other notebook is still ingesting.
 You'll see the number growing as ingestion progresses. This is normal
-database behavior: one process writes, another reads. With minsearch,
-this is impossible because the index lives in one process's memory.
+database behavior: one process writes, another reads, both at the same
+time. With minsearch this is impossible, because the index lives in one
+process's memory and nobody else can reach it.
 
 Try a search:
 

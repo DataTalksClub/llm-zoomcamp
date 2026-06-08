@@ -1,9 +1,19 @@
 # The Course FAQ Dataset
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=Mx6EqvzVDz0&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Before we build the RAG pipeline, let's get familiar with the data
 we'll use as our knowledge base.
 
-The FAQ data is available as JSON from the DataTalks.Club website.
+We run these courses every year, and students keep asking the same
+questions in Slack. We collected those into an FAQ so people can find
+answers before asking. Some courses have run for five cohorts, so the
+FAQ grows large and searching it by hand gets tedious. That's exactly
+the problem our RAG system will solve.
+
+The FAQ data is available as JSON from the DataTalks.Club website. I
+maintain that site, so I made the data available at a JSON endpoint we
+can fetch directly.
 
 Let's fetch it:
 
@@ -86,15 +96,18 @@ part of the course a question belongs to is useful context.
 ## A note on data preparation
 
 In our case, the data is already prepared. I maintain this FAQ website
-and made sure the data is available in a convenient JSON format. We
-don't need to do much to prepare it.
+and made sure the data comes back in a convenient JSON format. So we
+don't need to do much to get it ready. By the way, I cleaned a lot of
+this data with the help of an LLM. That's a handy use case on its own.
 
-In reality, data preparation is often the most time-consuming part of
-building a RAG system. You may need to scrape websites, parse PDFs,
-and clean and chunk documents. The step is often not visible but
-requires considerable effort. In this course, we focus on the GenAI
-side. In your own projects, expect to spend significant time on data
-preparation.
+Don't let that fool you. In reality, data preparation is often the most
+time-consuming part of building a RAG system. You may need to scrape
+websites, parse PDFs, and clean and chunk documents. That work isn't
+visible here, but I did plenty of it ahead of time.
+
+We keep the focus on the GenAI side in this course. In your own
+projects, expect to spend real time on data preparation before you get
+to this point.
 
 In the next section, we'll build the search index.
 

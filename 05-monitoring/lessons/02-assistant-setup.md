@@ -1,5 +1,7 @@
 # Assistant
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=jMO8rqPmR-4&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Before we monitor anything, we need something to monitor. So we start
 with a RAG pipeline that answers questions about our courses.
 

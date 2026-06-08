@@ -1,7 +1,9 @@
 # Embedding Our Dataset
 
-In the previous lesson, we saw how embeddings work with simple examples.
-In this lesson we apply them to the entire FAQ dataset.
+Video: [Watch this lesson](https://www.youtube.com/watch?v=NC89mz1iG4E&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
+In the previous lesson we saw how embeddings work on a couple of
+examples. Now we apply them to the whole FAQ dataset.
 
 ## Loading the data
 
@@ -25,11 +27,11 @@ documents = load_faq_data()
 
 ## Generating embeddings
 
-For vector search, we want to embed a combination of the question and
-the answer.
+Each document is a Python dictionary with a question and an answer. We
+embed both together. That way a query can match against the question
+text and the answer text in our index.
 
-This way, user queries match against both questions and answers
-in our index:
+Build one text per document:
 
 ```python
 texts = []
@@ -39,15 +41,17 @@ for doc in documents:
     texts.append(text)
 ```
 
-Now generate the embeddings. We'll do it in batches.
+Now we generate the embeddings. We have about 1200 texts here. We won't
+hand the model all of them at once. That takes a long time, and we can't
+see what's happening inside. Instead we split them into batches.
 
-First we'll import `tqdm` - we'll need it to see the progress.
+First we import `tqdm` so we can watch the progress:
 
 ```python
 from tqdm.auto import tqdm
 ```
 
-Next, chunk the dataset into batches of 50 and encode the vectors:
+Next we chunk the dataset into batches of 50 and encode each batch:
 
 ```python
 batch_size = 50
@@ -61,7 +65,8 @@ for i in tqdm(range(0, len(texts), batch_size)):
 len(vectors)
 ```
 
-We end up with 1208 vectors.
+We end up with 1208 vectors. On a GPU this is fast. Most of us run on
+Codespaces without a GPU, so it takes a bit, but it's a one-off.
 
 We turn them into a 2-dimensional array (matrix) where
 

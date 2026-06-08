@@ -1,20 +1,21 @@
 # Vector Search with minsearch
 
-In the previous section, we implemented vector search with numpy.
-We embed the query, compute dot products, and find the best match.
+Video: [Watch this lesson](https://www.youtube.com/watch?v=E7KdO3xmESg&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
 
-We'll use [minsearch](https://github.com/alexeygrigorev/minsearch) for that. 
+In the previous section we did vector search by hand with numpy. We
+embedded the query, computed dot products, and found the best matches.
+Writing the argsort and matrix code every time gets old, and it can't
+filter by course. So instead we'll use a library that wraps all of it.
 
-It's  a small in-memory search library that we already used in module 1 for text search. 
-
-Now we'll use its `VectorSearch` class for vector
-search.
+We'll use [minsearch](https://github.com/alexeygrigorev/minsearch), the
+small in-memory search library we already used in module 1 for text
+search. It has a `VectorSearch` class for vector search.
 
 Both classes share the same API:
 
 - `fit` to index data
 - `search` to query
-- `filter_dict` parameter in `search` for filtering by keyword
+- `filter_dict` in `search` to filter by keyword
 
 It's the simplest way to get started with vector search.
 
@@ -32,8 +33,8 @@ vindex.fit(X, documents)
 ```
 
 We pass the numpy array `X` with all embeddings and the list of
-documents as payload. The `keyword_fields` parameter works the same
-as in the text `Index` - it lets us filter by course.
+documents as payload. The `keyword_fields` parameter works the same as
+in the text `Index`, so we can filter by course later.
 
 ## Searching
 
@@ -46,9 +47,9 @@ query_vector = model.encode(query)
 results = vindex.search(query_vector, num_results=5)
 ```
 
-Under the hood it does the exact same thing we did in this module.
-It computes the dot product between each vector (after filtering) and
-our query vector.
+Under the hood it does the same thing we just did by hand. It computes
+the dot product between each vector (after filtering) and our query
+vector.
 
 Look at the top result:
 
@@ -69,7 +70,12 @@ It should return the document about joining the course late:
 
 ## Filtering by course
 
-Like the text index, we can filter by keyword fields:
+Like the text index, we can filter by keyword fields. This matters for
+user experience. A student in LLM Zoom Camp doesn't care about answers
+from the data engineering course. So we narrow to their course first,
+then score only within it.
+
+Pass a `filter_dict`:
 
 ```python
 results = vindex.search(
@@ -79,6 +85,6 @@ results = vindex.search(
 )
 ```
 
-Now we know to perform vector search, so we can use it in RAG.
+Now that we can run vector search, let's use it in RAG.
 
 [← Vector Search](04-vector-search.md) | [RAG with Vector Search →](06-rag-vector.md)

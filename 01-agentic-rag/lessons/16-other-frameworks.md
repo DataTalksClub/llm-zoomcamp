@@ -1,14 +1,18 @@
 # Other Frameworks
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=4yiCbKX9RhI&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The concepts you learned in Part 2 are the same across frameworks.
 Function calling, the agent loop, and tool definitions all wrap the
 same pattern. Send messages, run any function calls, and repeat until
 the model is done.
 
-Now that you understand how the loop works, you can pick up any
-production framework and know what it's doing.
+You now understand how the loop works. So you can pick up any
+production framework and know what it's doing under the hood. I kept
+this module framework agnostic on purpose, so you can explore and pick
+the one you like.
 
-Here are some frameworks worth exploring:
+Here are some frameworks worth a look:
 
 ## OpenAI Agents SDK
 
@@ -26,14 +30,17 @@ official and well-maintained.
 ## PydanticAI
 
 A type-safe agent framework that supports multiple LLM providers.
-Tools are plain Python functions with type hints - no wrappers needed.
+Tools are plain Python functions with type hints, no wrappers needed.
 Switching providers is as simple as changing the model string.
 
 ```bash
 uv add pydantic-ai
 ```
 
-Good choice if you want type safety and multi-provider support.
+This is my personal favorite. The reason isn't the type safety, since
+the other frameworks have that too. It's how it feels to use, and the
+team behind Pydantic. Good choice if you want type safety and
+multi-provider support.
 
 ## LangChain / LangGraph
 
@@ -46,9 +53,10 @@ loaders, etc.) and a large community.
 
 ## Google ADK
 
-The Agent Development Kit from Google. It's the natural pick if you
-plan to use Gemini models. It exposes the same building blocks
-(tools, instructions, sessions) and integrates with Google Cloud.
+The Agent Development Kit from Google. If you plan to use Gemini
+models, this is the one I'd reach for. It exposes the same building
+blocks we've seen, like tools, instructions, and sessions. It also
+integrates with Google Cloud.
 
 Good choice if your stack is on Google Cloud or you specifically want
 Gemini.
@@ -68,29 +76,33 @@ designing good tools and prompts - the loop is always the same.
 
 ## Avoiding agents when you can
 
-A closing thought: you don't always need an agent. Adding one is a
-real cost.
+One closing thought. You don't always need an agent, and that's fine.
+You might assume your app needs one, but often it doesn't.
 
-- More API calls per request - the loop can fire many tool calls
+Adding an agent is a real cost:
+
+- More API calls per request, since the loop can fire many tool calls
   before the model is satisfied.
-- Higher latency - each round-trip waits on the model.
-- More money spent - every iteration is another billed call, and the
-  full message history is re-sent each turn.
-- More moving parts - you now monitor cost, iteration count, and
+- Higher latency, since each round-trip waits on the model.
+- More money spent, since every iteration is another billed call and
+  the full message history is re-sent each turn.
+- More moving parts, since you now monitor cost, iteration count, and
   whether the agent is going in circles.
-- Less predictable - the LLM decides what to do, so two runs of the
-  same prompt can take different paths.
+- Less predictable behavior, since the LLM decides what to do and two
+  runs of the same prompt can take different paths.
 
-Before reaching for an agent, ask whether the problem actually needs
-one. A lot of tasks are well-served by simpler approaches.
+Before reaching for an agent, ask whether the problem needs one. A lot
+of tasks are well served by simpler approaches.
 
-- Plain RAG (one search, one answer).
-- Parsing or templating.
-- A single LLM call with no tools.
+Reach for one of these first:
 
-Try the simpler approach first. If it works, ship it.
-Add the agent loop only when the simpler solution genuinely can't
-handle the problem. By then you should also be ready to take on the
-extra complexity that comes with it.
+- plain RAG, with one search and one answer
+- parsing or templating a document into another form
+- a single LLM call with no tools
+
+Try the simpler approach first, and if it works, ship it. Reach for
+the agent loop only when you've tried the simpler solution and it
+genuinely can't handle the problem. By then you'll know the extra
+complexity is worth it, and you'll be ready to take it on.
 
 [← ToyAIKit](15-frameworks.md) | [Back to module →](../)

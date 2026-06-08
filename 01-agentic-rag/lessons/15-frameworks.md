@@ -1,17 +1,26 @@
 # ToyAIKit
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=PQpQOR3Un3w&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The handwritten agent loop from the previous lesson is educational but
 repetitive. Every time you build a new agent, you'd write the same
 while-loop, the same function-call handling, the same message
 management.
 
-ToyAIKit wraps this pattern so you can focus on tools,
-prompts, and behavior. It does the same thing as our handwritten loop,
-but with less boilerplate. It's designed for notebooks and workshops.
+ToyAIKit wraps this pattern so you can focus on tools, prompts, and
+behavior. We built it together in a DataTalks.Club workshop a while
+back. It does the same thing as our handwritten loop with less
+boilerplate. If you open its `runners` code, you'll find the same
+`while True` loop we wrote by hand.
 
-Important: ToyAIKit is a teaching and experimentation library. It is
-NOT recommended for production use. We use it here because it's
-minimal and educational - you can see what it does.
+I use it here on purpose, because I don't want to pick a winner among
+the production frameworks. ToyAIKit is small and easy to read, so when
+something breaks you can see exactly what happened. That makes it handy
+for developing and debugging locally before you go to production.
+
+One caveat. ToyAIKit is a teaching and experimentation library, and it
+is NOT meant for production use. We use it because it's minimal and you
+can see what it does.
 
 ## Setup
 
@@ -42,10 +51,11 @@ agent_tools.add_tool(search, search_tool)
 
 ## Letting ToyAIKit generate the schema
 
-We don't actually need to write the schema ourselves.
+Writing that schema by hand is annoying, and we don't want to do it
+for every function. So we don't have to.
 
-If we add a type hint and a docstring to `search`, ToyAIKit can
-derive the schema from the function:
+If we add a type hint and a docstring to `search`, ToyAIKit reads them
+and derives the schema for us:
 
 ```python
 def search(query: str) -> dict[str, str]:
@@ -74,11 +84,14 @@ agent_tools.get_tools()
 ```
 
 The output is the same JSON schema we hand-wrote in the function
-calling lesson, just generated for us.
+calling lesson. ToyAIKit generated it from the docstring and the type
+hint.
 
-Every modern agent framework does this same trick. OpenAI Agents SDK,
-PydanticAI, LangChain, and Google ADK all generate the schema from a
-typed Python function with a docstring.
+Every modern agent framework does this same trick. It reads a typed
+Python function with a docstring and builds the schema from it. The
+OpenAI Agents SDK, PydanticAI, LangChain and Google ADK all work this
+way. You write the tool and the framework figures out how to describe
+it.
 
 ## The chat interface and runner
 
@@ -97,13 +110,13 @@ runner = OpenAIResponsesRunner(
 ```
 
 The `chat_interface` handles display in the notebook. The `callback`
-renders model messages and tool calls as they happen. The runner
-handles the agent loop - the same `while True` we wrote by hand. It
-sends messages, executes function calls, adds tool outputs back, and
-repeats until the model is done.
+renders model messages and tool calls as they happen. The runner runs
+the agent loop, the same `while True` we wrote by hand. It sends
+messages, executes function calls, adds tool outputs back, and repeats
+until the model is done.
 
-We explicitly pick `gpt-5.4-mini` here. Without it, ToyAIKit falls
-back to a smaller/faster default that won't follow the instructions
+We pick `gpt-5.4-mini` here on purpose. Without it, ToyAIKit falls
+back to a smaller, faster default that doesn't follow the instructions
 as reliably.
 
 ## Running one prompt
@@ -117,10 +130,11 @@ result = runner.loop(
 )
 ```
 
-Notice we used the typo "Olama" on purpose. The agent searches, sees
-poor results, and retries with "Ollama". The recovery is the same as
-the handwritten loop. The notebook output is nicer to watch because
-every tool call and message is rendered inline.
+We used the typo "Olama" on purpose. The agent searches and gets poor
+results, then retries with "Ollama". The recovery is the same as the
+handwritten loop. The notebook output is nicer to watch. Each tool
+call and message renders inline, so you can look at every search
+result.
 
 The `result` is a `LoopResult` with `all_messages` (the full
 conversation), token counts, and `cost` (computed from token usage).
@@ -158,9 +172,10 @@ result2 = runner.loop(
 )
 ```
 
-The runner picks up where the last call left off - same agent loop,
-extended history. The model knows "different model" refers to Ollama
-because it sees the previous turn in memory.
+The runner picks up where the last call left off, with the same agent
+loop and an extended history. The model knows "different model" refers
+to Ollama because it sees the previous turn in memory. Without that
+history, it would have no idea what we're asking about.
 
 ## Interactive chat
 

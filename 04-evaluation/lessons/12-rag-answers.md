@@ -1,5 +1,7 @@
 # Generating RAG Answers
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=utkcclfpj0g&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the first part of this module, we evaluated search quality. We
 checked whether the right document appeared in the search results.
 

@@ -1,5 +1,7 @@
 # Docker Compose
 
+_This lesson has no video._
+
 By now we have three pieces running - PostgreSQL, Grafana, and the
 Streamlit app. Starting each by hand works, but it adds up. You have to
 remember the network and type out long commands. Next time around, Docker

@@ -1,5 +1,7 @@
 # Agent Evaluation
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=2SW86BehVdI&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 For RAG, we used the A->Q->A' setup:
 
 - A = original answer in the FAQ

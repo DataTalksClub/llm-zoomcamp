@@ -1,22 +1,26 @@
 # Using ONNX Runtime instead of PyTorch
 
-When you move to production, you want to reduce overhead - both the
-dependencies and the size of your deployment. sentence-transformers
-depends on PyTorch, which is huge. We can use ONNX Runtime
-instead: it's much smaller.
+Video: [Watch this lesson](https://www.youtube.com/watch?v=BMqa4OsCk58&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
 
-I created two separate projects: one with sentence-transformers and
-one with ONNX Runtime.
+When you move to production, you want to cut overhead, both the
+dependencies and the size of your deployment. sentence-transformers
+drags in PyTorch plus a pile of Nvidia libraries, which is a lot. ONNX
+Runtime serves the same model without that weight.
+
+To put a number on it, I created two empty projects. In one I ran `uv
+add sentence-transformers`, in the other I set up ONNX Runtime.
 
 Then I measured the virtual environment sizes:
 
 - sentence-transformers: 4.8 GB, 58 packages
 - ONNX Runtime: 147 MB, 27 packages
 
-That's 33x smaller. Same embeddings, same results.
+That's 33x smaller for the same embeddings and the same results. Often
+we don't even convert the model ourselves. Someone has usually published
+an ONNX version we can download.
 
-For development and experimentation, sentence-transformers is fine.
-But for production you want something more lightweight.
+For development and experiments, sentence-transformers is fine. For
+production you want the lighter option.
 
 Let's create a separate project for this lesson:
 
@@ -82,12 +86,14 @@ Under the hood, it does four things:
 4. Normalize - divide by L2 norm so vectors can be compared with
    dot product
 
+You don't need to follow every step inside `embedder.py`. It gives us
+the same `encode` interface as before, with none of the PyTorch weight.
+
 ## Same pipeline, no PyTorch
 
-Let's repeat the same examples from earlier.
+Let's repeat the examples from earlier and confirm the numbers match.
 
-First, comparing queries
-against a document:
+First, comparing two queries against a document:
 
 ```python
 from embedder import Embedder

@@ -1,5 +1,7 @@
 # User Feedback
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=GEifsHDadBw&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 So far we capture execution metrics like response time, tokens, and
 cost. But none of that tells us whether the answer was any good. The
 people using the system know, the way you can rate a reply in ChatGPT. So

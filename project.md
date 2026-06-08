@@ -1,9 +1,11 @@
-# Projects 
+# Projects
 
-* Video: https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6
-* Office hours: https://www.youtube.com/watch?v=pA9S1mTqAwU
+Use these references for the project process:
 
-In order to receive a certificate of completion for the course, you need
+* [Project video](https://www.loom.com/share/8f99d25893de4fb8aaa95c0395c740b6)
+* [Project office hours](https://www.youtube.com/watch?v=pA9S1mTqAwU)
+
+To receive a certificate of completion for the course, you need
 to deliver a project. There are two attempts for that.
 
 [Submit your project here](cohorts/2025/project.md)
@@ -11,20 +13,21 @@ to deliver a project. There are two attempts for that.
 
 ## Objective
 
-The goal of this project is to apply everything we have learned
-in this course to build an end-to-end RAG application.
+The goal of this project is to apply the course material.
+You will build an end-to-end RAG or agent application.
 
 
 ## Problem statement
 
-For the project, we ask you to build an end-to-end RAG project. 
+For the project, we ask you to build an end-to-end LLM application.
+It can be a RAG application, an agent application, or a combination of both.
 
 For that, you need:
 
-* Select a dataset that you're interested in (see [Datasets](#datasets) for examples and ideas)
-* Ingest the data into a knowledge base
-* Implement the retrieval flow: query the knowledge base, build the prompt, send the promt to an LLM
-* Evaluate the performance of your RAG flow
+* Select a dataset or API-backed data source that you're interested in (see [Datasets](#datasets) for examples and ideas)
+* Ingest the data into a knowledge base, or connect to the API that provides the data
+* Implement the application flow: retrieve context from the data, optionally call tools, build the prompt, and send it to an LLM
+* Evaluate the performance of your RAG or agent flow
 * Create an interface for the application
 * Collect user feedback and monitor your application
 
@@ -36,50 +39,58 @@ The DataTalks.Club Zoomcamp course FAQ documents are used as the knowledge base 
 
 ## Project Documentation
 
-Your project rises or falls with its documentation. Hence, here are some general recommendations:
+Your project rises or falls with its documentation.
 
-* **Write for a Broader Audience 📝**: Assume the reader has no prior knowledge of the course materials. This way, your documentation will be accessible not only to evaluators but also to anyone interested in your project.
-* **Include Evaluation Criteria 🎯**: Make it easier for evaluators to assess your work by clearly mentioning each criterion in your README. Include relevant screenshots to visually support your points.
-* **Think of Future Opportunities 🚀**: Imagine that potential hiring managers will look at your projects. Make it straightforward for them to understand what the project is about and what you contributed. Highlight key features and your role in the project.
-* **Be Detailed and Comprehensive 📋**: Include as much detail as possible in the README file. Explain the setup, the functionality, and the workflow of your project. Tools like ChatGPT or other LLMs can assist you in expanding and refining your documentation.
-* **Provide Clear Setup Instructions ⚙️**: Include step-by-step instructions on how to set up and run your project locally. Make sure to cover dependencies, configurations, and any other requirements needed to get your project up and running.
-* **Use Visuals and Examples 🖼️**: Wherever possible, include diagrams, screenshots, or GIFs to illustrate key points. Use examples to show how to use your project, demonstrate common use cases, and provide sample inputs and expected outputs.
-  * **App Preview Video 🎥**: Consider adding a short preview video of your app in action to the README. For example, if you're using Streamlit, you can easily record a screencast from the app's top-right menu ([Streamlit Guide](https://docs.streamlit.io/develop/concepts/architecture/app-chrome)). Once you saved the video file locally, you can just drag & drop it into the online GitHub editor of your README to add it ([Ref](https://stackoverflow.com/a/4279746)).
-* **Organize with Sub-Files 🗂️**: If your documentation becomes lengthy, consider splitting it into sub-files and linking them in your README. This keeps the main README clean and neat while providing additional detailed information in separate files (e.g., `setup.md`, `usage.md`, `contributing.md`).
-* **Keep It Updated 🔄**: As your project evolves, make sure your documentation reflects any changes or updates. Outdated documentation can confuse readers and diminish the credibility of your project.
+Use these recommendations:
+
+* Write for people who didn't take the course. Explain the problem, the data, and the flow without assuming the reader watched the videos.
+* Mention the evaluation criteria in your README. This makes it easier for reviewers to find the relevant parts.
+* Add screenshots where they help. For example, show the UI, the monitoring dashboard, or examples of answers from your app.
+* Explain how to run the project. Include setup steps, dependencies, configuration, and any environment variables.
+* Show how the project works. Add examples of inputs and outputs, common use cases, or a short walkthrough.
+* Add a short app preview video if it helps. If you're using Streamlit, you can record it from the app's top-right menu ([Streamlit Guide](https://docs.streamlit.io/develop/concepts/architecture/app-chrome)). Then drag and drop the video into the online GitHub editor of your README ([Ref](https://stackoverflow.com/a/4279746)).
+* Split long documentation into separate files if needed. For example, use `setup.md`, `usage.md`, or `contributing.md`.
+* Keep the README up to date when the project changes.
 
 Remember, clear and comprehensive documentation not only helps others but is also a valuable reference for yourself in the future.
 
 
 ## Technologies
 
-You don't have to limit yourself to technologies covered in the course. You can use alternatives as well:
+You don't have to limit yourself to technologies covered in the course.
+
+You can use alternatives as well:
 
 * LLM: OpenAI, Ollama, Groq, AWS Bedrock, etc
-* Knowledge base: any text, relational or vector database, including in-memory ones like we implemented in the course or SQLite  
+* Knowledge base: any text, relational or vector database, including in-memory ones like we implemented in the course or SQLite
 * Monitoring: Grafana, Kibana, Streamlit, dash, etc
 * Interface: Streamlit, dash, Flask, FastAPI, Django, etc (could be UI or API)
-* Ingestion pipeline: Mage, dlt, Airflow, Prefect, python script, etc
+* Ingestion pipeline: Kestra, dlt, Mage, Airflow, Prefect, python scripts, etc
 
-If you use a tool that wasn't covered in the course, be sure to give a very detailed explanation
-of what that tool does and how to use it. 
+If you use a tool that wasn't covered in the course, explain what that tool does.
+Also explain how to use it.
 
 If you're not certain about some tools, ask in Slack.
 
 ## Tips and best practices
 
+Follow these tips while preparing the project:
+
 * It's better to create a separate GitHub repository for your project
 * Give your project a meaningful title, e.g. "DataTalksClub Zoomcamp Q&A system" or "Nutrition Facts Chat"
 
 
-## Peer reviewing
+## Peer Reviewing
 
-> [!IMPORTANT]  
-> To evaluate the projects, we'll use peer reviewing. This is a great opportunity for you to learn from each other.
-> * To get points for your project, you need to evaluate 3 projects of your peers
-> * You get 3 extra points for each evaluation
+To evaluate the projects, we'll use peer reviewing.
+This is a good opportunity to learn from each other.
 
-### Review Tips
+To get points for your project, you need to evaluate 3 projects from your peers.
+You get 3 extra points for each evaluation.
+
+## Review Tips
+
+Use these tips when reviewing a project:
 
 * The reviewer is given a public GitHub repo link and a `commit-hash`
    * to see the code state of the repo at the provided commit hash, use the following URL:
@@ -92,6 +103,8 @@ If you're not certain about some tools, ask in Slack.
 
 ## Evaluation Criteria
 
+Use these criteria to score the project:
+
 * Problem description
     * 0 points: The problem is not described
     * 1 point: The problem is described but briefly or unclearly
@@ -99,7 +112,7 @@ If you're not certain about some tools, ask in Slack.
 * Retrieval flow
     * 0 points: No knowledge base or LLM is used
     * 1 point: No knowledge base is used, and the LLM is queried directly
-    * 2 points: Both a knowledge base and an LLM are used in the flow 
+    * 2 points: Both a knowledge base and an LLM are used in the flow
 * Retrieval evaluation
     * 0 points: No evaluation of retrieval is provided
     * 1 point: Only one retrieval approach is evaluated
@@ -111,7 +124,7 @@ If you're not certain about some tools, ask in Slack.
 * Interface
    * 0 points: No way to interact with the application at all
    * 1 point: Command line interface, a script, or a Jupyter notebook
-   * 2 points: UI (e.g., Streamlit), web application (e.g., Django), or an API (e.g., built with FastAPI) 
+   * 2 points: UI (e.g., Streamlit), web application (e.g., Django), or an API (e.g., built with FastAPI)
 * Ingestion pipeline
    * 0 points: No ingestion
    * 1 point: Semi-automated ingestion of the dataset into the knowledge base, e.g., with a Jupyter notebook
@@ -139,7 +152,7 @@ If you're not certain about some tools, ask in Slack.
 
 ## Project ideas
 
-### Datasets
+## Datasets
 
 Here are some datasets for your projects and potential things you can do with them
 
@@ -167,14 +180,16 @@ Here are some datasets for your projects and potential things you can do with th
 You can also generate a dataset with an LLM:
 
 * If you have a dataset but you can't publicly release it, you can generate a similar one with an LLM
-* Or you can simply think what kind of a dataset you want to have and generate it 
+* Or you can simply think what kind of a dataset you want to have and generate it
 
 Note that your dataset doesn't have to be in thr Q&A form. Check [etc/chunking.md](etc/chunking.md) to learn more about chunking.
 
 
 ## Cheating and plagiarism
 
-Plagiarism in any form is not allowed. Examples of plagiarism:
+Plagiarism in any form is not allowed.
+
+Examples of plagiarism:
 
 * Taking somebody's else notebooks and projects (in full or partly) and using it for your project
 * Re-using your own projects (in full or partly) from other courses and bootcamps

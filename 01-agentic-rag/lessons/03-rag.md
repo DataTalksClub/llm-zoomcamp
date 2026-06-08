@@ -1,5 +1,7 @@
 # RAG
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=JktYwBIDErk&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 We run free Zoomcamp courses at DataTalks.Club on data engineering,
 machine learning, MLOps, and other topics. Each course has its own
 FAQ document with common questions and answers.
@@ -13,7 +15,7 @@ We want a bot that takes all this knowledge and answers student
 questions in natural language.
 
 In this module, we'll build that system. But first, let's see why we
-can't just use an LLM directly.
+can't send the question straight to an LLM and call it a day.
 
 ## Plain LLMs lack our data
 
@@ -79,6 +81,10 @@ Check the quota and reset cycle carefully. Potential options include Google Cola
 """
 ```
 
+Notice the prompt doesn't end with `Answer:`. With older models like
+GPT-3 we added that to nudge the model into completing the sentence.
+Modern models don't need the hint, so we drop it.
+
 Build a prompt that includes both the question and the context:
 
 ```python
@@ -114,19 +120,16 @@ just did is nothing but RAG.
 
 ## Retrieval plus generation
 
-RAG stands for Retrieval-Augmented Generation. The two key words are
-generation and retrieval: generation is the LLM producing text, and
-retrieval is search. We use search to augment what the LLM generates.
+RAG stands for Retrieval-Augmented Generation. Generation is the LLM
+producing text, and retrieval is search. We retrieve relevant documents
+from our knowledge base and use them to augment what the LLM generates.
+That search step is what gives the LLM the context it needs to answer
+correctly.
 
-We retrieve relevant documents from our knowledge base and use them to
-augment what the LLM generates.
-
-Search gives the LLM the context it needs to answer correctly.
-
-Right now we used a naive way of selecting context - we knew in advance
-which FAQ entry contained the answer. But what we want is to
-perform search automatically - find the most relevant documents and send
-those to the LLM.
+What we just did was naive. I knew in advance which FAQ entry held the
+answer and pasted it in by hand. What we want instead is to perform
+search automatically. We take the student's question, find the most
+relevant documents, and send those to the LLM.
 
 In code, it looks like this:
 
@@ -137,9 +140,9 @@ def rag(question):
     return llm(user_prompt)
 ```
 
-That's the entire architecture.
+That's the entire architecture. It comes down to three components.
 
-Three components:
+The pieces are search, the prompt, and the LLM:
 
 - search
 - prompt
@@ -174,15 +177,19 @@ flowchart TD
     ANSWER --> U
 ```
 
-The LLM only sees the documents we hand it. So its answers are
-grounded in our data. If the right document is retrieved, the answer
-is good. If it's not, the LLM gets the wrong context and the answer is
-wrong. Good search quality is essential for RAG.
+The LLM only sees the documents we hand it, so its answers are grounded
+in our data. If the right document is retrieved, the answer is good. If
+it's not, the LLM gets the wrong context and the answer is wrong. Your
+model is only as good as your retrieval, so search quality matters a
+lot for RAG.
 
-The database and the LLM can be anything. In this course we'll
-use minsearch and then sqlitesearch for search, and OpenAI for the
-LLM. But you can swap any component and see what works better. That's
-what makes RAG so flexible - plug and play.
+The database and the LLM can be anything. In this course we use
+minsearch and then sqlitesearch for search, and OpenAI for the LLM. But
+you can swap any component for another and see what works better.
+
+Because each piece is independent, RAG stays flexible. To use Anthropic
+instead of OpenAI, you swap the LLM call. To use Elasticsearch instead
+of minsearch, you swap the search call. Nothing else changes.
 
 In the next section, we'll look at the dataset we'll use for our FAQ
 knowledge base.

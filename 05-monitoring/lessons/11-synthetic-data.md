@@ -1,5 +1,7 @@
 # Synthetic Data Generation
 
+_This lesson has no video._
+
 A fresh dashboard with three conversations in it doesn't show much. You
 could keep asking the app questions until there's enough to chart, but
 that's slow and dull. Instead we write a small script that pumps fake

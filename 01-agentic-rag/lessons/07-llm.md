@@ -1,5 +1,7 @@
 # The LLM
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=KHePGkeFn54&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The last component of our RAG pipeline is the LLM. It takes
 the prompt we built and generates an answer.
 
@@ -19,13 +21,14 @@ response = openai_client.responses.create(
 
 We use OpenAI's Responses API (`openai_client.responses.create`). OpenAI
 has two APIs: chat completions and responses. Chat completions is the
-older one - it's now considered legacy. When the first edition of this
-course started, the Responses API didn't exist, so we used chat
-completions. Now we prefer responses - it's more convenient.
+older one, and it's now considered legacy. When the first edition of
+this course started, the Responses API didn't exist, so we used chat
+completions. Now we prefer responses because it's more convenient.
 
-Many other LLM providers (Groq, Gemini, etc.) support the chat
-completions API. To use them, call `chat.completions` instead of
-`responses`.
+There's a catch worth knowing. Many other providers like Groq and
+Gemini give you an OpenAI-compatible client. But they expose chat
+completions, not responses. So if you switch providers, you keep the
+OpenAI client but call `chat.completions` instead of `responses`.
 
 ## Exploring the response
 
@@ -44,9 +47,9 @@ The message has a `content` list, and the text is in the first item:
 response.output[0].content[0].text
 ```
 
-That's a lot of digging.
+That's quite a journey to reach one string.
 
-There's a shortcut:
+The shortcut spares us all of it:
 
 ```python
 response.output_text
@@ -93,8 +96,11 @@ cost
 ```
 
 This particular request costs a fraction of a cent. Even a full RAG
-query with a long prompt stays under $0.01. We need to send a
-lot of queries to even spend one cent.
+query with a long prompt stays under $0.01. We need to send a lot of
+queries to even spend one cent. These models are cheap to play with.
+
+The usage object also reports cached input tokens. Those are billed at
+a lower rate when the same prompt prefix repeats.
 
 ## Message history
 
@@ -103,11 +109,15 @@ In practice, you typically send a message history - a list of messages
 where each message has a role.
 
 Think of a ChatGPT conversation. It starts with a hidden system prompt
-that tells the LLM how to behave. After that, your messages and the
-LLM's replies alternate. The LLM needs the full history to continue
-the conversation.
+that tells the LLM how to behave, one you never see. After that, your
+messages and the LLM's replies alternate. The LLM has no memory of its
+own, so it needs the full history passed in to continue the
+conversation.
 
-In our case, we send two messages:
+We won't build a multi-turn chat here. But we still use this message
+format to separate our instructions from the user prompt.
+
+We send two messages:
 
 - `developer` - system-level instructions (how the LLM should behave)
 - `user` - the actual prompt with the question and context
@@ -128,8 +138,8 @@ This separates the fixed instructions from the user prompt, which
 changes every request.
 
 OpenAI accepts both `developer` and `system` for the instruction role.
-They have minor differences but produce the same result in practice.
-We use `developer` in this course.
+There may be some difference between them, but in practice I don't see
+it change the result either way. We use `developer` in this course.
 
 ## The LLM function
 

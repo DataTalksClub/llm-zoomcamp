@@ -1,5 +1,7 @@
 # Feedback Dashboard
 
+_This lesson has no video._
+
 We collect two kinds of feedback now. People give thumbs up and down, and
 the judge gives relevance labels. But we can't see either one yet. So we
 add them to the Streamlit dashboard from lesson 07, beside the cost and

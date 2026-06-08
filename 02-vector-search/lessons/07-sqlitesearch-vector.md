@@ -1,41 +1,37 @@
 # Vector Search with sqlitesearch
 
-In the previous section, we used minsearch for vector search.
+Video: [Watch this lesson](https://www.youtube.com/watch?v=csxKescwJYM&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
 
-It works, but it has a few problems:
+In the previous section we used minsearch for vector search.
 
-- Indexing on startup
-- Keeping everything in memory
-- Brute-force search
+It works, but it has three problems:
 
-In case of text search, we didn't feel these problems. Indexing was
-fast, because we didn't need to embed text into vectors.
+- It rebuilds the index on every startup
+- It keeps everything in memory
+- It searches by brute force
 
-For vector search, it takes some time: we run a neural network over
-every document.
 
-Then, we keep everything in memory. For this dataset it is not a
-problem, but for larger datasets it would take too much space.
+With text search we never felt these. Indexing was fast because we
+didn't embed anything. With vector search, indexing runs a neural
+network over every document, so it takes a minute on our dataset.
+Keeping everything in memory is fine here, but a larger dataset would
+need too much space.
 
-And the last problem: for each search query, we compare the query
-vector with every single document by matrix multiplication. This is
-not a problem for our small dataset. It is probably even faster than
-other approaches.
+The third problem is brute-force search. For every query we compare the
+query vector against every single document. With 1,000 documents this is
+fine, probably even faster than anything smarter. But as the dataset
+grows past 10,000 or so, it gets slow, and we'll want an approximate
+method instead.
 
-But as our dataset grows, it would take more and more time. Eventually
-we will need to switch to approximate methods and use approximate
-nearest neighbor (ANN) search instead.
-
-What we've done so far is exact nearest neighbor (NN) search. For each
-query, we compute the similarity against every single document and pick
-the top ones. With 1,000 documents this is fast. It is even faster than
-smarter approaches. But at 10,000+ documents, it gets slow.
+What we've done so far is exact nearest neighbor (NN) search. We score
+the query against every document and pick the top ones. It always finds
+the true top matches, but it pays for that by touching everything.
 
 Approximate nearest neighbor (ANN) search takes a shortcut. Instead of
-comparing the query against everything, it first narrows down to a
-region of documents that are likely similar. Then it computes exact
-scores only within that region. It may miss the absolute best match, but
-the results are still good, and it is much faster.
+comparing against everything, it first narrows down to a region of
+likely matches. Then it scores only within that region. It may miss the
+absolute best match, but the results are still good and it's much
+faster.
 
 ```text
 NN (exact):    compare query against ALL documents -> top 5
@@ -44,12 +40,14 @@ ANN (approx):  narrow down to a region -> compare within region -> top 5
 
 ## sqlitesearch
 
-sqlitesearch (the persistent sibling of minsearch) solves it.
+sqlitesearch is the persistent sibling of minsearch, and it solves both
+problems at once.
 
-We already used it in module 1 for persistent text search. It also
-supports vector search with its `VectorSearchIndex` class. It stores
-vectors in SQLite and uses approximate nearest neighbor (ANN) strategies
-for efficient retrieval.
+We already used it in module 1 for persistent text search. It also does
+vector search through its `VectorSearchIndex` class. It stores vectors
+in SQLite, a real on-disk database, and uses ANN strategies for
+retrieval. Because the data lives on disk, one process can write the
+vectors and another can read them back.
 
 If you didn't install it in the previous module, add it to your project:
 
@@ -95,7 +93,12 @@ the index later without re-indexing.
 
 ## Searching
 
-Search works the same way as with minsearch:
+Search works the same way as with minsearch. We always encode the query
+into a vector first. This is one thing that makes vector search heavier
+than text search. With text search we'd throw the raw query straight at
+the engine.
+
+Encode, then search:
 
 ```python
 query = "I just discovered the course. Can I still join it?"
@@ -156,13 +159,17 @@ query_vector = model.encode("How do I run Kafka?")
 results = vs_index.search(query_vector, num_results=5)
 ```
 
-We still need to load the embedding model to encode the query. But we
-don't need to re-embed all the documents. No `fit` call needed. The
-index is already built and ready.
+We still load the embedding model to encode the query, but we don't
+re-embed all the documents. No `fit` call needed, because the index is
+already built and waiting on disk.
 
-This is the same two-process architecture we used for text search in
-module 1. One process ingests and builds the index, another process
-queries it.
+This is the same two-process split we used for text search in module 1.
+One process ingests and builds the index, another queries it.
+
+It matters more here than with text search. Embedding the whole dataset
+takes about a minute. We don't want a user waiting that long when the
+app starts up. We pay that cost once during ingestion, and the query
+side starts up instantly.
 
 ## Using sqlitesearch vector search in RAG
 
@@ -243,5 +250,13 @@ Here is how the two compare:
 - sqlitesearch `VectorSearchIndex`: persistent (SQLite `.db` file), ANN
   (LSH/IVF/HNSW) with exact rerank, can open an existing index, good
   for projects and persistence
+
+This is probably the last you'll hear of sqlitesearch. I built it for
+teaching, to show the ingestion-then-deployment split.
+
+It does have a real use though. Its only dependencies are SQLite and
+numpy. So it runs on any host that offers a free SQLite database, where
+a dedicated vector database would cost extra. For most work you'll reach
+for something else, which is what we do next.
 
 [← RAG with Vector Search](06-rag-vector.md) | [Vector Search with PGVector →](08-pgvector.md)

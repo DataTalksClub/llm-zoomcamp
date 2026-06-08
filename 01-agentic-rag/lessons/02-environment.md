@@ -1,5 +1,7 @@
 # Environment
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=3U4gBrmkZyM&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 For this module, all you need is Python with Jupyter.
 
 ## Prerequisites
@@ -16,7 +18,9 @@ You need the following:
 We'll start from scratch - no cloning needed. You'll create the
 project yourself, step by step.
 
-First, install uv (a fast Python package manager).
+First, install uv. It's a Python package manager, and I switched all my
+projects to it because it's fast and convenient. Once I started using
+it, I never wanted to go back.
 
 On Mac or Linux:
 
@@ -59,8 +63,17 @@ This installs:
 
 ## Setting up API keys
 
-We need an API key to talk to the LLM. The safest way to store it
-is in a `.env` file that never gets committed to git.
+We need an API key to talk to the LLM. If you're using OpenAI, you'll
+need to deposit some money first. The minimum is $5 (as of June 2026).
+This lesson costs well under 10 cents to run, so that $5 goes a long
+way.
+
+I also recommend creating a separate OpenAI project for the course.
+Then you can open the usage page and see exactly how much you spent
+here, apart from your other work.
+
+The safest way to store the key is in a `.env` file that never gets
+committed to git.
 
 Create a `.env` file in your project folder and put your API key in
 it:
@@ -76,7 +89,8 @@ commit your key:
 .env
 ```
 
-Never commit `.env` to git. Never share your API key with anyone.
+Never commit `.env` to git. Treat the API key like a password. If it
+leaks, someone else can run up charges on your account.
 
 ## Starting Jupyter
 

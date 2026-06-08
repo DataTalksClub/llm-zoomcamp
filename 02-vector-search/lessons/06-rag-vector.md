@@ -1,5 +1,7 @@
 # RAG with Vector Search
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=-GBW3g3PVTM&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In module 1, we built a RAG pipeline with three steps:
 
 ```python
@@ -9,15 +11,16 @@ def rag(question):
     return llm(user_prompt)
 ```
 
-The search step used keyword search. Now we can replace it with vector search.
-Because RAG is modular, this is the only step we need to change.
+The search step used keyword search. Now we swap in vector search.
+Because RAG is modular, search is the only step we touch. Build prompt
+and the LLM call stay exactly as they were.
 
 ## Using RAGBase
 
 In [module 1](../../01-agentic-rag/) we put all the RAG logic into a
-[`RAGBase`](../../01-agentic-rag/code/rag_helper.py) helper class.
-It has `search`, `build_prompt`, and `llm` methods. We only need to
-override the `search` method.
+[`RAGBase`](../../01-agentic-rag/code/rag_helper.py) helper class. It
+has `search`, `build_prompt`, and `llm` methods, so we only need to
+override `search`.
 
 Download `rag_helper.py` (and `ingest.py` if you didn't get it earlier)
 into your project:
@@ -64,19 +67,22 @@ query = "I just found out about the program, can I still sign up?"
 assistant.rag(query)
 ```
 
-This uses keyword search. Next, we replace it with vector search.
+This still uses keyword search. Text search isn't bad here, so the
+answer may already look right. Next we replace search with vector
+search.
 
 We already have:
 
 - All the indexed documents `documents`
 - The embeddings matrix `X` with all these documents
-- The vector search engine `vindex` 
+- The vector search engine `vindex`
 
-To add vector search to our RAG, we need to put `vindex` in RAG.
-But we cannot just pass `vindex` there directly. We need to update
-the `search` method to first transform the user query into a vector.
+We can't pass `vindex` to RAG as-is. Text search takes the query string
+directly, but vector search needs the query as a vector first. So we
+subclass `RAGBase` and override `search` to encode the query before
+searching.
 
-We will do it by creating a subclass of `RAGBase` that overrides the `search` method:
+The subclass overrides `search`:
 
 ```python
 
@@ -97,8 +103,10 @@ class RAGVector(RAGBase):
         )
 ```
 
-The `__init__` method adds an `embedder` argument for the sentence
-transformer. We use it in `search` to turn the query into a vector.
+The `__init__` method adds one extra argument, `embedder`, for the
+sentence transformer. Inside `search` we use it to turn the query into a
+vector. Then we query `vindex` with that vector instead of the raw text.
+Everything else is inherited from `RAGBase`.
 
 ## Using it
 
@@ -118,7 +126,9 @@ Try it with different queries:
 vector_assistant.rag("the program has already begun, can I still sign up?")
 ```
 
-The answers should be similar to what we got with keyword search, but
-vector search may handle rephrased questions better.
+The answers should be close to what we got with keyword search, but
+vector search handles rephrased questions better. The swap was trivial
+because RAG has three clear steps. The same trick lets us change the LLM
+provider later by overriding just the `llm` step.
 
 [← Vector Search with minsearch](05-minsearch-vector.md) | [Vector Search with sqlitesearch →](07-sqlitesearch-vector.md)

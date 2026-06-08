@@ -1,5 +1,7 @@
 # RAG Helper
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=JxaC6Hrym6c&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous lessons, we built the RAG flow piece by piece -
 search, then the prompt, then the LLM call. The pipeline works, but
 every time we want to use it, we need to repeat the same code.
@@ -59,15 +61,17 @@ to this same file.
 This file contains the RAG logic - the same functions we wrote in the
 previous lessons, now organized as a class.
 
-We use a class because `index` and `openai_client` are currently
-global variables. Moving the functions to a separate file breaks that.
-Importing the globals back is possible but makes the code harder to
-reuse and adjust.
+We use a class because `index` and `openai_client` are currently global
+variables. Move the functions to a separate file and those globals
+aren't there anymore. We could import them back, but that ties the file
+to one specific index and one specific client. That makes the code hard
+to reuse and adjust.
 
-Instead, we use a class to encapsulate the dependencies - the index
-and the LLM client become parameters of the class. This way, we can
-easily swap the search backend or the LLM provider without changing
-any of the RAG code.
+So we put the dependencies inside a class instead. The index and the
+LLM client become constructor arguments. Now we can pass any index or
+client we want when we create the object. And because it's a class, we
+can subclass it later to override one piece without touching the rest.
+For example, we can swap OpenAI for a local model.
 
 Create `rag_helper.py`:
 
@@ -110,9 +114,11 @@ Now the class:
         self.model = model
 ```
 
-The `index` parameter is anything with a `search` method - minsearch,
-sqlitesearch, or something else. We'll swap it later without changing
-any of the RAG code.
+The `index` parameter is anything with a `search` method, whether
+minsearch, sqlitesearch, or something else. The other four parameters
+all have defaults. You only pass `course`, `instructions`,
+`prompt_template`, or `model` when you want to override the default
+behavior. We swap the index later without touching any of the RAG code.
 
 The `search` method delegates to the index:
 

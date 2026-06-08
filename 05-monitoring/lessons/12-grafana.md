@@ -1,5 +1,7 @@
 # Grafana Dashboards
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=Pmh2jT8tEiw&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Our Streamlit dashboard already works. We bring in Grafana because it
 does more. It's a dedicated dashboarding tool: it connects to many data
 sources and offers more panel types. It can also raise alerts when a

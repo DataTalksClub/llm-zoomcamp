@@ -1,5 +1,7 @@
 # Monitoring
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=lbEj3Waxs1U&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 In the previous module we evaluated our system offline, before anyone
 used it. We measured search quality with Hit Rate and MRR, and answer
 quality with cosine similarity and an LLM judge.

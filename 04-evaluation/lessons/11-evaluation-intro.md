@@ -1,5 +1,7 @@
 # RAG and Agent Evaluation
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=VKHBP0QSCFo&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 So far, we evaluated retrieval. We checked whether search returns the
 document that should answer the question.
 

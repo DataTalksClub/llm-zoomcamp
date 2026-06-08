@@ -4,6 +4,10 @@ Video: [Setting up Kestra](https://youtu.be/ghkf93rfb2w)
 
 Here's how to set up everything you need to run the example flows in this module.
 
+## Prerequisites
+
+This module requires [Docker](https://docs.docker.com/get-started/get-docker/) with Docker Compose to run Kestra locally. [Docker Desktop](https://www.docker.com/products/docker-desktop/) is the easiest way to get both on Mac and Windows. If you don't have Docker installed, set that up before proceeding.
+
 ## Step 1: Start Kestra
 
 This module includes a `docker-compose.yml` with Kestra pre-configured:
@@ -29,7 +33,7 @@ docker compose down
 2. Sign in with your Google account
 3. Click "Create API Key" and copy your key
 
-The free tier has a generous quota suitable for learning (rate limits apply).
+The free tier is sufficient for light use, but rate limits are relatively low — you may hit quota quickly if you run the agent and multi-agent flows repeatedly. If you run into `429 Resource Exhausted` errors, wait a minute before retrying, or consider upgrading to a paid tier.
 
 **OpenAI API Key (Required for flow 3)**
 

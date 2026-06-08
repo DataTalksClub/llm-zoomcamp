@@ -1,5 +1,7 @@
 # Streamlit Dashboard
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=OrWlgDKZclI&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 Before we reach for Grafana, let's build a quick dashboard right in
 Streamlit. For a lot of projects this is all you need. When you're
 getting started, seeing latency, cost, and recent conversations in one

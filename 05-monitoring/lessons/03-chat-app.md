@@ -1,5 +1,7 @@
 # Chat App
 
+Video: [Watch this lesson](https://www.youtube.com/watch?v=JCB4JZlMsIQ&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
+
 The command line works, but we want something closer to how a person
 would actually talk to the assistant. So we wrap it in a small web
 interface. We use Streamlit, a Python framework for building front ends
