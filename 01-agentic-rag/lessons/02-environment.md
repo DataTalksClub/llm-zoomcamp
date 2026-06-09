@@ -39,8 +39,8 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 Create an empty folder for the project and initialize it:
 
 ```bash
-mkdir llm-zoomcamp-code
-cd llm-zoomcamp-code
+mkdir llm-zoomcamp-2026-code
+cd llm-zoomcamp-2026-code
 uv init
 ```
 
