@@ -135,6 +135,8 @@ Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits
 
 ### Example post for LinkedIn
 
+Tag [@Alexey Grigorev](https://www.linkedin.com/in/agrigorev/) and [@DataTalksClub](https://www.linkedin.com/company/datatalks-club/) in your post - we'll like and comment to give your post more reach.
+
 ```
 🚀 Module 3 of LLM Zoomcamp by @DataTalksClub complete!
 
@@ -147,7 +149,7 @@ Just finished Module 3 - AI Orchestration with @Kestra. Learned how to:
 
 Here's my homework solution: <LINK>
 
-Following along with this amazing free course - who else is learning to build with LLMs?
+Following along with this amazing free course by @Alexey Grigorev - who else is learning to build with LLMs?
 
 You can sign up here: https://github.com/DataTalksClub/llm-zoomcamp/
 ```
@@ -164,7 +166,7 @@ You can sign up here: https://github.com/DataTalksClub/llm-zoomcamp/
 
 My solution: <LINK>
 
-Free course by @DataTalksClub: https://github.com/DataTalksClub/llm-zoomcamp/
+Free course by @Al_Grigor & @DataTalksClub: https://github.com/DataTalksClub/llm-zoomcamp/
 ```
 
 ## Submitting the Solutions

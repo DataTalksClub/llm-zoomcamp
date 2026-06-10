@@ -3,6 +3,8 @@
 In this module, we learn how to orchestrate AI workflows using [Kestra](https://kestra.io/), an open-source orchestration platform.
 We start from the context problem that makes generic AI assistants unreliable, and end with autonomous multi-agent systems that can research, reason, and act without a fixed predetermined sequence of steps.
 
+This module is created and taught by [Will Russell](https://www.linkedin.com/in/wrussell1999/) from [Kestra](https://kestra.io/). Big thanks to Will and the Kestra team for making it possible.
+
 Flows: [flows/](flows/)
 
 Each lesson has its own video link at the top. If you'd like to watch them all in order, the [full playlist is here](https://youtube.com/playlist?list=PLEK3H8YwZn1oc6ReY4el9jT-mLlw-hs3r&si=yLtndNW5lhFcVuUJ).

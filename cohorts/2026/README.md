@@ -32,10 +32,8 @@ Important links:
 
 * [Homework](05-monitoring/homework.md)
 
-[**Module 6: Best Practices**](06-best-practices/)
+[**Module 6: Best Practices**](../../06-best-practices/)
 
-* [Homework](06-best-practices/homework.md)
+[**Module 7: Project**](../../07-project-example/)
 
-[**Module 7: Project**](07-project-example/)
-
-* [Homework](07-project-example/homework.md)
+* [Capstone project guidelines](../../project.md)
