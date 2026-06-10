@@ -77,17 +77,43 @@ Self-paced steps:
 2. Ask questions and share progress in [Slack](https://datatalks.club/slack.html)
 3. Do homeworks (self-checked) and build a project for your portfolio
 
-## Course Syllabus
+## Syllabus
 
-- [1. Agentic RAG](01-agentic-rag/). Build a RAG pipeline with keyword search, then make it agentic with function calling
-- [2. Vector Search](02-vector-search/). Semantic search with embeddings, minsearch, sqlitesearch, and PGVector
-- [3. Orchestration](03-orchestration/). AI orchestration with Kestra
-- [Workshop - Data Ingestion](cohorts/2026/workshops/dlt.md). Pull traces from a monitoring service for analytics with dlt
-- [4. Evaluation](04-evaluation/). Measure retrieval and answer quality with offline and online eval
-- [5. Monitoring](05-monitoring/). Monitor user feedback and system health with live dashboards
-- [6. Best Practices](06-best-practices/). LangChain, hybrid search. Combine vector + keyword search; rerank results for higher precision
-- [7. End-to-End Project](07-project-example/). A complete project example: a fitness assistant built with LLMs
-- [Capstone Project](project.md). Ship a complete end-to-end project of your choice from scratch
+### [Module 1: Agentic RAG](01-agentic-rag/)
+
+Build a RAG pipeline with keyword search, then make it agentic with function calling.
+
+### [Module 2: Vector Search](02-vector-search/)
+
+Semantic search with embeddings, minsearch, sqlitesearch, and PGVector.
+
+### [Module 3: Orchestration](03-orchestration/)
+
+AI orchestration with Kestra.
+
+### [Workshop: Data Ingestion](cohorts/2026/workshops/dlt.md)
+
+Pull traces from a monitoring service for analytics with dlt.
+
+### [Module 4: Evaluation](04-evaluation/)
+
+Measure retrieval and answer quality with offline and online eval.
+
+### [Module 5: Monitoring](05-monitoring/)
+
+Monitor user feedback and system health with live dashboards.
+
+### [Module 6: Best Practices](06-best-practices/)
+
+LangChain and hybrid search: combine vector and keyword search, and rerank results for higher precision.
+
+### [Module 7: End-to-End Project](07-project-example/)
+
+A complete project example: a fitness assistant built with LLMs.
+
+### [Capstone Project](project.md)
+
+Ship a complete end-to-end project of your choice from scratch.
 
 Recommended approach:
 
@@ -120,6 +146,10 @@ What you'll build:
 
 ## Certificate
 
+<p align="center">
+<img src="images/llm-zoomcamp-certificate.jpg" alt="LLM Zoomcamp certificate of completion awarded after finishing the final project and peer reviews" title="LLM Zoomcamp Certificate of Completion" width="500" />
+</p>
+
 To earn your certificate:
 
 1. Complete the final project. Build a real-world RAG application demonstrating all course concepts
@@ -127,6 +157,8 @@ To earn your certificate:
 3. Meet the deadlines. Submit your project and reviews within the cohort schedule
 
 > Certificates are issued after all peer reviews are completed. Self-paced learners are not eligible for certification but can build portfolio projects freely.
+
+See the [certificate guide](https://datatalks.club/docs/courses/zoomcamp-logistics/certification/) for how the certificate is issued and how to add it to LinkedIn.
 
 ## Instructors
 
