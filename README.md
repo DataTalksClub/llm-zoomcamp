@@ -21,13 +21,13 @@
 
 | Resource | Link |
 |-|-|
-| 📁 Course materials | [GitHub repository](https://github.com/DataTalksClub/llm-zoomcamp) |
-| 🎥 Video lectures | [YouTube playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv) |
-| 📚 Documentation | [Zoomcamp Logistics](https://datatalks.club/docs/courses/zoomcamp-logistics/) · [LLM Zoomcamp](https://datatalks.club/docs/courses/llm-zoomcamp/) |
-| 📅 Cohort schedule & deadlines | [courses.datatalks.club](https://courses.datatalks.club/llm-zoomcamp-2026) |
-| 💬 Slack community | [#course-llm-zoomcamp](https://app.slack.com/client/T01ATQK62F8/C06TEGTGM3J) |
-| 📣 Announcements | [Telegram](https://t.me/llm_zoomcamp) |
-| 🏆 2025 cohort projects | [courses.datatalks.club/llm-zoomcamp-2025/projects](https://courses.datatalks.club/llm-zoomcamp-2025/projects) |
+| Course materials | [GitHub repository](https://github.com/DataTalksClub/llm-zoomcamp) |
+| Video lectures | [YouTube playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv) |
+| Documentation | [Zoomcamp Logistics](https://datatalks.club/docs/courses/zoomcamp-logistics/) · [LLM Zoomcamp](https://datatalks.club/docs/courses/llm-zoomcamp/) |
+| Cohort schedule & deadlines | [courses.datatalks.club](https://courses.datatalks.club/llm-zoomcamp-2026) |
+| Slack community | [#course-llm-zoomcamp](https://app.slack.com/client/T01ATQK62F8/C06TEGTGM3J) |
+| Announcements | [Telegram](https://t.me/llm_zoomcamp) |
+| 2025 cohort projects | [courses.datatalks.club/llm-zoomcamp-2025/projects](https://courses.datatalks.club/llm-zoomcamp-2025/projects) |
 
 ## About the Course
 
@@ -197,41 +197,13 @@ To keep discussions useful for everyone:
 
 ### Learning in Public
 
-We actively encourage sharing your progress online throughout the course. Post what you're building on LinkedIn, Twitter/X, or a blog. It helps you get noticed and connect with others in the field. It also earns you bonus points toward your homework and project scores.
+We actively encourage sharing your progress online throughout the course. Post what you're building on LinkedIn, X, or a blog. It helps you get noticed and connect with others in the field. It also earns you bonus points toward your homework and project scores.
 
 ## AI Shipping Labs
 
-If you want extra support and structure while going through the course, [AI Shipping Labs](https://aishippinglabs.com/?utm_source=github&utm_medium=referral&utm_campaign=llm_zoomcamp_2026_june&utm_content=homepage) is a paid community focused on AI engineering where you can get it. It is also a way to support the course.
+If you want extra support and structure while going through the course, [AI Shipping Labs](https://aishippinglabs.com/?utm_source=github&utm_medium=referral&utm_campaign=llm_zoomcamp_2026_june&utm_content=homepage) is an optional paid community focused on AI engineering. On top of the free course it adds office hours, accountability sprints, personalized onboarding, and member-only workshops. It is also a way to support the course.
 
-But we want to assure you that everything we do at DataTalks.Club is free and will stay free. This is optional, only for people who want to get extra on top of the free content.
-
-What you get:
-
-- Regular [office hours](https://aishippinglabs.com/events/groups/llm-zoomcamp-2026-office-hours?utm_source=github&utm_medium=referral&utm_campaign=llm_zoomcamp_2026_june&utm_content=office_hours) on Zoom where you can ask questions. They are recorded if you can't make it.
-- Accountability sprints. You join a sprint, show up, and share your progress on a call. Knowing you have to report keeps you consistent. The sprint dedicated to LLM Zoomcamp starts one week after the course starts.
-- Personalized onboarding. When you enroll, you have a one-on-one with the founders to set your goals and build a plan to reach them.
-- Going through the course together with other members.
-
-Membership:
-
-- These benefits start from the middle tier. The basic tier does not include them.
-- You can pay monthly or yearly. The benefits are the same. Yearly is cheaper (you get about two months free) and is a stronger commitment.
-- There are no location-based discounts right now.
-
-Membership is not tied only to LLM Zoomcamp. It also includes:
-
-- Regular hands-on, member-only workshops and group coding sessions
-- Career guidance, including resume, LinkedIn, and GitHub reviews
-- Mini-courses on specialized AI topics
-- Community hackathons
-- Personal branding and developer productivity guidance
-- A closed community of practitioners for mentorship and networking
-- Exclusive content, tutorials, and breakdowns of new AI tools
-
-Links:
-
-- [AI Shipping Labs](https://aishippinglabs.com/?utm_source=github&utm_medium=referral&utm_campaign=llm_zoomcamp_2026_june&utm_content=homepage)
-- [Events and workshops](https://aishippinglabs.com/events?utm_source=github&utm_medium=referral&utm_campaign=llm_zoomcamp_2026_june&utm_content=events)
+Everything we do at DataTalks.Club is free and will stay free. AI Shipping Labs is only for people who want extra on top of the free content. See the [AI Shipping Labs guide](https://datatalks.club/docs/courses/llm-zoomcamp/ai-shipping-labs/) for what's included and how membership works.
 
 ## Sponsors
 
