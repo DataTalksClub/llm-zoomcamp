@@ -4,7 +4,8 @@ The tooling and docs for turning live-workshop recordings into per-lesson YouTub
 videos (download, chop, upload/rename, playlist organization, chapters) now live
 in a standalone, reusable project:
 
-**`youtube-manager-agent`** (sibling checkout: `../../youtube-manager-agent`)
+**[`youtube-manager-agent`](https://github.com/alexeygrigorev/youtube-manager-agent)**
+(local sibling checkout: `../../youtube-manager-agent`)
 
 That repo contains the chopping pipeline (`download.sh`, `chop.sh`,
 `clip_transcript.py`, `docs/chopping.md`), the YouTube Data API scripts
