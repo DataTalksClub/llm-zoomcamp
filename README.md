@@ -21,6 +21,7 @@
 
 | Resource | Link |
 |-|-|
+| 🎬 Course launch stream | [Watch on YouTube](https://www.youtube.com/watch?v=7TuZTVwnmhk&list=PL3MmuxUbc_hJAmLLf2x1LSKRKbZwKXoHd) |
 | Course materials | [GitHub repository](https://github.com/DataTalksClub/llm-zoomcamp) |
 | Video lectures | [YouTube playlist](https://www.youtube.com/playlist?list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv) |
 | Documentation | [Zoomcamp Logistics](https://datatalks.club/docs/courses/zoomcamp-logistics/) · [LLM Zoomcamp](https://datatalks.club/docs/courses/llm-zoomcamp/) |
