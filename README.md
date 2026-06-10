@@ -310,7 +310,7 @@ Every contribution helps future learners. Thank you 🙏
   <a href="https://www.youtube.com/@DataTalksClub/featured">YouTube</a> •
   <a href="https://github.com/DataTalksClub">GitHub</a> •
   <a href="https://www.linkedin.com/company/datatalks-club/">LinkedIn</a> •
-  <a href="https://twitter.com/DataTalksClub">Twitter</a>
+  <a href="https://x.com/DataTalksClub">X</a>
 </p>
 
 > [!NOTE]
