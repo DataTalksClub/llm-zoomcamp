@@ -81,39 +81,45 @@ Self-paced steps:
 
 ### [Module 1: Agentic RAG](01-agentic-rag/)
 
-Build a RAG pipeline with keyword search, then make it agentic with function calling.
+- Build a RAG pipeline with keyword search
+- Make it agentic with function calling
 
 ### [Module 2: Vector Search](02-vector-search/)
 
-Semantic search with embeddings, minsearch, sqlitesearch, and PGVector.
+- Semantic search with embeddings
+- minsearch, sqlitesearch, and PGVector
 
 ### [Module 3: Orchestration](03-orchestration/)
 
-AI orchestration with Kestra.
+- AI orchestration with Kestra
 
 ### [Workshop: Data Ingestion](cohorts/2026/workshops/dlt.md)
 
-Pull traces from a monitoring service for analytics with dlt.
+- Pull traces from a monitoring service for analytics with dlt
 
 ### [Module 4: Evaluation](04-evaluation/)
 
-Measure retrieval and answer quality with offline and online eval.
+- Measure retrieval and answer quality
+- Offline and online evaluation
 
 ### [Module 5: Monitoring](05-monitoring/)
 
-Monitor user feedback and system health with live dashboards.
+- Monitor user feedback and system health
+- Live dashboards
 
 ### [Module 6: Best Practices](06-best-practices/)
 
-LangChain and hybrid search: combine vector and keyword search, and rerank results for higher precision.
+- LangChain
+- Hybrid search: combine vector and keyword search
+- Rerank results for higher precision
 
 ### [Module 7: End-to-End Project](07-project-example/)
 
-A complete project example: a fitness assistant built with LLMs.
+- A complete project example: a fitness assistant built with LLMs
 
 ### [Capstone Project](project.md)
 
-Ship a complete end-to-end project of your choice from scratch.
+- Ship a complete end-to-end project of your choice from scratch
 
 Recommended approach:
 
