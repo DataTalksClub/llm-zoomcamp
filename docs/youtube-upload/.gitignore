@@ -1,4 +1,0 @@
-# Never commit OAuth secrets or local run state
-client_secret*.json
-token.json
-*-state.json
