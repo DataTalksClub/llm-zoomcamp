@@ -226,7 +226,7 @@ A huge thanks to our sponsors for making this course possible!
 
 ## FAQ
 
-> Full FAQ: [datatalks.club/faq/llm-zoomcamp.html](https://datatalks.club/faq/llm-zoomcamp.html)
+A few common questions. For everything else, see the full [LLM Zoomcamp FAQ](https://datatalks.club/faq/llm-zoomcamp.html).
 
 Q: Is this course really free?<br/>
 A: Yes. All videos, materials, and homework are free. You may spend $1-5 in OpenAI API credits if you run the code yourself.
@@ -235,25 +235,10 @@ Q: Do I need a GPU?<br/>
 A: No. All exercises are designed to run on a standard laptop using cloud APIs.
 
 Q: What does "live cohort" mean? Are there live classes?<br/>
-A: No mandatory live classes. "Live" means homework deadlines, automatic scoring, a leaderboard, peer review, and certificate eligibility are all enabled. All lectures are pre-recorded.
+A: No mandatory live classes. All lectures are pre-recorded. "Live" means deadlines, scored homework, a leaderboard, peer review, and certificate eligibility.
 
-Q: Can I join after the cohort has started?<br/>
-A: Yes. You can join after the start date, but deadlines remain fixed. Some homework forms may already be closed.
-
-Q: Can I join mid-cohort or self-paced?<br/>
-A: Yes. All materials stay available after each cohort ends. Self-paced learners are always welcome, though certificates require a live cohort.
-
-Q: Will I get a certificate?<br/>
-A: Yes. Complete the final project and peer review 3 students' projects during the live cohort to earn your certificate. Self-paced mode does not include certification.
-
-Q: Do I need to complete every homework to get a certificate?<br/>
-A: No. You only need to complete the final project and peer reviews to get it.
-
-Q: What if I get stuck?<br/>
-A: Discuss your problem in [#course-llm-zoomcamp](https://app.slack.com/client/T01ATQK62F8/C06TEGTGM3J) on Slack. The community and instructors are active there. Also check the [FAQ page](https://datatalks.club/faq/llm-zoomcamp.html) for detailed answers.
-
-Q: How much time should I expect to spend?<br/>
-A: Expect roughly 5-10 hours per week, depending on your background and how deep you go into the materials.
+Q: Can I take it self-paced, and will I get a certificate?<br/>
+A: Yes, you can start anytime. Certificates require completing the final project and peer reviews during a live cohort.
 
 ## Contributing
 
