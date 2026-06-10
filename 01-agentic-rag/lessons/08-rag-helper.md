@@ -93,9 +93,10 @@ CONTEXT:
 """.strip()
 ```
 
-Now the class:
+Now the class: `RAGBase`
 
 ```python
+class RAGBase:
 
     def __init__(
         self,
