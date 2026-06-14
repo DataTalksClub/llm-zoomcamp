@@ -18,6 +18,8 @@ You need the following:
 We'll start from scratch - no cloning needed. You'll create the
 project yourself, step by step.
 
+### Creating the project locally
+
 First, install uv. It's a Python package manager, and I switched all my
 projects to it because it's fast and convenient. Once I started using
 it, I never wanted to go back.
@@ -46,6 +48,37 @@ uv init
 
 This creates a `pyproject.toml` and a basic project structure.
 
+### Creating the project on Github Codespaces
+#### Benefits of Github Codespaces
+If most people use it, you will have the same environment with the same Ubuntu, Python, and Docker, so it will be easier to help each other with any problems that may arise.
+
+#### Setting it up
+- Go to your Github account and create a new repo
+- You can name it whatever you want. Some examples are "llm-zoomcamp-2026-code" or "introduction-to-rag"
+- Make sure to add the readme when creating the repo
+- Go into your repo on Github and you will see a green `<> Code` button
+- Here you can choose between local and codespaces
+- Choose to create a codespace
+- Now you will have a new remote environment on Codespaces
+
+#### Using Visual Studio Code
+By default you will have an in-browser editor, which you can use if you want. But you can change that to connect to VS Code on your desktop for a better experience
+- Click on the bottom left corner in the browser where it says `Codespaces`
+- You will eventually see a dropdown with an option that says "Open in Visual Studio Code Desktop"
+
+Once the VS Code desktop is opened, press `` ctrl+` `` to bring up the terminal
+
+In the terminal, execute the following:
+```
+pip install uv
+```
+then
+```
+uv init
+```
+As mentioned in the local product install section, I prefer uv.
+
+## Adding dependencies
 Now add the dependencies we'll need:
 
 ```bash
