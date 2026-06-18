@@ -141,8 +141,10 @@ rest of the code stays the same:
 ```python
 from rag_helper import RAGBase
 from openai import OpenAI
+from dotenv import load_dotenv
 
 openai_client = OpenAI()
+load_dotenv()
 
 assistant = RAGBase(
     index=sqlite_index,
