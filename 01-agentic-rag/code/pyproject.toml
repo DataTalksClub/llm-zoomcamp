@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "gitsource>=0.0.5",
     "jupyter>=1.1.1",
     "minsearch>=0.0.11",
     "openai>=2.37.0",
