@@ -8,7 +8,7 @@ ATTENTION: At the end of the submission form, you will be required to include a 
 
 Before starting this homework, ensure you have:
 
-1. Kestra running locally (see the [Getting Started](../../../03-orchestration/lessons/02-setup.md) lesson)
+1. Kestra running locally (see the [Getting Started](../../../03-orchestration/lessons/03-setup.md) lesson)
 2. Google Gemini API key (get it from https://aistudio.google.com/app/apikey)
 3. (Optional) Tavily API key for web search examples (get it from https://tavily.com/)
 4. Imported all flows from the `03-orchestration/flows/` directory
@@ -51,9 +51,9 @@ cd 03-orchestration
 # Adjust username and password to match your Kestra setup
 curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/1_chat_without_rag.yaml
 curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/2_chat_with_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/3_simple_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/4_web_research_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/5_multi_agent_research.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/4_simple_agent.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/5_web_research_agent.yaml
+curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/6_multi_agent_research.yaml
 ```
 
 ## Question 1: Context Engineering
@@ -84,7 +84,7 @@ What difference do you observe?
 
 ## Question 3: Token Usage
 
-Run `3_simple_agent.yaml` twice:
+Run `4_simple_agent.yaml` twice:
 
 1. First with `summary_length` = `short`
 2. Second with `summary_length` = `long`
@@ -98,7 +98,7 @@ Check the token usage logged at the end of each execution. How does token usage 
 
 ## Question 4: Agent Autonomy
 
-Run `4_web_research_agent.yaml` with the default research topic about data orchestration trends.
+Run `5_web_research_agent.yaml` with the default research topic about data orchestration trends.
 
 In this flow, who decides when to use the web search tool?
 
@@ -109,7 +109,7 @@ In this flow, who decides when to use the web search tool?
 
 ## Question 5: Multi-Agent Collaboration
 
-Examine `5_multi_agent_research.yaml` and run it with the default company (kestra.io).
+Examine `6_multi_agent_research.yaml` and run it with the default company (kestra.io).
 
 What is the role of the research agent in this multi-agent system?
 
