@@ -8,10 +8,9 @@ ATTENTION: At the end of the submission form, you will be required to include a 
 
 Before starting this homework, ensure you have:
 
-1. Kestra running locally (see the [Getting Started](../../../03-orchestration/lessons/03-setup.md) lesson)
-2. Google Gemini API key (get it from https://aistudio.google.com/app/apikey)
-3. (Optional) Tavily API key for web search examples (get it from https://tavily.com/)
-4. Imported all flows from the `03-orchestration/flows/` directory
+1. Completed the [Module 3 lessons](../../../03-orchestration/README.md) — the questions reference flows and concepts covered there
+2. Kestra running locally with API keys configured (see the [Setup](../../../03-orchestration/lessons/03-setup.md) lesson) -- this includes the Gemini API key, which is also required for the AI Copilot
+3. Imported all flows from the `03-orchestration/flows/` directory (covered in the Setup lesson)
 
 ## Assignment Overview
 
@@ -30,6 +29,7 @@ Configure your API keys as Kestra secrets:
 Kestra reads secrets from environment variables prefixed with `SECRET_` where the value is base64-encoded. Export your keys before starting Kestra:
 
 ```bash
+export GEMINI_API_KEY="your-gemini-api-key-here"
 export SECRET_GEMINI_API_KEY=$(echo -n "your-gemini-api-key-here" | base64)
 export SECRET_TAVILY_API_KEY=$(echo -n "your-tavily-api-key-here" | base64)  # optional
 ```
@@ -64,12 +64,12 @@ Try the following experiment:
 2. Enter this prompt: "Create a Kestra flow that loads NYC taxi data from CSV to BigQuery"
 3. Then, use Kestra's AI Copilot with the same prompt
 
-After trying the same prompt in ChatGPT vs Kestra's AI Copilot, what is the primary reason Copilot generates better Kestra flows?
+After trying the same prompt in ChatGPT vs Kestra's AI Copilot, what is the primary reason AI Copilot generates better Kestra flows?
 
-- Copilot uses a more powerful model
-- Copilot has access to current Kestra plugin documentation
-- Copilot uses more tokens
-- Copilot has internet access
+- AI Copilot uses a more powerful model
+- AI Copilot has access to current Kestra plugin documentation
+- AI Copilot uses more tokens
+- AI Copilot has internet access
 
 ## Question 2: RAG Comparison
 
