@@ -1,11 +1,12 @@
-## [DRAFT] Homework: Vector Search
+## Homework: Vector Search
 
-In this homework, we build vector search from scratch - the same path as
-the module. We turn text into vectors, search by similarity, and finish
-by combining vector search with keyword search.
+In this homework, we put what we learned in Module 2 into practice.
 
-Like in homework 1, our knowledge base is the course lessons themselves,
-not the FAQ. Each module has a `lessons/` folder of numbered markdown
+We'll first turn text into vectors, then search by similarity.
+We'll also learn something new and see how to combine vector search with keyword search. We'll skip the RAG part and focus solely on search.
+
+Like in homework 1, our knowledge base is the course lessons themselves.
+Each module has a `lessons/` folder of numbered markdown
 pages, and we pull them from GitHub. We use the same commit, `8c1834d`,
 so everyone works with the exact same 72 pages.
 
@@ -13,16 +14,19 @@ so everyone works with the exact same 72 pages.
 
 ## Setup
 
-Prepare your environment the same way as in the module's
+In this homework we won't use the same approach for embedding as in the
+module. That is, we won't use the sentence-transformers library. Instead,
+we'll use the lightweight embedding approach with the ONNX `Embedder`.
+
+Both approaches produce identical vectors, but the ONNX runtime is far
+lighter. It needs no PyTorch and no CUDA, which makes the install about
+30x smaller and lets it run anywhere, including a basic Codespace. We
+skimmed through it in the lesson and said we'd cover it in the homework -
+so here we are.
+
+We prepare the environment the same way as in the module's
 [ONNX Runtime](../../../02-vector-search/lessons/09-onnx-embedder.md)
 lesson.
-
-For embeddings we use the ONNX `Embedder` from that lesson, not
-`sentence-transformers`. The two produce the same vectors, but the ONNX
-runtime is far lighter. It needs no PyTorch and no CUDA, which makes the
-install about 30x smaller and lets it run anywhere, including a basic
-Codespace. That lesson is optional and we covered it quickly, so this
-homework is where you get it working.
 
 Create a fresh project and install the dependencies:
 
@@ -33,11 +37,14 @@ uv add onnxruntime tokenizers numpy tqdm minsearch gitsource
 uv add --dev huggingface-hub jupyter
 ```
 
-We need two helper scripts from the `embed/` directory of the course
-repo - [`download.py`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/02-vector-search/embed/download.py)
+We also need two helper scripts from the `embed/` directory of the course
+repo:
+
+- [`download.py`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/02-vector-search/embed/download.py)
 (fetches an ONNX model from HuggingFace) and
-[`embedder.py`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/02-vector-search/embed/embedder.py)
-(the `Embedder` class with an `encode` interface):
+- [`embedder.py`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/02-vector-search/embed/embedder.py) (the `Embedder` class with an `encode` interface)
+
+Let's download them:
 
 ```bash
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/02-vector-search/embed
@@ -51,6 +58,8 @@ version of the `all-MiniLM-L6-v2` model from the lessons:
 ```bash
 uv run python download.py
 ```
+
+Now we're ready to do the homework.
 
 ## Q1. Embedding a query
 
@@ -130,10 +139,11 @@ Which file does the highest-scoring chunk belong to (its `filename`)?
 
 ## Q4. Vector search with minsearch
 
-Doing the search by hand works, but a library makes it more convenient.
-Index the same chunks with `minsearch.VectorSearch`.
+We've done vector search by hand, which is good for learning, but it's not
+what we do in practice. In practice we use libraries.
 
-Then search with a different query:
+Let's use `VectorSearch` from minsearch and run a search for the following
+query:
 
 > What metric do we use to evaluate a search engine?
 
@@ -146,9 +156,11 @@ Which file is the `filename` of the first result?
 
 ## Q5. Text search vs vector search
 
-Vector search matches by meaning, keyword search by exact words. Index
-the same chunks with a text index too (`minsearch.Index`, `content` as a
-text field).
+Vector search matches by meaning, keyword search by exact words.
+
+Let's compare them. Index
+the same chunks with `Index` from minsearch. Use `content` as a
+text field.
 
 Run both searches for this query:
 
@@ -164,8 +176,20 @@ vector results but not in the text results?
 
 ## Q6. Hybrid search
 
-Each search gives a ranked list, and we combine the two with Reciprocal
-Rank Fusion (RRF).
+Both vector and text search have their strengths and weaknesses. Vector
+search matches by meaning, so it finds relevant pages even when they use
+words different from the query. But it can miss exact terms like names,
+codes, or rare keywords. Text search is the opposite: it nails exact words
+but misses paraphrases and synonyms.
+
+We don't have to pick one or the other - we can use both and merge their
+results. This approach is called "hybrid search".
+
+Each search produces its own ranked list, so we need a way to combine them
+into one. In this homework we use Reciprocal Rank Fusion (RRF). It ignores
+the raw scores from each method, which live on different scales and aren't
+directly comparable. Instead, it looks only at the position of each
+document in each list.
 
 Every document scores by its position (`rank`, starting at 0) in each
 list, and we sum the scores across lists with a constant `k = 60`:
@@ -174,9 +198,20 @@ list, and we sum the scores across lists with a constant `k = 60`:
 RRF(d) = sum over lists of  1 / (k + rank(d))
 ```
 
+"Sum over lists" means we go through every ranked list and, for each list
+where the document appears, add its `1 / (k + rank)` contribution. A
+document found by both searches collects a score from each list, while one
+found by only a single search collects just one.
+
 The constant `k` controls how much the exact rank matters. A larger `k`
 flattens the gap between positions, so the difference between rank 0 and
-rank 5 counts for less. 60 is the common default.
+rank 5 counts for less. A smaller `k` does the opposite: it sharpens that
+gap, so being at the top of a list matters much more.
+
+The value 60 comes from the original RRF paper and is the usual default.
+You rarely need to tune it. Lower it when only the top results matter.
+Raise it to reward documents that appear across many lists, even when they
+never quite reach the top.
 
 A document that ranks well in both lists ends up higher than one that's
 only strong in a single list.
@@ -195,6 +230,9 @@ def rrf(result_lists, k=60, num_results=5):
     ranked = sorted(scores, key=scores.get, reverse=True)
     return [docs[key] for key in ranked[:num_results]]
 ```
+
+
+Let's use this function.
 
 Run text search and vector search (top 5 each) for this query, then
 combine them with `rrf`:
@@ -217,14 +255,18 @@ because it ranks high in both.
 
 By now you can search several ways:
 
-- by hand with numpy
-- with minsearch vector search
-- with keyword search
-- with hybrid search
+- vector search
+- keyword search
+- hybrid search
+
+Which is the best way? 
 
 The right choice depends on your data, and the way to decide is to
-measure. We cover how to evaluate and compare search approaches in the
-next module, and you'll do exactly that in the evaluation homework.
+measure.
+
+We cover how to evaluate and compare search approaches in the
+[evaluation module](../../../04-evaluation/lessons/04-search-evaluation.md),
+and you'll do exactly that in the [evaluation homework](../04-evaluation/homework.md).
 
 ## Learning in Public
 
