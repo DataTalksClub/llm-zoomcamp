@@ -64,7 +64,11 @@ dict, calls the right function, and serializes the result. We only
 have one tool for now, so we dispatch on the function name directly.
 
 ```python
-def make_call(call):
+from openai.types.responses import ResponseFunctionToolCall
+
+
+def make_call(call: ResponseFunctionToolCall) -> dict[str, str]:
+    """Run the function the model asked for and wrap its result for the next turn."""
     args = json.loads(call.arguments)
 
     if call.name == "search":
@@ -181,7 +185,8 @@ takes the instructions and the question as parameters, and returns
 the final answer.
 
 ```python
-def agent_loop(instructions, question, model="gpt-5.4-mini") -> str:
+def agent_loop(instructions: str, question: str, model: str = "gpt-5.4-mini") -> str:
+    """Run the tool-use loop until the model answers without calling a function."""
     messages = [
         {"role": "developer", "content": instructions},
         {"role": "user", "content": question}

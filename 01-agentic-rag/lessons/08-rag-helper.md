@@ -25,7 +25,8 @@ Create `ingest.py` with two functions:
 import requests
 from minsearch import Index
 
-def load_faq_data():
+def load_faq_data() -> list[dict[str, str]]:
+    """Download every course's FAQ entries and flatten them into one list."""
     docs_url = "https://datatalks.club/faq/json/courses.json"
     response = requests.get(docs_url)
     courses_raw = response.json()
@@ -43,7 +44,8 @@ def load_faq_data():
 
     return documents
 
-def build_index(documents):
+def build_index(documents: list[dict[str, str]]) -> Index:
+    """Fit a minsearch ``Index`` over the FAQ documents for retrieval."""
     index = Index(
         text_fields=["question", "section", "answer"],
         keyword_fields=["course"]
@@ -97,16 +99,17 @@ Now the class: `RAGBase`
 
 ```python
 class RAGBase:
+    """Retrieval-augmented chat assistant over the course FAQ."""
 
     def __init__(
         self,
-        index,
-        llm_client,
-        instructions=INSTRUCTIONS,
-        prompt_template=PROMPT_TEMPLATE,
-        course="llm-zoomcamp",
-        model="gpt-5.4-mini"
-    ):
+        index: Index,
+        llm_client: OpenAI,
+        instructions: str = INSTRUCTIONS,
+        prompt_template: str = PROMPT_TEMPLATE,
+        course: str = "llm-zoomcamp",
+        model: str = "gpt-5.4-mini"
+    ) -> None:
         self.index = index
         self.llm_client = llm_client
         self.instructions = instructions
@@ -124,7 +127,8 @@ behavior. We swap the index later without touching any of the RAG code.
 The `search` method delegates to the index:
 
 ```python
-    def search(self, query, num_results=5):
+    def search(self, query: str, num_results: int = 5) -> list[dict[str, str]]:
+        """Run a boosted search for ``query`` within this course's FAQ set."""
         boost_dict = {"question": 3.0, "section": 0.5}
         filter_dict = {"course": self.course}
 
@@ -140,7 +144,8 @@ The `build_context` and `build_prompt` methods format the search
 results:
 
 ```python
-    def build_context(self, search_results):
+    def build_context(self, search_results: list[dict[str, str]]) -> str:
+        """Render search results into the plain-text block fed to the LLM."""
         lines = []
 
         for doc in search_results:
@@ -151,7 +156,8 @@ results:
 
         return "\n".join(lines).strip()
 
-    def build_prompt(self, query, search_results):
+    def build_prompt(self, query: str, search_results: list[dict[str, str]]) -> str:
+        """Fill the prompt template with the question and its retrieved context."""
         context = self.build_context(search_results)
         return self.prompt_template.format(
             question=query, context=context
@@ -161,7 +167,8 @@ results:
 The `llm` method sends the prompt to the LLM:
 
 ```python
-    def llm(self, prompt):
+    def llm(self, prompt: str) -> str:
+        """Send ``instructions`` + ``prompt`` to the model and return its reply."""
         input_messages = [
             {"role": "developer", "content": self.instructions},
             {"role": "user", "content": prompt}
@@ -178,7 +185,8 @@ The `llm` method sends the prompt to the LLM:
 And the `rag` method wires it all together:
 
 ```python
-    def rag(self, query):
+    def rag(self, query: str) -> str:
+        """Answer ``query`` end-to-end: retrieve -> build prompt -> generate."""
         search_results = self.search(query)
         prompt = self.build_prompt(query, search_results)
         answer = self.llm(prompt)

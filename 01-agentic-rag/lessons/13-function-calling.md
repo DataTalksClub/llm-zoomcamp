@@ -20,7 +20,8 @@ flowchart TD
 The pipeline is fixed: search, build prompt, LLM.
 
 ```python
-def rag(self, query):
+def rag(self, query: str) -> str:
+    """Answer ``query`` end-to-end: retrieve -> build prompt -> generate."""
     search_results = self.search(query)
     prompt = self.build_prompt(query, search_results)
     answer = self.llm(prompt)
@@ -95,7 +96,8 @@ directly. The model will reference it by this name. We keep the Python
 function and the tool name aligned so the dispatch is easier later.
 
 ```python
-def search(query):
+def search(query: str) -> list[dict[str, str]]:
+    """Search the FAQ database for entries matching ``query`` (llm-zoomcamp only)."""
     boost_dict = {"question": 3.0, "section": 0.5}
     filter_dict = {"course": "llm-zoomcamp"}
 
@@ -245,7 +247,8 @@ and per million output tokens. Plug those numbers in to convert tokens
 to dollars.
 
 ```python
-def calculate_gpt54mini_price(input_tokens, output_tokens):
+def calculate_gpt54mini_price(input_tokens: int, output_tokens: int) -> dict[str, float]:
+    """Estimate the USD cost of a gpt-5.4-mini call from its token usage."""
     INPUT_PRICE_PER_MILLION = 0.15
     OUTPUT_PRICE_PER_MILLION = 0.60
 

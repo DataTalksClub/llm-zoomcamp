@@ -200,7 +200,8 @@ Let's wrap the search in a `search` function - the first component of
 our RAG pipeline:
 
 ```python
-def search(question, course="llm-zoomcamp"):
+def search(question: str, course: str = "llm-zoomcamp") -> list[dict[str, str]]:
+    """Search the FAQ index for ``question`` within ``course``, boosting titles."""
     boost_dict = {"question": 2.0, "section": 0.5}
     filter_dict = {"course": course}
 

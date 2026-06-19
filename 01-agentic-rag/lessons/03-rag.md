@@ -22,7 +22,8 @@ can't send the question straight to an LLM and call it a day.
 First, let's define a function to talk to the LLM:
 
 ```python
-def llm(prompt):
+def llm(prompt: str) -> str:
+    """Ask the model a single ``prompt`` and return its text reply."""
     response = openai_client.responses.create(
         model="gpt-5.4-mini",
         input=prompt
@@ -134,7 +135,8 @@ relevant documents, and send those to the LLM.
 In code, it looks like this:
 
 ```python
-def rag(question):
+def rag(question: str) -> str:
+    """Answer ``question`` end-to-end: search, build a prompt, then call the LLM."""
     search_results = search(question)
     user_prompt = build_prompt(question, search_results)
     return llm(user_prompt)

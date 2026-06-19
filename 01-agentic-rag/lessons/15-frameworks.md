@@ -58,7 +58,7 @@ If we add a type hint and a docstring to `search`, ToyAIKit reads them
 and derives the schema for us:
 
 ```python
-def search(query: str) -> dict[str, str]:
+def search(query: str) -> list[dict[str, str]]:
     """
     Search the FAQ database for entries matching the given query.
     """

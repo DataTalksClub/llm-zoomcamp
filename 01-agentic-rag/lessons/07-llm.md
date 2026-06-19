@@ -149,7 +149,8 @@ It now
 takes both instructions and the user prompt:
 
 ```python
-def llm(instructions, user_prompt, model="gpt-5.4-mini"):
+def llm(instructions: str, user_prompt: str, model: str = "gpt-5.4-mini") -> str:
+    """Send ``instructions`` + ``user_prompt`` to ``model`` and return its reply."""
     message_history = [
         {"role": "developer", "content": instructions},
         {"role": "user", "content": user_prompt}
@@ -168,7 +169,8 @@ def llm(instructions, user_prompt, model="gpt-5.4-mini"):
 With search, the prompt, and the LLM ready, we wire them together:
 
 ```python
-def rag(query, model="gpt-5.4-mini"):
+def rag(query: str, model: str = "gpt-5.4-mini") -> str:
+    """End-to-end RAG: retrieve FAQ docs, build a prompt, and generate an answer."""
     search_results = search(query)
     prompt = build_prompt(query, search_results)
     answer = llm(INSTRUCTIONS, prompt, model=model)

@@ -54,7 +54,8 @@ Context:
 The `context` is a formatted string with all the search results:
 
 ```python
-def build_context(search_results):
+def build_context(search_results: list[dict[str, str]]) -> str:
+    """Turn retrieved FAQ docs into the plain-text context block for the prompt."""
     lines = []
 
     for doc in search_results:
@@ -76,7 +77,8 @@ send the data to the LLM.
 Now we combine the question with the context into the user prompt:
 
 ```python
-def build_prompt(question, search_results):
+def build_prompt(question: str, search_results: list[dict[str, str]]) -> str:
+    """Fill the user-prompt template with the question and its retrieved context."""
     context = build_context(search_results)
     prompt = USER_PROMPT_TEMPLATE.format(
         question=question,
