@@ -239,6 +239,13 @@ combine them with `rrf`:
 
 ```python
 query = "How do I give the model access to tools?"
+
+vector_results = vindex.search(emb.encode(query), num_results=5)
+text_results = tindex.search(query, num_results=5)
+
+# Combine the two lists. Note the extra brackets: rrf takes a list of
+# result lists (one per search), so we wrap both inside another list.
+results = rrf([vector_results, text_results])
 ```
 
 Which file is ranked first after RRF?
