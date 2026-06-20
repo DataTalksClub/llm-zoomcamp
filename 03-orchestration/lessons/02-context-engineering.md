@@ -1,6 +1,6 @@
 # Context Engineering
 
-Video: [Using AI in Workflows](https://youtu.be/xUAkcgNIcRI)
+Video: [Using AI in Workflows](https://www.youtube.com/watch?v=xUAkcgNIcRI&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
 
 Let's start by seeing what happens when AI lacks proper context.
 

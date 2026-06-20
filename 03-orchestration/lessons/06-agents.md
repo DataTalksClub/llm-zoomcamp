@@ -1,6 +1,6 @@
 # AI Agents
 
-Video: [Agentic Workflows](https://youtu.be/7tvpR8EE0gs)
+Video: [Agentic Workflows](https://www.youtube.com/watch?v=7tvpR8EE0gs&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
 
 In [Module 1](../../01-agentic-rag/lessons/11-agents-intro.md) you built the agentic loop by hand: a `while` loop that called the LLM, executed any tool calls it returned, sent the results back, and stopped when the model produced a final answer with no more tool calls. That pattern is the foundation of every agent framework.
 

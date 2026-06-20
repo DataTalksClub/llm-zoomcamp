@@ -1,6 +1,6 @@
 # AI Copilot
 
-Video: [AI Copilot](https://youtu.be/OTiOdt17hZg)
+Video: [AI Copilot](https://www.youtube.com/watch?v=OTiOdt17hZg&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
 
 Building workflows manually can be slow. You need to know which plugin to use, look up the exact property names, remember the right syntax, and connect each task together in the correct order. For a non-trivial flow, this can take a long time before you even run it once. While Kestra's autocomplete helps, you still have to build each task one at a time.
 
