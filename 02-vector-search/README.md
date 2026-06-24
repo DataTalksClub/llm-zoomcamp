@@ -7,9 +7,8 @@ overlap. We start from embeddings and end with persistent vector
 indexes (sqlitesearch, PGVector) and ONNX-based embedders for
 lightweight deployments.
 
-Code: [code/](code/)
-
-Embeddings runtime: [embed/](embed/)
+- Code: [code/](code/)
+- Embeddings runtime: [embed/](embed/)
 
 
 ## Lessons

@@ -1,6 +1,6 @@
 # Multi-Agent Systems
 
-Video: [Agentic Workflows](https://youtu.be/7tvpR8EE0gs)
+Video: [Agentic Workflows](https://www.youtube.com/watch?v=7tvpR8EE0gs&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv)
 
 For complex tasks, you can design systems where multiple specialized agents collaborate. Each agent has a clear responsibility, and one agent can call another as a tool.
 
