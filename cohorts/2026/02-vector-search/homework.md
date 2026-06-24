@@ -28,7 +28,7 @@ We prepare the environment the same way as in the module's
 [ONNX Runtime](../../../02-vector-search/lessons/09-onnx-embedder.md)
 lesson.
 
-Create a fresh project and install the dependencies:
+Create a fresh project and install the dependencies. For example, from the root of your cloned `llm-zoomcamp` repository:
 
 ```bash
 mkdir llm-zoomcamp-hw2 && cd llm-zoomcamp-hw2
@@ -50,6 +50,13 @@ Let's download them:
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/02-vector-search/embed
 wget $PREFIX/download.py
 wget $PREFIX/embedder.py
+```
+
+If `wget` is not installed, try using `curl` instead:
+
+```bash
+curl -L -O $PREFIX/download.py
+curl -L -O $PREFIX/embedder.py
 ```
 
 By default `download.py` fetches `Xenova/all-MiniLM-L6-v2`, the ONNX
@@ -147,6 +154,12 @@ query:
 
 > What metric do we use to evaluate a search engine?
 
+You can import `VectorSearch` with:
+
+```python
+from minsearch.vector import VectorSearch
+```
+
 Which file is the `filename` of the first result?
 
 * `02-vector-search/lessons/04-vector-search.md`
@@ -166,8 +179,10 @@ Run both searches for this query:
 
 > How do I store vectors in PostgreSQL?
 
-Take the top 5 results from each method. Which file shows up in the
-vector results but not in the text results?
+Take the top 5 results from each method. Compare the unique `filename`
+values in the vector results with the unique `filename` values in the text
+results. Which file shows up in the vector results but not in the text
+results?
 
 * `02-vector-search/lessons/01-intro.md`
 * `02-vector-search/lessons/02-embeddings.md`
@@ -230,6 +245,9 @@ def rrf(result_lists, k=60, num_results=5):
     ranked = sorted(scores, key=scores.get, reverse=True)
     return [docs[key] for key in ranked[:num_results]]
 ```
+We use `(filename, start)` as the key because each lesson file can produce
+multiple chunks. The `start` value identifies where that chunk begins in
+the original document.
 
 Now run the query `"How do I give the model access to tools?"`
 with vector and text search and fuse the results with `rrf`:
@@ -252,11 +270,11 @@ because it ranks high in both.
 
 By now you can search several ways:
 
-- vector search
-- keyword search
-- hybrid search
+* vector search
+* keyword search
+* hybrid search
 
-Which is the best way? 
+Which is the best way?
 
 The right choice depends on your data, and the way to decide is to
 measure.
@@ -309,5 +327,5 @@ Free course by @Al_Grigor & @DataTalksClub: https://github.com/DataTalksClub/llm
 
 ## Submit the results
 
-* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2026/homework/hw2
+* Submit your results here: <https://courses.datatalks.club/llm-zoomcamp-2026/homework/hw2>
 * It's possible your answers won't match exactly. If so, select the closest one.
