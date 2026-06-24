@@ -70,4 +70,5 @@ materials for the [2024](../cohorts/2024/) and
 Write your own notes below this line:
 
 - [Notes from Vignesh Mayilappan](https://github.com/vigneshmailappan/llm-zoomcamp/blob/main/llm-zoomcamp-code/01-readme-rag.md)
+- [Cohort 2026| Notes from Nitin Gupta](https://github.com/niting9881/llm-zoomcamp-2026-code/blob/main/rag-notes.md)
 - Add your notes above this line
