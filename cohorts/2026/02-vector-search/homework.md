@@ -19,7 +19,7 @@ module. That is, we won't use the sentence-transformers library. Instead,
 we'll use the lightweight embedding approach with the ONNX `Embedder`.
 
 Both approaches produce identical vectors, but the ONNX runtime is far
-lighter. It needs no PyTorch and no CUDA, which makes the install about
+lighter. It needs no PyTorch and no CUDA, which makes the installation about
 30x smaller and lets it run anywhere, including a basic Codespace. We
 skimmed through it in the lesson and said we'd cover it in the homework -
 so here we are.
