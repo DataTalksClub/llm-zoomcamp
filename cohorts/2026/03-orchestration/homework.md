@@ -2,7 +2,7 @@
 
 ATTENTION: At the end of the submission form, you will be required to include a link to your GitHub repository or other public code-hosting site. This repository should contain your code for solving the homework. If your solution includes code that is not in file format, please include these directly in the README file of your repository.
 
-> In case you don't get one option exactly, select the closest one
+> It's possible your answers won't match exactly. If so, select the closest one
 
 ## Prerequisites
 
@@ -11,50 +11,6 @@ Before starting this homework, ensure you have:
 1. Completed the [Module 3 lessons](../../../03-orchestration/README.md) — the questions reference flows and concepts covered there
 2. Kestra running locally with API keys configured (see the [Setup](../../../03-orchestration/lessons/03-setup.md) lesson) -- this includes the Gemini API key, which is also required for the AI Copilot
 3. Imported all flows from the `03-orchestration/flows/` directory (covered in the Setup lesson)
-
-## Assignment Overview
-
-This homework explores AI workflows and agents in Kestra. You'll experiment with:
-- Context engineering and why it matters
-- RAG (Retrieval Augmented Generation) for grounded AI responses
-- AI Agents for autonomous task execution
-- Multi-agent systems for complex AI workflows
-
-## Setup Instructions
-
-Configure your API keys as Kestra secrets:
-
-⚠️ Important: Never commit API keys to Git! Always use environment variables.
-
-Kestra reads secrets from environment variables prefixed with `SECRET_` where the value is base64-encoded. Export your keys before starting Kestra:
-
-```bash
-export GEMINI_API_KEY="your-gemini-api-key-here"
-export SECRET_GEMINI_API_KEY=$(echo -n "your-gemini-api-key-here" | base64)
-export SECRET_TAVILY_API_KEY=$(echo -n "your-tavily-api-key-here" | base64)  # optional
-```
-
-Then start (or restart) Kestra:
-
-```bash
-cd 03-orchestration
-docker compose up -d
-```
-
-In flows, secrets are referenced with `{{ secret('GEMINI_API_KEY') }}` — omit the `SECRET_` prefix when calling `secret()`.
-
-Import the homework flows:
-
-```bash
-cd 03-orchestration
-
-# Adjust username and password to match your Kestra setup
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/1_chat_without_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/2_chat_with_rag.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/4_simple_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/5_web_research_agent.yaml
-curl -X POST -u 'admin@kestra.io:Admin1234!' http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/6_multi_agent_research.yaml
-```
 
 ## Question 1: Context Engineering
 
@@ -71,52 +27,53 @@ After trying the same prompt in ChatGPT vs Kestra's AI Copilot, what is the prim
 - AI Copilot uses more tokens
 - AI Copilot has internet access
 
-## Question 2: RAG Comparison
+## Question 2: RAG vs No RAG
 
-Run both `1_chat_without_rag.yaml` and `2_chat_with_rag.yaml` and compare their outputs. Both ask: "Which features were released in Kestra 1.1?"
+Run both `1_chat_without_rag.yaml` and `2_chat_with_rag.yaml` in the Kestra UI. Read the execution logs for each.
 
-What difference do you observe?
+The non-RAG response about Kestra 1.1 features is best described as:
 
-- RAG version provides specific, accurate feature details grounded in the documentation
-- Both produce identical results
-- Non-RAG version is more detailed and accurate
-- RAG version hallucinates more features than the non-RAG version
+- Accurate and specific, matching the actual release notes
+- Vague, generic, or fabricated — the model guesses from training data
+- Empty — the model refuses to answer without context
+- Identical to the RAG version
 
-## Question 3: Token Usage
+## Question 3: Token usage — short summary
 
-Run `4_simple_agent.yaml` twice:
+Run `4_simple_agent.yaml` with `summary_length = short` (leave the other inputs as defaults).
 
-1. First with `summary_length` = `short`
-2. Second with `summary_length` = `long`
+Open the execution logs and find the token usage logged by the `log_token_usage` task.
 
-Check the token usage logged at the end of each execution. How does token usage differ between short and long summaries for the `multilingual_agent` task?
+What is the approximate **output** token count for `multilingual_agent`?
 
-- No significant difference (within 10% variance)
-- Long summary uses 2-4x more output tokens than short summary
-- Short summary uses more tokens due to compression complexity
-- Token usage is identical regardless of length
+- 5-15 tokens
+- 60-100 tokens
+- 200-400 tokens
+- 500+ tokens
 
-## Question 4: Agent Autonomy
+## Question 4: Token usage — long summary
 
-Run `5_web_research_agent.yaml` with the default research topic about data orchestration trends.
+Run `4_simple_agent.yaml` again with `summary_length = long`.
 
-In this flow, who decides when to use the web search tool?
+Compare the `multilingual_agent` output token count to your result from Question 3. Roughly how many times more output tokens does the long summary use?
 
-- The workflow designer specifies exact tool usage order in YAML
-- The agent autonomously decides based on the prompt and system message
-- Tools are called randomly by the LLM
-- Web search runs on every agent execution automatically
+- About the same (within 20%)
+- 2-5x more
+- 10-20x more
+- 50x more
 
-## Question 5: Multi-Agent Collaboration
+## Question 5: Modifying a flow
 
-Examine `6_multi_agent_research.yaml` and run it with the default company (kestra.io).
+Open `4_simple_agent.yaml` in the Kestra flow editor. Find the `english_brevity` task and change its prompt from asking for exactly **1 sentence** to asking for exactly **3 sentences**.
 
-What is the role of the research agent in this multi-agent system?
+Save the flow, then run it with `summary_length = long`.
 
-- It makes final decisions about company analysis and structures the output
-- It serves as a tool for the main agent to gather web data
-- It summarizes the main agent's findings into a report
-- It validates the main agent's output for accuracy
+Compare the `english_brevity` output token count to the original 1-sentence version (also with `summary_length = long`). How do they compare?
+
+- About the same (within 20%)
+- 2-4x more
+- 5-10x more
+- 10x+ more
 
 ## Question 6: Best Practices
 
@@ -173,17 +130,3 @@ Free course by @Al_Grigor & @DataTalksClub: https://github.com/DataTalksClub/llm
 
 * Form for submitting: https://courses.datatalks.club/llm-zoomcamp-2026/homework/hw3
 * Check the link above to see the due date
-
-## Tips for Success
-
-1. API Keys: Make sure your Gemini API key is correctly stored in the KV Store
-2. Free Tier Limits: If you hit rate limits, wait a few minutes and try again
-3. Debugging: Enable `logRequests` and `logResponses` in your provider configuration to see what's being sent to the LLM
-4. Cost Monitoring: Check token usage in execution logs to understand costs
-5. Community: Ask questions in the course Slack if you get stuck
-
-## Additional Resources
-
-- [Kestra AI Documentation](https://kestra.io/docs/ai-tools)
-- [Gemini API Documentation](https://ai.google.dev/docs)
-- [Kestra Slack Community](https://kestra.io/slack)

@@ -156,6 +156,10 @@ You will need to modify the code for the rag helper to expose the usage.
 
 In the RAG Helper class, `llm` returns only the text. Modify it to return the whole response, and change `rag` to return both the answer and usage (as a tuple or create a small dataclass for that).
 
+Note: for this question and the next ones, if your answer doesn't match exactly,
+just select the closest option - especially if you use a different model or a
+different LLM provider.
+
 
 ## Q4. Chunking
 

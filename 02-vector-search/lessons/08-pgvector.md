@@ -41,6 +41,8 @@ Install the driver:
 uv add psycopg[binary]
 ```
 
+Note: if using Zshell use `uv add 'psycopg[binary]'`
+
 We'll use `psycopg` (v3) to connect and run queries. Note: this is
 different from `psycopg2` - psycopg v3 supports `conn.execute()`
 directly without creating a cursor.
