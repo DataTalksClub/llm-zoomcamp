@@ -56,7 +56,26 @@ We'll use [sentence-transformers](https://www.sbert.net/), a popular
 open-source library for embeddings. It runs locally on your machine, so
 there are no API costs.
 
-## Installing sentence-transformers
+## Install *sentence-transformers* with CPU‑only PyTorch (no CUDA)
+
+Recent versions of *sentence-transformers* install the GPU-enabled PyTorch package, which pulls large NVIDIA CUDA libraries. These files can consume several gigabytes of disk space, even though GitHub Codespaces has **no GPU** and cannot use them.
+
+To avoid this, you must explicitly tell **uv** to install the **CPU-only** PyTorch wheels.
+
+### 1. Add a CPU-only PyTorch index to `pyproject.toml`
+
+```toml
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+```
+
+This forces uv to always use the CPU wheel for PyTorch, preventing CUDA packages from being installed.
+
+### 2. Install your dependencies normally
 
 Install the library:
 
@@ -64,10 +83,7 @@ Install the library:
 uv add sentence-transformers
 ```
 
-This also pulls in PyTorch under the hood, so it downloads a lot. You'll
-see CUDA and other Nvidia packages go by. That's fine for experiments,
-and we'll trim it down for production in a
-[later lesson](09-onnx-embedder.md).
+In this way, uv will automatically resolve PyTorch using the CPU-only index. That's fine for experiments, and we'll trim it down for production in a [later lesson](09-onnx-embedder.md).
 
 ## Choosing a model
 
