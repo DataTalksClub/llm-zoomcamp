@@ -6,6 +6,7 @@ decides when and what to search instead of running a fixed pipeline.
 
 Code: [code/](code/)
 
+
 ## Part 1: RAG
 
 The first 10 lessons walk through building a working RAG pipeline
@@ -22,6 +23,7 @@ from scratch with keyword search.
 9. [Data Ingestion](lessons/09-data-ingestion.md) - Persistent search with sqlitesearch
 10. [Wrap-up of Part 1](lessons/10-rag-next-steps.md) - Where to go from here
 
+
 ## Part 2: Agents
 
 Part 2 puts the LLM in charge of the search decisions, turning the
@@ -34,15 +36,18 @@ fixed pipeline into an agent.
 15. [ToyAIKit](lessons/15-frameworks.md) - A teaching framework for the agent loop
 16. [Other Frameworks](lessons/16-other-frameworks.md) - Production frameworks worth exploring
 
+
 ## Homework
 
 - [Homework](../cohorts/2026/01-agentic-rag/homework.md)
+
 
 ## Optional
 
 Extra material for going deeper on search internals.
 
 - [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) ([Code](https://github.com/alexeygrigorev/build-your-own-search-engine)) - How minsearch was built from scratch
+
 
 ## Original workshop recordings
 
@@ -52,11 +57,13 @@ per-lesson videos above. To watch the full uncut recordings:
 - Part 1 – RAG: [Build Your First RAG Application](https://www.youtube.com/watch?v=KSItlTAsMsk)
 - Part 2 – Agents: [From RAG to AI Agents: Function Calling and Tool Use](https://www.youtube.com/watch?v=RAqLWJsLZb4)
 
+
 ## Old content
 
 Earlier cohorts taught this module differently. See the archived
 materials for the [2024](../cohorts/2024/) and
 [2025](../cohorts/2025/) cohorts.
+
 
 ## Notes
 
