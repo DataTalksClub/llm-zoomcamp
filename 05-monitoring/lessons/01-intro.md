@@ -38,4 +38,23 @@ We focus on RAG here. Monitoring an agent works almost the same way, so
 we leave it as homework. The [agents module](../../01-agentic-rag/)
 already has the pieces you need to apply these same ideas there.
 
+## Prerequisites
+
+This module builds on the project from module 1. On top of those
+libraries, we use psycopg (the PostgreSQL driver) and Streamlit here.
+
+If you're starting from scratch, clone the course repo and install the
+dependencies for this module:
+
+```bash
+git clone https://github.com/DataTalksClub/llm-zoomcamp.git llm-zoomcamp-2026-code
+cd llm-zoomcamp-2026-code
+uv init
+uv add requests minsearch openai jupyter python-dotenv "psycopg[binary]" streamlit
+```
+
+You also need a `.env` file with your API key. See the
+[module 1 environment setup](../../01-agentic-rag/lessons/02-environment.md)
+for details.
+
 [← Back to module](../) | [Assistant →](02-assistant-setup.md)

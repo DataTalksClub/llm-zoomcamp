@@ -36,6 +36,25 @@ Here are the five techniques we'll cover:
 In this module, we'll focus on hybrid search and reranking. These
 two techniques give the biggest improvement for the least effort.
 
+## Prerequisites
+
+This module uses Elasticsearch for hybrid search and
+sentence-transformers for embeddings. sentence-transformers pulls in
+PyTorch and is heavy, so I recommend a fresh project (a separate
+Codespace) for this module alone.
+
+Clone the course repo and install the dependencies for this module:
+
+```bash
+git clone https://github.com/DataTalksClub/llm-zoomcamp.git llm-zoomcamp-2026-code
+cd llm-zoomcamp-2026-code
+uv init
+uv add jupyter sentence-transformers elasticsearch langchain langchain-elasticsearch pandas tqdm
+```
+
+You also need Elasticsearch running locally (at `http://localhost:9200`)
+to follow along with the hybrid search and reranking examples.
+
 Slides: [llm-zoomcamp-best-practicies.pdf](../llm-zoomcamp-best-practicies.pdf)
 
 To learn more:

@@ -89,12 +89,12 @@ In module 1 we set up a project with several libraries. Here we also
 install sentence-transformers. It pulls in PyTorch and is heavy, so I
 recommend a fresh project (a separate Codespace) for this module alone.
 
-If you're starting from scratch, create a new project and install the
+If you're starting from scratch, clone the course repo and install the
 module 1 libraries:
 
 ```bash
-mkdir llm-zoomcamp-code
-cd llm-zoomcamp-code
+git clone https://github.com/DataTalksClub/llm-zoomcamp.git llm-zoomcamp-2026-code
+cd llm-zoomcamp-2026-code
 uv init
 uv add requests minsearch openai jupyter python-dotenv
 ```

@@ -41,12 +41,20 @@ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | ie
 Create an empty folder for the project and initialize it:
 
 ```bash
-mkdir llm-zoomcamp-2026-code
+git clone https://github.com/DataTalksClub/llm-zoomcamp.git llm-zoomcamp-2026-code
 cd llm-zoomcamp-2026-code
 uv init
 ```
 
 This creates a `pyproject.toml` and a basic project structure.
+
+Because you cloned the course repo, you have two ways to work
+through each module. You can create your own files inside the
+module folder (for example `01-agentic-rag/`) and write the code
+yourself as you follow along with the lessons - this is the best
+way to learn. And if you get stuck, the finished code is already
+there in that module's `code/` folder, so you can review it and
+compare it with your own.
 
 ## Creating the project on GitHub Codespaces
 
