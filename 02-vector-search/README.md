@@ -49,5 +49,6 @@ materials for the [2024](../cohorts/2024/) and
 
 
 ## Notes
-[Cohort 2026| Notes by Nitin Gupta](https://github.com/niting9881/llm-zoomcamp-2026-code/blob/main/llm-zoomcamp-hw2/Lesson_learned.md)
+
+- [Cohort 2026| Notes by Nitin Gupta](https://github.com/niting9881/llm-zoomcamp-2026-code/blob/main/llm-zoomcamp-hw2/Lesson_learned.md)
 - Add your notes above this line
