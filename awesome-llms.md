@@ -12,13 +12,17 @@ There are other services that we can use
 * [Groq](https://console.groq.com) (can inference from open source LLMs with rate limits)
 * [TogetherAI](https://api.together.ai) (can inference from variety of open source LLMs, 25$ free credit on sign up)
 * [Google Gemini](https://ai.google.dev/gemini-api/docs/get-started/tutorial?lang=python) (2 months unlimited access)
-* [OpenRouterAI](https://openrouter.ai/) (some small open-source models, such as Gemma 7B, are free)
+* [OpenRouterAI](https://openrouter.ai/) (single OpenAI-compatible API that routes to many providers/models; some small open-source models, such as Gemma 7B, are free)
 * [HuggingFace API](https://huggingface.co/docs/api-inference/index) (over 150,000 open-source models, rate-limited and free)
 * [Cohere](https://cohere.com/) (provides a developer trail key which allows upto 100 reqs/min for generating, summarizing, and classifying text. Read more [here](https://cohere.com/blog/free-developer-tier-announcement))
 * [wit](https://wit.ai/) (Facebook AI Afiliate - free)
 * [Anthropic API](https://www.anthropic.com/pricing#anthropic-api) (starting from $0.25 / MTok for input and $1.25 / MTok for the output for the most affordable model)
 * [AI21Labs API](https://www.ai21.com/pricing#foundation-models) (Free trial including $10 credits for 3 months)
 * [Replicate](https://replicate.com/) (faster inference, can host any ML model. charges 0.10$ per 1M input tokens for llama/Mistral model)
+* [xAI Grok](https://x.ai/) (OpenAI-compatible API at `https://api.x.ai/v1`)
+* [Z.AI](https://z.ai/) (GLM models; exposes both OpenAI- and Anthropic-compatible endpoints)
+* [DeepSeek](https://platform.deepseek.com/) (OpenAI-compatible API, low cost)
+* [AWS Bedrock](https://aws.amazon.com/bedrock/) (hosted access to Anthropic, Llama, and other models; needs an AWS account and per-model access approval)
 
 
 ## Local LLMs on CPUs
@@ -26,6 +30,8 @@ There are other services that we can use
 These services help run LLMs locally, also without GPUs
 
 - [ollama](https://github.com/ollama/ollama)
+- [LM Studio](https://lmstudio.ai/)
+- [vLLM](https://github.com/vllm-project/vllm) (high-throughput serving, GPU; exposes an OpenAI-compatible endpoint)
 - [Jan.AI](https://jan.ai/)
 - [h2oGPT](https://github.com/h2oai/h2ogpt)
 
