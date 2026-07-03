@@ -4,21 +4,46 @@ In this file, we will collect all interesting links
 
 ## OpenAI API Alternatives
 
-OpenAI and GPT are not the only hosted LLMs that we can use. 
-There are other services that we can use
+OpenAI and GPT are not the only hosted LLMs that we can use. There are
+many other services, and most of them expose an OpenAI-compatible API,
+so you usually only need to change the `base_url`, API key, and model name.
 
+> Free tiers change often. This list was last reviewed on **2026-06-30** —
+> double-check current limits before relying on them.
 
-* [mistral.ai](https://mistral.ai) (5€ free credit on sign up)
-* [Groq](https://console.groq.com) (can inference from open source LLMs with rate limits)
-* [TogetherAI](https://api.together.ai) (can inference from variety of open source LLMs, 25$ free credit on sign up)
-* [Google Gemini](https://ai.google.dev/gemini-api/docs/get-started/tutorial?lang=python) (2 months unlimited access)
-* [OpenRouterAI](https://openrouter.ai/) (some small open-source models, such as Gemma 7B, are free)
-* [HuggingFace API](https://huggingface.co/docs/api-inference/index) (over 150,000 open-source models, rate-limited and free)
-* [Cohere](https://cohere.com/) (provides a developer trail key which allows upto 100 reqs/min for generating, summarizing, and classifying text. Read more [here](https://cohere.com/blog/free-developer-tier-announcement))
-* [wit](https://wit.ai/) (Facebook AI Afiliate - free)
-* [Anthropic API](https://www.anthropic.com/pricing#anthropic-api) (starting from $0.25 / MTok for input and $1.25 / MTok for the output for the most affordable model)
-* [AI21Labs API](https://www.ai21.com/pricing#foundation-models) (Free trial including $10 credits for 3 months)
-* [Replicate](https://replicate.com/) (faster inference, can host any ML model. charges 0.10$ per 1M input tokens for llama/Mistral model)
+### Free to use (ongoing free tier, no payment required)
+
+* [Google Gemini](https://ai.google.dev/) (free rate-limited tier on Flash / Flash-Lite models, no card; this is the same as Google AI Studio)
+* [Groq](https://console.groq.com/) (free rate-limited dev tier, no card)
+* [Mistral AI](https://console.mistral.ai/) (free rate-limited "Experiment" tier, no card)
+* [OpenRouter](https://openrouter.ai/) (single OpenAI-compatible API routing to many providers; free access to ~26 `:free` models, ~50 req/day, no card)
+* [Z.AI (GLM)](https://z.ai/model-api) (genuinely free rate-limited GLM Flash models)
+* [Cerebras](https://cloud.cerebras.ai/) (free ~1M tokens/day, resets daily, no card)
+* [SambaNova Cloud](https://cloud.sambanova.ai/) (free rate-limited tier, no card, plus a one-time $5 credit)
+* [GitHub Models](https://github.com/marketplace/models) (free rate-limited prototyping tier for any GitHub user via a `models:read` token)
+* [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/get-started/) (free 10,000 Neurons/day across hosted open-source models)
+* [Cohere](https://dashboard.cohere.com/) (free trial key, ~1,000 calls/month, non-commercial use only)
+* [OVH AI Endpoints](https://endpoints.ai.cloud.ovh.net/) (rate-limited free API access)
+* [HuggingFace Inference](https://huggingface.co/docs/inference-providers/pricing) (minimal: ~$0.10/month routed-inference credit, then pay-as-you-go)
+* [wit.ai](https://wit.ai/) (Meta's NLP service, free)
+
+### Free signup credits, then paid
+
+* [Anthropic API](https://console.anthropic.com/) (~$5 one-time signup credit after phone verification)
+* [AI21 Labs](https://studio.ai21.com/) ($10 trial credits, valid 7 days, no card)
+* [xAI Grok](https://console.x.ai/) (~$25 promo signup credit, expires 30 days; OpenAI-compatible API)
+* [DeepSeek](https://platform.deepseek.com/) (one-time credit for new accounts, then low-cost pay-per-token)
+* [AWS Bedrock](https://aws.amazon.com/bedrock/) (new AWS accounts get up to $200 credits / 6 months; needs an AWS account and per-model access approval)
+* [NVIDIA NIM](https://build.nvidia.com/) (no-card developer access to 100+ hosted models, limited credits)
+* [Scaleway Generative APIs](https://www.scaleway.com/en/generative-apis/) (1,000,000 free tokens one-time for new EU customers)
+* [Hyperbolic](https://app.hyperbolic.ai/) ($1 promo credit after phone verification)
+* [Nebius Token Factory](https://tokenfactory.nebius.com/) ($1 trial credit, valid 30 days)
+* [Fireworks AI](https://app.fireworks.ai/signup) ($1 starter credit)
+
+### Paid only (no free tier)
+
+* [Together AI](https://www.together.ai/pricing) (no free tier; ~$5 minimum credit purchase)
+* [Replicate](https://replicate.com/pricing) (pay-per-use; only some "Try for Free" models)
 
 
 ## Local LLMs on CPUs
@@ -26,6 +51,8 @@ There are other services that we can use
 These services help run LLMs locally, also without GPUs
 
 - [ollama](https://github.com/ollama/ollama)
+- [LM Studio](https://lmstudio.ai/)
+- [vLLM](https://github.com/vllm-project/vllm) (high-throughput serving, GPU; exposes an OpenAI-compatible endpoint)
 - [Jan.AI](https://jan.ai/)
 - [h2oGPT](https://github.com/h2oai/h2ogpt)
 
