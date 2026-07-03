@@ -10,6 +10,6 @@ dependencies = [
     "openai>=2.40.0",
     "psycopg[binary]>=3.3.4",
     "python-dotenv>=1.2.2",
-    "requests>=2.34.2",
+    "requests>=2.28.1",
     "streamlit>=1.58.0",
 ]
