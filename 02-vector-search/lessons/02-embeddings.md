@@ -80,6 +80,8 @@ Install the library:
 uv add sentence-transformers
 ```
 
+If your pyproject.toml already specifies the requests package, make sure it is pinned to requests>=2.28.1, because pytorch-cpu requires this version to install correctly.
+
 In this way, uv will automatically resolve PyTorch using the CPU-only index.
 
 We will also see how to trim it down even more for using in production in the [ONNX Embedder](09-onnx-embedder.md) lesson later.
