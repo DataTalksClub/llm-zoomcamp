@@ -253,7 +253,8 @@ sharpens the gap between positions, so being at the top of a list counts for
 more. The RRF paper uses 60 as a default, but the best value depends on the data
 - so let's measure it.
 
-Evaluate `hybrid_search` for `k` values 1, 50, 100, and 200.
+Evaluate `hybrid_search` over the full ground truth dataset for `k` values 1,
+50, 100, and 200. Compare the MRR values for these runs.
 
 Which `k` gives the best MRR?
 

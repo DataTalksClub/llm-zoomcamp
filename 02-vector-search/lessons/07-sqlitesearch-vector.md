@@ -24,7 +24,7 @@ grows past 10,000 or so, it gets slow, and we'll want an approximate
 method instead.
 
 What we've done so far is exact nearest neighbor (NN) search. We score
-the query against every document and pick the top ones. It always finds
+every document against query and pick the top ones. It always finds
 the true top matches, but it pays for that by touching everything.
 
 Approximate nearest neighbor (ANN) search takes a shortcut. Instead of
