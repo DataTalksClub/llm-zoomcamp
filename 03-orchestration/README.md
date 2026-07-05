@@ -62,5 +62,5 @@ Part 5 covers what you need to know before going to production - cost, security,
 
 
 ## Notes
-
+[Cohort|2026 notes by Nitin Gupta](https://github.com/niting9881/llm-zoomcamp-2026-code/blob/main/Module-03-orchestration/lesson_learned_03-orchestration.md)
 - Add your notes above this line
