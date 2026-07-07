@@ -243,3 +243,97 @@ __deployment__.py                   # deployment manifest (jobs + triggers)
 - [Paginators](https://dlthub.com/docs/api_reference/dlt/sources/helpers/rest_client/paginators): offset pagination, `maximum_offset`
 - [Explore data with marimo](https://dlthub.com/docs/general-usage/dataset-access/marimo): reactive notebooks over your datasets
 - [Deploy & schedule on the runtime](https://dlthub.com/docs/hub/getting-started/runtime-tutorial): jobs, schedules, triggers
+
+---
+
+## Lessons
+
+The workshop recording is broken into lesson pages with written notes:
+
+1. [Overview and setup](dlt/lessons/01-overview.md) - What you will build, prerequisites, scaffolding the workspace
+2. [Local logs to pipeline](dlt/lessons/02-filesystem-pipeline.md) - Building a filesystem pipeline from a prompt
+3. [Debug and dashboard](dlt/lessons/03-debug-and-dashboard.md) - Debugging, schema cleanup, and marimo reports
+4. [Ingest from a hosted API](dlt/lessons/04-rest-api-pipeline.md) - REST API pipeline with pagination
+5. [Deploy to the cloud](dlt/lessons/05-deploy.md) - dltHub Platform, login, playground destination
+6. [Dashboard and scheduling](dlt/lessons/06-dashboard-deploy.md) - Deploy the marimo dashboard, schedule runs
+7. [Where to go from here](dlt/lessons/07-where-to-go.md) - Incremental loading, other sources and destinations
+
+Code: [dlt/code/](dlt/code/)
+
+---
+
+## Homework
+
+In this homework, we load data with dlt and answer questions about
+what landed in DuckDB.
+
+> It's possible your answers won't match exactly. If so, select the
+closest one.
+
+## Setup
+
+Prepare your environment the same way as in the
+[Overview and setup](dlt/lessons/01-overview.md) lesson.
+
+Install dlt with DuckDB support:
+
+```bash
+pip install -q "dlt[duckdb]" duckdb
+```
+
+## Question 1. dlt version
+
+What's the version of dlt that you installed?
+
+## Question 2. dlt resource
+
+Annotate this helper function with `@dlt.resource` so dlt knows it
+yields records:
+
+```python
+def zoomcamp_data():
+    docs_url = 'https://github.com/alexeygrigorev/llm-rag-workshop/raw/main/notebooks/documents.json'
+    docs_response = requests.get(docs_url)
+    documents_raw = docs_response.json()
+
+    for course in documents_raw:
+        course_name = course['course']
+        for doc in course['documents']:
+            doc['course'] = course_name
+            yield doc
+```
+
+We will use it when creating a dlt pipeline.
+
+## Question 3. dlt pipeline
+
+Create a pipeline that loads the `zoomcamp_data` resource into
+DuckDB:
+
+```python
+pipeline = dlt.pipeline(
+    pipeline_name="zoomcamp_pipeline",
+    destination="duckdb",
+    dataset_name="zoomcamp_tagged_data",
+)
+load_info = pipeline.run(zoomcamp_data())
+print(pipeline.last_trace)
+```
+
+How many rows were inserted into the `zoomcamp_data` collection?
+
+Look for `Normalized data for the following tables:` in the trace
+output.
+
+## Question 4. REST API pagination
+
+In the [REST API pipeline](dlt/lessons/04-rest-api-pipeline.md), we
+configured an offset paginator. The API returns 1,000,000 total
+records. If `page_size` is 1000, how many requests does dlt make to
+load all records (not counting the final request that returns an
+empty page)?
+
+## Submit the results
+
+* Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2026/homework/dlt
+- [Deploy & schedule on the runtime](https://dlthub.com/docs/hub/getting-started/runtime-tutorial): jobs, schedules, triggers

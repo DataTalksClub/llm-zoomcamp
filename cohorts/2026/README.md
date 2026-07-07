@@ -26,7 +26,9 @@ Important links:
 
 [**Workshop: dlt**](workshops/dlt.md)
 
+* [Homework](workshops/dlt.md#homework)
 * [Sign up](https://luma.com/3sint80a)
+
 
 [**Module 5: Monitoring**](05-monitoring/)
 
