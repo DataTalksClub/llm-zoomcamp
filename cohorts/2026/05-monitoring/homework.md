@@ -109,8 +109,8 @@ How many spans does the trace produce?
 
 ## Q2. Capturing metrics as span attributes
 
-Right now the `llm()` method returns the raw response object. Read the
-token usage from it and set them as attributes on the LLM span:
+Re-use the trace from Q1. Read the token usage from the LLM response
+and set them as attributes on the `llm` span:
 
 ```python
 span.set_attribute("input_tokens", usage.input_tokens)
@@ -119,7 +119,7 @@ span.set_attribute("output_tokens", usage.output_tokens)
 
 Also compute the cost and store it as `span.set_attribute("cost", cost)`.
 
-Run the same query as Q1. What are the input tokens?
+Re-run the query. What are the input tokens?
 
 * 700
 * 7000
@@ -131,7 +131,7 @@ Run the same query as Q1. What are the input tokens?
 ## Q3. Span timing
 
 Each span automatically records its duration. Look at the console output
-from Q2 and find the durations for the `search` span and the `llm` span.
+from Q1 and find the durations for the `search` span and the `llm` span.
 
 For a typical query, roughly how long does the LLM call take?
 
@@ -155,7 +155,10 @@ with tracer.start_as_current_span("judge") as span:
     span.set_attribute("relevance", relevance)
 ```
 
-Run the judge on the answer from Q1. What's the relevance verdict?
+Run the judge on the answer from Q1. Keep the result - we'll re-use the
+judge setup in Q5.
+
+What's the relevance verdict?
 
 * RELEVANT
 * PARTLY_RELEVANT
@@ -171,8 +174,9 @@ PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
 wget ${PREFIX}/cohorts/2026/04-evaluation/ground-truth.csv
 ```
 
-Run the traced RAG on the first 5 questions. Instead of the console
-exporter, use an in-memory span exporter so you can read the spans
+Run the traced RAG on the first 5 questions from the ground truth, and
+run the judge on each answer. Use an in-memory span exporter instead of
+the console exporter so you can read the spans
 programmatically:
 
 ```python
@@ -183,8 +187,8 @@ memory_exporter = InMemorySpanExporter()
 provider.add_span_processor(SimpleSpanProcessor(memory_exporter))
 ```
 
-After running the 5 questions, read the finished spans and sum up the
-`cost` attribute across all LLM spans. What's the total cost?
+After running, read the finished spans and sum up the `cost` attribute
+across all LLM spans (RAG + judge). What's the total cost?
 
 * $0.001
 * $0.01
@@ -195,28 +199,20 @@ After running the 5 questions, read the finished spans and sum up the
 
 ## Q6. Building a dashboard from trace data
 
-Instead of the console or in-memory exporter, export the spans to a
-JSON file. Write a small script that:
-
-1. Runs the traced RAG on 10 questions from the ground truth
-2. Runs the judge on each answer
-3. Collects all spans
-4. Saves them to a `traces.json` file
-
-Then load the JSON with pandas and compute the same metrics you'd see
-on a dashboard:
+Re-use the spans from Q5. Export them to a JSON file, load it with
+pandas, and compute the same metrics you'd see on a Grafana panel:
 
 - Total conversations
 - Average response time (from span durations)
 - Total cost
 - Relevance distribution
 
-How many answers did the judge classify as RELEVANT?
+How many of the 5 answers did the judge classify as RELEVANT?
 
-* 1-2
-* 3-5
-* 6-8
-* 9-10
+* 0-1
+* 2-3
+* 4-5
+* All 5
 
 > The exact number depends on the questions and model. Pick the closest option.
 
