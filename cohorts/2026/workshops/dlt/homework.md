@@ -104,15 +104,16 @@ times to search.
 Generate a read token for your Logfire project and set it as
 `LOGFIRE_READ_TOKEN` in `.env`.
 
-Initialize a dlt-hub project like in the workshop. Ask your coding agent 
-to pull the data from Pydantic Logfire and save it into duckdb.
+Initialize a dlt-hub project like in the workshop. Then ask your coding
+agent to pull the data from Pydantic Logfire and save it into DuckDB.
 
-Logfire exposes its data through a SQL query API. You can use
-`LogfireQueryClient` from the `logfire` package to query your traces
-and then load them into DuckDB with a dlt pipeline.
+The dltHub AI workbench has a ready-made context for Logfire. Point your
+agent to it: https://dlthub.com/context/source/logfire
 
-Tip: use different names for the pipeline and the dataset, otherwise
-DuckDB will throw a naming conflict error.
+If you don't currently use a coding agent, you can use something like OpenCode:
+you should be able to complete one session with the free account.
+
+Alternatively, you can do it in the old way (using ChatGPT or your favorite search engine).
 
 If you don't currently use a coding agent, you can use something like OpenCode:
 you should be able to complete one session with the free account. 
