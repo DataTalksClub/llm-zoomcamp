@@ -125,13 +125,18 @@ SELECT COUNT(*) FROM agent_traces.records;
 
 ## Question 3. Query traces with an agent
 
-Using a coding agent (you can also write the code by hand) calculate
-how many input tokens the run from Q1 produced.
+Using a coding agent (you can also write the code by hand) find the
+input token usage for the agent run from Q1.
 
-* ~500
-* ~1500
-* ~3000
-* ~6000
+The token counts are stored in the span attributes as
+`gen_ai.usage.input_tokens`. Sum them across all LLM calls within the
+trace. The number depends on how many searches the agent made, so
+report the range it falls into:
+
+* 100 - 500
+* 1500 - 5000
+* 10000 - 20000
+* 50000 - 100000
 
 ## Submit the results
 
