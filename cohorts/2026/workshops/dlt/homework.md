@@ -94,10 +94,10 @@ Each span is either the agent run itself, an LLM call, or a tool call.
 The number can vary between runs because the model decides how many
 times to search.
 
-* 3
+* 1
 * 5
-* 7
-* 9
+* 15
+* 30
 
 ## Question 2. Load traces into DuckDB with dlt
 
