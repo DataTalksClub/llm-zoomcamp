@@ -1,13 +1,12 @@
 from dotenv import load_dotenv
 
+load_dotenv()
+
 from agent import faq_agent, SearchDeps
 from ingest import build_index, load_faq_data
 
 
 def main():
-    # Load the OpenAI API key from .env
-    load_dotenv()
-
     # Download the FAQ and build the search index
     documents = load_faq_data()
     index = build_index(documents)

@@ -107,21 +107,34 @@ Generate a read token for your Logfire project and set it as
 Initialize a dlt-hub project like in the workshop. Ask your coding agent 
 to pull the data from Pydantic Logfire and save it into duckdb.
 
+Logfire exposes its data through a SQL query API. You can use
+`LogfireQueryClient` from the `logfire` package to query your traces
+and then load them into DuckDB with a dlt pipeline.
+
+Tip: use different names for the pipeline and the dataset, otherwise
+DuckDB will throw a naming conflict error.
+
 If you don't currently use a coding agent, you can use something like OpenCode:
 you should be able to complete one session with the free account. 
 
 Alternatively, you can do it in the old way (using ChatGPT or your favorite search engine).
 
-How many records (spans) are in the table? Note that this depends on
-how many times you ran the agent in Question 1, so your number will
-be different from others. The goal here is to get the data in, not to
-match a specific number.
+The logfire traces contain deeply nested JSON (span attributes with
+LLM messages, tool calls, token usage, etc.). dlt automatically
+normalizes this into a set of tables - one for the main records, plus
+child tables for each nested level.
 
-Check the dlt trace output or query DuckDB directly:
+How many tables did dlt create? Check with:
 
 ```sql
-SELECT COUNT(*) FROM agent_traces.records;
+SELECT COUNT(*) FROM information_schema.tables 
+WHERE table_schema = 'agent_traces';
 ```
+
+* 1
+* 3
+* 24
+* 100
 
 ## Question 3. Query traces with an agent
 
