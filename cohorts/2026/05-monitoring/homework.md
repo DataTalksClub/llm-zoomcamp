@@ -42,7 +42,8 @@ wget $PREFIX/starter.py
 
 Put your OpenAI key in a `.env` file:
 
-``+OPENAI_API_KEY=sk-...
+```
+OPENAI_API_KEY=sk-...
 ```
 
 The starter loads the 72 course lessons, builds a text-search index,
@@ -132,13 +133,12 @@ Run the same query as Q1. What are the input tokens?
 Each span automatically records its duration. Look at the console output
 from Q2 and find the durations for the `search` span and the `llm` span.
 
-For a typical query, roughly how much time does the LLM call take
-compared to the search?
+For a typical query, roughly how long does the LLM call take?
 
-* About the same
-* Search is much slower
-* The LLM call is much slower
-* Both are under 10ms
+* Under 100ms
+* 100-500ms
+* 500-2000ms
+* Over 2000ms
 
 ## Q4. Instrumenting the judge
 
@@ -177,15 +177,10 @@ programmatically:
 
 ```python
 from opentelemetry.sdk.trace.export import SimpleSpanProcessor
-from opentelemetry.exporter.otlp.proto.common import (
-    InMemorySpanExporter,
-)
+from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
 
-# In-memory exporter instead of console
 memory_exporter = InMemorySpanExporter()
-provider.add_span_processor(
-    SimpleSpanProcessor(memory_exporter)
-)
+provider.add_span_processor(SimpleSpanProcessor(memory_exporter))
 ```
 
 After running the 5 questions, read the finished spans and sum up the
@@ -216,15 +211,14 @@ on a dashboard:
 - Total cost
 - Relevance distribution
 
-What's the relevance distribution (count of each verdict)?
+How many answers did the judge classify as RELEVANT?
 
-* Mostly RELEVANT
-* Mostly PARTLY_RELEVANT
-* Mostly NON_RELEVANT
-* Evenly split
+* 1-2
+* 3-5
+* 6-8
+* 9-10
 
-> The exact distribution depends on the questions and model. Pick the
-> closest description.
+> The exact number depends on the questions and model. Pick the closest option.
 
 ## Learning in Public
 
@@ -272,4 +266,3 @@ Free course by @Al_Grigor & @DataTalksClub: https://github.com/DataTalksClub/llm
 
 * Submit your results here: https://courses.datatalks.club/llm-zoomcamp-2026/homework/hw5
 * It's possible your answers won't match exactly. If so, select the closest one.
-
