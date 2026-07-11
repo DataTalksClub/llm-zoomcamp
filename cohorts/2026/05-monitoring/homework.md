@@ -12,9 +12,9 @@ The industry standard for instrumentation is
 [OpenTelemetry](https://opentelemetry.io/) (OTel). Every monitoring
 framework we mentioned - Logfire, Langfuse, Arize Phoenix - is built
 on top of it. In this homework we use OTel directly. We instrument our
-RAG with traces, capture metrics as span attributes, and build a
-dashboard from the trace data - all without a database or a separate
-dashboard server.
+RAG with traces, capture metrics as span attributes, persist the
+spans to SQLite, and build a dashboard from the trace data - no Docker, no
+separate server, just Python.
 
 We keep using the same course-lessons RAG from homework 1. The
 knowledge base is the 72 lesson pages pulled from GitHub, indexed
@@ -29,7 +29,7 @@ Create a fresh project:
 ```bash
 mkdir llm-zoomcamp-hw5 && cd llm-zoomcamp-hw5
 uv init --no-workspace
-uv add gitsource minsearch openai python-dotenv opentelemetry-api opentelemetry-sdk
+uv add gitsource minsearch openai python-dotenv pandas opentelemetry-api opentelemetry-sdk
 ```
 
 Download the starter code:
@@ -140,81 +140,143 @@ For a typical query, roughly how long does the LLM call take?
 * 500-2000ms
 * Over 2000ms
 
-## Q4. Instrumenting the judge
+## Q4. Saving traces to SQLite
 
-In the module we built an LLM judge that checks whether the answer is
-relevant. We do the same here, and we trace it.
+In the module we saved conversations to PostgreSQL. Here we do the
+same thing, but with SQLite (built into Python, zero setup) and with
+OTel doing the capturing.
 
-Create a judge using structured output (the same approach as in module
-4 and the monitoring lesson). Wrap the judge call in a span and set the
-relevance verdict as a span attribute:
-
-```python
-with tracer.start_as_current_span("judge") as span:
-    relevance, explanation = evaluate_relevance(question, answer)
-    span.set_attribute("relevance", relevance)
-```
-
-Run the judge on the answer from Q1. Keep the result - we'll re-use the
-judge setup in Q5.
-
-What's the relevance verdict?
-
-* RELEVANT
-* PARTLY_RELEVANT
-* NON_RELEVANT
-
-## Q5. Batch traces and total cost
-
-Download the ground-truth questions from homework 4 (if you don't have
-them already):
-
-```bash
-PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
-wget ${PREFIX}/cohorts/2026/04-evaluation/ground-truth.csv
-```
-
-Run the traced RAG on the first 5 questions from the ground truth, and
-run the judge on each answer. Use an in-memory span exporter instead of
-the console exporter so you can read the spans
-programmatically:
+Write a custom `SpanExporter` that saves each finished span to a
+SQLite database. The exporter interface is small - it needs an
+`export` method that receives a list of `ReadableSpan` objects, plus
+`shutdown` and `force_flush` methods:
 
 ```python
-from opentelemetry.sdk.trace.export import SimpleSpanProcessor
-from opentelemetry.sdk.trace.export.in_memory_span_exporter import InMemorySpanExporter
+import sqlite3
+from opentelemetry.sdk.trace.export import SpanExporter, SpanExportResult
 
-memory_exporter = InMemorySpanExporter()
-provider.add_span_processor(SimpleSpanProcessor(memory_exporter))
+
+class SQLiteSpanExporter(SpanExporter):
+
+    def __init__(self, db_path="traces.db"):
+        self.conn = sqlite3.connect(db_path)
+        self.conn.execute("""
+            CREATE TABLE IF NOT EXISTS spans (
+                name TEXT,
+                start_time INTEGER,
+                end_time INTEGER,
+                input_tokens INTEGER,
+                output_tokens INTEGER,
+                cost REAL
+            )
+        """)
+        self.conn.commit()
+
+    def export(self, spans):
+        for span in spans:
+            attrs = dict(span.attributes or {})
+            self.conn.execute(
+                "INSERT INTO spans VALUES (?, ?, ?, ?, ?, ?)",
+                (
+                    span.name,
+                    span.start_time,
+                    span.end_time,
+                    attrs.get("input_tokens"),
+                    attrs.get("output_tokens"),
+                    attrs.get("cost"),
+                ),
+            )
+        self.conn.commit()
+        return SpanExportResult.SUCCESS
+
+    def shutdown(self):
+        self.conn.close()
+
+    def force_flush(self):
+        return True
 ```
 
-After running, read the finished spans and sum up the `cost` attribute
-across all LLM spans (RAG + judge). What's the total cost?
+Register it in place of the console exporter:
 
-* $0.001
-* $0.01
-* $0.10
-* $1.00
+```python
+provider.add_span_processor(
+    SimpleSpanProcessor(SQLiteSpanExporter("traces.db"))
+)
+```
+
+Re-run the query from Q1. How many rows does the `spans` table contain?
+
+* 1
+* 3
+* 5
+* 7
+
+## Q5. Querying trace data
+
+The traces are now in SQLite. Run one more query through the traced
+RAG, then query the database.
+
+Using SQL (or pandas), compute the total cost across all `llm` spans
+in the database. What's the total cost?
+
+* Under $0.001
+* $0.001 - $0.01
+* $0.01 - $0.10
+* Over $0.10
 
 > The exact number depends on your model. Pick the closest option.
 
 ## Q6. Building a dashboard from trace data
 
-Re-use the spans from Q5. Export them to a JSON file, load it with
-pandas, and compute the same metrics you'd see on a Grafana panel:
+Load the SQLite data with pandas and build a simple dashboard - the
+same metrics you'd see in Grafana or Streamlit in the module:
 
-- Total conversations
-- Average response time (from span durations)
+- Total number of traces (count `rag` spans)
+- Average LLM response time (duration of `llm` spans)
 - Total cost
-- Relevance distribution
+- Average input tokens
 
-How many of the 5 answers did the judge classify as RELEVANT?
+What's the average LLM response time?
 
-* 0-1
-* 2-3
-* 4-5
-* All 5
+* Under 500ms
+* 500-2000ms
+* 2000-5000ms
+* Over 5000ms
 
 > The exact number depends on the questions and model. Pick the closest option.
+## Going further
+
+We built a custom SQLite exporter to understand how OTel works under
+the hood. In practice you rarely instrument everything by hand.
+
+**Collectors and backends.** Instead of writing your own exporter, you
+send spans to an
+[OTel Collector](https://opentelemetry.io/docs/collector/), which
+forwards them to a backend like
+[Jaeger](https://www.jaegertracing.io/),
+[Tempo](https://grafana.com/oss/tempo/), or a managed service. The
+collector handles batching, retries, and routing so your app does not
+have to. Jaeger (or Grafana's Tempo) then gives you a UI to browse
+traces, filter by span name, and drill into timing - the same things
+we did by querying SQLite, but interactive and built for scale.
+
+**Auto-instrumentation.** Most ecosystems have OTel wrappers that add
+spans for you. For Python there is
+`opentelemetry-instrumentation-openai` and similar libraries for
+popular frameworks. You call one or two lines of setup and get LLM
+spans, token counts, and tool calls traced automatically - no
+subclassing, no manual `set_attribute`.
+
+Frameworks like
+[Pydantic Logfire](https://logfire.dev/) build on top of OTel and
+take it even further: you get a hosted dashboard, automatic
+instrumentation for Pydantic AI agents, and structured logging - all
+with minimal code. We used Logfire in the
+[dlt workshop homework](../workshops/dlt/homework.md), where we
+instrumented an agent and pulled the traces back out with dlt. This
+homework is the manual version of the same idea: same OTel standard
+underneath, just more hands-on.
+
 
 ## Learning in Public
 
@@ -233,8 +295,8 @@ Just finished Module 5 - Monitoring. Learned how to:
 
 - Instrument a RAG system with OpenTelemetry
 - Capture tokens, cost, and response time as span attributes
-- Trace an LLM judge for relevance evaluation
-- Build a dashboard from trace data - no database needed
+- Write a custom SQLite span exporter
+- Build a dashboard from trace data
 
 Here's my homework solution: <LINK>
 
@@ -250,7 +312,7 @@ Module 5 of LLM Zoomcamp done!
 
 - OpenTelemetry instrumentation
 - Metrics as span attributes
-- Traced LLM judge
+- Custom SQLite span exporter
 - Dashboard from trace data
 
 My solution: <LINK>
