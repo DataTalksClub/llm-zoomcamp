@@ -90,10 +90,14 @@ For the following query
 
 how many spans does a single agent run produce?
 
-- A
-- B 
-- C
-- D
+Each span is either the agent run itself, an LLM call, or a tool call.
+The number can vary between runs because the model decides how many
+times to search.
+
+* 3
+* 5
+* 7
+* 9
 
 ## Question 2. Load traces into DuckDB with dlt
 
@@ -108,22 +112,26 @@ you should be able to complete one session with the free account.
 
 Alternatively, you can do it in the old way (using ChatGPT or your favorite search engine).
 
-How many rows did dlt load into your table? Check the
-dlt trace output or query DuckDB directly.
+How many records (spans) are in the table? Note that this depends on
+how many times you ran the agent in Question 1, so your number will
+be different from others. The goal here is to get the data in, not to
+match a specific number.
 
-TODO: this is a bad question because it depends on how many runs they had
-let's come up with a diferent one
+Check the dlt trace output or query DuckDB directly:
 
+```sql
+SELECT COUNT(*) FROM agent_traces.records;
+```
 
 ## Question 3. Query traces with an agent
 
-Using a coding agent (you can also write the code by hand) calculate how many 
-input tokens the run from Q1 produced
+Using a coding agent (you can also write the code by hand) calculate
+how many input tokens the run from Q1 produced.
 
-- A 
-- B
-- C
-- D
+* ~500
+* ~1500
+* ~3000
+* ~6000
 
 ## Submit the results
 
