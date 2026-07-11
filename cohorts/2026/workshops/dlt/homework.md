@@ -1,21 +1,19 @@
-# Homework: dlt + Logfire
+# Homework: dlt
 
-We take the FAQ agent from Module 1, instrument it with Pydantic Logfire,
+In this homework we will take the FAQ agent from Module 1,
+instrument it with [Pydantic Logfire](https://logfire.dev) for
+observability,
 then pull the trace data back out with dlt and analyze it.
 
-In Module 1 we wrote the agent loop by hand.
+In Module 1 we wrote the agent loop by hand and then we saw toyaikit - 
+an agentic framework.
 
-Here we rewrite it with [Pydantic AI](https://ai.pydantic.dev/), a
-lightweight agent framework. Tools are plain Python functions. The
-function-calling loop from Module 1 is built in: you register a tool,
-call `run_sync()`, and the agent decides when to search and when to
-answer.
+For this homework we rewrote into [Pydantic AI](https://ai.pydantic.dev/),
+so it's easier to integrate it with Logfire. Pydantic AI and Logfire
+work really well together, that's why we use them here.
 
-Later, in Question 1, we add [Pydantic Logfire](https://logfire.dev)
-for observability.
-
-Pydantic AI and Logfire work really well together, that's why we use
-them here.
+In Module 5 we learn about monitoring and observability, and implement 
+our own monitoring solution. Logfire is an alternative for that.
 
 ## Getting the code
 
@@ -32,17 +30,19 @@ wget $PREFIX/.env.example -O .env
 ```
 
 The agent code is in [homework/agent.py](homework/agent.py). Here we use
-Pydantic AI which we didn't cover previously. But the comments in the file
-explain what's happening and how things map to what we built in Module 1.
+Pydantic AI which we didn't cover previously.
+Conceptually there's nothing new: we covered everything already in module 1.
+The comments in the file will explain what's happening and how things map to
+what we learned previously.
 
 Make sure to read through it before proceeding.
 
 ## Setup
 
-Now let's configure out project
+We start by configuring our project:
 
 ```bash
-uv init --no-readme
+uv init
 uv add openai minsearch requests python-dotenv pydantic-ai logfire
 uv add "dlt[duckdb]"
 ```
@@ -51,6 +51,12 @@ Open `.env` and add your `OPENAI_API_KEY`:
 
 ```bash
 OPENAI_API_KEY=sk-YOUR_KEY_HERE
+```
+
+Make sure it's in `.gitignore`:
+
+```
+.env
 ```
 
 You can use any other provider instead of OpenAI. Check Pydantic AI documentation
@@ -65,69 +71,59 @@ uv run python main.py
 ## Question 1. Instrument the agent with Logfire
 
 Sign up for a free [Logfire](https://logfire.dev) account, create a
-project, and generate a **write token**. Put it in `.env` as
+project, and generate a write token. Put it in `.env` as
 `LOGFIRE_TOKEN`.
 
 Instrument the agent:
 
-1. Add `logfire.configure()` to `main.py` to connect to your project.
-2. Call `logfire.instrument_pydantic_ai()` so every agent run, LLM
-   call, and tool call is captured automatically as nested spans.
+```python
+logfire.configure()
+logfire.instrument_pydantic_ai()
+```
 
 Run the agent a few times with different questions and open your
-project on logfire.dev to see the traces.
+project on Logfire to see the traces.
 
-**Question:** In the Logfire UI, how many spans does a single agent
-run produce for the question "How do I run Ollama locally?" Count the
-top-level agent span plus all nested spans (LLM calls, tool calls).
+For the following query
+
+> How do I run Ollama locally?
+
+how many spans does a single agent run produce?
+
+- A
+- B 
+- C
+- D
 
 ## Question 2. Load traces into DuckDB with dlt
 
-Generate a **read token** for your Logfire project and set it as
+Generate a read token for your Logfire project and set it as
 `LOGFIRE_READ_TOKEN` in `.env`.
 
-Write a dlt pipeline that pulls your trace data into DuckDB using
-`LogfireQueryClient`. The query API exposes your traces as a `records`
-table that you can query with SQL:
+Initialize a dlt-hub project like in the workshop. Ask your coding agent 
+to pull the data from Pydantic Logfire and save it into duckdb.
 
-```python
-from logfire.experimental.query_client import LogfireQueryClient
+If you don't currently use a coding agent, you can use something like OpenCode:
+you should be able to complete one session with the free account. 
 
-with LogfireQueryClient(read_token) as client:
-    result = client.query_json_rows(
-        sql="SELECT * FROM records WHERE start_timestamp > now() - INTERVAL '7 days'",
-        min_timestamp=...,
-    )
-    rows = result['rows']
-```
+Alternatively, you can do it in the old way (using ChatGPT or your favorite search engine).
 
-Wrap that in a `@dlt.resource` and run it through a pipeline into
-DuckDB.
-
-**Question:** How many rows did dlt load into your table? Check the
+How many rows did dlt load into your table? Check the
 dlt trace output or query DuckDB directly.
+
+TODO: this is a bad question because it depends on how many runs they had
+let's come up with a diferent one
+
 
 ## Question 3. Query traces with an agent
 
-Write a script (or ask your coding agent) to query your Logfire data
-using the read token and answer: what is the total token usage (input
-+ output) across all LLM calls from Question 1?
+Using a coding agent (you can also write the code by hand) calculate how many 
+input tokens the run from Q1 produced
 
-The token counts live in the span attributes as
-`gen_ai.usage.input_tokens` and `gen_ai.usage.output_tokens`.
-
-**Question:** What is the total number of tokens (input + output
-combined) consumed across all your agent runs?
-
-## Question 4. Estimate the cost
-
-Using the token counts from Question 3, estimate the total cost of
-running the agent.
-
-Assume `gpt-5.4-mini` pricing: $0.15 per 1M input tokens, $0.60 per
-1M output tokens.
-
-**Question:** What is the estimated total cost in USD?
+- A 
+- B
+- C
+- D
 
 ## Submit the results
 

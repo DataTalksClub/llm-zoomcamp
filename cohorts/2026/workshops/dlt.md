@@ -1,8 +1,6 @@
 # Pulling traces from a monitoring service for analytics with dlt
 
-Recording: https://www.youtube.com/live/A0LmmZf-ggM?si=9Mb226_V9-Gxq7wo
-
-Event: https://luma.com/3sint80a
+Video: https://www.youtube.com/watch?v=A0LmmZf-ggM
 
 In this workshop, taught by Alena Astrakhantseva from dltHub, you'll
 build real data pipelines, dashboards, and a scheduled cloud
