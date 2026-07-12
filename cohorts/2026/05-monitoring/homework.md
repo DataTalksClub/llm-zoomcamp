@@ -79,7 +79,7 @@ uv add opentelemetry-api opentelemetry-sdk
 import in your code (`trace`, `Tracer`, `Span`)
 - `opentelemetry-sdk` is the implementation that actually creates and processes spans.
 
-## OpenTelemetry 
+## OpenTelemetry
 
 Before we start, we need to learn a few concepts from OTel - we will
 use them in this homework.
@@ -93,12 +93,11 @@ use them in this homework.
 - Attributes are key-value pairs attached to a span - anything you
   want to record, like the number of tokens used or the cost of a call.
 
-Spans are not visible by themselves (TODO I don't undstans what it means).
-
-When a span finishes (finishes what? maybe we should talk about it later when we show how to set up things?), OTel hands
-it to a span processor, which passes it to an exporter (also this - it makes sense ltaer whwn we introuce the processor and exporeter ). The
-exporter decides where the span goes - to the console, to a file, to
-a database, or to a remote collector.
+When a span finishes - meaning the code block it wraps completes - the
+SDK hands it to a span processor, which forwards it to an exporter.
+The exporter decides where the span goes: to the console, to a file,
+to a database, or to a remote collector. We will see all of this in
+practice in the questions below.
 
 We start with the `ConsoleSpanExporter`, which prints each finished
 span to the terminal so we can see what OTel captures:
@@ -218,23 +217,22 @@ save them.
 We want to persist them so we can query them later.
 
 In this homework, we'll use SQLite - it's a more lightweight option than
-Postgres, so we don't need to set up any docker containers in this homework. 
+Postgres, so we don't need to set up any docker containers in this homework.
 
-Our instrumentation is already done, we don't need to change anything there. 
+Our instrumentation is already done, we don't need to change anything there.
 But we need to create a custom exporter. Instead of printing the spans,
-it will save them to the database. 
+it will save them to the database.
 
-OTel calls the exporter through the same span
-processor we already use, we just swap the destination.
+OTel calls the exporter through the same span processor we already use,
+we just swap the destination.
 
-Now we will create a custom  that saves each finished span to a
+Now we will create a custom exporter that saves each finished span to a
 SQLite database. The exporter extends `SpanExporter`. It has the following methods:
-
 
 - `export` method that receives a list of `ReadableSpan` objects
 - `shutdown` and `force_flush` methods
 
-Let's impelmet it:
+Let's implement it:
 
 ```python
 import sqlite3
@@ -289,55 +287,57 @@ provider.add_span_processor(
 )
 ```
 
-Re-run the query from Q1. How many rows does the `spans` table contain?
+Re-run the query from Q1. Which span names appear in the `spans` table?
 
-* 1
-* 3
-* 5
-* 7
-
-TODO let's change it to something else 
+* Only `rag`
+* `rag` and `llm`
+* `rag`, `search`, and `llm`
+* `search`, `llm`, and `judge`
 
 ## Q5. Querying trace data
 
 The traces are now in SQLite. Run one more query through the traced
 RAG, then query the database.
 
-Using SQL (or pandas), compute the total cost across all `llm` spans
-in the database. What's the total cost?
+Using SQL (or pandas), compute the total duration for each span name.
+Which span type takes the most total time?
 
-* Under $0.001
-* $0.001 - $0.01
-* $0.01 - $0.10
-* Over $0.10
+* `rag`
+* `search`
+* `llm`
+* They're all about the same
 
-> The exact number depends on your model. Pick the closest option.
+## Q6. Token stability across runs
 
-## Q6. Building a dashboard from trace data
+Load the SQLite data with pandas. One thing a dashboard can tell you
+is how stable your system is. If the same query always produces the
+same number of input tokens, the context your RAG retrieves is
+consistent. If it varies a lot, something in the search may be
+unstable.
 
-Load the SQLite data with pandas and build a simple dashboard - the
-same metrics you'd see in Grafana or Streamlit in the module:
+Run the same query from Q1 three more times (so you have 4 RAG calls
+total in the database). Then compute the input tokens for each `llm`
+span.
 
-- Total number of traces (count `rag` spans)
-- Average LLM response time (duration of `llm` spans)
-- Total cost
-- Average input tokens
+How much do the input tokens vary across these 4 runs?
 
-What's the average LLM response time?
+* They're identical
+* Within 10% of each other
+* Within 50% of each other
+* They vary more than 50%
 
-* Under 500ms
-* 500-2000ms
-* 2000-5000ms
-* Over 5000ms
-
-> The exact number depends on the questions and model. Pick the closest option.
+> Input tokens depend on the retrieved context, which depends on the
+> search index. The search is deterministic, so the answer should be
+> "identical" - but check it to be sure.
 
 ## Going further
 
 We built a custom SQLite exporter to understand how OTel works under
 the hood. In practice you rarely instrument everything by hand.
 
-**Collectors and backends.** Instead of writing your own exporter, you
+### Collectors and backends
+
+Instead of writing your own exporter, you
 send spans to an
 [OTel Collector](https://opentelemetry.io/docs/collector/), which
 forwards them to a backend like
@@ -348,7 +348,9 @@ have to. Jaeger (or Grafana's Tempo) then gives you a UI to browse
 traces, filter by span name, and drill into timing - the same things
 we did by querying SQLite, but interactive and built for scale.
 
-**Auto-instrumentation.** Most ecosystems have OTel wrappers that add
+### Auto-instrumentation
+
+Most ecosystems have OTel wrappers that add
 spans for you. For Python there is
 `opentelemetry-instrumentation-openai` and similar libraries for
 popular frameworks. You call one or two lines of setup and get LLM
