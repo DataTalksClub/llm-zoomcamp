@@ -75,24 +75,28 @@ First, install the OpenTelemetry libraries:
 uv add opentelemetry-api opentelemetry-sdk
 ```
 
-`opentelemetry-api` is the interface - the classes and functions you
-import in your code (`trace`, `Tracer`, `Span`). `opentelemetry-sdk`
-is the implementation that actually creates and processes spans.
-Without the SDK, the API calls do nothing. Together they let you
-instrument code without tying yourself to any particular backend.
+- `opentelemetry-api` is the interface - the classes and functions you
+import in your code (`trace`, `Tracer`, `Span`)
+- `opentelemetry-sdk` is the implementation that actually creates and processes spans.
 
-Before we configure OTel, a few concepts:
+## OpenTelemetry 
 
-- A **trace** is the end-to-end story of a single request as it moves
-  through your system - for us, one RAG call.
-- A **span** is one operation within a trace. A trace is made of one
+Before we start, we need to learn a few concepts from OTel - we will
+use them in this homework.
+
+- A trace is the end-to-end story of a single request as it moves
+  through your system. For us, it's one RAG call.
+- A span is one operation within a trace. A trace is made of one
   or more spans, organized as a tree. Each span has a name, a start
-  and end time, and a set of attributes.
-- **Attributes** are key-value pairs attached to a span - anything you
+  and end time, and a set of attributes. For us we will have one span
+  inside the trace, but for agents one trace will have multiple spans.
+- Attributes are key-value pairs attached to a span - anything you
   want to record, like the number of tokens used or the cost of a call.
 
-Spans are not visible by themselves. When a span finishes, OTel hands
-it to a **span processor**, which passes it to an **exporter**. The
+Spans are not visible by themselves (TODO I don't undstans what it means).
+
+When a span finishes (finishes what? maybe we should talk about it later when we show how to set up things?), OTel hands
+it to a span processor, which passes it to an exporter (also this - it makes sense ltaer whwn we introuce the processor and exporeter ). The
 exporter decides where the span goes - to the console, to a file, to
 a database, or to a remote collector.
 
@@ -182,13 +186,6 @@ span.set_attribute("input_tokens", usage.input_tokens)
 span.set_attribute("output_tokens", usage.output_tokens)
 ```
 
-You can get the usage object from the response:
-
-```python
-response = self.llm_client.responses.create(...)
-usage = response.usage
-```
-
 And since we know both input and output tokens, we can also compute
 the cost using the code from the previous modules.
 
@@ -215,22 +212,29 @@ For a typical query, roughly how long does the LLM call take?
 
 ## Q4. Saving traces to SQLite
 
-Right now the spans are printed to the terminal and then gone. We want
-to persist them so we can query them later - the same idea as saving
-conversations to PostgreSQL in the module, but lighter.
+Right now the spans are printed to the terminal and then gone. We don't
+save them.
 
-In this homework, we'll use SQLite. It's built into Python, needs no
-server, and stores data in a single file.
+We want to persist them so we can query them later.
 
-We don't change our instrumentation code at all. Instead, we write a
-custom exporter - a class that receives finished spans and writes them
-to the database. OTel calls the exporter through the same span
-processor we already use; we just swap the destination.
+In this homework, we'll use SQLite - it's a more lightweight option than
+Postgres, so we don't need to set up any docker containers in this homework. 
 
-Write a custom `SpanExporter` that saves each finished span to a
-SQLite database. The exporter interface is small - it needs an
-`export` method that receives a list of `ReadableSpan` objects, plus
-`shutdown` and `force_flush` methods:
+Our instrumentation is already done, we don't need to change anything there. 
+But we need to create a custom exporter. Instead of printing the spans,
+it will save them to the database. 
+
+OTel calls the exporter through the same span
+processor we already use, we just swap the destination.
+
+Now we will create a custom  that saves each finished span to a
+SQLite database. The exporter extends `SpanExporter`. It has the following methods:
+
+
+- `export` method that receives a list of `ReadableSpan` objects
+- `shutdown` and `force_flush` methods
+
+Let's impelmet it:
 
 ```python
 import sqlite3
@@ -277,7 +281,7 @@ class SQLiteSpanExporter(SpanExporter):
         return True
 ```
 
-Register it in place of the console exporter:
+Replace the console exporter with this new exporter:
 
 ```python
 provider.add_span_processor(
@@ -291,6 +295,8 @@ Re-run the query from Q1. How many rows does the `spans` table contain?
 * 3
 * 5
 * 7
+
+TODO let's change it to something else 
 
 ## Q5. Querying trace data
 
