@@ -6,15 +6,16 @@ dashboard.
 
 In the module we built all of this by hand - a custom dataclass for
 the metrics, PostgreSQL for storage, Streamlit and Grafana for
-dashboards. That gives you full control, but it's a lot of moving parts.
+dashboards.
 
-The industry standard for instrumentation is
-[OpenTelemetry](https://opentelemetry.io/) (OTel). Every monitoring
-framework we mentioned - Logfire, Langfuse, Arize Phoenix - is built
-on top of it. In this homework we use OTel directly. We instrument our
+In this homework, we will explore an alternative: [OpenTelemetry](https://opentelemetry.io/) (OTel). 
+This is the industry standard for code instrumentation. Every monitoring
+framework we mentioned is built
+on top of it - like Logfire, Langfuse, Arize Phoenix and others.
+
+In this homework we will use OTel directly. We will instrument our
 RAG with traces, capture metrics as span attributes, persist the
-spans to SQLite, and build a dashboard from the trace data - no Docker, no
-separate server, just Python.
+spans to SQLite, and build a dashboard from the trace data.
 
 We keep using the same course-lessons RAG from homework 1. The
 knowledge base is the 72 lesson pages pulled from GitHub, indexed
@@ -28,11 +29,13 @@ Create a fresh project:
 
 ```bash
 mkdir llm-zoomcamp-hw5 && cd llm-zoomcamp-hw5
-uv init --no-workspace
-uv add gitsource minsearch openai python-dotenv pandas opentelemetry-api opentelemetry-sdk
+uv init
+uv add gitsource minsearch openai python-dotenv
 ```
 
-Download the starter code:
+We want everyone to start with the same code, so we prepared a started package.
+
+Download it:
 
 ```bash
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2026/05-monitoring
@@ -40,11 +43,15 @@ wget $PREFIX/rag_helper.py
 wget $PREFIX/starter.py
 ```
 
-Put your OpenAI key in a `.env` file:
+We keep things simpler and focus only on RAG. However, all the concepts could be directly translated to agents.
+
+Next, you need to put your OpenAI key in a `.env` file:
 
 ```
 OPENAI_API_KEY=sk-...
 ```
+
+Like previously, you can use any alternative you want.
 
 The starter loads the 72 course lessons, builds a text-search index,
 and wraps it in a `RAGBase` instance you can call right away:
@@ -58,13 +65,25 @@ print(answer)
 ```
 
 For the LLM, we recommend OpenAI with `gpt-5.4-mini`, but you can use
-any model and provider you like - just adapt the client accordingly.
+any model and provider you want.
 
 ## OpenTelemetry setup
 
-OTel needs a few lines of configuration. We use the `ConsoleSpanExporter`,
-which prints every span to the terminal. No server, no collector, no
-Docker - just output we can read.
+OTel needs a few lines of configuration.
+
+First, install the relevant libraries:
+
+```bash
+uv add opentelemetry-api opentelemetry-sdk
+```
+
+TODO explain what these libraries are.
+
+TODO; explain what spans and other relevant things are before we use them.
+
+At the begining, we will use the `ConsoleSpanExporter`,
+which prints every span to the terminal.
+
 
 ```python
 from opentelemetry import trace
@@ -80,7 +99,9 @@ trace.set_tracer_provider(provider)
 tracer = trace.get_tracer("llm-zoomcamp")
 ```
 
-Put this at the top of your script, before any tracing code.
+TODO Explain what this code is doing.  
+
+Put this at the top of the starter before any tracing code (TODO what is tracing code?? I don't undestant).
 
 To create a span:
 
@@ -89,6 +110,8 @@ with tracer.start_as_current_span("my_operation") as span:
     # do work
     span.set_attribute("my_key", "my_value")
 ```
+
+TODO: what does it mean? where to put it? 
 
 ## Q1. First trace
 
@@ -107,19 +130,26 @@ How many spans does the trace produce?
 * 5
 * 7
 
+TODO: how do I know? Where should I see? 
+
 ## Q2. Capturing metrics as span attributes
+
+
+TODO add more context. like we can add any information we want to the spans. 
+For example, input and output tokens. 
 
 Re-use the trace from Q1. Read the token usage from the LLM response
 and set them as attributes on the `llm` span:
 
 ```python
+# TODO: model 
 span.set_attribute("input_tokens", usage.input_tokens)
 span.set_attribute("output_tokens", usage.output_tokens)
 ```
 
-Also compute the cost and store it as `span.set_attribute("cost", cost)`.
+And since we know both input and output tokens, we can also compute the cost using the code from the previous modules.
 
-Re-run the query. What are the input tokens?
+Now re-run the query. How many input tokens do we see?
 
 * 700
 * 7000
@@ -142,9 +172,11 @@ For a typical query, roughly how long does the LLM call take?
 
 ## Q4. Saving traces to SQLite
 
-In the module we saved conversations to PostgreSQL. Here we do the
-same thing, but with SQLite (built into Python, zero setup) and with
-OTel doing the capturing.
+TODO: context 
+Right now the spans are simply output to the terminal. We want to persist them 
+
+In the module we saved conversations to PostgreSQL. In this homework, we'll 
+go with a more lightweight opiotn: Sqlite. 
 
 Write a custom `SpanExporter` that saves each finished span to a
 SQLite database. The exporter interface is small - it needs an
