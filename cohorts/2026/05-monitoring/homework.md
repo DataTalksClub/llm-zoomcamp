@@ -8,7 +8,7 @@ In the module we built all of this by hand - a custom dataclass for
 the metrics, PostgreSQL for storage, Streamlit and Grafana for
 dashboards.
 
-In this homework, we will explore an alternative: [OpenTelemetry](https://opentelemetry.io/) (OTel). 
+In this homework, we will explore an alternative: [OpenTelemetry](https://opentelemetry.io/) (OTel).
 This is the industry standard for code instrumentation. Every monitoring
 framework we mentioned is built
 on top of it - like Logfire, Langfuse, Arize Phoenix and others.
@@ -33,7 +33,7 @@ uv init
 uv add gitsource minsearch openai python-dotenv
 ```
 
-We want everyone to start with the same code, so we prepared a started package.
+We want everyone to start with the same code, so we prepared a starter package.
 
 Download it:
 
@@ -69,21 +69,35 @@ any model and provider you want.
 
 ## OpenTelemetry setup
 
-OTel needs a few lines of configuration.
-
-First, install the relevant libraries:
+First, install the OpenTelemetry libraries:
 
 ```bash
 uv add opentelemetry-api opentelemetry-sdk
 ```
 
-TODO explain what these libraries are.
+`opentelemetry-api` is the interface - the classes and functions you
+import in your code (`trace`, `Tracer`, `Span`). `opentelemetry-sdk`
+is the implementation that actually creates and processes spans.
+Without the SDK, the API calls do nothing. Together they let you
+instrument code without tying yourself to any particular backend.
 
-TODO; explain what spans and other relevant things are before we use them.
+Before we configure OTel, a few concepts:
 
-At the begining, we will use the `ConsoleSpanExporter`,
-which prints every span to the terminal.
+- A **trace** is the end-to-end story of a single request as it moves
+  through your system - for us, one RAG call.
+- A **span** is one operation within a trace. A trace is made of one
+  or more spans, organized as a tree. Each span has a name, a start
+  and end time, and a set of attributes.
+- **Attributes** are key-value pairs attached to a span - anything you
+  want to record, like the number of tokens used or the cost of a call.
 
+Spans are not visible by themselves. When a span finishes, OTel hands
+it to a **span processor**, which passes it to an **exporter**. The
+exporter decides where the span goes - to the console, to a file, to
+a database, or to a remote collector.
+
+We start with the `ConsoleSpanExporter`, which prints each finished
+span to the terminal so we can see what OTel captures:
 
 ```python
 from opentelemetry import trace
@@ -99,19 +113,39 @@ trace.set_tracer_provider(provider)
 tracer = trace.get_tracer("llm-zoomcamp")
 ```
 
-TODO Explain what this code is doing.  
+Here is what each line does:
 
-Put this at the top of the starter before any tracing code (TODO what is tracing code?? I don't undestant).
+- `TracerProvider()` creates the SDK's central configuration object.
+  It owns the span processors and decides how spans are built.
+- `SimpleSpanProcessor(ConsoleSpanExporter())` wires a processor that
+  forwards every finished span to the console exporter, one at a time.
+  "Simple" means synchronous and immediate - good for development.
+- `trace.set_tracer_provider(provider)` registers the provider
+  globally, so every call to `trace.get_tracer(...)` returns a tracer
+  backed by it.
+- `trace.get_tracer("llm-zoomcamp")` returns a `Tracer` we use to
+  create spans. The string is just a label for the instrumentation
+  scope - it identifies which part of the code produced the spans.
 
-To create a span:
+Put this block at the top of your script, before you import or use
+`starter` - so the tracer provider is ready before any code that
+might create spans.
+
+With the tracer in hand, you can wrap any block of code in a span:
 
 ```python
 with tracer.start_as_current_span("my_operation") as span:
-    # do work
+    # your code here
     span.set_attribute("my_key", "my_value")
 ```
 
-TODO: what does it mean? where to put it? 
+`start_as_current_span` creates a new span and makes it the "current"
+span for the duration of the `with` block. Any code inside the block -
+including other calls to `start_as_current_span` - becomes a child of
+this span. When the block exits, the span ends automatically.
+
+You will use this pattern to instrument the RAG methods in the
+questions below.
 
 ## Q1. First trace
 
@@ -123,31 +157,40 @@ Run this query:
 
 > How does the agentic loop keep calling the model until it stops?
 
-How many spans does the trace produce?
+The console exporter prints every finished span as a dictionary.
+Count the spans in the console output - each one is a separate
+`ReadableSpan` entry. How many spans does the trace produce?
 
 * 1
 * 3
 * 5
 * 7
 
-TODO: how do I know? Where should I see? 
-
 ## Q2. Capturing metrics as span attributes
 
+Spans are not just timing markers - you can attach any information you
+want to them with `set_attribute`. We already use spans to record how
+long each step takes. Now we'll add the metrics we care about: tokens
+and cost.
 
-TODO add more context. like we can add any information we want to the spans. 
-For example, input and output tokens. 
-
-Re-use the trace from Q1. Read the token usage from the LLM response
-and set them as attributes on the `llm` span:
+Read the token usage from the LLM response (the `llm()` method in the
+starter already returns the raw response object) and set them as
+attributes on the `llm` span:
 
 ```python
-# TODO: model 
 span.set_attribute("input_tokens", usage.input_tokens)
 span.set_attribute("output_tokens", usage.output_tokens)
 ```
 
-And since we know both input and output tokens, we can also compute the cost using the code from the previous modules.
+You can get the usage object from the response:
+
+```python
+response = self.llm_client.responses.create(...)
+usage = response.usage
+```
+
+And since we know both input and output tokens, we can also compute
+the cost using the code from the previous modules.
 
 Now re-run the query. How many input tokens do we see?
 
@@ -172,11 +215,17 @@ For a typical query, roughly how long does the LLM call take?
 
 ## Q4. Saving traces to SQLite
 
-TODO: context 
-Right now the spans are simply output to the terminal. We want to persist them 
+Right now the spans are printed to the terminal and then gone. We want
+to persist them so we can query them later - the same idea as saving
+conversations to PostgreSQL in the module, but lighter.
 
-In the module we saved conversations to PostgreSQL. In this homework, we'll 
-go with a more lightweight opiotn: Sqlite. 
+In this homework, we'll use SQLite. It's built into Python, needs no
+server, and stores data in a single file.
+
+We don't change our instrumentation code at all. Instead, we write a
+custom exporter - a class that receives finished spans and writes them
+to the database. OTel calls the exporter through the same span
+processor we already use; we just swap the destination.
 
 Write a custom `SpanExporter` that saves each finished span to a
 SQLite database. The exporter interface is small - it needs an
@@ -276,6 +325,7 @@ What's the average LLM response time?
 * Over 5000ms
 
 > The exact number depends on the questions and model. Pick the closest option.
+
 ## Going further
 
 We built a custom SQLite exporter to understand how OTel works under
@@ -308,7 +358,6 @@ with minimal code. We used Logfire in the
 instrumented an agent and pulled the traces back out with dlt. This
 homework is the manual version of the same idea: same OTel standard
 underneath, just more hands-on.
-
 
 ## Learning in Public
 
