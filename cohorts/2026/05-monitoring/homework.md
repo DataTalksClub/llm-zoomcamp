@@ -326,10 +326,6 @@ How much do the input tokens vary across these 4 runs?
 * Within 50% of each other
 * They vary more than 50%
 
-> Input tokens depend on the retrieved context, which depends on the
-> search index. The search is deterministic, so the answer should be
-> "identical" - but check it to be sure.
-
 ## Going further
 
 We built a custom SQLite exporter to understand how OTel works under
