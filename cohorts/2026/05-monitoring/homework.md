@@ -209,6 +209,9 @@ For a typical query, roughly how long does the LLM call take?
 * 500-2000ms
 * Over 2000ms
 
+> The first call can be slower (cold start). Pick the range you see
+> most often.
+
 ## Q4. Saving traces to SQLite
 
 Right now the spans are printed to the terminal and then gone. We don't
@@ -299,10 +302,13 @@ Re-run the query from Q1. Which span names appear in the `spans` table?
 The traces are now in SQLite. Run one more query through the traced
 RAG, then query the database.
 
-Using SQL (or pandas), compute the total duration for each span name.
-Which span type takes the most total time?
+The `rag` span wraps everything, so its duration includes both
+`search` and `llm`. To see where time actually goes, exclude the
+`rag` span and compare the children.
 
-* `rag`
+Using SQL (or pandas), compute the total duration for each span name
+excluding `rag`. Which span type takes the most total time?
+
 * `search`
 * `llm`
 * They're all about the same
