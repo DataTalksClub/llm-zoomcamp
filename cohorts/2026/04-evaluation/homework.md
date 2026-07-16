@@ -132,7 +132,7 @@ PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
 wget ${PREFIX}/cohorts/2026/04-evaluation/ground-truth.csv
 ```
 
-Load it with pandas into a list of records called `ground_truth`. Each record
+Load it with pandas into a dataframe of records called `ground_truth`. Each record
 has a `question` and the `filename` of the page that should answer it.
 
 ## Searching the chunks
