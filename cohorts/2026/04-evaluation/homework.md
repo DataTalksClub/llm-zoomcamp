@@ -19,7 +19,7 @@ same 72 pages.
 ## Setup
 
 This homework continues from homework 2. We reuse the same chunks and the same
-search functions, so it's easiest to keep working in the same project.
+search functions, so it's easier to keep working in the same project.
 
 We need a few more libraries for generating questions with an LLM:
 
