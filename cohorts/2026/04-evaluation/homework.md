@@ -216,6 +216,11 @@ lecture. We change only the label. Our ground truth uses `filename`, so a result
 counts as a hit when a returned chunk's `filename` matches the question's
 `filename`, not a document `id`.
 
+The lesson evaluates whole FAQ records, while this homework evaluates chunks.
+Adjust the relevance logic to use the fields available on the chunk results and
+homework ground truth instead of copying the lesson's record-based comparison
+unchanged.
+
 As a reminder, these functions do the following:
 
 - `compute_relevance` runs search for a question and returns a list of 0s and 1s
