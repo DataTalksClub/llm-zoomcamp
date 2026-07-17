@@ -216,6 +216,21 @@ lecture. We change only the label. Our ground truth uses `filename`, so a result
 counts as a hit when a returned chunk's `filename` matches the question's
 `filename`, not a document `id`.
 
+Adapt `compute_relevance` from the lesson to compare those filenames:
+
+```python
+def compute_relevance(q, search_function):
+    results = search_function(query=q["question"])
+
+    return [
+        int(result["filename"] == q["filename"])
+        for result in results
+    ]
+```
+
+Do not copy the lesson's `result["id"] == q["document"]` comparison here. The
+homework's lesson-page chunks and ground-truth records do not have those fields.
+
 As a reminder, these functions do the following:
 
 - `compute_relevance` runs search for a question and returns a list of 0s and 1s
