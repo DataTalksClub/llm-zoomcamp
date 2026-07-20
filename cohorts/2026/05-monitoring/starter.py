@@ -10,6 +10,9 @@ from minsearch import Index
 
 from rag_helper import RAGBase
 
+from dotenv import load_dotenv
+load_dotenv()
+
 COMMIT = "8c1834d"
 
 # --- Load the course lessons (same as HW1, HW2, HW4) ---
