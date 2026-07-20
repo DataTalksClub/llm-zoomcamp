@@ -179,7 +179,7 @@ agent_result = {
     "question": rec["question"],
     "answer_agent": result.last_message,
     "answer_orig": answer_orig,
-    "tool_calls": tool_calls,
+    "tool_calls": json.dumps(tool_calls),
     "cost": result.cost.total_cost,
     "document": doc_id,
 }
@@ -188,7 +188,9 @@ agent_result
 ```
 
 The `answer_agent` field is what we evaluate with the LLM judge. The
-`tool_calls` field lets the judge see how the agent got there.
+`tool_calls` field lets the judge see how the agent got there. 
+Wrap `tool_calls` with `json.dumps` to properly escape special characters,
+such as double quotes.
 
 ## Processing multiple questions
 
@@ -207,7 +209,7 @@ def generate_agent_answer(rec):
         "question": rec["question"],
         "answer_agent": result.last_message,
         "answer_orig": original_doc["answer"],
-        "tool_calls": tool_calls,
+        "tool_calls": json.dumps(tool_calls),
         "cost": result.cost.total_cost,
         "document": doc_id,
     }
