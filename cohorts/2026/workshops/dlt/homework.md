@@ -143,7 +143,7 @@ Using a coding agent (you can also write the code by hand) find the
 input token usage for the agent run from Q1.
 
 The token counts are stored in the span attributes as
-`gen_ai.usage.input_tokens`. Sum them across all LLM calls within the
+`gen_ai.aggregated_usage.input_tokens`. Sum them across all LLM calls within the
 trace. The number depends on how many searches the agent made, so
 report the range it falls into:
 
