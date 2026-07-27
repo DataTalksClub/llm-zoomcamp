@@ -96,7 +96,9 @@ Self-paced steps:
 
 ### [Workshop: Data Ingestion](cohorts/2026/workshops/dlt.md)
 
-- Pull traces from a monitoring service for analytics with dlt
+- Build dlt pipelines to ingest and analyze LLM traces
+- Filesystem and REST API sources, DuckDB, and marimo dashboards
+
 
 ### [Module 4: Evaluation](04-evaluation/)
 

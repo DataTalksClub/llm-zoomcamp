@@ -72,4 +72,5 @@ Write your own notes below this line:
 - [Notes from Vignesh Mayilappan](https://github.com/vigneshmailappan/llm-zoomcamp/blob/main/llm-zoomcamp-code/01-readme-rag.md)
 - [Cohort 2026| Notes from Nitin Gupta](https://github.com/niting9881/llm-zoomcamp-2026-code/blob/main/rag-notes.md)
 - [Cohort 2026 - Notes from Akshaya Balaji](https://akshayavb99.github.io/learning-notes/course-summaries/llm-zoomcamp-2026/#1-agentic-rag)
+- [Cohort 2026 - Notes from Revathy Ramalingam](https://github.com/RevathyRamalingam/llm-zoomcamp/blob/main/01_agentic_rag/README.md)
 - Add your notes above this line
