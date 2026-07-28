@@ -65,7 +65,7 @@ for i in tqdm(range(0, len(texts), batch_size)):
 len(vectors)
 ```
 
-We end up with 1208 vectors. On a GPU this is fast. Most of us run on
+We end up with 1380 vectors. On a GPU this is fast. Most of us run on
 Codespaces without a GPU, so it takes a bit, but it's a one-off.
 
 We turn them into a 2-dimensional array (matrix) where
@@ -78,6 +78,6 @@ import numpy as np
 X = np.array(vectors)
 ```
 
-Calling `X.shape` returns (1208, 384) - number of documents vs number of dimensions.
+Calling `X.shape` returns (1380, 384) - number of documents vs number of dimensions.
 
 [← Embeddings](02-embeddings.md) | [Vector Search →](04-vector-search.md)
