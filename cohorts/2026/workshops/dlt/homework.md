@@ -111,11 +111,6 @@ The dltHub AI workbench has a ready-made context for Logfire. Point your
 agent to it: https://dlthub.com/context/source/logfire
 
 If you don't currently use a coding agent, you can use something like OpenCode:
-you should be able to complete one session with the free account.
-
-Alternatively, you can do it in the old way (using ChatGPT or your favorite search engine).
-
-If you don't currently use a coding agent, you can use something like OpenCode:
 you should be able to complete one session with the free account. 
 
 Alternatively, you can do it in the old way (using ChatGPT or your favorite search engine).
