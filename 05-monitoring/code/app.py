@@ -34,15 +34,17 @@ if st.button("Ask"):
         st.write(f"Explanation: {explanation}")
 
 
-col1, col2 = st.columns(2)
-with col1:
-    if st.button("+1"):
-        cid = st.session_state.conversation_id
-        save_feedback(cid, "user", score=1)
-        st.write("Thanks!")
+conversation_id = st.session_state.get("conversation_id")
 
-with col2:
-    if st.button("-1"):
-        cid = st.session_state.conversation_id
-        save_feedback(cid, "user", score=-1)
-        st.write("Thanks for the feedback!")
+if conversation_id is not None:
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.button("+1", key=f"feedback_up_{conversation_id}"):
+            save_feedback(conversation_id, "user", score=1)
+            st.success("Thanks!")
+
+    with col2:
+        if st.button("-1", key=f"feedback_down_{conversation_id}"):
+            save_feedback(conversation_id, "user", score=-1)
+            st.success("Thanks for the feedback!")

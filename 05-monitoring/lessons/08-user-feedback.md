@@ -132,28 +132,32 @@ if st.button("Ask"):
         st.session_state.conversation_id = conversation_id
 ```
 
-Now add the feedback buttons:
+Now add the feedback buttons after the `Ask` block. Keep this code at the
+top level rather than indenting it inside `if st.button("Ask")`.
+Streamlit reruns the whole script when either feedback button is clicked.
+On that rerun, the `Ask` button returns `False`, so feedback buttons nested
+inside its block cannot process their own clicks.
 
 ```python
-col1, col2 = st.columns(2)
-with col1:
-    if st.button("+1"):
-        cid = st.session_state.conversation_id
-        save_feedback(cid, "user", score=1)
-        st.write("Thanks!")
+conversation_id = st.session_state.get("conversation_id")
 
-with col2:
-    if st.button("-1"):
-        cid = st.session_state.conversation_id
-        save_feedback(cid, "user", score=-1)
-        st.write("Thanks for the feedback!")
+if conversation_id is not None:
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.button("+1", key=f"feedback_up_{conversation_id}"):
+            save_feedback(conversation_id, "user", score=1)
+            st.success("Thanks!")
+
+    with col2:
+        if st.button("-1", key=f"feedback_down_{conversation_id}"):
+            save_feedback(conversation_id, "user", score=-1)
+            st.success("Thanks for the feedback!")
 ```
 
-Now people can rate each answer. We show the buttons all the time rather
-than only after a response. It would be cleaner to reveal them once the
-answer is in. But that adds logic I'd rather keep out of this small app.
-If you want it, ask a coding assistant to gate the buttons on having an
-answer.
+The session-state check keeps the buttons visible across reruns and hides
+them until there is a response to rate. The explicit keys also give each
+response its own pair of feedback buttons.
 
 Next we add a second source of feedback to the same table. An LLM judge
 scores answers automatically, without waiting for anyone to click.
