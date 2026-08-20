@@ -88,7 +88,7 @@ Based on what you learned in this module, for production workflows requiring det
 
 We encourage everyone to share what they learned. This is called "learning in public".
 
-Read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and) and in the [course's learning in public guide](https://datatalks.club/docs/courses/zoomcamp-logistics/learning-in-public/).
+Read more about the benefits [here](https://aishippingblog.com/p/benefits-of-learning-in-public-and) and in the [course's learning in public guide](https://datatalks.club/docs/courses/zoomcamp-logistics/learning-in-public/).
 
 ### Example post for LinkedIn
 

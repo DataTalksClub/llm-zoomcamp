@@ -17,7 +17,7 @@ Before you start, it's important to go through the course documentation:
 
 Places where you can find me:
 
-- [My substack](https://alexeyondata.substack.com/)
+- [My substack](https://aishippingblog.com/)
 - [LinkedIn](https://www.linkedin.com/in/agrigorev/)
 - [X](https://x.com/Al_Grigor)
 

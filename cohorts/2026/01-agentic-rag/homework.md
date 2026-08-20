@@ -269,7 +269,7 @@ We encourage everyone to share what they learned. This is called "learning in pu
 - Documentation: Your posts become a learning journal you can reference later
 - Opportunities: Employers and clients often discover talent through public learning
 
-You can read more about the benefits [here](https://alexeyondata.substack.com/p/benefits-of-learning-in-public-and) and in the [course's learning in public guide](https://datatalks.club/docs/courses/zoomcamp-logistics/learning-in-public/).
+You can read more about the benefits [here](https://aishippingblog.com/p/benefits-of-learning-in-public-and) and in the [course's learning in public guide](https://datatalks.club/docs/courses/zoomcamp-logistics/learning-in-public/).
 
 Don't worry about being perfect. Everyone starts somewhere, and people love following genuine learning journeys!
 

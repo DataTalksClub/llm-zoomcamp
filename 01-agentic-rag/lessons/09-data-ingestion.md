@@ -38,7 +38,7 @@ built in. If you have Python, you already have a full text search
 engine. Using FTS5 directly is a bit awkward, so I wrote sqlitesearch
 as a convenient wrapper around it.
 
-You can read more about the history of this library [here](https://alexeyondata.substack.com/p/how-i-built-sqlitesearch-a-lightweight).
+You can read more about the history of this library [here](https://aishippingblog.com/p/how-i-built-sqlitesearch-a-lightweight).
 
 Install it:
 
