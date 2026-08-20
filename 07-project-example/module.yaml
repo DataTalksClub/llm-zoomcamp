@@ -1,0 +1,33 @@
+schema_version: 1
+content_id: 012918c1-a2af-48f6-8bcf-a96ca8517a88
+slug: project-example
+title: "Module 7: End-to-End Project Example (Optional)"
+units:
+  - content_id: fc66db65-3e1f-469c-90f2-d985e6c1cdbe
+    slug: intro
+    title: "End-to-End Project Example"
+    path: lessons/01-intro.md
+  - content_id: ea4ea1f9-277a-4d88-8bda-195b4e6d3a5e
+    slug: evaluating-retrieval
+    title: "Evaluating Retrieval"
+    path: lessons/02-evaluating-retrieval.md
+  - content_id: 3f90f88e-d614-40fd-8671-34c297797bf8
+    slug: evaluating-rag
+    title: "Evaluating RAG"
+    path: lessons/03-evaluating-rag.md
+  - content_id: 20d2282f-b871-4a01-b2bc-554ef9382994
+    slug: interface
+    title: "Interface and Ingestion Pipeline"
+    path: lessons/04-interface.md
+  - content_id: a98496ee-ef55-494d-a920-60bf6ee3b116
+    slug: monitoring
+    title: "Monitoring and Containerization"
+    path: lessons/05-monitoring.md
+  - content_id: 582fa7e4-0c6b-4e0b-924d-9c925046cb86
+    slug: summary
+    title: "Summary and Closing Remarks"
+    path: lessons/06-summary.md
+  - content_id: b4b18465-6484-4f38-9dc6-99c870e95e7d
+    slug: chunking
+    title: "Chunking for Longer Texts"
+    path: lessons/07-chunking.md

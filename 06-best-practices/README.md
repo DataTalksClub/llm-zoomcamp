@@ -23,10 +23,6 @@ uses older libraries and approaches.
 - [Hybrid search and reranking with Elasticsearch](hybrid-search-and-reranking-es.ipynb)
 - [Hybrid search with LangChain](hybrid-search-langchain.ipynb)
 
-## Homework
-
-There's no homework for this module.
-
 ## Notes
 
 - Did you take notes? Add them above this line (Send a PR with *links* to your notes)

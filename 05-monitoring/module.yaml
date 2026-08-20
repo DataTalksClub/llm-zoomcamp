@@ -1,0 +1,61 @@
+schema_version: 1
+content_id: ea44fa36-1477-474f-92e7-1977e48de6ad
+slug: monitoring
+title: "Module 5: Monitoring"
+units:
+  - content_id: 728a03de-cd03-4ec1-953f-b654cc509f43
+    slug: intro
+    title: "Monitoring"
+    path: lessons/01-intro.md
+  - content_id: e645d072-c8b7-4dfb-bb66-de904f05ebda
+    slug: assistant-setup
+    title: "Assistant"
+    path: lessons/02-assistant-setup.md
+  - content_id: bea96a49-062b-40ff-b957-99847f725e2f
+    slug: chat-app
+    title: "Chat App"
+    path: lessons/03-chat-app.md
+  - content_id: 4802bd81-5f3f-445d-bf16-919d3b64a2f5
+    slug: metrics
+    title: "Capturing Metrics"
+    path: lessons/04-metrics.md
+  - content_id: 5a3d1b8e-cc12-49e3-bf84-7623cc34fa50
+    slug: database
+    title: "Storing Data in PostgreSQL"
+    path: lessons/05-database.md
+  - content_id: c1fe9769-120d-4b41-acf3-609d08b821a2
+    slug: querying
+    title: "Querying Data"
+    path: lessons/06-querying.md
+  - content_id: 02acba01-6e5a-4847-b385-d0945ec9abac
+    slug: streamlit-dashboard
+    title: "Streamlit Dashboard"
+    path: lessons/07-streamlit-dashboard.md
+  - content_id: 5dbf1c69-6c8b-4495-9b37-ef4ace9c4843
+    slug: user-feedback
+    title: "User Feedback"
+    path: lessons/08-user-feedback.md
+  - content_id: b1d6fae8-ae06-4276-9b96-3e995e22ce37
+    slug: built-in-judge
+    title: "Built-in Judge"
+    path: lessons/09-built-in-judge.md
+  - content_id: a5d1e264-badf-44c7-b2f5-69bcfcfd7fae
+    slug: feedback-dashboard
+    title: "Feedback Dashboard"
+    path: lessons/10-feedback-dashboard.md
+  - content_id: 3fc7f1bc-c0d6-4f80-ac95-50d69230f7f0
+    slug: synthetic-data
+    title: "Synthetic Data Generation"
+    path: lessons/11-synthetic-data.md
+  - content_id: 60748121-580d-4a24-af9f-b5bfc68470b1
+    slug: grafana
+    title: "Grafana Dashboards"
+    path: lessons/12-grafana.md
+  - content_id: edc8d74f-d3b5-464e-81c1-b5c8448330b4
+    slug: docker-compose
+    title: "Docker Compose"
+    path: lessons/13-docker-compose.md
+  - content_id: 08d4d837-410f-40b7-b91d-f241bb75cab5
+    slug: next-steps
+    title: "Next Steps"
+    path: lessons/14-next-steps.md
