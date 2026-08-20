@@ -1,0 +1,35 @@
+schema_version: 1
+content_id: 8eeeeeee-eeee-4eee-8eee-eeeeeeeeeeee
+slug: homework-04
+title: "Homework 4: Evaluation"
+instructions_path: homework.md
+due_at: 2026-09-21T21:59:00Z
+initial_state: open
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 8fffffff-ffff-4fff-8fff-ffffffffffff
+    id: lesson-count
+    type: free_form
+    answer_type: integer
+    prompt: How many lesson pages are used as the shared dataset?
+    points: 1
+    answer:
+      version: 1
+      algorithm: A256GCM
+      kdf: HKDF-SHA256
+      key_id: hw-answer-llm-2026-1
+      salt: mndSgOtJaAM8e39JNcWdmLWBMbmTB2C5IPt1rsU0CpA
+      nonce: GO1E6N61TPIKc0Ms
+      ciphertext: NgFaA3gzYLArk8M095SUkYb_DlGFuTgyaXKhm9lK
+      context_sha256: 2b6be2328d086c7744ca77c6a0f7ff2b469e1ed75d896705c16207570fd626d1
+  - content_id: 90000000-0000-4000-8000-000000000000
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: What would you measure before changing a search system?
+    points: 0

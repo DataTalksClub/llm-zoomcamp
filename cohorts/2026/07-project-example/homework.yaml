@@ -1,0 +1,35 @@
+schema_version: 1
+content_id: 97777777-7777-4777-8777-777777777777
+slug: homework-07
+title: "Homework 7: End-to-End Project Example"
+instructions_path: homework.md
+due_at: 2026-10-12T21:59:00Z
+initial_state: open
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 98888888-8888-4888-8888-888888888888
+    id: optional-module
+    type: free_form
+    answer_type: exact_string
+    prompt: Is this module optional?
+    points: 1
+    answer:
+      version: 1
+      algorithm: A256GCM
+      kdf: HKDF-SHA256
+      key_id: hw-answer-llm-2026-1
+      salt: xq3PGz6E1fOzSv05oGD-lT7Zu9eKN_Bx1N3V-3l2mqs
+      nonce: U9KWPaSIlo0XntF0
+      ciphertext: 8Oeg-TOMZE4DFTId4wqWQRgldzrn_CYw8bLulf14vg
+      context_sha256: 22f60f090f901860fbb541d377b8ba3a8aa60cea3267c56fc1e4fb2034cc5c7e
+  - content_id: 99999999-9999-4999-8999-999999999999
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: What would you improve first in the example project?
+    points: 0

@@ -1,0 +1,35 @@
+schema_version: 1
+content_id: 88888888-8888-4888-8888-888888888888
+slug: homework-02
+title: "Homework 2: Vector Search"
+instructions_path: homework.md
+due_at: 2026-09-07T21:59:00Z
+initial_state: open
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 89999999-9999-4999-8999-999999999999
+    id: lesson-count
+    type: free_form
+    answer_type: integer
+    prompt: How many lesson pages are used as the shared dataset?
+    points: 1
+    answer:
+      version: 1
+      algorithm: A256GCM
+      kdf: HKDF-SHA256
+      key_id: hw-answer-llm-2026-1
+      salt: Vq4RjP2PIn2ggddW6mk_BegHzv01WMLEq9Thf_6amL4
+      nonce: lIz6GASbaqIG31ZP
+      ciphertext: 3Iq5P6rK-d6OI-m7cTSx46JO1eqEI34HOs3JHLjW
+      context_sha256: a5538f7983b67b3e2657f9babb46cd9a7c4a815c7714b7dd1514cec987f3abdb
+  - content_id: 8aaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: Which search approach would you use first and why?
+    points: 0

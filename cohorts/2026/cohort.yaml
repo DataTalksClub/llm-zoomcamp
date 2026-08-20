@@ -1,0 +1,34 @@
+schema_version: 1
+content_id: 88444444-4444-4444-8444-444444444444
+course: llm-zoomcamp
+identifier: "2026"
+legacy_slug: llm-zoomcamp-2026
+year: 2026
+title: LLM Zoomcamp 2026
+description: The 2026 live delivery of LLM Zoomcamp.
+format: modules
+published: true
+start_date: 2026-06-08
+end_date: 2026-10-12
+flow:
+  - module:
+      source: 01-agentic-rag/module.yaml
+      homework: cohorts/2026/01-agentic-rag/homework.yaml
+  - module:
+      source: 02-vector-search/module.yaml
+      homework: cohorts/2026/02-vector-search/homework.yaml
+  - module:
+      source: 03-orchestration/module.yaml
+      homework: cohorts/2026/03-orchestration/homework.yaml
+  - module:
+      source: 04-evaluation/module.yaml
+      homework: cohorts/2026/04-evaluation/homework.yaml
+  - module:
+      source: 05-monitoring/module.yaml
+      homework: cohorts/2026/05-monitoring/homework.yaml
+  - module:
+      source: 06-best-practices/module.yaml
+      homework: cohorts/2026/06-best-practices/homework.yaml
+  - module:
+      source: 07-project-example/module.yaml
+      homework: cohorts/2026/07-project-example/homework.yaml

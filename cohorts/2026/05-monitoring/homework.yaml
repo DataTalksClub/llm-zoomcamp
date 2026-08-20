@@ -1,0 +1,35 @@
+schema_version: 1
+content_id: 91111111-1111-4111-8111-111111111111
+slug: homework-05
+title: "Homework 5: Monitoring"
+instructions_path: homework.md
+due_at: 2026-09-28T21:59:00Z
+initial_state: open
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 92222222-2222-4222-8222-222222222222
+    id: lesson-count
+    type: free_form
+    answer_type: integer
+    prompt: How many lesson pages are loaded by the monitoring homework?
+    points: 1
+    answer:
+      version: 1
+      algorithm: A256GCM
+      kdf: HKDF-SHA256
+      key_id: hw-answer-llm-2026-1
+      salt: UzLm1NekaPqpkzEQGgdm445iT2nmLqOrWv_i4tcpHSk
+      nonce: su_CvIXY9ntbNcdX
+      ciphertext: WYKu_3inVXWin8_KR-wd5DwQ9KdseuT8vQSqiPQZ
+      context_sha256: 099cc470911788de9c16eb57b904997dbc82428be4b9b48cfc5567cfd42710a0
+  - content_id: 93333333-3333-4333-8333-333333333333
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: Which signal would you monitor first in production?
+    points: 0

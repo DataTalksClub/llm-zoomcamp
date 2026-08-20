@@ -1,0 +1,43 @@
+schema_version: 1
+content_id: 85555555-5555-4555-8555-555555555555
+slug: homework-01
+title: "Homework 1: Agentic RAG"
+instructions_path: homework.md
+due_at: 2026-08-31T21:59:00Z
+initial_state: open
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 86666666-6666-4666-8666-666666666666
+    id: lesson-page-count
+    type: multiple_choice
+    prompt: How many lesson pages are in the dataset?
+    options:
+      - id: pages-24
+        label: "24"
+      - id: pages-72
+        label: "72"
+      - id: pages-240
+        label: "240"
+      - id: pages-720
+        label: "720"
+    points: 1
+    answer:
+      version: 1
+      algorithm: A256GCM
+      kdf: HKDF-SHA256
+      key_id: hw-answer-llm-2026-1
+      salt: yL4vrxn4c457eQ_SwtoMUZjEaLHWke23fgJDwxUiymA
+      nonce: 4Ddz26UM0m7IeTta
+      ciphertext: wJNOKH3TspekPeIQg1Jg60GEwrWTI8TqxJUaH6DX5j6SLapTjvQ2mWsXDg
+      context_sha256: 80f3a0055f95dab3d14332221fac8e133116156789bb2ec363d9eab266c4b9d5
+  - content_id: 87777777-7777-4777-8777-777777777777
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: What did you learn from this module?
+    points: 0

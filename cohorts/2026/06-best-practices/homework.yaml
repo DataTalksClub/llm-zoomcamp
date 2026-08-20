@@ -1,0 +1,35 @@
+schema_version: 1
+content_id: 94444444-4444-4444-8444-444444444444
+slug: homework-06
+title: "Homework 6: Best Practices"
+instructions_path: homework.md
+due_at: 2026-10-05T21:59:00Z
+initial_state: open
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 95555555-5555-4555-8555-555555555555
+    id: optional-module
+    type: free_form
+    answer_type: exact_string
+    prompt: Is this module optional?
+    points: 1
+    answer:
+      version: 1
+      algorithm: A256GCM
+      kdf: HKDF-SHA256
+      key_id: hw-answer-llm-2026-1
+      salt: yZNSZK_LWxNM3ZXM5_1iYphsJm9nnci8kYlxiLQQIzE
+      nonce: vv-OMNW6yumcel18
+      ciphertext: ZpIL_vGSqejF5gHtLL6DIFTHbN1KHHgj5cii0xzSRg
+      context_sha256: 4ff73bcea183c33f78a5e2d24390ea5827e6f670bb6a89830cb8588d387ea73e
+  - content_id: 96666666-6666-4666-8666-666666666666
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: Which retrieval technique would you try first?
+    points: 0

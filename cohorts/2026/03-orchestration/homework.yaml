@@ -1,0 +1,43 @@
+schema_version: 1
+content_id: 8bbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb
+slug: homework-03
+title: "Homework 3: AI Orchestration"
+instructions_path: homework.md
+due_at: 2026-09-14T21:59:00Z
+initial_state: open
+form:
+  homework_url: true
+  time_spent_lectures: true
+  time_spent_homework: true
+  faq_contribution: true
+  learning_in_public_cap: 7
+questions:
+  - content_id: 8ccccccc-cccc-4ccc-8ccc-cccccccccccc
+    id: kestra-docs
+    type: multiple_choice
+    prompt: Why can an AI Copilot generate better Kestra flows?
+    options:
+      - id: stronger-model
+        label: It uses a more powerful model
+      - id: kestra-docs
+        label: It has access to current Kestra plugin documentation
+      - id: more-tokens
+        label: It uses more tokens
+      - id: internet-access
+        label: It has internet access
+    points: 1
+    answer:
+      version: 1
+      algorithm: A256GCM
+      kdf: HKDF-SHA256
+      key_id: hw-answer-llm-2026-1
+      salt: 5jWGmxqqSjDOyY_kFyKt7SIYiWWetVrOBFCT9DdP_60
+      nonce: 4iRkLXeltE6tFoQO
+      ciphertext: fX66n5gDDq-HlJeqkXgOeUPZXFow2T09HtH-uBCgz7mOlDyLGLFJtsWLx3StVA
+      context_sha256: b67f4bee879eaadffebbad68d67c56ec8dd8d57ddc956927b46ab471726ebf82
+  - content_id: 8ddddddd-dddd-4ddd-8ddd-dddddddddddd
+    id: reflection
+    type: free_form_long
+    answer_type: any
+    prompt: Which workflow would you automate first?
+    points: 0
