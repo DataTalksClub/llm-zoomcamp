@@ -7,7 +7,7 @@
 
 <p>Learn Retrieval-Augmented Generation, vector search, embeddings, AI agents, function calling, evaluation, monitoring, hybrid search, reranking, and more - all in a free, open-source, hands-on course by <a href="https://datatalks.club/">DataTalks.Club</a>.</p>
 
-<a href="https://airtable.com/appPPxkgYLH06Mvbw/shr7WtxHEPXxaui0Q"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
+<a href="https://courses.datatalks.club/register/llm-zoomcamp/"><img src="https://user-images.githubusercontent.com/875246/185755203-17945fd1-6b64-46f2-8377-1011dcb1a444.png" height="50" /></a>
 
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](CONTRIBUTING.md)
@@ -60,14 +60,14 @@ There are two ways to follow the course: live and self-paced.
 
 | | Live Cohort | Self-Paced |
 |-|-|-|
-| Start | June 8, 2026, 17:00 CET | Anytime |
+| Start | See [cohort schedule](https://courses.datatalks.club/llm-zoomcamp-2026) | Anytime |
 | Lectures | Pre-recorded | Pre-recorded |
 | Homework | Graded | Available but not scored |
 | Leaderboard | ✅ Yes | ❌ No |
 | Peer Review | ✅ Yes | ❌ No |
 | Certificate | ✅ Yes | ❌ No |
 | Cost | Free | Free |
-| Register | [Sign up here](https://airtable.com/appPPxkgYLH06Mvbw/shr7WtxHEPXxaui0Q) | Just start learning! |
+| Register | [Sign up here](https://courses.datatalks.club/register/llm-zoomcamp/) | Just start learning! |
 
 > [!IMPORTANT]
 > "Live cohort" does not mean live classes. All lectures are pre-recorded. "Live" means working with others, having deadlines, getting your homework and project scored, review your peers, and getting a certificate at the end.
