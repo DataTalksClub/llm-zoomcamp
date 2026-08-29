@@ -143,8 +143,8 @@ from rag_helper import RAGBase
 from openai import OpenAI
 from dotenv import load_dotenv
 
-openai_client = OpenAI()
 load_dotenv()
+openai_client = OpenAI()
 
 assistant = RAGBase(
     index=sqlite_index,
