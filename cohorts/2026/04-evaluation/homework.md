@@ -72,8 +72,8 @@ Download `evaluation_utils.py` and the `rag_helper.py` it depends on:
 
 ```bash
 PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
-wget ${PREFIX}/01-agentic-rag/code/rag_helper.py
-wget ${PREFIX}/04-evaluation/code/evaluation_utils.py
+wget ${PREFIX}/cohorts/2026/01-agentic-rag/code/rag_helper.py
+wget ${PREFIX}/cohorts/2026/04-evaluation/code/evaluation_utils.py
 ```
 
 The module's instructions generate questions from a FAQ record, so we adapt

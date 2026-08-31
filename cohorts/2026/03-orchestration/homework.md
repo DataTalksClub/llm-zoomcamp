@@ -8,9 +8,9 @@ ATTENTION: At the end of the submission form, you will be required to include a 
 
 Before starting this homework, ensure you have:
 
-1. Completed the [Module 3 lessons](../../../03-orchestration/README.md) — the questions reference flows and concepts covered there
-2. Kestra running locally with API keys configured (see the [Setup](../../../03-orchestration/lessons/03-setup.md) lesson) -- this includes the Gemini API key, which is also required for the AI Copilot
-3. Imported all flows from the `03-orchestration/flows/` directory (covered in the Setup lesson)
+1. Completed the [Module 3 lessons](README.md) — the questions reference flows and concepts covered there
+2. Kestra running locally with API keys configured (see the [Setup](lessons/03-setup.md) lesson) -- this includes the Gemini API key, which is also required for the AI Copilot
+3. Imported all flows from the `flows/` directory (covered in the Setup lesson)
 
 ## Question 1: Context Engineering
 

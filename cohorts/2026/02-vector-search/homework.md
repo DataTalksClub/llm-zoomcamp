@@ -25,7 +25,7 @@ skimmed through it in the lesson and said we'd cover it in the homework -
 so here we are.
 
 We prepare the environment the same way as in the module's
-[ONNX Runtime](../../../02-vector-search/lessons/09-onnx-embedder.md)
+[ONNX Runtime](lessons/09-onnx-embedder.md)
 lesson.
 
 Create a fresh project and install the dependencies:
@@ -40,14 +40,14 @@ uv add --dev huggingface-hub jupyter
 We also need two helper scripts from the `embed/` directory of the course
 repo:
 
-- [`download.py`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/02-vector-search/embed/download.py)
+- [`download.py`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/cohorts/2026/02-vector-search/embed/download.py)
 (fetches an ONNX model from HuggingFace) and
-- [`embedder.py`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/02-vector-search/embed/embedder.py) (the `Embedder` class with an `encode` interface)
+- [`embedder.py`](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/cohorts/2026/02-vector-search/embed/embedder.py) (the `Embedder` class with an `encode` interface)
 
 Let's download them:
 
 ```bash
-PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/02-vector-search/embed
+PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2026/02-vector-search/embed
 wget $PREFIX/download.py
 wget $PREFIX/embedder.py
 ```
@@ -262,7 +262,7 @@ The right choice depends on your data, and the way to decide is to
 measure.
 
 We cover how to evaluate and compare search approaches in the
-[evaluation module](../../../04-evaluation/lessons/04-search-evaluation.md),
+[evaluation module](../04-evaluation/lessons/04-search-evaluation.md),
 and you'll do exactly that in the [evaluation homework](../04-evaluation/homework.md).
 
 ## Learning in Public

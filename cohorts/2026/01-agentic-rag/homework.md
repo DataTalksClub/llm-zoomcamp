@@ -6,11 +6,11 @@ agentic - the same path as the module.
 Instead of the course FAQ, our knowledge base is the course lessons
 themselves.
 
-The course repository is organized by module. Each module is a top-level
-folder with a `lessons/` subfolder of numbered markdown pages:
+The course repository is organized by cohort and module. Each module folder
+under `cohorts/2026/` contains a `lessons/` subfolder of numbered markdown pages:
 
 ```
-01-agentic-rag/
+cohorts/2026/01-agentic-rag/
 └── lessons/
     ├── 01-intro.md
     ├── 02-environment.md
@@ -39,7 +39,7 @@ RAG system.
 ## Setup
 
 Prepare your environment the same way as in the module's
-[Environment](../../../01-agentic-rag/lessons/02-environment.md) lesson.
+[Environment](lessons/02-environment.md) lesson.
 
 This homework needs one extra library: `gitsource`, which downloads files
 from a GitHub repository.
@@ -110,10 +110,10 @@ Index the documents with minsearch - make `content` a text field and
 
 What's the `filename` of the first result?
 
-* `01-agentic-rag/lessons/03-rag.md`
-* `01-agentic-rag/lessons/14-agentic-loop.md`
-* `04-evaluation/lessons/13-llm-as-judge.md`
-* `06-best-practices/lessons/02-hybrid-search.md`
+* `cohorts/2026/01-agentic-rag/lessons/03-rag.md`
+* `cohorts/2026/01-agentic-rag/lessons/14-agentic-loop.md`
+* `cohorts/2026/04-evaluation/lessons/13-llm-as-judge.md`
+* `cohorts/2026/06-best-practices/lessons/02-hybrid-search.md`
 
 ## Q3. RAG
 
@@ -121,7 +121,7 @@ Now we will build a RAG assistant on top of this data. Let's use the rag helper
 script we prepared during the lessons:
 
 ```bash
-wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/01-agentic-rag/code/rag_helper.py
+wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2026/01-agentic-rag/code/rag_helper.py
 ```
 
 `RAGBase` was written for the FAQ schema (`section`/`question`/`answer`),

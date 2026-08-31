@@ -80,17 +80,17 @@ Self-paced steps:
 
 ## Syllabus
 
-### [Module 1: Agentic RAG](01-agentic-rag/)
+### [Module 1: Agentic RAG](cohorts/2026/01-agentic-rag/)
 
 - Build a RAG pipeline with keyword search
 - Make it agentic with function calling
 
-### [Module 2: Vector Search](02-vector-search/)
+### [Module 2: Vector Search](cohorts/2026/02-vector-search/)
 
 - Semantic search with embeddings
 - minsearch, sqlitesearch, and PGVector
 
-### [Module 3: Orchestration](03-orchestration/)
+### [Module 3: Orchestration](cohorts/2026/03-orchestration/)
 
 - AI orchestration with Kestra
 
@@ -100,23 +100,23 @@ Self-paced steps:
 - Filesystem and REST API sources, DuckDB, and marimo dashboards
 
 
-### [Module 4: Evaluation](04-evaluation/)
+### [Module 4: Evaluation](cohorts/2026/04-evaluation/)
 
 - Measure retrieval and answer quality
 - Offline and online evaluation
 
-### [Module 5: Monitoring](05-monitoring/)
+### [Module 5: Monitoring](cohorts/2026/05-monitoring/)
 
 - Monitor user feedback and system health
 - Live dashboards
 
-### [Module 6: Best Practices](06-best-practices/)
+### [Module 6: Best Practices](cohorts/2026/06-best-practices/)
 
 - LangChain
 - Hybrid search: combine vector and keyword search
 - Rerank results for higher precision
 
-### [Module 7: End-to-End Project](07-project-example/)
+### [Module 7: End-to-End Project](cohorts/2026/07-project-example/)
 
 - A complete project example: a fitness assistant built with LLMs
 
