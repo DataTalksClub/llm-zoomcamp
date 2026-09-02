@@ -2,7 +2,7 @@ schema_version: 1
 content_id: 7736c1e6-5d66-4286-8180-b1eef3f83a84
 slug: llm-zoomcamp
 title: LLM Zoomcamp
-description_path: README.md
+description_path: SITE.md
 outcome: Build, evaluate, and monitor production-style LLM applications.
 repository_url: https://github.com/DataTalksClub/llm-zoomcamp
 docs_url: https://datatalks.club/docs/courses/llm-zoomcamp/
