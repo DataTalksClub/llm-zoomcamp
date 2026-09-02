@@ -80,5 +80,3 @@ X = np.array(vectors)
 ```
 
 Calling `X.shape` returns (1208, 384) - number of documents vs number of dimensions.
-
-[← Embeddings](02-embeddings.md) | [Vector Search →](04-vector-search.md)

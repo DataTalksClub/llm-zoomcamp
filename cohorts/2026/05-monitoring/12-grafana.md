@@ -218,5 +218,3 @@ move as you go.
 
 This dashboard gives you a clear view of how the system is doing. Response
 speed, cost, relevance, and user ratings are all in one place.
-
-[← Synthetic Data](11-synthetic-data.md) | [Docker Compose →](13-docker-compose.md)

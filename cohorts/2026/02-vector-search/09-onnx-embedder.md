@@ -210,5 +210,3 @@ Since the runtime only depends on `onnxruntime`, `tokenizers`, and
 - small Docker images
 - serverless functions
 - edge devices
-
-[← Vector Search with PGVector](08-pgvector.md) | [Next Steps →](10-next-steps.md)

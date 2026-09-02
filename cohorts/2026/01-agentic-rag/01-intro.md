@@ -82,5 +82,3 @@ what to search, instead of running the same fixed flow every time.
 
 The final code from this module is available in the
 [code/](code/) directory.
-
-[← Back to module](./) | [Environment →](02-environment.md)

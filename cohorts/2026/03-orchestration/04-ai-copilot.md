@@ -61,5 +61,3 @@ Then you make the final tweaks manually - adjusting the SQL query, setting your 
 ## Alternative: Agent Skills
 
 If you're using an AI coding assistant (such as Claude or Cursor), Kestra's [agent-skills](https://github.com/kestra-io/agent-skills) repository gives your AI assistant the same grounding that AI Copilot has inside the UI — current plugin documentation, valid property names, and best practices. This means you can generate reliable, correct Kestra flows directly from your editor without switching to the Kestra UI.
-
-[← Setting up Kestra](03-setup.md) | [RAG →](05-rag.md)

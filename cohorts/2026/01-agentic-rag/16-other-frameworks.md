@@ -105,5 +105,3 @@ Try the simpler approach first, and if it works, ship it. Reach for
 the agent loop only when you've tried the simpler solution and it
 genuinely can't handle the problem. By then you'll know the extra
 complexity is worth it, and you'll be ready to take it on.
-
-[← ToyAIKit](15-frameworks.md) | [Back to module →](./)

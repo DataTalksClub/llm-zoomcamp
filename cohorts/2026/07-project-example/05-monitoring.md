@@ -1,8 +1,7 @@
+---
+video_url: "https://www.youtube.com/watch?v=nQda9etJWW8&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R"
+---
 # Monitoring and Containerization
-
-<a href="https://www.youtube.com/watch?v=nQda9etJWW8&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/nQda9etJWW8">
-</a>
 
 We take the same monitoring approach from module 05 and apply it
 to our fitness assistant. Then we containerize everything with
@@ -389,5 +388,3 @@ PostgreSQL data source and loads a dashboard JSON file.
 
 The final project includes an automated `init.py` script for
 this in the `grafana/` directory.
-
-[← Interface and Ingestion Pipeline](04-interface.md) | [Summary and Closing Remarks →](06-summary.md)

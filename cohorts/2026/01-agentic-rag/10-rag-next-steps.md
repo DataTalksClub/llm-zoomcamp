@@ -48,7 +48,7 @@ scale. If you're building a real RAG system, Elasticsearch (or
 OpenSearch) is a common choice for the search backend.
 
 For an Elasticsearch tutorial, see the
-[supplementary materials for Module 1](../../2025/01-intro/elastic-search.md).
+[supplementary materials for Module 1](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/cohorts/2025/01-intro/elastic-search.md).
 
 ## Fine-tuning vs RAG
 
@@ -82,5 +82,3 @@ Try these next steps:
 - Experiment with different LLM models (GPT-4o, Claude, Gemini, local
   models via Ollama)
 - Try Elasticsearch as a search backend
-
-[← Data Ingestion](09-data-ingestion.md) | [Agents →](11-agents-intro.md)

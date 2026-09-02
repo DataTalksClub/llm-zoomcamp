@@ -52,5 +52,3 @@ In Part 2 of this module, we'll cover:
 We build on top of the RAG pipeline from Part 1, which used keyword
 search with minsearch. If you skipped Part 1, the next lesson does a
 quick revision and walks you through downloading the helpers.
-
-[← Back to module](./) | [Quick RAG Revision →](12-rag-revision.md)

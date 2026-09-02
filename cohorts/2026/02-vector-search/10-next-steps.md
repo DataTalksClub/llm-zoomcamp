@@ -76,5 +76,3 @@ Try these next steps:
   Weaviate, Chroma, or any other. The concepts are the same:
   embed documents, store vectors, search by similarity
 - Evaluate your search results (covered in a later module)
-
-[← Using ONNX Runtime](09-onnx-embedder.md) | [Back to module →](./)

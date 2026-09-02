@@ -114,5 +114,3 @@ projects, expect to spend real time on data preparation before you get
 to this point.
 
 In the next section, we'll build the search index.
-
-[← What is RAG](03-rag.md) | [Search →](05-search.md)

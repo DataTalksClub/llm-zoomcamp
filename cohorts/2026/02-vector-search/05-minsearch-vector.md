@@ -87,5 +87,3 @@ results = vindex.search(
 ```
 
 Now that we can run vector search, let's use it in RAG.
-
-[← Vector Search](04-vector-search.md) | [RAG with Vector Search →](06-rag-vector.md)

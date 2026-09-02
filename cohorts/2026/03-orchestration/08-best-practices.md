@@ -81,5 +81,3 @@ Before deploying AI workflows to production:
 2. Add fallbacks — handle API failures with retries and configure alerts on failure
 3. Set limits — cap `maxOutputTokens` to control costs
 4. Document behavior — explain what the agent does in your flow and task descriptions
-
-[← Multi-Agent Systems](07-multi-agent.md) | [Next Steps →](09-next-steps.md)

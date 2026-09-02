@@ -241,5 +241,3 @@ assistant.rag("Can I still join the course after it started?")
 We'll use these two files throughout the course. In the next lesson,
 we'll see how to add sqlitesearch support to `ingest.py` for a
 persistent search index.
-
-[← The LLM](07-llm.md) | [Data Ingestion →](09-data-ingestion.md)

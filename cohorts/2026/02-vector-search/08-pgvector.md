@@ -318,5 +318,3 @@ Reach for PGVector when you need production features:
 - concurrent reads and writes
 - transactions
 - integration with an existing Postgres-based application
-
-[← Vector Search with sqlitesearch](07-sqlitesearch-vector.md) | [Using ONNX Runtime →](09-onnx-embedder.md)

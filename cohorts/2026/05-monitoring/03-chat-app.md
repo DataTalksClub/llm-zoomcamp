@@ -64,5 +64,3 @@ do I join the course?" and the answer comes back.
 The RAG works, but right now we track nothing about it: no response
 time, no token usage, no cost. That's exactly the visibility monitoring
 is supposed to give us, so that's what we add next.
-
-[← Assistant](02-assistant-setup.md) | [Capturing Metrics →](04-metrics.md)

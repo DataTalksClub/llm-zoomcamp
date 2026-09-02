@@ -44,5 +44,3 @@ Complete the hands-on assignment to test your understanding of AI
 Copilot, RAG workflows, and agents in Kestra.
 
 See: [Module 3 Homework](homework.md)
-
-[← Best Practices](08-best-practices.md) | [Back to module →](./)

@@ -191,5 +191,3 @@ To learn more:
 - [Reciprocal Rank Fusion - Elasticsearch Guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/rrf.html)
 - [RRF method - Original Paper](https://plg.uwaterloo.ca/~gvcormac/cormacksigir09-rrf.pdf)
 - [Elasticsearch subscription plans](https://www.elastic.co/subscriptions)
-
-[← Hybrid Search](02-hybrid-search.md) | [Hybrid Search with LangChain →](04-langchain.md)

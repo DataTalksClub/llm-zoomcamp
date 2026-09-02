@@ -84,5 +84,3 @@ Rank). For RAG quality, we'll use LLM-as-a-judge. For agents, we'll
 look at the final answer and the tool-call trajectory.
 
 Let's start with generating the test data we need.
-
-[← Back to module](./) | [Generating Ground Truth Data →](02-ground-truth.md)

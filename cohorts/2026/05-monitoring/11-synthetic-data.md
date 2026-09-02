@@ -136,5 +136,3 @@ uv run python generate_data.py
 The script keeps generating live data every second. We'll use this data
 in Grafana in the next lesson. The dashboard will come alive with charts
 updating in real time.
-
-[← Feedback Dashboard](10-feedback-dashboard.md) | [Grafana →](12-grafana.md)

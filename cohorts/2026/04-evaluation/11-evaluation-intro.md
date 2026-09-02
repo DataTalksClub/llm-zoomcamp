@@ -51,5 +51,3 @@ produces better classifications than asking for just the verdict.
 
 Next, we'll start with the RAG case and generate answers for the ground
 truth questions.
-
-[← Search Parameter Tuning](06-search-tuning.md) | [Generating RAG Answers →](12-rag-answers.md)

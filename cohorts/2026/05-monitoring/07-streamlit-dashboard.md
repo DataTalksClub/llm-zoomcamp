@@ -131,5 +131,3 @@ We didn't even use a table for the conversations - plain text is enough
 to make the point. This simple dashboard already gives us real
 visibility into the system. Later we set up Grafana for a more powerful
 view, with alerting and richer panels.
-
-[← Querying Data](06-querying.md) | [User Feedback →](08-user-feedback.md)

@@ -236,5 +236,3 @@ This approach is modular. You can swap the search backend, the prompt
 template, or the LLM model. Nothing else needs to change. Later when
 we replace minsearch with sqlitesearch, only the `search` function
 changes.
-
-[← Building the Prompt](06-building-prompt.md) | [RAG Helper →](08-rag-helper.md)

@@ -271,5 +271,3 @@ more on the second call, because we resend the full history as input.
 
 With a real agent loop the model can make many calls, so the costs add
 up. Keep an eye on `usage` while you develop.
-
-[← Quick RAG Revision](12-rag-revision.md) | [The Agentic Loop →](14-agentic-loop.md)

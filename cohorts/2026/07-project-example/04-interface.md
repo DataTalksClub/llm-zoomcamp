@@ -1,8 +1,7 @@
+---
+video_url: "https://www.youtube.com/watch?v=vMHve2EyA5M&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R"
+---
 # Interface and Ingestion Pipeline
-
-<a href="https://www.youtube.com/watch?v=vMHve2EyA5M&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/vMHve2EyA5M">
-</a>
 
 So far we've been working in notebooks. Now we turn the notebook
 into a proper application with an ingestion pipeline and a web API.
@@ -226,5 +225,3 @@ Update the README with instructions for:
 - Example API calls
 
 A good README makes it easy for anyone to run your project.
-
-[← Evaluating RAG](03-evaluating-rag.md) | [Monitoring and Containerization →](05-monitoring.md)

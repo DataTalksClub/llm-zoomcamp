@@ -109,5 +109,3 @@ Use static RAG when you control the source material. Use web search RAG when the
 2. Chunk appropriately: break large documents into meaningful sections before ingesting
 3. Test retrieval quality: verify the right documents are being retrieved for your queries
 4. Choose the right retriever: static RAG for controlled knowledge bases, web search for live data
-
-[← AI Copilot](04-ai-copilot.md) | [AI Agents →](06-agents.md)

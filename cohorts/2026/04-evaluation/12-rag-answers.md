@@ -230,5 +230,3 @@ wget -O data/rag-answers-new.csv ${PREFIX}/cohorts/2026/04-evaluation/data/rag-a
 ```
 
 In the next lesson, we'll evaluate these answers with an LLM judge.
-
-[← RAG and Agent Evaluation](11-evaluation-intro.md) | [LLM as a Judge →](13-llm-as-judge.md)

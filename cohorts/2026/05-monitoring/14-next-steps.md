@@ -84,6 +84,4 @@ We only covered RAG, so pick one of these to take it further:
 
 The 2024 cohort used Elasticsearch instead of minsearch and ran Ollama
 for local models. If that setup is useful to you, see the
-[2024 monitoring module](../../2024/04-monitoring/).
-
-[← Docker Compose](13-docker-compose.md) | [Back to module →](./)
+[2024 monitoring module](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2024/04-monitoring).

@@ -193,5 +193,3 @@ A few things to keep in mind for anything beyond a demo:
   the cost.
 
 Here we run it inline on every call to keep the code simple.
-
-[← User Feedback](08-user-feedback.md) | [Feedback Dashboard →](10-feedback-dashboard.md)

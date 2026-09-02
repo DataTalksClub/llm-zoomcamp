@@ -500,5 +500,3 @@ PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
 
 wget -O data/agent-evaluations.csv ${PREFIX}/cohorts/2026/04-evaluation/data/agent-evaluations.csv
 ```
-
-[← LLM as a Judge](13-llm-as-judge.md) | [Next Steps →](15-next-steps.md)

@@ -1,4 +1,4 @@
-## Homework: Evaluation
+# Homework 4: Evaluation
 
 In homework 2 we built keyword, vector, and hybrid search over the course
 lessons, and ended with an open question: which one is best? The way to answer

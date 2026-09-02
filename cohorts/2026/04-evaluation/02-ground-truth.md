@@ -268,5 +268,3 @@ the document with this ID.
 We now know how to generate and store questions for one document. In
 the next lesson, we'll run this for all LLM Zoomcamp FAQ documents and
 save the full ground truth dataset.
-
-[← Evaluation](01-intro.md) | [Generating Ground Truth for All Documents →](03-ground-truth-batch.md)

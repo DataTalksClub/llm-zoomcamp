@@ -1,4 +1,4 @@
-## Homework: Monitoring
+# Homework 5: Monitoring
 
 In module 5 we learned how to monitor our RAG system: capture metrics
 from each LLM call, store them in a database, and visualize them on a

@@ -1,8 +1,7 @@
+---
+video_url: "https://www.youtube.com/watch?v=6ulnHtJPCWY&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R"
+---
 # Evaluating Retrieval
-
-<a href="https://www.youtube.com/watch?v=6ulnHtJPCWY&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/6ulnHtJPCWY">
-</a>
 
 Now that we have a dataset and a basic RAG flow, we need to
 evaluate how well the retrieval works. We use the same approach
@@ -222,5 +221,3 @@ evaluate(gt_test, lambda q: search(q["question"]))
 
 The optimized boost values should give significantly better Hit
 Rate and MRR than the default search.
-
-[← End-to-End Project Example](01-intro.md) | [Evaluating RAG →](03-evaluating-rag.md)

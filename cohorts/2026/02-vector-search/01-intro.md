@@ -103,5 +103,3 @@ uv add requests minsearch openai jupyter python-dotenv
 You also need a `.env` file with your API key. See the
 [module 1 environment setup](../01-agentic-rag/02-environment.md)
 for details.
-
-[← Back to module](./) | [Embeddings →](02-embeddings.md)

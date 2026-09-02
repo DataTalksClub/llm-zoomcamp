@@ -311,5 +311,3 @@ That's a separate topic, but instructions are the first place to start.
 This handwritten loop is the best way to understand what frameworks
 hide from you. Every agent framework wraps this same pattern, whether
 it's LangChain, PydanticAI, or the OpenAI Agents SDK.
-
-[← Function Calling](13-function-calling.md) | [ToyAIKit →](15-frameworks.md)

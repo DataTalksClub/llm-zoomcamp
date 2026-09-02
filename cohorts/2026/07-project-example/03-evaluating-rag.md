@@ -1,8 +1,7 @@
+---
+video_url: "https://www.youtube.com/watch?v=lxpW2mR7dGk&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R"
+---
 # Evaluating RAG
-
-<a href="https://www.youtube.com/watch?v=lxpW2mR7dGk&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/lxpW2mR7dGk">
-</a>
 
 Retrieval evaluation tells us if we're finding the right documents.
 RAG evaluation tells us if the generated answers are actually good.
@@ -123,5 +122,3 @@ df_eval.to_csv("data/rag-eval-gpt-4o.csv", index=False)
 This gives you a concrete way to decide if a more expensive model
 is worth the cost. Typically, the cheaper model gives similar
 results for most questions.
-
-[← Evaluating Retrieval](02-evaluating-retrieval.md) | [Interface and Ingestion Pipeline →](04-interface.md)

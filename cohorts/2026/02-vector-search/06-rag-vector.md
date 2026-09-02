@@ -131,5 +131,3 @@ The answers should be close to what we got with keyword search, but
 vector search handles rephrased questions better. The swap was trivial
 because RAG has three clear steps. The same trick lets us change the LLM
 provider later by overriding just the `llm` step.
-
-[← Vector Search with minsearch](05-minsearch-vector.md) | [Vector Search with sqlitesearch →](07-sqlitesearch-vector.md)

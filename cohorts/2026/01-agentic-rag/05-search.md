@@ -224,5 +224,3 @@ different course slug to search other courses:
 ```python
 search_results = search(question)
 ```
-
-[← The Course FAQ Dataset](04-dataset.md) | [Building the Prompt →](06-building-prompt.md)

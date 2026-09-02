@@ -91,5 +91,3 @@ pipeline doesn't know the search failed, so it can't try again with a
 corrected query.
 
 We need something smarter. We need an agent.
-
-[← Agents (Part 2 intro)](11-agents-intro.md) | [Function Calling →](13-function-calling.md)

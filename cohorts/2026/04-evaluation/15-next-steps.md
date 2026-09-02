@@ -78,8 +78,6 @@ See also:
 
 - Cohorts and materials:
   - 2024 cohort evaluation module (uses Elasticsearch):
-    [2024/04-monitoring](../../2024/04-monitoring/)
+    [2024/04-monitoring](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2024/04-monitoring)
   - 2025 cohort evaluation module:
-    [2025/03-evaluation](../../2025/03-evaluation/)
-
-[← Agent Evaluation](14-agent-evaluation.md) | [Back to module →](./)
+    [2025/03-evaluation](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025/03-evaluation)

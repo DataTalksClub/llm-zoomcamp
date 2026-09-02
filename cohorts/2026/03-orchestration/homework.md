@@ -1,4 +1,4 @@
-## Homework: AI Orchestration with Kestra
+# Homework 3: AI Orchestration
 
 ATTENTION: At the end of the submission form, you will be required to include a link to your GitHub repository or other public code-hosting site. This repository should contain your code for solving the homework. If your solution includes code that is not in file format, please include these directly in the README file of your repository.
 

@@ -126,5 +126,3 @@ Prompt engineering is part art, part science. You experiment, try
 different things, and see what works. Later in the course we cover
 evaluation metrics so you can measure how well your prompt performs
 instead of guessing. For now, this template is a good starting point.
-
-[← Search](05-search.md) | [The LLM →](07-llm.md)

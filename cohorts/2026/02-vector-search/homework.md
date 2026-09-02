@@ -1,4 +1,4 @@
-## Homework: Vector Search
+# Homework 2: Vector Search
 
 In this homework, we put what we learned in Module 2 into practice.
 

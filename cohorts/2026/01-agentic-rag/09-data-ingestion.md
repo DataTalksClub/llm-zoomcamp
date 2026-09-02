@@ -287,5 +287,3 @@ sqlite_index.close()
 ```
 
 Or just let Python clean it up when the notebook kernel shuts down.
-
-[← RAG Helper](08-rag-helper.md) | [Wrap-up of Part 1 →](10-rag-next-steps.md)

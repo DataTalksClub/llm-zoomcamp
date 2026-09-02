@@ -201,5 +201,3 @@ wget -O data/ground_truth-new.csv ${PREFIX}/cohorts/2026/04-evaluation/data/grou
 Now we have questions with known correct documents. In the next lesson,
 we'll run search for these questions and check whether the correct
 documents appear in the results.
-
-[← Generating Ground Truth Data](02-ground-truth.md) | [Search Evaluation →](04-search-evaluation.md)

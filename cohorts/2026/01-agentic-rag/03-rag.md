@@ -194,5 +194,3 @@ of minsearch, you swap the search call. Nothing else changes.
 
 In the next section, we'll look at the dataset we'll use for our FAQ
 knowledge base.
-
-[← Environment](02-environment.md) | [The Course FAQ Dataset →](04-dataset.md)

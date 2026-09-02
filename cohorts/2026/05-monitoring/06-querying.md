@@ -95,5 +95,3 @@ uv run python db_query.py
 The output is a wall of text, not something you'd want to read all day.
 Still, it proves we can pull the data back out of the database. Now we
 put it in front of a dashboard.
-
-[← Storing Data in PostgreSQL](05-database.md) | [Streamlit Dashboard →](07-streamlit-dashboard.md)

@@ -128,5 +128,3 @@ tasks:
       logRequests: true
       logResponses: true
 ```
-
-[← RAG](05-rag.md) | [Multi-Agent Systems →](07-multi-agent.md)

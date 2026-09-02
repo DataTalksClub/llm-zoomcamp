@@ -78,5 +78,3 @@ The dashboard now shows quality alongside cost and speed. The catch is
 that with only a few real conversations, the charts look empty. Before
 we move to Grafana, let's fill the database with some data so there's
 actually something to look at.
-
-[← Built-in Judge](09-built-in-judge.md) | [Synthetic Data →](11-synthetic-data.md)
