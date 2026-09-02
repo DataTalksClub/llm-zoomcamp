@@ -1,17 +1,57 @@
-# Course repository layout
+# Cohorts
 
-Shared lesson content lives in the top-level module directories. Each module keeps its
-`module.yaml`, ordered Unit Markdown, and module overview material. A module directory must not
-contain a copy of a cohort's Homework.
+Each `cohorts/<year>/` directory is one delivery of the course. The directory
+name is the cohort identifier the course platform publishes.
 
-Each `cohorts/<identifier>/` directory owns the delivery-specific composition and assessment
-content:
+**2026 is the current cohort. Edit there.**
 
-- `cohort.yaml` selects the legacy or module-based presentation and orders the flow;
-- `homework.yaml` defines the Homework form and Questions;
-- the adjacent `homework.md` contains the Homework instructions;
-- other files are cohort-only supporting material and are not shared Units unless explicitly
-  referenced by the source contract.
+## Layout
 
-The same top-level module may be referenced by more than one Cohort. The platform projects the
-shared Unit source into each Cohort without duplicating the Markdown in this repository.
+```
+cohorts/
+├── 2026/                     # the directory name IS the cohort identifier
+│   ├── cohort.yaml           # cohort identity, dates, module flow
+│   ├── README.md             # the human-readable schedule
+│   ├── 01-agentic-rag/       # the directory name IS the module slug
+│   │   ├── module.yaml       # module identity and unit list
+│   │   ├── README.md         # GitHub-facing module index, not published
+│   │   ├── 01-intro.md       # units: NN-kebab.md, the stem IS the unit slug
+│   │   ├── 02-environment.md
+│   │   ├── homework.md       # homework instructions, fixed name
+│   │   ├── homework.yaml     # homework identity, due date, form, questions
+│   │   └── code/             # notebooks and scripts the units link
+│   ├── ...
+│   └── workshops/            # non-module cohort material is allowed
+├── 2025/                     # earlier cohorts: frozen archives
+└── 2024/
+```
+
+Two rules carry most of the weight:
+
+- **Names are identity.** The cohort identifier, the module slug and the unit
+  slug are the directory and file names. Nothing in YAML restates them, and
+  renaming one moves a published URL.
+- **A module directory is self-contained.** Its units, images, code and
+  homework live inside it, units are siblings of `module.yaml`, and a relative
+  link never climbs past the cohort directory. Anything further away is written
+  as an absolute GitHub URL.
+
+## Editing
+
+- Fix the current cohort. That is where pull requests are accepted.
+- Earlier cohorts are frozen archives: the drift is the record of what was
+  actually taught. Backport only factual or breaking errors, and do it
+  per-cohort explicitly.
+- A published slug is frozen. Renaming one is a platform decision, not a
+  repository pull request.
+
+## The conventions themselves
+
+This repository does not restate them. `DataTalksClub/zoomcamp-template` is the
+authority: `STRUCTURE.md` for the repository layout and the curriculum contract
+documented beside it for the YAML schemas and the unit page rules. The
+`scripts/check-zoomcamp/` conformance checker in that repository reports what a
+change breaks before it is pushed.
+
+The website's ingestion parser is the final authority and fails loudly on push;
+the checker exists so that almost never happens.
