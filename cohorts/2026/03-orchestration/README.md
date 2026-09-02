@@ -13,40 +13,40 @@ Each lesson has its own video link at the top. If you'd like to watch them all i
 
 The first three lessons cover the theory behind using AI reliably in workflows — why context matters, why generic AI assistants fail, and how to set up your environment.
 
-1. [Introduction](lessons/01-intro.md) - Learning objectives, prerequisites, and why AI for workflows
-2. [Context Engineering](lessons/02-context-engineering.md) - Why generic AI assistants produce incorrect Kestra flows
-3. [Setting up Kestra](lessons/03-setup.md) - Kestra setup, API keys, and importing the example flows
+1. [Introduction](01-intro.md) - Learning objectives, prerequisites, and why AI for workflows
+2. [Context Engineering](02-context-engineering.md) - Why generic AI assistants produce incorrect Kestra flows
+3. [Setting up Kestra](03-setup.md) - Kestra setup, API keys, and importing the example flows
 
 
 ## Part 2: AI Copilot
 
 Part 2 shows how to use Kestra's AI Copilot to generate and refine flows by describing your inputs and goal, rather than building each step manually.
 
-4. [AI Copilot](lessons/04-ai-copilot.md) - Generating and refining flows with Kestra's built-in AI Copilot
+4. [AI Copilot](04-ai-copilot.md) - Generating and refining flows with Kestra's built-in AI Copilot
 
 
 ## Part 3: RAG Workflows
 
 Part 3 shows how to ground AI responses in real data using Retrieval Augmented Generation, so the model works from facts instead of guessing.
-For a deeper dive into RAG and vector search, see [Module 2](../02-vector-search/lessons/06-rag-vector.md).
+For a deeper dive into RAG and vector search, see [Module 2](../02-vector-search/06-rag-vector.md).
 
-5. [Retrieval Augmented Generation](lessons/05-rag.md) - Ingesting documents, creating embeddings, and querying with context
+5. [Retrieval Augmented Generation](05-rag.md) - Ingesting documents, creating embeddings, and querying with context
 
 
 ## Part 4: Agentic Workflows
 
 Part 4 introduces AI agents that make autonomous decisions, use tools, and collaborate in multi-agent systems to complete complex tasks.
 
-6. [AI Agents](lessons/06-agents.md) - Autonomous task execution, available tools, and observability
-7. [Multi-Agent Systems](lessons/07-multi-agent.md) - Specialized agents collaborating on complex tasks
+6. [AI Agents](06-agents.md) - Autonomous task execution, available tools, and observability
+7. [Multi-Agent Systems](07-multi-agent.md) - Specialized agents collaborating on complex tasks
 
 
 ## Part 5: Best Practices
 
 Part 5 covers what you need to know before going to production - cost, security, observability, and when to use each approach.
 
-8. [Best Practices](lessons/08-best-practices.md) - Cost, security, observability, and production readiness
-9. [Next Steps](lessons/09-next-steps.md) - Resources, further reading, and where to go from here
+8. [Best Practices](08-best-practices.md) - Cost, security, observability, and production readiness
+9. [Next Steps](09-next-steps.md) - Resources, further reading, and where to go from here
 
 
 ## Extra Resources

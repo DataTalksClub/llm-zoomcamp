@@ -25,7 +25,7 @@ skimmed through it in the lesson and said we'd cover it in the homework -
 so here we are.
 
 We prepare the environment the same way as in the module's
-[ONNX Runtime](lessons/09-onnx-embedder.md)
+[ONNX Runtime](09-onnx-embedder.md)
 lesson.
 
 Create a fresh project and install the dependencies:
@@ -262,7 +262,7 @@ The right choice depends on your data, and the way to decide is to
 measure.
 
 We cover how to evaluate and compare search approaches in the
-[evaluation module](../04-evaluation/lessons/04-search-evaluation.md),
+[evaluation module](../04-evaluation/04-search-evaluation.md),
 and you'll do exactly that in the [evaluation homework](../04-evaluation/homework.md).
 
 ## Learning in Public

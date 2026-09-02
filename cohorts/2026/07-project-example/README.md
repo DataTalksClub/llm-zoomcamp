@@ -14,13 +14,13 @@ The final project is at
 
 ## Lessons
 
-1. [Intro](lessons/01-intro.md) - Generating data, setting up the project, initial RAG flow
-2. [Evaluating Retrieval](lessons/02-evaluating-retrieval.md) - Ground truth data, Hit Rate, MRR, boosting
-3. [Evaluating RAG](lessons/03-evaluating-rag.md) - LLM-as-a-Judge, comparing models
-4. [Interface and Ingestion](lessons/04-interface.md) - Flask API, ingestion pipeline, project structure
-5. [Monitoring and Containerization](lessons/05-monitoring.md) - Docker Compose, PostgreSQL logging, Grafana
-6. [Summary](lessons/06-summary.md) - Final result, cost analysis, tips for your project
-7. [Chunking for Longer Texts](lessons/07-chunking.md) - Different chunking strategies for articles, transcripts, slides
+1. [Intro](01-intro.md) - Generating data, setting up the project, initial RAG flow
+2. [Evaluating Retrieval](02-evaluating-retrieval.md) - Ground truth data, Hit Rate, MRR, boosting
+3. [Evaluating RAG](03-evaluating-rag.md) - LLM-as-a-Judge, comparing models
+4. [Interface and Ingestion](04-interface.md) - Flask API, ingestion pipeline, project structure
+5. [Monitoring and Containerization](05-monitoring.md) - Docker Compose, PostgreSQL logging, Grafana
+6. [Summary](06-summary.md) - Final result, cost analysis, tips for your project
+7. [Chunking for Longer Texts](07-chunking.md) - Different chunking strategies for articles, transcripts, slides
 
 
 ## Project

@@ -12,16 +12,16 @@ Code: [code/](code/)
 The first 10 lessons walk through building a working RAG pipeline
 from scratch with keyword search.
 
-1. [Introduction](lessons/01-intro.md) - What we'll build and why
-2. [Environment Setup](lessons/02-environment.md) - Python, uv, OpenAI API
-3. [What is RAG](lessons/03-rag.md) - Why LLMs need context, the RAG architecture
-4. [The Course FAQ Dataset](lessons/04-dataset.md) - Fetching and exploring the FAQ data
-5. [Search](lessons/05-search.md) - Building a search engine with minsearch
-6. [Building a Prompt](lessons/06-building-prompt.md) - Combining search results into a prompt
-7. [RAG Pipeline](lessons/07-llm.md) - Wiring search + prompt + LLM together
-8. [RAG Helper](lessons/08-rag-helper.md) - Reusable RAGBase class and data loading
-9. [Data Ingestion](lessons/09-data-ingestion.md) - Persistent search with sqlitesearch
-10. [Wrap-up of Part 1](lessons/10-rag-next-steps.md) - Where to go from here
+1. [Introduction](01-intro.md) - What we'll build and why
+2. [Environment Setup](02-environment.md) - Python, uv, OpenAI API
+3. [What is RAG](03-rag.md) - Why LLMs need context, the RAG architecture
+4. [The Course FAQ Dataset](04-dataset.md) - Fetching and exploring the FAQ data
+5. [Search](05-search.md) - Building a search engine with minsearch
+6. [Building a Prompt](06-building-prompt.md) - Combining search results into a prompt
+7. [RAG Pipeline](07-llm.md) - Wiring search + prompt + LLM together
+8. [RAG Helper](08-rag-helper.md) - Reusable RAGBase class and data loading
+9. [Data Ingestion](09-data-ingestion.md) - Persistent search with sqlitesearch
+10. [Wrap-up of Part 1](10-rag-next-steps.md) - Where to go from here
 
 
 ## Part 2: Agents
@@ -29,12 +29,12 @@ from scratch with keyword search.
 Part 2 puts the LLM in charge of the search decisions, turning the
 fixed pipeline into an agent.
 
-11. [Agents](lessons/11-agents-intro.md) - Why a fixed RAG pipeline isn't enough
-12. [Quick RAG Revision (Optional)](lessons/12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)
-13. [Function Calling](lessons/13-function-calling.md) - Giving the LLM tools it can use
-14. [The Agentic Loop](lessons/14-agentic-loop.md) - Repeating until the model stops calling tools
-15. [ToyAIKit](lessons/15-frameworks.md) - A teaching framework for the agent loop
-16. [Other Frameworks](lessons/16-other-frameworks.md) - Production frameworks worth exploring
+11. [Agents](11-agents-intro.md) - Why a fixed RAG pipeline isn't enough
+12. [Quick RAG Revision (Optional)](12-rag-revision.md) - Setting up RAG (also a standalone workshop entry point)
+13. [Function Calling](13-function-calling.md) - Giving the LLM tools it can use
+14. [The Agentic Loop](14-agentic-loop.md) - Repeating until the model stops calling tools
+15. [ToyAIKit](15-frameworks.md) - A teaching framework for the agent loop
+16. [Other Frameworks](16-other-frameworks.md) - Production frameworks worth exploring
 
 
 ## Optional

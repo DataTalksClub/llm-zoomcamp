@@ -4,49 +4,49 @@ title: "Module 1: Agentic RAG"
 units:
   - content_id: 856087c5-2a56-41ad-b43b-36e6ab335414
     title: "Introduction"
-    path: lessons/01-intro.md
+    path: 01-intro.md
   - content_id: 416b9812-be85-45d3-b4f9-11b8342c3cdd
     title: "Environment"
-    path: lessons/02-environment.md
+    path: 02-environment.md
   - content_id: 5949a4fa-2f4f-43ee-8554-f9e3a31b4513
     title: "RAG"
-    path: lessons/03-rag.md
+    path: 03-rag.md
   - content_id: 57502aa2-88dd-41cb-8a8d-20897884a043
     title: "The Course FAQ Dataset"
-    path: lessons/04-dataset.md
+    path: 04-dataset.md
   - content_id: f5eafde5-502c-4559-96c7-91ff502ff67b
     title: "Search"
-    path: lessons/05-search.md
+    path: 05-search.md
   - content_id: 9fa09727-9c41-49a6-9ae6-04efe6b30a09
     title: "Building the Prompt"
-    path: lessons/06-building-prompt.md
+    path: 06-building-prompt.md
   - content_id: f581f070-c109-4aff-8a75-915dda4a604b
     title: "The LLM"
-    path: lessons/07-llm.md
+    path: 07-llm.md
   - content_id: 953476d9-f5ea-4cb4-9199-9d8dc1e190b8
     title: "RAG Helper"
-    path: lessons/08-rag-helper.md
+    path: 08-rag-helper.md
   - content_id: f69af08d-bdeb-4e6e-b90e-eb60cca66187
     title: "Data Ingestion"
-    path: lessons/09-data-ingestion.md
+    path: 09-data-ingestion.md
   - content_id: cc948419-d099-4d50-adf2-72d889dfb495
     title: "Wrap-up of Part 1"
-    path: lessons/10-rag-next-steps.md
+    path: 10-rag-next-steps.md
   - content_id: bcfdcc98-ce43-40c4-94d7-a8fd60d3f4a0
     title: "Agents"
-    path: lessons/11-agents-intro.md
+    path: 11-agents-intro.md
   - content_id: 263ce1fa-6f2f-4b15-a896-8a6e4e7ea4b2
     title: "Quick RAG Revision (Optional)"
-    path: lessons/12-rag-revision.md
+    path: 12-rag-revision.md
   - content_id: 7bf2998d-0da4-4935-9598-f8ac6c0d4fa6
     title: "Function Calling"
-    path: lessons/13-function-calling.md
+    path: 13-function-calling.md
   - content_id: 8bec4dc0-0f3e-46d4-8cc0-3a48428f65e3
     title: "The Agentic Loop"
-    path: lessons/14-agentic-loop.md
+    path: 14-agentic-loop.md
   - content_id: ae6d7769-1e86-47ed-8c3c-98bcb5c83302
     title: "ToyAIKit"
-    path: lessons/15-frameworks.md
+    path: 15-frameworks.md
   - content_id: 93ce1390-a12d-4ba1-ab25-ad149e9a0b88
     title: "Other Frameworks"
-    path: lessons/16-other-frameworks.md
+    path: 16-other-frameworks.md

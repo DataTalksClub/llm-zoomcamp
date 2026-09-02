@@ -39,7 +39,7 @@ RAG system.
 ## Setup
 
 Prepare your environment the same way as in the module's
-[Environment](lessons/02-environment.md) lesson.
+[Environment](02-environment.md) lesson.
 
 This homework needs one extra library: `gitsource`, which downloads files
 from a GitHub repository.

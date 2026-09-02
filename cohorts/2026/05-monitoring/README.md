@@ -11,20 +11,20 @@ in PostgreSQL, and create Grafana dashboards for real-time monitoring.
 
 Work through them in order:
 
-1. [Intro](lessons/01-intro.md) - Why monitoring matters, what we'll build
-2. [Assistant Setup](lessons/02-assistant-setup.md) - Setting up the RAG assistant
-3. [Chat App](lessons/03-chat-app.md) - Basic Streamlit app with RAG
-4. [Capturing Metrics](lessons/04-metrics.md) - LLMCallRecord, cost tracking
-5. [Database](lessons/05-database.md) - PostgreSQL with Docker, saving conversations
-6. [Querying Data](lessons/06-querying.md) - Fetching stored conversations
-7. [Streamlit Dashboard](lessons/07-streamlit-dashboard.md) - Visualizing metrics in Streamlit
-8. [User Feedback](lessons/08-user-feedback.md) - Thumbs up/down buttons
-9. [Built-in Judge](lessons/09-built-in-judge.md) - LLM-as-a-judge for automatic relevance evaluation
-10. [Feedback Dashboard](lessons/10-feedback-dashboard.md) - Adding feedback panels to the Streamlit dashboard
-11. [Synthetic Data](lessons/11-synthetic-data.md) - Generating test data for dashboards
-12. [Grafana Dashboards](lessons/12-grafana.md) - SQL queries and dashboard panels
-13. [Docker Compose](lessons/13-docker-compose.md) - Running everything together
-14. [Next Steps](lessons/14-next-steps.md) - OpenTelemetry, alerting, frameworks to learn more
+1. [Intro](01-intro.md) - Why monitoring matters, what we'll build
+2. [Assistant Setup](02-assistant-setup.md) - Setting up the RAG assistant
+3. [Chat App](03-chat-app.md) - Basic Streamlit app with RAG
+4. [Capturing Metrics](04-metrics.md) - LLMCallRecord, cost tracking
+5. [Database](05-database.md) - PostgreSQL with Docker, saving conversations
+6. [Querying Data](06-querying.md) - Fetching stored conversations
+7. [Streamlit Dashboard](07-streamlit-dashboard.md) - Visualizing metrics in Streamlit
+8. [User Feedback](08-user-feedback.md) - Thumbs up/down buttons
+9. [Built-in Judge](09-built-in-judge.md) - LLM-as-a-judge for automatic relevance evaluation
+10. [Feedback Dashboard](10-feedback-dashboard.md) - Adding feedback panels to the Streamlit dashboard
+11. [Synthetic Data](11-synthetic-data.md) - Generating test data for dashboards
+12. [Grafana Dashboards](12-grafana.md) - SQL queries and dashboard panels
+13. [Docker Compose](13-docker-compose.md) - Running everything together
+14. [Next Steps](14-next-steps.md) - OpenTelemetry, alerting, frameworks to learn more
 
 
 ## Original workshop recording
