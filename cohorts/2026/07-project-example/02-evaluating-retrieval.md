@@ -1,7 +1,8 @@
----
-video_url: "https://www.youtube.com/watch?v=6ulnHtJPCWY&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R"
----
 # Evaluating Retrieval
+
+<a href="https://www.youtube.com/watch?v=6ulnHtJPCWY&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/6ulnHtJPCWY">
+</a>
 
 Now that we have a dataset and a basic RAG flow, we need to
 evaluate how well the retrieval works. We use the same approach

@@ -1,7 +1,8 @@
----
-video_url: "https://www.youtube.com/watch?v=tyBRP_WewXA&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R"
----
 # Chunking for Longer Texts
+
+<a href="https://www.youtube.com/watch?v=tyBRP_WewXA&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/tyBRP_WewXA">
+</a>
 
 Our FAQ data is well-structured: each document is a question-answer
 pair. But what if your data is articles, transcripts, or slide

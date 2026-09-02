@@ -1,7 +1,8 @@
----
-video_url: "https://www.youtube.com/watch?v=E9O0Tg68PPg&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R"
----
 # End-to-End Project Example
+
+<a href="https://www.youtube.com/watch?v=E9O0Tg68PPg&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
+  <img src="https://markdown-videos-api.jorgenkh.no/youtube/E9O0Tg68PPg">
+</a>
 
 In this module, we build a complete RAG project from scratch. The
 project is a fitness assistant that helps users with exercise questions.
