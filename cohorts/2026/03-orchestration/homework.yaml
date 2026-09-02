@@ -1,7 +1,7 @@
 schema_version: 1
 content_id: 8bbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb
 slug: homework-03
-title: "Homework 3: AI Orchestration"
+title: "Homework 3: Orchestration"
 instructions_path: homework.md
 due_at: 2026-09-14T21:59:00Z
 initial_state: open
