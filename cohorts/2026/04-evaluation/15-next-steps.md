@@ -9,6 +9,8 @@ In this module, we covered evaluation at three levels:
 2. RAG evaluation: LLM-as-a-judge for answer quality
 3. Agent evaluation: final answers plus tool-call trajectories
 
+![The Next Steps lesson page with the three evaluation levels](images/15-next-steps-01-next-steps-lesson-page.jpg)
+
 Evaluation is not a one-time activity. As you tune search parameters,
 switch models, or modify prompts, re-run evaluation. Make sure the
 system is getting better, not worse.
@@ -81,3 +83,7 @@ See also:
     [2024/04-monitoring](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2024/04-monitoring)
   - 2025 cohort evaluation module:
     [2025/03-evaluation](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025/03-evaluation)
+
+![The module README linking the older cohort materials](images/15-next-steps-02-module-readme-older-content.jpg)
+
+![The 2025 cohort lesson on cosine similarity evaluation](images/15-next-steps-03-2025-cosine-similarity-lesson.jpg)

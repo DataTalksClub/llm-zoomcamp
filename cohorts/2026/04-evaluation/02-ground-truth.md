@@ -36,6 +36,8 @@ wget ${PREFIX}/cohorts/2026/01-agentic-rag/code/rag_helper.py
 wget ${PREFIX}/cohorts/2026/04-evaluation/code/evaluation_utils.py
 ```
 
+![Terminal download of the ingest.py helper finishing with a 200 OK response](images/02-ground-truth-01-wget-ingest-helper.jpg)
+
 Then load the FAQ data:
 
 ```python
@@ -57,6 +59,8 @@ for doc in documents:
 len(documents_llm)
 ```
 
+![Notebook filtering the FAQ documents down to the 79 llm-zoomcamp records](images/02-ground-truth-02-filter-llm-zoomcamp-docs.jpg)
+
 We'll use these documents from now on so let's name them as `documents`
 
 ```python
@@ -76,6 +80,8 @@ The ID becomes the label in our ground truth dataset. We generate
 questions from a document, so we know that this document holds the
 answer. Later, search evaluation checks whether search brings back the
 document with this ID.
+
+![Printing the id, question, and answer of the first FAQ document](images/02-ground-truth-03-document-id-print.jpg)
 
 This is why every record needs a stable ID. If you can't uniquely
 identify a document, you can't tell whether search retrieved the right
@@ -106,6 +112,8 @@ class Questions(BaseModel):
     questions: list[str]
 ```
 
+![Defining the Questions Pydantic model for structured output](images/02-ground-truth-04-pydantic-questions-model.jpg)
+
 The instructions for the LLM:
 
 ```python
@@ -119,6 +127,8 @@ The output should resemble how people ask questions
 on the internet. Not too formal, not too short, not too long.
 """.strip()
 ```
+
+![The data generation instructions telling the LLM to emulate a student](images/02-ground-truth-05-generation-instructions.jpg)
 
 We ask the LLM to use different wording from the original document.
 This makes the evaluation more realistic - real users won't phrase
@@ -182,6 +192,8 @@ print(result.questions)
 
 You should see 5 questions that relate to the first FAQ document.
 
+![The five questions generated for the first FAQ document](images/02-ground-truth-06-parsed-questions-output.jpg)
+
 ## Reusable utilities
 
 We'll need this pattern again in other evaluation sections today, so
@@ -203,6 +215,8 @@ Import the structured-output helper:
 ```python
 from evaluation_utils import llm_structured
 ```
+
+![Importing the llm_structured helper and fetching the shared code files](images/02-ground-truth-07-llm-structured-import.jpg)
 
 Use it on the same document:
 
@@ -232,6 +246,8 @@ Import the price helper:
 ```python
 from evaluation_utils import calc_price
 ```
+
+![The calc_price utility computing cost from input and output token rates](images/02-ground-truth-08-calc-price-utility.jpg)
 
 Calculate the cost of this call:
 

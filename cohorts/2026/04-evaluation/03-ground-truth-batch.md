@@ -44,6 +44,8 @@ from evaluation_utils import llm_structured_retry
 wraps the same call in a retry loop. If one request fails because of a
 temporary API or network issue, it waits briefly and tries again.
 
+![The llm_structured_retry helper with its retry loop and backoff](images/03-ground-truth-batch-01-retry-helper-function.jpg)
+
 Use it in the processing function:
 
 ```python
@@ -67,6 +69,8 @@ def generate_ground_truth(doc):
 
     return results, usage
 ```
+
+![The processing function collecting question and document records](images/03-ground-truth-batch-02-ground-truth-records.jpg)
 
 Try it for the first 5 documents.
 
@@ -97,6 +101,8 @@ documents in parallel and track progress while the requests run.
 One caution: don't open too many connections at once, or you'll hit the
 provider's rate limits. Five or six workers is a safe default here.
 
+![Splitting the documents into parts to process in parallel](images/03-ground-truth-batch-03-parallel-split-whiteboard.jpg)
+
 Import `ThreadPoolExecutor`:
 
 ```python
@@ -115,6 +121,8 @@ Then replace the loop with the parallel version:
 with ThreadPoolExecutor(max_workers=6) as pool:
     results = map_progress(pool, documents, generate_ground_truth)
 ```
+
+![The parallel run processing all 79 documents with a progress bar](images/03-ground-truth-batch-04-parallel-progress-bar.jpg)
 
 `generate_ground_truth` returns two things for each document: the
 generated records and the token usage.
@@ -158,6 +166,8 @@ from evaluation_utils import calc_total_price
 
 calc_total_price(usages)
 ```
+
+![The total generation cost and the ground truth dataframe](images/03-ground-truth-batch-05-total-cost-dataframe.jpg)
 
 Create a dataframe so we can look at the records as a table and save
 them as a CSV file.

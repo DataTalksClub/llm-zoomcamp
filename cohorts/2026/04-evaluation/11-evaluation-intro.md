@@ -6,6 +6,8 @@ video_url: "https://www.youtube.com/watch?v=VKHBP0QSCFo&list=PL3MmuxUbc_hLZFNgSa
 So far, we evaluated retrieval. We checked whether search returns the
 document that should answer the question.
 
+![Recap of the relevance matrix from the search evaluation lessons](images/11-evaluation-intro-02-search-eval-recap-matrix.jpg)
+
 That is only the first step. A complete application still needs to
 produce a final answer. For RAG, this means checking the generated
 answer. For agents, it also means looking at the tool calls the model
@@ -18,6 +20,8 @@ This includes:
 - search
 - prompt
 - LLM
+
+![The RAG flow whiteboard: question, assistant, knowledge base search, prompt, LLM](images/11-evaluation-intro-01-rag-flow-whiteboard.jpg)
 
 If the final answer is bad, the problem can come from any of these
 steps. The search might retrieve the wrong document, the prompt might
@@ -51,3 +55,5 @@ produces better classifications than asking for just the verdict.
 
 Next, we'll start with the RAG case and generate answers for the ground
 truth questions.
+
+![The RAG answers lesson in the course repository](images/11-evaluation-intro-03-rag-answers-lesson-page.jpg)

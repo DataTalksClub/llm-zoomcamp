@@ -13,6 +13,8 @@ for a quick sanity check, but it doesn't scale, and it doesn't give us a
 number to compare. We need a systematic way to tell whether one approach
 beats another.
 
+![Whiteboard sketch of agentic RAG with a user, an assistant and a search tool](images/01-intro-01-agentic-rag-diagram.jpg)
+
 That's what evaluation is for. And it's worth saying up front: of
 everything in this course, evaluation is the part that matters most. It's
 also the most tedious. But it's the only way to be sure your system
@@ -25,12 +27,16 @@ For search evaluation, we need a dataset of questions where we know
 which document is the correct answer. We'll use an LLM to generate
 these questions from our FAQ data.
 
+![Two ways to build an evaluation set: interaction logs or generating from the FAQ](images/01-intro-02-interact-or-generate.jpg)
+
 The approach works like this:
 
 - A = the original answer in the FAQ
 - Q* = a question generated from that answer by an LLM
 - We send Q* through our search and check if the original document
   appears in the results
+
+![FAQ page with a question and answer pair used as evaluation source](images/01-intro-03-faq-qA-pairs.jpg)
 
 For RAG evaluation, we go one step further:
 
@@ -41,6 +47,8 @@ For RAG evaluation, we go one step further:
 
 This is the A → Q* → A' pattern. We know the answer for each generated
 question because we created the question from that answer.
+
+![Whiteboard: generating candidate questions Q star from a FAQ answer](images/01-intro-04-generate-questions-whiteboard.jpg)
 
 With evaluation, we can:
 
@@ -73,6 +81,8 @@ We'll cover three levels of evaluation:
 1. Search evaluation: does the search return the right documents?
 2. RAG evaluation: does the LLM generate good answers?
 3. Agent evaluation: does the agent use tools efficiently?
+
+![RAG evaluation diagram from generated question to search results and LLM answer](images/01-intro-05-rag-evaluation-diagram.jpg)
 
 Most of our time goes to search, and that's on purpose. Everything else
 depends on it: if retrieval brings back the wrong documents, no prompt or

@@ -35,6 +35,8 @@ df_ground_truth = pd.read_csv("data/ground_truth-new.csv")
 ground_truth = df_ground_truth.to_dict(orient="records")
 ```
 
+![Loading the ground truth questions from CSV in the notebook](images/12-rag-answers-01-load-ground-truth.jpg)
+
 Load the FAQ documents and the search index:
 
 ```python
@@ -94,6 +96,8 @@ assistant = RAGWithUsage(
 )
 ```
 
+![The RAGWithUsage class in evaluation_utils tracking token usage per call](images/12-rag-answers-02-rag-with-usage.jpg)
+
 For each question, `RAGBase` searches the FAQ, builds a prompt with the
 retrieved context, and asks the LLM to answer. We save the answer so the
 next lesson can judge it.
@@ -107,6 +111,8 @@ question = rec["question"]
 answer_llm = assistant.rag(question)
 answer_llm
 ```
+
+![Running RAG for one question and seeing the generated answer](images/12-rag-answers-03-rag-one-question.jpg)
 
 Check the cost of this call:
 
@@ -136,6 +142,8 @@ rag_result = {
 
 rag_result
 ```
+
+![The rag_result record with the question, both answers, and the document id](images/12-rag-answers-04-answer-record.jpg)
 
 ## Processing all questions
 
@@ -207,6 +215,8 @@ Calculate the total cost:
 ```python
 assistant.total_cost()
 ```
+
+![Checking the total cost of generating all RAG answers, about 34 cents](images/12-rag-answers-05-total-cost.jpg)
 
 Save the answers:
 

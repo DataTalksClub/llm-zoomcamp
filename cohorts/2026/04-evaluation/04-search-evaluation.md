@@ -26,6 +26,8 @@ df_ground_truth = pd.read_csv("data/ground_truth-new.csv")
 ground_truth = df_ground_truth.to_dict(orient="records")
 ```
 
+![Loading the ground truth CSV into the evaluation notebook](images/04-search-evaluation-01-load-ground-truth-csv.jpg)
+
 Use the same `ingest.py` file we downloaded in the previous notebook.
 
 Load the documents and build a minsearch index:
@@ -44,6 +46,8 @@ for doc in documents:
 documents = documents_llm
 index = build_index(documents)
 ```
+
+![Testing the minsearch index with a query and inspecting results](images/04-search-evaluation-02-minsearch-test-search.jpg)
 
 Wrap the search call in a function called `text_search`. The name is
 deliberate. Later we'll write `vector_search` or a hybrid version and
@@ -102,6 +106,8 @@ relevance
 This gives a list of `0` and `1` values. `1` means the retrieved
 document has the same ID as the correct document.
 
+![The relevance matrix sketch: one row per question, one column per position](images/04-search-evaluation-03-relevance-matrix-whiteboard.jpg)
+
 Put this logic into a function:
 
 ```python
@@ -127,6 +133,8 @@ compute_relevance_text(q)
 
 The correct document was the first search result.
 
+![Computing the relevance row for the first ground truth question](images/04-search-evaluation-04-compute-relevance-first.jpg)
+
 Here are two more examples from the generated ground truth data.
 
 For this question:
@@ -150,6 +158,8 @@ compute_relevance_text(q)
 ```
 
 The correct document was found at the first position again.
+
+![Relevance rows for more questions from the ground truth sample](images/04-search-evaluation-05-relevance-examples.jpg)
 
 Now do the same thing for all ground truth questions:
 
@@ -204,6 +214,8 @@ For the data we prepared on May 29, 2026, this gives:
 Each entry in `relevance_total_text` is a relevance list. This is
 enough to check that the function works before we run it for the full
 dataset.
+
+![The relevance lists computed for the first 15 ground truth questions](images/04-search-evaluation-06-relevance-total-sample.jpg)
 
 Next, make the relevance functions generic. We start with text search,
 but later we may want to evaluate vector search, hybrid search, or

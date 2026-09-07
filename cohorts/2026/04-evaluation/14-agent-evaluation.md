@@ -15,6 +15,8 @@ fixed RAG pipeline.
 We also save the trajectory. Here, the trajectory means only the tool
 calls the agent made before producing the final answer.
 
+![Whiteboard sketch of agentic RAG with the agent calling the search tool](images/14-agent-evaluation-01-agentic-rag-whiteboard.jpg)
+
 ## Loading the data
 
 Use the same ground truth questions:
@@ -103,6 +105,8 @@ runner = OpenAIResponsesRunner(
     llm_client=OpenAIClient(model="gpt-5.4-mini")
 )
 ```
+
+![The search tool definition and the agent runner in the lesson notes](images/14-agent-evaluation-02-search-tool-runner.jpg)
 
 The result contains:
 
@@ -360,6 +364,8 @@ Tool Calls:
 {tool_calls}
 """.strip()
 ```
+
+![The judge instructions with answer quality and trajectory quality criteria](images/14-agent-evaluation-03-judge-instructions.jpg)
 
 Define the judge function:
 
