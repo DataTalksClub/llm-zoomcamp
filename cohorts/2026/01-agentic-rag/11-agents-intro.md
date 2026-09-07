@@ -15,7 +15,6 @@ This returns good answers when the user's query matches the documents.
 The search finds the right entry, the LLM reads it, and you get a
 helpful reply.
 
-![The rag method showing the fixed search, prompt, LLM flow](images/11-agents-intro-01-fixed-rag-flow.jpg)
 
 Often, though, the search returns nothing useful.
 

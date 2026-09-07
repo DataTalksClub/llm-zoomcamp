@@ -43,7 +43,6 @@ llm("Hey, what's up?")
 
 It replies with something. The LLM works.
 
-![Notebook cell defining the llm function and testing it](images/03-rag-02-llm-function-test.jpg)
 
 Ask it a course-specific
 question:
@@ -90,7 +89,6 @@ Check the quota and reset cycle carefully. Potential options include Google Cola
 """
 ```
 
-![Notebook cell with FAQ entries copied into the context](images/03-rag-05-context-faq-entries.jpg)
 
 Notice the prompt doesn't end with `Answer:`. With older models like
 GPT-3 we added that to nudge the model into completing the sentence.
@@ -115,7 +113,6 @@ Context:
 """
 ```
 
-![Prompt template with question and context placeholders](images/03-rag-06-prompt-template.jpg)
 
 Instead of sending the raw question to the LLM, we send this prompt:
 

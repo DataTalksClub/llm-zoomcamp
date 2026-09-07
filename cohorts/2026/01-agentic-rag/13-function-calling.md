@@ -110,7 +110,6 @@ def search(query):
     )
 ```
 
-![Search function querying the FAQ index with boosts and a course filter](images/13-function-calling-02-search-function.jpg)
 
 Next we tell the model about this function. The model doesn't see our
 Python code, only a schema describing what the function does and what
@@ -159,7 +158,6 @@ response = openai_client.responses.create(
 response.output
 ```
 
-![Request to the responses API with the search tool attached](images/13-function-calling-04-request-with-tool.jpg)
 
 Look at the output. Instead of a message with the answer, the response
 contains a `function_call` entry. The model decided it needs to search
@@ -232,7 +230,6 @@ only the tool result, the model has no idea what's going on. So on
 this second call we replay everything we have so far. That means the
 question, the decision to call `search`, and the result we got back.
 
-![Notebook recap of the six-step function calling loop](images/13-function-calling-06-function-calling-loop.jpg)
 
 That's the full function-calling loop for a single turn. With plain
 RAG we made one call, and here we make two. Turning RAG agentic means
@@ -278,7 +275,6 @@ result = calculate_gpt54mini_price(652, 33)
 print("Total cost: $", round(result["total_cost"], 8))
 ```
 
-![Price calculation for the tool using turn in the notebook](images/13-function-calling-08-token-cost-calculation.jpg)
 
 This usage is only for the second API call. The first call also has
 its own usage and its own cost. That was the call where the model

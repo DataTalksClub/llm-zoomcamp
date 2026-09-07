@@ -62,16 +62,13 @@ Setup:
 - Open the repo, click the green `<> Code` button, switch to the
   Codespaces tab, and create a codespace.
 
-![Creating the llm-zoomcamp-2026-code repository on GitHub](images/02-environment-01-repo-creation-form.jpg)
 
-![The green Code button with the Codespaces tab open](images/02-environment-02-codespaces-code-button.jpg)
 
 You now have a remote environment running in Codespaces. By default it
 opens an in-browser editor, but you can connect VS Code on your desktop
 for a better experience. Click `Codespaces` in the bottom-left corner and
 pick "Open in Visual Studio Code Desktop" from the dropdown.
 
-![The Codespace running in the browser editor with a terminal open](images/02-environment-03-codespace-environment.jpg)
 
 Once VS Code opens, press `` ctrl+` `` to bring up the terminal and
 initialize the project the same way as locally:
@@ -81,7 +78,6 @@ pip install uv
 uv init
 ```
 
-![Installing uv with pip and initializing the project in the Codespace terminal](images/02-environment-04-pip-install-uv.jpg)
 
 ## Adding dependencies
 Now add the dependencies we'll need:
@@ -129,7 +125,6 @@ commit your key:
 .env
 ```
 
-![The .gitignore file with the .env entry added](images/02-environment-06-gitignore-env.jpg)
 
 Never commit `.env` to git. Treat the API key like a password. If it
 leaks, someone else can run up charges on your account.
@@ -155,7 +150,6 @@ from openai import OpenAI
 openai_client = OpenAI()
 ```
 
-![Running load_dotenv in the notebook, which returns True](images/02-environment-07-load-dotenv.jpg)
 
 If you see an error, make sure the key in your `.env` file is
 correct.

@@ -23,7 +23,6 @@ response = openai_client.responses.create(
 )
 ```
 
-![Calling the LLM with the built prompt and printing the answer](images/07-llm-01-llm-call-and-answer.jpg)
 
 We use OpenAI's Responses API (`openai_client.responses.create`). OpenAI
 has two APIs: chat completions and responses. Chat completions is the
@@ -148,7 +147,6 @@ response = openai_client.responses.create(
 )
 ```
 
-![The message history with developer instructions and the user prompt](images/07-llm-06-message-history-code.jpg)
 
 This separates the fixed instructions from the user prompt, which
 changes every request.
@@ -221,7 +219,6 @@ flowchart TD
     ANSWER --> U
 ```
 
-![The lesson notes with the RAG flow diagram and the rag function](images/07-llm-07-full-rag-notes.jpg)
 
 Try it:
 

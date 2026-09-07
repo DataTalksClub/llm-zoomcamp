@@ -15,13 +15,11 @@ answers before asking. Some courses have run for five cohorts, so the
 FAQ grows large and searching it by hand gets tedious. That's exactly
 the problem our RAG system will solve.
 
-![The DataTalks.Club FAQ website with the available courses](images/04-dataset-01-faq-website.jpg)
 
 The FAQ data is available as JSON from the DataTalks.Club website. I
 maintain that site, so I made the data available at a JSON endpoint we
 can fetch directly.
 
-![The FAQ site linking to the course data in JSON format](images/04-dataset-02-json-course-data-link.jpg)
 
 Let's fetch it:
 
@@ -55,7 +53,6 @@ for course in courses_raw:
 len(documents)
 ```
 
-![The notebook fetching all courses, with the course list as JSON output](images/04-dataset-03-fetch-all-courses.jpg)
 
 Each entry has:
 

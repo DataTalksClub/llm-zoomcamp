@@ -8,14 +8,12 @@ Function calling, the agent loop, and tool definitions all wrap the
 same pattern. Send messages, run any function calls, and repeat until
 the model is done.
 
-![Editor note listing the agent parts: instructions, tools and memory](images/16-other-frameworks-03-agent-anatomy-notes.jpg)
 
 You now understand how the loop works. So you can pick up any
 production framework and know what it's doing under the hood. I kept
 this module framework agnostic on purpose, so you can explore and pick
 the one you like.
 
-![Module readme with the lesson index for Part 1 and Part 2](images/16-other-frameworks-02-module-readme-index.jpg)
 
 Here are some frameworks worth a look:
 
@@ -32,7 +30,6 @@ uv add openai-agents
 Good choice if you're already using OpenAI and want something
 official and well-maintained.
 
-![Lesson notes showing the OpenAI Agents SDK and PydanticAI sections](images/16-other-frameworks-01-framework-notes-page.jpg)
 
 ## PydanticAI
 
@@ -98,7 +95,6 @@ Adding an agent is a real cost:
 - Less predictable behavior, since the LLM decides what to do and two
   runs of the same prompt can take different paths.
 
-![Notebook history recap of the agent loop with per-call costs](images/16-other-frameworks-04-agent-loop-costs.jpg)
 
 Before reaching for an agent, ask whether the problem needs one. A lot
 of tasks are well served by simpler approaches.

@@ -47,7 +47,6 @@ search with minsearch.
 We already have the `documents` list from the previous section. Now
 let's index it.
 
-![The FAQ repository with questions and answers for the courses](images/05-search-01-faq-repo.jpg)
 
 Searching matters because we have around 1100 documents. Sending all
 of them to the LLM would be expensive and slow. The model would get
@@ -58,7 +57,6 @@ There are many search libraries you can use - Apache Lucene,
 Elasticsearch, Solr, and others. But these are somewhat heavy. For
 example, to run Elasticsearch, you need to start a Docker container.
 
-![Search results for Apache Lucene, Elasticsearch, and Solr](images/05-search-02-search-libraries.jpg)
 
 [minsearch](https://github.com/alexeygrigorev/minsearch) is a simple
 in-memory search engine. It's lightweight, so it runs anywhere Python
@@ -72,7 +70,6 @@ wanted to show that keyword search isn't magic. We wrote it together as
 part of the [Build a Search Engine](https://www.youtube.com/watch?v=nMrGK5QgPVE) workshop
 (see the [code](https://github.com/alexeygrigorev/build-your-own-search-engine)).
 
-![The build your own search engine workshop notes](images/05-search-03-search-engine-workshop.jpg)
 
 It turned out useful beyond teaching. After two years across many
 projects, it's pretty reliable for small datasets.
@@ -118,7 +115,6 @@ index.fit(documents)
 That's it, the index is built. The `fit` name comes from scikit-learn,
 where you fit a model on data. Here we fit an index on our documents.
 
-![Creating the minsearch index in the notebook](images/05-search-04-minsearch-index.jpg)
 
 ## Trying a search
 
@@ -230,7 +226,6 @@ def search(question, course="llm-zoomcamp"):
 
 By default it searches the LLM Zoomcamp FAQ.
 
-![The search function wrapping index.search](images/05-search-07-search-function.jpg)
 
 You can pass a
 different course slug to search other courses:

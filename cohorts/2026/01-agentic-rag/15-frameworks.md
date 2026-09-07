@@ -14,9 +14,7 @@ back. It does the same thing as our handwritten loop with less
 boilerplate. If you open its `runners` code, you'll find the same
 `while True` loop we wrote by hand.
 
-![The ToyAIKit repository on GitHub](images/15-frameworks-01-toyaikit-repo.jpg)
 
-![The tool-call loop in the ToyAIKit runner code](images/15-frameworks-02-runner-loop-code.jpg)
 
 I use it here on purpose, because I don't want to pick a winner among
 the production frameworks. ToyAIKit is small and easy to read, so when
@@ -75,7 +73,6 @@ def search(query: str) -> dict[str, str]:
     )
 ```
 
-![The search function with a type hint and docstring](images/15-frameworks-03-search-with-typehints.jpg)
 
 Then register it without passing a schema:
 
@@ -118,7 +115,6 @@ runner = OpenAIResponsesRunner(
 )
 ```
 
-![Creating the chat interface, callback, and runner](images/15-frameworks-05-runner-setup.jpg)
 
 The `chat_interface` handles display in the notebook. The `callback`
 renders model messages and tool calls as they happen. The runner runs

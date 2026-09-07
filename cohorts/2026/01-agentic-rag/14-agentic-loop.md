@@ -57,7 +57,6 @@ At the end, ask if there are other areas that the user wants to explore.
 """.strip()
 ```
 
-![Developer prompt cell telling the agent to make multiple searches](images/14-agentic-loop-01-developer-prompt.jpg)
 
 ## A function-call helper
 
@@ -229,7 +228,6 @@ def agent_loop(instructions, question, model="gpt-5.4-mini") -> str:
     return last_answer
 ```
 
-![The agent_loop function definition](images/14-agentic-loop-05-agent-loop-function.jpg)
 
 Try it with a question that has a typo:
 
@@ -317,7 +315,6 @@ At the end, ask if there are other areas that the user wants to explore.
 agent_loop(instructions, "what's queen gambit?")
 ```
 
-![Instructions restricting the agent to FAQ-based answers](images/14-agentic-loop-08-faq-only-instructions.jpg)
 
 This is a lightweight form of an input guardrail. We tell the agent
 what's in scope and what isn't. A real guardrail checks the input

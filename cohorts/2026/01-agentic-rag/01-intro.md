@@ -28,7 +28,6 @@ An LLM (Large Language Model) is a neural network trained on massive
 amounts of text. Given a prompt, it generates a continuation - a
 plausible next piece of text.
 
-![The module introduction page open on GitHub with the What are LLMs section](images/01-intro-01-llms-github-page.jpg)
 
 Think of your phone. When you type "how are" in WhatsApp, it suggests
 "you" as the next word. "How are you" is the most common continuation.
@@ -81,7 +80,6 @@ In Part 1 (the next 9 lessons) we will:
 - Wire it all together into a working RAG pipeline
 - Split ingestion and query into separate processes
 
-![The What we'll build section listing what part 1 of the module covers](images/01-intro-03-what-well-build.jpg)
 
 In Part 2, we make the pipeline agentic. The LLM decides when and
 what to search, instead of running the same fixed flow every time.
