@@ -26,6 +26,8 @@ docker run -d \
     grafana/grafana
 ```
 
+![The grafana docker run command with the network and volume flags](images/12-grafana-01-docker-run-command.jpg)
+
 We already created the network and started PostgreSQL on it in the
 database lesson. We run Grafana detached with `-d`. If you'd rather watch
 its logs while you set things up, drop the `-d` and run it attached. The
@@ -40,6 +42,8 @@ admin again is fine.
 
 Connect Grafana to PostgreSQL:
 
+![The Grafana Add data source page with PostgreSQL among the options](images/12-grafana-02-add-datasource-list.jpg)
+
 1. Go to Configuration > Data Sources > Add data source
 2. Select PostgreSQL
 3. Fill in the connection details:
@@ -50,10 +54,14 @@ Connect Grafana to PostgreSQL:
    - SSL Mode: disable
 4. Click Save & Test. It should say "Database Connection OK"
 
+![The PostgreSQL data source pointing at course-assistant-pg:5432](images/12-grafana-03-postgres-datasource-config.jpg)
+
 ## Creating the dashboard
 
 Create a new dashboard. We add panels one at a time, and each panel is a
 SQL query that Grafana runs against PostgreSQL.
+
+![A new panel ready for its query and visualization](images/12-grafana-04-new-panel-dialog.jpg)
 
 Two habits make these queries behave. First, alias your time column as
 `time`. Grafana reads that column to place points on the x-axis, so a
@@ -113,6 +121,8 @@ ORDER BY 1
 - `AVG` gives the average tokens per bucket.
 
 Use the Time series visualization for this panel.
+
+![The token usage panel query grouped into time buckets](images/12-grafana-06-token-usage-query.jpg)
 
 ## Cost Panel
 
@@ -210,6 +220,8 @@ Arrange the panels in a layout that makes sense:
 - Top row: recent conversations table (wide)
 - Middle row: model usage bar chart | relevance pie chart
 - Bottom row: response time | token usage | cost
+
+![The dashboard with cost, relevance, and feedback panels laid out](images/12-grafana-08-finished-dashboard-panels.jpg)
 
 Don't treat these panel types as fixed. On the same query you can try a
 bar chart, a pie, or a time series. Experiment and keep whatever reads

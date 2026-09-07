@@ -8,6 +8,8 @@ cost. But none of that tells us whether the answer was any good. The
 people using the system know, the way you can rate a reply in ChatGPT. So
 we add thumbs-up and thumbs-down buttons, then record what people click.
 
+![The dashboard with the execution metrics collected so far](images/08-user-feedback-01-dashboard-metrics.jpg)
+
 This feedback is worth collecting beyond the dashboard. It feeds back
 into evaluation. If a user marks an answer as good, the judge you built
 in the previous module should ideally agree. That agreement gives you
@@ -49,6 +51,8 @@ def init_feedback():
         conn.close()
 ```
 
+![The feedback table SQL rendered in the lesson page](images/08-user-feedback-02-feedback-table-sql.jpg)
+
 Update the `__main__` block to call both:
 
 ```python
@@ -67,6 +71,8 @@ uv run python db_init.py
 - `source`: `"user"` for human feedback, `"judge"` for LLM evaluations
 - `score`: +1 for thumbs up, -1 for thumbs down
 - `relevance` and `explanation`: will be used later by the built-in judge
+
+![The source column in the feedback table](images/08-user-feedback-03-source-column.jpg)
 
 ## Saving feedback
 
@@ -133,6 +139,8 @@ if st.button("Ask"):
         st.session_state.conversation_id = conversation_id
 ```
 
+![The ask button saving the conversation id in session state](images/08-user-feedback-04-save-conversation-id.jpg)
+
 Now add the feedback buttons after the `Ask` block. Keep this code at the
 top level rather than indenting it inside `if st.button("Ask")`.
 Streamlit reruns the whole script when either feedback button is clicked.
@@ -156,9 +164,15 @@ if conversation_id is not None:
             st.success("Thanks for the feedback!")
 ```
 
+![The +1 and -1 feedback buttons in app.py](images/08-user-feedback-05-feedback-buttons-code.jpg)
+
 The session-state check keeps the buttons visible across reruns and hides
 them until there is a response to rate. The explicit keys also give each
 response its own pair of feedback buttons.
 
+![The app with +1 and -1 buttons below the answer](images/08-user-feedback-06-app-feedback-buttons.jpg)
+
 Next we add a second source of feedback to the same table. An LLM judge
 scores answers automatically, without waiting for anyone to click.
+
+![Clicking +1 shows the thanks confirmation](images/08-user-feedback-07-thanks-after-click.jpg)

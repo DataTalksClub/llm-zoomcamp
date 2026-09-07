@@ -64,6 +64,8 @@ postgres: network
 		postgres:17
 ```
 
+![The Makefile with the network and postgres targets](images/05-database-01-makefile-network-postgres.jpg)
+
 Now we can just run:
 
 ```bash
@@ -91,6 +93,8 @@ assistant can serve more than one course. Right now everything is
 table when we add others. The `timestamp` is timezone-aware
 (`TIMESTAMP WITH TIME ZONE`) on purpose. Without the time zone, Grafana
 won't line the data up correctly on its time axis later.
+
+![The rendered table SQL with the timezone-aware timestamp](images/05-database-02-timezone-aware-timestamp.jpg)
 
 The SQL to create the table:
 
@@ -189,6 +193,8 @@ Run the init script:
 uv run python db_init.py
 ```
 
+![Running db_init.py to create the conversations table](images/05-database-03-db-init-run.jpg)
+
 We run this once and don't add it to the `Makefile`. The `postgres`
 container uses a named volume (`pgdata`), so the data survives restarts.
 The table is still there next time we start Postgres. We only run
@@ -274,6 +280,8 @@ def save_conversation(record, question, course):
     return conversation_id
 ```
 
+![The save_conversation insert with RETURNING id](images/05-database-04-save-conversation-insert.jpg)
+
 We can also add it to the `__main__` block in `assistant.py` so every
 CLI test gets saved.
 
@@ -289,6 +297,8 @@ Then add the save call after the answer in the `__main__` block:
 save_conversation(assistant.last_call, query, "llm-zoomcamp")
 ```
 
+![The save_conversation call added to the assistant script](images/05-database-05-assistant-save-call.jpg)
+
 Test it:
 
 ```bash
@@ -301,6 +311,8 @@ Check the data:
 docker exec -it course-assistant-pg psql -U user -d course_assistant \
     -c "SELECT id, question, response_time, cost FROM conversations;"
 ```
+
+![psql showing the saved conversation row](images/05-database-06-psql-check-conversations.jpg)
 
 ## Integrating with Streamlit
 
@@ -326,6 +338,8 @@ st.write(f"Cost: ${record.cost:.4f}")
 conversation_id = save_conversation(record, user_input, "llm-zoomcamp")
 st.session_state.conversation_id = conversation_id
 ```
+
+![The course assistant app that now saves every conversation](images/05-database-07-streamlit-app-saves.jpg)
 
 Every question and answer is now saved to PostgreSQL. Next we query the
 data to pull recent conversations back out.

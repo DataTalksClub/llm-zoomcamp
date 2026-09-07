@@ -32,6 +32,8 @@ PREFIX=https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main
 wget ${PREFIX}/cohorts/2026/04-evaluation/code/evaluation_utils.py
 ```
 
+![Downloading evaluation_utils.py from module 04](images/09-built-in-judge-01-evaluation-utils-download.jpg)
+
 Create `judge.py`:
 
 ```python
@@ -64,6 +66,8 @@ Generated Answer: {answer}
 """.strip()
 ```
 
+![The judge instructions and prompt in judge.py](images/09-built-in-judge-02-judge-py-instructions.jpg)
+
 
 The `explanation` field matters even though we don't always do anything
 with it. Asking the judge to explain forces it to reason about the answer
@@ -78,6 +82,8 @@ structure we asked for. It's rare with OpenAI's small models, maybe once
 or twice in my experience. It's more common with other providers, where
 it might be a handful out of a thousand calls. The retry covers those
 cases.
+
+![The judge call wrapped in llm_structured_retry](images/09-built-in-judge-03-structured-retry-call.jpg)
 
 The evaluation function.
 
@@ -123,6 +129,8 @@ Run it:
 uv run python judge.py
 ```
 
+![Running the judge prints a verdict with an explanation](images/09-built-in-judge-04-judge-run-output.jpg)
+
 This judge is deliberately basic, so handle its verdicts with care.
 Sometimes it'll call a weak answer relevant, or the other way around.
 When you build your own, spend time on the prompt until "relevant" means
@@ -151,6 +159,8 @@ from judge import evaluate_relevance
 from db_feedback import save_feedback
 ```
 
+![Importing the judge and feedback helpers in app.py](images/09-built-in-judge-05-app-judge-imports.jpg)
+
 And later:
 
 ```python
@@ -174,6 +184,8 @@ st.write(f"Relevance: {relevance}")
 st.write(f"Explanation: {explanation}")
 ```
 
+![Calling the judge after each answer in app.py](images/09-built-in-judge-06-app-judge-call.jpg)
+
 Now every answer carries an automatic relevance label. It lands in the
 same `feedback` table as the user's thumbs up and down from lesson 08.
 Because both are there, we can compare what the judge thinks with what
@@ -193,3 +205,5 @@ A few things to keep in mind for anything beyond a demo:
   the cost.
 
 Here we run it inline on every call to keep the code simple.
+
+![The dashboard where judge and user feedback land together](images/09-built-in-judge-07-dashboard-cost-overview.jpg)

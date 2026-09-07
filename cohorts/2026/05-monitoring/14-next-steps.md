@@ -12,9 +12,13 @@ Grafana. It tracks response time, cost, tokens, and which models we use.
 Then we added two quality signals: an LLM judge, plus thumbs up and down
 from users.
 
+![The Grafana dashboard built over the recorded conversations](images/14-next-steps-01-grafana-dashboard-recap.jpg)
+
 We now have two things we didn't have before. We have visibility into how
 the system behaves, and we have logs to dig into when something looks
 wrong.
+
+![The app showing the judge relevance verdict under the answer](images/14-next-steps-02-app-relevance-verdict.jpg)
 
 ## Build it yourself, or use a framework
 
@@ -58,6 +62,8 @@ build on, and it's simple to set up. Conceptually your system will look
 like what we built. The technology behind it will likely be something
 else.
 
+![OpenTelemetry listed as the standard instrumentation layer](images/14-next-steps-03-opentelemetry.jpg)
+
 ## Homework
 
 We only covered RAG, so pick one of these to take it further:
@@ -85,3 +91,5 @@ We only covered RAG, so pick one of these to take it further:
 The 2024 cohort used Elasticsearch instead of minsearch and ran Ollama
 for local models. If that setup is useful to you, see the
 [2024 monitoring module](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2024/04-monitoring).
+
+![The 2024 monitoring module linked from the lesson](images/14-next-steps-04-older-2024-content.jpg)
