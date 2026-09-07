@@ -85,7 +85,6 @@ with three tools:
 3. PGVector - vector search in PostgreSQL (scalable, runs in
    Docker)
 
-![The course FAQ website that this module builds vector search over](images/01-intro-04-faq-dataset.jpg)
 
 Then we'll plug vector search into our RAG pipeline.
 

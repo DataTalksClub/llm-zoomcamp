@@ -31,7 +31,6 @@ docker run -it \
     pgvector/pgvector:pg17
 ```
 
-![docker run command starting Postgres with the pgvector image](images/08-pgvector-01-docker-run-pgvector.jpg)
 
 This image has the pgvector extension pre-installed. The `-v` flag
 creates a named volume so data persists across container restarts.
@@ -88,7 +87,6 @@ conn = psycopg.connect(
 conn.execute("CREATE EXTENSION IF NOT EXISTS vector")
 ```
 
-![psycopg connection with CREATE EXTENSION for pgvector](images/08-pgvector-02-create-extension.jpg)
 
 The second line activates pgvector. The Docker image we started isn't
 plain Postgres, it ships the extension inside, and this turns it on. It
@@ -115,7 +113,6 @@ conn.execute("""
 """)
 ```
 
-![CREATE TABLE documents with a vector(384) embedding column](images/08-pgvector-03-create-table.jpg)
 
 The `vector(384)` column stores our 384-dimensional embeddings from
 `all-MiniLM-L6-v2`.
@@ -141,7 +138,6 @@ for doc, vec in tqdm(zip(documents, vectors), total=len(documents)):
 conn.commit()
 ```
 
-![Insert loop adding documents with embeddings and a tqdm progress bar](images/08-pgvector-04-insert-embeddings-loop.jpg)
 
 We loop over the documents and insert each one with its embedding. We
 hand Postgres the vector as text, so the `::vector` cast tells it to
@@ -218,7 +214,6 @@ This builds an HNSW (Hierarchical Navigable Small World) index, the
 same state-of-the-art algorithm dedicated vector databases use. It makes
 search faster, at the cost of a small accuracy trade-off.
 
-![HNSW index creation for approximate nearest neighbor search](images/08-pgvector-06-hnsw-index.jpg)
 
 ## Wrapping it in a function
 
@@ -310,7 +305,6 @@ vector_assistant = RAGPgVector(
 )
 ```
 
-![RAGPgVector assistant wired to the Postgres connection](images/08-pgvector-07-rag-pgvector-assistant.jpg)
 
 Try it:
 

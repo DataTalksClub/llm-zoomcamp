@@ -60,7 +60,6 @@ If you didn't install it in the previous module, add it to your project:
 uv add sqlitesearch
 ```
 
-![Installing sqlitesearch with uv add](images/07-sqlitesearch-vector-03-uv-add-sqlitesearch.jpg)
 
 ## Creating the index
 
@@ -243,7 +242,6 @@ Try it:
 vector_assistant.rag("the program has already begun, can I still sign up?")
 ```
 
-![RAG assistant answering through the persistent sqlitesearch index](images/07-sqlitesearch-vector-05-rag-sqlitesearch-answer.jpg)
 
 When you're done, close the connection:
 

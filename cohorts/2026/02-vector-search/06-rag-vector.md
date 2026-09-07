@@ -31,7 +31,6 @@ wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2
 wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2026/01-agentic-rag/code/ingest.py
 ```
 
-![Downloading rag_helper.py into the project in the notebook](images/06-rag-vector-01-download-rag-helper.jpg)
 
 First, create the OpenAI client:
 
@@ -43,7 +42,6 @@ load_dotenv()
 openai_client = OpenAI()
 ```
 
-![Loading the API key from .env and creating the OpenAI client](images/06-rag-vector-02-openai-client-env.jpg)
 
 Next, download and index the data:
 
@@ -110,7 +108,6 @@ class RAGVector(RAGBase):
         )
 ```
 
-![RAGVector subclass overriding search to encode the query](images/06-rag-vector-04-ragvector-subclass.jpg)
 
 The `__init__` method adds one extra argument, `embedder`, for the
 sentence transformer. Inside `search` we use it to turn the query into a

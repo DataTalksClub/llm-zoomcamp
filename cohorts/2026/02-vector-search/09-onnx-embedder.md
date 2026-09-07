@@ -34,7 +34,6 @@ uv add onnxruntime tokenizers numpy tqdm minsearch
 uv add --dev huggingface-hub jupyter
 ```
 
-![Creating the llm-zoomcamp-onnx project with uv and adding dependencies](images/09-onnx-embedder-02-project-setup.jpg)
 
 
 `huggingface-hub` is only needed to download the model. At runtime we'll need `onnxruntime`, `tokenizers`, and `numpy`.
@@ -84,7 +83,6 @@ We'll use the [embedder.py](embed/embedder.py) script from the
 
 Copy it to your project as well.
 
-![The Embedder class in embedder.py with its encode methods](images/09-onnx-embedder-04-embedder-class.jpg)
 
 Under the hood, it does four things:
 
@@ -118,7 +116,6 @@ v2 = embed.encode(q2)
 dv = embed.encode(d)
 ```
 
-![Encoding two queries and a document with the ONNX embedder](images/09-onnx-embedder-05-encode-queries.jpg)
 
 Compute similarities:
 

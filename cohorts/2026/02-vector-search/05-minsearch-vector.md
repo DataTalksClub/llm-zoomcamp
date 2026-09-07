@@ -35,7 +35,6 @@ vindex = VectorSearch(keyword_fields=["course"])
 vindex.fit(X, documents)
 ```
 
-![Creating the VectorSearch index and fitting it on the embeddings](images/05-minsearch-vector-02-create-vector-index.jpg)
 
 We pass the numpy array `X` with all embeddings and the list of
 documents as payload. The `keyword_fields` parameter works the same as
