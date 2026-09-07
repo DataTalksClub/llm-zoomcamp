@@ -62,7 +62,6 @@ build on, and it's simple to set up. Conceptually your system will look
 like what we built. The technology behind it will likely be something
 else.
 
-![OpenTelemetry listed as the standard instrumentation layer](images/14-next-steps-03-opentelemetry.jpg)
 
 ## Homework
 
@@ -91,5 +90,3 @@ We only covered RAG, so pick one of these to take it further:
 The 2024 cohort used Elasticsearch instead of minsearch and ran Ollama
 for local models. If that setup is useful to you, see the
 [2024 monitoring module](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2024/04-monitoring).
-
-![The 2024 monitoring module linked from the lesson](images/14-next-steps-04-older-2024-content.jpg)

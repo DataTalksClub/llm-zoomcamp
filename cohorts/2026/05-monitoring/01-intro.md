@@ -12,7 +12,6 @@ numbers stop telling the whole story. We don't know how long answers
 take, what they cost, or whether anyone finds them useful. We need to
 watch the system while it runs.
 
-![The live workshop page for this monitoring module](images/01-intro-01-monitoring-workshop-page.jpg)
 
 That's monitoring: online evaluation. We collect metrics from the
 running system and put them on a dashboard. Then we can see how it
@@ -42,5 +41,3 @@ data. At the end we add Grafana for a more powerful view.
 We focus on RAG here. Monitoring an agent works almost the same way, so
 we leave it as homework. The [agents module](../01-agentic-rag/)
 already has the pieces you need to apply these same ideas there.
-
-![The course repository with one folder per module](images/01-intro-03-course-repo-modules.jpg)

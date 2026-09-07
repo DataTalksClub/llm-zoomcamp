@@ -38,7 +38,6 @@ if st.button("Ask"):
         st.write(answer)
 ```
 
-![Creating app.py with the Streamlit interface and installing it with uv](images/03-chat-app-01-app-py-code.jpg)
 
 Run the app:
 
@@ -59,7 +58,6 @@ Now we can run:
 make chat
 ```
 
-![The Course Assistant interface opened in the browser](images/03-chat-app-02-streamlit-interface.jpg)
 
 If you're in GitHub Codespaces, it detects the port and forwards it for
 you. Open the link and you get a web interface. Ask a question like "How

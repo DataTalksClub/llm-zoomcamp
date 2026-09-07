@@ -42,7 +42,6 @@ class LLMCallRecord:
     timestamp: datetime = field(default_factory=datetime.now)
 ```
 
-![The LLMCallRecord dataclass in metrics.py](images/04-metrics-01-llmcallrecord-dataclass.jpg)
 
 ## Cost calculation
 
@@ -60,7 +59,6 @@ def calculate_cost(model, usage):
     return cost
 ```
 
-![The calculate_cost function with the per-million-token rates](images/04-metrics-02-cost-calculation.jpg)
 
 I keep copy-pasting a version of this function across modules, which
 isn't the tidiest thing in the world. For a real project you'd pull it
@@ -76,7 +74,6 @@ and every time `rag()` makes a call, the metrics get recorded for free.
 The same trick works for agents. You'd capture each tool call the same
 way we captured LLM calls in the evaluation module.
 
-![The RAGBase parent class from the helper, about to be subclassed](images/04-metrics-03-ragbase-parent-class.jpg)
 
 Also in `metrics.py`, the subclass that captures metrics:
 
@@ -141,7 +138,6 @@ The `_log_response` method captures all the metrics:
         self.last_call = call_record
 ```
 
-![The _log_response method building the call record](images/04-metrics-04-log-response-record.jpg)
 
 Now update `assistant.py` to import `RAGWithMetrics` instead of `RAGBase`:
 

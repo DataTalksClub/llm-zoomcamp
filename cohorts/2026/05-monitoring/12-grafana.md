@@ -26,7 +26,6 @@ docker run -d \
     grafana/grafana
 ```
 
-![The grafana docker run command with the network and volume flags](images/12-grafana-01-docker-run-command.jpg)
 
 We already created the network and started PostgreSQL on it in the
 database lesson. We run Grafana detached with `-d`. If you'd rather watch
@@ -61,7 +60,6 @@ Connect Grafana to PostgreSQL:
 Create a new dashboard. We add panels one at a time, and each panel is a
 SQL query that Grafana runs against PostgreSQL.
 
-![A new panel ready for its query and visualization](images/12-grafana-04-new-panel-dialog.jpg)
 
 Two habits make these queries behave. First, alias your time column as
 `time`. Grafana reads that column to place points on the x-axis, so a

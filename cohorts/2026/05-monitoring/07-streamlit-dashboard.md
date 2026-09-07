@@ -32,7 +32,6 @@ class Stats:
     avg_tokens: float
 ```
 
-![The Stats dataclass in db_query.py](images/07-streamlit-dashboard-01-stats-dataclass.jpg)
 
 A function to compute aggregate stats:
 
@@ -61,7 +60,6 @@ def get_stats():
     )
 ```
 
-![The get_stats aggregate query in db_query.py](images/07-streamlit-dashboard-02-get-stats-aggregate-query.jpg)
 
 Create `dashboard.py`:
 
@@ -90,7 +88,6 @@ col3.metric("Total cost", f"${stats.total_cost:.4f}")
 col4.metric("Avg tokens", f"{stats.avg_tokens:.0f}")
 ```
 
-![The four summary metrics defined in dashboard.py](images/07-streamlit-dashboard-03-summary-metrics-code.jpg)
 
 For the time charts we pull the last 100 conversations and let Streamlit
 plot them. This isn't the most efficient way to do it. We fetch whole
@@ -135,7 +132,6 @@ different port:
 uv run streamlit run dashboard.py --server.port 8502
 ```
 
-![Starting the dashboard on port 8502](images/07-streamlit-dashboard-05-run-port-8502.jpg)
 
 We didn't even use a table for the conversations - plain text is enough
 to make the point. This simple dashboard already gives us real

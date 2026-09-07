@@ -64,7 +64,6 @@ postgres: network
 		postgres:17
 ```
 
-![The Makefile with the network and postgres targets](images/05-database-01-makefile-network-postgres.jpg)
 
 Now we can just run:
 
@@ -280,7 +279,6 @@ def save_conversation(record, question, course):
     return conversation_id
 ```
 
-![The save_conversation insert with RETURNING id](images/05-database-04-save-conversation-insert.jpg)
 
 We can also add it to the `__main__` block in `assistant.py` so every
 CLI test gets saved.
@@ -297,7 +295,6 @@ Then add the save call after the answer in the `__main__` block:
 save_conversation(assistant.last_call, query, "llm-zoomcamp")
 ```
 
-![The save_conversation call added to the assistant script](images/05-database-05-assistant-save-call.jpg)
 
 Test it:
 
@@ -339,7 +336,6 @@ conversation_id = save_conversation(record, user_input, "llm-zoomcamp")
 st.session_state.conversation_id = conversation_id
 ```
 
-![The course assistant app that now saves every conversation](images/05-database-07-streamlit-app-saves.jpg)
 
 Every question and answer is now saved to PostgreSQL. Next we query the
 data to pull recent conversations back out.
