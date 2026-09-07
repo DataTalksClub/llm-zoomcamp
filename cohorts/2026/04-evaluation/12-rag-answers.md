@@ -35,8 +35,6 @@ df_ground_truth = pd.read_csv("data/ground_truth-new.csv")
 ground_truth = df_ground_truth.to_dict(orient="records")
 ```
 
-![Loading the ground truth questions from CSV in the notebook](images/12-rag-answers-01-load-ground-truth.jpg)
-
 Load the FAQ documents and the search index:
 
 ```python
@@ -95,8 +93,6 @@ assistant = RAGWithUsage(
     llm_client=openai_client,
 )
 ```
-
-![The RAGWithUsage class in evaluation_utils tracking token usage per call](images/12-rag-answers-02-rag-with-usage.jpg)
 
 For each question, `RAGBase` searches the FAQ, builds a prompt with the
 retrieved context, and asks the LLM to answer. We save the answer so the

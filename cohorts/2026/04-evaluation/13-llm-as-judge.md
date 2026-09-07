@@ -109,8 +109,6 @@ Be fair and focus on correctness, not style.
 """.strip()
 ```
 
-![The judge instructions for comparing the RAG answer with the ground truth](images/13-llm-as-judge-01-judge-instructions.jpg)
-
 Then define the prompt template. This is the data we pass to the judge
 for each answer.
 
@@ -126,8 +124,6 @@ AI Answer:
 {answer_llm}
 """.strip()
 ```
-
-![The judge prompt template with the question and both answers](images/13-llm-as-judge-02-judge-prompt-template.jpg)
 
 Import the structured-output helper:
 
@@ -196,8 +192,6 @@ def evaluate_aqa(question, answer_orig, answer_llm, model="gpt-5.4-mini"):
     return result, usage
 ```
 
-![The evaluate_aqa function calling the judge with structured output](images/13-llm-as-judge-03-evaluate-aqa-function.jpg)
-
 Test it on the same record:
 
 ```python
@@ -231,8 +225,6 @@ def judge_record(rec):
 
     return result, usage
 ```
-
-![The judge_record function packing the verdict into one record](images/13-llm-as-judge-04-judge-record-function.jpg)
 
 Use the same parallel processing helper:
 

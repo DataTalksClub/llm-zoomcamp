@@ -26,8 +26,6 @@ df_ground_truth = pd.read_csv("data/ground_truth-new.csv")
 ground_truth = df_ground_truth.to_dict(orient="records")
 ```
 
-![Loading the ground truth CSV into the evaluation notebook](images/04-search-evaluation-01-load-ground-truth-csv.jpg)
-
 Use the same `ingest.py` file we downloaded in the previous notebook.
 
 Load the documents and build a minsearch index:
@@ -158,8 +156,6 @@ compute_relevance_text(q)
 ```
 
 The correct document was found at the first position again.
-
-![Relevance rows for more questions from the ground truth sample](images/04-search-evaluation-05-relevance-examples.jpg)
 
 Now do the same thing for all ground truth questions:
 

@@ -36,8 +36,6 @@ wget ${PREFIX}/cohorts/2026/01-agentic-rag/code/rag_helper.py
 wget ${PREFIX}/cohorts/2026/04-evaluation/code/evaluation_utils.py
 ```
 
-![Terminal download of the ingest.py helper finishing with a 200 OK response](images/02-ground-truth-01-wget-ingest-helper.jpg)
-
 Then load the FAQ data:
 
 ```python
@@ -112,8 +110,6 @@ class Questions(BaseModel):
     questions: list[str]
 ```
 
-![Defining the Questions Pydantic model for structured output](images/02-ground-truth-04-pydantic-questions-model.jpg)
-
 The instructions for the LLM:
 
 ```python
@@ -127,8 +123,6 @@ The output should resemble how people ask questions
 on the internet. Not too formal, not too short, not too long.
 """.strip()
 ```
-
-![The data generation instructions telling the LLM to emulate a student](images/02-ground-truth-05-generation-instructions.jpg)
 
 We ask the LLM to use different wording from the original document.
 This makes the evaluation more realistic - real users won't phrase
@@ -216,8 +210,6 @@ Import the structured-output helper:
 from evaluation_utils import llm_structured
 ```
 
-![Importing the llm_structured helper and fetching the shared code files](images/02-ground-truth-07-llm-structured-import.jpg)
-
 Use it on the same document:
 
 ```python
@@ -246,8 +238,6 @@ Import the price helper:
 ```python
 from evaluation_utils import calc_price
 ```
-
-![The calc_price utility computing cost from input and output token rates](images/02-ground-truth-08-calc-price-utility.jpg)
 
 Calculate the cost of this call:
 

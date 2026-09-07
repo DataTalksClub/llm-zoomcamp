@@ -31,8 +31,6 @@ example = [
 ]
 ```
 
-![The relevance lists for the first 15 ground truth questions](images/05-search-metrics-01-relevance-lists-example.jpg)
-
 Each line is one query. If a line contains `1`, search found the
 correct document somewhere in the top 5 results. If the line contains
 only zeros, search did not find the correct document.
@@ -86,8 +84,6 @@ hit_rate(example)
 # 0.933
 ```
 
-![The hit_rate function evaluated on the relevance lists](images/05-search-metrics-03-hit-rate-function.jpg)
-
 ## Mean Reciprocal Rank (MRR)
 
 Hit Rate tells us if we found the right document, but not where it was.
@@ -131,8 +127,6 @@ for line in example:
 total_score
 ```
 
-![The manual MRR loop accumulating reciprocal ranks](images/05-search-metrics-05-mrr-manual-loop.jpg)
-
 The total score is `12.333333333333334`. We use `rank + 1` because
 Python counts positions from zero. The first position should score
 `1/1`, and without the `+ 1` we'd divide by zero.
@@ -143,8 +137,6 @@ Divide it by the number of queries:
 total_score / len(example)
 # 0.822
 ```
-
-![Dividing the total score by the number of queries and wrapping it in a function](images/05-search-metrics-06-mrr-function.jpg)
 
 MRR is the average of these scores across all queries. It rewards
 systems that put the correct document near the top.

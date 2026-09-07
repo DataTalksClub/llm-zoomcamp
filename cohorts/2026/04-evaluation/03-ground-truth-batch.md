@@ -44,8 +44,6 @@ from evaluation_utils import llm_structured_retry
 wraps the same call in a retry loop. If one request fails because of a
 temporary API or network issue, it waits briefly and tries again.
 
-![The llm_structured_retry helper with its retry loop and backoff](images/03-ground-truth-batch-01-retry-helper-function.jpg)
-
 Use it in the processing function:
 
 ```python
@@ -69,8 +67,6 @@ def generate_ground_truth(doc):
 
     return results, usage
 ```
-
-![The processing function collecting question and document records](images/03-ground-truth-batch-02-ground-truth-records.jpg)
 
 Try it for the first 5 documents.
 

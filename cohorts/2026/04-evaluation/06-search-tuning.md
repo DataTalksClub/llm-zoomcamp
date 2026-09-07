@@ -18,8 +18,6 @@ This is the main benefit of offline evaluation. We change one parameter,
 run the same questions again, and see whether the metric moves. The
 dataset stays fixed, so the comparison is fair.
 
-![The text search function with the question boosted to 3.0](images/06-search-tuning-01-baseline-question-boost.jpg)
-
 ## Trying different boosts
 
 Start with a search function where the question boost is configurable:
@@ -113,8 +111,6 @@ for question_boost in [1.0, 2.0, 5.0]:
                 "mrr": result["mrr"],
             })
 ```
-
-![The grid search running over all boost combinations](images/06-search-tuning-03-grid-search-results.jpg)
 
 Sort by MRR:
 
