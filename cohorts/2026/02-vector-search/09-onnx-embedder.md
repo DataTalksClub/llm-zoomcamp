@@ -20,6 +20,8 @@ That's 33x smaller for the same embeddings and the same results. Often
 we don't even convert the model ourselves. Someone has usually published
 an ONNX version we can download.
 
+![Measured environment sizes: sentence-transformers 4.8 GB vs ONNX Runtime 147 MB](images/09-onnx-embedder-01-size-comparison.jpg)
+
 For development and experiments, sentence-transformers is fine. For
 production you want the lighter option.
 
@@ -31,6 +33,8 @@ uv init --no-workspace
 uv add onnxruntime tokenizers numpy tqdm minsearch
 uv add --dev huggingface-hub jupyter
 ```
+
+![Creating the llm-zoomcamp-onnx project with uv and adding dependencies](images/09-onnx-embedder-02-project-setup.jpg)
 
 
 `huggingface-hub` is only needed to download the model. At runtime we'll need `onnxruntime`, `tokenizers`, and `numpy`.
@@ -52,6 +56,8 @@ Copy it to your project, then run:
 ```bash
 uv run python download.py
 ```
+
+![Downloading the ONNX model into the models directory](images/09-onnx-embedder-03-model-download.jpg)
 
 This creates:
 
@@ -77,6 +83,8 @@ We'll use the [embedder.py](embed/embedder.py) script from the
 `embed/` directory for generating embeddings.
 
 Copy it to your project as well.
+
+![The Embedder class in embedder.py with its encode methods](images/09-onnx-embedder-04-embedder-class.jpg)
 
 Under the hood, it does four things:
 
@@ -109,6 +117,8 @@ v1 = embed.encode(q1)
 v2 = embed.encode(q2)
 dv = embed.encode(d)
 ```
+
+![Encoding two queries and a document with the ONNX embedder](images/09-onnx-embedder-05-encode-queries.jpg)
 
 Compute similarities:
 

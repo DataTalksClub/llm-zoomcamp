@@ -11,6 +11,8 @@ In this module, we:
 - Integrated vector search into our RAG pipeline with the `RAGVector`
   class
 
+![Whiteboard sketch of search as a similarity function whose scores are ranked into a results page](images/10-next-steps-03-similarity-whiteboard.jpg)
+
 The code is available in the
 [code directory](code/).
 
@@ -26,9 +28,13 @@ Vector search adds real overhead:
 - You need to compute and store embeddings
 - At query time you encode the query before you can search
 
+![Recap notebook creating the documents table with a vector column and ingesting embeddings](images/10-next-steps-01-documents-table-pgvector.jpg)
+
 Even with the smallest model that overhead is considerable, and that's
 before counting the extra dependencies. Don't take it on without a
 reason.
+
+![Running a query against the stored vectors returns the ranked FAQ results](images/10-next-steps-02-query-time-search.jpg)
 
 Most RAG tutorials assume you need vector search from the start. Quite a
 few of them come from companies that sell vector databases. So of course

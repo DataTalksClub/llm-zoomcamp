@@ -29,6 +29,8 @@ This is matrix-vector multiplication. Each element `i` of `scores` is
 the cosine similarity between document `i` (row `i` of `X`) and
 `v_query`.
 
+![Matrix of document embeddings with one row circled for the query dot product](images/04-vector-search-01-matrix-x-rows.jpg)
+
 We could compute the same thing with a for loop:
 
 ```python
@@ -50,6 +52,8 @@ idx, scores[idx]
 
 This returns document 553 with score 0.76.
 
+![argmax cell returning document 553 with score 0.76](images/04-vector-search-02-argmax-best-score.jpg)
+
 The index and score may differ for you. Our FAQ is a living document, so
 we add and remove entries over time.
 
@@ -68,6 +72,8 @@ We see:
  "question": "Course: Can I still join the course after the start date?",
  "answer": "Yes, even if you don't register, you're still eligible..."}
 ```
+
+![Retrieved FAQ document about joining the course after the start date](images/04-vector-search-03-best-document.jpg)
 
 ## Top 5 results
 
@@ -95,6 +101,8 @@ Now we can read off the top 5 scores:
 scores[top5]
 ```
 
+![argsort top-5 selection with reversed order and their scores](images/04-vector-search-04-argsort-top5.jpg)
+
 There's a shorter trick I usually reach for. We negate the scores
 first, so the largest becomes the smallest. Then `argsort` puts the best
 matches at the front.
@@ -104,6 +112,8 @@ Here it is in one line:
 ```python
 top5 = np.argsort(-scores)[:5]
 ```
+
+![Negated argsort trick returning the five best matches first](images/04-vector-search-05-negated-argsort-trick.jpg)
 
 It looks cryptic the first time you see it. But it's a common way to
 turn a min-sort into a max-sort.

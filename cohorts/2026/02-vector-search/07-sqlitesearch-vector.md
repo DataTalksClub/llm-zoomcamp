@@ -34,6 +34,8 @@ likely matches. Then it scores only within that region. It may miss the
 absolute best match, but the results are still good and it's much
 faster.
 
+![Whiteboard sketch of ANN narrowing the search to a region of near neighbors](images/07-sqlitesearch-vector-01-ann-vs-nn-whiteboard.jpg)
+
 ```text
 NN (exact):    compare query against ALL documents -> top 5
 ANN (approx):  narrow down to a region -> compare within region -> top 5
@@ -50,11 +52,15 @@ in SQLite, a real on-disk database, and uses ANN strategies for
 retrieval. Because the data lives on disk, one process can write the
 vectors and another can read them back.
 
+![Whiteboard of the ingestion and deployment processes sharing the database](images/07-sqlitesearch-vector-02-ingestion-deployment-split.jpg)
+
 If you didn't install it in the previous module, add it to your project:
 
 ```bash
 uv add sqlitesearch
 ```
+
+![Installing sqlitesearch with uv add](images/07-sqlitesearch-vector-03-uv-add-sqlitesearch.jpg)
 
 ## Creating the index
 
@@ -107,6 +113,8 @@ query_vector = model.encode(query)
 
 results = vs_index.search(query_vector, num_results=5)
 ```
+
+![Fitting the index and searching with an encoded query vector](images/07-sqlitesearch-vector-04-fit-and-search.jpg)
 
 Look at the results:
 
@@ -234,6 +242,8 @@ Try it:
 ```python
 vector_assistant.rag("the program has already begun, can I still sign up?")
 ```
+
+![RAG assistant answering through the persistent sqlitesearch index](images/07-sqlitesearch-vector-05-rag-sqlitesearch-answer.jpg)
 
 When you're done, close the connection:
 

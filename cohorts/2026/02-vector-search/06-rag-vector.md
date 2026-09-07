@@ -31,6 +31,8 @@ wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2
 wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2026/01-agentic-rag/code/ingest.py
 ```
 
+![Downloading rag_helper.py into the project in the notebook](images/06-rag-vector-01-download-rag-helper.jpg)
+
 First, create the OpenAI client:
 
 ```python
@@ -40,6 +42,8 @@ from openai import OpenAI
 load_dotenv()
 openai_client = OpenAI()
 ```
+
+![Loading the API key from .env and creating the OpenAI client](images/06-rag-vector-02-openai-client-env.jpg)
 
 Next, download and index the data:
 
@@ -67,6 +71,8 @@ Ask it a question:
 query = "I just found out about the program, can I still sign up?"
 assistant.rag(query)
 ```
+
+![Keyword-search RAG answering that it is still possible to sign up](images/06-rag-vector-03-keyword-search-answer.jpg)
 
 This still uses keyword search. Text search isn't bad here, so the
 answer may already look right. Next we replace search with vector
@@ -104,6 +110,8 @@ class RAGVector(RAGBase):
         )
 ```
 
+![RAGVector subclass overriding search to encode the query](images/06-rag-vector-04-ragvector-subclass.jpg)
+
 The `__init__` method adds one extra argument, `embedder`, for the
 sentence transformer. Inside `search` we use it to turn the query into a
 vector. Then we query `vindex` with that vector instead of the raw text.
@@ -126,6 +134,8 @@ Try it with different queries:
 ```python
 vector_assistant.rag("the program has already begun, can I still sign up?")
 ```
+
+![Vector assistant answering the rephrased sign-up question](images/06-rag-vector-05-vector-assistant-answer.jpg)
 
 The answers should be close to what we got with keyword search, but
 vector search handles rephrased questions better. The swap was trivial

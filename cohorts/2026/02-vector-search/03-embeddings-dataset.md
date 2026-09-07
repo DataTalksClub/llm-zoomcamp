@@ -18,6 +18,8 @@ Download it into your project:
 wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2026/01-agentic-rag/code/ingest.py
 ```
 
+![Downloading the ingest.py helper script into the project](images/03-embeddings-dataset-01-download-ingest-script.jpg)
+
 We use it here:
 
 ```python
@@ -32,6 +34,8 @@ Each document is a Python dictionary with a question and an answer. We
 embed both together. That way a query can match against the question
 text and the answer text in our index.
 
+![A FAQ document printed with its id, course, question and answer fields](images/03-embeddings-dataset-02-document-dict-fields.jpg)
+
 Build one text per document:
 
 ```python
@@ -41,6 +45,8 @@ for doc in documents:
     text = doc["question"] + " " + doc["answer"]
     texts.append(text)
 ```
+
+![Building one text per document by joining question and answer](images/03-embeddings-dataset-03-build-texts-loop.jpg)
 
 Now we generate the embeddings. We have about 1200 texts here. We won't
 hand the model all of them at once. That takes a long time, and we can't
@@ -66,8 +72,12 @@ for i in tqdm(range(0, len(texts), batch_size)):
 len(vectors)
 ```
 
+![Batched encoding loop with a tqdm progress bar](images/03-embeddings-dataset-04-batched-encoding-tqdm.jpg)
+
 We end up with 1208 vectors. On a GPU this is fast. Most of us run on
 Codespaces without a GPU, so it takes a bit, but it's a one-off.
+
+![Encoding finished: the progress bar at 100% and 1208 vectors](images/03-embeddings-dataset-05-encoding-progress-done.jpg)
 
 We turn them into a 2-dimensional array (matrix) where
 
@@ -80,3 +90,5 @@ X = np.array(vectors)
 ```
 
 Calling `X.shape` returns (1208, 384) - number of documents vs number of dimensions.
+
+![Checking the shape of one embedding: 384 numbers](images/03-embeddings-dataset-06-embedding-vector-shape.jpg)

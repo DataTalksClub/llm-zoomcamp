@@ -7,6 +7,8 @@ In module 1 we used keyword search with minsearch and sqlitesearch.
 It matches exact words. If you search for "Docker", the document has
 to contain "Docker" to come back.
 
+![A query tokenized into the exact words a keyword engine matches](images/01-intro-01-keyword-tokenization.jpg)
+
 But look at these two questions:
 
 - "Can I still join the course after the start date?"
@@ -16,8 +18,12 @@ They mean the same thing, yet they share almost no words. A keyword
 engine struggles to match them. We need something that works on
 meaning, not on the exact words.
 
+![Two paraphrased questions typed in the notebook to test matching](images/01-intro-02-paraphrased-queries.jpg)
+
 That something is vector search. Instead of matching words, it matches
 ideas.
+
+![Whiteboard sketch of the RAG flow with search over the FAQ, prompt, and LLM](images/01-intro-03-rag-pipeline-whiteboard.jpg)
 
 ## The vector search process
 
@@ -78,6 +84,8 @@ with three tools:
    (production-friendly, same API as minsearch)
 3. PGVector - vector search in PostgreSQL (scalable, runs in
    Docker)
+
+![The course FAQ website that this module builds vector search over](images/01-intro-04-faq-dataset.jpg)
 
 Then we'll plug vector search into our RAG pipeline.
 

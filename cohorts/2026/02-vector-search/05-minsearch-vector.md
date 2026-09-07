@@ -8,6 +8,8 @@ embedded the query, computed dot products, and found the best matches.
 Writing the argsort and matrix code every time gets old, and it can't
 filter by course. So instead we'll use a library that wraps all of it.
 
+![The by-hand numpy results with the argsort indices of the top documents](images/05-minsearch-vector-01-by-hand-results.jpg)
+
 We'll use [minsearch](https://github.com/alexeygrigorev/minsearch), the
 small in-memory search library we already used in module 1 for text
 search. It has a `VectorSearch` class for vector search.
@@ -33,6 +35,8 @@ vindex = VectorSearch(keyword_fields=["course"])
 vindex.fit(X, documents)
 ```
 
+![Creating the VectorSearch index and fitting it on the embeddings](images/05-minsearch-vector-02-create-vector-index.jpg)
+
 We pass the numpy array `X` with all embeddings and the list of
 documents as payload. The `keyword_fields` parameter works the same as
 in the text `Index`, so we can filter by course later.
@@ -47,6 +51,8 @@ query_vector = model.encode(query)
 
 results = vindex.search(query_vector, num_results=5)
 ```
+
+![Searching the vector index and getting the top five results](images/05-minsearch-vector-03-search-results.jpg)
 
 Under the hood it does the same thing we just did by hand. It computes
 the dot product between each vector (after filtering) and our query
@@ -85,5 +91,7 @@ results = vindex.search(
     num_results=5
 )
 ```
+
+![Filtering the vector search to one course with filter_dict](images/05-minsearch-vector-04-filter-by-course.jpg)
 
 Now that we can run vector search, let's use it in RAG.

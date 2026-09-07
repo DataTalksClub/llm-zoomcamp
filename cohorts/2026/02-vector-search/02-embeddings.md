@@ -23,6 +23,8 @@ Imagine a 2D space where "enroll" and "join" are near each other and
                    · Docker
 ```
 
+![Whiteboard sketch of a vector space with enroll and join close together and Docker far away](images/02-embeddings-01-vector-space-whiteboard.jpg)
+
 The same idea works for entire sentences:
 
 ```text
@@ -81,6 +83,8 @@ Install the library:
 uv add sentence-transformers
 ```
 
+![Installing sentence-transformers with the CPU-only PyTorch packages](images/02-embeddings-02-install-sentence-transformers.jpg)
+
 If your pyproject.toml already specifies the requests package, make sure it is pinned to requests>=2.28.1, because pytorch-cpu requires this version to install correctly.
 
 In this way, uv will automatically resolve PyTorch using the CPU-only index.
@@ -108,6 +112,8 @@ from sentence_transformers import SentenceTransformer
 model = SentenceTransformer("all-MiniLM-L6-v2")
 ```
 
+![Loading the all-MiniLM-L6-v2 model with sentence-transformers](images/02-embeddings-03-load-model.jpg)
+
 The first time you run this, it downloads the model (~80 MB) and the
 tokenizer from HuggingFace. The tokenizer turns text into something the
 model can read. After that, both load from a local cache.
@@ -127,6 +133,8 @@ v1 = model.encode(q1)
 concept the model learned. We can't read off what any one of them means.
 But two vectors with similar values point to texts about similar things.
 
+![Checking the shape of the embedding vector, 384 numbers](images/02-embeddings-04-embedding-shape.jpg)
+
 Encode our document:
 
 ```python
@@ -134,11 +142,15 @@ d  = "You don't need to register. You're accepted. You can also just start learn
 dv = model.encode(d)
 ```
 
+![Encoding the query and the document and looking at the raw vector values](images/02-embeddings-05-encode-query-document.jpg)
+
 Next, we compare the query against the document using dot product:
 
 ```python
 v1.dot(dv)
 ```
+
+![Taking the dot product between the query and document vectors](images/02-embeddings-06-dot-product.jpg)
 
 We get 0.32.
 
