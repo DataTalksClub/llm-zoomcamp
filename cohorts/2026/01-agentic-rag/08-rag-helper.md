@@ -15,6 +15,8 @@ reusable files:
 
 Then in notebooks, we just import from these files and use them.
 
+![Importing load_faq_data from ingest.py in the notebook](images/08-rag-helper-01-import-from-ingest.jpg)
+
 ## ingest.py
 
 This file handles data loading and index creation - everything we
@@ -74,6 +76,8 @@ client we want when we create the object. And because it's a class, we
 can subclass it later to override one piece without touching the rest.
 For example, we can swap OpenAI for a local model.
 
+![Moving the search logic into a class with self.index](images/08-rag-helper-02-class-encapsulation.jpg)
+
 Create `rag_helper.py`:
 
 ```python
@@ -93,6 +97,8 @@ CONTEXT:
 {context}
 """.strip()
 ```
+
+![The instructions and prompt template in rag_helper.py](images/08-rag-helper-03-instructions-and-template.jpg)
 
 Now the class: `RAGBase`
 
@@ -186,6 +192,8 @@ And the `rag` method wires it all together:
         return answer
 ```
 
+![The llm and rag methods of the RAGBase class](images/08-rag-helper-04-llm-and-rag-methods.jpg)
+
 ## Using it in a notebook
 
 Now in a notebook, import from both files and put everything together:
@@ -211,6 +219,8 @@ assistant = RAGBase(
 answer = assistant.rag("I just discovered the course. Can I join now?")
 print(answer)
 ```
+
+![Running assistant.rag in the notebook](images/08-rag-helper-05-notebook-rag-call.jpg)
 
 We don't need to pass `instructions` - the default from `rag_helper.py` is
 used.

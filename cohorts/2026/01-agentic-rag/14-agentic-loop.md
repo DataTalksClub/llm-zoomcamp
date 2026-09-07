@@ -57,6 +57,8 @@ At the end, ask if there are other areas that the user wants to explore.
 """.strip()
 ```
 
+![Developer prompt cell telling the agent to make multiple searches](images/14-agentic-loop-01-developer-prompt.jpg)
+
 ## A function-call helper
 
 We'll be running function calls repeatedly inside the loop, so let's
@@ -119,10 +121,14 @@ for item in response.output:
         print(item.content[0].text)
 ```
 
+![Processing one response and printing the requested function calls](images/14-agentic-loop-02-printed-function-calls.jpg)
+
 The `has_function_calls` flag tells us whether the model needs another
 API call. If the response contains a function call, the updated
 `messages` has tool output the model hasn't seen yet. We'll need to
 send it back.
+
+![Message history with the appended function call outputs](images/14-agentic-loop-03-messages-history.jpg)
 
 ## The full agent loop
 
@@ -165,6 +171,8 @@ This is the core agent loop. The model reasons about the next action.
 Your code performs it, and the model sees the result on the next turn.
 The loop stops when the model returns a final answer with no more tool
 calls.
+
+![Agent loop run printing two iterations and the final answer](images/14-agentic-loop-04-loop-run-output.jpg)
 
 We don't decide how many times the model searches. The model does,
 and we keep looping until it stops asking for tools.
@@ -221,6 +229,8 @@ def agent_loop(instructions, question, model="gpt-5.4-mini") -> str:
     return last_answer
 ```
 
+![The agent_loop function definition](images/14-agentic-loop-05-agent-loop-function.jpg)
+
 Try it with a question that has a typo:
 
 ```python
@@ -267,6 +277,8 @@ after the first round of results. The instructions are how we steer
 the agent. It can still decide to skip ahead sometimes, so don't
 expect it to follow them every single run.
 
+![Run making three searches in the first iteration](images/14-agentic-loop-06-multiple-search-run.jpg)
+
 ## Restricting off-topic questions
 
 Right now the agent will answer anything. Ask it about chess and it
@@ -275,6 +287,8 @@ will still try.
 ```python
 agent_loop(instructions, "what's queen gambit?")
 ```
+
+![Agent answering the off-topic queen gambit question](images/14-agentic-loop-07-queen-gambit-run.jpg)
 
 We want a course assistant, not a general chatbot. We tighten the
 instructions so the agent only answers from the FAQ. For our own use
@@ -302,6 +316,8 @@ At the end, ask if there are other areas that the user wants to explore.
 
 agent_loop(instructions, "what's queen gambit?")
 ```
+
+![Instructions restricting the agent to FAQ-based answers](images/14-agentic-loop-08-faq-only-instructions.jpg)
 
 This is a lightweight form of an input guardrail. We tell the agent
 what's in scope and what isn't. A real guardrail checks the input

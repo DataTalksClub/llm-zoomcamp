@@ -23,6 +23,8 @@ response = openai_client.responses.create(
 )
 ```
 
+![Calling the LLM with the built prompt and printing the answer](images/07-llm-01-llm-call-and-answer.jpg)
+
 We use OpenAI's Responses API (`openai_client.responses.create`). OpenAI
 has two APIs: chat completions and responses. Chat completions is the
 older one, and it's now considered legacy. When the first edition of
@@ -59,6 +61,8 @@ The shortcut spares us all of it:
 response.output_text
 ```
 
+![The response object dumped as JSON, showing the nested output structure](images/07-llm-02-response-object.jpg)
+
 Same result, less code. The answer should be something like: "Yes, you
 can still join. If you want to receive a certificate, make sure to
 submit your project while submissions are still open."
@@ -68,6 +72,8 @@ The usage counts tell you how many tokens the request consumed:
 ```python
 response.usage
 ```
+
+![Getting the answer via the nested path and printing the token usage](images/07-llm-03-usage-tokens.jpg)
 
 You'll see something like:
 
@@ -84,6 +90,8 @@ In this course we'll use
 
 - Input: $0.75 per million tokens
 - Output: $4.50 per million tokens
+
+![The OpenAI pricing page for gpt-5.4-mini showing input and output prices](images/07-llm-04-model-pricing.jpg)
 
 Let's calculate the cost of the request we just made:
 
@@ -118,6 +126,8 @@ messages and the LLM's replies alternate. The LLM has no memory of its
 own, so it needs the full history passed in to continue the
 conversation.
 
+![A ChatGPT conversation annotated with the system prompt and message roles](images/07-llm-05-chatgpt-message-history.jpg)
+
 We won't build a multi-turn chat here. But we still use this message
 format to separate our instructions from the user prompt.
 
@@ -137,6 +147,8 @@ response = openai_client.responses.create(
     input=message_history
 )
 ```
+
+![The message history with developer instructions and the user prompt](images/07-llm-06-message-history-code.jpg)
 
 This separates the fixed instructions from the user prompt, which
 changes every request.
@@ -208,6 +220,8 @@ flowchart TD
     LLM --> ANSWER
     ANSWER --> U
 ```
+
+![The lesson notes with the RAG flow diagram and the rag function](images/07-llm-07-full-rag-notes.jpg)
 
 Try it:
 

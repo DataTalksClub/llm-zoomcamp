@@ -15,9 +15,13 @@ answers before asking. Some courses have run for five cohorts, so the
 FAQ grows large and searching it by hand gets tedious. That's exactly
 the problem our RAG system will solve.
 
+![The DataTalks.Club FAQ website with the available courses](images/04-dataset-01-faq-website.jpg)
+
 The FAQ data is available as JSON from the DataTalks.Club website. I
 maintain that site, so I made the data available at a JSON endpoint we
 can fetch directly.
+
+![The FAQ site linking to the course data in JSON format](images/04-dataset-02-json-course-data-link.jpg)
 
 Let's fetch it:
 
@@ -51,6 +55,8 @@ for course in courses_raw:
 len(documents)
 ```
 
+![The notebook fetching all courses, with the course list as JSON output](images/04-dataset-03-fetch-all-courses.jpg)
+
 Each entry has:
 
 - `id` - unique identifier
@@ -58,6 +64,8 @@ Each entry has:
 - `section` - which section of the course
 - `question` - the FAQ question
 - `answer` - the FAQ answer
+
+![Course FAQ entries in the raw JSON, each with id, course, section, question, and answer](images/04-dataset-04-json-entry-fields.jpg)
 
 Let's look at one:
 
@@ -76,6 +84,8 @@ You should see something like:
     "answer": "- Do the tasks locally\n- Publish your code ..."
 }
 ```
+
+![Checking the number of documents and a single FAQ entry in the notebook](images/04-dataset-05-document-entry.jpg)
 
 Each course has a slug - a short identifier used in URLs. For example,
 `machine-learning-zoomcamp`, `data-engineering-zoomcamp`, etc. We'll

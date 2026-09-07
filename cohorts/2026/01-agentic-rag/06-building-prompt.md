@@ -10,6 +10,8 @@ The LLM doesn't see our documents unless we pass them in. So we need
 to build a prompt that includes the user's question and the search
 results.
 
+![Hand-drawn diagram of the RAG flow with the retrieval, prompt, and LLM steps](images/06-building-prompt-01-rag-flow-diagram.jpg)
+
 When we build AI systems, we usually split the prompt into two parts:
 
 - Instructions (also called the system prompt): this tells the LLM how
@@ -20,6 +22,8 @@ When we build AI systems, we usually split the prompt into two parts:
 We split them because the instructions are fixed and the user prompt is
 not. Keeping them apart makes the fixed part easy to reuse and the
 changing part easy to build fresh each time.
+
+![Notebook cells with the instructions and the prompt template](images/06-building-prompt-02-instructions-and-template.jpg)
 
 ## Instructions
 
@@ -70,10 +74,14 @@ def build_context(search_results):
     return "\n".join(lines).strip()
 ```
 
+![Search results printed as a list of dictionaries with section, question, and answer fields](images/06-building-prompt-03-search-result-dicts.jpg)
+
 Each document becomes a block with the section, question, and answer.
 This format makes it easy for the LLM to read. We turned a list of
 dictionaries into one string. It's a small preprocessing step before we
 send the data to the LLM.
+
+![The context built by build_context, printed as a sequence of FAQ blocks](images/06-building-prompt-04-context-output.jpg)
 
 ## Building the prompt
 
@@ -117,6 +125,8 @@ A: You don't need it. You're accepted. You can also just start learning and subm
 
 ...
 ```
+
+![The built prompt printed in the notebook with the question and FAQ entries as context](images/06-building-prompt-05-built-prompt.jpg)
 
 The prompt is the bridge between search and the LLM. A bad prompt lets
 the LLM ignore the context and hallucinate. A good prompt keeps the

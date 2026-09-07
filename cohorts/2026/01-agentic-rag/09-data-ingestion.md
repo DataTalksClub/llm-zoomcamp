@@ -13,6 +13,8 @@ startup. With minsearch, this is fine - our FAQ dataset is small, so
 indexing takes less than a second. The entire pipeline runs in one
 process.
 
+![The current single-process RAG pipeline in the notebook](images/09-data-ingestion-01-single-process-rag.jpg)
+
 This breaks down as the dataset grows. Fetching data takes time -
 calling APIs, parsing files, cleaning text. With millions of
 documents, the startup becomes slow. You don't want to wait minutes
@@ -27,6 +29,8 @@ So we separate ingestion from querying. One process writes the data to
 a persistent search index. Another process reads from it. The two run
 independently and only share the index between them.
 
+![Whiteboard sketch separating ingestion and the RAG assistant](images/09-data-ingestion-02-ingestion-architecture-sketch.jpg)
+
 The index survives restarts, so we ingest once and query as often as
 we like. This is the ingestion step from data engineering. We move data
 from its source into a target system the application can use.
@@ -37,6 +41,8 @@ Elasticsearch, OpenSearch, or Qdrant. In this module, we use
 lightweight search library backed by SQLite FTS5. It has the same API
 as minsearch, so it's a drop-in replacement that happens to be
 persistent.
+
+![The sqlitesearch repository on GitHub](images/09-data-ingestion-03-sqlitesearch-repo.jpg)
 
 I picked SQLite because it asks nothing of you. It ships with Python,
 so you don't add any dependency, and it has FTS5 (full text search)
@@ -74,6 +80,8 @@ docs_llm = [doc for doc in documents if doc["course"] == "llm-zoomcamp"]
 print(f"LLM Zoomcamp: {len(docs_llm)} documents")
 ```
 
+![Loading the FAQ data and filtering to 79 LLM Zoomcamp documents](images/09-data-ingestion-04-load-and-filter-docs.jpg)
+
 Now create a sqlitesearch index and add documents one by one with a
 small delay (to simulate slow ingestion):
 
@@ -96,6 +104,8 @@ index.close()
 print("Done. Index saved to faq.db")
 ```
 
+![The ingestion loop adding documents one by one](images/09-data-ingestion-05-ingestion-loop.jpg)
+
 Run this notebook. You'll see each document being added one by one.
 When it's done, there's a `faq.db` file on disk with the entire index.
 This file persists across restarts.
@@ -116,6 +126,8 @@ sqlite_index = TextSearchIndex(
     db_path="faq.db"
 )
 ```
+
+![Connecting to the same faq.db from the querying notebook](images/09-data-ingestion-07-querying-notebook-connect.jpg)
 
 Check how many documents are in the index:
 
@@ -222,6 +234,8 @@ flowchart TD
 ```
 
 The ingestion process writes documents to the knowledge base.
+
+![The annotated whiteboard sketch of the full architecture](images/09-data-ingestion-06-annotated-architecture-sketch.jpg)
 
 The RAG assistant then reads from it:
 

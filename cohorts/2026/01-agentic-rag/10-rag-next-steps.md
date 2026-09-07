@@ -16,6 +16,8 @@ In Part 1 of this module, we:
 You now have a working RAG system and a clear mental model for how each
 piece fits together. From here, the work is making each piece better.
 
+![Whiteboard diagram of the RAG flow with ingestion, knowledge base, prompt and LLM](images/10-rag-next-steps-01-rag-flow-whiteboard.jpg)
+
 ## Two directions forward
 
 [Part 2 of this module: Agents](11-agents-intro.md). Our pipeline runs
@@ -23,6 +25,8 @@ search once with the exact user query, unchanged. If that search
 returns garbage, the LLM has no way to recover. An agent puts the LLM
 in charge instead. It decides what to search for, how many searches to
 run, and when to stop.
+
+![Notebook running the RAG assistant on a course question](images/10-rag-next-steps-02-rag-assistant-notebook.jpg)
 
 An agent also handles questions in another language. It translates the
 query before searching, then translates the answer back afterward.
@@ -43,9 +47,13 @@ It supports:
 - Distributed scaling
 - Real-time indexing
 
+![Module notes recap of Part 1 and the Elasticsearch feature list](images/10-rag-next-steps-04-next-steps-recap.jpg)
+
 It's heavier than sqlitesearch but handles production workloads at
 scale. If you're building a real RAG system, Elasticsearch (or
 OpenSearch) is a common choice for the search backend.
+
+![Module notes with the Elasticsearch recommendation and vector search preview](images/10-rag-next-steps-03-elasticsearch-vector-search-notes.jpg)
 
 For an Elasticsearch tutorial, see the
 [supplementary materials for Module 1](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/cohorts/2025/01-intro/elastic-search.md).

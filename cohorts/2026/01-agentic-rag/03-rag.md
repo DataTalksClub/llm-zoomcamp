@@ -15,6 +15,8 @@ tedious.
 We want a bot that takes all this knowledge and answers student
 questions in natural language.
 
+![Whiteboard sketch of a student asking an assistant a question](images/03-rag-01-assistant-question-sketch.jpg)
+
 In this module, we'll build that system. But first, let's see why we
 can't send the question straight to an LLM and call it a day.
 
@@ -41,6 +43,8 @@ llm("Hey, what's up?")
 
 It replies with something. The LLM works.
 
+![Notebook cell defining the llm function and testing it](images/03-rag-02-llm-function-test.jpg)
+
 Ask it a course-specific
 question:
 
@@ -55,6 +59,8 @@ The LLM gives a generic answer. It might say "you can usually join" or
 courses, their enrollment policies, or their schedules. It tries to be
 helpful, but has no idea about actual enrollment status or policies.
 
+![The LLM gives a generic answer to the course question](images/03-rag-03-generic-llm-answer.jpg)
+
 This is different from a question like "how do I cook salmon?" - the
 LLM knows the answer because cooking salmon is common knowledge. But
 our courses are not in the training data.
@@ -63,6 +69,8 @@ our courses are not in the training data.
 
 More context can fix this. The FAQ website has questions and answers
 about our courses.
+
+![FAQ website entry about joining the course](images/03-rag-04-faq-website-context.jpg)
 
 Copy some of that content into the prompt:
 
@@ -81,6 +89,8 @@ Cloud alternatives with GPU
 Check the quota and reset cycle carefully. Potential options include Google Colab, Kaggle, Databricks.
 """
 ```
+
+![Notebook cell with FAQ entries copied into the context](images/03-rag-05-context-faq-entries.jpg)
 
 Notice the prompt doesn't end with `Answer:`. With older models like
 GPT-3 we added that to nudge the model into completing the sentence.
@@ -105,6 +115,8 @@ Context:
 """
 ```
 
+![Prompt template with question and context placeholders](images/03-rag-06-prompt-template.jpg)
+
 Instead of sending the raw question to the LLM, we send this prompt:
 
 ```python
@@ -116,6 +128,8 @@ After that, the answer is correct: "Yes, you can still join. If you want to
 receive a certificate, you need to submit your project while
 submissions are still open."
 
+![The LLM answers correctly using the FAQ context](images/03-rag-07-grounded-answer.jpg)
+
 This is the answer we actually want to give to our students. What we
 just did is nothing but RAG.
 
@@ -126,6 +140,8 @@ producing text, and retrieval is search. We retrieve relevant documents
 from our knowledge base and use them to augment what the LLM generates.
 That search step is what gives the LLM the context it needs to answer
 correctly.
+
+![Whiteboard sketch of RAG with a knowledge base](images/03-rag-08-rag-architecture-sketch.jpg)
 
 What we just did was naive. I knew in advance which FAQ entry held the
 answer and pasted it in by hand. What we want instead is to perform

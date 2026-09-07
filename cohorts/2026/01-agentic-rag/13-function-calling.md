@@ -89,6 +89,8 @@ depends on the course" or "check the course website". It doesn't know
 about our FAQ, so the answer is vague and not helpful. This is exactly
 why we need RAG, and why we want to hand the model a tool.
 
+![Notebook answer without tools: a vague guess about the course](images/13-function-calling-01-no-tools-vague-answer.jpg)
+
 ## Defining the tool
 
 First we define a top-level `search` function that queries the `index`
@@ -107,6 +109,8 @@ def search(query):
         filter_dict=filter_dict
     )
 ```
+
+![Search function querying the FAQ index with boosts and a course filter](images/13-function-calling-02-search-function.jpg)
 
 Next we tell the model about this function. The model doesn't see our
 Python code, only a schema describing what the function does and what
@@ -133,6 +137,8 @@ search_tool = {
 }
 ```
 
+![Search tool schema with name, description and query parameter](images/13-function-calling-03-search-tool-schema.jpg)
+
 The `description` is the most important field, because the model reads
 it to decide when to call the function. `parameters` is a JSON schema
 for the arguments, and we mark `query` as required so the model always
@@ -152,6 +158,8 @@ response = openai_client.responses.create(
 
 response.output
 ```
+
+![Request to the responses API with the search tool attached](images/13-function-calling-04-request-with-tool.jpg)
 
 Look at the output. Instead of a message with the answer, the response
 contains a `function_call` entry. The model decided it needs to search
@@ -177,6 +185,8 @@ args = json.loads(call.arguments)
 results = search(**args)
 result_json = json.dumps(results, indent=2)
 ```
+
+![Function call with the model-rewritten search query and parsed arguments](images/13-function-calling-05-parsed-call-arguments.jpg)
 
 Now we send this result back to the model. First, we add the model's
 output to the conversation history - the model needs to see its own
@@ -214,11 +224,15 @@ This time the model has the original question, its own decision to
 call `search`, and the FAQ results. It can now produce a proper
 course-specific answer.
 
+![Second API call returning the course specific answer](images/13-function-calling-07-second-call-answer.jpg)
+
 We have to send the whole history because LLMs are stateless between
 API calls. The memory is the list you send as `input`. If you send
 only the tool result, the model has no idea what's going on. So on
 this second call we replay everything we have so far. That means the
 question, the decision to call `search`, and the result we got back.
+
+![Notebook recap of the six-step function calling loop](images/13-function-calling-06-function-calling-loop.jpg)
 
 That's the full function-calling loop for a single turn. With plain
 RAG we made one call, and here we make two. Turning RAG agentic means
@@ -263,6 +277,8 @@ def calculate_gpt54mini_price(input_tokens, output_tokens):
 result = calculate_gpt54mini_price(652, 33)
 print("Total cost: $", round(result["total_cost"], 8))
 ```
+
+![Price calculation for the tool using turn in the notebook](images/13-function-calling-08-token-cost-calculation.jpg)
 
 This usage is only for the second API call. The first call also has
 its own usage and its own cost. That was the call where the model

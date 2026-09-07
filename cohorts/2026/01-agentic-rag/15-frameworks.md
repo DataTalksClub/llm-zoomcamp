@@ -14,6 +14,10 @@ back. It does the same thing as our handwritten loop with less
 boilerplate. If you open its `runners` code, you'll find the same
 `while True` loop we wrote by hand.
 
+![The ToyAIKit repository on GitHub](images/15-frameworks-01-toyaikit-repo.jpg)
+
+![The tool-call loop in the ToyAIKit runner code](images/15-frameworks-02-runner-loop-code.jpg)
+
 I use it here on purpose, because I don't want to pick a winner among
 the production frameworks. ToyAIKit is small and easy to read, so when
 something breaks you can see exactly what happened. That makes it handy
@@ -71,6 +75,8 @@ def search(query: str) -> dict[str, str]:
     )
 ```
 
+![The search function with a type hint and docstring](images/15-frameworks-03-search-with-typehints.jpg)
+
 Then register it without passing a schema:
 
 ```python
@@ -87,6 +93,8 @@ agent_tools.get_tools()
 The output is the same JSON schema we hand-wrote in the function
 calling lesson. ToyAIKit generated it from the docstring and the type
 hint.
+
+![The JSON schema generated from the docstring](images/15-frameworks-04-generated-schema.jpg)
 
 Every modern agent framework does this same trick. It reads a typed
 Python function with a docstring and builds the schema from it. The
@@ -109,6 +117,8 @@ runner = OpenAIResponsesRunner(
     llm_client=OpenAIClient(model="gpt-5.4-mini")
 )
 ```
+
+![Creating the chat interface, callback, and runner](images/15-frameworks-05-runner-setup.jpg)
 
 The `chat_interface` handles display in the notebook. The `callback`
 renders model messages and tool calls as they happen. The runner runs
@@ -137,6 +147,8 @@ handwritten loop. The notebook output is nicer to watch. Each tool
 call and message renders inline, so you can look at every search
 result.
 
+![The agent searching with the typo, retrying, then answering](images/15-frameworks-06-agentic-run-with-retry.jpg)
+
 The `result` is a `LoopResult` with `all_messages` (the full
 conversation), token counts, and `cost` (computed from token usage).
 
@@ -159,6 +171,8 @@ result.all_messages
 ```
 
 This is just a list - the same `messages` list we maintained by hand.
+
+![The computed cost and the full message history](images/15-frameworks-07-cost-and-messages.jpg)
 
 ## Continuing the conversation
 

@@ -12,10 +12,14 @@ takes that FAQ and finds the entry that matches a question. It then
 sends the entry to an LLM so it can answer. That way a student gets a
 reply right away instead of scrolling through a long document.
 
+![The LLM Zoomcamp FAQ website](images/12-rag-revision-01-faq-website.jpg)
+
 We'll use two helpers we defined earlier in this module:
 
 - [`rag_helper.py`](code/rag_helper.py) - the `RAGBase` class wrapping search, prompt building, and the LLM call
 - [`ingest.py`](code/ingest.py) - `load_faq_data` and `build_index` for loading the FAQ and building a minsearch index
+
+![The load_faq_data function in ingest.py](images/12-rag-revision-02-ingest-helper.jpg)
 
 If you're working through Part 2 as a standalone workshop (without
 Part 1), download them into your project:
@@ -24,6 +28,8 @@ Part 1), download them into your project:
 wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2026/01-agentic-rag/code/rag_helper.py
 wget https://raw.githubusercontent.com/DataTalksClub/llm-zoomcamp/main/cohorts/2026/01-agentic-rag/code/ingest.py
 ```
+
+![Downloading the helper files with wget](images/12-rag-revision-03-downloading-helpers.jpg)
 
 ## Setting up RAG
 
@@ -36,6 +42,8 @@ from openai import OpenAI
 load_dotenv()
 openai_client = OpenAI()
 ```
+
+![Setting up the OpenAI client in the notebook](images/12-rag-revision-04-openai-client-setup.jpg)
 
 Load the data and build the search index:
 
@@ -62,6 +70,8 @@ assistant = RAGBase(
     instructions=instructions,
 )
 ```
+
+![The RAGBase constructor with its default parameters](images/12-rag-revision-05-ragbase-init.jpg)
 
 ## Testing it
 
