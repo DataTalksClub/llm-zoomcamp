@@ -33,8 +33,6 @@ Use the same prompt from the previous lesson, but this time with AI Copilot:
    Create a Kestra flow that loads NYC taxi data from a CSV file to BigQuery. The flow should extract data, upload to GCS, and load to BigQuery.
    ```
 
-![The taxi data prompt entered in the AI Copilot panel](images/04-ai-copilot-02-taxi-prompt-copilot.jpg)
-
 3. Observe the results — correct, up-to-date plugin types, valid property names, and working executable YAML.
 
 ![The generated taxi flow YAML with assumption comments](images/04-ai-copilot-03-generated-taxi-flow.jpg)
@@ -50,8 +48,6 @@ The bulk of the structure is done. You're just closing the gap between a general
 ## Iterative Refinement
 
 AI Copilot helps with both creating new flows and refining existing ones. The conversation is cumulative — each follow-up preserves the existing flow structure and only modifies what's needed.
-
-![Iterating on a flow by asking the copilot to add a label](images/04-ai-copilot-05-iterative-label-prompt.jpg)
 
 Example conversation:
 

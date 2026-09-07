@@ -18,8 +18,6 @@ cd 03-orchestration
 docker compose up -d
 ```
 
-![The docker-compose.yml with the Kestra and Postgres services](images/03-setup-01-docker-compose.jpg)
-
 Once the container starts, access the Kestra UI at http://localhost:8080.
 
 To shut down Kestra:
@@ -66,8 +64,6 @@ export SECRET_OPENAI_API_KEY=$(echo -n "your-openai-api-key-here" | base64)   # 
 export SECRET_TAVILY_API_KEY=$(echo -n "your-tavily-api-key-here" | base64)   # optional
 ```
 
-![Exporting the base64-encoded secret in the terminal next to the setup instructions](images/03-setup-03-export-secrets.jpg)
-
 Then start (or restart) Kestra:
 
 ```bash
@@ -103,5 +99,3 @@ Alternatively, copy-paste the flow YAML directly into Kestra's UI.
 4. Leave default inputs or customize them
 5. Watch the execution and review the outputs
 6. Then run `5_web_research_agent` and `6_multi_agent_research` and analyze the logs and outputs
-
-![The Kestra login screen next to the credentials in the Docker Compose file](images/03-setup-05-kestra-login.jpg)
