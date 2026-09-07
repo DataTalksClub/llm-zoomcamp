@@ -38,6 +38,8 @@ if st.button("Ask"):
         st.write(answer)
 ```
 
+![Creating app.py with the Streamlit interface and installing it with uv](images/03-chat-app-01-app-py-code.jpg)
+
 Run the app:
 
 ```bash
@@ -57,9 +59,13 @@ Now we can run:
 make chat
 ```
 
+![The Course Assistant interface opened in the browser](images/03-chat-app-02-streamlit-interface.jpg)
+
 If you're in GitHub Codespaces, it detects the port and forwards it for
 you. Open the link and you get a web interface. Ask a question like "How
 do I join the course?" and the answer comes back.
+
+![Asking the course assistant a question and getting the answer](images/03-chat-app-03-answer-in-browser.jpg)
 
 The RAG works, but right now we track nothing about it: no response
 time, no token usage, no cost. That's exactly the visibility monitoring

@@ -14,6 +14,8 @@ question. Then we build a prompt from that question plus the documents we
 found. Finally we send it to the LLM, which gives us the answer. That's
 the whole pipeline, and we reuse it as-is.
 
+![The LLM Zoomcamp FAQ website the assistant answers from](images/02-assistant-01-faq-website.jpg)
+
 ## Setting up
 
 Two helper files carry that pipeline. `ingest.py` downloads the FAQ
@@ -74,6 +76,8 @@ def create_assistant():
     )
 ```
 
+![The create_assistant function in assistant.py](images/02-assistant-02-create-assistant-function.jpg)
+
 Test it from the command line:
 
 ```python
@@ -110,6 +114,8 @@ Now we can run:
 make run
 ```
 
+![The Makefile run target and the assistant answering in the terminal](images/02-assistant-04-makefile-run-target.jpg)
+
 Or with a custom question:
 
 ```bash
@@ -118,4 +124,7 @@ uv run python assistant.py "How do I join the course?"
 
 You should see an answer printed to the console. Running it from the
 command line is fine for us, but it's not how a user would reach it.
+
+![The assistant fetching the FAQ and printing an answer to the console](images/02-assistant-03-assistant-answer.jpg)
+
 Next we put a simple interface in front of it with Streamlit.

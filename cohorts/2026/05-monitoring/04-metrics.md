@@ -42,6 +42,8 @@ class LLMCallRecord:
     timestamp: datetime = field(default_factory=datetime.now)
 ```
 
+![The LLMCallRecord dataclass in metrics.py](images/04-metrics-01-llmcallrecord-dataclass.jpg)
+
 ## Cost calculation
 
 Next we need the cost of each call. The provider charges a price per
@@ -58,6 +60,8 @@ def calculate_cost(model, usage):
     return cost
 ```
 
+![The calculate_cost function with the per-million-token rates](images/04-metrics-02-cost-calculation.jpg)
+
 I keep copy-pasting a version of this function across modules, which
 isn't the tidiest thing in the world. For a real project you'd pull it
 into one shared place, but here it keeps each lesson self-contained.
@@ -71,6 +75,8 @@ and every time `rag()` makes a call, the metrics get recorded for free.
 
 The same trick works for agents. You'd capture each tool call the same
 way we captured LLM calls in the evaluation module.
+
+![The RAGBase parent class from the helper, about to be subclassed](images/04-metrics-03-ragbase-parent-class.jpg)
 
 Also in `metrics.py`, the subclass that captures metrics:
 
@@ -135,6 +141,8 @@ The `_log_response` method captures all the metrics:
         self.last_call = call_record
 ```
 
+![The _log_response method building the call record](images/04-metrics-04-log-response-record.jpg)
+
 Now update `assistant.py` to import `RAGWithMetrics` instead of `RAGBase`:
 
 ```python
@@ -157,6 +165,8 @@ def create_assistant():
         llm_client=OpenAI()
     )
 ```
+
+![The updated create_assistant and the printed call record](images/04-metrics-05-printed-call-record.jpg)
 
 ## Updating the Streamlit app
 
@@ -190,6 +200,8 @@ It isn't a pretty panel, but it shows the numbers we care about. One
 naming note: I call these `prompt_tokens` and `completion_tokens` to
 follow the API. The names `input_tokens` and `output_tokens` read more
 clearly, so feel free to rename them in your own version.
+
+![Response time, token counts, and cost displayed under the answer](images/04-metrics-06-streamlit-metrics-display.jpg)
 
 We capture the metrics now, but they vanish the moment we close the app.
 Next we save each record to a database so we can track usage over time.

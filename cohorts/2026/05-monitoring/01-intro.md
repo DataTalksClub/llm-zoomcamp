@@ -12,6 +12,8 @@ numbers stop telling the whole story. We don't know how long answers
 take, what they cost, or whether anyone finds them useful. We need to
 watch the system while it runs.
 
+![The live workshop page for this monitoring module](images/01-intro-01-monitoring-workshop-page.jpg)
+
 That's monitoring: online evaluation. We collect metrics from the
 running system and put them on a dashboard. Then we can see how it
 performs with real traffic.
@@ -35,6 +37,10 @@ We don't rebuild the RAG part. We wrap it in a Streamlit app and save
 every interaction to PostgreSQL. Then we put a dashboard in front of the
 data. At the end we add Grafana for a more powerful view.
 
+![The RAGBase class with the search, build prompt, and LLM steps we reuse](images/01-intro-02-ragbase-pipeline-code.jpg)
+
 We focus on RAG here. Monitoring an agent works almost the same way, so
 we leave it as homework. The [agents module](../01-agentic-rag/)
 already has the pieces you need to apply these same ideas there.
+
+![The course repository with one folder per module](images/01-intro-03-course-repo-modules.jpg)

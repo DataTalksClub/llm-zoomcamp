@@ -20,6 +20,8 @@ from db_init import get_db_connection
 from metrics import LLMCallRecord
 ```
 
+![Creating db_query.py with the query for recent conversations](images/06-querying-01-db-query-select.jpg)
+
 ## Fetching conversations
 
 A query returns each row as a plain tuple. You have to remember that
@@ -44,6 +46,8 @@ def row_to_record(row):
         timestamp=row[12],
     )
 ```
+
+![Converting a database row into an LLMCallRecord](images/06-querying-02-row-to-record.jpg)
 
 Now update `get_conversations` to use it:
 
@@ -91,6 +95,8 @@ Run it:
 ```bash
 uv run python db_query.py
 ```
+
+![Reading saved conversations back from the database](images/06-querying-03-conversations-from-psql.jpg)
 
 The output is a wall of text, not something you'd want to read all day.
 Still, it proves we can pull the data back out of the database. Now we
