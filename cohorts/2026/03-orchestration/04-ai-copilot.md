@@ -7,6 +7,8 @@ Building workflows manually can be slow. You need to know which plugin to use, l
 
 AI Copilot changes the approach. Instead of building each step manually, you describe your inputs and your goal — and the AI Copilot generates the flow structure for you. You then tweak the last 5% to get the exact behaviour you want. The AI Copilot handles the boilerplate; you focus on the logic that's specific to your use case.
 
+![The AI Copilot landing page with example workflow prompts](images/04-ai-copilot-01-copilot-landing-examples.jpg)
+
 This works reliably because Kestra's AI Copilot is grounded in the current plugin documentation, valid property names, and best practices for your running version of Kestra — unlike a generic AI assistant, which guesses.
 
 ## Setup
@@ -30,17 +32,26 @@ Use the same prompt from the previous lesson, but this time with AI Copilot:
    ```
    Create a Kestra flow that loads NYC taxi data from a CSV file to BigQuery. The flow should extract data, upload to GCS, and load to BigQuery.
    ```
+
+![The taxi data prompt entered in the AI Copilot panel](images/04-ai-copilot-02-taxi-prompt-copilot.jpg)
+
 3. Observe the results — correct, up-to-date plugin types, valid property names, and working executable YAML.
+
+![The generated taxi flow YAML with assumption comments](images/04-ai-copilot-03-generated-taxi-flow.jpg)
 
 ## The 5% Rule
 
 Copilot gets you to a working flow quickly, but it won't know everything about your environment. After generation, review the output and make the small adjustments that are specific to your setup - your environment variables, your secrets, your error handling preferences, or a task that needs a slightly different configuration than the default.
+
+![Accepting a copilot change that adds a download task](images/04-ai-copilot-04-accept-copilot-diff.jpg)
 
 The bulk of the structure is done. You're just closing the gap between a general solution and your exact requirements.
 
 ## Iterative Refinement
 
 AI Copilot helps with both creating new flows and refining existing ones. The conversation is cumulative — each follow-up preserves the existing flow structure and only modifies what's needed.
+
+![Iterating on a flow by asking the copilot to add a label](images/04-ai-copilot-05-iterative-label-prompt.jpg)
 
 Example conversation:
 

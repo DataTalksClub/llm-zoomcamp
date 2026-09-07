@@ -18,6 +18,8 @@ This flow demonstrates a two-agent system for competitor research:
 | Research Agent | Web research and data gathering | Tavily web search | Find factual, current information |
 | Main Analyst Agent | Analysis and synthesis | Research agent (used as a tool) | Create structured reports |
 
+![The multi-agent research flow with the main analyst agent and its system message](images/07-multi-agent-01-multi-agent-flow.jpg)
+
 How it works:
 
 1. Input: company name (e.g., "kestra.io")
@@ -29,8 +31,12 @@ How it works:
 
 The key pattern here is using `AIAgent` as a tool. The main agent treats the research agent exactly like a web search or database call — it invokes it when needed and works with whatever comes back.
 
+![The multi-agent execution with the research results and the JSON output in the logs](images/07-multi-agent-02-research-output-logs.jpg)
+
 ## Best Practices
 
 1. Define clear responsibilities: each agent should have a specific role and stay within it
 2. Monitor token usage: multiple agents means multiple LLM calls — costs add up
 3. Document agent purposes: make the system maintainable by describing what each agent does in your flow and task descriptions
+
+![The flow execution timeline showing how long each agent task ran](images/07-multi-agent-03-execution-durations.jpg)

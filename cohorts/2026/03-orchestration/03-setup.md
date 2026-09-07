@@ -18,6 +18,8 @@ cd 03-orchestration
 docker compose up -d
 ```
 
+![The docker-compose.yml with the Kestra and Postgres services](images/03-setup-01-docker-compose.jpg)
+
 Once the container starts, access the Kestra UI at http://localhost:8080.
 
 To shut down Kestra:
@@ -36,6 +38,8 @@ docker compose down
 
 The free tier is sufficient for light use, but rate limits are relatively low â€” you may hit quota quickly if you run the agent and multi-agent flows repeatedly. If you run into `429 Resource Exhausted` errors, wait a minute before retrying, or consider upgrading to a paid tier.
 
+![Creating a new API key in Google AI Studio](images/03-setup-02-gemini-api-key.jpg)
+
 **OpenAI API Key (Required for flow 3)**
 
 1. Visit [platform.openai.com](https://platform.openai.com/home) and sign in or create an account
@@ -49,6 +53,8 @@ The free tier is sufficient for light use, but rate limits are relatively low â€
 
 The free tier includes 1,000 searches/month.
 
+![The Tavily dashboard with the API keys for the course](images/03-setup-04-tavily-api-keys.jpg)
+
 ## Step 3: Configure API Keys in Kestra
 
 Kestra reads secrets from environment variables prefixed with `SECRET_` where the value is base64-encoded. Export your keys before starting Kestra:
@@ -59,6 +65,8 @@ export SECRET_GEMINI_API_KEY=$(echo -n $GEMINI_API_KEY | base64) # required
 export SECRET_OPENAI_API_KEY=$(echo -n "your-openai-api-key-here" | base64)   # required for flow 3
 export SECRET_TAVILY_API_KEY=$(echo -n "your-tavily-api-key-here" | base64)   # optional
 ```
+
+![Exporting the base64-encoded secret in the terminal next to the setup instructions](images/03-setup-03-export-secrets.jpg)
 
 Then start (or restart) Kestra:
 
@@ -95,3 +103,5 @@ Alternatively, copy-paste the flow YAML directly into Kestra's UI.
 4. Leave default inputs or customize them
 5. Watch the execution and review the outputs
 6. Then run `5_web_research_agent` and `6_multi_agent_research` and analyze the logs and outputs
+
+![The Kestra login screen next to the credentials in the Docker Compose file](images/03-setup-05-kestra-login.jpg)

@@ -14,14 +14,20 @@ Let's start by seeing what happens when AI lacks proper context.
    Create a Kestra flow that loads NYC taxi data from a CSV file to BigQuery. The flow should extract data, upload to GCS, and load to BigQuery.
    ```
 
+![Entering the taxi data flow prompt in a private ChatGPT window](images/02-context-engineering-01-chatgpt-prompt-taxi-flow.jpg)
+
 3. Observe the results. ChatGPT will generate a Kestra flow, but it likely contains:
    - Outdated plugin syntax (e.g., old task types that have been renamed)
    - Incorrect property names (e.g., properties that don't exist in current versions)
    - Hallucinated features (e.g., tasks, triggers, or properties that never existed)
 
+![The generated Kestra flow YAML with its four tasks](images/02-context-engineering-02-generated-kestra-flow.jpg)
+
 ## Why Does This Happen?
 
 Large Language Models like GPT are trained on data up to a specific point in time. They don't automatically know about software updates and new releases, renamed plugins or changed APIs, new best practices in your organisation, or specific configurations for your infrastructure.
+
+![ChatGPT reporting its knowledge is current through August 2024](images/02-context-engineering-03-training-cutoff-answer.jpg)
 
 This is the fundamental challenge of using AI: the model can only work with information it has access to.
 
