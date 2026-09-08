@@ -339,3 +339,9 @@ checked before acceptance.
   The measured size/package table directly supports the production-overhead
   argument. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
   browser tabs, webcam, and Zoom chrome while preserving exact numeric values.
+
+- `09-onnx-embedder-03-model-download.jpg` — **crop/replace**, score 8/12.
+  The exact download command and resulting model directory are useful setup
+  evidence. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
+  browser tabs, webcam, and Zoom chrome while preserving the URL, command,
+  and file layout verbatim.

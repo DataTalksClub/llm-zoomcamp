@@ -56,7 +56,7 @@ Copy it to your project, then run:
 uv run python download.py
 ```
 
-![Downloading the ONNX model into the models directory](images/09-onnx-embedder-03-model-download.jpg)
+![Cropped download instructions and model directory layout for the ONNX embedder](images/09-onnx-embedder-03-model-download-cropped.png)
 
 This creates:
 
