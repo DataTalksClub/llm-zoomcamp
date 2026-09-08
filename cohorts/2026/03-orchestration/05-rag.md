@@ -55,7 +55,7 @@ This flow asks Gemini: "Which features were released in Kestra 1.1?"
 
 Without RAG, the model might hallucinate features that don't exist, provide outdated information, or give vague generic answers.
 
-![The without-RAG execution answering with vague, partly hallucinated features](images/05-rag-01-without-rag-hallucinated-answer.jpg)
+![The without-RAG execution answering with vague, partly hallucinated features](images/05-rag-01-without-rag-hallucinated-answer-cropped.png)
 
 Import and run this flow, then check the output — the response won't be accurate.
 
