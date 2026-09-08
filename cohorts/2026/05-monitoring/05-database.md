@@ -190,7 +190,7 @@ Run the init script:
 uv run python db_init.py
 ```
 
-![Running db_init.py to create the conversations table](images/05-database-03-db-init-run.jpg)
+![Running db_init.py to create the conversations table](images/05-database-03-db-init-run-cropped.png)
 
 We run this once and don't add it to the `Makefile`. The `postgres`
 container uses a named volume (`pgdata`), so the data survives restarts.
