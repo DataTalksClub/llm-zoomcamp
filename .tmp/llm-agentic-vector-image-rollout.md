@@ -55,3 +55,10 @@ checked before acceptance.
   `(448x320+84+16)` was used as the imagegen reference. The accepted asset
   preserves `Q`, `A`, `ASSISTANT`, `FAQ`, `PROMPT`, `LLM`, both retrieval
   directions, and the answer return path; no capture artifacts remain.
+
+- `02-embeddings-01-vector-space-whiteboard.jpg` — **crop/replace**, score
+  10/12. The source teaches semantic proximity but is a whiteboard capture
+  with webcam, toolbar, and Zoom chrome. Deterministic crop `(448x320+84+16)`
+  was used as the imagegen reference. The accepted image preserves the exact
+  labels `enroll`, `join`, and `Docker`, with the first two close together and
+  Docker clearly distant; no extra labels or capture artifacts remain.

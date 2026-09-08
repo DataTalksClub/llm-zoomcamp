@@ -23,7 +23,7 @@ Imagine a 2D space where "enroll" and "join" are near each other and
                    · Docker
 ```
 
-![Whiteboard sketch of a vector space with enroll and join close together and Docker far away](images/02-embeddings-01-vector-space-whiteboard.jpg)
+![Clean vector-space illustration with enroll and join close together and Docker far away](images/02-embeddings-01-vector-space-whiteboard-imagegen.png)
 
 The same idea works for entire sentences:
 
