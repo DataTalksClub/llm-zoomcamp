@@ -197,3 +197,10 @@ checked before acceptance.
   interface. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling
   removes webcam, Zoom/editor chrome, and empty surrounding panels while
   preserving the schema text verbatim.
+
+- `13-function-calling-05-parsed-call-arguments.jpg` — **crop/replace**, score
+  9/12. The `ResponseFunctionToolCall` output and `json.loads` step show the
+  exact handoff from model-generated arguments to Python data. A tighter
+  deterministic crop `(480x225+50+30)` plus Lanczos upscaling removes the
+  autocomplete overlay in the following empty cell and all capture chrome;
+  the exact call output remains source-preserved.

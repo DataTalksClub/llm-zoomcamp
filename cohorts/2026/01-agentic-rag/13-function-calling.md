@@ -184,7 +184,7 @@ results = search(**args)
 result_json = json.dumps(results, indent=2)
 ```
 
-![Function call with the model-rewritten search query and parsed arguments](images/13-function-calling-05-parsed-call-arguments.jpg)
+![Cropped function-call output showing the rewritten query and parsed arguments](images/13-function-calling-05-parsed-call-arguments-cropped.png)
 
 Now we send this result back to the model. First, we add the model's
 output to the conversation history - the model needs to see its own
