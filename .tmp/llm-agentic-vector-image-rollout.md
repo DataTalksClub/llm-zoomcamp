@@ -216,3 +216,10 @@ checked before acceptance.
   function calls, a state not conveyed by the code block alone. Deterministic
   crop `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor
   chrome, and empty controls while preserving exact code and output.
+
+- `14-agentic-loop-03-messages-history.jpg` — **crop/replace**, score 9/12.
+  The appended function-call outputs make the agent loop's mutable message
+  history visible. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling
+  removes webcam, Zoom/editor chrome, and empty controls while preserving the
+  exact list contents. A native selection highlight remains on one message
+  because removing it safely would alter the exact output.

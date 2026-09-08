@@ -127,7 +127,7 @@ API call. If the response contains a function call, the updated
 `messages` has tool output the model hasn't seen yet. We'll need to
 send it back.
 
-![Message history with the appended function call outputs](images/14-agentic-loop-03-messages-history.jpg)
+![Cropped message history showing appended function-call outputs](images/14-agentic-loop-03-messages-history-cropped.png)
 
 ## The full agent loop
 
