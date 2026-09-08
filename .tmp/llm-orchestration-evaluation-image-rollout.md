@@ -28,3 +28,9 @@ rubric decision and the invariant checked before acceptance.
   because the source contains exact mathematical notation and relationships.
   The `Aᵢ → Qᵢ* → [Qᵢ*, Aᵢ; aᵢ, Aᵢ]` teaching sketch remains exact; face, Zoom
   chrome, toolbar, and watermark removed.
+- `04-evaluation/01-intro.md`: `01-intro-05-rag-evaluation-diagram.jpg` retained
+  as `01-intro-05-rag-evaluation-diagram-cropped.png`. Deterministic crop
+  `(x=85,y=30,w=440,h=295)` and 2x Lanczos upscale used because exact math and
+  labelled connections are instructional source data. `RAG`, `SEARCH`, `KB`,
+  `ASSISTANT`, `PROMPT`, `LLM`, `Q`, and `A` relationships remain intact;
+  recording chrome and face are removed.

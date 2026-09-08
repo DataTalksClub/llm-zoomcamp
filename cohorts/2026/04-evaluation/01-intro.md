@@ -82,7 +82,7 @@ We'll cover three levels of evaluation:
 2. RAG evaluation: does the LLM generate good answers?
 3. Agent evaluation: does the agent use tools efficiently?
 
-![RAG evaluation diagram from generated question to search results and LLM answer](images/01-intro-05-rag-evaluation-diagram.jpg)
+![RAG evaluation diagram from generated question to search results and LLM answer](images/01-intro-05-rag-evaluation-diagram-cropped.png)
 
 Most of our time goes to search, and that's on purpose. Everything else
 depends on it: if retrieval brings back the wrong documents, no prompt or
