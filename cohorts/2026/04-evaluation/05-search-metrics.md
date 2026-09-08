@@ -62,7 +62,7 @@ cnt / len(example)
 This means that search found the correct document for 93.3% of the
 queries in this example.
 
-![Counting the hits and dividing by the number of queries](images/05-search-metrics-02-hit-rate-count.jpg)
+![Counting the hits and dividing by the number of queries](images/05-search-metrics-02-hit-rate-count-cropped.png)
 
 Put the same logic into a function:
 
