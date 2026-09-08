@@ -177,7 +177,7 @@ means it counts two times as much. Take a question about certificates.
 The word "certificate" in the question field now weighs twice what it
 does in the answer.
 
-![Searching with boosted question and section fields](images/05-search-06-boosted-search.jpg)
+![Cropped search cell showing boosted question and section fields](images/05-search-06-boosted-search-cropped.png)
 
 Giving `section` 0.5 means it counts half as much, since a match there
 tells us less. This is the same boosting mechanism used by

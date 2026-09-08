@@ -140,3 +140,9 @@ checked before acceptance.
   webcam, Zoom/editor frame, and unrelated panels while preserving the result
   fields. A native selection highlight remains on one exact result row and is
   recorded as a source limitation rather than painted over.
+
+- `05-search-06-boosted-search.jpg` — **crop/replace**, score 9/12. The
+  exact `boost_dict` values and resulting list show how field weighting
+  changes retrieval. Deterministic crop `(480x300+50+30)` plus Lanczos
+  upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
+  retaining the code and output.
