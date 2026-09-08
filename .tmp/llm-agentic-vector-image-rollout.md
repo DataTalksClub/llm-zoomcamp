@@ -328,3 +328,9 @@ checked before acceptance.
   upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
   preserving exact code and output. The query's native selection highlight is
   retained as a documented source artifact.
+
+- `08-pgvector-05-cosine-search-query.jpg` — **crop/replace**, score 9/12.
+  The SQL operator, ordering, and printed similarity rows make the PGVector
+  search mechanics concrete. Deterministic crop `(480x300+50+30)` plus
+  Lanczos upscaling removes webcam, Zoom/editor chrome, and unrelated panels;
+  exact SQL and numeric output remain source-preserved.
