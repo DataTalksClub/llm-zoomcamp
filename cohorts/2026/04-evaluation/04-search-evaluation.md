@@ -104,7 +104,7 @@ relevance
 This gives a list of `0` and `1` values. `1` means the retrieved
 document has the same ID as the correct document.
 
-![The relevance matrix sketch: one row per question, one column per position](images/04-search-evaluation-03-relevance-matrix-whiteboard-crisp.png)
+![Vector similarity search selects nearby document vectors and orders them as ranked results for evaluation](images/04-search-evaluation-03-relevance-search-flow-imagegen.png)
 
 Put this logic into a function:
 

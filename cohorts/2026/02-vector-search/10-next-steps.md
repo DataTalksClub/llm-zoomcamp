@@ -11,7 +11,7 @@ In this module, we:
 - Integrated vector search into our RAG pipeline with the `RAGVector`
   class
 
-![Cropped similarity-score sketch showing scores ranked into a results page](images/10-next-steps-03-similarity-whiteboard-crisp.png)
+![Vector similarity search maps a query vector to nearby document vectors and a ranked results list](images/10-next-steps-01-similarity-search-imagegen.png)
 
 The code is available in the
 [code directory](code/).

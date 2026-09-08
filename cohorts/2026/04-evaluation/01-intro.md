@@ -36,8 +36,6 @@ The approach works like this:
 - We send Q* through our search and check if the original document
   appears in the results
 
-![FAQ page with a question and answer pair used as evaluation source](images/01-intro-03-faq-qA-pairs-crisp.png)
-
 For RAG evaluation, we go one step further:
 
 - A = the original answer in the FAQ
@@ -47,8 +45,6 @@ For RAG evaluation, we go one step further:
 
 This is the A → Q* → A' pattern. We know the answer for each generated
 question because we created the question from that answer.
-
-![Whiteboard: generating candidate questions Q star from a FAQ answer](images/01-intro-04-generate-questions-whiteboard-crisp.png)
 
 With evaluation, we can:
 
@@ -81,8 +77,6 @@ We'll cover three levels of evaluation:
 1. Search evaluation: does the search return the right documents?
 2. RAG evaluation: does the LLM generate good answers?
 3. Agent evaluation: does the agent use tools efficiently?
-
-![RAG evaluation diagram from generated question to search results and LLM answer](images/01-intro-05-rag-evaluation-diagram-crisp.png)
 
 Most of our time goes to search, and that's on purpose. Everything else
 depends on it: if retrieval brings back the wrong documents, no prompt or

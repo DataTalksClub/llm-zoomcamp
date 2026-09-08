@@ -35,12 +35,10 @@ When building LLM applications and workflows, we often spend significant time wr
 
 However, AI is only as good as the context we provide. This module teaches you how to engineer that context for reliable, production-ready workflows.
 
-![ChatGPT writing a Kestra flow YAML from the prompt](images/01-intro-02-chatgpt-writing-flow-yaml-crisp.png)
+![AI orchestration path from context and AI Copilot through RAG, agents, multi-agent systems, and production](images/01-intro-01-ai-orchestration-path-imagegen.png)
 
 ## What Makes This Different from AI Assistants?
 
 Traditional AI assistants (like ChatGPT or Gemini in a browser) don't have context about your codebase and workflow patterns, real-time data from your systems, or the latest documentation and best practices.
-
-![A flow generated without Kestra context: extract, upload, and load tasks](images/01-intro-03-generated-flow-without-context-crisp.png)
 
 By integrating AI directly into Kestra and using techniques like RAG and specialized agents, we can provide this context and get much better results.

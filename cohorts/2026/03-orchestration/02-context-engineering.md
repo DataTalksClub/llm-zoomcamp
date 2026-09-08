@@ -19,13 +19,11 @@ Let's start by seeing what happens when AI lacks proper context.
    - Incorrect property names (e.g., properties that don't exist in current versions)
    - Hallucinated features (e.g., tasks, triggers, or properties that never existed)
 
-![The generated Kestra flow YAML with its four tasks](images/02-context-engineering-02-generated-kestra-flow-crisp.png)
+![Without context, a vague prompt produces an outdated flow; with context and current docs, it produces a trusted flow](images/02-context-engineering-01-context-quality-flow-imagegen.png)
 
 ## Why Does This Happen?
 
 Large Language Models like GPT are trained on data up to a specific point in time. They don't automatically know about software updates and new releases, renamed plugins or changed APIs, new best practices in your organisation, or specific configurations for your infrastructure.
-
-![ChatGPT reporting its knowledge is current through August 2024](images/02-context-engineering-03-training-cutoff-answer-crisp.png)
 
 This is the fundamental challenge of using AI: the model can only work with information it has access to.
 
