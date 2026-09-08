@@ -8,6 +8,8 @@ that's slow and dull. Instead we write a small script that pumps fake
 conversations into Postgres. Then we can see how the dashboard behaves
 with real volume.
 
+![Synthetic monitoring data loop from sample conversations through generation and Postgres into a live dashboard](images/11-synthetic-data-01-live-data-loop-imagegen.png)
+
 The script inserts a new conversation every second until we stop it. That
 also lets us watch Grafana update in close to real time.
 

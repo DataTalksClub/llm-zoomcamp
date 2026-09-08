@@ -11,6 +11,8 @@ go remove it.
 Docker Compose describes all three services in one file and starts them
 together on a shared network. You run one command instead.
 
+![Docker Compose topology connecting the Streamlit app, Postgres, and Grafana on a shared network with persistent volumes](images/13-docker-compose-01-service-topology-imagegen.png)
+
 ## Project structure
 
 The project layout:

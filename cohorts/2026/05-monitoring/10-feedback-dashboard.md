@@ -7,6 +7,8 @@ the judge gives relevance labels. But we can't see either one yet. So we
 add them to the Streamlit dashboard from lesson 07, beside the cost and
 latency panels.
 
+![Monitoring dashboard overview with panels for cost, latency, relevance, and user feedback](images/10-feedback-dashboard-01-monitoring-panels-imagegen.png)
+
 First, add feedback queries to `db_query.py`.
 
 Get judge relevance distribution:
