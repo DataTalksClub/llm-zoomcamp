@@ -235,3 +235,9 @@ checked before acceptance.
   recover by broadening/rephrasing a query. Deterministic crop
   `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor chrome,
   and empty controls while preserving the exact calls and answer.
+
+- `14-agentic-loop-07-queen-gambit-run.jpg` — **crop/replace**, score 8/12.
+  The off-topic query demonstrates the agent's flexible search/reasoning path
+  beyond the FAQ domain. Deterministic crop `(480x300+50+30)` plus Lanczos
+  upscaling removes webcam, Zoom/editor chrome, and empty controls. The
+  source-edge truncation of the long chess answer remains source-preserved.

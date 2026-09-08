@@ -286,7 +286,7 @@ will still try.
 agent_loop(instructions, "what's queen gambit?")
 ```
 
-![Agent answering the off-topic queen gambit question](images/14-agentic-loop-07-queen-gambit-run.jpg)
+![Cropped agent output answering the off-topic Queen's Gambit question](images/14-agentic-loop-07-queen-gambit-run-cropped.png)
 
 We want a course assistant, not a general chatbot. We tighten the
 instructions so the agent only answers from the FAQ. For our own use
