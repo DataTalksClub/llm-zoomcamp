@@ -27,7 +27,7 @@ One typo and it misses the entry it needed. In our pipeline there's
 no recovery. The search runs once, and if it returns garbage the LLM
 gets garbage. Our pipeline always does the same thing, no matter what.
 
-![A question with a typo gets no useful answer from the FAQ](images/11-agents-intro-02-typo-search-failure.jpg)
+![Cropped notebook output showing that the misspelled question gets no useful FAQ answer](images/11-agents-intro-02-typo-search-failure-cropped.png)
 
 Instead of routing the user question straight to search, we can hand
 control to the LLM and let it drive.

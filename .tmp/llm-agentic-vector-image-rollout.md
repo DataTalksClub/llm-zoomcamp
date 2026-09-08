@@ -173,3 +173,9 @@ checked before acceptance.
   Lanczos upscaling removes browser tabs, webcam, and Zoom chrome while
   preserving the exact visible values. The live page is time-sensitive; the
   lesson's accompanying text remains the source of truth.
+
+- `11-agents-intro-02-typo-search-failure.jpg` — **crop/replace**, score 9/12.
+  The failed search is the concrete baseline for the agentic retry lesson.
+  Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes the
+  webcam, Zoom/editor chrome, and unrelated panels while preserving the
+  misspelled query and no-results answer.
