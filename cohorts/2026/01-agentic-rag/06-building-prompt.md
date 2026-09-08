@@ -10,8 +10,6 @@ The LLM doesn't see our documents unless we pass them in. So we need
 to build a prompt that includes the user's question and the search
 results.
 
-![Hand-drawn diagram of the RAG flow with the retrieval, prompt, and LLM steps](images/06-building-prompt-01-rag-flow-diagram.jpg)
-
 When we build AI systems, we usually split the prompt into two parts:
 
 - Instructions (also called the system prompt): this tells the LLM how

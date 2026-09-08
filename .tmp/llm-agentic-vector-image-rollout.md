@@ -18,6 +18,12 @@ checked before acceptance.
   leaves the teaching point unreadable at lesson size, and fails the caption
   and accessibility hard gate. The original file remains unreferenced.
 
+- `06-building-prompt-01-rag-flow-diagram.jpg` — **remove**, score 4/12.
+  The source is a code/notebook frame, not the captioned hand-drawn flow
+  diagram. Its code is repeated in the lesson and the important right side
+  is partly obscured by capture chrome, so changing only the caption would not
+  restore a distinct teaching point. The original file remains unreferenced.
+
 - `03-rag-08-rag-architecture-sketch.jpg` — **crop/replace**, score 10/12.
   The source teaches the RAG relationship, but includes whiteboard UI,
   webcam, and Zoom chrome. Deterministic crop `(448x320+84+16)` was used as
