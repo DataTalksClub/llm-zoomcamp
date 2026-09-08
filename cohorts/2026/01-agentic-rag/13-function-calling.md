@@ -222,7 +222,7 @@ This time the model has the original question, its own decision to
 call `search`, and the FAQ results. It can now produce a proper
 course-specific answer.
 
-![Second API call returning the course specific answer](images/13-function-calling-07-second-call-answer.jpg)
+![Cropped second API call returning the course-specific answer](images/13-function-calling-07-second-call-answer-cropped.png)
 
 We have to send the whole history because LLMs are stateless between
 API calls. The memory is the list you send as `input`. If you send

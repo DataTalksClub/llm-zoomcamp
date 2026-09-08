@@ -204,3 +204,9 @@ checked before acceptance.
   deterministic crop `(480x225+50+30)` plus Lanczos upscaling removes the
   autocomplete overlay in the following empty cell and all capture chrome;
   the exact call output remains source-preserved.
+
+- `13-function-calling-07-second-call-answer.jpg` — **crop/replace**, score
+  9/12. The final tool-enabled response is the concrete contrast with the
+  earlier vague answer. Deterministic crop `(480x300+50+30)` plus Lanczos
+  upscaling removes webcam, Zoom/editor chrome, and empty cell controls while
+  preserving the second-call code and course-specific answer.
