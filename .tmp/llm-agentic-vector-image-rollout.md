@@ -241,3 +241,10 @@ checked before acceptance.
   beyond the FAQ domain. Deterministic crop `(480x300+50+30)` plus Lanczos
   upscaling removes webcam, Zoom/editor chrome, and empty controls. The
   source-edge truncation of the long chess answer remains source-preserved.
+
+- `15-frameworks-04-generated-schema.jpg` — **remove**, score 5/12. The
+  screenshot duplicates the exact schema already shown in the preceding
+  function-calling lesson, while an autocomplete dropdown obscures part of
+  the generated output. Recreating the hidden exact JSON would violate the
+  deterministic-fidelity rule, so the redundant low-readability reference is
+  removed and the original file remains unreferenced.

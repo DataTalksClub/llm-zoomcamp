@@ -91,8 +91,6 @@ The output is the same JSON schema we hand-wrote in the function
 calling lesson. ToyAIKit generated it from the docstring and the type
 hint.
 
-![The JSON schema generated from the docstring](images/15-frameworks-04-generated-schema.jpg)
-
 Every modern agent framework does this same trick. It reads a typed
 Python function with a docstring and builds the schema from it. The
 OpenAI Agents SDK, PydanticAI, LangChain and Google ADK all work this
