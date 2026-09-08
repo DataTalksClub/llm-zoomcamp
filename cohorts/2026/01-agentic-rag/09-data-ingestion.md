@@ -229,7 +229,7 @@ flowchart TD
 
 The ingestion process writes documents to the knowledge base.
 
-![The annotated whiteboard sketch of the full architecture](images/09-data-ingestion-06-annotated-architecture-sketch.jpg)
+![Clean architecture showing FAQ ingestion into a shared knowledge base and the RAG assistant querying it](images/09-data-ingestion-06-annotated-architecture-sketch-imagegen.png)
 
 The RAG assistant then reads from it:
 

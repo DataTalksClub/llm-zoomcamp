@@ -31,3 +31,12 @@ checked before acceptance.
   `Q`, `A`, `ASSISTANT`, both question/answer arrow directions, and the
   assistant-to-database arrow. No faces, controls, cursors, or extra labels
   remain.
+
+- `09-data-ingestion-06-annotated-architecture-sketch.jpg` — **crop/replace**,
+  score 11/12. The source has a strong architecture teaching point but is a
+  webcam/whiteboard capture. Deterministic crop `(448x320+84+16)` was used as
+  the imagegen reference. The first generation was rejected because it added
+  an unrequested `Q + A` label; a targeted second pass removed it. The final
+  asset preserves `FAQ.json -> INGESTOR -> KB`, the shared KB arrows, the user
+  `Q`/assistant `A` flow, `PROMPT -> LLM`, and the return arrow, with no faces,
+  capture chrome, cursors, watermarks, or extra components.
