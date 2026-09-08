@@ -12,6 +12,12 @@ checked before acceptance.
 
 ## Audit entries
 
+- `03-rag-01-assistant-question-sketch.jpg` — **remove**, score 3/12.
+  The source is a GitHub lesson-page screenshot rather than the captioned
+  student/assistant sketch. It duplicates the surrounding prose and code,
+  leaves the teaching point unreadable at lesson size, and fails the caption
+  and accessibility hard gate. The original file remains unreferenced.
+
 - `03-rag-08-rag-architecture-sketch.jpg` — **crop/replace**, score 10/12.
   The source teaches the RAG relationship, but includes whiteboard UI,
   webcam, and Zoom chrome. Deterministic crop `(448x320+84+16)` was used as

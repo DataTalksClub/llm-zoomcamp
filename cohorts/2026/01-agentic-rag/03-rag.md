@@ -15,8 +15,6 @@ tedious.
 We want a bot that takes all this knowledge and answers student
 questions in natural language.
 
-![Whiteboard sketch of a student asking an assistant a question](images/03-rag-01-assistant-question-sketch.jpg)
-
 In this module, we'll build that system. But first, let's see why we
 can't send the question straight to an LLM and call it a day.
 
