@@ -23,3 +23,4 @@ focused removal commit; its original source file remains preserved.
 | Source | Rubric score | Decision | Teaching point / reason |
 | --- | ---: | --- | --- |
 | `01-intro-02-ragbase-pipeline-code.jpg` | 11/12 (2,2,2,1,2,2) | keep / deterministic crop | Shows the reusable search, prompt-building, and LLM call stages. Crop `503x360+29+0`; removes side border, webcam tile, and Zoom watermark while preserving exact code. |
+| `02-assistant-04-makefile-run-target.jpg` | 11/12 (2,2,2,1,2,2) | keep / deterministic crop | Shows the `make run` target and the assistant's terminal response, proving the command-line entry point works. Crop `503x360+29+0`; exact command and output are retained, with the source's long terminal lines still edge-truncated. |
