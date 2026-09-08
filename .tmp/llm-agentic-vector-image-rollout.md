@@ -185,3 +185,9 @@ checked before acceptance.
   failed search. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling
   removes the webcam, Zoom/editor chrome, and unrelated panels while
   preserving the exact retry/output state.
+
+- `13-function-calling-01-no-tools-vague-answer.jpg` — **crop/replace**, score
+  9/12. The baseline output demonstrates why the tool-enabled version is
+  needed. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
+  webcam, Zoom/editor chrome, and terminal clutter while preserving the exact
+  vague answer and input context.

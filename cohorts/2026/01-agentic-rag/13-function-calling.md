@@ -89,7 +89,7 @@ depends on the course" or "check the course website". It doesn't know
 about our FAQ, so the answer is vague and not helpful. This is exactly
 why we need RAG, and why we want to hand the model a tool.
 
-![Notebook answer without tools: a vague guess about the course](images/13-function-calling-01-no-tools-vague-answer.jpg)
+![Cropped notebook output showing the vague answer produced without a search tool](images/13-function-calling-01-no-tools-vague-answer-cropped.png)
 
 ## Defining the tool
 
