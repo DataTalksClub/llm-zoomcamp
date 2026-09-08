@@ -108,7 +108,7 @@ answer_llm = assistant.rag(question)
 answer_llm
 ```
 
-![Running RAG for one question and seeing the generated answer](images/12-rag-answers-03-rag-one-question.jpg)
+![Running RAG for one question and seeing the generated answer](images/12-rag-answers-03-rag-one-question-cropped.png)
 
 Check the cost of this call:
 
