@@ -18,7 +18,7 @@ This flow demonstrates a two-agent system for competitor research:
 | Research Agent | Web research and data gathering | Tavily web search | Find factual, current information |
 | Main Analyst Agent | Analysis and synthesis | Research agent (used as a tool) | Create structured reports |
 
-![The multi-agent research flow with the main analyst agent and its system message](images/07-multi-agent-01-multi-agent-flow.jpg)
+![The multi-agent research flow with the main analyst agent and its system message](images/07-multi-agent-01-multi-agent-flow-cropped.png)
 
 How it works:
 
