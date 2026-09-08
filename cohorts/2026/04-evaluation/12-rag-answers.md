@@ -108,7 +108,7 @@ answer_llm = assistant.rag(question)
 answer_llm
 ```
 
-![Running RAG for one question and seeing the generated answer](images/12-rag-answers-03-rag-one-question-cropped.png)
+![Running RAG for one question and seeing the generated answer](images/12-rag-answers-03-rag-one-question-crisp.png)
 
 Check the cost of this call:
 
@@ -139,7 +139,7 @@ rag_result = {
 rag_result
 ```
 
-![The rag_result record with the question, both answers, and the document id](images/12-rag-answers-04-answer-record-cropped.png)
+![The rag_result record with the question, both answers, and the document id](images/12-rag-answers-04-answer-record-crisp.png)
 
 ## Processing all questions
 
@@ -212,7 +212,7 @@ Calculate the total cost:
 assistant.total_cost()
 ```
 
-![Checking the total cost of generating all RAG answers, about 34 cents](images/12-rag-answers-05-total-cost-cropped.png)
+![Checking the total cost of generating all RAG answers, about 34 cents](images/12-rag-answers-05-total-cost-crisp.png)
 
 Save the answers:
 

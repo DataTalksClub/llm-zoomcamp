@@ -45,7 +45,7 @@ documents = documents_llm
 index = build_index(documents)
 ```
 
-![Testing the minsearch index with a query and inspecting results](images/04-search-evaluation-02-minsearch-test-search-cropped.png)
+![Testing the minsearch index with a query and inspecting results](images/04-search-evaluation-02-minsearch-test-search-crisp.png)
 
 Wrap the search call in a function called `text_search`. The name is
 deliberate. Later we'll write `vector_search` or a hybrid version and
@@ -104,7 +104,7 @@ relevance
 This gives a list of `0` and `1` values. `1` means the retrieved
 document has the same ID as the correct document.
 
-![The relevance matrix sketch: one row per question, one column per position](images/04-search-evaluation-03-relevance-matrix-whiteboard-cropped.png)
+![The relevance matrix sketch: one row per question, one column per position](images/04-search-evaluation-03-relevance-matrix-whiteboard-crisp.png)
 
 Put this logic into a function:
 
@@ -131,7 +131,7 @@ compute_relevance_text(q)
 
 The correct document was the first search result.
 
-![Computing the relevance row for the first ground truth question](images/04-search-evaluation-04-compute-relevance-first-cropped.png)
+![Computing the relevance row for the first ground truth question](images/04-search-evaluation-04-compute-relevance-first-crisp.png)
 
 Here are two more examples from the generated ground truth data.
 
@@ -211,7 +211,7 @@ Each entry in `relevance_total_text` is a relevance list. This is
 enough to check that the function works before we run it for the full
 dataset.
 
-![The relevance lists computed for the first 15 ground truth questions](images/04-search-evaluation-06-relevance-total-sample-cropped.png)
+![The relevance lists computed for the first 15 ground truth questions](images/04-search-evaluation-06-relevance-total-sample-crisp.png)
 
 Next, make the relevance functions generic. We start with text search,
 but later we may want to evaluate vector search, hybrid search, or

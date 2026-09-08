@@ -54,7 +54,7 @@ boost=5.0: {'hit_rate': 0.8708860759493671, 'mrr': 0.7401265822784809}
 boost=10.0: {'hit_rate': 0.8582278481012658, 'mrr': 0.7122362869198313}
 ```
 
-![Evaluating one boost configuration and printing the metrics](images/06-search-tuning-02-boost-sweep-results-cropped.png)
+![Evaluating one boost configuration and printing the metrics](images/06-search-tuning-02-boost-sweep-results-crisp.png)
 
 Increasing the question boost makes the metrics worse, not better. The
 best value here is `1.0`, no boost at all. That's already the opposite of
@@ -119,7 +119,7 @@ df_results = pd.DataFrame(results)
 df_results.sort_values("mrr", ascending=False).head(10)
 ```
 
-![The grid search results sorted by MRR](images/06-search-tuning-04-grid-sorted-by-mrr-cropped.png)
+![The grid search results sorted by MRR](images/06-search-tuning-04-grid-sorted-by-mrr-crisp.png)
 
 For the same data, the best rows are:
 
