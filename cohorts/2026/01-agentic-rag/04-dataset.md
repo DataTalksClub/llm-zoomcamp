@@ -62,7 +62,7 @@ Each entry has:
 - `question` - the FAQ question
 - `answer` - the FAQ answer
 
-![Course FAQ entries in the raw JSON, each with id, course, section, question, and answer](images/04-dataset-04-json-entry-fields.jpg)
+![Cropped FAQ JSON showing id, course, section, question, and answer fields](images/04-dataset-04-json-entry-fields-cropped.png)
 
 Let's look at one:
 

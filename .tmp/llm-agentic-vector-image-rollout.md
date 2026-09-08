@@ -121,3 +121,9 @@ checked before acceptance.
   browser chrome and a find-in-page overlay, so deterministic crop
   `(480x270+50+60)` was used instead of imagegen; Lanczos upscaling preserves
   the selected question and answer while removing the overlay and webcam.
+
+- `04-dataset-04-json-entry-fields.jpg` — **crop/replace**, score 9/12. The
+  JSON view makes the dataset's five searchable fields concrete and adds
+  evidence beyond the field list in prose. Deterministic crop
+  `(480x300+50+30)` plus Lanczos upscaling removes browser/webcam/Zoom chrome;
+  exact field names and values remain source-preserved.
