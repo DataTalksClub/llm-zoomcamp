@@ -136,7 +136,7 @@ search_tool = {
 }
 ```
 
-![Search tool schema with name, description and query parameter](images/13-function-calling-03-search-tool-schema.jpg)
+![Cropped search tool schema showing its name, description, and query parameter](images/13-function-calling-03-search-tool-schema-cropped.png)
 
 The `description` is the most important field, because the model reads
 it to decide when to call the function. `parameters` is a JSON schema

@@ -191,3 +191,9 @@ checked before acceptance.
   needed. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
   webcam, Zoom/editor chrome, and terminal clutter while preserving the exact
   vague answer and input context.
+
+- `13-function-calling-03-search-tool-schema.jpg` — **crop/replace**, score
+  9/12. The exact schema is the lesson's source of truth for the tool
+  interface. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling
+  removes webcam, Zoom/editor chrome, and empty surrounding panels while
+  preserving the schema text verbatim.
