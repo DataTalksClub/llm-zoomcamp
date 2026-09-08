@@ -31,7 +31,7 @@ How it works:
 
 The key pattern here is using `AIAgent` as a tool. The main agent treats the research agent exactly like a web search or database call — it invokes it when needed and works with whatever comes back.
 
-![The multi-agent execution with the research results and the JSON output in the logs](images/07-multi-agent-02-research-output-logs.jpg)
+![The multi-agent execution with the research results and the JSON output in the logs](images/07-multi-agent-02-research-output-logs-cropped.png)
 
 ## Best Practices
 
