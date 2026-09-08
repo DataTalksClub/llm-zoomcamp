@@ -93,8 +93,6 @@ table when we add others. The `timestamp` is timezone-aware
 (`TIMESTAMP WITH TIME ZONE`) on purpose. Without the time zone, Grafana
 won't line the data up correctly on its time axis later.
 
-![The rendered table SQL with the timezone-aware timestamp](images/05-database-02-timezone-aware-timestamp.jpg)
-
 The SQL to create the table:
 
 ```sql
