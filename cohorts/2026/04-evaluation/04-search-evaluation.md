@@ -211,7 +211,7 @@ Each entry in `relevance_total_text` is a relevance list. This is
 enough to check that the function works before we run it for the full
 dataset.
 
-![The relevance lists computed for the first 15 ground truth questions](images/04-search-evaluation-06-relevance-total-sample.jpg)
+![The relevance lists computed for the first 15 ground truth questions](images/04-search-evaluation-06-relevance-total-sample-cropped.png)
 
 Next, make the relevance functions generic. We start with text search,
 but later we may want to evaluate vector search, hybrid search, or
