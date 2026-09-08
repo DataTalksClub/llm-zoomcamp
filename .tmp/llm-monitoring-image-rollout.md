@@ -22,3 +22,4 @@ focused removal commit; its original source file remains preserved.
 
 | Source | Rubric score | Decision | Teaching point / reason |
 | --- | ---: | --- | --- |
+| `01-intro-02-ragbase-pipeline-code.jpg` | 11/12 (2,2,2,1,2,2) | keep / deterministic crop | Shows the reusable search, prompt-building, and LLM call stages. Crop `503x360+29+0`; removes side border, webcam tile, and Zoom watermark while preserving exact code. |

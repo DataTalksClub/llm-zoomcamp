@@ -36,7 +36,7 @@ We don't rebuild the RAG part. We wrap it in a Streamlit app and save
 every interaction to PostgreSQL. Then we put a dashboard in front of the
 data. At the end we add Grafana for a more powerful view.
 
-![The RAGBase class with the search, build prompt, and LLM steps we reuse](images/01-intro-02-ragbase-pipeline-code.jpg)
+![The RAGBase class with the search, build prompt, and LLM steps we reuse](images/01-intro-02-ragbase-pipeline-code-cropped.png)
 
 We focus on RAG here. Monitoring an agent works almost the same way, so
 we leave it as homework. The [agents module](../01-agentic-rag/)
