@@ -54,7 +54,7 @@ boost=5.0: {'hit_rate': 0.8708860759493671, 'mrr': 0.7401265822784809}
 boost=10.0: {'hit_rate': 0.8582278481012658, 'mrr': 0.7122362869198313}
 ```
 
-![Evaluating one boost configuration and printing the metrics](images/06-search-tuning-02-boost-sweep-results.jpg)
+![Evaluating one boost configuration and printing the metrics](images/06-search-tuning-02-boost-sweep-results-cropped.png)
 
 Increasing the question boost makes the metrics worse, not better. The
 best value here is `1.0`, no boost at all. That's already the opposite of
