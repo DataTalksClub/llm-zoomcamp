@@ -71,7 +71,7 @@ We see:
  "answer": "Yes, even if you don't register, you're still eligible..."}
 ```
 
-![Cropped vector-search output showing the retrieved FAQ document about joining late](images/04-vector-search-03-best-document-cropped.png)
+![Cropped vector-search output showing the retrieved FAQ document about joining late](images/04-vector-search-03-best-document-crisp.png)
 
 ## Top 5 results
 

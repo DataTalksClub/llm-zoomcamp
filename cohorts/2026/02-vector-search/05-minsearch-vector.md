@@ -8,7 +8,7 @@ embedded the query, computed dot products, and found the best matches.
 Writing the argsort and matrix code every time gets old, and it can't
 filter by course. So instead we'll use a library that wraps all of it.
 
-![Cropped numpy output showing similarity scores and argsort indices](images/05-minsearch-vector-01-by-hand-results-cropped.png)
+![Cropped numpy output showing similarity scores and argsort indices](images/05-minsearch-vector-01-by-hand-results-crisp.png)
 
 We'll use [minsearch](https://github.com/alexeygrigorev/minsearch), the
 small in-memory search library we already used in module 1 for text
@@ -89,6 +89,6 @@ results = vindex.search(
 )
 ```
 
-![Cropped vector-search output showing filtering with filter_dict](images/05-minsearch-vector-04-filter-by-course-cropped.png)
+![Cropped vector-search output showing filtering with filter_dict](images/05-minsearch-vector-04-filter-by-course-crisp.png)
 
 Now that we can run vector search, let's use it in RAG.
