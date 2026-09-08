@@ -284,3 +284,9 @@ checked before acceptance.
   batch-encoding result. Deterministic crop `(480x300+50+30)` plus Lanczos
   upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
   preserving the exact progress and count.
+
+- `04-vector-search-03-best-document.jpg` — **crop/replace**, score 9/12. The
+  top-score/document output is concrete evidence that vector similarity
+  retrieves a semantically relevant FAQ entry. Deterministic crop
+  `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor chrome,
+  and unrelated panels while preserving the exact score and document fields.

@@ -71,7 +71,7 @@ We see:
  "answer": "Yes, even if you don't register, you're still eligible..."}
 ```
 
-![Retrieved FAQ document about joining the course after the start date](images/04-vector-search-03-best-document.jpg)
+![Cropped vector-search output showing the retrieved FAQ document about joining late](images/04-vector-search-03-best-document-cropped.png)
 
 ## Top 5 results
 
