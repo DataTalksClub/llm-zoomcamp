@@ -57,7 +57,7 @@ for doc in documents:
 len(documents_llm)
 ```
 
-![Notebook filtering the FAQ documents down to the 79 llm-zoomcamp records](images/02-ground-truth-02-filter-llm-zoomcamp-docs-cropped.png)
+![Notebook filtering the FAQ documents down to the 79 llm-zoomcamp records](images/02-ground-truth-02-filter-llm-zoomcamp-docs-crisp.png)
 
 We'll use these documents from now on so let's name them as `documents`
 
@@ -79,7 +79,7 @@ questions from a document, so we know that this document holds the
 answer. Later, search evaluation checks whether search brings back the
 document with this ID.
 
-![Printing the id, question, and answer of the first FAQ document](images/02-ground-truth-03-document-id-print-cropped.png)
+![Printing the id, question, and answer of the first FAQ document](images/02-ground-truth-03-document-id-print-crisp.png)
 
 This is why every record needs a stable ID. If you can't uniquely
 identify a document, you can't tell whether search retrieved the right
@@ -186,7 +186,7 @@ print(result.questions)
 
 You should see 5 questions that relate to the first FAQ document.
 
-![The five questions generated for the first FAQ document](images/02-ground-truth-06-parsed-questions-output-cropped.png)
+![The five questions generated for the first FAQ document](images/02-ground-truth-06-parsed-questions-output-crisp.png)
 
 ## Reusable utilities
 
