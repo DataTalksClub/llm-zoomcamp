@@ -154,7 +154,7 @@ appearing in the section name.
 We used `filter_dict` to only return results from the LLM Zoomcamp
 course. Without this filter, we'd get results from all four courses.
 
-![Search results without the course filter, from all courses](images/05-search-05-search-results.jpg)
+![Cropped search results showing matches from multiple courses without a course filter](images/05-search-05-search-results-cropped.png)
 
 ## Boosting fields
 

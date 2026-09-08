@@ -133,3 +133,10 @@ checked before acceptance.
   actual state. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling
   removes the webcam and Zoom/editor frame while preserving the exact count,
   field names, and sample values.
+
+- `05-search-05-search-results.jpg` — **crop/replace**, score 9/12. The
+  cross-course result list is concrete evidence for why filtering matters.
+  Deterministic crop `(480x300+50+30)` and Lanczos upscaling remove the
+  webcam, Zoom/editor frame, and unrelated panels while preserving the result
+  fields. A native selection highlight remains on one exact result row and is
+  recorded as a source limitation rather than painted over.
