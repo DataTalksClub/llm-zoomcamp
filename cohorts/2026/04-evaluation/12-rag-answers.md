@@ -139,7 +139,7 @@ rag_result = {
 rag_result
 ```
 
-![The rag_result record with the question, both answers, and the document id](images/12-rag-answers-04-answer-record.jpg)
+![The rag_result record with the question, both answers, and the document id](images/12-rag-answers-04-answer-record-cropped.png)
 
 ## Processing all questions
 
