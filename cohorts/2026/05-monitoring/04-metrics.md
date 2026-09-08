@@ -162,7 +162,7 @@ def create_assistant():
     )
 ```
 
-![The updated create_assistant and the printed call record](images/04-metrics-05-printed-call-record.jpg)
+![The updated create_assistant and the printed call record](images/04-metrics-05-printed-call-record-cropped.png)
 
 ## Updating the Streamlit app
 
