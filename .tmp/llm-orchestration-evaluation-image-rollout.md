@@ -120,3 +120,15 @@ original screenshots.
 The five conceptual assets without local JPG sources require source-video
 recovery if a future audit needs a frame-level comparison. This batch does not
 claim such unavailable JPG provenance.
+
+## Focused repair batch 3: LLM-judge answer comparison (2026-09-09)
+
+The published illustration was regenerated with the built-in imagegen tool,
+not upscaled or sharpened. The previous semantic PNG was used as a reference
+because this conceptual asset has no original workshop JPG in the repository.
+The bounded crop was made from that PNG and is reconstructible from the
+recorded crop box.
+
+| Active reference | Source/reference inputs | Imagegen output | Verified invariant |
+|---|---|---|---|
+| `07-project-example/images/03-evaluating-rag-01-llm-judge-imagegen.png` | Previous semantic PNG at `HEAD` (SHA-256 `39290050db9fe56d10f2c6df94f8563e2455554605780526203b6a0a9572886d`); bounded crop `.tmp/asset-repair-crops/03-evaluating-rag-01-llm-judge-reference-crop.png` (SHA-256 `23258b34d567f783cd1f80fb4db7f92cdb05a5be3e6ef4afa25ddc13e3299618`), `(x=36,y=35,w=1600,h=870)`; original JPG unavailable | Built-in imagegen run `exec-a900407c-13e7-401a-83f0-ce5be3debdb3`; final SHA-256 `03c430a76a72a33d0e4b155d09feff3b2c4f64aff5260beccb353055f53a267`; C2PA metadata present | The diagram now shows separate `REFERENCE ANSWER` and `GENERATED ANSWER` inputs converging on `COMPARE ANSWERS`, then `LLM JUDGE`, then the exact relevance outcomes `NON_RELEVANT`, `PARTLY_RELEVANT`, and `RELEVANT`. Native `1701x925` and 608px `608x331` renders were inspected. This supersedes the earlier entry that showed only the generated-answer lane. |
