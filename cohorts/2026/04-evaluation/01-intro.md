@@ -27,8 +27,6 @@ For search evaluation, we need a dataset of questions where we know
 which document is the correct answer. We'll use an LLM to generate
 these questions from our FAQ data.
 
-![Two ways to build an evaluation set: interaction logs or generating from the FAQ](images/01-intro-02-interact-or-generate-imagegen.png)
-
 The approach works like this:
 
 - A = the original answer in the FAQ
