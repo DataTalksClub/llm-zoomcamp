@@ -118,7 +118,7 @@ with ThreadPoolExecutor(max_workers=6) as pool:
     results = map_progress(pool, documents, generate_ground_truth)
 ```
 
-![The parallel run processing all 79 documents with a progress bar](images/03-ground-truth-batch-04-parallel-progress-bar.jpg)
+![The parallel run processing all 79 documents with a progress bar](images/03-ground-truth-batch-04-parallel-progress-bar-cropped.png)
 
 `generate_ground_truth` returns two things for each document: the
 generated records and the token usage.
