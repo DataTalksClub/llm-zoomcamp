@@ -51,8 +51,6 @@ query_vector = model.encode(query)
 results = vindex.search(query_vector, num_results=5)
 ```
 
-![Searching the vector index and getting the top five results](images/05-minsearch-vector-03-search-results.jpg)
-
 Under the hood it does the same thing we just did by hand. It computes
 the dot product between each vector (after filtering) and our query
 vector.

@@ -296,3 +296,10 @@ checked before acceptance.
   follows. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
   webcam, Zoom/editor chrome, and unrelated panels while preserving exact
   numeric output and document IDs.
+
+- `05-minsearch-vector-03-search-results.jpg` — **remove**, score 4/12. A
+  large native VS Code hover tooltip covers the top-results output, and exact
+  numeric/dictionary content cannot be safely reconstructed with imagegen.
+  The result is redundant with the clean by-hand and filtered-result evidence
+  in the same lesson, so the unreadable reference is removed; the original
+  file remains unreferenced.
