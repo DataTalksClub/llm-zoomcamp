@@ -34,8 +34,6 @@ Think of your phone. When you type "how are" in WhatsApp, it suggests
 Your phone uses a simple language model for that. It predicts the next
 word based on what you typed so far.
 
-![Typing How are? in an editor to demonstrate next-word prediction](images/01-intro-02-typing-demo.jpg)
-
 A large language model does the same thing, but at a much larger scale.
 It has billions of parameters and is trained on most of the text on the
 internet. When it predicts the next word, it feels like you're talking

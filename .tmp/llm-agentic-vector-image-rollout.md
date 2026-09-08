@@ -91,3 +91,8 @@ checked before acceptance.
   transient and potentially private, duplicates the surrounding prose, and
   fails the rubric's personal-content hard gate. The original file remains
   unreferenced.
+
+- `01-intro-02-typing-demo.jpg` — **remove**, score 3/12. The frame shows
+  only `How are?`; it contains no next-word suggestion, and the visible
+  Docker-extension prompt is unrelated capture state. The claimed teaching
+  point cannot be recovered by cropping, so the original remains unreferenced.
