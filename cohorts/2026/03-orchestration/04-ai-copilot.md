@@ -41,7 +41,7 @@ Use the same prompt from the previous lesson, but this time with AI Copilot:
 
 Copilot gets you to a working flow quickly, but it won't know everything about your environment. After generation, review the output and make the small adjustments that are specific to your setup - your environment variables, your secrets, your error handling preferences, or a task that needs a slightly different configuration than the default.
 
-![Accepting a copilot change that adds a download task](images/04-ai-copilot-04-accept-copilot-diff.jpg)
+![Accepting a copilot change that adds a download task](images/04-ai-copilot-04-accept-copilot-diff-cropped.png)
 
 The bulk of the structure is done. You're just closing the gap between a general solution and your exact requirements.
 
