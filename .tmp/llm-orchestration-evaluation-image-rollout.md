@@ -17,3 +17,8 @@ rubric decision and the invariant checked before acceptance.
   labels `AGENTIC RAG`, `ASSISTANT`, `SEARCH`, and `Q`. User face, Zoom
   chrome, toolbar, and watermark removed; flow meaning preserved. No exact
   numeric/code invariant.
+- `04-evaluation/01-intro.md`: `01-intro-02-interact-or-generate.jpg` retained
+  as `01-intro-02-interact-or-generate-imagegen.png`. Built-in imagegen after
+  crop `(x=75,y=30,w=450,h=295)`; exact alternatives `Interact → logs → {Qᵢ}`
+  and `Generate` from `FAQ` preserved. Zoom chrome, face, toolbar, and
+  watermark removed; no extra evaluation steps added.
