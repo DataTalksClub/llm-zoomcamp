@@ -20,7 +20,7 @@ That's 33x smaller for the same embeddings and the same results. Often
 we don't even convert the model ourselves. Someone has usually published
 an ONNX version we can download.
 
-![Measured environment sizes: sentence-transformers 4.8 GB vs ONNX Runtime 147 MB](images/09-onnx-embedder-01-size-comparison.jpg)
+![Cropped size table comparing sentence-transformers at 4.8 GB with ONNX Runtime at 147 MB](images/09-onnx-embedder-01-size-comparison-cropped.png)
 
 For development and experiments, sentence-transformers is fine. For
 production you want the lighter option.

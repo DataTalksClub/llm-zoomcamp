@@ -334,3 +334,8 @@ checked before acceptance.
   search mechanics concrete. Deterministic crop `(480x300+50+30)` plus
   Lanczos upscaling removes webcam, Zoom/editor chrome, and unrelated panels;
   exact SQL and numeric output remain source-preserved.
+
+- `09-onnx-embedder-01-size-comparison.jpg` — **crop/replace**, score 9/12.
+  The measured size/package table directly supports the production-overhead
+  argument. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
+  browser tabs, webcam, and Zoom chrome while preserving exact numeric values.
