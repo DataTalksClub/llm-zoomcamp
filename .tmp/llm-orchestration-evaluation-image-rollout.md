@@ -3,7 +3,7 @@
 Scope: `cohorts/2026/03-orchestration/**` and
 `cohorts/2026/04-evaluation/**`.
 
-Inventory: 40 local Markdown image references. Originals remain in place.
+Inventory: 43 local Markdown image references. Originals remain in place.
 Technical code, commands, URLs, plots, numeric output, and live UI use
 deterministic crops/upscales; bounded conceptual diagrams use the built-in
 imagegen workflow after a deterministic crop. Each disposition records the
@@ -44,7 +44,6 @@ rubric decision and the invariant checked before acceptance.
   crop `(x=10,y=55,w=510,h=264)` and 2x Lanczos upscale used because the
   Kestra/ChatGPT UI and YAML are exact technical content. Face, recording frame,
   browser controls, and unrelated overlays removed; original preserved.
-<!-- next audit entries go above this marker -->
 - `04-evaluation/13-llm-as-judge.md`: `13-llm-as-judge-05-score-counts.jpg` retained as `13-llm-as-judge-05-score-counts-cropped.png`. Deterministic crop (x=50,y=60,w=540,h=260) and 2x Lanczos upscale used because exact code, metric formulas, ranks, dataframe values, generated answers, costs, and score counts are instructional source data. Face, Zoom/browser chrome, cursor, and unrelated overlays removed; original preserved.
 - `04-evaluation/12-rag-answers.md`: `12-rag-answers-05-total-cost.jpg` retained as `12-rag-answers-05-total-cost-cropped.png`. Deterministic crop (x=50,y=60,w=540,h=260) and 2x Lanczos upscale used because exact code, metric formulas, ranks, dataframe values, generated answers, costs, and score counts are instructional source data. Face, Zoom/browser chrome, cursor, and unrelated overlays removed; original preserved.
 - `04-evaluation/12-rag-answers.md`: `12-rag-answers-04-answer-record.jpg` retained as `12-rag-answers-04-answer-record-cropped.png`. Deterministic crop (x=50,y=60,w=540,h=260) and 2x Lanczos upscale used because exact code, metric formulas, ranks, dataframe values, generated answers, costs, and score counts are instructional source data. Face, Zoom/browser chrome, cursor, and unrelated overlays removed; original preserved.
@@ -82,3 +81,18 @@ rubric decision and the invariant checked before acceptance.
 - `03-orchestration/02-context-engineering.md`: `02-context-engineering-03-training-cutoff-answer.jpg` retained as `02-context-engineering-03-training-cutoff-answer-cropped.png`. Deterministic crop (x=10,y=55,w=510,h=264) and 2x Lanczos upscale used because the Kestra/ChatGPT UI and YAML are exact technical content. Face, recording frame, browser controls, and unrelated overlays removed; original preserved.
 - `03-orchestration/02-context-engineering.md`: `02-context-engineering-02-generated-kestra-flow.jpg` retained as `02-context-engineering-02-generated-kestra-flow-cropped.png`. Deterministic crop (x=10,y=55,w=510,h=264) and 2x Lanczos upscale used because the Kestra/ChatGPT UI and YAML are exact technical content. Face, recording frame, browser controls, and unrelated overlays removed; original preserved.
 - `03-orchestration/01-intro.md`: `01-intro-03-generated-flow-without-context.jpg` retained as `01-intro-03-generated-flow-without-context-cropped.png`. Deterministic crop (x=10,y=55,w=510,h=264) and 2x Lanczos upscale used because the Kestra/ChatGPT UI and YAML are exact technical content. Face, recording frame, browser controls, and unrelated overlays removed; original preserved.
+
+## Final audit
+
+- Source references inspected: 43.
+- Retained: 43. Removed: 0; every referenced image had a concrete teaching
+  point under the illustration rubric.
+- Built-in imagegen: 3 bounded diagrams (`01-intro-01`, `01-intro-02`, and
+  `03-ground-truth-batch-03`). Deterministic crops/upscales: 40 exact UI,
+  code, formula, table, plot, answer, and numeric-output captures.
+- All 43 current Markdown references resolve; all 43 original JPEGs remain;
+  no current lesson reference points to the old JPEGs.
+- Limitation: deterministic upscaling improves framing and display size but
+  cannot restore information absent from the 640×360 sources. Exact technical
+  screenshots therefore retain their source text density and any source-edge
+  truncation; no imagegen approximation was used for those assets.
