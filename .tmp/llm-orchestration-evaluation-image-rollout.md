@@ -34,3 +34,8 @@ rubric decision and the invariant checked before acceptance.
   labelled connections are instructional source data. `RAG`, `SEARCH`, `KB`,
   `ASSISTANT`, `PROMPT`, `LLM`, `Q`, and `A` relationships remain intact;
   recording chrome and face are removed.
+- `04-evaluation/03-ground-truth-batch.md`: `03-ground-truth-batch-03-parallel-split-whiteboard.jpg` retained as `03-ground-truth-batch-03-parallel-split-whiteboard-imagegen.png`. Built-in imagegen after crop
+  `(x=75,y=30,w=450,h=295)`; five exact partitions `1`–`5` and one downward
+  arrow per partition preserve the parallel-processing teaching point. Zoom
+  chrome, face, toolbar, cursor, and watermark removed; no invented total or
+  extra label added.

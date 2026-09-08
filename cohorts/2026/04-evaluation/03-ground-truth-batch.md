@@ -97,7 +97,7 @@ documents in parallel and track progress while the requests run.
 One caution: don't open too many connections at once, or you'll hit the
 provider's rate limits. Five or six workers is a safe default here.
 
-![Splitting the documents into parts to process in parallel](images/03-ground-truth-batch-03-parallel-split-whiteboard.jpg)
+![Splitting the documents into parts to process in parallel](images/03-ground-truth-batch-03-parallel-split-whiteboard-imagegen.png)
 
 Import `ThreadPoolExecutor`:
 
