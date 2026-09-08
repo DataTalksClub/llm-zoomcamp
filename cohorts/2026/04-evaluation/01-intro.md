@@ -13,7 +13,7 @@ for a quick sanity check, but it doesn't scale, and it doesn't give us a
 number to compare. We need a systematic way to tell whether one approach
 beats another.
 
-![Whiteboard sketch of agentic RAG with a user, an assistant and a search tool](images/01-intro-01-agentic-rag-diagram.jpg)
+![Clean agentic RAG diagram with a user, assistant, and search tool](images/01-intro-01-agentic-rag-diagram-imagegen.png)
 
 That's what evaluation is for. And it's worth saying up front: of
 everything in this course, evaluation is the part that matters most. It's
