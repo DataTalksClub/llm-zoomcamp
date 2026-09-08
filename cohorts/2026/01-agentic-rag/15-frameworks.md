@@ -141,7 +141,7 @@ handwritten loop. The notebook output is nicer to watch. Each tool
 call and message renders inline, so you can look at every search
 result.
 
-![The agent searching with the typo, retrying, then answering](images/15-frameworks-06-agentic-run-with-retry.jpg)
+![Cropped ToyAIKit output showing a typo search, retry, and final answer](images/15-frameworks-06-agentic-run-with-retry-cropped.png)
 
 The `result` is a `LoopResult` with `all_messages` (the full
 conversation), token counts, and `cost` (computed from token usage).

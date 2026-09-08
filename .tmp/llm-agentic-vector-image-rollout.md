@@ -248,3 +248,9 @@ checked before acceptance.
   the generated output. Recreating the hidden exact JSON would violate the
   deterministic-fidelity rule, so the redundant low-readability reference is
   removed and the original file remains unreferenced.
+
+- `15-frameworks-06-agentic-run-with-retry.jpg` — **crop/replace**, score
+  10/12. The live runner output demonstrates that the framework preserves the
+  handwritten loop's retry behavior while rendering tool calls and the final
+  answer. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
+  webcam, Zoom/editor chrome, and empty controls while preserving exact output.
