@@ -45,7 +45,7 @@ documents = documents_llm
 index = build_index(documents)
 ```
 
-![Testing the minsearch index with a query and inspecting results](images/04-search-evaluation-02-minsearch-test-search.jpg)
+![Testing the minsearch index with a query and inspecting results](images/04-search-evaluation-02-minsearch-test-search-cropped.png)
 
 Wrap the search call in a function called `text_search`. The name is
 deliberate. Later we'll write `vector_search` or a hybrid version and
