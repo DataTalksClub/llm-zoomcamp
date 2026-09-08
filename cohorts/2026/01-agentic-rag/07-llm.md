@@ -60,7 +60,7 @@ The shortcut spares us all of it:
 response.output_text
 ```
 
-![Cropped response JSON showing the nested output structure](images/07-llm-02-response-object-cropped.png)
+![Cropped response JSON showing the nested output structure](images/07-llm-02-response-object-crisp.png)
 
 Same result, less code. The answer should be something like: "Yes, you
 can still join. If you want to receive a certificate, make sure to
@@ -72,7 +72,7 @@ The usage counts tell you how many tokens the request consumed:
 response.usage
 ```
 
-![Cropped notebook cells showing the nested answer path and token usage](images/07-llm-03-usage-tokens-cropped.png)
+![Cropped notebook cells showing the nested answer path and token usage](images/07-llm-03-usage-tokens-crisp.png)
 
 You'll see something like:
 
@@ -90,7 +90,7 @@ In this course we'll use
 - Input: $0.75 per million tokens
 - Output: $4.50 per million tokens
 
-![Cropped OpenAI pricing table showing gpt-5.4-mini input, cached-input, and output prices](images/07-llm-04-model-pricing-cropped.png)
+![Cropped OpenAI pricing table showing gpt-5.4-mini input, cached-input, and output prices](images/07-llm-04-model-pricing-crisp.png)
 
 Let's calculate the cost of the request we just made:
 

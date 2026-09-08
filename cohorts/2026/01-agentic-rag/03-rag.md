@@ -56,7 +56,7 @@ The LLM gives a generic answer. It might say "you can usually join" or
 courses, their enrollment policies, or their schedules. It tries to be
 helpful, but has no idea about actual enrollment status or policies.
 
-![Cropped generic LLM answer showing uncertainty about the course-specific question](images/03-rag-03-generic-llm-answer-cropped.png)
+![Cropped generic LLM answer showing uncertainty about the course-specific question](images/03-rag-03-generic-llm-answer-crisp.png)
 
 This is different from a question like "how do I cook salmon?" - the
 LLM knows the answer because cooking salmon is common knowledge. But
@@ -67,7 +67,7 @@ our courses are not in the training data.
 More context can fix this. The FAQ website has questions and answers
 about our courses.
 
-![Cropped FAQ context containing course-specific enrollment and certificate answers](images/03-rag-04-faq-website-context-cropped.png)
+![Cropped FAQ context containing course-specific enrollment and certificate answers](images/03-rag-04-faq-website-context-crisp.png)
 
 Copy some of that content into the prompt:
 
@@ -123,7 +123,7 @@ After that, the answer is correct: "Yes, you can still join. If you want to
 receive a certificate, you need to submit your project while
 submissions are still open."
 
-![Cropped FAQ page showing the course-specific answer used to ground the response](images/03-rag-07-grounded-answer-cropped.png)
+![Cropped FAQ page showing the course-specific answer used to ground the response](images/03-rag-07-grounded-answer-crisp.png)
 
 This is the answer we actually want to give to our students. What we
 just did is nothing but RAG.
