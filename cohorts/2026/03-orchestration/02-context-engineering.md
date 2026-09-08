@@ -19,7 +19,7 @@ Let's start by seeing what happens when AI lacks proper context.
    - Incorrect property names (e.g., properties that don't exist in current versions)
    - Hallucinated features (e.g., tasks, triggers, or properties that never existed)
 
-![The generated Kestra flow YAML with its four tasks](images/02-context-engineering-02-generated-kestra-flow.jpg)
+![The generated Kestra flow YAML with its four tasks](images/02-context-engineering-02-generated-kestra-flow-cropped.png)
 
 ## Why Does This Happen?
 
