@@ -126,7 +126,7 @@ Run it:
 uv run python judge.py
 ```
 
-![Running the judge prints a verdict with an explanation](images/09-built-in-judge-04-judge-run-output.jpg)
+![Running the judge prints a verdict with an explanation](images/09-built-in-judge-04-judge-run-output-cropped.png)
 
 This judge is deliberately basic, so handle its verdicts with care.
 Sometimes it'll call a weak answer relevant, or the other way around.
