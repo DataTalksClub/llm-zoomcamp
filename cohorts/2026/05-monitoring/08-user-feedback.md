@@ -170,4 +170,4 @@ response its own pair of feedback buttons.
 Next we add a second source of feedback to the same table. An LLM judge
 scores answers automatically, without waiting for anyone to click.
 
-![Clicking +1 shows the thanks confirmation](images/08-user-feedback-07-thanks-after-click.jpg)
+![Clicking +1 shows the thanks confirmation](images/08-user-feedback-07-thanks-after-click-cropped.png)
