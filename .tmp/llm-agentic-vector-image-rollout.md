@@ -102,3 +102,9 @@ checked before acceptance.
   browser tabs, webcam, and Zoom chrome. Deterministic crop `(480x300+50+30)`
   and Lanczos upscaling retain the dialog and permissions while removing the
   capture frame; no secret value is visible in the retained asset.
+
+- `03-rag-03-generic-llm-answer.jpg` — **crop/replace**, score 9/12. The
+  output is the concrete baseline showing that a plain LLM guesses about
+  course policy; it adds evidence beyond the prose. Deterministic crop
+  `(480x300+50+30)` and Lanczos upscaling remove the webcam, Zoom mark, and
+  editor frame while preserving the answer text.

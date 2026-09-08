@@ -56,7 +56,7 @@ The LLM gives a generic answer. It might say "you can usually join" or
 courses, their enrollment policies, or their schedules. It tries to be
 helpful, but has no idea about actual enrollment status or policies.
 
-![The LLM gives a generic answer to the course question](images/03-rag-03-generic-llm-answer.jpg)
+![Cropped generic LLM answer showing uncertainty about the course-specific question](images/03-rag-03-generic-llm-answer-cropped.png)
 
 This is different from a question like "how do I cook salmon?" - the
 LLM knows the answer because cooking salmon is common knowledge. But
