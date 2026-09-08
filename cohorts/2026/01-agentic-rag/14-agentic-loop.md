@@ -120,7 +120,7 @@ for item in response.output:
         print(item.content[0].text)
 ```
 
-![Processing one response and printing the requested function calls](images/14-agentic-loop-02-printed-function-calls.jpg)
+![Cropped loop code and output showing requested function calls being printed](images/14-agentic-loop-02-printed-function-calls-cropped.png)
 
 The `has_function_calls` flag tells us whether the model needs another
 API call. If the response contains a function call, the updated

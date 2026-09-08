@@ -210,3 +210,9 @@ checked before acceptance.
   earlier vague answer. Deterministic crop `(480x300+50+30)` plus Lanczos
   upscaling removes webcam, Zoom/editor chrome, and empty cell controls while
   preserving the second-call code and course-specific answer.
+
+- `14-agentic-loop-02-printed-function-calls.jpg` — **crop/replace**, score
+  9/12. The frame shows the loop iterating over response items and printing
+  function calls, a state not conveyed by the code block alone. Deterministic
+  crop `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor
+  chrome, and empty controls while preserving exact code and output.
