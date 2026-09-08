@@ -22,3 +22,9 @@ rubric decision and the invariant checked before acceptance.
   crop `(x=75,y=30,w=450,h=295)`; exact alternatives `Interact → logs → {Qᵢ}`
   and `Generate` from `FAQ` preserved. Zoom chrome, face, toolbar, and
   watermark removed; no extra evaluation steps added.
+- `04-evaluation/01-intro.md`: `01-intro-04-generate-questions-whiteboard.jpg`
+  retained as `01-intro-04-generate-questions-whiteboard-cropped.png`.
+  Deterministic crop `(x=85,y=30,w=440,h=295)` and 2x Lanczos upscale used
+  because the source contains exact mathematical notation and relationships.
+  The `Aᵢ → Qᵢ* → [Qᵢ*, Aᵢ; aᵢ, Aᵢ]` teaching sketch remains exact; face, Zoom
+  chrome, toolbar, and watermark removed.

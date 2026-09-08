@@ -48,7 +48,7 @@ For RAG evaluation, we go one step further:
 This is the A → Q* → A' pattern. We know the answer for each generated
 question because we created the question from that answer.
 
-![Whiteboard: generating candidate questions Q star from a FAQ answer](images/01-intro-04-generate-questions-whiteboard.jpg)
+![Whiteboard: generating candidate questions Q star from a FAQ answer](images/01-intro-04-generate-questions-whiteboard-cropped.png)
 
 With evaluation, we can:
 
