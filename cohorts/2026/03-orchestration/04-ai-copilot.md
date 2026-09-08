@@ -35,7 +35,7 @@ Use the same prompt from the previous lesson, but this time with AI Copilot:
 
 3. Observe the results — correct, up-to-date plugin types, valid property names, and working executable YAML.
 
-![The generated taxi flow YAML with assumption comments](images/04-ai-copilot-03-generated-taxi-flow.jpg)
+![The generated taxi flow YAML with assumption comments](images/04-ai-copilot-03-generated-taxi-flow-cropped.png)
 
 ## The 5% Rule
 
