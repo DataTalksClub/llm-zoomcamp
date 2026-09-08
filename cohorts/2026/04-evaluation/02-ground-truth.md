@@ -79,7 +79,7 @@ questions from a document, so we know that this document holds the
 answer. Later, search evaluation checks whether search brings back the
 document with this ID.
 
-![Printing the id, question, and answer of the first FAQ document](images/02-ground-truth-03-document-id-print.jpg)
+![Printing the id, question, and answer of the first FAQ document](images/02-ground-truth-03-document-id-print-cropped.png)
 
 This is why every record needs a stable ID. If you can't uniquely
 identify a document, you can't tell whether search retrieved the right
