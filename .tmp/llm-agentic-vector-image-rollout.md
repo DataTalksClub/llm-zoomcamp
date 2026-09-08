@@ -278,3 +278,9 @@ checked before acceptance.
   the embedding input. Deterministic crop `(480x300+50+30)` plus Lanczos
   upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
   preserving the exact fields and sample values.
+
+- `03-embeddings-dataset-05-encoding-progress-done.jpg` — **crop/replace**,
+  score 9/12. The completed progress bar and `1208` count show the actual
+  batch-encoding result. Deterministic crop `(480x300+50+30)` plus Lanczos
+  upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
+  preserving the exact progress and count.

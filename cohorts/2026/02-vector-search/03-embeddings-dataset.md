@@ -74,7 +74,7 @@ len(vectors)
 We end up with 1208 vectors. On a GPU this is fast. Most of us run on
 Codespaces without a GPU, so it takes a bit, but it's a one-off.
 
-![Encoding finished: the progress bar at 100% and 1208 vectors](images/03-embeddings-dataset-05-encoding-progress-done.jpg)
+![Cropped notebook output showing encoding at 100% and 1208 vectors](images/03-embeddings-dataset-05-encoding-progress-done-cropped.png)
 
 We turn them into a 2-dimensional array (matrix) where
 
