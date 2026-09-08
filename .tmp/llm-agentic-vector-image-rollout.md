@@ -10,6 +10,22 @@ conceptual diagrams use the built-in imagegen workflow after a deterministic
 crop. Each disposition below records the rubric decision and the invariant
 checked before acceptance.
 
+## Final audit
+
+- Source references audited: **52** (**33** agentic-RAG, **19** vector-search).
+- Retained references: **46** (**28** agentic-RAG, **18** vector-search).
+- Removed references: **6**; every original `.jpg` remains in the image
+  directories, unreferenced rather than deleted.
+- Accepted replacements: **7 imagegen** bounded-diagram illustrations and
+  **39 deterministic** crops/upscales for exact technical evidence.
+- Validation: **46/46** retained references resolve; **52/52** source
+  dispositions are recorded; all **52/52** original source files remain;
+  `git diff --check` passes.
+- Limitations: source-edge truncation and native selection highlights were
+  retained where repainting would risk exactness; live pricing remains
+  time-sensitive; one tooltip-covered result and two mismatched/low-value
+  captures were removed rather than reconstructed.
+
 ## Audit entries
 
 - `03-rag-01-assistant-question-sketch.jpg` — **remove**, score 3/12.
