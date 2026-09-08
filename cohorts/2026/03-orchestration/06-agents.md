@@ -81,7 +81,7 @@ Flow: [`4_simple_agent.yaml`](flows/4_simple_agent.yaml)
 
 This flow demonstrates a basic AI agent that summarizes text with controllable length and language. It shows how to structure agent prompts, chain agent tasks, use `pluginDefaults` to avoid repetition, and track token usage for cost monitoring.
 
-![The simple agent flow with the multilingual agent task and its system message](images/06-agents-01-simple-agent-flow.jpg)
+![The simple agent flow with the multilingual agent task and its system message](images/06-agents-01-simple-agent-flow-cropped.png)
 
 ![The flow execution showing both agent tasks and the token usage log](images/06-agents-02-agent-execution-tokens.jpg)
 
