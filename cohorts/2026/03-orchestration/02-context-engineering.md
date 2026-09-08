@@ -25,7 +25,7 @@ Let's start by seeing what happens when AI lacks proper context.
 
 Large Language Models like GPT are trained on data up to a specific point in time. They don't automatically know about software updates and new releases, renamed plugins or changed APIs, new best practices in your organisation, or specific configurations for your infrastructure.
 
-![ChatGPT reporting its knowledge is current through August 2024](images/02-context-engineering-03-training-cutoff-answer.jpg)
+![ChatGPT reporting its knowledge is current through August 2024](images/02-context-engineering-03-training-cutoff-answer-cropped.png)
 
 This is the fundamental challenge of using AI: the model can only work with information it has access to.
 
