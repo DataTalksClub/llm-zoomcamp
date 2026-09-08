@@ -18,6 +18,8 @@ A RAG system has two stages:
 Most of the improvements we'll discuss focus on the retrieval
 stage, because better retrieval means better answers.
 
+![RAG improvement map from indexing and retrieval to context, with small-to-big chunks, metadata, hybrid search, query rewriting, and reranking](images/01-intro-01-rag-technique-map-imagegen.png)
+
 ## Five techniques
 
 Here are the five techniques we'll cover:

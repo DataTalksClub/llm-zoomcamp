@@ -9,6 +9,8 @@ Reranking re-orders retrieved documents by a better relevance
 score. It sits at the end of the search pipeline, after the
 initial retrieval.
 
+![Document reranking sends an initial candidate set through two ranked views and RRF to produce reranked results](images/03-reranking-01-rrf-rerank-imagegen.png)
+
 ## Reciprocal Rank Fusion (RRF)
 
 One popular reranking method is Reciprocal Rank Fusion (RRF). It

@@ -8,6 +8,8 @@ The indexing stage stays the same - we still use the same
 Elasticsearch index from the previous lesson. Only the retrieval
 code changes.
 
+![LangChain and a direct query use different interfaces but converge on the same Elasticsearch hybrid query and ranked documents](images/04-langchain-01-retriever-wrapper-imagegen.png)
+
 ## Installing LangChain
 
 Install the LangChain packages:

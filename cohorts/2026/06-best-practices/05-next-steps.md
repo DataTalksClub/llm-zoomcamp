@@ -13,6 +13,8 @@ The key takeaways:
 - LangChain wraps Elasticsearch functionality in a cleaner
   interface, but the underlying queries are the same.
 
+![Retrieval improvement roadmap from hybrid search and RRF reranking to small-to-big chunks, metadata, and query rewriting](images/05-next-steps-01-retrieval-roadmap-imagegen.png)
+
 ## Other techniques to explore
 
 We only covered two of the five techniques from the intro lesson.

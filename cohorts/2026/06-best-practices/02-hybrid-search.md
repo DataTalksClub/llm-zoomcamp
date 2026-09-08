@@ -3,6 +3,8 @@
 Vector search finds documents by semantic meaning, while keyword search
 finds documents by exact word matches. Hybrid search combines both.
 
+![Hybrid search merges keyword and vector ranked lists through a fusion step into one final rank](images/02-hybrid-search-01-keyword-vector-fusion-imagegen.png)
+
 Each search produces a ranked list with scores.
 
 We combine them with a weighted sum:
