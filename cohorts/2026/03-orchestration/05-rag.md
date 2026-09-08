@@ -75,7 +75,7 @@ This flow:
 
 Import and run `2_chat_with_rag.yaml` and compare the output quality against the previous flow.
 
-![The RAG execution output listing real Kestra 1.1 features](images/05-rag-03-rag-grounded-answer.jpg)
+![The RAG execution output listing real Kestra 1.1 features](images/05-rag-03-rag-grounded-answer-cropped.png)
 
 ## Extending RAG with web search
 
