@@ -131,7 +131,7 @@ compute_relevance_text(q)
 
 The correct document was the first search result.
 
-![Computing the relevance row for the first ground truth question](images/04-search-evaluation-04-compute-relevance-first.jpg)
+![Computing the relevance row for the first ground truth question](images/04-search-evaluation-04-compute-relevance-first-cropped.png)
 
 Here are two more examples from the generated ground truth data.
 
