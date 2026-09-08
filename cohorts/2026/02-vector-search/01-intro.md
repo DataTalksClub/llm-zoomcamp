@@ -18,7 +18,7 @@ They mean the same thing, yet they share almost no words. A keyword
 engine struggles to match them. We need something that works on
 meaning, not on the exact words.
 
-![Two paraphrased questions typed in the notebook to test matching](images/01-intro-02-paraphrased-queries.jpg)
+![Cropped notebook cell showing two paraphrased questions with the same meaning](images/01-intro-02-paraphrased-queries-cropped.png)
 
 That something is vector search. Instead of matching words, it matches
 ideas.

@@ -266,3 +266,9 @@ checked before acceptance.
   selected tokens make the keyword-vs-meaning contrast concrete. Deterministic
   crop `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor
   chrome, and unrelated panels while preserving the exact query and tokens.
+
+- `01-intro-02-paraphrased-queries.jpg` — **crop/replace**, score 9/12. The
+  two differently worded but equivalent queries are evidence for the
+  keyword-search limitation described in the lesson. Deterministic crop
+  `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor chrome,
+  and unrelated panels while preserving both exact questions.
