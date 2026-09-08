@@ -115,3 +115,9 @@ checked before acceptance.
   Deterministic crop `(480x300+50+30)` and Lanczos upscaling retain the
   course-specific entries while removing webcam, browser/Zoom chrome, and
   unrelated panels. The caption was corrected to match the actual source.
+
+- `03-rag-07-grounded-answer.jpg` — **crop/replace**, score 9/12. This is
+  direct evidence of the FAQ answer that grounds the response. The source had
+  browser chrome and a find-in-page overlay, so deterministic crop
+  `(480x270+50+60)` was used instead of imagegen; Lanczos upscaling preserves
+  the selected question and answer while removing the overlay and webcam.

@@ -123,7 +123,7 @@ After that, the answer is correct: "Yes, you can still join. If you want to
 receive a certificate, you need to submit your project while
 submissions are still open."
 
-![The LLM answers correctly using the FAQ context](images/03-rag-07-grounded-answer.jpg)
+![Cropped FAQ page showing the course-specific answer used to ground the response](images/03-rag-07-grounded-answer-cropped.png)
 
 This is the answer we actually want to give to our students. What we
 just did is nothing but RAG.
