@@ -12,8 +12,6 @@ Grafana. It tracks response time, cost, tokens, and which models we use.
 Then we added two quality signals: an LLM judge, plus thumbs up and down
 from users.
 
-![The Grafana dashboard built over the recorded conversations](images/14-next-steps-01-grafana-dashboard-recap.jpg)
-
 We now have two things we didn't have before. We have visibility into how
 the system behaves, and we have logs to dig into when something looks
 wrong.
