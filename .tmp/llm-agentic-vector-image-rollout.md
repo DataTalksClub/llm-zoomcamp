@@ -261,3 +261,8 @@ checked before acceptance.
   plus Lanczos upscaling removes webcam, Zoom/editor chrome, and empty
   controls while preserving exact values and message records; long source
   lines remain truncated rather than reconstructed.
+
+- `01-intro-01-keyword-tokenization.jpg` — **crop/replace**, score 9/12. The
+  selected tokens make the keyword-vs-meaning contrast concrete. Deterministic
+  crop `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor
+  chrome, and unrelated panels while preserving the exact query and tokens.

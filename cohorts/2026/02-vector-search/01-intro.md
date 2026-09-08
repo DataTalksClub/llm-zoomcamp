@@ -7,7 +7,7 @@ In module 1 we used keyword search with minsearch and sqlitesearch.
 It matches exact words. If you search for "Docker", the document has
 to contain "Docker" to come back.
 
-![A query tokenized into the exact words a keyword engine matches](images/01-intro-01-keyword-tokenization.jpg)
+![Cropped notebook output showing the query tokens matched by keyword search](images/01-intro-01-keyword-tokenization-cropped.png)
 
 But look at these two questions:
 
