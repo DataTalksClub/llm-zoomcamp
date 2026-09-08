@@ -254,3 +254,10 @@ checked before acceptance.
   handwritten loop's retry behavior while rendering tool calls and the final
   answer. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
   webcam, Zoom/editor chrome, and empty controls while preserving exact output.
+
+- `15-frameworks-07-cost-and-messages.jpg` — **crop/replace**, score 9/12.
+  The cost object and full message history show the framework's useful
+  `LoopResult` state beyond the prose. Deterministic crop `(480x300+50+30)`
+  plus Lanczos upscaling removes webcam, Zoom/editor chrome, and empty
+  controls while preserving exact values and message records; long source
+  lines remain truncated rather than reconstructed.

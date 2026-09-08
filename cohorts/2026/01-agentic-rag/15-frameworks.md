@@ -166,7 +166,7 @@ result.all_messages
 
 This is just a list - the same `messages` list we maintained by hand.
 
-![The computed cost and the full message history](images/15-frameworks-07-cost-and-messages.jpg)
+![Cropped ToyAIKit result showing computed cost and message history](images/15-frameworks-07-cost-and-messages-cropped.png)
 
 ## Continuing the conversation
 
