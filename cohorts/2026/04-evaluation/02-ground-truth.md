@@ -57,7 +57,7 @@ for doc in documents:
 len(documents_llm)
 ```
 
-![Notebook filtering the FAQ documents down to the 79 llm-zoomcamp records](images/02-ground-truth-02-filter-llm-zoomcamp-docs.jpg)
+![Notebook filtering the FAQ documents down to the 79 llm-zoomcamp records](images/02-ground-truth-02-filter-llm-zoomcamp-docs-cropped.png)
 
 We'll use these documents from now on so let's name them as `documents`
 
