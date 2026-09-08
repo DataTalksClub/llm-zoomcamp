@@ -290,3 +290,9 @@ checked before acceptance.
   retrieves a semantically relevant FAQ entry. Deterministic crop
   `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor chrome,
   and unrelated panels while preserving the exact score and document fields.
+
+- `05-minsearch-vector-01-by-hand-results.jpg` — **crop/replace**, score 9/12.
+  The scores and argsort indices show the mechanics behind the library that
+  follows. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
+  webcam, Zoom/editor chrome, and unrelated panels while preserving exact
+  numeric output and document IDs.

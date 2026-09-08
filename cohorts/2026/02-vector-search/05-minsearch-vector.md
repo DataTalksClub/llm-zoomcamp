@@ -8,7 +8,7 @@ embedded the query, computed dot products, and found the best matches.
 Writing the argsort and matrix code every time gets old, and it can't
 filter by course. So instead we'll use a library that wraps all of it.
 
-![The by-hand numpy results with the argsort indices of the top documents](images/05-minsearch-vector-01-by-hand-results.jpg)
+![Cropped numpy output showing similarity scores and argsort indices](images/05-minsearch-vector-01-by-hand-results-cropped.png)
 
 We'll use [minsearch](https://github.com/alexeygrigorev/minsearch), the
 small in-memory search library we already used in module 1 for text
