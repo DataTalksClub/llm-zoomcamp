@@ -81,7 +81,7 @@ Import and run `2_chat_with_rag.yaml` and compare the output quality against the
 
 The examples above use static RAG — documents are ingested once and stored in the KV Store. Kestra also supports web search as a retriever, which fetches live results at query time and passes them as context to the LLM.
 
-![The web-search RAG flow with the Tavily retriever and OpenAI provider](images/05-rag-04-websearch-retriever-flow.jpg)
+![The web-search RAG flow with the Tavily retriever and OpenAI provider](images/05-rag-04-websearch-retriever-flow-cropped.png)
 
 Flow: [`3_rag_with_websearch.yaml`](flows/3_rag_with_websearch.yaml)
 
