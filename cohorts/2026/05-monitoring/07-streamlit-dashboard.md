@@ -108,7 +108,6 @@ st.subheader("Response time over time")
 st.line_chart(df, x="timestamp", y="response_time")
 ```
 
-![The response time chart on the running dashboard](images/07-streamlit-dashboard-04-charts-response-time-crisp.png)
 
 Recent conversations:
 
@@ -137,5 +136,3 @@ We didn't even use a table for the conversations - plain text is enough
 to make the point. This simple dashboard already gives us real
 visibility into the system. Later we set up Grafana for a more powerful
 view, with alerting and richer panels.
-
-![The dashboard with the four summary metrics](images/07-streamlit-dashboard-06-dashboard-overview-crisp.png)

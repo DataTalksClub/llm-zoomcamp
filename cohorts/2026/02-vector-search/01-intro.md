@@ -7,7 +7,6 @@ In module 1 we used keyword search with minsearch and sqlitesearch.
 It matches exact words. If you search for "Docker", the document has
 to contain "Docker" to come back.
 
-![Clean technical panel showing the query tokens matched by keyword search](images/01-intro-01-keyword-tokenization-imagegen.png)
 
 But look at these two questions:
 
@@ -18,7 +17,6 @@ They mean the same thing, yet they share almost no words. A keyword
 engine struggles to match them. We need something that works on
 meaning, not on the exact words.
 
-![Cropped notebook cell showing two paraphrased questions with the same meaning](images/01-intro-02-paraphrased-queries-crisp.png)
 
 That something is vector search. Instead of matching words, it matches
 ideas.

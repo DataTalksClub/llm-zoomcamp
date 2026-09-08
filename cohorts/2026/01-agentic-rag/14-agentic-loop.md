@@ -120,14 +120,12 @@ for item in response.output:
         print(item.content[0].text)
 ```
 
-![Cropped loop code and output showing requested function calls being printed](images/14-agentic-loop-02-printed-function-calls-crisp.png)
 
 The `has_function_calls` flag tells us whether the model needs another
 API call. If the response contains a function call, the updated
 `messages` has tool output the model hasn't seen yet. We'll need to
 send it back.
 
-![Cropped message history showing appended function-call outputs](images/14-agentic-loop-03-messages-history-crisp.png)
 
 ## The full agent loop
 
@@ -171,7 +169,6 @@ Your code performs it, and the model sees the result on the next turn.
 The loop stops when the model returns a final answer with no more tool
 calls.
 
-![Cropped agent loop output showing two iterations and the final answer](images/14-agentic-loop-04-loop-run-output-crisp.png)
 
 We don't decide how many times the model searches. The model does,
 and we keep looping until it stops asking for tools.
@@ -275,7 +272,6 @@ after the first round of results. The instructions are how we steer
 the agent. It can still decide to skip ahead sometimes, so don't
 expect it to follow them every single run.
 
-![Cropped agent output showing three searches in the first iteration](images/14-agentic-loop-06-multiple-search-run-crisp.png)
 
 ## Restricting off-topic questions
 
@@ -286,7 +282,6 @@ will still try.
 agent_loop(instructions, "what's queen gambit?")
 ```
 
-![Cropped agent output answering the off-topic Queen's Gambit question](images/14-agentic-loop-07-queen-gambit-run-crisp.png)
 
 We want a course assistant, not a general chatbot. We tighten the
 instructions so the agent only answers from the FAQ. For our own use

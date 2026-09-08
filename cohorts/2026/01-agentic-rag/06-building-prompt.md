@@ -77,7 +77,6 @@ This format makes it easy for the LLM to read. We turned a list of
 dictionaries into one string. It's a small preprocessing step before we
 send the data to the LLM.
 
-![Cropped context output showing FAQ blocks assembled by build_context](images/06-building-prompt-04-context-output-crisp.png)
 
 ## Building the prompt
 

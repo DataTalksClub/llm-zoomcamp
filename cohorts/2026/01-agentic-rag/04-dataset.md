@@ -62,7 +62,6 @@ Each entry has:
 - `question` - the FAQ question
 - `answer` - the FAQ answer
 
-![Cropped FAQ JSON showing id, course, section, question, and answer fields](images/04-dataset-04-json-entry-fields-crisp.png)
 
 Let's look at one:
 
@@ -82,7 +81,6 @@ You should see something like:
 }
 ```
 
-![Clean notebook panel showing the document count and one FAQ entry](images/04-dataset-05-document-entry-imagegen.png)
 
 Each course has a slug - a short identifier used in URLs. For example,
 `machine-learning-zoomcamp`, `data-engineering-zoomcamp`, etc. We'll

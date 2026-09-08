@@ -16,7 +16,6 @@ We now have two things we didn't have before. We have visibility into how
 the system behaves, and we have logs to dig into when something looks
 wrong.
 
-![The app showing the judge relevance verdict under the answer](images/14-next-steps-02-app-relevance-verdict-crisp.png)
 
 ## Build it yourself, or use a framework
 

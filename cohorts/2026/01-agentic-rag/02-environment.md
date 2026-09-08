@@ -106,7 +106,6 @@ I also recommend creating a separate OpenAI project for the course.
 Then you can open the usage page and see exactly how much you spent
 here, apart from your other work.
 
-![Clean OpenAI API key dialog showing how to create a project-scoped key](images/02-environment-05-openai-api-key-imagegen.png)
 
 The safest way to store the key is in a `.env` file that never gets
 committed to git.

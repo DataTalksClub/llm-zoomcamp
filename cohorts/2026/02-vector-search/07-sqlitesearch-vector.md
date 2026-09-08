@@ -113,7 +113,6 @@ query_vector = model.encode(query)
 results = vs_index.search(query_vector, num_results=5)
 ```
 
-![Cropped notebook cells showing the persistent index fit and encoded-vector search](images/07-sqlitesearch-vector-04-fit-and-search-crisp.png)
 
 Look at the results:
 

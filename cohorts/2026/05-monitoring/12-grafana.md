@@ -41,7 +41,6 @@ admin again is fine.
 
 Connect Grafana to PostgreSQL:
 
-![The Grafana Add data source page with PostgreSQL among the options](images/12-grafana-02-add-datasource-list-crisp.png)
 
 1. Go to Configuration > Data Sources > Add data source
 2. Select PostgreSQL
@@ -53,7 +52,6 @@ Connect Grafana to PostgreSQL:
    - SSL Mode: disable
 4. Click Save & Test. It should say "Database Connection OK"
 
-![The PostgreSQL data source pointing at course-assistant-pg:5432](images/12-grafana-03-postgres-datasource-config-crisp.png)
 
 ## Creating the dashboard
 
@@ -120,7 +118,6 @@ ORDER BY 1
 
 Use the Time series visualization for this panel.
 
-![The token usage panel query grouped into time buckets](images/12-grafana-06-token-usage-query-crisp.png)
 
 ## Cost Panel
 
@@ -219,7 +216,6 @@ Arrange the panels in a layout that makes sense:
 - Middle row: model usage bar chart | relevance pie chart
 - Bottom row: response time | token usage | cost
 
-![The dashboard with cost, relevance, and feedback panels laid out](images/12-grafana-08-finished-dashboard-panels-crisp.png)
 
 Don't treat these panel types as fixed. On the same query you can try a
 bar chart, a pie, or a time series. Experiment and keep whatever reads

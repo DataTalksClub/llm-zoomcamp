@@ -33,7 +33,6 @@ Each document is a Python dictionary with a question and an answer. We
 embed both together. That way a query can match against the question
 text and the answer text in our index.
 
-![Cropped notebook output showing a FAQ document's id, course, question, and answer fields](images/03-embeddings-dataset-02-document-dict-fields-crisp.png)
 
 Build one text per document:
 
@@ -74,7 +73,6 @@ len(vectors)
 We end up with 1208 vectors. On a GPU this is fast. Most of us run on
 Codespaces without a GPU, so it takes a bit, but it's a one-off.
 
-![Cropped notebook output showing encoding at 100% and 1208 vectors](images/03-embeddings-dataset-05-encoding-progress-done-crisp.png)
 
 We turn them into a 2-dimensional array (matrix) where
 

@@ -63,7 +63,6 @@ If you're in GitHub Codespaces, it detects the port and forwards it for
 you. Open the link and you get a web interface. Ask a question like "How
 do I join the course?" and the answer comes back.
 
-![Asking the course assistant a question and getting the answer](images/03-chat-app-03-answer-in-browser-crisp.png)
 
 The RAG works, but right now we track nothing about it: no response
 time, no token usage, no cost. That's exactly the visibility monitoring

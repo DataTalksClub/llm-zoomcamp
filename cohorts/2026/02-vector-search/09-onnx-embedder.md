@@ -20,7 +20,6 @@ That's 33x smaller for the same embeddings and the same results. Often
 we don't even convert the model ourselves. Someone has usually published
 an ONNX version we can download.
 
-![Cropped size table comparing sentence-transformers at 4.8 GB with ONNX Runtime at 147 MB](images/09-onnx-embedder-01-size-comparison-crisp.png)
 
 For development and experiments, sentence-transformers is fine. For
 production you want the lighter option.
@@ -56,7 +55,6 @@ Copy it to your project, then run:
 uv run python download.py
 ```
 
-![Cropped download instructions and model directory layout for the ONNX embedder](images/09-onnx-embedder-03-model-download-crisp.png)
 
 This creates:
 

@@ -154,7 +154,6 @@ appearing in the section name.
 We used `filter_dict` to only return results from the LLM Zoomcamp
 course. Without this filter, we'd get results from all four courses.
 
-![Cropped search results showing matches from multiple courses without a course filter](images/05-search-05-search-results-crisp.png)
 
 ## Boosting fields
 
@@ -177,7 +176,6 @@ means it counts two times as much. Take a question about certificates.
 The word "certificate" in the question field now weighs twice what it
 does in the answer.
 
-![Cropped search cell showing boosted question and section fields](images/05-search-06-boosted-search-crisp.png)
 
 Giving `section` 0.5 means it counts half as much, since a match there
 tells us less. This is the same boosting mechanism used by

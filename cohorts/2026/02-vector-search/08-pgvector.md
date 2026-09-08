@@ -172,7 +172,6 @@ for row in results:
     print(f"[{row[0]}] {row[1]} (similarity: {row[3]:.4f})")
 ```
 
-![Cropped SQL output showing cosine similarity with the pgvector distance operator](images/08-pgvector-05-cosine-search-query-crisp.png)
 
 The `<=>` operator computes cosine distance (1 - cosine similarity).
 We order by ascending distance, so the closest vectors come first.
