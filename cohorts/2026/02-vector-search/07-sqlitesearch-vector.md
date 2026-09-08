@@ -52,7 +52,7 @@ in SQLite, a real on-disk database, and uses ANN strategies for
 retrieval. Because the data lives on disk, one process can write the
 vectors and another can read them back.
 
-![Whiteboard of the ingestion and deployment processes sharing the database](images/07-sqlitesearch-vector-02-ingestion-deployment-split.jpg)
+![Clean diagram of ingestion and deployment sharing the FAQ index](images/07-sqlitesearch-vector-02-ingestion-deployment-split-imagegen.png)
 
 If you didn't install it in the previous module, add it to your project:
 

@@ -69,3 +69,11 @@ checked before acceptance.
   `(448x320+84+16)` was used as the imagegen reference. The accepted asset
   preserves the FAQ point cloud, local candidate region, query point, and
   exact `FAQ`/`ANN` labels; no numeric claims or capture artifacts remain.
+
+- `07-sqlitesearch-vector-02-ingestion-deployment-split.jpg` —
+  **crop/replace**, score 11/12. The source clearly teaches the shared
+  persistent-index relationship but is a whiteboard capture with webcam,
+  toolbar, and Zoom chrome. Deterministic crop `(448x320+84+16)` was used as
+  the imagegen reference. The final diagram preserves separate `INGESTION`
+  and `DEPLOYMENT` paths, one shared `FAQ INDEX`, `FAQ DOCS`, `ASSISTANT`, and
+  the question/answer direction; no capture artifacts remain.
