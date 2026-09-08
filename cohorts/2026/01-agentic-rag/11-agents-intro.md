@@ -27,7 +27,7 @@ One typo and it misses the entry it needed. In our pipeline there's
 no recovery. The search runs once, and if it returns garbage the LLM
 gets garbage. Our pipeline always does the same thing, no matter what.
 
-![Cropped notebook output showing that the misspelled question gets no useful FAQ answer](images/11-agents-intro-02-typo-search-failure-cropped.png)
+![Cropped notebook output showing that the misspelled question gets no useful FAQ answer](images/11-agents-intro-02-typo-search-failure-crisp.png)
 
 Instead of routing the user question straight to search, we can hand
 control to the LLM and let it drive.
@@ -41,7 +41,7 @@ The LLM is in charge now, and it can:
 A fixed flow can't do any of this. Once we put the LLM in control,
 our system becomes agentic, so it's flexible rather than rigid.
 
-![Cropped notebook output showing the corrected query being retried](images/11-agents-intro-03-corrected-question-retry-cropped.png)
+![Cropped notebook output showing the corrected query being retried](images/11-agents-intro-03-corrected-question-retry-crisp.png)
 
 An agent uses an LLM to decide which actions to take and in which
 order. Instead of a fixed flow, the LLM chooses what to do at each

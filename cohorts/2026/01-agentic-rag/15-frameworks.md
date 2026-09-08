@@ -141,7 +141,7 @@ handwritten loop. The notebook output is nicer to watch. Each tool
 call and message renders inline, so you can look at every search
 result.
 
-![Cropped ToyAIKit output showing a typo search, retry, and final answer](images/15-frameworks-06-agentic-run-with-retry-cropped.png)
+![Cropped ToyAIKit output showing a typo search, retry, and final answer](images/15-frameworks-06-agentic-run-with-retry-crisp.png)
 
 The `result` is a `LoopResult` with `all_messages` (the full
 conversation), token counts, and `cost` (computed from token usage).
@@ -166,7 +166,7 @@ result.all_messages
 
 This is just a list - the same `messages` list we maintained by hand.
 
-![Cropped ToyAIKit result showing computed cost and message history](images/15-frameworks-07-cost-and-messages-cropped.png)
+![Cropped ToyAIKit result showing computed cost and message history](images/15-frameworks-07-cost-and-messages-crisp.png)
 
 ## Continuing the conversation
 

@@ -89,7 +89,7 @@ depends on the course" or "check the course website". It doesn't know
 about our FAQ, so the answer is vague and not helpful. This is exactly
 why we need RAG, and why we want to hand the model a tool.
 
-![Cropped notebook output showing the vague answer produced without a search tool](images/13-function-calling-01-no-tools-vague-answer-cropped.png)
+![Cropped notebook output showing the vague answer produced without a search tool](images/13-function-calling-01-no-tools-vague-answer-crisp.png)
 
 ## Defining the tool
 
@@ -136,7 +136,7 @@ search_tool = {
 }
 ```
 
-![Cropped search tool schema showing its name, description, and query parameter](images/13-function-calling-03-search-tool-schema-cropped.png)
+![Cropped search tool schema showing its name, description, and query parameter](images/13-function-calling-03-search-tool-schema-crisp.png)
 
 The `description` is the most important field, because the model reads
 it to decide when to call the function. `parameters` is a JSON schema
@@ -184,7 +184,7 @@ results = search(**args)
 result_json = json.dumps(results, indent=2)
 ```
 
-![Cropped function-call output showing the rewritten query and parsed arguments](images/13-function-calling-05-parsed-call-arguments-cropped.png)
+![Cropped function-call output showing the rewritten query and parsed arguments](images/13-function-calling-05-parsed-call-arguments-crisp.png)
 
 Now we send this result back to the model. First, we add the model's
 output to the conversation history - the model needs to see its own
@@ -222,7 +222,7 @@ This time the model has the original question, its own decision to
 call `search`, and the FAQ results. It can now produce a proper
 course-specific answer.
 
-![Cropped second API call returning the course-specific answer](images/13-function-calling-07-second-call-answer-cropped.png)
+![Cropped second API call returning the course-specific answer](images/13-function-calling-07-second-call-answer-crisp.png)
 
 We have to send the whole history because LLMs are stateless between
 API calls. The memory is the list you send as `input`. If you send
