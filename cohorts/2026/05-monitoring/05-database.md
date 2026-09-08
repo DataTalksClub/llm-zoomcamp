@@ -307,7 +307,7 @@ docker exec -it course-assistant-pg psql -U user -d course_assistant \
     -c "SELECT id, question, response_time, cost FROM conversations;"
 ```
 
-![psql showing the saved conversation row](images/05-database-06-psql-check-conversations.jpg)
+![psql showing the saved conversation row](images/05-database-06-psql-check-conversations-cropped.png)
 
 ## Integrating with Streamlit
 
