@@ -104,7 +104,7 @@ relevance
 This gives a list of `0` and `1` values. `1` means the retrieved
 document has the same ID as the correct document.
 
-![The relevance matrix sketch: one row per question, one column per position](images/04-search-evaluation-03-relevance-matrix-whiteboard.jpg)
+![The relevance matrix sketch: one row per question, one column per position](images/04-search-evaluation-03-relevance-matrix-whiteboard-cropped.png)
 
 Put this logic into a function:
 
