@@ -40,3 +40,11 @@ checked before acceptance.
   asset preserves `FAQ.json -> INGESTOR -> KB`, the shared KB arrows, the user
   `Q`/assistant `A` flow, `PROMPT -> LLM`, and the return arrow, with no faces,
   capture chrome, cursors, watermarks, or extra components.
+
+- `11-agents-intro-04-agentic-flow-diagram.jpg` — **crop/replace**, score
+  10/12. The source shows the useful retry state transition, but it includes
+  browser/Zoom chrome and a selection highlight. A deterministic crop
+  `(500x285+30+35)` was used as the imagegen reference. The accepted diagram
+  preserves the four exact nodes and their top-to-bottom arrows, removes the
+  highlight and all capture artifacts, and was checked for the corrected
+  `Ollama` spelling and final answer state.

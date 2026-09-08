@@ -47,7 +47,7 @@ An agent uses an LLM to decide which actions to take and in which
 order. Instead of a fixed flow, the LLM chooses what to do at each
 step.
 
-![Diagram of the agent retrying the search until it finds results](images/11-agents-intro-04-agentic-flow-diagram.jpg)
+![Clean agentic retry flow: the LLM notices an empty search, retries with the corrected term, and answers](images/11-agents-intro-04-agentic-flow-diagram-imagegen.png)
 
 In Part 2 of this module, we'll cover:
 
