@@ -223,3 +223,9 @@ checked before acceptance.
   removes webcam, Zoom/editor chrome, and empty controls while preserving the
   exact list contents. A native selection highlight remains on one message
   because removing it safely would alter the exact output.
+
+- `14-agentic-loop-04-loop-run-output.jpg` — **crop/replace**, score 10/12.
+  The output visibly demonstrates iteration 1 tool calls, iteration 2, and
+  the final grounded answer. Deterministic crop `(480x300+50+30)` plus
+  Lanczos upscaling removes webcam, Zoom/editor chrome, and empty controls;
+  source-edge truncation of long lines is retained rather than guessed.

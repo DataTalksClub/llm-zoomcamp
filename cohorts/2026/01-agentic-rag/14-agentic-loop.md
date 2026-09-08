@@ -171,7 +171,7 @@ Your code performs it, and the model sees the result on the next turn.
 The loop stops when the model returns a final answer with no more tool
 calls.
 
-![Agent loop run printing two iterations and the final answer](images/14-agentic-loop-04-loop-run-output.jpg)
+![Cropped agent loop output showing two iterations and the final answer](images/14-agentic-loop-04-loop-run-output-cropped.png)
 
 We don't decide how many times the model searches. The model does,
 and we keep looping until it stops asking for tools.
