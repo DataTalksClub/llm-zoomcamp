@@ -229,3 +229,9 @@ checked before acceptance.
   the final grounded answer. Deterministic crop `(480x300+50+30)` plus
   Lanczos upscaling removes webcam, Zoom/editor chrome, and empty controls;
   source-edge truncation of long lines is retained rather than guessed.
+
+- `14-agentic-loop-06-multiple-search-run.jpg` — **crop/replace**, score 9/12.
+  The three distinct first-iteration searches demonstrate why an agent can
+  recover by broadening/rephrasing a query. Deterministic crop
+  `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor chrome,
+  and empty controls while preserving the exact calls and answer.

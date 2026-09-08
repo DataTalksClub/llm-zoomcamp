@@ -275,7 +275,7 @@ after the first round of results. The instructions are how we steer
 the agent. It can still decide to skip ahead sometimes, so don't
 expect it to follow them every single run.
 
-![Run making three searches in the first iteration](images/14-agentic-loop-06-multiple-search-run.jpg)
+![Cropped agent output showing three searches in the first iteration](images/14-agentic-loop-06-multiple-search-run-cropped.png)
 
 ## Restricting off-topic questions
 
