@@ -83,7 +83,7 @@ This flow demonstrates a basic AI agent that summarizes text with controllable l
 
 ![The simple agent flow with the multilingual agent task and its system message](images/06-agents-01-simple-agent-flow-cropped.png)
 
-![The flow execution showing both agent tasks and the token usage log](images/06-agents-02-agent-execution-tokens.jpg)
+![The flow execution showing both agent tasks and the token usage log](images/06-agents-02-agent-execution-tokens-cropped.png)
 
 ## Advanced Agent Example: Web Research
 
