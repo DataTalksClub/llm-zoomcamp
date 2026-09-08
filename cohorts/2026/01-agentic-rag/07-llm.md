@@ -125,8 +125,6 @@ messages and the LLM's replies alternate. The LLM has no memory of its
 own, so it needs the full history passed in to continue the
 conversation.
 
-![A ChatGPT conversation annotated with the system prompt and message roles](images/07-llm-05-chatgpt-message-history.jpg)
-
 We won't build a multi-turn chat here. But we still use this message
 format to separate our instructions from the user prompt.
 

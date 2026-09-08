@@ -84,3 +84,10 @@ checked before acceptance.
   deterministic crop `(448x320+84+16)` removed the webcam, toolbar, and Zoom
   frame, then Lanczos upscaling produced a crisp sibling while preserving the
   handwritten equation and ranked-page relationship.
+
+- `07-llm-05-chatgpt-message-history.jpg` — **remove**, score 3/12. The
+  source is a generic personal ChatGPT conversation, not a clear view of the
+  system/developer/user role structure described by the caption. It is
+  transient and potentially private, duplicates the surrounding prose, and
+  fails the rubric's personal-content hard gate. The original file remains
+  unreferenced.
