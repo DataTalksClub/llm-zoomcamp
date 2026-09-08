@@ -39,4 +39,4 @@ The key pattern here is using `AIAgent` as a tool. The main agent treats the res
 2. Monitor token usage: multiple agents means multiple LLM calls — costs add up
 3. Document agent purposes: make the system maintainable by describing what each agent does in your flow and task descriptions
 
-![The flow execution timeline showing how long each agent task ran](images/07-multi-agent-03-execution-durations.jpg)
+![The flow execution timeline showing how long each agent task ran](images/07-multi-agent-03-execution-durations-cropped.png)
