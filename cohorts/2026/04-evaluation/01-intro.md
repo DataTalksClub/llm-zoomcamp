@@ -36,7 +36,7 @@ The approach works like this:
 - We send Q* through our search and check if the original document
   appears in the results
 
-![FAQ page with a question and answer pair used as evaluation source](images/01-intro-03-faq-qA-pairs.jpg)
+![FAQ page with a question and answer pair used as evaluation source](images/01-intro-03-faq-qA-pairs-cropped.png)
 
 For RAG evaluation, we go one step further:
 
