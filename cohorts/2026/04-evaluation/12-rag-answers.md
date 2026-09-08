@@ -212,7 +212,7 @@ Calculate the total cost:
 assistant.total_cost()
 ```
 
-![Checking the total cost of generating all RAG answers, about 34 cents](images/12-rag-answers-05-total-cost.jpg)
+![Checking the total cost of generating all RAG answers, about 34 cents](images/12-rag-answers-05-total-cost-cropped.png)
 
 Save the answers:
 
