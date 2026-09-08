@@ -272,3 +272,9 @@ checked before acceptance.
   keyword-search limitation described in the lesson. Deterministic crop
   `(480x300+50+30)` plus Lanczos upscaling removes webcam, Zoom/editor chrome,
   and unrelated panels while preserving both exact questions.
+
+- `03-embeddings-dataset-02-document-dict-fields.jpg` — **crop/replace**,
+  score 8/12. The real dictionary output connects the dataset structure to
+  the embedding input. Deterministic crop `(480x300+50+30)` plus Lanczos
+  upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
+  preserving the exact fields and sample values.

@@ -33,7 +33,7 @@ Each document is a Python dictionary with a question and an answer. We
 embed both together. That way a query can match against the question
 text and the answer text in our index.
 
-![A FAQ document printed with its id, course, question and answer fields](images/03-embeddings-dataset-02-document-dict-fields.jpg)
+![Cropped notebook output showing a FAQ document's id, course, question, and answer fields](images/03-embeddings-dataset-02-document-dict-fields-cropped.png)
 
 Build one text per document:
 
