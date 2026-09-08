@@ -68,6 +68,8 @@ To make this concrete, we build a FAQ agent for our course. A student
 asks something like "when does the course start?" and the agent answers
 from the FAQ data we prepared.
 
+![Overview of the course RAG project: a question is searched against FAQ documents, passed as context to an LLM, and returned as an answer](images/01-intro-01-rag-project-overview-imagegen.png)
+
 This module has two parts.
 
 In Part 1 (the next 9 lessons) we will:

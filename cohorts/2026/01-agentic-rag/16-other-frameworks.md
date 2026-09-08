@@ -8,6 +8,8 @@ Function calling, the agent loop, and tool definitions all wrap the
 same pattern. Send messages, run any function calls, and repeat until
 the model is done.
 
+![Different agent SDKs share the same core loop of messages, tool calls, observation, and an answer](images/16-other-frameworks-01-shared-agent-loop-imagegen.png)
+
 
 You now understand how the loop works. So you can pick up any
 production framework and know what it's doing under the hood. I kept

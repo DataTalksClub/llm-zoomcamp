@@ -12,6 +12,8 @@ takes that FAQ and finds the entry that matches a question. It then
 sends the entry to an LLM so it can answer. That way a student gets a
 reply right away instead of scrolling through a long document.
 
+![Fixed keyword RAG fails on a typo, while an agent rewrites the query, searches again, and reaches an answer](images/12-rag-revision-01-typo-retry-imagegen.png)
+
 
 We'll use two helpers we defined earlier in this module:
 

@@ -15,6 +15,8 @@ reusable files:
 
 Then in notebooks, we just import from these files and use them.
 
+![Reusable RAG helper architecture: ingestion builds an index, while RAGBase combines search, prompt building, and the LLM client to answer a question](images/08-rag-helper-01-reusable-rag-helper-imagegen.png)
+
 
 ## ingest.py
 

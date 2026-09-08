@@ -16,6 +16,8 @@ In Part 1 of this module, we:
 You now have a working RAG system and a clear mental model for how each
 piece fits together. From here, the work is making each piece better.
 
+![Roadmap from a working RAG pipeline to agents, vector search, Elasticsearch, or fine-tuning](images/10-rag-next-steps-01-rag-roadmap-imagegen.png)
+
 
 ## Two directions forward
 
