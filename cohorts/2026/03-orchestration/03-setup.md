@@ -51,7 +51,7 @@ The free tier is sufficient for light use, but rate limits are relatively low â€
 
 The free tier includes 1,000 searches/month.
 
-![The Tavily dashboard with the API keys for the course](images/03-setup-04-tavily-api-keys.jpg)
+![The Tavily dashboard with the API keys for the course](images/03-setup-04-tavily-api-keys-cropped.png)
 
 ## Step 3: Configure API Keys in Kestra
 
