@@ -41,6 +41,6 @@ However, AI is only as good as the context we provide. This module teaches you h
 
 Traditional AI assistants (like ChatGPT or Gemini in a browser) don't have context about your codebase and workflow patterns, real-time data from your systems, or the latest documentation and best practices.
 
-![A flow generated without Kestra context: extract, upload, and load tasks](images/01-intro-03-generated-flow-without-context.jpg)
+![A flow generated without Kestra context: extract, upload, and load tasks](images/01-intro-03-generated-flow-without-context-cropped.png)
 
 By integrating AI directly into Kestra and using techniques like RAG and specialized agents, we can provide this context and get much better results.
