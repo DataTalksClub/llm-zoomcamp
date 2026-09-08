@@ -98,7 +98,7 @@ document:
 - position 3: score is 0.333
 - not found: score is 0
 
-![Annotating the relevance lists with ranks and reciprocal-rank scores](images/05-search-metrics-04-mrr-rank-annotations.jpg)
+![Annotating the relevance lists with ranks and reciprocal-rank scores](images/05-search-metrics-04-mrr-rank-annotations-cropped.png)
 
 In the example, most hits are at the first position. Some hits are
 lower in the list.
