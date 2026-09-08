@@ -36,7 +36,7 @@ docker compose down
 
 The free tier is sufficient for light use, but rate limits are relatively low â€” you may hit quota quickly if you run the agent and multi-agent flows repeatedly. If you run into `429 Resource Exhausted` errors, wait a minute before retrying, or consider upgrading to a paid tier.
 
-![Creating a new API key in Google AI Studio](images/03-setup-02-gemini-api-key-cropped.png)
+![Creating a new API key in Google AI Studio](images/03-setup-02-gemini-api-key-crisp.png)
 
 **OpenAI API Key (Required for flow 3)**
 
@@ -51,7 +51,7 @@ The free tier is sufficient for light use, but rate limits are relatively low â€
 
 The free tier includes 1,000 searches/month.
 
-![The Tavily dashboard with the API keys for the course](images/03-setup-04-tavily-api-keys-cropped.png)
+![The Tavily dashboard with the API keys for the course](images/03-setup-04-tavily-api-keys-crisp.png)
 
 ## Step 3: Configure API Keys in Kestra
 
