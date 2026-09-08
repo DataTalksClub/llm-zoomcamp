@@ -219,7 +219,7 @@ Arrange the panels in a layout that makes sense:
 - Middle row: model usage bar chart | relevance pie chart
 - Bottom row: response time | token usage | cost
 
-![The dashboard with cost, relevance, and feedback panels laid out](images/12-grafana-08-finished-dashboard-panels.jpg)
+![The dashboard with cost, relevance, and feedback panels laid out](images/12-grafana-08-finished-dashboard-panels-cropped.png)
 
 Don't treat these panel types as fixed. On the same query you can try a
 bar chart, a pie, or a time series. Experiment and keep whatever reads
