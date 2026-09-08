@@ -112,7 +112,7 @@ Now we can run:
 make run
 ```
 
-![The Makefile run target and the assistant answering in the terminal](images/02-assistant-04-makefile-run-target-cropped.png)
+![The Makefile run target and the assistant answering in the terminal](images/02-assistant-04-makefile-run-target-crisp.png)
 
 Or with a custom question:
 

@@ -190,7 +190,7 @@ Run the init script:
 uv run python db_init.py
 ```
 
-![Running db_init.py to create the conversations table](images/05-database-03-db-init-run-cropped.png)
+![Running db_init.py to create the conversations table](images/05-database-03-db-init-run-crisp.png)
 
 We run this once and don't add it to the `Makefile`. The `postgres`
 container uses a named volume (`pgdata`), so the data survives restarts.
@@ -307,7 +307,7 @@ docker exec -it course-assistant-pg psql -U user -d course_assistant \
     -c "SELECT id, question, response_time, cost FROM conversations;"
 ```
 
-![psql showing the saved conversation row](images/05-database-06-psql-check-conversations-cropped.png)
+![psql showing the saved conversation row](images/05-database-06-psql-check-conversations-crisp.png)
 
 ## Integrating with Streamlit
 

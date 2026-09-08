@@ -94,7 +94,7 @@ Run it:
 uv run python db_query.py
 ```
 
-![Reading saved conversations back from the database](images/06-querying-03-conversations-from-psql-cropped.png)
+![Reading saved conversations back from the database](images/06-querying-03-conversations-from-psql-crisp.png)
 
 The output is a wall of text, not something you'd want to read all day.
 Still, it proves we can pull the data back out of the database. Now we
