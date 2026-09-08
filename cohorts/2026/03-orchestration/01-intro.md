@@ -35,7 +35,7 @@ When building LLM applications and workflows, we often spend significant time wr
 
 However, AI is only as good as the context we provide. This module teaches you how to engineer that context for reliable, production-ready workflows.
 
-![ChatGPT writing a Kestra flow YAML from the prompt](images/01-intro-02-chatgpt-writing-flow-yaml.jpg)
+![ChatGPT writing a Kestra flow YAML from the prompt](images/01-intro-02-chatgpt-writing-flow-yaml-cropped.png)
 
 ## What Makes This Different from AI Assistants?
 

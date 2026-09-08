@@ -39,3 +39,9 @@ rubric decision and the invariant checked before acceptance.
   arrow per partition preserve the parallel-processing teaching point. Zoom
   chrome, face, toolbar, cursor, and watermark removed; no invented total or
   extra label added.
+- `03-orchestration/01-intro.md`: `01-intro-02-chatgpt-writing-flow-yaml.jpg`
+  retained as `01-intro-02-chatgpt-writing-flow-yaml-cropped.png`. Deterministic
+  crop `(x=10,y=55,w=510,h=264)` and 2x Lanczos upscale used because the
+  Kestra/ChatGPT UI and YAML are exact technical content. Face, recording frame,
+  browser controls, and unrelated overlays removed; original preserved.
+<!-- next audit entries go above this marker -->
