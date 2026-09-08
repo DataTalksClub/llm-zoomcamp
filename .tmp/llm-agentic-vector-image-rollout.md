@@ -77,3 +77,10 @@ checked before acceptance.
   the imagegen reference. The final diagram preserves separate `INGESTION`
   and `DEPLOYMENT` paths, one shared `FAQ INDEX`, `FAQ DOCS`, `ASSISTANT`, and
   the question/answer direction; no capture artifacts remain.
+
+- `10-next-steps-03-similarity-whiteboard.jpg` — **crop/replace**, score 8/12.
+  The source contains the exact similarity notation and ranking sketch, so
+  imagegen was not used: generated text could corrupt the formula. A
+  deterministic crop `(448x320+84+16)` removed the webcam, toolbar, and Zoom
+  frame, then Lanczos upscaling produced a crisp sibling while preserving the
+  handwritten equation and ranked-page relationship.
