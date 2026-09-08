@@ -41,7 +41,7 @@ admin again is fine.
 
 Connect Grafana to PostgreSQL:
 
-![The Grafana Add data source page with PostgreSQL among the options](images/12-grafana-02-add-datasource-list.jpg)
+![The Grafana Add data source page with PostgreSQL among the options](images/12-grafana-02-add-datasource-list-cropped.png)
 
 1. Go to Configuration > Data Sources > Add data source
 2. Select PostgreSQL
