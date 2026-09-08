@@ -96,3 +96,9 @@ checked before acceptance.
   only `How are?`; it contains no next-word suggestion, and the visible
   Docker-extension prompt is unrelated capture state. The claimed teaching
   point cannot be recovered by cropping, so the original remains unreferenced.
+
+- `02-environment-05-openai-api-key.jpg` — **crop/replace**, score 8/12.
+  The project-scoped key dialog is a useful setup state, but the source has
+  browser tabs, webcam, and Zoom chrome. Deterministic crop `(480x300+50+30)`
+  and Lanczos upscaling retain the dialog and permissions while removing the
+  capture frame; no secret value is visible in the retained asset.
