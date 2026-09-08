@@ -97,7 +97,7 @@ This flow demonstrates an agent with autonomous tool usage:
 4. Synthesizes findings into a structured markdown report
 5. Saves the report to a file using the filesystem tool
 
-![The web research agent flow with the Tavily content retriever and Docker MCP filesystem tool](images/06-agents-03-web-research-agent.jpg)
+![The web research agent flow with the Tavily content retriever and Docker MCP filesystem tool](images/06-agents-03-web-research-agent-cropped.png)
 
 The agent autonomously decides when to use tools, can loop (search → evaluate → search again) until satisfied, and you only specify the goal — not the exact steps.
 
