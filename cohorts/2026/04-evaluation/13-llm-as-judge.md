@@ -266,7 +266,7 @@ total_count = len(df_eval)
 print(f"Good: {good_count}/{total_count} = {good_count/total_count:.2%}")
 ```
 
-![The judge score counts showing 379 good and 16 bad answers](images/13-llm-as-judge-05-score-counts.jpg)
+![The judge score counts showing 379 good and 16 bad answers](images/13-llm-as-judge-05-score-counts-cropped.png)
 
 Look at the "bad" cases to understand what went wrong:
 
