@@ -100,7 +100,7 @@ Flow: [`3_rag_with_websearch.yaml`](flows/3_rag_with_websearch.yaml)
 
 The `TavilyWebSearch` retriever queries [Tavily](https://www.tavily.com/) and injects the results as context before the LLM generates a response — no ingestion step required. However, the results are only as good as the search engine, and may not be relevant or accurate. Always test the quality of retrieved context when using web search RAG.
 
-![The web-search RAG answer picking Kestra 1.0 instead of the current release](images/05-rag-05-websearch-rag-answer.jpg)
+![The web-search RAG answer picking Kestra 1.0 instead of the current release](images/05-rag-05-websearch-rag-answer-cropped.png)
 
 ### Static RAG vs. web search RAG
 
