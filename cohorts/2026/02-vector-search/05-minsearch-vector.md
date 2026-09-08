@@ -89,6 +89,6 @@ results = vindex.search(
 )
 ```
 
-![Filtering the vector search to one course with filter_dict](images/05-minsearch-vector-04-filter-by-course.jpg)
+![Cropped vector-search output showing filtering with filter_dict](images/05-minsearch-vector-04-filter-by-course-cropped.png)
 
 Now that we can run vector search, let's use it in RAG.

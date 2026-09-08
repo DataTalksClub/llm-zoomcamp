@@ -303,3 +303,9 @@ checked before acceptance.
   The result is redundant with the clean by-hand and filtered-result evidence
   in the same lesson, so the unreadable reference is removed; the original
   file remains unreferenced.
+
+- `05-minsearch-vector-04-filter-by-course.jpg` — **crop/replace**, score 9/12.
+  The exact `filter_dict` call and returned course results show the practical
+  effect of filtering. Deterministic crop `(480x300+50+30)` plus Lanczos
+  upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
+  preserving the code and output.
