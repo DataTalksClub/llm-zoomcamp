@@ -166,3 +166,10 @@ checked before acceptance.
   Zoom/editor chrome, and unrelated panels. The source truncates the long
   usage representation at the right edge; that exact-source limitation is
   retained and documented rather than guessed.
+
+- `07-llm-04-model-pricing.jpg` — **crop/replace**, score 8/12. The pricing
+  table makes the input/output cost distinction visible and supports the
+  calculation immediately below. Deterministic crop `(480x300+50+30)` plus
+  Lanczos upscaling removes browser tabs, webcam, and Zoom chrome while
+  preserving the exact visible values. The live page is time-sensitive; the
+  lesson's accompanying text remains the source of truth.

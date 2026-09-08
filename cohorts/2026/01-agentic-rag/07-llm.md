@@ -90,7 +90,7 @@ In this course we'll use
 - Input: $0.75 per million tokens
 - Output: $4.50 per million tokens
 
-![The OpenAI pricing page for gpt-5.4-mini showing input and output prices](images/07-llm-04-model-pricing.jpg)
+![Cropped OpenAI pricing table showing gpt-5.4-mini input, cached-input, and output prices](images/07-llm-04-model-pricing-cropped.png)
 
 Let's calculate the cost of the request we just made:
 
