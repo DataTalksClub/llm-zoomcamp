@@ -53,7 +53,7 @@ Connect Grafana to PostgreSQL:
    - SSL Mode: disable
 4. Click Save & Test. It should say "Database Connection OK"
 
-![The PostgreSQL data source pointing at course-assistant-pg:5432](images/12-grafana-03-postgres-datasource-config.jpg)
+![The PostgreSQL data source pointing at course-assistant-pg:5432](images/12-grafana-03-postgres-datasource-config-cropped.png)
 
 ## Creating the dashboard
 
