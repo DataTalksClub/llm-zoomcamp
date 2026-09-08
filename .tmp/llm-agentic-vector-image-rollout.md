@@ -361,3 +361,14 @@ checked before acceptance.
   evidence. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes
   browser tabs, webcam, and Zoom chrome while preserving the URL, command,
   and file layout verbatim.
+
+## Focused repair batch 3: agentic retry-flow provenance (2026-09-09)
+
+The published PNG was regenerated with the built-in imagegen tool from the
+original non-crisp workshop JPG and a bounded crop. The prior clean PNG was
+also supplied only as a semantic/layout reference. The selected output is a
+genuine redraw with C2PA metadata; it is not an upscale or sharpened copy.
+
+| Active reference | Source/reference inputs | Imagegen output | Verified invariant |
+|---|---|---|---|
+| `11-agents-intro-04-agentic-flow-diagram-imagegen.png` | Original JPG `11-agents-intro-04-agentic-flow-diagram.jpg` (SHA-256 `cb72766cb27b8dddc1220456f21748cac25b020694ebb51bae02e1c4a801b9e1`); bounded crop `.tmp/asset-repair-crops/11-agents-intro-04-agentic-flow-diagram-source-crop-tight.png` (SHA-256 `90ed43583aeb4655a62c1e64ac77849ed7592d69ae3b16294e83dae332b3b2e7`), `(x=190,y=85,w=260,h=270)`; prior semantic PNG reference SHA-256 `b29cbed7f87fa2248e67adaf83e568f5fd9adcec3e98463eb91c52bdf7ff2de6` | Built-in imagegen run `exec-233098d6-c31b-45c1-b27d-94051615d2d8`; final SHA-256 `a22a83922a19d84f1390865211bdf1f40a289d49dee6877500014b553eb8919f`; C2PA metadata present | The four exact states remain in order: `search - Ollama - no useful results` → `LLM: Hmm, no results. Maybe a typo for "Ollama"?` → `search - Ollama - found results!` → `LLM: Here's how to run Ollama locally...`. Native `1672x941` and 608px `608x342` renders were inspected; camera, browser/Zoom chrome, cursor, selection highlight, and overlays are removed. |
