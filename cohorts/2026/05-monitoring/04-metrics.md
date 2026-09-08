@@ -197,7 +197,7 @@ naming note: I call these `prompt_tokens` and `completion_tokens` to
 follow the API. The names `input_tokens` and `output_tokens` read more
 clearly, so feel free to rename them in your own version.
 
-![Response time, token counts, and cost displayed under the answer](images/04-metrics-06-streamlit-metrics-display.jpg)
+![Response time, token counts, and cost displayed under the answer](images/04-metrics-06-streamlit-metrics-display-cropped.png)
 
 We capture the metrics now, but they vanish the moment we close the app.
 Next we save each record to a database so we can track usage over time.
