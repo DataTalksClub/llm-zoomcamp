@@ -67,7 +67,7 @@ our courses are not in the training data.
 More context can fix this. The FAQ website has questions and answers
 about our courses.
 
-![FAQ website entry about joining the course](images/03-rag-04-faq-website-context.jpg)
+![Cropped FAQ context containing course-specific enrollment and certificate answers](images/03-rag-04-faq-website-context-cropped.png)
 
 Copy some of that content into the prompt:
 

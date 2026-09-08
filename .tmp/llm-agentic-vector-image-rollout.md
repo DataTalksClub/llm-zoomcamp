@@ -108,3 +108,10 @@ checked before acceptance.
   course policy; it adds evidence beyond the prose. Deterministic crop
   `(480x300+50+30)` and Lanczos upscaling remove the webcam, Zoom mark, and
   editor frame while preserving the answer text.
+
+- `03-rag-04-faq-website-context.jpg` — **crop/replace**, score 8/12. The
+  FAQ text is the concrete context used to correct the baseline answer, but
+  the source is a captured editor/browser frame rather than a clean web page.
+  Deterministic crop `(480x300+50+30)` and Lanczos upscaling retain the
+  course-specific entries while removing webcam, browser/Zoom chrome, and
+  unrelated panels. The caption was corrected to match the actual source.
