@@ -186,7 +186,7 @@ print(result.questions)
 
 You should see 5 questions that relate to the first FAQ document.
 
-![The five questions generated for the first FAQ document](images/02-ground-truth-06-parsed-questions-output.jpg)
+![The five questions generated for the first FAQ document](images/02-ground-truth-06-parsed-questions-output-cropped.png)
 
 ## Reusable utilities
 
