@@ -159,3 +159,10 @@ checked before acceptance.
   removes webcam, Zoom/editor chrome, and unrelated panels while preserving
   the exact object structure. A native output selection highlight remains and
   is recorded rather than painted over.
+
+- `07-llm-03-usage-tokens.jpg` — **crop/replace**, score 8/12. The cells show
+  both the nested text path and the usage object that feeds cost calculation.
+  Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes webcam,
+  Zoom/editor chrome, and unrelated panels. The source truncates the long
+  usage representation at the right edge; that exact-source limitation is
+  retained and documented rather than guessed.

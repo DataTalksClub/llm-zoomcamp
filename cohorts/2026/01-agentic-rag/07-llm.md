@@ -72,7 +72,7 @@ The usage counts tell you how many tokens the request consumed:
 response.usage
 ```
 
-![Getting the answer via the nested path and printing the token usage](images/07-llm-03-usage-tokens.jpg)
+![Cropped notebook cells showing the nested answer path and token usage](images/07-llm-03-usage-tokens-cropped.png)
 
 You'll see something like:
 
