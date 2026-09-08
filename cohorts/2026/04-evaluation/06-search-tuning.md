@@ -119,7 +119,7 @@ df_results = pd.DataFrame(results)
 df_results.sort_values("mrr", ascending=False).head(10)
 ```
 
-![The grid search results sorted by MRR](images/06-search-tuning-04-grid-sorted-by-mrr.jpg)
+![The grid search results sorted by MRR](images/06-search-tuning-04-grid-sorted-by-mrr-cropped.png)
 
 For the same data, the best rows are:
 
