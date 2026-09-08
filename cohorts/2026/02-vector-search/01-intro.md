@@ -23,7 +23,7 @@ meaning, not on the exact words.
 That something is vector search. Instead of matching words, it matches
 ideas.
 
-![Whiteboard sketch of the RAG flow with search over the FAQ, prompt, and LLM](images/01-intro-03-rag-pipeline-whiteboard.jpg)
+![Clean RAG pipeline: the assistant retrieves FAQ context, builds a prompt, and sends it to the LLM](images/01-intro-03-rag-pipeline-whiteboard-imagegen.png)
 
 ## The vector search process
 

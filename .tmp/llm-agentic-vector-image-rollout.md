@@ -48,3 +48,10 @@ checked before acceptance.
   preserves the four exact nodes and their top-to-bottom arrows, removes the
   highlight and all capture artifacts, and was checked for the corrected
   `Ollama` spelling and final answer state.
+
+- `01-intro-03-rag-pipeline-whiteboard.jpg` — **crop/replace**, score 11/12.
+  The source directly teaches the retrieval/prompt/LLM relationship but is a
+  whiteboard capture with webcam, toolbar, and Zoom chrome. Deterministic crop
+  `(448x320+84+16)` was used as the imagegen reference. The accepted asset
+  preserves `Q`, `A`, `ASSISTANT`, `FAQ`, `PROMPT`, `LLM`, both retrieval
+  directions, and the answer return path; no capture artifacts remain.
