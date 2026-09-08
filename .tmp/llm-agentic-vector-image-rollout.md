@@ -152,3 +152,10 @@ checked before acceptance.
   question, and answer blocks are assembled for the prompt. Deterministic
   crop `(480x300+50+30)` plus Lanczos upscaling removes webcam and Zoom/editor
   chrome while preserving the exact output text.
+
+- `07-llm-02-response-object.jpg` — **crop/replace**, score 9/12. The nested
+  response JSON is a concrete visual explanation of why `response.output_text`
+  is a shortcut. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling
+  removes webcam, Zoom/editor chrome, and unrelated panels while preserving
+  the exact object structure. A native output selection highlight remains and
+  is recorded rather than painted over.

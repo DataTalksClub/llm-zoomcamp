@@ -60,7 +60,7 @@ The shortcut spares us all of it:
 response.output_text
 ```
 
-![The response object dumped as JSON, showing the nested output structure](images/07-llm-02-response-object.jpg)
+![Cropped response JSON showing the nested output structure](images/07-llm-02-response-object-cropped.png)
 
 Same result, less code. The answer should be something like: "Yes, you
 can still join. If you want to receive a certificate, make sure to
