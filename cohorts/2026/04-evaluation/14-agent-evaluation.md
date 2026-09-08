@@ -15,6 +15,8 @@ fixed RAG pipeline.
 We also save the trajectory. Here, the trajectory means only the tool
 calls the agent made before producing the final answer.
 
+![Agent evaluation stores the question, original answer, generated answer, tool calls, and trajectory in an evaluation record for a judge](images/14-agent-evaluation-01-agent-evaluation-record-imagegen.png)
+
 ## Loading the data
 
 Use the same ground truth questions:

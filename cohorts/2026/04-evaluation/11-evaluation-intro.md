@@ -33,6 +33,8 @@ agent from module 01, save the final answer, and also save the tool
 calls. Then we can look at whether the answer is good and whether the
 trajectory looks reasonable.
 
+![RAG evaluation checks the search, prompt, LLM, and answer, while agent evaluation also checks tool calls and the trajectory before the judge](images/11-evaluation-intro-01-rag-agent-evaluation-imagegen.png)
+
 ## LLM as a judge
 
 For RAG and agent evaluation, we compare the generated answer with the

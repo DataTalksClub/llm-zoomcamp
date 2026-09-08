@@ -11,6 +11,8 @@ In this module, we covered:
 
 You now have the building blocks to use AI across the full workflow lifecycle — from generating flows faster, to answering questions from your data, to automating tasks that don't have a fixed sequence of steps.
 
+![AI orchestration roadmap from context engineering and Copilot through RAG, agents, multi-agent systems, and production](images/09-next-steps-01-orchestration-roadmap-imagegen.png)
+
 ## Where to go from here
 
 Experiment with different LLM providers. The flows in this module use Gemini, but Kestra's AI plugin supports other providers too. Try swapping the provider and comparing results.

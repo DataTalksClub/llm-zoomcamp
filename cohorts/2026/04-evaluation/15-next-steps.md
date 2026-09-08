@@ -13,6 +13,8 @@ Evaluation is not a one-time activity. As you tune search parameters,
 switch models, or modify prompts, re-run evaluation. Make sure the
 system is getting better, not worse.
 
+![Evaluation feedback loop from synthetic questions through evaluation and deployment to real queries, human labels, and an improved test set](images/15-next-steps-01-evaluation-feedback-loop-imagegen.png)
+
 Evaluation is the most important part of building AI systems. It is also
 the most time-consuming. Only after evaluation can you be confident
 that your system works. Validate every change against your evaluation

@@ -10,6 +10,8 @@
 | Research and analysis tasks | AI Agents | Can adapt to findings and make decisions |
 | Complex, multi-step objectives | Multi-agent systems | Specialized agents working together |
 
+![Decision map for choosing between deterministic workflows, RAG, agents, and multi-agent systems, with security, logs, fallbacks, and limits as production guardrails](images/08-best-practices-01-pattern-selection-imagegen.png)
+
 ## Cost Considerations
 
 AI features use LLM APIs, which have costs based on token usage.
