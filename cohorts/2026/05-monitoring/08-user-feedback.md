@@ -165,7 +165,7 @@ The session-state check keeps the buttons visible across reruns and hides
 them until there is a response to rate. The explicit keys also give each
 response its own pair of feedback buttons.
 
-![The app with +1 and -1 buttons below the answer](images/08-user-feedback-06-app-feedback-buttons.jpg)
+![The app with +1 and -1 buttons below the answer](images/08-user-feedback-06-app-feedback-buttons-cropped.png)
 
 Next we add a second source of feedback to the same table. An LLM judge
 scores answers automatically, without waiting for anyone to click.
