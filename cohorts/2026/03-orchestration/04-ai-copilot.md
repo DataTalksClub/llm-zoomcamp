@@ -7,7 +7,7 @@ Building workflows manually can be slow. You need to know which plugin to use, l
 
 AI Copilot changes the approach. Instead of building each step manually, you describe your inputs and your goal — and the AI Copilot generates the flow structure for you. You then tweak the last 5% to get the exact behaviour you want. The AI Copilot handles the boilerplate; you focus on the logic that's specific to your use case.
 
-![The AI Copilot landing page with example workflow prompts](images/04-ai-copilot-01-copilot-landing-examples.jpg)
+![The AI Copilot landing page with example workflow prompts](images/04-ai-copilot-01-copilot-landing-examples-cropped.png)
 
 This works reliably because Kestra's AI Copilot is grounded in the current plugin documentation, valid property names, and best practices for your running version of Kestra — unlike a generic AI assistant, which guesses.
 
