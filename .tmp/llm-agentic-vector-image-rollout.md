@@ -309,3 +309,9 @@ checked before acceptance.
   effect of filtering. Deterministic crop `(480x300+50+30)` plus Lanczos
   upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
   preserving the code and output.
+
+- `06-rag-vector-03-keyword-search-answer.jpg` — **crop/replace**, score 9/12.
+  The baseline RAG answer shows that keyword search already handles this
+  query before the vector-search swap. Deterministic crop `(480x300+50+30)`
+  plus Lanczos upscaling removes webcam, Zoom/editor chrome, and unrelated
+  panels while preserving the exact answer and retrieved entries.

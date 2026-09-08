@@ -70,7 +70,7 @@ query = "I just found out about the program, can I still sign up?"
 assistant.rag(query)
 ```
 
-![Keyword-search RAG answering that it is still possible to sign up](images/06-rag-vector-03-keyword-search-answer.jpg)
+![Cropped keyword-search RAG output answering that late sign-up is possible](images/06-rag-vector-03-keyword-search-answer-cropped.png)
 
 This still uses keyword search. Text search isn't bad here, so the
 answer may already look right. Next we replace search with vector
