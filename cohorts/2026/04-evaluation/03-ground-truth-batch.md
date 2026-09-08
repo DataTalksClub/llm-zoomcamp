@@ -163,7 +163,7 @@ from evaluation_utils import calc_total_price
 calc_total_price(usages)
 ```
 
-![The total generation cost and the ground truth dataframe](images/03-ground-truth-batch-05-total-cost-dataframe.jpg)
+![The total generation cost and the ground truth dataframe](images/03-ground-truth-batch-05-total-cost-dataframe-cropped.png)
 
 Create a dataframe so we can look at the records as a table and save
 them as a CSV file.
