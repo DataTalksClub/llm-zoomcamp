@@ -55,7 +55,7 @@ This flow asks Gemini: "Which features were released in Kestra 1.1?"
 
 Without RAG, the model might hallucinate features that don't exist, provide outdated information, or give vague generic answers.
 
-![The without-RAG execution answering with vague, partly hallucinated features](images/05-rag-01-without-rag-hallucinated-answer-cropped.png)
+![The without-RAG execution answering with vague, partly hallucinated features](images/05-rag-01-without-rag-hallucinated-answer-crisp.png)
 
 Import and run this flow, then check the output — the response won't be accurate.
 
@@ -71,17 +71,17 @@ This flow:
 4. Asks the LLM the same question with RAG enabled
 5. Returns an accurate response with real features from that release
 
-![The chat-with-RAG flow: ingest release notes, chat, log results](images/05-rag-02-rag-flow-topology-cropped.png)
+![The chat-with-RAG flow: ingest release notes, chat, log results](images/05-rag-02-rag-flow-topology-crisp.png)
 
 Import and run `2_chat_with_rag.yaml` and compare the output quality against the previous flow.
 
-![The RAG execution output listing real Kestra 1.1 features](images/05-rag-03-rag-grounded-answer-cropped.png)
+![The RAG execution output listing real Kestra 1.1 features](images/05-rag-03-rag-grounded-answer-crisp.png)
 
 ## Extending RAG with web search
 
 The examples above use static RAG — documents are ingested once and stored in the KV Store. Kestra also supports web search as a retriever, which fetches live results at query time and passes them as context to the LLM.
 
-![The web-search RAG flow with the Tavily retriever and OpenAI provider](images/05-rag-04-websearch-retriever-flow-cropped.png)
+![The web-search RAG flow with the Tavily retriever and OpenAI provider](images/05-rag-04-websearch-retriever-flow-crisp.png)
 
 Flow: [`3_rag_with_websearch.yaml`](flows/3_rag_with_websearch.yaml)
 
@@ -100,7 +100,7 @@ Flow: [`3_rag_with_websearch.yaml`](flows/3_rag_with_websearch.yaml)
 
 The `TavilyWebSearch` retriever queries [Tavily](https://www.tavily.com/) and injects the results as context before the LLM generates a response — no ingestion step required. However, the results are only as good as the search engine, and may not be relevant or accurate. Always test the quality of retrieved context when using web search RAG.
 
-![The web-search RAG answer picking Kestra 1.0 instead of the current release](images/05-rag-05-websearch-rag-answer-cropped.png)
+![The web-search RAG answer picking Kestra 1.0 instead of the current release](images/05-rag-05-websearch-rag-answer-crisp.png)
 
 ### Static RAG vs. web search RAG
 

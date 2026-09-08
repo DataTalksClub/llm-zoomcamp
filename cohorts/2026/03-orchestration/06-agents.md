@@ -81,9 +81,9 @@ Flow: [`4_simple_agent.yaml`](flows/4_simple_agent.yaml)
 
 This flow demonstrates a basic AI agent that summarizes text with controllable length and language. It shows how to structure agent prompts, chain agent tasks, use `pluginDefaults` to avoid repetition, and track token usage for cost monitoring.
 
-![The simple agent flow with the multilingual agent task and its system message](images/06-agents-01-simple-agent-flow-cropped.png)
+![The simple agent flow with the multilingual agent task and its system message](images/06-agents-01-simple-agent-flow-crisp.png)
 
-![The flow execution showing both agent tasks and the token usage log](images/06-agents-02-agent-execution-tokens-cropped.png)
+![The flow execution showing both agent tasks and the token usage log](images/06-agents-02-agent-execution-tokens-crisp.png)
 
 ## Advanced Agent Example: Web Research
 
@@ -97,7 +97,7 @@ This flow demonstrates an agent with autonomous tool usage:
 4. Synthesizes findings into a structured markdown report
 5. Saves the report to a file using the filesystem tool
 
-![The web research agent flow with the Tavily content retriever and Docker MCP filesystem tool](images/06-agents-03-web-research-agent-cropped.png)
+![The web research agent flow with the Tavily content retriever and Docker MCP filesystem tool](images/06-agents-03-web-research-agent-crisp.png)
 
 The agent autonomously decides when to use tools, can loop (search → evaluate → search again) until satisfied, and you only specify the goal — not the exact steps.
 
