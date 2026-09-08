@@ -321,3 +321,10 @@ checked before acceptance.
   RAG search implementation to vectors. Deterministic crop `(480x300+50+30)`
   plus Lanczos upscaling removes webcam, Zoom/editor chrome, and unrelated
   panels while preserving the exact assistant call and answer.
+
+- `07-sqlitesearch-vector-04-fit-and-search.jpg` — **crop/replace**, score
+  9/12. The fit result followed by encoded-query search shows the persistent
+  index workflow in action. Deterministic crop `(480x300+50+30)` plus Lanczos
+  upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
+  preserving exact code and output. The query's native selection highlight is
+  retained as a documented source artifact.
