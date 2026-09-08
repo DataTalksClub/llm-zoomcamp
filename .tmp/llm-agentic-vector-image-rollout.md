@@ -179,3 +179,9 @@ checked before acceptance.
   Deterministic crop `(480x300+50+30)` plus Lanczos upscaling removes the
   webcam, Zoom/editor chrome, and unrelated panels while preserving the
   misspelled query and no-results answer.
+
+- `11-agents-intro-03-corrected-question-retry.jpg` — **crop/replace**, score
+  9/12. The corrected query is the complementary state transition to the
+  failed search. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling
+  removes the webcam, Zoom/editor chrome, and unrelated panels while
+  preserving the exact retry/output state.

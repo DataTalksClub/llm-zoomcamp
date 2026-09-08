@@ -41,7 +41,7 @@ The LLM is in charge now, and it can:
 A fixed flow can't do any of this. Once we put the LLM in control,
 our system becomes agentic, so it's flexible rather than rigid.
 
-![Retrying the question with the corrected spelling](images/11-agents-intro-03-corrected-question-retry.jpg)
+![Cropped notebook output showing the corrected query being retried](images/11-agents-intro-03-corrected-question-retry-cropped.png)
 
 An agent uses an LLM to decide which actions to take and in which
 order. Instead of a fixed flow, the LLM chooses what to do at each
