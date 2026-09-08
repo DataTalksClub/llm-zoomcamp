@@ -12,3 +12,10 @@ checked before acceptance.
 
 ## Audit entries
 
+- `03-rag-08-rag-architecture-sketch.jpg` — **crop/replace**, score 10/12.
+  The source teaches the RAG relationship, but includes whiteboard UI,
+  webcam, and Zoom chrome. Deterministic crop `(448x320+84+16)` was used as
+  the imagegen reference; the accepted imagegen replacement preserves `RAG`,
+  `Q`, `A`, `ASSISTANT`, both question/answer arrow directions, and the
+  assistant-to-database arrow. No faces, controls, cursors, or extra labels
+  remain.

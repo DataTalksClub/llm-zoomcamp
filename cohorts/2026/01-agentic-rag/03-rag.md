@@ -138,7 +138,7 @@ from our knowledge base and use them to augment what the LLM generates.
 That search step is what gives the LLM the context it needs to answer
 correctly.
 
-![Whiteboard sketch of RAG with a knowledge base](images/03-rag-08-rag-architecture-sketch.jpg)
+![Clean RAG architecture: a user sends a question to an assistant, which consults a knowledge base and returns an answer](images/03-rag-08-rag-architecture-sketch-imagegen.png)
 
 What we just did was naive. I knew in advance which FAQ entry held the
 answer and pasted it in by hand. What we want instead is to perform
