@@ -146,3 +146,9 @@ checked before acceptance.
   changes retrieval. Deterministic crop `(480x300+50+30)` plus Lanczos
   upscaling removes webcam, Zoom/editor chrome, and unrelated panels while
   retaining the code and output.
+
+- `06-building-prompt-04-context-output.jpg` — **crop/replace**, score 9/12.
+  The output makes the list-to-context transformation visible: section,
+  question, and answer blocks are assembled for the prompt. Deterministic
+  crop `(480x300+50+30)` plus Lanczos upscaling removes webcam and Zoom/editor
+  chrome while preserving the exact output text.
