@@ -62,3 +62,10 @@ checked before acceptance.
   was used as the imagegen reference. The accepted image preserves the exact
   labels `enroll`, `join`, and `Docker`, with the first two close together and
   Docker clearly distant; no extra labels or capture artifacts remain.
+
+- `07-sqlitesearch-vector-01-ann-vs-nn-whiteboard.jpg` — **crop/replace**,
+  score 10/12. The source teaches ANN candidate narrowing but is a
+  whiteboard capture with webcam, toolbar, and Zoom chrome. Deterministic crop
+  `(448x320+84+16)` was used as the imagegen reference. The accepted asset
+  preserves the FAQ point cloud, local candidate region, query point, and
+  exact `FAQ`/`ANN` labels; no numeric claims or capture artifacts remain.

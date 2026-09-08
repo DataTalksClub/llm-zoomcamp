@@ -34,7 +34,7 @@ likely matches. Then it scores only within that region. It may miss the
 absolute best match, but the results are still good and it's much
 faster.
 
-![Whiteboard sketch of ANN narrowing the search to a region of near neighbors](images/07-sqlitesearch-vector-01-ann-vs-nn-whiteboard.jpg)
+![Clean vector-space illustration of ANN narrowing FAQ search to a region of near neighbors](images/07-sqlitesearch-vector-01-ann-vs-nn-whiteboard-imagegen.png)
 
 ```text
 NN (exact):    compare query against ALL documents -> top 5
