@@ -127,3 +127,9 @@ checked before acceptance.
   evidence beyond the field list in prose. Deterministic crop
   `(480x300+50+30)` plus Lanczos upscaling removes browser/webcam/Zoom chrome;
   exact field names and values remain source-preserved.
+
+- `04-dataset-05-document-entry.jpg` — **crop/replace**, score 8/12. The
+  document count and representative dictionary show the loaded dataset's
+  actual state. Deterministic crop `(480x300+50+30)` plus Lanczos upscaling
+  removes the webcam and Zoom/editor frame while preserving the exact count,
+  field names, and sample values.

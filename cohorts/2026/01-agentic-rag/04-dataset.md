@@ -82,7 +82,7 @@ You should see something like:
 }
 ```
 
-![Checking the number of documents and a single FAQ entry in the notebook](images/04-dataset-05-document-entry.jpg)
+![Cropped notebook output showing the document count and one FAQ entry](images/04-dataset-05-document-entry-cropped.png)
 
 Each course has a slug - a short identifier used in URLs. For example,
 `machine-learning-zoomcamp`, `data-engineering-zoomcamp`, etc. We'll
