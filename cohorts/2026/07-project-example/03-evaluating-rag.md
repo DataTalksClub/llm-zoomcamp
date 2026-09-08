@@ -1,8 +1,8 @@
 # Evaluating RAG
 
-<a href="https://www.youtube.com/watch?v=lxpW2mR7dGk&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/lxpW2mR7dGk">
-</a>
+[Watch the lesson video](https://www.youtube.com/watch?v=lxpW2mR7dGk&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
+
+![RAG answer evaluation compares the original and generated answers with an LLM judge to produce a relevance verdict](images/03-evaluating-rag-01-llm-judge-imagegen.png)
 
 Retrieval evaluation tells us if we're finding the right documents.
 RAG evaluation tells us if the generated answers are actually good.

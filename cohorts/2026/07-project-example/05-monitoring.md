@@ -1,8 +1,8 @@
 # Monitoring and Containerization
 
-<a href="https://www.youtube.com/watch?v=nQda9etJWW8&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/nQda9etJWW8">
-</a>
+[Watch the lesson video](https://www.youtube.com/watch?v=nQda9etJWW8&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
+
+![Monitoring and containerization flow from a RAG app through Postgres and Grafana inside Docker Compose](images/05-monitoring-01-compose-observability-imagegen.png)
 
 We take the same monitoring approach from module 05 and apply it
 to our fitness assistant. Then we containerize everything with

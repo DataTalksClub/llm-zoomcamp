@@ -1,8 +1,8 @@
 # Interface and Ingestion Pipeline
 
-<a href="https://www.youtube.com/watch?v=vMHve2EyA5M&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/vMHve2EyA5M">
-</a>
+[Watch the lesson video](https://www.youtube.com/watch?v=vMHve2EyA5M&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
+
+![Fitness assistant interface and ingestion pipeline from CSV data through indexing and a Flask API to a JSON answer](images/04-interface-01-api-ingestion-flow-imagegen.png)
 
 So far we've been working in notebooks. Now we turn the notebook
 into a proper application with an ingestion pipeline and a web API.

@@ -1,8 +1,8 @@
 # Chunking for Longer Texts
 
-<a href="https://www.youtube.com/watch?v=tyBRP_WewXA&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/tyBRP_WewXA">
-</a>
+[Watch the lesson video](https://www.youtube.com/watch?v=tyBRP_WewXA&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
+
+![Chunking flow that turns articles or transcripts into document and chunk IDs for embeddings and search, with images and slides as content](images/07-chunking-01-long-document-chunks-imagegen.png)
 
 Our FAQ data is well-structured: each document is a question-answer
 pair. But what if your data is articles, transcripts, or slide

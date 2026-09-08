@@ -1,8 +1,8 @@
 # Summary and Closing Remarks
 
-<a href="https://www.youtube.com/watch?v=TW9M5VE8vpo&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R">
-  <img src="https://markdown-videos-api.jorgenkh.no/youtube/TW9M5VE8vpo">
-</a>
+[Watch the lesson video](https://www.youtube.com/watch?v=TW9M5VE8vpo&list=PL3MmuxUbc_hIB4fSqLy_0AfTjVLpgjV3R)
+
+![Project delivery path from data and search through RAG, evaluation, monitoring, and shipping](images/06-summary-01-project-delivery-path-imagegen.png)
 
 Between the previous video and this one, the project was polished
 further. Let's look at what changed and the final result.
