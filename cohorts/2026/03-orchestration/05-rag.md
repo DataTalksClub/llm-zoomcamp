@@ -71,7 +71,7 @@ This flow:
 4. Asks the LLM the same question with RAG enabled
 5. Returns an accurate response with real features from that release
 
-![The chat-with-RAG flow: ingest release notes, chat, log results](images/05-rag-02-rag-flow-topology.jpg)
+![The chat-with-RAG flow: ingest release notes, chat, log results](images/05-rag-02-rag-flow-topology-cropped.png)
 
 Import and run `2_chat_with_rag.yaml` and compare the output quality against the previous flow.
 
