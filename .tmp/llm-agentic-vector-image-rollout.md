@@ -315,3 +315,9 @@ checked before acceptance.
   query before the vector-search swap. Deterministic crop `(480x300+50+30)`
   plus Lanczos upscaling removes webcam, Zoom/editor chrome, and unrelated
   panels while preserving the exact answer and retrieved entries.
+
+- `06-rag-vector-05-vector-assistant-answer.jpg` — **crop/replace**, score
+  9/12. The rephrased-query response is the concrete result of swapping the
+  RAG search implementation to vectors. Deterministic crop `(480x300+50+30)`
+  plus Lanczos upscaling removes webcam, Zoom/editor chrome, and unrelated
+  panels while preserving the exact assistant call and answer.

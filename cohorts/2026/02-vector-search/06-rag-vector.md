@@ -132,7 +132,7 @@ Try it with different queries:
 vector_assistant.rag("the program has already begun, can I still sign up?")
 ```
 
-![Vector assistant answering the rephrased sign-up question](images/06-rag-vector-05-vector-assistant-answer.jpg)
+![Cropped vector assistant output answering the rephrased sign-up question](images/06-rag-vector-05-vector-assistant-answer-cropped.png)
 
 The answers should be close to what we got with keyword search, but
 vector search handles rephrased questions better. The swap was trivial
