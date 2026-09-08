@@ -120,7 +120,7 @@ ORDER BY 1
 
 Use the Time series visualization for this panel.
 
-![The token usage panel query grouped into time buckets](images/12-grafana-06-token-usage-query.jpg)
+![The token usage panel query grouped into time buckets](images/12-grafana-06-token-usage-query-cropped.png)
 
 ## Cost Panel
 
