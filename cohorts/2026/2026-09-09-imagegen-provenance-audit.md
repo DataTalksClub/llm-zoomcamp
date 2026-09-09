@@ -2,10 +2,11 @@
 
 Date: 2026-09-09
 
-Scope: the 37 `*-imagegen.png` files referenced by current Markdown lessons in
+Scope: the 36 `*-imagegen.png` files referenced by current Markdown lessons in
 `cohorts/2026/01-agentic-rag` through `cohorts/2026/07-project-example`.
-The unreferenced sibling
-`04-evaluation/images/01-intro-02-interact-or-generate-imagegen.png` was not
+The unreferenced siblings
+`03-orchestration/images/08-best-practices-01-pattern-selection-imagegen.png`
+and `04-evaluation/images/01-intro-02-interact-or-generate-imagegen.png` were not
 modified.
 
 ## Method
@@ -64,7 +65,7 @@ they are not relabeled as screenshot-derived chains.
 
 ## Standalone prompt-native imagegen references left unchanged
 
-These 23 active lesson illustrations are clean, C2PA-bearing imagegen assets
+These 22 active lesson illustrations are clean, C2PA-bearing imagegen assets
 created as conceptual diagrams rather than redraws of workshop screenshots.
 No corresponding original non-crisp JPG exists in the repository's retained
 evidence, so no synthetic JPG or misleading crop was added. The images remain
@@ -87,7 +88,6 @@ unchanged and are not claimed as durable JPG → crop → output chains.
 - `03-orchestration/images/01-intro-01-ai-orchestration-path-imagegen.png`
 - `03-orchestration/images/02-context-engineering-01-context-quality-flow-imagegen.png`
 - `03-orchestration/images/03-setup-01-secure-kestra-setup-imagegen.png`
-- `03-orchestration/images/08-best-practices-01-pattern-selection-imagegen.png`
 
 ### Evaluation
 
@@ -114,13 +114,23 @@ unchanged and are not claimed as durable JPG → crop → output chains.
 - `07-project-example/images/05-monitoring-01-compose-observability-imagegen.png`
 - `07-project-example/images/06-summary-01-project-delivery-path-imagegen.png`
 
+## Follow-up — 2026-09-09
+
+- **C classification (redundant visual):** The active Markdown embed for
+  `03-orchestration/images/08-best-practices-01-pattern-selection-imagegen.png`
+  was removed because it duplicates the exact Markdown decision table immediately
+  above. The image and source bytes remain tracked for historical inspection.
+  The other 22 standalone prompt-native visuals remain accepted under the
+  prompt-native C2PA/native/608px exception.
+
 ## Audit result
 
-- 37/37 active Markdown imagegen references resolve.
-- 30/30 non-accepted active references were audited: seven received durable
-  source-JPG → native-crop → imagegen repairs; 23 are prompt-native diagrams
+- 36/36 active Markdown imagegen references resolve.
+- 29/29 non-accepted active references were audited: seven received durable
+  source-JPG → native-crop → imagegen repairs; 22 are prompt-native diagrams
   with no source JPG available to reconstruct honestly.
 - 7/7 newly generated outputs contain C2PA metadata and were checked at native
   resolution and simulated 608px width.
-- Existing originals were preserved; no lesson Markdown, code, labels, numbers,
-  or reference structure was changed.
+- Existing originals were preserved. Apart from the documented redundant-embed
+  removal, no lesson Markdown, code, labels, numbers, or remaining reference
+  structure was changed.
