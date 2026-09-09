@@ -379,11 +379,11 @@ What should I check if the table name still causes `Table notion_pages___homewor
 Could this table-opening error mean I forgot to update every `employee_handbook` reference to `homework` in my pipeline settings?,llm-zoomcamp,0407213397
 How can I fix the issue where `db.create_table(...)` is suggested even though I expected `notion_pages___homework` to already exist?,llm-zoomcamp,0407213397
 Is the problem caused by leaving some old `employee_handbook` names unchanged when I switched the pipeline to `homework`?,llm-zoomcamp,0407213397
-How should I fix the FileNotFoundError saying that the table notion_pages___homework does not exist when I run main()?,llm-zoomcamp,e95bfafc0e
-"In the dlt workshop code, which table name should I open on line 3 to avoid the missing table error?",llm-zoomcamp,e95bfafc0e
-What change do I need to make if db.create_table is not called and the error says notion_pages___homework is missing?,llm-zoomcamp,e95bfafc0e
-Where should I point db.open_table so main() can work without the table-not-found failure?,llm-zoomcamp,e95bfafc0e
-"If I get an error about table notion_pages___homework not existing, what is the correct table opening line in the script?",llm-zoomcamp,e95bfafc0e
+How should I fix the FileNotFoundError saying that the table notion_pages___homework does not exist when I run main()?,llm-zoomcamp,0407213397
+"In the dlt workshop code, which table name should I open on line 3 to avoid the missing table error?",llm-zoomcamp,0407213397
+What change do I need to make if db.create_table is not called and the error says notion_pages___homework is missing?,llm-zoomcamp,0407213397
+Where should I point db.open_table so main() can work without the table-not-found failure?,llm-zoomcamp,0407213397
+"If I get an error about table notion_pages___homework not existing, what is the correct table opening line in the script?",llm-zoomcamp,0407213397
 "Why do I get a 401 Unauthorized when my notebook calls the Notion search endpoint, and what should I check first?",llm-zoomcamp,0dfba07ace
 "If my notebook says it does not have secret access, could the Notion integration token or key be wrong or missing permissions?",llm-zoomcamp,0dfba07ace
 "How can I tell whether the issue is an expired token, a bad endpoint, or some other auth configuration problem with Notion API access?",llm-zoomcamp,0dfba07ace

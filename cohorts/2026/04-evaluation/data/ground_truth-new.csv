@@ -369,11 +369,11 @@ Is there a quick init command for a dlt project using filesystem plus DuckDB?,6b
 "What could cause `db.open_table(""notion_pages___homework"")` to say the table doesn't exist even though my pipeline ran?",0407213397
 Is there another setting besides the table name I need to update when switching from `employee_handbook` to `homework`?,0407213397
 How do I fix the `FileNotFoundError` for `notion_pages___homework` in the dlt workshop?,0407213397
-Why am I getting FileNotFoundError: Table notion_pages___homework does not exist when I run main() in the dlt workshop?,e95bfafc0e
-"How do I fix the error saying I should first call db.create_table(notion_pages___homework, data) in the Notion pages homework code?",e95bfafc0e
-What table name should I open in line 3 if my script says notion_pages___homework doesn't exist?,e95bfafc0e
-"Is db.open_table supposed to use notion_pages___homework in this exercise, and where exactly should I change it?",e95bfafc0e
-I keep seeing Table notion_pages___homework does not exist — what’s the correct table to open in main()?,e95bfafc0e
+Why am I getting FileNotFoundError: Table notion_pages___homework does not exist when I run main() in the dlt workshop?,0407213397
+"How do I fix the error saying I should first call db.create_table(notion_pages___homework, data) in the Notion pages homework code?",0407213397
+What table name should I open in line 3 if my script says notion_pages___homework doesn't exist?,0407213397
+"Is db.open_table supposed to use notion_pages___homework in this exercise, and where exactly should I change it?",0407213397
+I keep seeing Table notion_pages___homework does not exist — what’s the correct table to open in main()?,0407213397
 How can I list all tables that are currently in the database?,e394e6f738
 Is there a way to see the table names from the db object?,e394e6f738
 What method should I use to check which tables exist in my database?,e394e6f738
