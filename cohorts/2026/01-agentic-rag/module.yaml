@@ -1,52 +1,52 @@
 schema_version: 1
-content_id: 2a309b04-3047-4864-a32e-a8c101603b29
+content_id: llm-zoomcamp/2026/01-agentic-rag
 title: "Module 1: Agentic RAG"
 units:
-  - content_id: 856087c5-2a56-41ad-b43b-36e6ab335414
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/01-intro
     title: "Introduction"
     path: 01-intro.md
-  - content_id: 416b9812-be85-45d3-b4f9-11b8342c3cdd
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/02-environment
     title: "Environment"
     path: 02-environment.md
-  - content_id: 5949a4fa-2f4f-43ee-8554-f9e3a31b4513
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/03-rag
     title: "RAG"
     path: 03-rag.md
-  - content_id: 57502aa2-88dd-41cb-8a8d-20897884a043
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/04-dataset
     title: "The Course FAQ Dataset"
     path: 04-dataset.md
-  - content_id: f5eafde5-502c-4559-96c7-91ff502ff67b
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/05-search
     title: "Search"
     path: 05-search.md
-  - content_id: 9fa09727-9c41-49a6-9ae6-04efe6b30a09
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/06-building-prompt
     title: "Building the Prompt"
     path: 06-building-prompt.md
-  - content_id: f581f070-c109-4aff-8a75-915dda4a604b
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/07-llm
     title: "The LLM"
     path: 07-llm.md
-  - content_id: 953476d9-f5ea-4cb4-9199-9d8dc1e190b8
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/08-rag-helper
     title: "RAG Helper"
     path: 08-rag-helper.md
-  - content_id: f69af08d-bdeb-4e6e-b90e-eb60cca66187
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/09-data-ingestion
     title: "Data Ingestion"
     path: 09-data-ingestion.md
-  - content_id: cc948419-d099-4d50-adf2-72d889dfb495
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/10-rag-next-steps
     title: "Wrap-up of Part 1"
     path: 10-rag-next-steps.md
-  - content_id: bcfdcc98-ce43-40c4-94d7-a8fd60d3f4a0
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/11-agents-intro
     title: "Agents"
     path: 11-agents-intro.md
-  - content_id: 263ce1fa-6f2f-4b15-a896-8a6e4e7ea4b2
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/12-rag-revision
     title: "Quick RAG Revision (Optional)"
     path: 12-rag-revision.md
-  - content_id: 7bf2998d-0da4-4935-9598-f8ac6c0d4fa6
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/13-function-calling
     title: "Function Calling"
     path: 13-function-calling.md
-  - content_id: 8bec4dc0-0f3e-46d4-8cc0-3a48428f65e3
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/14-agentic-loop
     title: "The Agentic Loop"
     path: 14-agentic-loop.md
-  - content_id: ae6d7769-1e86-47ed-8c3c-98bcb5c83302
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/15-frameworks
     title: "ToyAIKit"
     path: 15-frameworks.md
-  - content_id: 93ce1390-a12d-4ba1-ab25-ad149e9a0b88
+  - content_id: llm-zoomcamp/2026/01-agentic-rag/16-other-frameworks
     title: "Other Frameworks"
     path: 16-other-frameworks.md

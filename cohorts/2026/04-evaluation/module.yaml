@@ -1,37 +1,37 @@
 schema_version: 1
-content_id: 99a7e602-6198-4fe1-ac5b-1b9fffa10107
+content_id: llm-zoomcamp/2026/04-evaluation
 title: "Module 4: Evaluation"
 units:
-  - content_id: 3ab503bb-f937-4840-bd75-17c40852ccbc
+  - content_id: llm-zoomcamp/2026/04-evaluation/01-intro
     title: "Evaluation"
     path: 01-intro.md
-  - content_id: 936b3cbd-7ad7-4576-8ebe-7bcc48568c94
+  - content_id: llm-zoomcamp/2026/04-evaluation/02-ground-truth
     title: "Generating Ground Truth Data"
     path: 02-ground-truth.md
-  - content_id: 6b67b30a-f9a9-4aff-8f85-370377aaa775
+  - content_id: llm-zoomcamp/2026/04-evaluation/03-ground-truth-batch
     title: "Generating Ground Truth for All Documents"
     path: 03-ground-truth-batch.md
-  - content_id: e0166f41-06dc-4bab-a3b2-66be5a2ff7f9
+  - content_id: llm-zoomcamp/2026/04-evaluation/04-search-evaluation
     title: "Search Evaluation"
     path: 04-search-evaluation.md
-  - content_id: 18797fc8-f4c1-42a6-bf4b-7c6b04b9ebfa
+  - content_id: llm-zoomcamp/2026/04-evaluation/05-search-metrics
     title: "Search Evaluation Metrics"
     path: 05-search-metrics.md
-  - content_id: b318212a-60c4-4e8b-9c06-e4583f2e4c6f
+  - content_id: llm-zoomcamp/2026/04-evaluation/06-search-tuning
     title: "Search Parameter Tuning"
     path: 06-search-tuning.md
-  - content_id: 840cfc3d-76e7-43f1-bda0-abb84fb6995d
+  - content_id: llm-zoomcamp/2026/04-evaluation/11-evaluation-intro
     title: "RAG and Agent Evaluation"
     path: 11-evaluation-intro.md
-  - content_id: 6795c869-6657-4d13-94d8-ffc6ee009574
+  - content_id: llm-zoomcamp/2026/04-evaluation/12-rag-answers
     title: "Generating RAG Answers"
     path: 12-rag-answers.md
-  - content_id: d70d3b54-bfc6-40fb-aaf4-987afb9dea21
+  - content_id: llm-zoomcamp/2026/04-evaluation/13-llm-as-judge
     title: "LLM as a Judge"
     path: 13-llm-as-judge.md
-  - content_id: db479b27-4292-4d85-8c16-0e5876fa586d
+  - content_id: llm-zoomcamp/2026/04-evaluation/14-agent-evaluation
     title: "Agent Evaluation"
     path: 14-agent-evaluation.md
-  - content_id: 42313df3-9886-4d4b-aacb-9c176e450a53
+  - content_id: llm-zoomcamp/2026/04-evaluation/15-next-steps
     title: "Next Steps"
     path: 15-next-steps.md

@@ -1,5 +1,5 @@
 schema_version: 1
-content_id: 8eeeeeee-eeee-4eee-8eee-eeeeeeeeeeee
+content_id: llm-zoomcamp/2026/04-evaluation/homework-04
 slug: homework-04
 title: "Homework 4: Evaluation"
 instructions_path: homework.md
@@ -12,7 +12,7 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: 8fffffff-ffff-4fff-8fff-ffffffffffff
+  - content_id: llm-zoomcamp/2026/04-evaluation/homework-04/lesson-count
     id: lesson-count
     type: free_form
     answer_type: integer
@@ -27,7 +27,7 @@ questions:
       nonce: GO1E6N61TPIKc0Ms
       ciphertext: NgFaA3gzYLArk8M095SUkYb_DlGFuTgyaXKhm9lK
       context_sha256: 2b6be2328d086c7744ca77c6a0f7ff2b469e1ed75d896705c16207570fd626d1
-  - content_id: 90000000-0000-4000-8000-000000000000
+  - content_id: llm-zoomcamp/2026/04-evaluation/homework-04/reflection
     id: reflection
     type: free_form_long
     answer_type: any

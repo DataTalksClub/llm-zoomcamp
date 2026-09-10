@@ -1,46 +1,46 @@
 schema_version: 1
-content_id: ea44fa36-1477-474f-92e7-1977e48de6ad
+content_id: llm-zoomcamp/2026/05-monitoring
 title: "Module 5: Monitoring"
 units:
-  - content_id: 728a03de-cd03-4ec1-953f-b654cc509f43
+  - content_id: llm-zoomcamp/2026/05-monitoring/01-intro
     title: "Monitoring"
     path: 01-intro.md
-  - content_id: e645d072-c8b7-4dfb-bb66-de904f05ebda
+  - content_id: llm-zoomcamp/2026/05-monitoring/02-assistant-setup
     title: "Assistant"
     path: 02-assistant-setup.md
-  - content_id: bea96a49-062b-40ff-b957-99847f725e2f
+  - content_id: llm-zoomcamp/2026/05-monitoring/03-chat-app
     title: "Chat App"
     path: 03-chat-app.md
-  - content_id: 4802bd81-5f3f-445d-bf16-919d3b64a2f5
+  - content_id: llm-zoomcamp/2026/05-monitoring/04-metrics
     title: "Capturing Metrics"
     path: 04-metrics.md
-  - content_id: 5a3d1b8e-cc12-49e3-bf84-7623cc34fa50
+  - content_id: llm-zoomcamp/2026/05-monitoring/05-database
     title: "Storing Data in PostgreSQL"
     path: 05-database.md
-  - content_id: c1fe9769-120d-4b41-acf3-609d08b821a2
+  - content_id: llm-zoomcamp/2026/05-monitoring/06-querying
     title: "Querying Data"
     path: 06-querying.md
-  - content_id: 02acba01-6e5a-4847-b385-d0945ec9abac
+  - content_id: llm-zoomcamp/2026/05-monitoring/07-streamlit-dashboard
     title: "Streamlit Dashboard"
     path: 07-streamlit-dashboard.md
-  - content_id: 5dbf1c69-6c8b-4495-9b37-ef4ace9c4843
+  - content_id: llm-zoomcamp/2026/05-monitoring/08-user-feedback
     title: "User Feedback"
     path: 08-user-feedback.md
-  - content_id: b1d6fae8-ae06-4276-9b96-3e995e22ce37
+  - content_id: llm-zoomcamp/2026/05-monitoring/09-built-in-judge
     title: "Built-in Judge"
     path: 09-built-in-judge.md
-  - content_id: a5d1e264-badf-44c7-b2f5-69bcfcfd7fae
+  - content_id: llm-zoomcamp/2026/05-monitoring/10-feedback-dashboard
     title: "Feedback Dashboard"
     path: 10-feedback-dashboard.md
-  - content_id: 3fc7f1bc-c0d6-4f80-ac95-50d69230f7f0
+  - content_id: llm-zoomcamp/2026/05-monitoring/11-synthetic-data
     title: "Synthetic Data Generation"
     path: 11-synthetic-data.md
-  - content_id: 60748121-580d-4a24-af9f-b5bfc68470b1
+  - content_id: llm-zoomcamp/2026/05-monitoring/12-grafana
     title: "Grafana Dashboards"
     path: 12-grafana.md
-  - content_id: edc8d74f-d3b5-464e-81c1-b5c8448330b4
+  - content_id: llm-zoomcamp/2026/05-monitoring/13-docker-compose
     title: "Docker Compose"
     path: 13-docker-compose.md
-  - content_id: 08d4d837-410f-40b7-b91d-f241bb75cab5
+  - content_id: llm-zoomcamp/2026/05-monitoring/14-next-steps
     title: "Next Steps"
     path: 14-next-steps.md

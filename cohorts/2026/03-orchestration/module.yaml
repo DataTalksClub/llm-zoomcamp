@@ -1,31 +1,31 @@
 schema_version: 1
-content_id: d1255ef0-3038-403e-88a6-51616836315a
+content_id: llm-zoomcamp/2026/03-orchestration
 title: "Module 3: AI Orchestration with Kestra"
 units:
-  - content_id: 6d08e0ff-3c60-4110-8bf8-c723509d3c73
+  - content_id: llm-zoomcamp/2026/03-orchestration/01-intro
     title: "AI Orchestration"
     path: 01-intro.md
-  - content_id: 045efd2d-8fec-4756-9c46-3ae966fcb75e
+  - content_id: llm-zoomcamp/2026/03-orchestration/02-context-engineering
     title: "Context Engineering"
     path: 02-context-engineering.md
-  - content_id: 9250d5a5-98b4-4b77-b04b-1973ab322217
+  - content_id: llm-zoomcamp/2026/03-orchestration/03-setup
     title: "Setting up Kestra"
     path: 03-setup.md
-  - content_id: 005071ba-c5f7-4cba-a54f-8ca91f21c400
+  - content_id: llm-zoomcamp/2026/03-orchestration/04-ai-copilot
     title: "AI Copilot"
     path: 04-ai-copilot.md
-  - content_id: 2f6d6548-3985-4181-a6f7-dc53eb05b9fd
+  - content_id: llm-zoomcamp/2026/03-orchestration/05-rag
     title: "Retrieval Augmented Generation"
     path: 05-rag.md
-  - content_id: d1491fe6-c6d0-473e-b9d9-50660e4615c0
+  - content_id: llm-zoomcamp/2026/03-orchestration/06-agents
     title: "AI Agents"
     path: 06-agents.md
-  - content_id: dab2260f-4f60-4b47-b331-252c37a36d3f
+  - content_id: llm-zoomcamp/2026/03-orchestration/07-multi-agent
     title: "Multi-Agent Systems"
     path: 07-multi-agent.md
-  - content_id: ad722ef9-39c7-4580-89e0-71602b3ac7f2
+  - content_id: llm-zoomcamp/2026/03-orchestration/08-best-practices
     title: "Best Practices"
     path: 08-best-practices.md
-  - content_id: 641df5a8-e8ab-46c9-96ea-9d77958d4c61
+  - content_id: llm-zoomcamp/2026/03-orchestration/09-next-steps
     title: "Next Steps"
     path: 09-next-steps.md

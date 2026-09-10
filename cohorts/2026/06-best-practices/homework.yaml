@@ -1,5 +1,5 @@
 schema_version: 1
-content_id: 94444444-4444-4444-8444-444444444444
+content_id: llm-zoomcamp/2026/06-best-practices/homework-06
 slug: homework-06
 title: "Homework 6: Best Practices"
 instructions_path: homework.md
@@ -12,7 +12,7 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: 95555555-5555-4555-8555-555555555555
+  - content_id: llm-zoomcamp/2026/06-best-practices/homework-06/optional-module
     id: optional-module
     type: free_form
     answer_type: exact_string
@@ -27,7 +27,7 @@ questions:
       nonce: vv-OMNW6yumcel18
       ciphertext: ZpIL_vGSqejF5gHtLL6DIFTHbN1KHHgj5cii0xzSRg
       context_sha256: 4ff73bcea183c33f78a5e2d24390ea5827e6f670bb6a89830cb8588d387ea73e
-  - content_id: 96666666-6666-4666-8666-666666666666
+  - content_id: llm-zoomcamp/2026/06-best-practices/homework-06/reflection
     id: reflection
     type: free_form_long
     answer_type: any

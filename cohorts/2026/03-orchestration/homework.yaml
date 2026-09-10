@@ -1,5 +1,5 @@
 schema_version: 1
-content_id: 8bbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb
+content_id: llm-zoomcamp/2026/03-orchestration/homework-03
 slug: homework-03
 title: "Homework 3: Orchestration"
 instructions_path: homework.md
@@ -12,7 +12,7 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: 8ccccccc-cccc-4ccc-8ccc-cccccccccccc
+  - content_id: llm-zoomcamp/2026/03-orchestration/homework-03/kestra-docs
     id: kestra-docs
     type: multiple_choice
     prompt: Why can an AI Copilot generate better Kestra flows?
@@ -35,7 +35,7 @@ questions:
       nonce: 4iRkLXeltE6tFoQO
       ciphertext: fX66n5gDDq-HlJeqkXgOeUPZXFow2T09HtH-uBCgz7mOlDyLGLFJtsWLx3StVA
       context_sha256: b67f4bee879eaadffebbad68d67c56ec8dd8d57ddc956927b46ab471726ebf82
-  - content_id: 8ddddddd-dddd-4ddd-8ddd-dddddddddddd
+  - content_id: llm-zoomcamp/2026/03-orchestration/homework-03/reflection
     id: reflection
     type: free_form_long
     answer_type: any
