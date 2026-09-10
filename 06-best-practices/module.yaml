@@ -1,0 +1,19 @@
+schema_version: 2
+content_id: 299d65ef-f320-456b-92af-3c3f85586ea6
+title: "Module 6: Best Practices (Optional)"
+units:
+  - content_id: 952b4390-8cc7-4163-85f5-e1cfde090e98
+    title: "Best Practices for RAG"
+    path: 01-intro.md
+  - content_id: 6a487f96-a02a-4fcf-abf7-f031918bdca0
+    title: "Hybrid Search"
+    path: 02-hybrid-search.md
+  - content_id: 44efb169-35a2-4c30-914a-a12ded4f64d0
+    title: "Document Reranking"
+    path: 03-reranking.md
+  - content_id: 6447e661-4dae-4148-8aa2-3131d2d43f98
+    title: "Hybrid Search with LangChain"
+    path: 04-langchain.md
+  - content_id: db3193dc-e2d3-491c-8db8-15411b6004e3
+    title: "Next Steps"
+    path: 05-next-steps.md

@@ -1,0 +1,46 @@
+schema_version: 2
+content_id: 9a227239-7b0e-4434-98d4-51e612f7d642
+title: "Module 5: Monitoring"
+units:
+  - content_id: 287e454c-8a2a-4e44-8081-bd159ce28058
+    title: "Monitoring"
+    path: 01-intro.md
+  - content_id: 897e77bf-845d-4707-956d-d9d7d1fe4c14
+    title: "Assistant"
+    path: 02-assistant-setup.md
+  - content_id: 28fbb4b3-3245-4c9a-b7bf-0d159c53226a
+    title: "Chat App"
+    path: 03-chat-app.md
+  - content_id: d2713485-b289-4dc9-9feb-1f4ba138b287
+    title: "Capturing Metrics"
+    path: 04-metrics.md
+  - content_id: 2d142cbe-2c14-4b99-9cbb-b054a5928216
+    title: "Storing Data in PostgreSQL"
+    path: 05-database.md
+  - content_id: 3784bbf3-b1dc-4b43-a2f2-24c9fd2a3939
+    title: "Querying Data"
+    path: 06-querying.md
+  - content_id: 5612ef33-50e5-4b29-b857-9f434e6ba588
+    title: "Streamlit Dashboard"
+    path: 07-streamlit-dashboard.md
+  - content_id: eeaeac5b-c21e-45a0-9f8a-eb2916d7f71c
+    title: "User Feedback"
+    path: 08-user-feedback.md
+  - content_id: dacb2174-382d-4b40-a812-2edc57fe99f5
+    title: "Built-in Judge"
+    path: 09-built-in-judge.md
+  - content_id: 5fffca7b-efd9-47ca-beed-2bf167605b04
+    title: "Feedback Dashboard"
+    path: 10-feedback-dashboard.md
+  - content_id: 5168909c-8e4c-41db-ad75-d2e8a1aa6fdd
+    title: "Synthetic Data Generation"
+    path: 11-synthetic-data.md
+  - content_id: 2e15c826-8883-4bc0-95b4-a1e9166d08ba
+    title: "Grafana Dashboards"
+    path: 12-grafana.md
+  - content_id: 2249b3ad-183e-4867-ac5c-6ac15424b3a9
+    title: "Docker Compose"
+    path: 13-docker-compose.md
+  - content_id: 49b70e24-e731-4572-885c-7708284801b1
+    title: "Next Steps"
+    path: 14-next-steps.md

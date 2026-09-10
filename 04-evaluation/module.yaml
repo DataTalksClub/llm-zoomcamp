@@ -1,0 +1,37 @@
+schema_version: 2
+content_id: 5778f7b2-598e-4ef6-a8c6-a0c96278adef
+title: "Module 4: Evaluation"
+units:
+  - content_id: 95dd058a-3225-4635-a899-f66ed36be07c
+    title: "Evaluation"
+    path: 01-intro.md
+  - content_id: bbf33133-4791-40b8-a812-9b2b8dad6a9e
+    title: "Generating Ground Truth Data"
+    path: 02-ground-truth.md
+  - content_id: afad18ad-6935-41a5-a078-398aa113da03
+    title: "Generating Ground Truth for All Documents"
+    path: 03-ground-truth-batch.md
+  - content_id: fc9e5d68-b2ce-401d-bfb9-c593daaa73e3
+    title: "Search Evaluation"
+    path: 04-search-evaluation.md
+  - content_id: 942553a8-663e-4b9a-b88d-62bfd5f30c46
+    title: "Search Evaluation Metrics"
+    path: 05-search-metrics.md
+  - content_id: fdf1c8ff-cd41-469c-b859-fab487fd7fd8
+    title: "Search Parameter Tuning"
+    path: 06-search-tuning.md
+  - content_id: b46d0f3f-313c-4b3c-9f31-d37fd4b07f79
+    title: "RAG and Agent Evaluation"
+    path: 11-evaluation-intro.md
+  - content_id: 37314538-a766-440f-8b47-10e0cc38d821
+    title: "Generating RAG Answers"
+    path: 12-rag-answers.md
+  - content_id: 7b35dc69-60c7-414f-8526-0181ecd45587
+    title: "LLM as a Judge"
+    path: 13-llm-as-judge.md
+  - content_id: 8725e24a-fc37-4861-9660-6033b0efa50a
+    title: "Agent Evaluation"
+    path: 14-agent-evaluation.md
+  - content_id: 17f21088-548e-449d-9cc6-703a37ab607d
+    title: "Next Steps"
+    path: 15-next-steps.md

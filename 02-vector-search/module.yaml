@@ -1,0 +1,34 @@
+schema_version: 2
+content_id: 94d74a58-625d-4e4e-93d6-c7d6ef756609
+title: "Module 2: Vector Search"
+units:
+  - content_id: 1aa04eb2-b530-4086-ab55-79e3fd3e2c8d
+    title: "Vector Search"
+    path: 01-intro.md
+  - content_id: 3c79a472-8fdb-4c08-afa5-aa68d1d5c22d
+    title: "Embeddings"
+    path: 02-embeddings.md
+  - content_id: 5993dfa8-73a7-4ea5-9076-e11c5447624c
+    title: "Embedding Our Dataset"
+    path: 03-embeddings-dataset.md
+  - content_id: 402aefa4-ad46-44db-bba9-aee2c60f03d1
+    title: "Vector Search"
+    path: 04-vector-search.md
+  - content_id: a8e8081f-a106-4d46-b7e9-c8a0914b29c3
+    title: "Vector Search with minsearch"
+    path: 05-minsearch-vector.md
+  - content_id: 7f3d36f4-4ca1-4ddc-b95c-16701d410ade
+    title: "RAG with Vector Search"
+    path: 06-rag-vector.md
+  - content_id: 6afa3aea-ebdf-4732-afab-6094db0fc2de
+    title: "Vector Search with sqlitesearch"
+    path: 07-sqlitesearch-vector.md
+  - content_id: 5865f64d-2ce1-4fe2-bae2-9c078a91eaf1
+    title: "Vector Search with PGVector"
+    path: 08-pgvector.md
+  - content_id: b0c34c9b-679f-4287-a6d4-65ef65011913
+    title: "Using ONNX Runtime instead of PyTorch"
+    path: 09-onnx-embedder.md
+  - content_id: c5f4df1f-d1df-45fa-9b05-958e3e18e229
+    title: "Next Steps"
+    path: 10-next-steps.md

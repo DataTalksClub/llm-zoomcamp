@@ -1,0 +1,52 @@
+schema_version: 2
+content_id: d9ca5cb3-b94c-4281-be7d-a2462559f02b
+title: "Module 1: Agentic RAG"
+units:
+  - content_id: 1e8059d3-1c63-47f6-b0a1-9b21c96ca1c6
+    title: "Introduction"
+    path: 01-intro.md
+  - content_id: 74f9c194-1417-44a4-bb92-5147da22df0e
+    title: "Environment"
+    path: 02-environment.md
+  - content_id: de29a446-109c-4d91-b4e0-609eb5774c24
+    title: "RAG"
+    path: 03-rag.md
+  - content_id: a9e486c2-41c7-49e0-9f43-6b2c46386c28
+    title: "The Course FAQ Dataset"
+    path: 04-dataset.md
+  - content_id: 8a912d02-c535-45b7-bdde-025fa0278290
+    title: "Search"
+    path: 05-search.md
+  - content_id: c9c97629-ca4b-419e-8db4-181360b46bc7
+    title: "Building the Prompt"
+    path: 06-building-prompt.md
+  - content_id: 24bb5cf1-ceca-47ac-9f4f-fa3b0325abb3
+    title: "The LLM"
+    path: 07-llm.md
+  - content_id: e3e91206-777b-4b40-a98b-c7079657d4f5
+    title: "RAG Helper"
+    path: 08-rag-helper.md
+  - content_id: 5586c7c0-e4d7-4a24-9b05-ac256379dd32
+    title: "Data Ingestion"
+    path: 09-data-ingestion.md
+  - content_id: babd94b3-e834-4431-85f0-ef6433c720f9
+    title: "Wrap-up of Part 1"
+    path: 10-rag-next-steps.md
+  - content_id: 7e94f6bc-7015-4021-a77c-8e6f35fd2fcf
+    title: "Agents"
+    path: 11-agents-intro.md
+  - content_id: a71b2571-5cbd-4554-8b8c-d86657eac1db
+    title: "Quick RAG Revision (Optional)"
+    path: 12-rag-revision.md
+  - content_id: ddf49a36-8628-44b0-ba40-ae91505fe320
+    title: "Function Calling"
+    path: 13-function-calling.md
+  - content_id: 0cd465fa-45fa-4503-ac45-781cb5224ab0
+    title: "The Agentic Loop"
+    path: 14-agentic-loop.md
+  - content_id: 26f44edb-1b06-4198-8117-d0e00985ac4a
+    title: "ToyAIKit"
+    path: 15-frameworks.md
+  - content_id: 45e0b83c-c1ff-4053-82ed-23df4874161b
+    title: "Other Frameworks"
+    path: 16-other-frameworks.md

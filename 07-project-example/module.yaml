@@ -1,0 +1,25 @@
+schema_version: 2
+content_id: 49d67cc7-7e98-4d56-acff-f4152c1c2619
+title: "Module 7: End-to-End Project Example (Optional)"
+units:
+  - content_id: b40fbc80-cdcf-40be-a9e6-b63d83c5f1ca
+    title: "End-to-End Project Example"
+    path: 01-intro.md
+  - content_id: 3f032ba8-b8d0-44a1-9013-c2504c5a3621
+    title: "Evaluating Retrieval"
+    path: 02-evaluating-retrieval.md
+  - content_id: 91204d7a-1f4c-42d8-8610-23abcdc6c084
+    title: "Evaluating RAG"
+    path: 03-evaluating-rag.md
+  - content_id: a0880194-e3c2-47d3-94c4-8cb80cd35e2c
+    title: "Interface and Ingestion Pipeline"
+    path: 04-interface.md
+  - content_id: bd4a1318-5497-45a8-a490-6a1c5dd35c93
+    title: "Monitoring and Containerization"
+    path: 05-monitoring.md
+  - content_id: a5247238-33af-4ce8-b5c5-c83f9bea57c9
+    title: "Summary and Closing Remarks"
+    path: 06-summary.md
+  - content_id: 1f24b4b7-1c6b-46d3-ab95-a3c110b83ee5
+    title: "Chunking for Longer Texts"
+    path: 07-chunking.md

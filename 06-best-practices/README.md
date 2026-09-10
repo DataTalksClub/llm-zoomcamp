@@ -1,7 +1,28 @@
 # Module 6: Best Practices (Optional)
 
-The curriculum for this module — lessons, homework and schedule — lives with the
-cohort that runs it:
+This module was recorded in 2024 and has not been updated since
+then. It covers techniques that improve RAG retrieval quality:
+hybrid search, document reranking, and how to implement them with
+Elasticsearch and LangChain.
 
-- [cohorts/2026/06-best-practices/](../cohorts/2026/06-best-practices/) — current cohort
-- [cohorts/](../cohorts/) — all cohorts
+It is optional - the techniques are still relevant, but the code
+uses older libraries and approaches.
+
+
+## Lessons
+
+1. [Intro](01-intro.md) - Five techniques for improving RAG pipelines
+2. [Hybrid Search](02-hybrid-search.md) - Combining vector and keyword search in Elasticsearch
+3. [Document Reranking](03-reranking.md) - Reciprocal Rank Fusion (RRF) for re-ordering results
+4. [Hybrid Search with LangChain](04-langchain.md) - Using LangChain's ElasticsearchRetriever
+5. [Next Steps](05-next-steps.md) - Other techniques and further reading
+
+
+## Notebooks
+
+- [Hybrid search and reranking with Elasticsearch](hybrid-search-and-reranking-es.ipynb)
+- [Hybrid search with LangChain](hybrid-search-langchain.ipynb)
+
+## Notes
+
+- Did you take notes? Add them above this line (Send a PR with *links* to your notes)

@@ -1,0 +1,31 @@
+schema_version: 2
+content_id: 9e91e892-b5ba-431b-9e1c-52d3afa58ee6
+title: "Module 3: AI Orchestration with Kestra"
+units:
+  - content_id: 561033a8-1af3-4738-9ae9-869694f5851a
+    title: "AI Orchestration"
+    path: 01-intro.md
+  - content_id: e4b94468-e83b-4507-b8c9-876b72dcae61
+    title: "Context Engineering"
+    path: 02-context-engineering.md
+  - content_id: fee93f89-5e52-4d3e-a59a-8bb21f1f2335
+    title: "Setting up Kestra"
+    path: 03-setup.md
+  - content_id: fb87acee-c571-4697-986d-3d65a9af3ca5
+    title: "AI Copilot"
+    path: 04-ai-copilot.md
+  - content_id: 631bc7ca-f622-403f-84ec-5beeaf38923a
+    title: "Retrieval Augmented Generation"
+    path: 05-rag.md
+  - content_id: cb7644e3-d9ec-4295-9f10-6149772bd8c3
+    title: "AI Agents"
+    path: 06-agents.md
+  - content_id: f92a44d6-28be-4575-9e4f-3c2424bf991e
+    title: "Multi-Agent Systems"
+    path: 07-multi-agent.md
+  - content_id: effb7a61-3026-4966-aa3c-f2afe8e95af4
+    title: "Best Practices"
+    path: 08-best-practices.md
+  - content_id: 8f1c1977-c956-448a-9125-044be108c650
+    title: "Next Steps"
+    path: 09-next-steps.md
