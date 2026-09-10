@@ -17,10 +17,10 @@ By the end you'll have:
 
 1. A dlt pipeline loading local Claude Code logs into DuckDB.
 2. A marimo dashboard over that data with activity, models, tokens, and
-   projects.
+  projects.
 3. A REST API pipeline pulling agent traces from a hosted API.
 4. A scheduled deployment on the dltHub Platform with a shareable
-   dashboard.
+  dashboard.
 
 The architecture looks like this:
 
@@ -35,6 +35,10 @@ flowchart LR
     end
 ```
 
+
+
+
+
 ## Prerequisites
 
 You'll need these accounts and tools:
@@ -44,8 +48,10 @@ You'll need these accounts and tools:
 - A coding agent: Claude Code, Codex, or Copilot
 - A dltHub Platform account (free): [app.dlthub.com](https://app.dlthub.com/)
 - Some local agent logs so `~/.claude/projects/` has JSONL files
-  to load, and if you don't have any yet, use your agent for a bit
-  and come back.
+to load, and if you don't have any yet, use your agent for a bit
+and come back.
+
+
 
 ## Scaffold the workspace
 
@@ -60,16 +66,27 @@ This creates a workspace with `pyproject.toml`, a `.dlt/` config
 directory, `.claude/` skills, and `.mcp.json` for the MCP server.
 It also creates `__deployment__.py` for cloud deployment and a
 virtual environment.
-a virtual environment.
 
 When it asks to create a virtual environment and install dependencies,
 say yes. It runs `uv sync` for you.
 
-## Open the workspace in your agent
+## Initialize the workspace using your coding agent
 
-Open the scaffolded folder in your coding agent. The agent reads the
-router skill and dispatches to the right toolkit when you ask it to
-build a pipeline.
+Open the scaffolded folder in your coding agent.
+
+Ask your agent to:
+
+> Initialize the dlthub workbench, installing the required AI components for your agent.
+
+Depending on your agent, it will run something similar to:
+
+```bash
+dlthub ai init --agent claude
+```
+
+It will install skills, rules, and MCP server wiring for your specific agent.
+
+
 
 Confirm the workbench is running:
 
