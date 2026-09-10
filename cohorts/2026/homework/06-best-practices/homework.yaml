@@ -1,9 +1,9 @@
-schema_version: 1
-content_id: llm-zoomcamp/2026/06-best-practices/homework-06
+schema_version: 2
+content_id: c808ef7c-94f4-4988-9589-15117e3ca231
 slug: homework-06
 title: "Homework 6: Best Practices"
 instructions_path: homework.md
-due_at: 2026-10-05T21:59:00Z
+due_at: "2026-10-05T21:59:00Z"
 initial_state: open
 form:
   homework_url: true
@@ -12,11 +12,11 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: llm-zoomcamp/2026/06-best-practices/homework-06/optional-module
+  - content_id: 07caf334-4a97-4298-871e-5046f331a16e
     id: optional-module
     type: free_form
     answer_type: exact_string
-    prompt: Is this module optional?
+    prompt: "Is this module optional?"
     points: 1
     answer:
       version: 1
@@ -27,9 +27,9 @@ questions:
       nonce: vv-OMNW6yumcel18
       ciphertext: ZpIL_vGSqejF5gHtLL6DIFTHbN1KHHgj5cii0xzSRg
       context_sha256: 4ff73bcea183c33f78a5e2d24390ea5827e6f670bb6a89830cb8588d387ea73e
-  - content_id: llm-zoomcamp/2026/06-best-practices/homework-06/reflection
+  - content_id: 027a9390-8a60-496b-bb48-d02d4554a120
     id: reflection
     type: free_form_long
     answer_type: any
-    prompt: Which retrieval technique would you try first?
+    prompt: "Which retrieval technique would you try first?"
     points: 0

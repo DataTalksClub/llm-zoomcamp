@@ -1,9 +1,9 @@
-schema_version: 1
-content_id: llm-zoomcamp/2026/02-vector-search/homework-02
+schema_version: 2
+content_id: 10ad7684-eaa2-4f98-a3e2-94007d0b08b9
 slug: homework-02
 title: "Homework 2: Vector Search"
 instructions_path: homework.md
-due_at: 2026-09-07T21:59:00Z
+due_at: "2026-09-07T21:59:00Z"
 initial_state: open
 form:
   homework_url: true
@@ -12,11 +12,11 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: llm-zoomcamp/2026/02-vector-search/homework-02/lesson-count
+  - content_id: 53e0ac63-bcd2-4026-aadc-f341f387e749
     id: lesson-count
     type: free_form
     answer_type: integer
-    prompt: How many lesson pages are used as the shared dataset?
+    prompt: "How many lesson pages are used as the shared dataset?"
     points: 1
     answer:
       version: 1
@@ -27,9 +27,9 @@ questions:
       nonce: lIz6GASbaqIG31ZP
       ciphertext: 3Iq5P6rK-d6OI-m7cTSx46JO1eqEI34HOs3JHLjW
       context_sha256: a5538f7983b67b3e2657f9babb46cd9a7c4a815c7714b7dd1514cec987f3abdb
-  - content_id: llm-zoomcamp/2026/02-vector-search/homework-02/reflection
+  - content_id: c62efca5-ef93-4e2b-9004-463a12286ff2
     id: reflection
     type: free_form_long
     answer_type: any
-    prompt: Which search approach would you use first and why?
+    prompt: "Which search approach would you use first and why?"
     points: 0

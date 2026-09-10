@@ -1,9 +1,9 @@
-schema_version: 1
-content_id: llm-zoomcamp/2026/04-evaluation/homework-04
+schema_version: 2
+content_id: 1b7f09e8-52a4-4768-89d3-84bdd33f3d04
 slug: homework-04
 title: "Homework 4: Evaluation"
 instructions_path: homework.md
-due_at: 2026-09-21T21:59:00Z
+due_at: "2026-09-21T21:59:00Z"
 initial_state: open
 form:
   homework_url: true
@@ -12,11 +12,11 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: llm-zoomcamp/2026/04-evaluation/homework-04/lesson-count
+  - content_id: 17e1aae0-57d7-42c4-982c-6779c32d011e
     id: lesson-count
     type: free_form
     answer_type: integer
-    prompt: How many lesson pages are used as the shared dataset?
+    prompt: "How many lesson pages are used as the shared dataset?"
     points: 1
     answer:
       version: 1
@@ -27,9 +27,9 @@ questions:
       nonce: GO1E6N61TPIKc0Ms
       ciphertext: NgFaA3gzYLArk8M095SUkYb_DlGFuTgyaXKhm9lK
       context_sha256: 2b6be2328d086c7744ca77c6a0f7ff2b469e1ed75d896705c16207570fd626d1
-  - content_id: llm-zoomcamp/2026/04-evaluation/homework-04/reflection
+  - content_id: 660a9b71-53c1-4c15-80a2-65b68968252c
     id: reflection
     type: free_form_long
     answer_type: any
-    prompt: What would you measure before changing a search system?
+    prompt: "What would you measure before changing a search system?"
     points: 0

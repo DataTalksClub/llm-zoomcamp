@@ -1,9 +1,9 @@
-schema_version: 1
-content_id: llm-zoomcamp/2026/03-orchestration/homework-03
+schema_version: 2
+content_id: 6c8bbcbf-33e0-4ba0-8975-7a9bcd77187d
 slug: homework-03
 title: "Homework 3: Orchestration"
 instructions_path: homework.md
-due_at: 2026-09-14T21:59:00Z
+due_at: "2026-09-14T21:59:00Z"
 initial_state: open
 form:
   homework_url: true
@@ -12,19 +12,19 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: llm-zoomcamp/2026/03-orchestration/homework-03/kestra-docs
+  - content_id: d10968e3-c52f-4b6f-9d00-ceaf9f3437dc
     id: kestra-docs
     type: multiple_choice
-    prompt: Why can an AI Copilot generate better Kestra flows?
     options:
       - id: stronger-model
-        label: It uses a more powerful model
+        label: "It uses a more powerful model"
       - id: kestra-docs
-        label: It has access to current Kestra plugin documentation
+        label: "It has access to current Kestra plugin documentation"
       - id: more-tokens
-        label: It uses more tokens
+        label: "It uses more tokens"
       - id: internet-access
-        label: It has internet access
+        label: "It has internet access"
+    prompt: "Why can an AI Copilot generate better Kestra flows?"
     points: 1
     answer:
       version: 1
@@ -35,9 +35,9 @@ questions:
       nonce: 4iRkLXeltE6tFoQO
       ciphertext: fX66n5gDDq-HlJeqkXgOeUPZXFow2T09HtH-uBCgz7mOlDyLGLFJtsWLx3StVA
       context_sha256: b67f4bee879eaadffebbad68d67c56ec8dd8d57ddc956927b46ab471726ebf82
-  - content_id: llm-zoomcamp/2026/03-orchestration/homework-03/reflection
+  - content_id: 54b64e0e-8dd0-4252-9153-f6e17ef6f1f4
     id: reflection
     type: free_form_long
     answer_type: any
-    prompt: Which workflow would you automate first?
+    prompt: "Which workflow would you automate first?"
     points: 0

@@ -1,9 +1,9 @@
-schema_version: 1
-content_id: llm-zoomcamp/2026/05-monitoring/homework-05
+schema_version: 2
+content_id: 5bdbdc2f-550d-4ad3-ba61-64e128582ba0
 slug: homework-05
 title: "Homework 5: Monitoring"
 instructions_path: homework.md
-due_at: 2026-09-28T21:59:00Z
+due_at: "2026-09-28T21:59:00Z"
 initial_state: open
 form:
   homework_url: true
@@ -12,11 +12,11 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: llm-zoomcamp/2026/05-monitoring/homework-05/lesson-count
+  - content_id: 24b9c18c-a5c3-4906-b220-2888621c2733
     id: lesson-count
     type: free_form
     answer_type: integer
-    prompt: How many lesson pages are loaded by the monitoring homework?
+    prompt: "How many lesson pages are loaded by the monitoring homework?"
     points: 1
     answer:
       version: 1
@@ -27,9 +27,9 @@ questions:
       nonce: su_CvIXY9ntbNcdX
       ciphertext: WYKu_3inVXWin8_KR-wd5DwQ9KdseuT8vQSqiPQZ
       context_sha256: 099cc470911788de9c16eb57b904997dbc82428be4b9b48cfc5567cfd42710a0
-  - content_id: llm-zoomcamp/2026/05-monitoring/homework-05/reflection
+  - content_id: 32706822-da8e-4140-9a80-c23842853d1e
     id: reflection
     type: free_form_long
     answer_type: any
-    prompt: Which signal would you monitor first in production?
+    prompt: "Which signal would you monitor first in production?"
     points: 0

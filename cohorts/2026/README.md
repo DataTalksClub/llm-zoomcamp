@@ -10,19 +10,19 @@ Important links:
 
 [**Module 1: Agentic RAG**](01-agentic-rag)
 
-* [Homework](01-agentic-rag/homework.md)
+* [Homework](homework/01-agentic-rag/homework.md)
 
 [**Module 2: Vector Search**](02-vector-search/)
 
-* [Homework](02-vector-search/homework.md)
+* [Homework](homework/02-vector-search/homework.md)
 
 [**Module 3: Orchestration**](03-orchestration/)
 
-* [Homework](03-orchestration/homework.md)
+* [Homework](homework/03-orchestration/homework.md)
 
 [**Module 4: Evaluation**](04-evaluation/)
 
-* [Homework](04-evaluation/homework.md)
+* [Homework](homework/04-evaluation/homework.md)
 
 [**Workshop: dlt**](workshops/dlt.md)
 
@@ -32,7 +32,7 @@ Important links:
 
 [**Module 5: Monitoring**](05-monitoring/)
 
-* [Homework](05-monitoring/homework.md)
+* [Homework](homework/05-monitoring/homework.md)
 
 [**Module 6: Best Practices**](06-best-practices/)
 

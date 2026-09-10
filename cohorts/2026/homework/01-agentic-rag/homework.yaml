@@ -1,9 +1,9 @@
-schema_version: 1
-content_id: llm-zoomcamp/2026/01-agentic-rag/homework-01
+schema_version: 2
+content_id: 018dd1ef-bb00-4314-8eed-7716969e9c82
 slug: homework-01
 title: "Homework 1: Agentic RAG"
 instructions_path: homework.md
-due_at: 2026-08-31T21:59:00Z
+due_at: "2026-08-31T21:59:00Z"
 initial_state: open
 form:
   homework_url: true
@@ -12,10 +12,9 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: llm-zoomcamp/2026/01-agentic-rag/homework-01/lesson-page-count
+  - content_id: a139177c-67e1-45e8-b1ce-69b0e9998003
     id: lesson-page-count
     type: multiple_choice
-    prompt: How many lesson pages are in the dataset?
     options:
       - id: pages-24
         label: "24"
@@ -25,6 +24,7 @@ questions:
         label: "240"
       - id: pages-720
         label: "720"
+    prompt: "How many lesson pages are in the dataset?"
     points: 1
     answer:
       version: 1
@@ -35,9 +35,9 @@ questions:
       nonce: 4Ddz26UM0m7IeTta
       ciphertext: wJNOKH3TspekPeIQg1Jg60GEwrWTI8TqxJUaH6DX5j6SLapTjvQ2mWsXDg
       context_sha256: 80f3a0055f95dab3d14332221fac8e133116156789bb2ec363d9eab266c4b9d5
-  - content_id: llm-zoomcamp/2026/01-agentic-rag/homework-01/reflection
+  - content_id: 2215600e-2a90-40c4-9b27-e4c407702fe4
     id: reflection
     type: free_form_long
     answer_type: any
-    prompt: What did you learn from this module?
+    prompt: "What did you learn from this module?"
     points: 0

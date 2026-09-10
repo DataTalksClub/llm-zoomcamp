@@ -1,34 +1,24 @@
-schema_version: 1
-content_id: llm-zoomcamp/2026
-course: llm-zoomcamp
+schema_version: 2
+content_id: 0ea85a46-bd6b-4f21-82fe-317954d8be32
 identifier: "2026"
-legacy_slug: llm-zoomcamp-2026
-year: 2026
-title: LLM Zoomcamp 2026
-description: The 2026 live delivery of LLM Zoomcamp.
-format: modules
+course: llm-zoomcamp
+delivery: live
 published: true
-start_date: 2026-06-08
-end_date: 2026-10-12
-flow:
-  - module:
-      source: cohorts/2026/01-agentic-rag/module.yaml
-      homework: cohorts/2026/01-agentic-rag/homework.yaml
-  - module:
-      source: cohorts/2026/02-vector-search/module.yaml
-      homework: cohorts/2026/02-vector-search/homework.yaml
-  - module:
-      source: cohorts/2026/03-orchestration/module.yaml
-      homework: cohorts/2026/03-orchestration/homework.yaml
-  - module:
-      source: cohorts/2026/04-evaluation/module.yaml
-      homework: cohorts/2026/04-evaluation/homework.yaml
-  - module:
-      source: cohorts/2026/05-monitoring/module.yaml
-      homework: cohorts/2026/05-monitoring/homework.yaml
-  - module:
-      source: cohorts/2026/06-best-practices/module.yaml
-      homework: cohorts/2026/06-best-practices/homework.yaml
-  - module:
-      source: cohorts/2026/07-project-example/module.yaml
-      homework: cohorts/2026/07-project-example/homework.yaml
+start_date: "2026-06-08"
+end_date: "2026-10-12"
+curriculum: current
+homework:
+  - module: 01-agentic-rag
+    source: cohorts/2026/homework/01-agentic-rag/homework.yaml
+  - module: 02-vector-search
+    source: cohorts/2026/homework/02-vector-search/homework.yaml
+  - module: 03-orchestration
+    source: cohorts/2026/homework/03-orchestration/homework.yaml
+  - module: 04-evaluation
+    source: cohorts/2026/homework/04-evaluation/homework.yaml
+  - module: 05-monitoring
+    source: cohorts/2026/homework/05-monitoring/homework.yaml
+  - module: 06-best-practices
+    source: cohorts/2026/homework/06-best-practices/homework.yaml
+  - module: 07-project-example
+    source: cohorts/2026/homework/07-project-example/homework.yaml

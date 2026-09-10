@@ -1,0 +1,12 @@
+schema_version: 2
+content_id: 5393ebf3-f68b-48f2-abca-d686bbbd7e7c
+identifier: "2025"
+course: llm-zoomcamp
+delivery: live
+published: true
+start_date: "2025-06-09"
+end_date: "2025-10-13"
+curriculum: github_archive
+archive:
+  notice_path: cohorts/2025/README.md
+homework: []

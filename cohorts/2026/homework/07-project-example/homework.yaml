@@ -1,9 +1,9 @@
-schema_version: 1
-content_id: llm-zoomcamp/2026/07-project-example/homework-07
+schema_version: 2
+content_id: 927935c8-28cb-4af9-9208-e15302172f89
 slug: homework-07
 title: "Homework 7: End-to-End Project Example"
 instructions_path: homework.md
-due_at: 2026-10-12T21:59:00Z
+due_at: "2026-10-12T21:59:00Z"
 initial_state: open
 form:
   homework_url: true
@@ -12,11 +12,11 @@ form:
   faq_contribution: true
   learning_in_public_cap: 7
 questions:
-  - content_id: llm-zoomcamp/2026/07-project-example/homework-07/optional-module
+  - content_id: 01d60142-5aa9-4cdd-9455-83d3cdea0eba
     id: optional-module
     type: free_form
     answer_type: exact_string
-    prompt: Is this module optional?
+    prompt: "Is this module optional?"
     points: 1
     answer:
       version: 1
@@ -27,9 +27,9 @@ questions:
       nonce: U9KWPaSIlo0XntF0
       ciphertext: 8Oeg-TOMZE4DFTId4wqWQRgldzrn_CYw8bLulf14vg
       context_sha256: 22f60f090f901860fbb541d377b8ba3a8aa60cea3267c56fc1e4fb2034cc5c7e
-  - content_id: llm-zoomcamp/2026/07-project-example/homework-07/reflection
+  - content_id: 4f007f83-6fe7-4b35-84b8-845a7e092099
     id: reflection
     type: free_form_long
     answer_type: any
-    prompt: What would you improve first in the example project?
+    prompt: "What would you improve first in the example project?"
     points: 0
