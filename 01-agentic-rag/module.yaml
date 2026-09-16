@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: d9ca5cb3-b94c-4281-be7d-a2462559f02b
 title: "Module 1: Agentic RAG"
+summary: "Build an agentic RAG assistant over a course FAQ dataset, from ingestion and search to prompting."
 units:
   - content_id: 1e8059d3-1c63-47f6-b0a1-9b21c96ca1c6
     title: "Introduction"

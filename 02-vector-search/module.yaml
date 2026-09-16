@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 94d74a58-625d-4e4e-93d6-c7d6ef756609
 title: "Module 2: Vector Search"
+summary: "Create embeddings and compare vector-search approaches, then connect vector retrieval to RAG."
 units:
   - content_id: 1aa04eb2-b530-4086-ab55-79e3fd3e2c8d
     title: "Vector Search"

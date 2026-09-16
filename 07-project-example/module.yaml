@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 49d67cc7-7e98-4d56-acff-f4152c1c2619
 title: "Module 7: End-to-End Project Example (Optional)"
+summary: "Assemble and evaluate an end-to-end RAG application with an interface, monitoring, and containers."
 units:
   - content_id: b40fbc80-cdcf-40be-a9e6-b63d83c5f1ca
     title: "End-to-End Project Example"

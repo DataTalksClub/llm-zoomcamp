@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 9e91e892-b5ba-431b-9e1c-52d3afa58ee6
 title: "Module 3: AI Orchestration with Kestra"
+summary: "Orchestrate context, RAG, and single- and multi-agent workflows with Kestra."
 units:
   - content_id: 561033a8-1af3-4738-9ae9-869694f5851a
     title: "AI Orchestration"

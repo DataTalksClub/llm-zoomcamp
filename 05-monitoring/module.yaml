@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 9a227239-7b0e-4434-98d4-51e612f7d642
 title: "Module 5: Monitoring"
+summary: "Capture application metrics and feedback in PostgreSQL and inspect them in a dashboard."
 units:
   - content_id: 287e454c-8a2a-4e44-8081-bd159ce28058
     title: "Monitoring"

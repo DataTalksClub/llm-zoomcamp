@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 299d65ef-f320-456b-92af-3c3f85586ea6
 title: "Module 6: Best Practices (Optional)"
+summary: "Improve retrieval with hybrid search, reranking, and LangChain-based workflows."
 units:
   - content_id: 952b4390-8cc7-4163-85f5-e1cfde090e98
     title: "Best Practices for RAG"

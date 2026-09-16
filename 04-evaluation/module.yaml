@@ -1,6 +1,7 @@
 schema_version: 2
 content_id: 5778f7b2-598e-4ef6-a8c6-a0c96278adef
 title: "Module 4: Evaluation"
+summary: "Generate ground truth and evaluate search, RAG answers, and agents with practical metrics."
 units:
   - content_id: 95dd058a-3225-4635-a899-f66ed36be07c
     title: "Evaluation"
