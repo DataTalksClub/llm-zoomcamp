@@ -17,6 +17,8 @@ description: |
 
   LLMs themselves are treated as black boxes: the course is for people who want to build with LLMs rather than train them. Each cohort runs once a year and lasts about ten weeks, and all materials stay available for self-paced study in between.
 outcome: Build, evaluate, and monitor production-style LLM applications.
+starting_point: You want to turn questions over your own documents into a working application.
+prerequisites: You can write Python and use the command line, with some Docker familiarity. You don't need prior ML or LLM experience.
 urls:
   repository: https://github.com/DataTalksClub/llm-zoomcamp
   docs: https://datatalks.club/docs/courses/llm-zoomcamp/
