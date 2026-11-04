@@ -315,15 +315,31 @@ vector_assistant.rag("the program has already begun, can I still sign up?")
 
 ## Using PGVector
 
-Here's how PGVector compares with the two tools we used earlier:
+## Using PGVector
 
-- minsearch: no setup, in-memory, best for notebooks and experiments
-- sqlitesearch: no setup, SQLite file persistence, best for pet projects
-- PGVector: requires Docker, Postgres database with concurrent access,
-  handles millions of records, best for production systems
+  Here's how PGVector compares with the two tools we used earlier:
 
-Reach for PGVector when you need production features:
+  - minsearch: no setup, in-memory, best for notebooks, experiments and
+    small datasets
+  - sqlitesearch: no setup, SQLite file persistence, best for pet projects
+  - PGVector: requires a Postgres server, concurrent access, handles
+    millions of records, best for production systems
 
-- concurrent reads and writes
-- transactions
-- integration with an existing Postgres-based application
+  But don't pick PGVector just because you're going to production. Our
+  FAQ has about 1,500 documents, roughly 2 MB of vectors. Searching all
+  of them in memory takes about a millisecond. The slow part is computing
+  the embeddings, and we do that once, during ingestion. Save the vectors
+  to a file, load them at startup, and minsearch is enough.
+
+  Reach for PGVector when you need database features:
+
+  - concurrent reads and writes
+  - transactions
+  - data that changes while the app is running
+  - integration with an existing Postgres-based application
+
+  For a small table you also don't need the HNSW index. Postgres usually
+  decides that scanning every row is cheaper, and the results stay exact.
+  I'd add the index once the table grows to tens of thousands of rows.
+
+
