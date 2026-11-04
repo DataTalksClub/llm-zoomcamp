@@ -315,8 +315,6 @@ vector_assistant.rag("the program has already begun, can I still sign up?")
 
 ## Using PGVector
 
-## Using PGVector
-
   Here's how PGVector compares with the two tools we used earlier:
 
   - minsearch: no setup, in-memory, best for notebooks, experiments and
