@@ -209,6 +209,7 @@ conn.execute("""
     CREATE INDEX ON documents
     USING hnsw (embedding vector_cosine_ops)
 """)
+conn.commit()
 ```
 
 This builds an HNSW (Hierarchical Navigable Small World) index, the
