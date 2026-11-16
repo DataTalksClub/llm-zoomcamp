@@ -226,3 +226,7 @@ evaluate(gt_test, lambda q: search(q["question"]))
 
 The optimized boost values should give significantly better Hit
 Rate and MRR than the default search.
+
+<!-- nav:start -->
+[← Previous: End-to-End Project Example](01-intro.md) · [Next: Evaluating RAG →](03-evaluating-rag.md)
+<!-- nav:end -->

@@ -61,3 +61,7 @@ It includes:
 - Docker Compose with PostgreSQL and Grafana
 - Automated Grafana provisioning
 - A polished README
+
+<!-- nav:start -->
+[← Previous: Monitoring and Containerization](05-monitoring.md) · [Next: Chunking for Longer Texts →](07-chunking.md)
+<!-- nav:end -->

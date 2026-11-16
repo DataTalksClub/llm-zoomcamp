@@ -327,3 +327,7 @@ wget -O data/rag-evaluations-new.csv ${PREFIX}/cohorts/2026/04-evaluation/data/r
 We now have an answer-quality score for the RAG pipeline. In the next
 lesson, we'll apply the same idea to an agent and also capture the tool
 calls it made.
+
+<!-- nav:start -->
+[← Previous: Generating RAG Answers](12-rag-answers.md) · [Next: Agent Evaluation →](14-agent-evaluation.md)
+<!-- nav:end -->

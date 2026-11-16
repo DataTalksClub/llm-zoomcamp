@@ -201,3 +201,7 @@ clearly, so feel free to rename them in your own version.
 
 We capture the metrics now, but they vanish the moment we close the app.
 Next we save each record to a database so we can track usage over time.
+
+<!-- nav:start -->
+[← Previous: Chat App](03-chat-app.md) · [Next: Storing Data in PostgreSQL →](05-database.md)
+<!-- nav:end -->

@@ -204,3 +204,7 @@ In practice, we rarely get cosine similarity below 0. The embedding
 model maps text to a region of the vector space where most vectors
 have positive components. There's no concept of "opposite meaning"
 that maps to a vector pointing the other way.
+
+<!-- nav:start -->
+[← Previous: Vector Search](01-intro.md) · [Next: Embedding Our Dataset →](03-embeddings-dataset.md)
+<!-- nav:end -->

@@ -82,3 +82,7 @@ Try these next steps:
   Weaviate, Chroma, or any other. The concepts are the same:
   embed documents, store vectors, search by similarity
 - Evaluate your search results (covered in a later module)
+
+<!-- nav:start -->
+[← Previous: Using ONNX Runtime instead of PyTorch](09-onnx-embedder.md) · [Next: AI Orchestration →](../03-orchestration/01-intro.md)
+<!-- nav:end -->

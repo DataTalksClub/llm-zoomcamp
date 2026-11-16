@@ -201,3 +201,7 @@ A few things to keep in mind for anything beyond a demo:
   the cost.
 
 Here we run it inline on every call to keep the code simple.
+
+<!-- nav:start -->
+[← Previous: User Feedback](08-user-feedback.md) · [Next: Feedback Dashboard →](10-feedback-dashboard.md)
+<!-- nav:end -->

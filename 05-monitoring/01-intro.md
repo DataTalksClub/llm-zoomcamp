@@ -42,3 +42,7 @@ data. At the end we add Grafana for a more powerful view.
 We focus on RAG here. Monitoring an agent works almost the same way, so
 we leave it as homework. The [agents module](../01-agentic-rag/)
 already has the pieces you need to apply these same ideas there.
+
+<!-- nav:start -->
+[← Previous: Next Steps](../04-evaluation/15-next-steps.md) · [Next: Assistant →](02-assistant-setup.md)
+<!-- nav:end -->

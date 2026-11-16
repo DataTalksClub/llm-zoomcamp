@@ -47,3 +47,7 @@ Slides: [llm-zoomcamp-best-practicies.pdf](llm-zoomcamp-best-practicies.pdf)
 To learn more:
 
 - [Survey on RAG techniques](https://arxiv.org/abs/2312.10997)
+
+<!-- nav:start -->
+[← Previous: Next Steps](../05-monitoring/14-next-steps.md) · [Next: Hybrid Search →](02-hybrid-search.md)
+<!-- nav:end -->

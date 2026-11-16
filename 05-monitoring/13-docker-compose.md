@@ -147,3 +147,7 @@ docker-compose down
 
 The data in PostgreSQL and Grafana persists across restarts thanks to
 Docker volumes.
+
+<!-- nav:start -->
+[← Previous: Grafana Dashboards](12-grafana.md) · [Next: Next Steps →](14-next-steps.md)
+<!-- nav:end -->

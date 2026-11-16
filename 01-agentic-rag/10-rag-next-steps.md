@@ -90,3 +90,7 @@ Try these next steps:
 - Experiment with different LLM models (GPT-4o, Claude, Gemini, local
   models via Ollama)
 - Try Elasticsearch as a search backend
+
+<!-- nav:start -->
+[← Previous: Data Ingestion](09-data-ingestion.md) · [Next: Agents →](11-agents-intro.md)
+<!-- nav:end -->

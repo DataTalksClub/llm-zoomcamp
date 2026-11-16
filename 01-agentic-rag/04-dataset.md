@@ -121,3 +121,7 @@ projects, expect to spend real time on data preparation before you get
 to this point.
 
 In the next section, we'll build the search index.
+
+<!-- nav:start -->
+[← Previous: RAG](03-rag.md) · [Next: Search →](05-search.md)
+<!-- nav:end -->

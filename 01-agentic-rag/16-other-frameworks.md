@@ -113,3 +113,7 @@ Try the simpler approach first, and if it works, ship it. Reach for
 the agent loop only when you've tried the simpler solution and it
 genuinely can't handle the problem. By then you'll know the extra
 complexity is worth it, and you'll be ready to take it on.
+
+<!-- nav:start -->
+[← Previous: ToyAIKit](15-frameworks.md) · [Next: Vector Search →](../02-vector-search/01-intro.md)
+<!-- nav:end -->

@@ -99,3 +99,7 @@ Alternatively, copy-paste the flow YAML directly into Kestra's UI.
 4. Leave default inputs or customize them
 5. Watch the execution and review the outputs
 6. Then run `5_web_research_agent` and `6_multi_agent_research` and analyze the logs and outputs
+
+<!-- nav:start -->
+[← Previous: Context Engineering](02-context-engineering.md) · [Next: AI Copilot →](04-ai-copilot.md)
+<!-- nav:end -->

@@ -268,3 +268,7 @@ It does have a real use though. Its only dependencies are SQLite and
 numpy. So it runs on any host that offers a free SQLite database, where
 a dedicated vector database would cost extra. For most work you'll reach
 for something else, which is what we do next.
+
+<!-- nav:start -->
+[← Previous: RAG with Vector Search](06-rag-vector.md) · [Next: Vector Search with PGVector →](08-pgvector.md)
+<!-- nav:end -->

@@ -258,3 +258,7 @@ relevance_total = compute_relevance_total(ground_truth, text_search)
 
 Now we can represent search results as relevance lists. In the next
 lesson, we'll turn these lists into metrics: Hit Rate and MRR.
+
+<!-- nav:start -->
+[← Previous: Generating Ground Truth for All Documents](03-ground-truth-batch.md) · [Next: Search Evaluation Metrics →](05-search-metrics.md)
+<!-- nav:end -->

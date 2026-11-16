@@ -126,3 +126,7 @@ command line is fine for us, but it's not how a user would reach it.
 
 
 Next we put a simple interface in front of it with Streamlit.
+
+<!-- nav:start -->
+[← Previous: Monitoring](01-intro.md) · [Next: Chat App →](03-chat-app.md)
+<!-- nav:end -->

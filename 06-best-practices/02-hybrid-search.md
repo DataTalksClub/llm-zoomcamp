@@ -90,3 +90,7 @@ def hybrid_search(query, course="data-engineering-zoomcamp", num_results=10):
     vector_results = vector_search(query, course=course, num_results=num_results)
     return rrf([keyword_results, vector_results], num_results=num_results)
 ```
+
+<!-- nav:start -->
+[← Previous: Best Practices for RAG](01-intro.md) · [Next: Document Reranking →](03-reranking.md)
+<!-- nav:end -->

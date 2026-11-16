@@ -133,3 +133,7 @@ tasks:
       logRequests: true
       logResponses: true
 ```
+
+<!-- nav:start -->
+[← Previous: Retrieval Augmented Generation](05-rag.md) · [Next: Multi-Agent Systems →](07-multi-agent.md)
+<!-- nav:end -->

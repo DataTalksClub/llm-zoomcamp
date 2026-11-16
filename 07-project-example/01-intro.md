@@ -228,3 +228,7 @@ print(answer)
 
 We now have a working RAG flow. In the next lessons, we'll
 evaluate it, wrap it in an API, and add monitoring.
+
+<!-- nav:start -->
+[← Previous: Next Steps](../06-best-practices/05-next-steps.md) · [Next: Evaluating Retrieval →](02-evaluating-retrieval.md)
+<!-- nav:end -->

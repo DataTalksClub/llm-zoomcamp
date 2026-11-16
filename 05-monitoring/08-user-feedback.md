@@ -170,3 +170,7 @@ response its own pair of feedback buttons.
 
 Next we add a second source of feedback to the same table. An LLM judge
 scores answers automatically, without waiting for anyone to click.
+
+<!-- nav:start -->
+[← Previous: Streamlit Dashboard](07-streamlit-dashboard.md) · [Next: Built-in Judge →](09-built-in-judge.md)
+<!-- nav:end -->

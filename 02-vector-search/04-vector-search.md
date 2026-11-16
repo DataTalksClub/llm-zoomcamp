@@ -139,3 +139,7 @@ our data.
 Doing this by hand with numpy is fine for a small dataset. A larger one
 needs a library that also handles filtering and ranking. That's what we
 turn to next.
+
+<!-- nav:start -->
+[← Previous: Embedding Our Dataset](03-embeddings-dataset.md) · [Next: Vector Search with minsearch →](05-minsearch-vector.md)
+<!-- nav:end -->

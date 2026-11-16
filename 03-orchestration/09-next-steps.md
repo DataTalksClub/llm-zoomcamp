@@ -42,3 +42,7 @@ Share your learnings. Join the [Kestra Slack community](https://kestra.io/slack)
 - [Google AI Studio](https://aistudio.google.com/)
 - [Tavily Web Search](https://docs.tavily.com/)
 - [Kestra GitHub](https://github.com/kestra-io/kestra)
+
+<!-- nav:start -->
+[← Previous: Best Practices](08-best-practices.md) · [Next: Evaluation →](../04-evaluation/01-intro.md)
+<!-- nav:end -->

@@ -204,3 +204,7 @@ results is a reasonable default for short FAQ-style documents.
 
 Next, we'll move from retrieval quality to answer quality and evaluate
 the full RAG pipeline.
+
+<!-- nav:start -->
+[← Previous: Search Evaluation Metrics](05-search-metrics.md) · [Next: RAG and Agent Evaluation →](11-evaluation-intro.md)
+<!-- nav:end -->

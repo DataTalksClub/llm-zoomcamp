@@ -85,3 +85,7 @@ See also:
     [2024/04-monitoring](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2024/04-monitoring)
   - 2025 cohort evaluation module:
     [2025/03-evaluation](https://github.com/DataTalksClub/llm-zoomcamp/tree/main/cohorts/2025/03-evaluation)
+
+<!-- nav:start -->
+[← Previous: Agent Evaluation](14-agent-evaluation.md) · [Next: Monitoring →](../05-monitoring/01-intro.md)
+<!-- nav:end -->

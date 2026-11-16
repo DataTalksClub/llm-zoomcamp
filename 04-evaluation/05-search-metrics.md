@@ -225,3 +225,7 @@ Look at the system holistically. A high MRR means the relevant document
 is near the top, which helps the LLM focus on the right context. A low
 MRR with a high hit rate means the document is there, but buried under
 less relevant results.
+
+<!-- nav:start -->
+[← Previous: Search Evaluation](04-search-evaluation.md) · [Next: Search Parameter Tuning →](06-search-tuning.md)
+<!-- nav:end -->

@@ -44,3 +44,7 @@ However, AI is only as good as the context we provide. This module teaches you h
 Traditional AI assistants (like ChatGPT or Gemini in a browser) don't have context about your codebase and workflow patterns, real-time data from your systems, or the latest documentation and best practices.
 
 By integrating AI directly into Kestra and using techniques like RAG and specialized agents, we can provide this context and get much better results.
+
+<!-- nav:start -->
+[← Previous: Next Steps](../02-vector-search/10-next-steps.md) · [Next: Context Engineering →](02-context-engineering.md)
+<!-- nav:end -->

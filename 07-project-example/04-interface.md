@@ -230,3 +230,7 @@ Update the README with instructions for:
 - Example API calls
 
 A good README makes it easy for anyone to run your project.
+
+<!-- nav:start -->
+[← Previous: Evaluating RAG](03-evaluating-rag.md) · [Next: Monitoring and Containerization →](05-monitoring.md)
+<!-- nav:end -->

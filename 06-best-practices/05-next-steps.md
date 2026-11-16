@@ -40,3 +40,7 @@ Check out these resources:
 
 - [Advanced RAG techniques overview](https://arxiv.org/abs/2312.10997)
 - [LangChain retrieval docs](https://python.langchain.com/docs/concepts/retrievers/)
+
+<!-- nav:start -->
+[← Previous: Hybrid Search with LangChain](04-langchain.md) · [Next: End-to-End Project Example →](../07-project-example/01-intro.md)
+<!-- nav:end -->

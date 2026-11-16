@@ -92,3 +92,7 @@ results = vindex.search(
 
 
 Now that we can run vector search, let's use it in RAG.
+
+<!-- nav:start -->
+[← Previous: Vector Search](04-vector-search.md) · [Next: RAG with Vector Search →](06-rag-vector.md)
+<!-- nav:end -->

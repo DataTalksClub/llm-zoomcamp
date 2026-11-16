@@ -195,3 +195,7 @@ runner.run()
 ```
 
 Type questions and get answers. Type "stop" to exit.
+
+<!-- nav:start -->
+[← Previous: The Agentic Loop](14-agentic-loop.md) · [Next: Other Frameworks →](16-other-frameworks.md)
+<!-- nav:end -->

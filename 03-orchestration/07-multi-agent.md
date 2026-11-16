@@ -38,3 +38,7 @@ The key pattern here is using `AIAgent` as a tool. The main agent treats the res
 1. Define clear responsibilities: each agent should have a specific role and stay within it
 2. Monitor token usage: multiple agents means multiple LLM calls — costs add up
 3. Document agent purposes: make the system maintainable by describing what each agent does in your flow and task descriptions
+
+<!-- nav:start -->
+[← Previous: AI Agents](06-agents.md) · [Next: Best Practices →](08-best-practices.md)
+<!-- nav:end -->

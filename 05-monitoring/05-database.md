@@ -337,3 +337,7 @@ st.session_state.conversation_id = conversation_id
 
 Every question and answer is now saved to PostgreSQL. Next we query the
 data to pull recent conversations back out.
+
+<!-- nav:start -->
+[← Previous: Capturing Metrics](04-metrics.md) · [Next: Querying Data →](06-querying.md)
+<!-- nav:end -->
