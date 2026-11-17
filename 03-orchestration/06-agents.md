@@ -100,6 +100,24 @@ This flow demonstrates an agent with autonomous tool usage:
 
 The agent autonomously decides when to use tools, can loop (search → evaluate → search again) until satisfied, and you only specify the goal — not the exact steps.
 
+## Optional Lab: Release Lookup with HTTP MCP
+
+Flow: [`7_mcp_release_lookup.yaml`](flows/7_mcp_release_lookup.yaml)
+
+The [RAG example](flows/2_chat_with_rag.yaml) ingests a selected release document into Kestra's embedding store before answering. This lab asks the same Kestra 1.1 question using a public web search tool during the agent loop. Compare where the evidence comes from and whether you can follow the answer back to the original release announcement.
+
+The flow uses Kestra's `StreamableHttpMcpClient` with Parallel's Unified MCP server. It exposes only `web_search` and `web_fetch`. Anonymous search and fetch require no Parallel API key and have lower rate limits; see [Parallel MCP setup](https://docs.parallel.ai/integrations/mcp/quickstart). Generation still requires your configured `GEMINI_API_KEY` and a tool-capable model available to your account. Use public documentation questions: search queries go to Parallel, and retrieved excerpts go to your generation provider.
+
+Runtime versions for this lab: Kestra 1.3.21 and AI plugin 1.12.6. See the [HTTP MCP client documentation](https://kestra.io/plugins/plugin-ai/tool/io.kestra.plugin.ai.tool.streamablehttpmcpclient) for plugin installation if your instance does not recognize the tool.
+
+1. Complete the [Kestra setup](03-setup.md), including the generation secret.
+2. Open **Flows → Create** in the Kestra UI, paste the linked YAML, and save it in the `zoomcamp` namespace.
+3. Execute `7_mcp_release_lookup`. Set `model_name` to a tool-capable generation model available to your account and keep the default release question.
+4. In the `release_lookup` task outputs, inspect `toolExecutions`: confirm that `web_search` ran and inspect its returned URLs and excerpts. Check `textOutput` and the `log_answer` logs for links to the original sources, including the [official Kestra 1.1 announcement](https://kestra.io/blogs/release-1-1).
+5. Compare with flow 2: which features are supported by the selected document, which are supported by the web results, and do the linked pages actually support each claim? Neither retrieval method guarantees a correct answer; verify the citations.
+
+A retriever runs before generation; this MCP client makes tools available for the agent to call. The prompt requests search, and the flow caps sequential tool rounds at three, with a three-minute task timeout and a 45-second MCP timeout. If no tool ran or the answer has no source links, the lab's evidence check has not passed. A tool failure may fail the task; if an error is returned to the agent, the prompt asks it to report the missing evidence. On a rate limit, wait before retrying. This lab is optional; the earlier flows can be run independently.
+
 ## Agent Tools Available in Kestra
 
 | Tool | Purpose | Example Use |
