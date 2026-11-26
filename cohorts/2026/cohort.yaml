@@ -4,8 +4,8 @@ identifier: "2026"
 course: llm-zoomcamp
 delivery: live
 published: true
-start_date: "2026-08-24"
-end_date: "2026-10-12"
+start_date: "2026-06-08"
+end_date: "2026-09-17"
 curriculum: current
 homework:
   - module: 01-agentic-rag
@@ -22,3 +22,13 @@ homework:
     source: cohorts/2026/homework/06-best-practices/homework.yaml
   - module: 07-project-example
     source: cohorts/2026/homework/07-project-example/homework.yaml
+# The three capstone attempts ran on the course management platform, which
+# owns their titles, deadlines, peers and review criteria. This only places
+# them in the project module.
+projects:
+  - slug: project1
+    module: 07-project-example
+  - slug: project2
+    module: 07-project-example
+  - slug: project3
+    module: 07-project-example
