@@ -32,3 +32,11 @@ urls:
   faq: https://datatalks.club/faq/llm-zoomcamp.html
 hashtag: llmzoomcamp
 published: true
+instructors:
+  - name: Alexey Grigorev
+    url: https://linkedin.com/in/agrigorev/
+  - name: Will Russell
+    url: https://www.linkedin.com/in/wrussell1999/
+  - name: Timur Kamaliev
+    url: https://www.linkedin.com/in/timurkamaliev/
+weekly_commitment: Free. Plan for about 10 hours a week during the cohort.
