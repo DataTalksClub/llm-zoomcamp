@@ -18,10 +18,11 @@ homework:
     source: cohorts/2026/homework/04-evaluation/homework.yaml
   - module: 05-monitoring
     source: cohorts/2026/homework/05-monitoring/homework.yaml
+  # Modules 6 and 7 ran without homework on the course management platform in
+  # 2026. Their homework drafts wait in future-homework/ for a later cohort.
   - module: 06-best-practices
-    source: cohorts/2026/homework/06-best-practices/homework.yaml
   - module: 07-project-example
-    source: cohorts/2026/homework/07-project-example/homework.yaml
+
 # The three capstone attempts ran on the course management platform, which
 # owns their titles, deadlines, peers and review criteria. This only places
 # them in the project module.
