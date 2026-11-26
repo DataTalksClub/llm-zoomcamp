@@ -56,8 +56,8 @@ per-lesson videos above. To watch the full uncut recordings:
 ## Old content
 
 Earlier cohorts taught this module differently. See the archived
-materials for the [2024](../../2024/) and
-[2025](../../2025/) cohorts.
+materials for the [2024](../cohorts/2024/) and
+[2025](../cohorts/2025/) cohorts.
 
 
 ## Notes
