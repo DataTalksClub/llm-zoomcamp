@@ -3,7 +3,7 @@ content_id: 1b7f09e8-52a4-4768-89d3-84bdd33f3d04
 slug: homework-04
 title: "Homework 4: Evaluation"
 instructions_path: homework.md
-due_at: "2026-09-21T21:59:00Z"
+due_at: "2026-07-13T23:00:00Z"
 initial_state: open
 form:
   homework_url: true

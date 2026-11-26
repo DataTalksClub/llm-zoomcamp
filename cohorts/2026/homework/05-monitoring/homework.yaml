@@ -3,7 +3,7 @@ content_id: 5bdbdc2f-550d-4ad3-ba61-64e128582ba0
 slug: homework-05
 title: "Homework 5: Monitoring"
 instructions_path: homework.md
-due_at: "2026-09-28T21:59:00Z"
+due_at: "2026-07-20T23:00:00Z"
 initial_state: open
 form:
   homework_url: true

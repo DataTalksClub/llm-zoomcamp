@@ -3,7 +3,7 @@ content_id: 6c8bbcbf-33e0-4ba0-8975-7a9bcd77187d
 slug: homework-03
 title: "Homework 3: Orchestration"
 instructions_path: homework.md
-due_at: "2026-09-14T21:59:00Z"
+due_at: "2026-07-06T23:00:00Z"
 initial_state: open
 form:
   homework_url: true

@@ -3,7 +3,7 @@ content_id: 018dd1ef-bb00-4314-8eed-7716969e9c82
 slug: homework-01
 title: "Homework 1: Agentic RAG"
 instructions_path: homework.md
-due_at: "2026-08-31T21:59:00Z"
+due_at: "2026-06-22T23:00:00Z"
 initial_state: open
 form:
   homework_url: true
