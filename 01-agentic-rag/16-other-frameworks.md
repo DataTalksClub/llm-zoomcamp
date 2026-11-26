@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=4yiCbKX9RhI&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 276
 prev_url: 15-frameworks.md
 next_url: ../02-vector-search/01-intro.md
 ---

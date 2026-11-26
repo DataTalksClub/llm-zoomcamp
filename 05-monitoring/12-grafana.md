@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=Pmh2jT8tEiw&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 785
 prev_url: 11-synthetic-data.md
 next_url: 13-docker-compose.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=CeEki_0mdGo&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 1134
 prev_url: 12-rag-revision.md
 next_url: 14-agentic-loop.md
 ---

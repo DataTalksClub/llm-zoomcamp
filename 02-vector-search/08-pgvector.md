@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=0P54MFyz-mc&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 756
 prev_url: 07-sqlitesearch-vector.md
 next_url: 09-onnx-embedder.md
 ---

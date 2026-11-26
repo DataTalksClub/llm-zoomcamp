@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=lbEj3Waxs1U&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 257
 prev_url: ../04-evaluation/15-next-steps.md
 next_url: 02-assistant-setup.md
 ---

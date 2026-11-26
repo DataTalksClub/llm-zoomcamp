@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=rSBSS_kCYN0&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 641
 prev_url: 05-search-metrics.md
 next_url: 11-evaluation-intro.md
 ---

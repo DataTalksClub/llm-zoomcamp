@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=GEifsHDadBw&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 497
 prev_url: 07-streamlit-dashboard.md
 next_url: 09-built-in-judge.md
 ---

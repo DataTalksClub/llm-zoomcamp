@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=PQpQOR3Un3w&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 750
 prev_url: 14-agentic-loop.md
 next_url: 16-other-frameworks.md
 ---

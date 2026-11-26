@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=3U4gBrmkZyM&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 783
 prev_url: 01-intro.md
 next_url: 03-rag.md
 ---

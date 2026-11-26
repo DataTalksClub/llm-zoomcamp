@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=jMO8rqPmR-4&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 337
 prev_url: 01-intro.md
 next_url: 03-chat-app.md
 ---

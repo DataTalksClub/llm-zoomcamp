@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=rQYyFxf1FWw&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 208
 next_url: 02-environment.md
 ---
 # Introduction

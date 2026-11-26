@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=kJOlW1HeMp4&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 865
 prev_url: 01-intro.md
 next_url: 03-embeddings-dataset.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=eM6xmdZDT6k&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 919
 prev_url: 02-ground-truth.md
 next_url: 04-search-evaluation.md
 ---

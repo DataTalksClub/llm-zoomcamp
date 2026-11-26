@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=2SW86BehVdI&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 147
 prev_url: 13-llm-as-judge.md
 next_url: 15-next-steps.md
 ---

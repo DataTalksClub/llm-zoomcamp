@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=JxaC6Hrym6c&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 759
 prev_url: 07-llm.md
 next_url: 09-data-ingestion.md
 ---

@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=TuirMy3Pdbk&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 1431
 prev_url: 04-search-evaluation.md
 next_url: 06-search-tuning.md
 ---

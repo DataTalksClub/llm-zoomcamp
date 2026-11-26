@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=E7KdO3xmESg&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 467
 prev_url: 04-vector-search.md
 next_url: 06-rag-vector.md
 ---

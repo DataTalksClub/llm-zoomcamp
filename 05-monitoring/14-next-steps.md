@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=GpQeAniVGfk&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 377
 prev_url: 13-docker-compose.md
 next_url: ../06-best-practices/01-intro.md
 ---

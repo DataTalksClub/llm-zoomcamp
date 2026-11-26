@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=vhNfnNUz3A0&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 552
 prev_url: 09-onnx-embedder.md
 next_url: ../03-orchestration/01-intro.md
 ---

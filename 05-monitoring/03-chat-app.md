@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=JCB4JZlMsIQ&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 200
 prev_url: 02-assistant-setup.md
 next_url: 04-metrics.md
 ---

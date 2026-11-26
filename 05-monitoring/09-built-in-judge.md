@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=YLOLQyrMDuY&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 792
 prev_url: 08-user-feedback.md
 next_url: 10-feedback-dashboard.md
 ---

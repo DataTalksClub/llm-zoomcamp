@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=iXRu_AbMtuU&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 844
 prev_url: 04-metrics.md
 next_url: 06-querying.md
 ---

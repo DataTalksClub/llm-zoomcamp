@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=YScoH28cVf8&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 1158
 prev_url: 01-intro.md
 next_url: 03-ground-truth-batch.md
 ---

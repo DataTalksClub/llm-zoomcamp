@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=e0owGI2JV-s&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 955
 code:
   - label: "persistent_rag_ingest.ipynb"
     path: "code/persistent_rag_ingest.ipynb"

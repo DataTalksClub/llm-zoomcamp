@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=RPXMz5p5fb8&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 184
 prev_url: 09-data-ingestion.md
 next_url: 11-agents-intro.md
 ---

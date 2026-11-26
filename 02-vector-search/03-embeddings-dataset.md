@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=NC89mz1iG4E&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 300
 prev_url: 02-embeddings.md
 next_url: 04-vector-search.md
 ---

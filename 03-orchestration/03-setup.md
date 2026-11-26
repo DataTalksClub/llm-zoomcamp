@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=ghkf93rfb2w&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 313
 prev_url: 02-context-engineering.md
 next_url: 04-ai-copilot.md
 ---

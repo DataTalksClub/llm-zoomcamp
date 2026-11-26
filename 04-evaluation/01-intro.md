@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=eC_IcxfxoiQ&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 600
 prev_url: ../03-orchestration/09-next-steps.md
 next_url: 02-ground-truth.md
 ---

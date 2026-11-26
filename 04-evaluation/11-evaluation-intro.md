@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=VKHBP0QSCFo&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 169
 prev_url: 06-search-tuning.md
 next_url: 12-rag-answers.md
 ---

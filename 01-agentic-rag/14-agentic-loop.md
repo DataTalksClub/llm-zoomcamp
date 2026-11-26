@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=ePlQUcTPPjw&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 1483
 prev_url: 13-function-calling.md
 next_url: 15-frameworks.md
 ---

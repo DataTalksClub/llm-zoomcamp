@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=FhGZV173xrk&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 462
 prev_url: 04-ai-copilot.md
 next_url: 06-agents.md
 ---

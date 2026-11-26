@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=h-_tdBc24qc&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 603
 prev_url: 03-embeddings-dataset.md
 next_url: 05-minsearch-vector.md
 ---

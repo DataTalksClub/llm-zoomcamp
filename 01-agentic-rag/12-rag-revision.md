@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=gH8fB-6Emmo&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 667
 prev_url: 11-agents-intro.md
 next_url: 13-function-calling.md
 ---

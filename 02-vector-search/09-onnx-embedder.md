@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=BMqa4OsCk58&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 183
 prev_url: 08-pgvector.md
 next_url: 10-next-steps.md
 ---

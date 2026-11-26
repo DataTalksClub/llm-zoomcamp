@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=JktYwBIDErk&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 799
 prev_url: 02-environment.md
 next_url: 04-dataset.md
 ---

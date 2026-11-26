@@ -1,5 +1,6 @@
 ---
 video_url: "https://www.youtube.com/watch?v=-GBW3g3PVTM&list=PL3MmuxUbc_hLZFNgSad56pDBKK8KO0XIv"
+video_duration_seconds: 484
 prev_url: 05-minsearch-vector.md
 next_url: 07-sqlitesearch-vector.md
 ---
